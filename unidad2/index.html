@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Unidad 2 - Cinemática | Física Aplicada a la Tecnología de Alimentos</title>
+<script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true,
+        tags: 'ams'
+      },
+      svg: { fontCache: 'global' }
+    };
+    (function(){
+      const s = document.createElement('script');
+      s.src = 'lib/mathjax/tex-svg.js';
+      s.async = true;
+      s.onerror = function(){
+        const c = document.createElement('script');
+        c.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
+        c.async = true;
+        document.head.appendChild(c);
+      };
+      document.head.appendChild(s);
+    })();
+  </script>
+<style>
+    :root{
+      --bg:#f6f8fb;--paper:#ffffff;--ink:#1f2937;--muted:#64748b;--brand:#1e3a8a;--brand2:#2563eb;--line:#dbe3ef;
+      --key:#ecfeff;--warn:#fff7ed;--app:#f0fdf4;--deep:#eef2ff;--shadow:0 10px 30px rgba(15,23,42,.08);
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;line-height:1.62}
+    header{background:linear-gradient(135deg,#0f172a,#1e3a8a 60%,#2563eb);color:white;padding:56px 22px 38px;text-align:center}
+    header h1{font-size:clamp(2rem,4vw,3.4rem);margin:.2rem auto;max-width:1100px;line-height:1.08}
+    header p{max-width:980px;margin:14px auto 0;color:#dbeafe;font-size:1.05rem}
+    .layout{display:grid;grid-template-columns:300px minmax(0,1fr);gap:24px;max-width:1380px;margin:0 auto;padding:24px}
+    nav{position:sticky;top:12px;align-self:start;background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);max-height:calc(100vh - 24px);overflow:auto;padding:16px}
+    nav h2{font-size:1rem;margin:0 0 10px;color:var(--brand)} nav a{display:block;color:#334155;text-decoration:none;padding:7px 8px;border-radius:10px;font-size:.92rem} nav a:hover{background:#eff6ff;color:#1d4ed8}
+    .toggle{position:fixed;right:16px;bottom:16px;z-index:20;border:0;border-radius:999px;background:var(--brand2);color:white;padding:12px 16px;box-shadow:var(--shadow);cursor:pointer;font-weight:700}
+    main{min-width:0}.paper{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(18px,3vw,38px);box-shadow:var(--shadow);margin-bottom:24px}
+    h2{color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-top:0} h3{color:#1e3a8a;margin-top:30px} h4{color:#334155;margin-bottom:8px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:14px}.card{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff}.card h4{margin-top:0;color:#1e3a8a}
+    .box{border-left:5px solid var(--brand2);padding:14px 16px;margin:18px 0;border-radius:12px;background:var(--deep)} .key{background:var(--key);border-left-color:#0891b2}.warn{background:var(--warn);border-left-color:#f97316}.app{background:var(--app);border-left-color:#16a34a}
+    .eq{background:#0f172a;color:white;border-radius:16px;padding:16px;margin:14px 0;overflow:auto}.eq small{color:#cbd5e1;display:block;margin-top:8px}
+    table{width:100%;border-collapse:collapse;margin:16px 0;background:white;border-radius:14px;overflow:hidden} th,td{border:1px solid var(--line);padding:10px;vertical-align:top} th{background:#eaf1ff;color:#1e3a8a;text-align:left}
+    .example{border:1px solid #bfdbfe;background:#f8fbff;border-radius:18px;padding:18px;margin:18px 0}.step{padding:10px 12px;border-left:3px solid #93c5fd;background:white;margin:10px 0;border-radius:10px}
+    .sim{border:1px solid #cbd5e1;border-radius:18px;background:#f8fafc;padding:16px;margin:18px 0}
+    .sim-info{background:#eef6ff;border:1px solid #bfdbfe;border-left:5px solid #2563eb;border-radius:14px;padding:13px 15px;margin:10px 0 16px;color:#1f2937}
+    .sim-info p{margin:.25rem 0 .55rem}.sim-info ul{margin:.35rem 0 0 1rem;padding-left:1rem}.sim-info li{margin:.22rem 0}
+    .sim-formula{background:#ffffff;border:1px dashed #93c5fd;border-radius:12px;padding:10px 12px;margin:10px 0;color:#0f172a}
+    .sim button{margin-top:10px;border:0;border-radius:10px;background:#2563eb;color:#fff;padding:9px 13px;font-weight:700;cursor:pointer}.sim button.secondary{background:#475569;margin-left:8px}
+    .pulley-note{font-size:.92rem;color:#475569;margin-top:8px}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.controls label{font-size:.9rem;color:#334155}.controls input{width:100%;padding:8px;border:1px solid #cbd5e1;border-radius:10px} canvas{width:100%;height:260px;border:1px solid #cbd5e1;border-radius:14px;background:white;margin-top:12px}.out{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px;margin-top:10px;font-family:ui-monospace,Consolas,monospace;white-space:pre-wrap}
+    details{border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:12px 0;background:#fff} summary{cursor:pointer;font-weight:700;color:#1e3a8a}
+    .btn{display:inline-block;background:var(--brand2);color:white!important;text-decoration:none;border-radius:999px;padding:10px 14px;font-weight:700;margin-top:10px}
+    .badge{display:inline-block;background:#dbeafe;color:#1e3a8a;border-radius:999px;padding:3px 9px;font-size:.78rem;font-weight:700;margin-right:4px}.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    footer{text-align:center;color:#64748b;padding:30px}.toc-hidden nav{display:none}.toc-hidden .layout{grid-template-columns:1fr;max-width:1100px}
+
+    .media-pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;align-items:start;margin:18px 0}
+    .media-card{border:1px solid var(--line);border-radius:18px;padding:14px;background:#f8fbff;box-shadow:var(--shadow)}
+    .media-card h4{margin:0 0 10px;color:#1e3a8a}
+    .media-card video,.media-card img{display:block;width:100%;height:auto;border:1px solid #cbd5e1;border-radius:14px;background:#fff}
+    .media-caption{font-size:.95rem;color:#475569;margin-top:10px}
+    .media-list{margin:.4rem 0 0 1rem;padding-left:1rem}
+    .media-list li{margin:.25rem 0}
+    .diagram-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:18px 0}
+    .diagram{border:1px solid var(--line);border-radius:18px;padding:14px;background:#f8fbff;box-shadow:var(--shadow)}
+    .diagram h4{margin:0 0 8px;color:#1e3a8a}
+    .diagram svg{width:100%;height:auto;border:1px solid #dbe3ee;border-radius:14px;background:white}
+    .wide-figure{margin:14px 0;border:1px solid var(--line);border-radius:18px;padding:14px;background:#f8fbff;box-shadow:var(--shadow)}
+    .wide-figure svg{width:100%;height:auto;border:1px solid #dbe3ee;border-radius:14px;background:white}
+    .term-table td:first-child,.term-table th:first-child{white-space:nowrap}
+    .circular-diagram svg text{dominant-baseline:middle}
+    .term-table td:nth-child(2), .term-table th:nth-child(2){font-size:.95rem}
+    .term-table td:nth-child(2) mjx-container,
+    .term-table td:nth-child(3) mjx-container,
+    .term-table td:nth-child(2) .MathJax,
+    .term-table td:nth-child(3) .MathJax{font-size:.92em !important}
+    .term-table th:nth-child(2) mjx-container,
+    .term-table th:nth-child(3) mjx-container{font-size:.9em !important}
+    .table-compact th,.table-compact td{font-size:.93rem;padding:8px 10px}
+    .table-compact td:nth-child(2), .table-compact th:nth-child(2){width:84px;text-align:center}
+    .circle-video-card{margin:18px 0;background:#f8fbff}
+    .circle-video-card video{display:block;width:100%;max-height:520px;border:1px solid #cbd5e1;border-radius:14px;background:#fff}
+    .circle-img{display:block;width:100%;max-height:520px;object-fit:contain;border:1px solid #cbd5e1;border-radius:14px;background:#fff}
+    .summary-table th,.summary-table td{font-size:.92rem;padding:8px 10px;line-height:1.35}
+    .summary-table .sym{font-family:Georgia,'Times New Roman',serif;font-size:.98rem;font-weight:600;color:#0f172a;white-space:nowrap}
+    .summary-table td:nth-child(2),.summary-table th:nth-child(2){width:88px;text-align:center}
+    .summary-table td:nth-child(3),.summary-table th:nth-child(3){width:88px;text-align:center}
+    .summary-table mjx-container,.summary-table .MathJax{font-size:.9em !important;margin:0 !important}
+    .media-list mjx-container,.media-list .MathJax{font-size:.95em !important;margin:0 .05em !important}
+    .sym-inline{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:600;color:#0f172a;white-space:nowrap;font-size:1rem}
+    .sym-inline sub{font-size:.72em;font-style:normal;vertical-align:sub}
+    .perimeter-box{border:1px solid #cbd5e1;border-radius:18px;background:#fff;padding:26px 18px;display:flex;align-items:center;justify-content:center;min-height:300px}
+    .perimeter-box .perimeter-inner{color:#1e429f;text-align:left;max-width:320px;font-size:1rem;line-height:1.75}
+    .perimeter-box .perimeter-inner .line{display:block;margin:.2rem 0;font-size:1.05rem}
+    .perimeter-box .perimeter-inner .spacer{height:1.4rem}
+    .perimeter-box .perimeter-inner .formula{font-size:1.02rem;font-weight:500}
+    .table-compact td:nth-child(3), .table-compact th:nth-child(3){width:84px;text-align:center}
+    .table-compact td:nth-child(2) mjx-container,
+    .table-compact td:nth-child(3) mjx-container,
+    .table-compact td:nth-child(2) .MathJax,
+    .table-compact td:nth-child(3) .MathJax,
+    .table-compact th:nth-child(2) mjx-container,
+    .table-compact th:nth-child(3) mjx-container{font-size:.88em !important}
+
+
+    .infografia-intro{background:#eef6ff;border:1px solid #bfdbfe;border-left:6px solid #2563eb;border-radius:16px;padding:16px 18px;margin:16px 0;color:#1e293b}
+    .learning-flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:18px 0}
+    .flow-step{background:#ffffff;border:1px solid #cfe0f5;border-radius:16px;padding:14px;box-shadow:0 6px 18px rgba(15,23,42,.05)}
+    .flow-step .num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#1e3a8a;color:#fff;font-weight:800;margin-right:8px}
+    .flow-step h4{display:flex;align-items:center;margin:0 0 8px;color:#1e3a8a;font-size:1rem}
+    .flow-step p{margin:.25rem 0;color:#475569;font-size:.94rem}
+    .infografia-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:18px;margin:20px 0}
+    .infografia-figure{background:#ffffff;border:1px solid var(--line);border-radius:18px;padding:14px;margin:0;box-shadow:var(--shadow)}
+    .infografia-figure img{display:block;width:100%;height:auto;border:1px solid #dbe3ef;border-radius:14px;background:#fff}
+    .infografia-figure figcaption{font-size:.92rem;color:#475569;margin-top:10px;line-height:1.45}
+    .route-note{background:#f8fbff;border:1px dashed #93c5fd;border-radius:14px;padding:13px 15px;margin-top:14px;color:#334155}
+
+    @media(max-width:900px){.layout{grid-template-columns:1fr;padding:12px}nav{position:relative;max-height:360px}.two{grid-template-columns:1fr}header{padding-top:42px}.paper{border-radius:16px}}
+    @media print{nav,.toggle{display:none}.layout{display:block;max-width:none}.paper{box-shadow:none;border:0}body{background:white}header{background:white;color:#111;padding:10px}header p{color:#333}}
+  
+
+/* Fórmulas en panel claro: mayor legibilidad en proyector */
+.eq,
+.latex-panel{
+  background: linear-gradient(180deg,#f2f8ff 0%, #e8f2ff 100%) !important;
+  color:#07111f !important;
+  border:1px solid #9dc5ee !important;
+  border-left:6px solid #2563eb !important;
+  border-radius:16px !important;
+  padding:16px 18px !important;
+  margin:16px 0 !important;
+  overflow-x:auto !important;
+  box-shadow:0 6px 18px rgba(37,99,235,.10) !important;
+}
+.eq small,
+.latex-panel .caption{
+  color:#1f3b57 !important;
+  display:block;
+  margin-top:8px;
+  font-size:.92rem;
+}
+.eq mjx-container,
+.latex-panel mjx-container{
+  color:#07111f !important;
+}
+.eq svg,
+.latex-panel svg{
+  color:#07111f !important;
+}
+
+
+/* Bloques embebidos desde el anexo Galileo */
+.embedded-galileo-page{background:#ffffff;border:1px solid var(--line);border-radius:18px;padding:18px;margin:18px 0;box-shadow:0 5px 18px rgba(15,23,42,.05)}
+.embedded-galileo-page h3{color:#1e3a8a;margin-top:0}.embedded-galileo-page h4{color:#1768c4;margin-top:1.3rem}
+.h5p-text{margin:16px 0}.h5p-text span[style*="hsl(210"]{color:#1768c4!important}.h5p-text p{margin:.7rem 0}.h5p-text ul,.h5p-text ol{padding-left:1.4rem}
+.media-card,.resource-card{border:1px solid var(--line);background:#fbfdff;border-radius:16px;padding:16px;margin:16px 0}.image-card img{display:block;max-width:100%;height:auto;margin:auto;border-radius:12px;border:1px solid #e2e8f0} figcaption{font-size:.9rem;color:#64748b;margin-top:9px}
+.video-wrap{position:relative;width:100%;padding-top:56.25%;background:#0f172a;border-radius:14px;overflow:hidden}.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%}
+.resource-type{display:inline-block;background:#dbeafe;color:#1e3a8a;border-radius:999px;padding:3px 8px;font-size:.78rem;font-weight:700;margin-bottom:8px}.url{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.88rem;color:#64748b;overflow-wrap:anywhere}
+.latex-panel{background:linear-gradient(180deg,#f2f8ff 0%,#e8f2ff 100%)!important;color:#07111f!important;border:1px solid #9dc5ee!important;border-left:6px solid #2563eb!important;border-radius:16px!important;padding:16px 18px!important;margin:16px 0!important;overflow-x:auto!important;box-shadow:0 6px 18px rgba(37,99,235,.10)!important}.latex-panel .caption{color:#1f3b57!important;font-size:.92rem;margin-top:8px}.latex-panel mjx-container{color:#07111f!important}
+.galileo-sim,.hunter-sim{border:1px solid #dbe3ef;background:#fbfdff;border-radius:18px;padding:18px;margin:18px 0;box-shadow:0 6px 18px rgba(15,23,42,.06)}
+.sim-controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;align-items:end;margin:12px 0 16px}.sim-controls label{display:block;font-weight:700;color:#334155}.sim-controls input[type=range]{width:100%}.sim-controls input[type=number]{width:100%;padding:8px;border:1px solid #cbd5e1;border-radius:10px}.sim-output{background:#eef6ff;border:1px solid #c7ddff;border-radius:14px;padding:12px;margin:12px 0;color:#1e3a8a;font-weight:700}.sim-layout{display:grid;grid-template-columns:minmax(280px,1.25fr) minmax(260px,.85fr);gap:16px;align-items:start}.sim-canvas-wrap{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:10px;overflow:auto}#galileoPlanoCanvas{display:block;width:100%;height:auto;min-height:300px}.galileo-table-wrap{overflow:auto;background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:8px}.galileo-table-wrap table{margin:0}.galileo-table-wrap th:nth-child(1),.galileo-table-wrap td:nth-child(1){color:#d100d1}.galileo-table-wrap th:nth-child(2),.galileo-table-wrap td:nth-child(2){color:#0a9f16}.galileo-table-wrap th:nth-child(3),.galileo-table-wrap td:nth-child(3){color:#e11d1d}.galileo-table-wrap th:nth-child(4),.galileo-table-wrap td:nth-child(4){color:#0b48ff}
+.hunter-layout{display:block;width:100%;gap:16px;align-items:start}.hunter-canvas-wrap{width:100%;background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:10px;overflow:auto}.hunter-canvas-wrap canvas{display:block;width:100%;height:auto;min-height:420px}.hunter-table-wrap{width:100%;margin-top:16px;overflow:auto;background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:8px;max-height:none}.hunter-table-wrap table{margin:0;width:100%;min-width:980px;font-size:.78rem;line-height:1.25}.hunter-table-wrap th,.hunter-table-wrap td{padding:5px 6px;text-align:center;white-space:nowrap}.hunter-table-wrap th:nth-child(1),.hunter-table-wrap td:nth-child(1){color:#c026d3}.hunter-table-wrap th:nth-child(4),.hunter-table-wrap td:nth-child(4),.hunter-table-wrap th:nth-child(7),.hunter-table-wrap td:nth-child(7){color:#dc2626}.hunter-table-wrap th:nth-child(5),.hunter-table-wrap td:nth-child(5){color:#2563eb}.hunter-table-wrap th:nth-child(8),.hunter-table-wrap td:nth-child(8){color:#16a34a}.sim-buttons{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.sim-buttons button{border:0;border-radius:10px;background:#635bce;color:white;padding:10px 14px;font-weight:800;cursor:pointer}.sim-buttons button.secondary{background:#334155}.sim-buttons button:hover{filter:brightness(.95)}
+@media(max-width:900px){.sim-layout{grid-template-columns:1fr}.hunter-table-wrap table{min-width:900px;font-size:.74rem}.hunter-canvas-wrap canvas{min-height:320px}}
+@media print{.hunter-table-wrap{overflow:visible}.hunter-table-wrap table{min-width:0;font-size:.66rem}.hunter-table-wrap th,.hunter-table-wrap td{padding:3px 4px}.hunter-canvas-wrap canvas{min-height:0}}
+</style>
+</head>
+<body>
+<header>
+<div class="badge">Física Aplicada a la Tecnología de Alimentos</div>
+<div class="badge">Unidad 2</div>
+<h1>Cinemática aplicada a procesos alimentarios</h1>
+<p>Apunte didáctico universitario con enfoque vectorial, cálculo diferencial elemental, interpretación gráfica, resolución de problemas y simuladores para líneas de producción, dosificación, transporte, caída de producto y sistemas rotativos.</p>
+</header>
+<button class="toggle" onclick="document.body.classList.toggle('toc-hidden')">Índice</button>
+<div class="layout">
+<nav>
+<h2>Índice</h2>
+<a href="#intro">1. Introducción</a>
+<a href="#objetivos">2. Objetivos</a>
+<a href="#infografias">Mapa visual y recorrido</a>
+<a href="#importancia">3. Importancia técnica</a>
+<a href="#escalares-vectores">4. Escalares y vectores</a>
+<a href="#referencia">5. Sistema de referencia</a>
+<a href="#posicion">6. Posición, desplazamiento y distancia</a>
+<a href="#rapidez-velocidad">7. Rapidez y velocidad</a>
+<a href="#aceleracion">8. Aceleración</a>
+<a href="#mru">9. MRU</a>
+<a href="#mruv">10. MRUV</a>
+<a href="#graficas">11. Interpretación de gráficas</a>
+<a href="#caida">12. Caída libre</a>
+<a href="#galileo">13. Galileo, caída libre e independencia</a>
+<a href="#dosd">14. Movimiento en dos dimensiones</a>
+<a href="#circular">15. Movimiento circular</a>
+<a href="#aplicaciones">16. Aplicaciones industriales</a>
+<a href="#ejemplos">17. Ejemplos resueltos</a>
+<a href="#simuladores">18. Simuladores</a>
+<a href="#errores">19. Errores frecuentes</a>
+<a href="#preguntas">20. Preguntas conceptuales</a>
+<a href="#ejercicios">21. Ejercicios propuestos</a>
+<a href="#actividad">22. Actividad práctica</a>
+<a href="#integradora">23. Actividad integradora</a>
+<a href="#resumen">24. Resumen final</a>
+<a href="#glosario">25. Glosario</a>
+</nav>
+<main>
+<section class="paper" id="intro">
+<h2>1. Introducción contextualizada</h2>
+<p>La cinemática es la parte de la mecánica que describe el movimiento de los cuerpos sin estudiar todavía las causas que lo producen. En una planta alimentaria, describir correctamente el movimiento no es un tema abstracto: permite estimar tiempos de residencia, sincronizar etapas de dosificación, ubicar bandejas o tolvas, ajustar velocidades de cintas, analizar arranques y frenadas, interpretar el movimiento de mezcladores, calcular aceleraciones en centrífugas y evaluar condiciones de seguridad.</p>
+<p>En esta unidad se trabaja con una idea central: <strong>moverse no significa solamente cambiar de lugar</strong>. Para describir un movimiento de manera técnica hay que indicar respecto de qué referencia se mide, qué coordenada cambia, en qué sentido ocurre, con qué rapidez, si la dirección de la velocidad cambia y si existe aceleración. En el lenguaje de la física, esto exige diferenciar cuidadosamente magnitudes escalares y vectoriales.</p>
+<div class="box key"><strong>Idea clave.</strong> En tecnología de alimentos, la cinemática permite pasar de una observación cualitativa —“la línea va rápido”, “la masa cae lejos”, “la centrífuga gira mucho”— a una descripción cuantitativa útil para diseño, operación, control y calidad.</div>
+</section>
+<section class="paper" id="objetivos">
+<h2>2. Objetivos de aprendizaje</h2>
+<div class="grid">
+<div class="card"><h4>Conceptuales</h4><p>Comprender posición, desplazamiento, distancia, rapidez, velocidad y aceleración, distinguiendo su carácter escalar o vectorial.</p></div>
+<div class="card"><h4>Matemáticos</h4><p>Usar ecuaciones cinemáticas, componentes vectoriales, límites y derivadas elementales para describir movimientos rectilíneos, bidimensionales y circulares.</p></div>
+<div class="card"><h4>Gráficos</h4><p>Interpretar pendientes, áreas y curvaturas en gráficas \(x(t)\), \(v(t)\) y \(a(t)\).</p></div>
+<div class="card"><h4>Aplicados</h4><p>Modelar situaciones de cintas transportadoras, dosificadores, túneles, caída de producto, mezcladores y centrífugas.</p></div>
+</div>
+</section>
+
+<section class="paper" id="infografias">
+<h2>Infografías de síntesis y recorrido del apunte</h2>
+<p>Las infografías funcionan como un <strong>mapa visual de la Unidad 2</strong>. Conviene revisarlas antes de iniciar el estudio para anticipar los conceptos principales, y volver a ellas al finalizar para integrar teoría, ejemplos y simuladores.</p>
+<div class="infografia-intro">
+  <strong>Tránsito recomendado por el apunte.</strong> El recorrido parte de la descripción básica del movimiento y avanza progresivamente hacia modelos aplicados a líneas de alimentos: primero se define cómo medir, luego se estudian los modelos rectilíneos, después se interpreta el movimiento en dos dimensiones, y finalmente se integran los sistemas rotativos, las aplicaciones industriales y los simuladores.
+</div>
+<div class="learning-flow" aria-label="Recorrido recomendado de estudio">
+  <div class="flow-step"><h4><span class="num">1</span>Medir el movimiento</h4><p>Sistema de referencia, origen, ejes, unidades, escalares y vectores.</p></div>
+  <div class="flow-step"><h4><span class="num">2</span>Describir cambios</h4><p>Posición, desplazamiento, distancia, rapidez, velocidad y aceleración.</p></div>
+  <div class="flow-step"><h4><span class="num">3</span>Modelar en línea recta</h4><p>MRU, MRUV e interpretación de gráficas \(x(t)\), \(v(t)\) y \(a(t)\).</p></div>
+  <div class="flow-step"><h4><span class="num">4</span>Pasar al plano</h4><p>Caída libre, Galileo, independencia de movimientos y trayectoria parabólica.</p></div>
+  <div class="flow-step"><h4><span class="num">5</span>Analizar rotación</h4><p>Radián, velocidad angular, período, frecuencia, aceleraciones circular, tangencial y neta.</p></div>
+  <div class="flow-step"><h4><span class="num">6</span>Integrar en procesos</h4><p>Cintas, llenadoras, mezcladores, centrífugas, túneles, poleas, ejercicios y simuladores.</p></div>
+</div>
+<div class="route-note"><strong>Cómo usar estas imágenes.</strong> La Infografía 1 es la puerta de entrada conceptual. La Infografía 2 muestra el tramo de integración: movimiento en dos dimensiones, sistemas rotativos, aplicaciones alimentarias y simuladores. El alumno puede usarlas como checklist de estudio antes de resolver ejercicios.</div>
+<div class="infografia-grid">
+  <figure class="infografia-figure">
+    <img src="assets/images/infografia_1_conceptos_fundamentales.png" alt="Infografía 1: conceptos fundamentales de cinemática aplicada a tecnología de alimentos">
+    <figcaption><strong>Infografía 1.</strong> Conceptos fundamentales: sistema de referencia, magnitudes escalares y vectoriales, posición, desplazamiento, distancia, rapidez, velocidad, aceleración, MRU, MRUV e interpretación de gráficas.</figcaption>
+  </figure>
+  <figure class="infografia-figure">
+    <img src="assets/images/infografia_2_movimiento_2d_rotativos_simuladores.png" alt="Infografía 2: movimiento en dos dimensiones, sistemas rotativos y simuladores">
+    <figcaption><strong>Infografía 2.</strong> Integración aplicada: movimiento en dos dimensiones, caída desde cinta, movimiento circular, mezcladores, centrífugas, líneas de envasado, simuladores y poleas unidas por correa.</figcaption>
+  </figure>
+</div>
+</section>
+
+<section class="paper" id="importancia">
+<h2>3. Importancia de la cinemática para el técnico en alimentos</h2>
+<p>El técnico en alimentos trabaja con procesos donde el movimiento afecta directamente la calidad del producto. Una cinta excesivamente rápida puede reducir el tiempo de enfriamiento o provocar desalineación en una llenadora. Una aceleración brusca puede generar salpicaduras, roturas de envases o segregación de partículas. Una centrífuga con demasiadas rpm puede mejorar la separación, pero también aumentar solicitaciones mecánicas y riesgos operativos.</p>
+<table>
+<tr><th>Situación industrial</th><th>Variable cinemática relevante</th><th>Impacto técnico</th></tr>
+<tr><td>Cinta transportadora</td><td>Rapidez lineal \(v\), posición \(x(t)\)</td><td>Tiempo de traslado, sincronización, acumulación de producto.</td></tr>
+<tr><td>Llenadora</td><td>Velocidad y aceleración de avance</td><td>Precisión de llenado, repetibilidad, derrames.</td></tr>
+<tr><td>Túnel de enfriamiento</td><td>Velocidad de cinta y tiempo de residencia</td><td>Temperatura final, inocuidad, uniformidad térmica.</td></tr>
+<tr><td>Mezclador</td><td>Velocidad angular \(\omega\), frecuencia \(f\)</td><td>Homogeneidad, incorporación de aire, esfuerzo mecánico.</td></tr>
+<tr><td>Centrífuga</td><td>Aceleración centrípeta \(a_c\)</td><td>Separación de fases, seguridad, integridad del equipo.</td></tr>
+</table>
+</section>
+<section class="paper" id="escalares-vectores">
+<h2>4. Magnitudes escalares y vectoriales</h2>
+<p>Una <strong>magnitud escalar</strong> queda definida por un número y una unidad. La masa de una muestra, el tiempo de residencia, la temperatura de un producto y la distancia recorrida son ejemplos escalares. Una <strong>magnitud vectorial</strong> requiere módulo, dirección y sentido. La posición, el desplazamiento, la velocidad y la aceleración son vectoriales.</p>
+<div class="eq">\[ \vec r,\quad \Delta \vec r,\quad \vec v,\quad \vec a \] <small>Magnitudes vectoriales centrales de la cinemática.</small></div>
+<div class="eq">\[ d,\quad s,\quad v,\quad |\vec v| \] <small>Magnitudes escalares: distancia recorrida, longitud de trayectoria, rapidez y módulo de la velocidad.</small></div>
+<table>
+<tr><th>Concepto</th><th>Tipo</th><th>Símbolo</th><th>Unidad SI</th><th>Interpretación</th></tr>
+<tr><td>Posición</td><td>Vectorial</td><td>\(\vec r\)</td><td>m</td><td>Ubicación respecto de un origen elegido.</td></tr>
+<tr><td>Desplazamiento</td><td>Vectorial</td><td>\(\Delta \vec r\)</td><td>m</td><td>Cambio neto de posición.</td></tr>
+<tr><td>Distancia recorrida</td><td>Escalar</td><td>\(d\) o \(s\)</td><td>m</td><td>Longitud total de la trayectoria.</td></tr>
+<tr><td>Velocidad</td><td>Vectorial</td><td>\(\vec v\)</td><td>m/s</td><td>Ritmo de cambio de posición con dirección y sentido.</td></tr>
+<tr><td>Rapidez</td><td>Escalar</td><td>\(v=|\vec v|\)</td><td>m/s</td><td>Módulo de la velocidad.</td></tr>
+<tr><td>Aceleración</td><td>Vectorial</td><td>\(\vec a\)</td><td>m/s²</td><td>Ritmo de cambio de la velocidad.</td></tr>
+</table>
+<div class="box warn"><strong>Error frecuente.</strong> Decir “la velocidad de la cinta es 0,50 m/s” es aceptable cuando el movimiento es rectilíneo y el sentido ya está definido. Pero físicamente esa expresión describe una rapidez. La velocidad vectorial debería indicar sentido: por ejemplo, \(\vec v=0,50\,\hat i\,\mathrm{m/s}\).</div>
+</section>
+<section class="paper" id="referencia">
+<h2>5. Concepto de movimiento y sistema de referencia</h2>
+<p>Un cuerpo está en movimiento cuando su posición cambia con el tiempo respecto de un sistema de referencia. El sistema de referencia incluye un origen, ejes coordenados, sentido positivo y un reloj. Sin esta elección no se puede asignar signo a una posición, velocidad o aceleración.</p>
+<div class="eq">\[ \vec r(t)=x(t)\,\hat i+y(t)\,\hat j+z(t)\,\hat k \] <small>Vector posición en tres dimensiones. En muchos procesos de línea alcanza con una o dos dimensiones.</small></div>
+<p>En una cinta transportadora puede elegirse el eje \(x\) en el sentido de avance. Si un envase se mueve hacia la derecha, su posición puede aumentar; si retrocede, su posición disminuye. El signo no es una propiedad absoluta del movimiento: depende del eje elegido.</p>
+<div class="box app"><strong>Aplicación industrial.</strong> En una línea de envasado, un sensor fotoeléctrico puede estar en \(x=0\) y una boquilla de llenado en \(x=1,20\,\mathrm{m}\). Esa definición permite calcular el tiempo disponible para activar la válvula.</div>
+</section>
+<section class="paper" id="posicion">
+<h2>6. Posición, desplazamiento y distancia recorrida</h2>
+<p>Para distinguir con claridad estos tres conceptos conviene observar simultáneamente una trayectoria completa, los vectores posición y el vector desplazamiento. En el siguiente material audiovisual se muestra una partícula que va desde el punto <strong>A</strong> al punto <strong>B</strong>: el arco rojo representa el <em>camino recorrido</em>, la flecha violeta representa el <em>desplazamiento</em> y los vectores azules representan las posiciones inicial y final respecto del origen.</p>
+<div class="media-pair">
+  <div class="media-card">
+    <h4>Video conceptual</h4>
+    <video controls preload="metadata" poster="assets/images/posicion_desplazamiento_recorrido.png">
+      <source src="assets/videos/posicion_desplazamiento_recorrido.mp4" type="video/mp4">
+      Tu navegador no puede reproducir este video.
+    </video>
+    <div class="media-caption">Animación para proyectar en clase o revisar en forma asincrónica. Al pausar el video puede analizarse con calma la diferencia entre <strong>camino recorrido</strong> y <strong>desplazamiento</strong>.</div>
+  </div>
+  <div class="media-card">
+    <h4>Imagen de referencia</h4>
+    <img src="assets/images/posicion_desplazamiento_recorrido.png" alt="Esquema de posición, desplazamiento y camino recorrido">
+    <div class="media-caption">
+            <ul class="media-list">
+        <li><strong>Vectores de posición</strong>: \(\vec r_{ini}\) y \(\vec r_{fin}\) ubican a la partícula respecto del origen.</li>
+        <li><strong>Desplazamiento</strong>: \(\Delta \vec r\) une la posición inicial con la final.</li>
+        <li><strong>Camino recorrido</strong>: es la longitud total de la trayectoria roja.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="box key"><strong>Lectura física del material.</strong> Si el móvil sigue una trayectoria curva, la <strong>distancia recorrida</strong> es la longitud de esa curva. En cambio, el <strong>desplazamiento</strong> depende solo de la posición inicial y la final. Por eso dos trayectorias distintas pueden tener el mismo desplazamiento pero diferente distancia recorrida.</div>
+<h3>6.1 Posición</h3>
+<p>La posición indica dónde se encuentra un cuerpo respecto de un origen. En una dimensión se usa una coordenada \(x(t)\). En dos dimensiones, una posición se representa mediante un vector.</p>
+<div class="eq">\[ \vec r(t)=x(t)\,\hat i+y(t)\,\hat j \] <small>Posición bidimensional de una partícula o producto.</small></div>
+<h3>6.2 Desplazamiento</h3>
+<p>El desplazamiento es el cambio de posición entre un instante inicial y uno final. No depende del camino recorrido, sino solo de los extremos.</p>
+<div class="eq">\[ \Delta \vec r=\vec r_f-\vec r_i \] <small>Magnitud vectorial. Tiene dirección desde la posición inicial hacia la final.</small></div>
+<p>En una dimensión:</p>
+<div class="eq">\[ \Delta x=x_f-x_i \] <small>Componente del desplazamiento sobre el eje \(x\).</small></div>
+<h3>6.3 Distancia recorrida</h3>
+<p>La distancia recorrida es la longitud total de la trayectoria. Es escalar y siempre es positiva o nula. Si un envase avanza 2 m y luego retrocede 0,5 m, la distancia recorrida es 2,5 m, pero el desplazamiento neto es 1,5 m hacia adelante.</p>
+<table>
+<tr><th>Comparación</th><th>Desplazamiento \(\Delta \vec r\)</th><th>Distancia recorrida \(d\)</th></tr>
+<tr><td>Tipo</td><td>Vectorial</td><td>Escalar</td></tr>
+<tr><td>Depende de la trayectoria</td><td>No</td><td>Sí</td></tr>
+<tr><td>Puede ser negativa en una componente</td><td>Sí, como \(\Delta x&lt;0\)</td><td>No</td></tr>
+<tr><td>Ejemplo</td><td>De sensor a dosificador: \(+1,20\,\mathrm{m}\)</td><td>Longitud total recorrida por una cinta en un ciclo</td></tr>
+</table>
+</section>
+<section class="paper" id="rapidez-velocidad">
+<h2>7. Rapidez, velocidad media y velocidad instantánea</h2>
+<p>En la siguiente animación se representa el movimiento de una partícula en un plano y se calcula la <strong>velocidad media vectorial</strong> entre dos instantes. Este material resulta útil para distinguir entre el valor escalar de la rapidez y el carácter vectorial de la velocidad.</p>
+<div class="media-pair">
+  <div class="media-card">
+    <h4>Video conceptual</h4>
+    <video controls preload="metadata" poster="assets/images/velocidad_media_e_instantanea.png">
+      <source src="assets/videos/velocidad_media_e_instantanea.mp4" type="video/mp4">
+      Tu navegador no puede reproducir este video.
+    </video>
+    <div class="media-caption">La animación muestra dos instantes \(t_{ini}\) y \(t_{fin}\), las posiciones \(\vec r_{ini}\) y \(\vec r_{fin}\), y el desplazamiento \(\Delta \vec r\) entre ambos.</div>
+  </div>
+  <div class="media-card">
+    <h4>Imagen de referencia</h4>
+    <img src="assets/images/velocidad_media_e_instantanea.png" alt="Esquema de velocidad media vectorial entre dos instantes">
+    <div class="media-caption">
+      <ul class="media-list">
+        <li>La expresión vectorial de la imagen indica que la <strong>velocidad media</strong> tiene componentes horizontal y vertical.</li>
+        <li>La dirección de \(\vec v_{med}\) coincide con la del desplazamiento \(\Delta \vec r\), no con la tangente a la trayectoria.</li>
+        <li>La <strong>velocidad instantánea</strong>, en cambio, se asocia a la tangente a la trayectoria en un punto.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="box app"><strong>Interpretación didáctica.</strong> Si el móvil recorre una trayectoria curva, la velocidad media se obtiene a partir del desplazamiento entre dos instantes. La velocidad instantánea se recupera cuando ese intervalo de tiempo se hace cada vez más pequeño. Así aparece de manera natural la idea de límite y derivada.</div>
+<h3>7.1 Rapidez media</h3>
+<p>La rapidez media relaciona la distancia total recorrida con el tiempo empleado. Es escalar.</p>
+<div class="eq">\[ v_{med,esc}=\frac{d}{\Delta t} \] <small>Sirve para estimar productividad y tiempos de traslado cuando no interesa la dirección.</small></div>
+<h3>7.2 Velocidad media</h3>
+<p>La velocidad media es vectorial y relaciona el desplazamiento con el intervalo de tiempo.</p>
+<div class="eq">\[ \vec v_{med}=\frac{\Delta \vec r}{\Delta t}=\frac{\vec r_f-\vec r_i}{t_f-t_i} \] <small>Indica cambio neto de posición por unidad de tiempo.</small></div>
+<p>En una dimensión:</p>
+<div class="eq">\[ v_{x,med}=\frac{\Delta x}{\Delta t} \] <small>Componente de la velocidad media sobre el eje \(x\).</small></div>
+<h3>7.3 Velocidad instantánea con límite y derivada</h3>
+<p>La velocidad instantánea es el límite de la velocidad media cuando el intervalo de tiempo se hace cada vez más pequeño. Si el alumno domina límites y derivadas, puede interpretarse como la derivada de la posición respecto del tiempo.</p>
+<div class="eq">\[ \vec v(t)=\lim_{\Delta t\to 0}\frac{\Delta \vec r}{\Delta t}=\frac{d\vec r}{dt} \] <small>La velocidad instantánea es tangente a la trayectoria.</small></div>
+<p>Por componentes:</p>
+<div class="eq">\[ \vec v(t)=\frac{dx}{dt}\,\hat i+\frac{dy}{dt}\,\hat j+\frac{dz}{dt}\,\hat k \] <small>Cada componente se obtiene derivando la coordenada correspondiente.</small></div>
+<div class="box key"><strong>Idea clave.</strong> La rapidez instantánea es el módulo de la velocidad instantánea: \(v(t)=|\vec v(t)|\). En dos dimensiones: \(v=\sqrt{v_x^2+v_y^2}\).</div>
+</section>
+<section class="paper" id="aceleracion">
+<h2>8. Aceleración media e instantánea</h2>
+<p>La aceleración describe el cambio de la velocidad. Como la velocidad es vectorial, puede cambiar por tres razones: cambia su módulo, cambia su dirección o cambian ambos.</p>
+<h3>8.1 Aceleración media</h3>
+<div class="eq">\[ \vec a_{med}=\frac{\Delta \vec v}{\Delta t}=\frac{\vec v_f-\vec v_i}{t_f-t_i} \] <small>Vector que mide el cambio de velocidad por unidad de tiempo.</small></div>
+<h3>8.2 Aceleración instantánea</h3>
+<div class="eq">\[ \vec a(t)=\lim_{\Delta t\to 0}\frac{\Delta \vec v}{\Delta t}=\frac{d\vec v}{dt}=\frac{d^2\vec r}{dt^2} \] <small>La aceleración es la segunda derivada de la posición respecto del tiempo.</small></div>
+<p>Por componentes:</p>
+<div class="eq">\[ \vec a(t)=\frac{dv_x}{dt}\,\hat i+\frac{dv_y}{dt}\,\hat j+\frac{dv_z}{dt}\,\hat k \] <small>Permite analizar independientemente los ejes.</small></div>
+<div class="box warn"><strong>Error frecuente.</strong> Si un mezclador gira con rapidez constante, muchos estudiantes dicen que no hay aceleración. Es falso: la dirección de \(\vec v\) cambia continuamente, por lo tanto existe aceleración centrípeta.</div>
+</section>
+<section class="paper" id="mru">
+<h2>9. Movimiento rectilíneo uniforme</h2>
+<p>El movimiento rectilíneo uniforme, MRU, ocurre cuando un cuerpo se mueve en línea recta con velocidad constante. Como la velocidad no cambia, la aceleración es nula.</p>
+<div class="eq">\[ \vec v=\text{constante},\qquad \vec a=\vec 0 \] <small>Condición física del MRU.</small></div>
+<p>En una dimensión:</p>
+<div class="eq">\[ x(t)=x_0+v_x t \] <small>La posición es una función lineal del tiempo.</small></div>
+<p>Si se deriva:</p>
+<div class="eq">\[ \frac{dx}{dt}=v_x,\qquad \frac{d^2x}{dt^2}=0 \] <small>La pendiente de \(x(t)\) es constante y la aceleración es cero.</small></div>
+<div class="box app"><strong>Aplicación industrial.</strong> Una cinta que avanza a velocidad constante entre una etiquetadora y una balanza dinámica puede modelarse inicialmente como MRU. La ecuación permite calcular el tiempo de llegada del envase.</div>
+</section>
+<section class="paper" id="mruv">
+<h2>10. Movimiento rectilíneo uniformemente variado</h2>
+<p>El movimiento rectilíneo uniformemente variado, MRUV, ocurre cuando la aceleración es constante en dirección, sentido y módulo. En una dimensión, esto significa \(a_x=\text{constante}\).</p>
+<div class="eq">\[ a_x=\frac{dv_x}{dt}=\text{constante} \] <small>Definición diferencial de aceleración constante.</small></div>
+<p>Integrando respecto del tiempo:</p>
+<div class="eq">\[ v_x(t)=v_{0x}+a_x t \] <small>La velocidad cambia linealmente con el tiempo.</small></div>
+<p>Como \(v_x=dx/dt\), una segunda integración conduce a:</p>
+<div class="eq">\[ x(t)=x_0+v_{0x}t+\frac{1}{2}a_x t^2 \] <small>La posición es una función cuadrática del tiempo.</small></div>
+<p>También se usa la relación sin tiempo:</p>
+<div class="eq">\[ v_x^2=v_{0x}^2+2a_x(x-x_0) \] <small>Útil cuando no se conoce el tiempo.</small></div>
+<div class="box key"><strong>Lectura física.</strong> El término \(v_{0x}t\) representa el avance que tendría el cuerpo si mantuviera la velocidad inicial. El término \(\frac{1}{2}a_xt^2\) representa el aporte adicional debido a la aceleración.</div>
+</section>
+<section class="paper" id="graficas">
+<h2>11. Interpretación de gráficas cinemáticas</h2>
+<h3>11.1 Gráfica posición-tiempo</h3>
+<p>La pendiente de la gráfica \(x(t)\) representa la velocidad:</p>
+<div class="eq">\[ v_x(t)=\frac{dx}{dt} \] <small>En una gráfica, la derivada es la pendiente de la tangente.</small></div>
+<table>
+<tr><th>Forma de \(x(t)\)</th><th>Interpretación</th></tr>
+<tr><td>Recta creciente</td><td>Velocidad positiva constante.</td></tr>
+<tr><td>Recta decreciente</td><td>Velocidad negativa constante.</td></tr>
+<tr><td>Línea horizontal</td><td>Posición constante; el cuerpo está detenido.</td></tr>
+<tr><td>Curva con pendiente creciente</td><td>La rapidez aumenta en el sentido positivo.</td></tr>
+<tr><td>Curva con pendiente decreciente</td><td>La velocidad disminuye o se hace más negativa, según el caso.</td></tr>
+</table>
+<h3>11.2 Gráfica velocidad-tiempo</h3>
+<p>La pendiente de \(v(t)\) es la aceleración y el área bajo la curva representa el desplazamiento.</p>
+<div class="eq">\[ a_x(t)=\frac{dv_x}{dt} \] <small>Pendiente de la gráfica velocidad-tiempo.</small></div>
+<div class="eq">\[ \Delta x=\int_{t_i}^{t_f}v_x(t)\,dt \] <small>Área algebraica bajo \(v_x(t)\).</small></div>
+<h3>11.3 Gráfica aceleración-tiempo</h3>
+<p>El área bajo \(a(t)\) representa el cambio de velocidad.</p>
+<div class="eq">\[ \Delta v_x=\int_{t_i}^{t_f}a_x(t)\,dt \] <small>Área algebraica bajo \(a_x(t)\).</small></div>
+<div class="box app"><strong>Aplicación industrial.</strong> Un arranque suave de cinta se observa como una aceleración moderada durante varios segundos; un arranque brusco aparece como aceleración alta en poco tiempo, lo cual puede provocar desplazamiento relativo de envases o producto suelto.</div>
+</section>
+<section class="paper" id="caida">
+<h2>12. Caída libre como aceleración constante</h2>
+<p>La caída libre es un caso particular de movimiento con aceleración constante, donde la aceleración es la gravedad. Cerca de la superficie terrestre se toma:</p>
+<div class="eq">\[ g\approx 9,81\,\mathrm{m/s^2} \] <small>Módulo de la aceleración gravitatoria.</small></div>
+<p>Si el eje \(y\) es positivo hacia arriba:</p>
+<div class="eq">\[ a_y=-g \] <small>El signo negativo indica que la gravedad apunta hacia abajo.</small></div>
+<p>Las ecuaciones son:</p>
+<div class="eq">\[ y(t)=y_0+v_{0y}t-\frac{1}{2}gt^2 \]</div>
+<div class="eq">\[ v_y(t)=v_{0y}-gt \]</div>
+<div class="eq">\[ v_y^2=v_{0y}^2-2g(y-y_0) \]</div>
+<div class="box warn"><strong>Error frecuente.</strong> Usar \(g=+9,81\,\mathrm{m/s^2}\) sin definir el sentido positivo. El valor \(g\) es el módulo; el signo de \(a_y\) depende del eje elegido.</div>
+</section>
+<section class="paper" id="galileo"><h2>13. Galileo, caída libre e independencia de los movimientos</h2><div class="box key"><strong>Contexto histórico y conceptual.</strong> En esta sección se integran dentro del apunte los puntos 1 a 4 del anexo Galileo: introducción histórica, caída libre, independencia de los movimientos y velocidad relativa. El objetivo es conservar el contexto del recurso original y vincularlo directamente con el tratamiento cinemático de la Unidad 2.</div><section class="page embedded-galileo-page" id="pagina-1">
+<h3>13.1 Introducción histórica sobre Galileo Galilei</h3>
+<div class="h5p-text">
+<p>Galileo Galilei (1564–1642) fue un científico italiano considerado el padre de la ciencia moderna. Vivió en una época donde la visión aristotélica dominaba el pensamiento científico, afirmando que los cuerpos más pesados caían más rápido que los livianos. A través de sus experimentos con planos inclinados y medidas cuidadosas del tiempo, Galileo refutó estas ideas y estableció que en ausencia de resistencia del aire, todos los cuerpos caen con la misma aceleración constante. Su trabajo sentó las bases de la cinemática y de las leyes del movimiento que luego serían formalizadas por Newton.</p>
+</div><div class="media-card video-card">
+<h4>Galileo Galilei: Biografía</h4>
+<div class="video-wrap"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/kMRFtXmXee4" title="Galileo Galilei: Biografía"></iframe></div>
+<p><a href="https://youtu.be/kMRFtXmXee4" rel="noopener" target="_blank">Abrir video en YouTube</a></p>
+</div>
+</section><section class="page embedded-galileo-page" id="pagina-2">
+<h3>13.2 Caída Libre</h3>
+<div class="h5p-text">
+<h4><span style="color:hsl(210, 75%, 60%);">Galileo y el comportamiento del cuerpo en movimiento</span></h4><p>Galileo Galilei fue uno de los primeros científicos en aplicar un enfoque cuantitativo y experimental al estudio del movimiento. Para estudiar cómo varía la velocidad en cuerpos que caen, Galileo utilizó un plano inclinado para reducir la aceleración natural y poder medir con más precisión el comportamiento del cuerpo en movimiento. Este método le permitió demostrar que la aceleración es constante, y que la distancia recorrida por un cuerpo es proporcional al cuadrado del tiempo transcurrido.</p>
+</div><figure class="media-card image-card">
+<img alt="Plano inclinado de Galileo Galilei" loading="lazy" src="../anexos/galileo/assets/images/plano_inclinado_galileo.jpg"/>
+<figcaption>Plano inclinado de Galileo Galilei · Autor: Galileo Galilei · Fuente: <a href="https://catalogue.museogalileo.it/object/InclinedPlane.html" rel="noopener" target="_blank">https://catalogue.museogalileo.it/object/InclinedPlane.html</a></figcaption>
+</figure><div class="h5p-text">
+<p>Este plano inclinado, con cinco campanas pequeñas y un péndulo, fue diseñado para proporcionar una demostración experimental de la ley de Galileo de los cuerpos en caída libre. El aparato hace uso de otro importante principio físico descubierto por Galile</p>
+</div><div class="resource-card link-card">
+<div class="resource-type">Vínculo externo</div>
+<a href="https://catalogue.museogalileo.it/object/InclinedPlane.html" rel="noopener" target="_blank">museo Galileo</a>
+<p class="url">https://catalogue.museogalileo.it/object/InclinedPlane.html</p>
+</div><div class="h5p-text">
+<h4><span style="color:hsl(210, 75%, 60%);">Experimento clásico de Galileo sobre un plano inclinado</span></h4><p>En el link de GeoGebra se simula el experimento clásico de Galileo sobre un plano inclinado. Se observa un objeto que parte del reposo y desciende por un plano en ángulo, representando la aceleración constante. El plano inclinado reduce la aceleración respecto a la caída libre, permitiendo observar más claramente cómo varía la posición del cuerpo a lo largo del tiempo. En la simulación, el desplazamiento del objeto aumenta progresivamente en cada intervalo, lo cual evidencia que su velocidad también lo hace. Esto es coherente con el movimiento uniformemente acelerado (MRUA).</p>
+</div><div class="resource-card link-card">
+<div class="resource-type">Vínculo externo</div>
+<a href="https://www.geogebra.org/classic/xanazy9u" rel="noopener" target="_blank">Experimento de Galileo</a>
+<p class="url">https://www.geogebra.org/classic/xanazy9u</p>
+</div>
+<div class="galileo-sim" id="sim-plano-inclinado">
+<h4>Simulador: posición en función del tiempo en el plano inclinado</h4>
+<p>Este modelo reproduce la idea central del experimento: una partícula parte del reposo y desciende por un plano inclinado. El ángulo modifica la componente de la gravedad paralela al plano y, por lo tanto, modifica la aceleración ideal.</p>
+<div class="latex-panel">
+  \[a_\parallel=g\sin(\theta)\]
+  \[x(t)=\frac{1}{2}a_\parallel t^2\]
+  <div class="caption">Modelo ideal sin rozamiento. En un equipo real o en una práctica de laboratorio, la fricción y el rodamiento reducen la aceleración efectiva.</div>
+</div>
+<div class="sim-controls">
+<label>Ángulo del plano: <span id="thetaLabel">5.25°</span>
+<input id="thetaSlider" max="45" min="2" oninput="simPlanoGalileo()" step="0.25" type="range" value="5.25"/>
+</label>
+<label>Gravedad \(g\) en m/s²
+      <input id="gravInput" max="15" min="1" oninput="simPlanoGalileo()" step="0.01" type="number" value="9.81"/>
+</label>
+<label>Tiempo máximo \(t_{max}\) en s
+      <input id="tMaxInput" max="20" min="2" oninput="simPlanoGalileo()" step="1" type="number" value="10"/>
+</label>
+</div>
+<div class="sim-output" id="planoOutput"></div>
+<div class="sim-layout">
+<div class="sim-canvas-wrap">
+<canvas aria-label="Gráfica de posición en función del tiempo para el plano inclinado" height="560" id="galileoPlanoCanvas" width="820"></canvas>
+</div>
+<div class="galileo-table-wrap" id="planoTableWrap"></div>
+</div>
+<p class="url">Lectura de la tabla: <strong>Despl. 1</strong> representa el desplazamiento parcial normalizado \((x_t-x_{t-1})/x_1\). <strong>Despl. 2</strong> representa el desplazamiento acumulado normalizado \(x_t/x_1\). Si el movimiento parte del reposo con aceleración constante, aparecen los impares y los cuadrados.</p>
+</div><div class="h5p-text">
+<h4><span style="font-size:1em;color:hsl(210,75%,60%);"><strong>Observaciones e interpretación física</strong></span></h4><ul><li>El objeto parte del reposo.</li><li>La distancia recorrida en cada intervalo de tiempo es creciente.</li><li>Se puede asociar gráficamente la relación d ∝ t².</li><li>La aceleración es constante durante todo el recorrido.</li></ul><p>Este experimento demuestra que, incluso cuando se disminuye la pendiente, el comportamiento del cuerpo sigue siendo el de un movimiento rectilíneo uniformemente acelerado. La relación fundamental que se verifica es: </p><div class="latex-panel">
+\[x(t)=x_0+v_0t+\frac{1}{2}at^2\]
+<div class="caption">Ecuación general del movimiento rectilíneo uniformemente acelerado sobre el eje del plano.</div>
+</div>
+<div class="latex-panel">
+\[x(t)=\frac{1}{2}at^2\qquad \text{si }x_0=0\text{ y }v_0=0\]
+<div class="caption">Caso usado en el experimento: el objeto parte del reposo desde el origen.</div>
+</div><h4><span style="color:hsl(210,75%,60%);">Explicación teórica de la regla de los números impares</span></h4><p>La regla de los números impares establece que los espacios recorridos en tiempos iguales por un cuerpo en caída libre desde el reposo forman una sucesión de números impares (1, 3, 5, 7, ...). Esto puede demostrarse a partir de la ecuación del movimiento uniformemente acelerado: <em><strong>x = (1/2) g t²</strong></em>. Si se evalúan los desplazamientos en intervalos de tiempo iguales, se puede observar que la diferencia de posiciones consecutivas forma una progresión aritmética creciente. Esta regularidad revela cómo varía la velocidad del cuerpo en caída libre: aumenta de manera constante con el tiempo.</p>
+<div class="latex-panel">
+\[x_n=\frac{1}{2}a(n\Delta t)^2\]
+\[\Delta x_n=x_n-x_{n-1}=\frac{1}{2}a(2n-1)(\Delta t)^2\]
+\[\frac{\Delta x_n}{\Delta x_1}=2n-1\qquad\text{y}\qquad \frac{x_n}{x_1}=n^2\]
+<div class="caption">Por eso, en intervalos de tiempo iguales, los desplazamientos parciales normalizados siguen la serie de números impares: 1, 3, 5, 7, ...; y los desplazamientos acumulados siguen los cuadrados: 1, 4, 9, 16, ...</div>
+</div>
+</div>
+</section><section class="page embedded-galileo-page" id="pagina-3">
+<h3>13.3 Independencia de los movimientos</h3>
+<div class="h5p-text">
+<h4><span style="color:hsl(210, 75%, 60%);">Independencia de los movimientos</span></h4><p>El principio de independencia de los movimientos establece que los movimientos en direcciones perpendiculares son independientes entre sí. Este principio también se entiende mejor al considerar que un movimiento compuesto puede descomponerse en dos (o más) movimientos simples e independientes, uno en cada dirección del espacio. Por ejemplo, en el caso de un proyectil, su movimiento puede analizarse como:</p><ul><li><p><span style="color:hsl(210, 75%, 60%);"><em>Un movimiento horizontal con velocidad constante (Movimiento Rectilíneo Uniforme, MRU).</em></span></p><p> </p></li><li><span style="color:hsl(210, 75%, 60%);"><em>Un movimiento vertical con aceleración constante (Movimiento Rectilíneo Uniformemente Acelerado, MRUA), debido a la gravedad.</em></span></li></ul><p>Estos movimientos ocurren simultáneamente, pero no se afectan entre sí. El desplazamiento total del objeto en cada instante es la suma vectorial de estos dos movimientos independientes. Matemáticamente, se expresa como:</p><div class="latex-panel">
+\[x(t)=x_0+v_{0x}t\qquad (a_x=0)\]
+\[y(t)=y_0+v_{0y}t-\frac{1}{2}gt^2\qquad (a_y=-g)\]
+<div class="caption">La componente horizontal se comporta como MRU y la vertical como MRUA. El tiempo \(t\) es común a ambos movimientos.</div>
+</div><p>donde x(t) es el desplazamiento horizontal, y(t) el vertical, v₀ₓ y v₀ᵧ las componentes iniciales de la velocidad, y g la aceleración de la gravedad. Esta descomposición permite analizar fenómenos complejos con herramientas simples.</p>
+</div><div class="h5p-text">
+<h4><span style="color:hsl(210, 75%, 60%);">Modelo  en GeoGebra del principio de independencia</span></h4><p>En el modelo se ilustra el principio de independencia de los movimientos a través de una simulación donde se observa un objeto que combina dos movimientos simultáneos:</p><ol><li>Movimiento horizontal uniforme (MRU): el objeto avanza en línea recta con velocidad constante en la dirección horizontal (eje X).</li><li>Movimiento vertical uniformemente acelerado (MRUA): simultáneamente, el objeto cae bajo la influencia de la gravedad (eje Y), partiendo con velocidad vertical nula y acelerándose hacia abajo.</li><li>Trayectoria compuesta (parabólica): al combinar ambos movimientos, la trayectoria total del objeto es una parábola. Esto evidencia que cada componente del movimiento puede analizarse por separado.</li></ol><p>Los movimientos perpendiculares no se interfieren entre sí, lo que permite predecir trayectorias complejas mediante el análisis independiente de cada eje.</p>
+</div><div class="resource-card link-card">
+<div class="resource-type">Vínculo externo</div>
+<a href="https://www.geogebra.org/m/syw6fbc3" rel="noopener" target="_blank">Modelo  en GeoGebra del principio de independencia</a>
+<p class="url">https://www.geogebra.org/m/syw6fbc3</p>
+</div><figure class="media-card image-card">
+<img alt="https://catalogue.museogalileo.it/object/ApparatusShowingCompositionMotion.html" loading="lazy" src="../anexos/galileo/assets/images/composicion_movimientos_galileo.jpg"/>
+<figcaption>https://catalogue.museogalileo.it/object/ApparatusShowingCompositionMotion.html · Fuente: <a href="https://catalogue.museogalileo.it/object/ApparatusShowingCompositionMotion.html" rel="noopener" target="_blank">https://catalogue.museogalileo.it/object/ApparatusShowingCompositionMotion.html</a></figcaption>
+</figure><div class="h5p-text">
+<p>El aparato muestra los efectos de la composición de un movimiento horizontal y uno vertical, un concepto fundamental de la teoría galileana del movimiento. Una base de madera sostiene un panel vertical cuya parte superior lleva dos rieles horizontales formados por un par de alambres metálicos. Un pequeño carro de latón se desplaza horizontalmente a lo largo de los rieles mediante una cuerda que sujeta un peso y pasa por una polea. Una segunda cuerda, también con un peso, se fija a un extremo de los rieles y pasa por una polea fijada al carro. Al tirar del carro, el desplazamiento de la polea unida a él hace que el peso se eleve en diagonal. Esto ilustra que la composición de dos movimientos perpendiculares produce una trayectoria diagonal. Esta última también se materializa mediante una ranura de madera clara en el panel vertical. En <span style="color:rgb(0,0,0);background-color:rgb(255,255,255);"><em>Leçons de physique expérimentale</em></span> (París, 1743-1748), Jean-Antoine Nollet describió un instrumento similar en el que la trayectoria resultante de la combinación de los dos movimientos perpendiculares se trazaba con un lápiz sobre el panel. Procedencia: Colecciones de Lorena.</p>
+</div><div class="resource-card link-card">
+<div class="resource-type">Vínculo externo</div>
+<a href="https://catalogue.museogalileo.it/object/ApparatusShowingCompositionMotion.html" rel="noopener" target="_blank">Museo Galileo -  independencia de los movimientos</a>
+<p class="url">https://catalogue.museogalileo.it/object/ApparatusShowingCompositionMotion.html</p>
+</div><figure class="media-card image-card">
+<img alt="Imagen" loading="lazy" src="../anexos/galileo/assets/images/trayectoria_parabolica_galileo.jpg"/>
+<figcaption>Imagen</figcaption>
+</figure><div class="resource-card link-card">
+<div class="resource-type">Vínculo externo</div>
+<a href="https://catalogo.museogalileo.it/oggetto/ApparecchioDimostrareTraiettoriaParabolicaProietti.html" rel="noopener" target="_blank">Museo Galileo - trayectoria parabólica</a>
+<p class="url">https://catalogo.museogalileo.it/oggetto/ApparecchioDimostrareTraiettoriaParabolicaProietti.html</p>
+</div><div class="h5p-text">
+<p>El aparato, procedente de las colecciones de Lorena y probablemente descrito por primera vez por Willem Jacob's Gravesande en <em>Physices elementa mathematica, experimentis confirmata</em> (III ed., Leiden, 1742), permite demostrar experimentalmente que un objeto pesado lanzado en proyección horizontal describe, debido a la aceleración de la gravedad, una trayectoria parabólica.</p><p>Una base de madera, equipada con tornillos niveladores, soporta un soporte con un canal de un cuarto de círculo y una tabla vertical, sobre la cual, a distancias iguales, se fijan cuatro anillos de latón a lo largo de una línea parabólica. La bola, al caer en el canal, experimenta una aceleración constante. Una vez que el canal deja de estar soportado, el movimiento horizontal de proyección de la bola se combina con el movimiento natural de caída, uniformemente acelerado; la bola avanza a partir de aquí siguiendo una trayectoria parabólica, como lo demuestra el hecho de que pasa por todos los anillos sucesivamente. El experimento confirma el descubrimiento de Galileo de la trayectoria parabólica de los proyectiles como resultado de la composición de la proyección horizontal y el movimiento de caída, definido por el científico pisano alrededor de 1609 y publicado por primera vez en el Cuarto Día de los <em>Discursos y demostraciones matemáticas sobre dos Nuevas Ciencias</em> (Leiden, 1638).</p>
+</div><div class="h5p-text">
+<h4>El experimento del mono y el cazador</h4><p>Este clásico experimento mental ilustra de forma contundente el <strong>principio de independencia de los movimientos</strong> y la <strong>aceleración gravitatoria común a todos los cuerpos</strong>. La situación plantea el siguiente escenario:</p><ul><li>Un cazador apunta y dispara un proyectil (ya sea horizontal o con cierta inclinación) hacia un mono que cuelga de una rama.</li><li>El disparo y la caída del mono ocurren de manera simultánea: el mono se suelta exactamente en el instante en que se dispara el proyectil.</li></ul><h4>Observaciones e interpretación física</h4><p>Ambos cuerpos (el proyectil y el mono) <strong>inician su movimiento al mismo tiempo</strong>. Mientras el proyectil avanza con velocidad horizontal y cae por efecto de la gravedad, el mono realiza una <strong>caída vertical libre</strong>.</p><p>La trayectoria del proyectil es <strong>parabólica</strong>, producto de la combinación de un movimiento horizontal uniforme y un movimiento vertical uniformemente acelerado.</p>
+</div>
+<div class="hunter-sim" id="sim-mono-cazador">
+<h4>Simulador nativo: el mono y el cazador</h4>
+<p>Este simulador reemplaza el modelo de GeoGebra. Permite modificar la <strong>altura inicial del mono</strong> y el <strong>ángulo de disparo</strong>. El punto horizontal del mono se calcula para que la línea de mira inicial coincida con el ángulo elegido, es decir, el cazador apunta directamente al mono antes de que este se suelte.</p>
+<div class="latex-panel">
+\[
+ x_p(t)=v_0\cos(\theta)\,t
+\]
+\[
+ y_p(t)=v_0\sin(\theta)\,t-\frac{1}{2}gt^2
+\]
+\[
+ x_m=\frac{y_{m0}}{\tan(\theta)},\qquad y_m(t)=y_{m0}-\frac{1}{2}gt^2
+\]
+\[
+ t_{impacto}=\frac{x_m}{v_0\cos(\theta)}=\frac{y_{m0}}{v_0\sin(\theta)}
+\]
+    <div class="caption">La caída gravitatoria \(\frac{1}{2}gt^2\) afecta por igual al proyectil y al mono. Por eso, si el disparo apunta inicialmente al mono, el proyectil lo alcanza aunque ambos caigan.</div>
+</div>
+<div class="sim-controls">
+<label>Altura inicial del mono \(y_{m0}\) (m)
+      <input id="hunterH" max="80" min="5" oninput="simMonoCazador(false)" step="1" type="range" value="20"/>
+<span id="hunterHLabel">20 m</span>
+</label>
+<label>Ángulo de disparo \(\theta\) (°)
+      <input id="hunterAngle" max="65" min="5" oninput="simMonoCazador(false)" step="0.05" type="range" value="22.35"/>
+<span id="hunterAngleLabel">22.35°</span>
+</label>
+<label>Rapidez inicial \(v_0\) (m/s)
+      <input id="hunterV0" max="120" min="5" onchange="simMonoCazador(false)" step="1" type="number" value="60"/>
+</label>
+<label>Gravedad \(g\) (m/s²)
+      <input id="hunterG" max="20" min="1" onchange="simMonoCazador(false)" step="0.01" type="number" value="9.81"/>
+</label>
+</div>
+<div class="sim-buttons">
+<button onclick="hunterReset()" type="button">Restaurar</button>
+<button onclick="hunterFire()" type="button">Disparar</button>
+</div>
+<div class="sim-output" id="hunterOut"></div>
+<div class="hunter-layout">
+<div class="hunter-canvas-wrap"><canvas height="560" id="hunterCanvas" width="1280"></canvas></div>
+<div aria-label="Tabla comparativa de posiciones del proyectil y del mono" class="hunter-table-wrap" id="hunterTableWrap"></div>
+</div>
+<div class="note"><strong>Lectura de la tabla.</strong> Las columnas “caída por gravedad” muestran el mismo valor para el proyectil y para el mono en cada instante: \(\Delta y_g=\frac{1}{2}gt^2\). Esa igualdad es la clave del experimento. La diferencia vertical \(y_p-y_m\) se mantiene coherente con la línea de mira y se anula en el instante de impacto ideal.</div>
+</div>
+<div class="media-card video-card">
+<h4>El mono y el cazador</h4>
+<div class="video-wrap"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/HyOpiXGdVno" title="El mono y el cazador"></iframe></div>
+<p><a href="https://www.youtube.com/watch?v=HyOpiXGdVno" rel="noopener" target="_blank">Abrir video en YouTube</a></p>
+</div>
+</section><section class="page embedded-galileo-page" id="pagina-4">
+<h3>13.4 Velocidad Relativa</h3>
+<div class="h5p-text">
+<h4><span style="color:hsl(210,75%,60%);"><strong>Velocidad relativa: una idea revolucionaria de Galileo</strong></span></h4><p>Galileo no solo fue pionero en estudiar la caída de los cuerpos, sino también en <strong>cuestionar la noción del reposo absoluto</strong>. En sus escritos, especialmente en los <em>Diálogos sobre los dos máximos sistemas del mundo</em>, introduce una idea clave:</p><p><em>"En el interior de un barco en movimiento uniforme, todo sucede igual que si el barco estuviera en reposo."</em></p><p>Este pensamiento dio origen al concepto moderno de <strong>velocidad relativa</strong>, que sostiene que:</p><p>La velocidad de un objeto <strong>depende del sistema de referencia</strong> desde el cual se la mide.</p><h4><strong>Definición formal (compatible con Física universitaria)</strong></h4><p>Si un cuerpo B se mueve con velocidad <em><strong>v</strong></em><span style="font-size:0.5625em;">B/A</span> respecto de un sistema A, y A se mueve respecto de un sistema O con velocidad  <em><strong>v</strong></em><span style="font-size:0.5625em;">A/O</span> , entonces:</p><div class="latex-panel">
+\[\vec v_{B/O}=\vec v_{B/A}+\vec v_{A/O}\]
+<div class="caption">Aditividad de velocidades en la relatividad galileana: velocidad de B respecto de O = velocidad de B respecto de A + velocidad de A respecto de O.</div>
+</div><p>Donde:</p><ul><li><em><strong>v</strong></em><span style="font-size:0.5625em;">B/O</span> ​ es la velocidad del cuerpo B respecto al sistema de referencia O,</li><li><em><strong>v</strong></em><span style="font-size:0.5625em;">B/A</span>   es la velocidad de B respecto al sistema A (por ejemplo, un pasajero dentro del tren),</li><li><em><strong>v</strong></em><span style="font-size:0.5625em;">A/O</span> ​ es la velocidad del sistema A respecto de O (por ejemplo, el tren respecto del suelo).</li></ul><p>Este principio se conoce como <strong>aditividad de velocidades</strong> y forma parte de la <strong>relatividad galileana</strong>, que sostiene que <strong>las leyes de la mecánica son las mismas en todos los sistemas inerciales</strong>.</p><p>Esto se llama <strong>aditividad de velocidades</strong> y es válida dentro de la <strong>mecánica clásica (newtoniana)</strong>.</p><h4><span style="color:hsl(210,75%,60%);"><strong>Ejemplo galileano clásico</strong></span></h4><p>Supongamos que un pasajero (B) camina hacia la proa de un barco (A) que se mueve con velocidad constante respecto al mar (O). Para un observador en la orilla:</p><ul><li>La velocidad del pasajero es la <strong>suma</strong> de su velocidad respecto al barco <strong>más</strong> la velocidad del barco respecto al mar.</li></ul><p> </p>
+</div><div class="resource-card link-card">
+<div class="resource-type">Vínculo externo</div>
+<a href="https://www.geogebra.org/m/et4hbdkv" rel="noopener" target="_blank">Modelo en GeoGebra</a>
+<p class="url">https://www.geogebra.org/m/et4hbdkv</p>
+</div><div class="resource-card link-card">
+<div class="resource-type">Vínculo externo</div>
+<a href="https://www.youtube.com/shorts/Kc6a7aB86g4" rel="noopener" target="_blank">Velocidad relativa por Javier Santaolalla</a>
+<p class="url">https://www.youtube.com/shorts/Kc6a7aB86g4</p>
+</div>
+</section><div class="box app"><strong>Versión completa independiente.</strong> También se puede abrir esta sección como página anexa en una pestaña nueva: <a class="btn" href="../anexos/galileo/" rel="noopener" target="_blank">Abrir anexo Galileo</a></div></section>
+<section class="paper" id="dosd">
+<h2>14. Movimiento en dos dimensiones e independencia de los movimientos</h2>
+<p>Un movimiento bidimensional se analiza separando el movimiento en dos ejes perpendiculares. El principio de independencia indica que el movimiento en \(x\) y el movimiento en \(y\) pueden estudiarse por separado, siempre que las componentes de la aceleración estén definidas. Ambos movimientos comparten el mismo tiempo \(t\).</p>
+<div class="eq">\[ \vec r(t)=x(t)\hat i+y(t)\hat j \]</div>
+<div class="eq">\[ \vec v(t)=v_x(t)\hat i+v_y(t)\hat j=\frac{dx}{dt}\hat i+\frac{dy}{dt}\hat j \]</div>
+<div class="eq">\[ \vec a(t)=a_x(t)\hat i+a_y(t)\hat j=\frac{d^2x}{dt^2}\hat i+\frac{d^2y}{dt^2}\hat j \]</div>
+<h3>14.1 Aceleración constante por componentes</h3>
+<div class="eq">\[ x=x_0+v_{0x}t+\frac{1}{2}a_xt^2 \]</div>
+<div class="eq">\[ y=y_0+v_{0y}t+\frac{1}{2}a_yt^2 \]</div>
+<div class="eq">\[ v_x=v_{0x}+a_xt,\qquad v_y=v_{0y}+a_yt \]</div>
+<h3>14.2 Producto que sale horizontalmente de una cinta</h3>
+<p>Cuando un producto abandona una cinta horizontal, conserva inicialmente la velocidad horizontal de la cinta. Si se desprecia la resistencia del aire, no hay aceleración horizontal, pero sí aceleración vertical por gravedad.</p>
+<div class="eq">\[ a_x=0,\qquad a_y=-g \]</div>
+<div class="eq">\[ x=x_0+v_{0x}t,\qquad y=y_0+v_{0y}t-\frac{1}{2}gt^2 \]</div>
+<div class="eq">\[ v_x=v_{0x},\qquad v_y=v_{0y}-gt \]</div>
+<p>Si el producto sale horizontalmente, \(v_{0y}=0\). El tiempo de caída desde una altura \(h\) se obtiene de:</p>
+<div class="eq">\[ 0=h-\frac{1}{2}gt^2 \quad \Rightarrow \quad t=\sqrt{\frac{2h}{g}} \]</div>
+<p>El alcance horizontal es:</p>
+<div class="eq">\[ R=v_{0x}t=v_{0x}\sqrt{\frac{2h}{g}} \]</div>
+<div class="box app"><strong>Aplicación industrial.</strong> Si aumenta la velocidad de la cinta, el tiempo de caída no cambia, pero el alcance horizontal aumenta. Por eso, una bandeja correctamente ubicada a baja velocidad puede quedar mal posicionada al aumentar la producción.</div>
+<h3>14.3 Lectura vectorial de la trayectoria</h3>
+<p>La trayectoria puede escribirse eliminando el tiempo. Para salida horizontal desde \(y=h\):</p>
+<div class="eq">\[ x=v_{0x}t \Rightarrow t=\frac{x}{v_{0x}} \]</div>
+<div class="eq">\[ y=h-\frac{1}{2}g\left(\frac{x}{v_{0x}}\right)^2 \] <small>La trayectoria es parabólica.</small></div>
+</section>
+<section class="paper" id="circular">
+<h2>15. Movimiento circular aplicado a sistemas rotativos</h2>
+<p>El movimiento circular aparece en mezcladores, centrífugas, tambores rotativos, bombas, agitadores y equipos de clasificación. Aunque el módulo de la velocidad pueda ser constante, la dirección cambia en todo instante; por lo tanto, este tipo de movimiento permite distinguir entre desplazamiento angular, velocidad angular, aceleración angular, aceleración tangencial, aceleración centrípeta y aceleración neta.</p>
+
+<h3>15.1 Radián, arco y perímetro del círculo</h3>
+<p>El <strong>radián</strong> es la unidad natural de medida angular. Un ángulo de <strong>1 radián</strong> es aquel que intercepta sobre la circunferencia un arco de longitud igual al radio. Por eso, el ángulo en radianes se define como la razón entre la longitud del arco y el radio.</p>
+<div class="eq">\[ \theta=\frac{s}{r} \] <small>Definición de ángulo en radianes: \(s\) es la longitud del arco y \(r\) el radio.</small></div>
+
+<div class="diagram-grid">
+  <div class="diagram circular-diagram">
+    <h4>Radián como relación entre arco y radio</h4>
+    <svg viewBox="0 0 340 260" role="img" aria-label="Definición geométrica del radián">
+      <rect width="340" height="260" fill="#ffffff"/>
+      <circle cx="150" cy="118" r="78" fill="#eef6ff" stroke="#2563eb" stroke-width="3"/>
+      <line x1="150" y1="118" x2="228" y2="118" stroke="#1e3a8a" stroke-width="4"/>
+      <line x1="150" y1="118" x2="202" y2="60" stroke="#1e3a8a" stroke-width="4"/>
+      <path d="M 228 118 A 78 78 0 0 0 202 60" fill="none" stroke="#ef4444" stroke-width="4"/>
+      <path d="M 188 118 A 38 38 0 0 0 175 91" fill="none" stroke="#16a34a" stroke-width="3"/>
+      <text x="232" y="108" font-size="14" fill="#0f172a">r</text>
+      <text x="205" y="52" font-size="14" fill="#0f172a">r</text>
+      <text x="215" y="87" font-size="14" fill="#b91c1c">s</text>
+      <text x="176" y="98" font-size="14" fill="#166534">θ</text>
+      <text x="18" y="222" font-size="14" fill="#334155">Si el arco recorrido cumple s = r,</text>
+      <text x="18" y="241" font-size="14" fill="#334155">entonces el ángulo mide θ = 1 rad.</text>
+    </svg>
+  </div>
+  <div class="diagram circular-diagram">
+    <h4>Vínculo con el perímetro del círculo</h4>
+    <div class="perimeter-box" aria-label="Relación entre fracciones de vuelta, radianes, grados y longitud de arco">
+      <div class="perimeter-inner">
+        <span class="line">1 vuelta completa es θ = 2π rad = 360°</span>
+        <span class="line">1/2 vuelta θ = π rad = 180°</span>
+        <span class="line">1/4 vuelta θ = π/2 rad = 90°</span>
+        <span class="line">1/6 vuelta θ = π/3 rad = 60°</span>
+        <div class="spacer"></div>
+        <span class="line formula">Perímetro: S = θ r</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box key"><strong>Idea clave.</strong> El radián no es una longitud ni una distancia adicional: es una manera de medir cuánto arco se recorrió en comparación con el radio. Por eso aparece naturalmente en todo estudio de movimiento circular.</div>
+<table class="term-table">
+<tr><th>Fracción de vuelta</th><th>Ángulo en radianes</th><th>Ángulo en grados</th><th>Arco recorrido</th></tr>
+<tr><td>Vuelta completa</td><td>\(2\pi\)</td><td>\(360^\circ\)</td><td>\(2\pi r\)</td></tr>
+<tr><td>Media vuelta</td><td>\(\pi\)</td><td>\(180^\circ\)</td><td>\(\pi r\)</td></tr>
+<tr><td>Cuarto de vuelta</td><td>\(\pi/2\)</td><td>\(90^\circ\)</td><td>\(\frac{\pi r}{2}\)</td></tr>
+<tr><td>Sexto de vuelta</td><td>\(\pi/3\)</td><td>\(60^\circ\)</td><td>\(\frac{\pi r}{3}\)</td></tr>
+</table>
+
+<h3>15.2 Desplazamiento angular, velocidad angular, período y frecuencia</h3>
+<p>Cuando un punto material gira alrededor de un eje, su posición angular cambia con el tiempo. Esa variación se describe mediante el desplazamiento angular \(\theta\), la velocidad angular \(\omega\), el período \(T\) y la frecuencia \(f\).</p>
+<div class="eq">\[ \omega=\frac{d\theta}{dt} \] <small>Velocidad angular instantánea: mide cuántos radianes se recorren por unidad de tiempo.</small></div>
+<div class="eq">\[ T=\frac{1}{f},\qquad \omega=2\pi f=\frac{2\pi}{T} \] <small>Relación entre período, frecuencia y velocidad angular.</small></div>
+<div class="eq">\[ \omega=\text{rpm}\,\frac{2\pi}{60} \] <small>Conversión de revoluciones por minuto a radianes por segundo.</small></div>
+<div class="eq">\[ s=r\theta,\qquad v_t=r\omega \] <small>La rapidez tangencial aumenta con el radio, incluso si \(\omega\) permanece constante.</small></div>
+
+<div class="media-card circle-video-card">
+  <h4>Video: velocidad tangencial en un movimiento circular</h4>
+  <video controls preload="metadata">
+    <source src="assets/videos/velocidad_tangencial.mp4" type="video/mp4">
+    Tu navegador no puede reproducir este video.
+  </video>
+  <div class="media-caption">El video reemplaza el esquema estático del punto material sobre la circunferencia. Permite observar que la velocidad tangencial es siempre perpendicular al radio y cambia de dirección a medida que el punto avanza sobre la trayectoria circular. Esa variación de dirección es la razón por la cual existe aceleración centrípeta aun cuando la rapidez sea constante.</div>
+</div>
+
+<h3>15.3 Aceleración angular y aceleración tangencial</h3>
+<p>Si la velocidad angular cambia con el tiempo, aparece la <strong>aceleración angular</strong>. Desde una perspectiva intuitiva, la aceleración angular indica qué tan rápido aumenta o disminuye la rapidez de giro de un sistema rotativo.</p>
+<div class="eq">\[ \alpha=\frac{d\omega}{dt} \] <small>Aceleración angular instantánea.</small></div>
+<p>Cuando un punto de la circunferencia se mueve con aceleración angular \(\alpha\), aparece también una <strong>aceleración tangencial</strong> \(a_t\), que es la responsable del cambio en el módulo de la velocidad tangencial.</p>
+<div class="eq">\[ a_t=r\alpha \] <small>La aceleración tangencial es paralela a la velocidad tangencial; aumenta o disminuye su módulo.</small></div>
+<div class="box app"><strong>Interpretación intuitiva.</strong> Si un mezclador acelera al arrancar, las paletas experimentan una aceleración tangencial porque cada punto de la periferia va “ganando velocidad”. Si el motor frena, la aceleración tangencial apunta en sentido contrario al movimiento.</div>
+
+<h3>15.4 Aceleración centrípeta, tangencial y aceleración neta</h3>
+<p>Aun cuando el sistema gire a rapidez angular constante, la dirección de la velocidad tangencial cambia continuamente. Ese cambio de dirección requiere una <strong>aceleración centrípeta</strong>, siempre dirigida hacia el centro de la trayectoria.</p>
+<div class="eq">\[ a_c=\frac{v_t^2}{r}=r\omega^2 \] <small>La aceleración centrípeta cambia la dirección de \(\vec v_t\), no su módulo.</small></div>
+<p>En un movimiento circular no uniforme pueden coexistir ambas contribuciones: la aceleración tangencial \(a_t\), que cambia el valor de la rapidez, y la centrípeta \(a_c\), que cambia la dirección. La aceleración total o neta se obtiene por composición vectorial:</p>
+<div class="eq">\[ \vec a=\vec a_t+\vec a_c \qquad \Rightarrow \qquad a=\sqrt{a_t^2+a_c^2} \] <small>Como \(a_t\) y \(a_c\) son perpendiculares, el módulo de la aceleración neta se calcula mediante Pitágoras.</small></div>
+
+<div class="wide-figure">
+  <h4>Aceleración neta en movimiento circular no uniforme</h4>
+  <img class="circle-img" src="assets/images/aceleracion_neta_circular.png" alt="Aceleración tangencial, centrípeta y neta en movimiento circular">
+  <div class="media-caption">
+    <p>En la imagen se representa un punto que se mueve sobre una trayectoria circular. Los colores permiten distinguir las componentes de la aceleración:</p>
+    <ul class="media-list">
+      <li><strong style="color:#ff00cc">Magenta:</strong> aceleración tangencial <span class="sym-inline">a<sub>t</sub></span>. Es tangente a la trayectoria y cambia el módulo de la velocidad.</li>
+      <li><strong style="color:#ff3333">Rojo:</strong> aceleración centrípeta <span class="sym-inline">a<sub>c</sub></span>. Apunta hacia el centro y cambia la dirección de la velocidad.</li>
+      <li><strong style="color:#2f55ff">Azul:</strong> aceleración neta <span class="sym-inline">a</span>. Es la resultante vectorial de <span class="sym-inline">a<sub>t</sub></span> y <span class="sym-inline">a<sub>c</sub></span>.</li>
+      <li><strong style="color:#2f55ff">Líneas punteadas azules:</strong> indican el radio <span class="sym-inline">R</span> y la circunferencia de referencia.</li>
+    </ul>
+  </div>
+</div>
+
+<h4>Resumen de magnitudes</h4>
+<table class="term-table summary-table">
+  <tr><th>Magnitud</th><th>Símbolo</th><th>Unidad SI</th><th>Qué describe</th></tr>
+  <tr><td>Ángulo</td><td><span class="sym">θ</span></td><td>rad</td><td>Posición angular o abertura del arco respecto del radio.</td></tr>
+  <tr><td>Velocidad angular</td><td><span class="sym">ω</span></td><td>rad/s</td><td>Ritmo de cambio del ángulo.</td></tr>
+  <tr><td>Aceleración angular</td><td><span class="sym">α</span></td><td>rad/s²</td><td>Ritmo de cambio de la velocidad angular.</td></tr>
+  <tr><td>Velocidad tangencial</td><td><span class="sym">v<sub>t</sub></span></td><td>m/s</td><td>Rapidez lineal sobre la circunferencia.</td></tr>
+  <tr><td>Aceleración tangencial</td><td><span class="sym">a<sub>t</sub></span></td><td>m/s²</td><td>Cambio del módulo de la velocidad tangencial.</td></tr>
+  <tr><td>Aceleración centrípeta</td><td><span class="sym">a<sub>c</sub></span></td><td>m/s²</td><td>Cambio de dirección de la velocidad tangencial.</td></tr>
+  <tr><td>Aceleración neta</td><td><span class="sym">a</span></td><td>m/s²</td><td>Resultado vectorial de las componentes tangencial y centrípeta.</td></tr>
+</table>
+
+<div class="box app"><strong>Aplicación industrial.</strong> En una centrífuga, aumentar las rpm incrementa \(\omega\) y, en consecuencia, la aceleración centrípeta. En un arranque o frenado, además, aparece aceleración tangencial. Por eso el análisis completo del equipo requiere considerar simultáneamente \(\omega\), \(\alpha\), \(a_t\), \(a_c\) y la aceleración neta.</div>
+</section>
+<section class="paper" id="aplicaciones">
+<h2>16. Aplicaciones industriales integradas</h2>
+<table>
+<tr><th>Equipo</th><th>Variable medida</th><th>Variable controlada</th><th>Riesgo si se ajusta mal</th></tr>
+<tr><td>Cinta transportadora</td><td>Posición, velocidad lineal</td><td>Rapidez de avance</td><td>Desincronización, acumulación, caída incorrecta.</td></tr>
+<tr><td>Llenadora</td><td>Tiempo de llegada, posición del envase</td><td>Tiempo de apertura, caudal, avance</td><td>Subllenado, sobrellenado, derrame.</td></tr>
+<tr><td>Túnel de enfriamiento</td><td>Tiempo de residencia</td><td>Velocidad de cinta</td><td>Producto insuficientemente enfriado o pérdida de productividad.</td></tr>
+<tr><td>Mezclador</td><td>rpm, tiempo de mezcla</td><td>Frecuencia de giro</td><td>Mezcla no homogénea, sobreprocesamiento.</td></tr>
+<tr><td>Centrífuga</td><td>rpm, vibración</td><td>Velocidad angular</td><td>Separación deficiente, falla mecánica, riesgo operativo.</td></tr>
+</table>
+</section>
+<section class="paper" id="ejemplos">
+<h2>17. Ejemplos resueltos paso a paso</h2>
+<div class="example">
+<h3>Ejemplo 1. Cinta transportadora en MRU</h3>
+<p><strong>Problema.</strong> Una cinta transporta envases desde un sensor hasta una llenadora ubicada a \(1,80\,\mathrm{m}\). La rapidez de la cinta es \(0,45\,\mathrm{m/s}\). Calcular el tiempo de llegada.</p>
+<div class="step"><strong>1. Sistema de referencia.</strong> Eje \(x\) positivo en el sentido de avance; sensor en \(x_0=0\), llenadora en \(x=1,80\,\mathrm{m}\).</div>
+<div class="step"><strong>2. Tipo de movimiento.</strong> MRU: \(a_x=0\), \(v_x=0,45\,\mathrm{m/s}\).</div>
+<div class="eq">\[ x=x_0+v_xt \Rightarrow t=\frac{x-x_0}{v_x}=\frac{1,80}{0,45}=4,0\,\mathrm{s} \]</div>
+<p><strong>Interpretación industrial.</strong> La válvula de llenado debe prepararse aproximadamente 4 s después de que el envase activa el sensor, descontando retardos de actuadores y comunicación.</p>
+</div>
+<div class="example">
+<h3>Ejemplo 2. Arranque de una llenadora con MRUV</h3>
+<p><strong>Problema.</strong> Una cinta parte del reposo y alcanza \(0,60\,\mathrm{m/s}\) en \(3,0\,\mathrm{s}\), con aceleración constante. Calcular la aceleración y la distancia recorrida durante el arranque.</p>
+<div class="step"><strong>1. Datos.</strong> \(v_{0x}=0\), \(v_x=0,60\,\mathrm{m/s}\), \(t=3,0\,\mathrm{s}\).</div>
+<div class="eq">\[ a_x=\frac{v_x-v_{0x}}{t}=\frac{0,60-0}{3,0}=0,20\,\mathrm{m/s^2} \]</div>
+<div class="eq">\[ \Delta x=v_{0x}t+\frac{1}{2}a_xt^2=0+\frac{1}{2}(0,20)(3,0)^2=0,90\,\mathrm{m} \]</div>
+<p><strong>Interpretación industrial.</strong> Durante el arranque, el envase no recorre lo mismo que si la cinta hubiera estado desde el inicio a \(0,60\,\mathrm{m/s}\). Ignorar la etapa transitoria puede producir errores de sincronización.</p>
+</div>
+<div class="example">
+<h3>Ejemplo 3. Producto que sale de una cinta y cae en una bandeja</h3>
+<p><strong>Problema.</strong> Un producto sale horizontalmente de una cinta a \(0,80\,\mathrm{m/s}\) desde una altura de \(0,90\,\mathrm{m}\). ¿A qué distancia horizontal debe colocarse el centro de la bandeja?</p>
+<div class="step"><strong>1. Sistema de referencia.</strong> Origen en el borde de la cinta. Eje \(x\) horizontal hacia adelante. Eje \(y\) vertical hacia arriba. Suelo/bandeja en \(y=0\). Posición inicial \(y_0=0,90\,\mathrm{m}\).</div>
+<div class="step"><strong>2. Variables vectoriales.</strong> \(\vec v_0=0,80\hat i+0\hat j\,\mathrm{m/s}\), \(\vec a=0\hat i-9,81\hat j\,\mathrm{m/s^2}\).</div>
+<div class="eq">\[ 0=0,90-\frac{1}{2}(9,81)t^2 \Rightarrow t=\sqrt{\frac{2(0,90)}{9,81}}=0,428\,\mathrm{s} \]</div>
+<div class="eq">\[ R=v_{0x}t=(0,80)(0,428)=0,342\,\mathrm{m} \]</div>
+<p><strong>Respuesta.</strong> La bandeja debe ubicarse aproximadamente a \(0,34\,\mathrm{m}\) del borde, sin considerar rebotes ni resistencia del aire.</p>
+<p><strong>Interpretación industrial.</strong> Si la velocidad de cinta aumenta a \(1,20\,\mathrm{m/s}\), el tiempo de caída sigue siendo \(0,428\,\mathrm{s}\), pero el alcance aumenta a \(0,51\,\mathrm{m}\).</p>
+</div>
+<div class="example">
+<h3>Ejemplo 4. Gota de dosificador sobre cinta móvil</h3>
+<p><strong>Problema.</strong> Una gota de salsa sale de una boquilla ubicada \(0,12\,\mathrm{m}\) sobre un envase que avanza con una cinta a \(0,30\,\mathrm{m/s}\). Si la gota parte sin velocidad vertical apreciable y sin velocidad horizontal respecto de la boquilla, ¿cuánto avanza el envase durante la caída?</p>
+<div class="eq">\[ t=\sqrt{\frac{2h}{g}}=\sqrt{\frac{2(0,12)}{9,81}}=0,156\,\mathrm{s} \]</div>
+<div class="eq">\[ \Delta x_{envase}=v_{cinta}t=(0,30)(0,156)=0,0468\,\mathrm{m} \]</div>
+<p><strong>Respuesta.</strong> El envase avanza aproximadamente \(4,7\,\mathrm{cm}\) mientras la gota cae. La boquilla o el disparo deben compensar ese avance.</p>
+</div>
+<div class="example">
+<h3>Ejemplo 5. Centrífuga</h3>
+<p><strong>Problema.</strong> Una centrífuga trabaja a \(1200\,\mathrm{rpm}\) con radio efectivo \(0,15\,\mathrm{m}\). Calcular \(f\), \(T\), \(\omega\), \(v_t\), \(a_c\) y \(a_c/g\).</p>
+<div class="eq">\[ f=\frac{1200}{60}=20\,\mathrm{Hz},\qquad T=\frac{1}{20}=0,050\,\mathrm{s} \]</div>
+<div class="eq">\[ \omega=2\pi f=2\pi(20)=125,7\,\mathrm{rad/s} \]</div>
+<div class="eq">\[ v_t=r\omega=(0,15)(125,7)=18,9\,\mathrm{m/s} \]</div>
+<div class="eq">\[ a_c=r\omega^2=(0,15)(125,7)^2=2370\,\mathrm{m/s^2} \]</div>
+<div class="eq">\[ \frac{a_c}{g}=\frac{2370}{9,81}\approx 242 \]</div>
+<p><strong>Interpretación industrial.</strong> El producto experimenta una aceleración aproximada de \(242g\). Pequeños aumentos de rpm producen grandes aumentos de aceleración.</p>
+</div>
+</section>
+<section class="paper" id="simuladores">
+<h2>18. Simuladores interactivos</h2>
+<div class="box app"><strong>Antes de usar los simuladores.</strong> Revisar la <a href="#infografias">Infografía 2</a> ayuda a identificar qué variable se modifica, qué variable se observa y qué interpretación física corresponde.</div>
+
+<p>Estos simuladores permiten experimentar con los modelos cinemáticos principales de la unidad. La intención no es solamente obtener un número, sino observar cómo cambia el comportamiento del sistema cuando se modifican variables de proceso.</p>
+<div class="box key"><strong>Modo de trabajo sugerido.</strong> Antes de presionar “Calcular” o “Simular”, formule una predicción: ¿qué variable aumentará?, ¿cuál disminuirá?, ¿la gráfica será una recta, una curva o una circunferencia?, ¿qué consecuencia tendría ese cambio en una línea de alimentos?</div>
+
+<div class="sim">
+<h3>Simulador 1: Cinta transportadora</h3>
+<div class="sim-info">
+  <p><strong>Qué hace.</strong> Modela el avance de un envase o producto sobre una cinta con movimiento rectilíneo uniforme.</p>
+  <ul>
+    <li><strong>Objetivo:</strong> estimar tiempo de llegada entre dos estaciones de proceso.</li>
+    <li><strong>Variables a modificar:</strong> velocidad de cinta, distancia entre estaciones y tiempo mostrado en la gráfica.</li>
+    <li><strong>Qué observar:</strong> la pendiente de la gráfica \(x(t)\), el tiempo de llegada y el efecto de aumentar la velocidad sobre el tiempo de residencia.</li>
+  </ul>
+</div>
+<div class="controls"><label>Velocidad de cinta (m/s)<input id="s1v" step="0.05" type="number" value="0.45"/></label><label>Distancia entre estaciones (m)<input id="s1d" step="0.1" type="number" value="1.8"/></label><label>Tiempo mostrado (s)<input id="s1t" step="0.5" type="number" value="6"/></label></div>
+<button onclick="simCinta()">Calcular</button><div class="out" id="s1out"></div><canvas height="260" id="c1" width="900"></canvas>
+</div>
+
+<div class="sim">
+<h3>Simulador 2: Llenadora / MRUV</h3>
+<div class="sim-info">
+  <p><strong>Qué hace.</strong> Representa una etapa de arranque o frenado con aceleración constante, típica de una línea de llenado o dosificación.</p>
+  <ul>
+    <li><strong>Objetivo:</strong> calcular aceleración y distancia recorrida durante una etapa transitoria.</li>
+    <li><strong>Variables a modificar:</strong> velocidad inicial, velocidad final y tiempo de aceleración o frenado.</li>
+    <li><strong>Qué observar:</strong> la pendiente de la gráfica \(v(t)\), la distancia transitoria y la advertencia de aceleración alta.</li>
+  </ul>
+</div>
+<div class="controls"><label>Velocidad inicial (m/s)<input id="s2v0" step="0.05" type="number" value="0"/></label><label>Velocidad final (m/s)<input id="s2vf" step="0.05" type="number" value="0.6"/></label><label>Tiempo (s)<input id="s2t" step="0.5" type="number" value="3"/></label></div>
+<button onclick="simMRUV()">Calcular</button><div class="out" id="s2out"></div><canvas height="260" id="c2" width="900"></canvas>
+</div>
+
+<div class="sim">
+<h3>Simulador 3: Caída desde cinta</h3>
+<div class="sim-info">
+  <p><strong>Qué hace.</strong> Simula un producto que abandona una cinta transportadora y cae hacia una bandeja, tolva o envase.</p>
+  <ul>
+    <li><strong>Objetivo:</strong> aplicar la independencia de movimientos entre el eje horizontal y el eje vertical.</li>
+    <li><strong>Variables a modificar:</strong> altura de caída, velocidad horizontal, velocidad vertical inicial y gravedad.</li>
+    <li><strong>Qué observar:</strong> el tiempo de caída, el alcance horizontal y cómo cambia la trayectoria cuando aumenta la velocidad de la cinta.</li>
+  </ul>
+</div>
+<div class="controls"><label>Altura (m)<input id="s3h" step="0.05" type="number" value="0.9"/></label><label>Velocidad horizontal (m/s)<input id="s3vx" step="0.05" type="number" value="0.8"/></label><label>Velocidad vertical inicial (m/s)<input id="s3vy" step="0.05" type="number" value="0"/></label><label>Gravedad (m/s²)<input id="s3g" step="0.01" type="number" value="9.81"/></label></div>
+<button onclick="sim2D()">Calcular</button><div class="out" id="s3out"></div><canvas height="260" id="c3" width="900"></canvas>
+</div>
+
+<div class="sim">
+<h3>Simulador 4: Centrífuga / mezclador</h3>
+<div class="sim-info">
+  <p><strong>Qué hace.</strong> Calcula magnitudes circulares de un punto ubicado a cierta distancia del eje de giro.</p>
+  <ul>
+    <li><strong>Objetivo:</strong> relacionar radio, rpm, frecuencia, período, velocidad tangencial y aceleración centrípeta.</li>
+    <li><strong>Variables a modificar:</strong> radio del equipo y rpm.</li>
+    <li><strong>Qué observar:</strong> cómo la aceleración centrípeta crece fuertemente al aumentar las rpm y por qué esto importa en seguridad mecánica.</li>
+  </ul>
+</div>
+<div class="controls"><label>Radio (m)<input id="s4r" step="0.01" type="number" value="0.15"/></label><label>rpm<input id="s4rpm" step="50" type="number" value="1200"/></label></div>
+<button onclick="simCirc()">Calcular</button><div class="out" id="s4out"></div><canvas height="260" id="c4" width="900"></canvas>
+</div>
+
+<div class="sim">
+<h3>Simulador 5: Dos poleas unidas por una correa</h3>
+<div class="sim-info">
+  <p><strong>Qué hace.</strong> Modela dos poleas conectadas por una correa sin cruce. La polea motriz transmite la velocidad lineal de la correa a la polea conducida.</p>
+  <ul>
+    <li><strong>Objetivo:</strong> observar cómo cambia la velocidad angular de la polea conducida cuando los radios son distintos.</li>
+    <li><strong>Variables a modificar:</strong> radio de la polea motriz, radio de la polea conducida, rpm de mando y porcentaje de deslizamiento.</li>
+    <li><strong>Qué observar:</strong> si la polea conducida tiene menor radio, gira a mayor rpm; si tiene mayor radio, gira a menor rpm. La velocidad lineal de la correa es común.</li>
+  </ul>
+  <div class="sim-formula">
+    \[ v_{correa}=R_1\omega_1=R_2\omega_2 \qquad \Rightarrow \qquad \omega_2=\frac{R_1}{R_2}\omega_1 \]
+  </div>
+  <p class="pulley-note">En una planta alimentaria este modelo aparece en transmisiones de cintas, rodillos, dosificadores, sistemas de arrastre y mecanismos de sincronización.</p>
+</div>
+<div class="controls">
+  <label>Radio polea motriz R₁ (m)<input id="s5r1" step="0.01" type="number" value="0.12"/></label>
+  <label>Radio polea conducida R₂ (m)<input id="s5r2" step="0.01" type="number" value="0.24"/></label>
+  <label>rpm motriz<input id="s5rpm1" step="10" type="number" value="600"/></label>
+  <label>Deslizamiento (%)<input id="s5slip" step="1" type="number" value="0"/></label>
+</div>
+<button onclick="simPoleas(true)">Simular</button><button class="secondary" onclick="stopPoleas()">Detener</button><div class="out" id="s5out"></div><canvas height="300" id="c5" width="900"></canvas>
+</div>
+</section>
+<section class="paper" id="errores">
+<h2>19. Errores frecuentes</h2>
+<div class="grid">
+<div class="card"><h4>Distancia vs desplazamiento</h4><p>La distancia suma el camino; el desplazamiento mira solo inicio y fin.</p></div>
+<div class="card"><h4>Rapidez vs velocidad</h4><p>La rapidez no tiene dirección; la velocidad sí.</p></div>
+<div class="card"><h4>Signo de \(g\)</h4><p>\(g\) es módulo. El signo depende del eje.</p></div>
+<div class="card"><h4>MRU vs MRUV</h4><p>No usar \(x=x_0+vt\) cuando hay aceleración.</p></div>
+<div class="card"><h4>Movimiento circular</h4><p>Puede haber rapidez constante y aceleración distinta de cero.</p></div>
+<div class="card"><h4>Independencia de movimientos</h4><p>La caída vertical no cambia \(v_x\) si \(a_x=0\).</p></div>
+</div>
+</section>
+<section class="paper" id="preguntas">
+<h2>20. Preguntas conceptuales</h2>
+<ol>
+<li>¿Qué variable física se controla al ajustar la velocidad de una cinta transportadora?</li>
+<li>¿Qué ocurre con el alcance horizontal de un producto si aumenta la velocidad de la cinta?</li>
+<li>¿Por qué una centrífuga tiene aceleración aunque mantenga rpm constantes?</li>
+<li>¿Qué diferencia hay entre decir que un envase recorrió 2 m y que su desplazamiento fue 2 m?</li>
+<li>¿Qué variable debería medir un sensor para sincronizar una llenadora con una cinta?</li>
+<li>¿Cómo afecta una aceleración brusca a envases parcialmente llenos?</li>
+<li>¿Por qué el tiempo es la variable común en el análisis de movimiento en \(x\) e \(y\)?</li>
+</ol>
+</section>
+<section class="paper" id="ejercicios">
+<h2>21. Ejercicios numéricos propuestos con respuestas orientativas</h2>
+<table>
+<tr><th>#</th><th>Enunciado</th><th>Respuesta orientativa</th></tr>
+<tr><td>1</td><td>Una cinta se mueve a \(0,50\,\mathrm{m/s}\). ¿Cuánto tarda un envase en recorrer \(3,0\,\mathrm{m}\)?</td><td>\(t=6,0\,\mathrm{s}\).</td></tr>
+<tr><td>2</td><td>Una línea acelera de 0 a \(0,80\,\mathrm{m/s}\) en 4 s. Calcular \(a\).</td><td>\(a=0,20\,\mathrm{m/s^2}\).</td></tr>
+<tr><td>3</td><td>Una llenadora frena de \(0,60\,\mathrm{m/s}\) a 0 en 2 s. Calcular distancia de frenado.</td><td>\(\Delta x=0,60\,\mathrm{m}\).</td></tr>
+<tr><td>4</td><td>Un producto cae desde \(0,80\,\mathrm{m}\). Calcular tiempo de caída.</td><td>\(t\approx0,40\,\mathrm{s}\).</td></tr>
+<tr><td>5</td><td>Sale de una cinta a \(1,0\,\mathrm{m/s}\) desde \(0,80\,\mathrm{m}\). Calcular alcance horizontal.</td><td>\(R\approx0,40\,\mathrm{m}\).</td></tr>
+<tr><td>6</td><td>Un mezclador gira a 300 rpm. Calcular frecuencia y período.</td><td>\(f=5\,\mathrm{Hz}\), \(T=0,20\,\mathrm{s}\).</td></tr>
+<tr><td>7</td><td>Para \(r=0,20\,\mathrm{m}\) y 600 rpm, calcular \(\omega\).</td><td>\(\omega\approx62,8\,\mathrm{rad/s}\).</td></tr>
+<tr><td>8</td><td>Con \(r=0,20\,\mathrm{m}\) y \(\omega=62,8\,\mathrm{rad/s}\), calcular \(a_c\).</td><td>\(a_c\approx789\,\mathrm{m/s^2}\approx80g\).</td></tr>
+</table>
+</section>
+<section class="paper" id="actividad">
+<h2>22. Actividad práctica o simulada</h2>
+<h3>Análisis cinemático de una línea de transporte y dosificación</h3>
+<p>El estudiante deberá analizar una línea simplificada con cinta, sensor, dosificador y bandeja de recepción. Deberá definir sistema de referencia, identificar escalares y vectores, estimar velocidad de cinta, calcular tiempos, analizar arranque o frenado, estudiar una caída desde una cinta e interpretar gráficas generadas por los simuladores.</p>
+<ol>
+<li>Definir origen, eje positivo y unidades.</li>
+<li>Identificar \(x\), \(\Delta x\), \(d\), \(v\), \(\vec v\), \(a\) y \(\vec a\).</li>
+<li>Calcular el tiempo desde sensor a dosificador.</li>
+<li>Determinar el avance de un envase durante el tiempo de caída de una gota.</li>
+<li>Proponer una corrección de sincronización.</li>
+<li>Relacionar resultados con calidad, seguridad y eficiencia.</li>
+</ol>
+</section>
+<section class="paper" id="integradora">
+<h2>23. Actividad integradora</h2>
+<p>Analizar una línea alimentaria compuesta por cinta transportadora, dosificador, zona de caída, túnel de enfriamiento y mezclador rotativo final. El informe debe incluir identificación de movimientos rectilíneos y circulares, distinción de escalares y vectores, cálculo de tiempos, velocidades y aceleraciones, interpretación de gráficas, detección de posibles errores operativos y justificación de decisiones técnicas.</p>
+</section>
+<section class="paper" id="resumen">
+<h2>24. Resumen final</h2>
+<ul>
+<li>El movimiento se define respecto de un sistema de referencia.</li>
+<li>Posición, desplazamiento, velocidad y aceleración son vectoriales.</li>
+<li>Distancia recorrida y rapidez son escalares.</li>
+<li>La velocidad instantánea es \(d\vec r/dt\); la aceleración instantánea es \(d\vec v/dt=d^2\vec r/dt^2\).</li>
+<li>En MRU, \(\vec v\) es constante y \(\vec a=0\).</li>
+<li>En MRUV, \(\vec a\) es constante.</li>
+<li>En caída libre, \(a_y=-g\) si \(y\) es positivo hacia arriba.</li>
+<li>En movimiento bidimensional, los ejes se analizan por componentes y comparten el mismo tiempo.</li>
+<li>En movimiento circular uniforme, la rapidez puede ser constante pero existe aceleración centrípeta.</li>
+</ul>
+</section>
+<section class="paper" id="glosario">
+<h2>25. Glosario breve</h2>
+<table>
+<tr><th>Término</th><th>Definición</th></tr>
+<tr><td>Cinemática</td><td>Descripción del movimiento sin estudiar sus causas.</td></tr>
+<tr><td>Sistema de referencia</td><td>Origen, ejes, sentido positivo y reloj usados para medir.</td></tr>
+<tr><td>Posición</td><td>Ubicación de un cuerpo respecto de un origen.</td></tr>
+<tr><td>Desplazamiento</td><td>Cambio vectorial de posición.</td></tr>
+<tr><td>Distancia recorrida</td><td>Longitud total de la trayectoria.</td></tr>
+<tr><td>Rapidez</td><td>Módulo de la velocidad.</td></tr>
+<tr><td>Velocidad</td><td>Derivada de la posición respecto del tiempo.</td></tr>
+<tr><td>Aceleración</td><td>Derivada de la velocidad respecto del tiempo.</td></tr>
+<tr><td>Período</td><td>Tiempo de una vuelta o ciclo.</td></tr>
+<tr><td>Frecuencia</td><td>Número de ciclos por segundo.</td></tr>
+<tr><td>Aceleración centrípeta</td><td>Aceleración dirigida hacia el centro en movimiento circular.</td></tr>
+</table>
+</section>
+</main>
+</div>
+<footer>Apunte didáctico para Física Aplicada a la Tecnología de Alimentos - Unidad 2: Cinemática.</footer>
+<script>
+function drawAxes(ctx,w,h,xlab,ylab){ctx.clearRect(0,0,w,h);ctx.strokeStyle='#cbd5e1';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(45,h-35);ctx.lineTo(w-20,h-35);ctx.moveTo(45,15);ctx.lineTo(45,h-35);ctx.stroke();ctx.fillStyle='#334155';ctx.font='13px sans-serif';ctx.fillText(xlab,w-55,h-12);ctx.fillText(ylab,8,25)}
+function plot(ctx,pts,w,h,color){ctx.strokeStyle=color||'#2563eb';ctx.lineWidth=2;ctx.beginPath();pts.forEach((p,i)=>{let x=45+p[0]*(w-75),y=h-35-p[1]*(h-55);if(i)ctx.lineTo(x,y);else ctx.moveTo(x,y)});ctx.stroke()}
+
+function simGalileo(){let a=+galA.value,T=+galT.value,x0=+galX0.value;let xf=x0+0.5*a*T*T;let vf=a*T;galOut.textContent=`Modelo: x(t)=x₀ + ½ a t²
+x(${T.toFixed(2)} s) = ${xf.toFixed(3)} m
+v(${T.toFixed(2)} s) = a t = ${vf.toFixed(3)} m/s
+Interpretación: la pendiente de x(t) aumenta linealmente, por eso la velocidad crece aunque la aceleración sea constante.`;let c=document.getElementById('galCanvas'),ctx=c.getContext('2d'),w=c.width,h=c.height;drawAxes(ctx,w,h,'t','x');let maxX=Math.max(xf,x0+0.001);let pts=[];for(let i=0;i<=120;i++){let t=T*i/120;let x=x0+0.5*a*t*t;pts.push([i/120,x/maxX])}plot(ctx,pts,w,h,'#9333ea');ctx.fillStyle='#334155';ctx.fillText('x(t)=x₀+½at²',70,32)}
+
+function simCinta(){let v=+s1v.value,d=+s1d.value,tm=+s1t.value;let tl=d/v; s1out.textContent=`Tiempo de llegada: ${tl.toFixed(2)} s\nModelo: x(t)=v t = ${v} t\nSi aumenta v, disminuye el tiempo de residencia.`;let c=document.getElementById('c1'),ctx=c.getContext('2d'),w=c.width,h=c.height;drawAxes(ctx,w,h,'t','x');let pts=[];for(let i=0;i<=100;i++){let t=tm*i/100;pts.push([i/100,Math.min((v*t)/Math.max(d,v*tm),1)])}plot(ctx,pts,w,h,'#2563eb')}
+function simMRUV(){let v0=+s2v0.value,vf=+s2vf.value,t=+s2t.value;let a=(vf-v0)/t;let x=v0*t+0.5*a*t*t;let msg=a>0.5?'Advertencia: aceleración alta; revisar estabilidad de envases.':'Aceleración moderada.';s2out.textContent=`a = ${a.toFixed(3)} m/s²\nDistancia transitoria = ${x.toFixed(3)} m\n${msg}`;let c=document.getElementById('c2'),ctx=c.getContext('2d'),w=c.width,h=c.height;drawAxes(ctx,w,h,'t','v');let vmax=Math.max(v0,vf,0.1);let pts=[];for(let i=0;i<=100;i++){let tt=t*i/100;let vv=v0+a*tt;pts.push([i/100,vv/vmax])}plot(ctx,pts,w,h,'#16a34a')}
+function sim2D(){let h0=+s3h.value,vx=+s3vx.value,vy0=+s3vy.value,g=+s3g.value;let disc=vy0*vy0+2*g*h0;let t=(vy0+Math.sqrt(disc))/g;let R=vx*t;let vy=vy0-g*t;s3out.textContent=`Tiempo de caída: ${t.toFixed(3)} s\nAlcance horizontal: ${R.toFixed(3)} m\nvx permanece constante: ${vx.toFixed(3)} m/s\nvy final: ${vy.toFixed(3)} m/s`;let c=document.getElementById('c3'),ctx=c.getContext('2d'),w=c.width,hh=c.height;ctx.clearRect(0,0,w,hh);ctx.strokeStyle='#cbd5e1';ctx.beginPath();ctx.moveTo(40,hh-25);ctx.lineTo(w-20,hh-25);ctx.stroke();let pts=[];for(let i=0;i<=100;i++){let tt=t*i/100;let x=vx*tt;let y=h0+vy0*tt-0.5*g*tt*tt;pts.push([x/Math.max(R,0.1), y/Math.max(h0,0.1)])}plot(ctx,pts,w,hh,'#f97316')}
+function simCirc(){let r=+s4r.value,rpm=+s4rpm.value;let f=rpm/60,T=1/f,w=2*Math.PI*f,vt=r*w,ac=r*w*w,rel=ac/9.81;s4out.textContent=`f = ${f.toFixed(2)} Hz\nT = ${T.toFixed(4)} s\nω = ${w.toFixed(2)} rad/s\nvt = ${vt.toFixed(2)} m/s\nac = ${ac.toFixed(1)} m/s² = ${rel.toFixed(1)} g`;let c=document.getElementById('c4'),ctx=c.getContext('2d'),W=c.width,H=c.height;ctx.clearRect(0,0,W,H);let cx=W/2,cy=H/2,rr=Math.min(W,H)*0.32;ctx.strokeStyle='#2563eb';ctx.lineWidth=3;ctx.beginPath();ctx.arc(cx,cy,rr,0,2*Math.PI);ctx.stroke();ctx.fillStyle='#2563eb';ctx.beginPath();ctx.arc(cx+rr,cy,8,0,2*Math.PI);ctx.fill();ctx.strokeStyle='#ef4444';ctx.beginPath();ctx.moveTo(cx+rr,cy);ctx.lineTo(cx,cy);ctx.stroke();ctx.fillStyle='#334155';ctx.fillText('a_c hacia el centro',cx+20,cy-12);}
+
+let poleasAnim = {running:false, last:0, a1:0, a2:0};
+function simPoleas(animate){
+  const r1=Math.max(0.01,+document.getElementById('s5r1').value);
+  const r2=Math.max(0.01,+document.getElementById('s5r2').value);
+  const rpm1=+document.getElementById('s5rpm1').value;
+  const slip=Math.max(0,Math.min(100,+document.getElementById('s5slip').value));
+  const w1=rpm1*2*Math.PI/60;
+  const v=r1*w1;
+  const w2=(v/r2)*(1-slip/100);
+  const rpm2=w2*60/(2*Math.PI);
+  const ratio=rpm2/(rpm1||1);
+  const out=document.getElementById('s5out');
+  if(out){
+    out.textContent=`ω₁ = ${w1.toFixed(2)} rad/s    |    v_correa = ${v.toFixed(2)} m/s\nω₂ = ${w2.toFixed(2)} rad/s    |    rpm₂ = ${rpm2.toFixed(1)} rpm\nRelación rpm₂/rpm₁ = ${ratio.toFixed(3)}    |    deslizamiento = ${slip.toFixed(1)} %\nInterpretación: con la misma velocidad lineal de correa, la polea de menor radio gira más rápido.`;
+  }
+  drawPoleas(r1,r2,rpm1,rpm2,v,slip);
+  if(animate && !poleasAnim.running){
+    poleasAnim.running=true; poleasAnim.last=performance.now();
+    requestAnimationFrame(poleasFrame);
+  }
+}
+function stopPoleas(){poleasAnim.running=false;}
+function poleasFrame(now){
+  if(!poleasAnim.running) return;
+  const r1=Math.max(0.01,+document.getElementById('s5r1').value);
+  const r2=Math.max(0.01,+document.getElementById('s5r2').value);
+  const rpm1=+document.getElementById('s5rpm1').value;
+  const slip=Math.max(0,Math.min(100,+document.getElementById('s5slip').value));
+  const w1=rpm1*2*Math.PI/60;
+  const w2=(r1*w1/r2)*(1-slip/100);
+  const dt=Math.min((now-poleasAnim.last)/1000,0.05); poleasAnim.last=now;
+  // Poleas con correa abierta: ambas giran en el mismo sentido. Escalado visual reducido para que sea legible.
+  poleasAnim.a1 += w1*dt*0.18;
+  poleasAnim.a2 += w2*dt*0.18;
+  const v=r1*w1, rpm2=w2*60/(2*Math.PI);
+  drawPoleas(r1,r2,rpm1,rpm2,v,slip,poleasAnim.a1,poleasAnim.a2);
+  requestAnimationFrame(poleasFrame);
+}
+function drawPoleas(r1,r2,rpm1,rpm2,v,slip,a1=0,a2=0){
+  const c=document.getElementById('c5'); if(!c) return;
+  const ctx=c.getContext('2d'), W=c.width, H=c.height;
+  ctx.clearRect(0,0,W,H); ctx.fillStyle='#fff'; ctx.fillRect(0,0,W,H);
+  const cx1=W*0.30, cx2=W*0.70, cy=H*0.52;
+  const maxR=Math.max(r1,r2);
+  const scale=85/maxR;
+  const R1=Math.max(28,r1*scale), R2=Math.max(28,r2*scale);
+  // Correa: se dibuja como tangentes superior e inferior aproximadas.
+  ctx.strokeStyle='#334155'; ctx.lineWidth=10; ctx.lineCap='round';
+  ctx.beginPath(); ctx.moveTo(cx1,cy-R1); ctx.lineTo(cx2,cy-R2); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(cx1,cy+R1); ctx.lineTo(cx2,cy+R2); ctx.stroke();
+  function pulley(cx,R,label,rpm,ang,color){
+    ctx.fillStyle='#eef6ff'; ctx.strokeStyle=color; ctx.lineWidth=4;
+    ctx.beginPath(); ctx.arc(cx,cy,R,0,2*Math.PI); ctx.fill(); ctx.stroke();
+    ctx.fillStyle=color; ctx.beginPath(); ctx.arc(cx,cy,5,0,2*Math.PI); ctx.fill();
+    ctx.strokeStyle=color; ctx.lineWidth=3;
+    for(let k=0;k<4;k++){
+      const th=ang+k*Math.PI/2;
+      ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(cx+R*0.78*Math.cos(th),cy+R*0.78*Math.sin(th)); ctx.stroke();
+    }
+    ctx.fillStyle='#0f172a'; ctx.font='15px system-ui, sans-serif'; ctx.textAlign='center';
+    ctx.fillText(label,cx,cy+R+28);
+    ctx.fillStyle=color; ctx.font='14px system-ui, sans-serif';
+    ctx.fillText(`${rpm.toFixed(1)} rpm`,cx,cy+R+48);
+  }
+  pulley(cx1,R1,'Polea motriz R₁',rpm1,a1,'#2563eb');
+  pulley(cx2,R2,'Polea conducida R₂',rpm2,a2,'#16a34a');
+  // Velocidad lineal de correa
+  ctx.strokeStyle='#ef4444'; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(cx1+30,cy-R1-30); ctx.lineTo(cx2-30,cy-R2-30); ctx.stroke();
+  ctx.fillStyle='#ef4444'; ctx.beginPath(); ctx.moveTo(cx2-30,cy-R2-30); ctx.lineTo(cx2-45,cy-R2-38); ctx.lineTo(cx2-43,cy-R2-22); ctx.closePath(); ctx.fill();
+  ctx.fillStyle='#b91c1c'; ctx.font='14px system-ui, sans-serif'; ctx.textAlign='center';
+  ctx.fillText(`v_correa = ${v.toFixed(2)} m/s`, W/2, 36);
+  ctx.fillStyle='#475569'; ctx.font='13px system-ui, sans-serif';
+  ctx.fillText(`Sin deslizamiento: R₁ω₁ = R₂ω₂. Deslizamiento usado: ${slip.toFixed(1)} %.`, W/2, H-18);
+  ctx.textAlign='start';
+}
+
+window.addEventListener('load',()=>{simGalileo();simCinta();simMRUV();sim2D();simCirc();simPoleas(false);});
+</script>
+<script>
+/* Funciones del bloque Galileo integrado */
+
+function simPlanoGalileo(){
+  const theta = parseFloat(document.getElementById('thetaSlider')?.value || 5.25);
+  const g = parseFloat(document.getElementById('gravInput')?.value || 9.81);
+  const tMax = Math.max(2, Math.round(parseFloat(document.getElementById('tMaxInput')?.value || 10)));
+  const a = g * Math.sin(theta * Math.PI / 180);
+  const x1 = 0.5 * a;
+  const thetaLabel = document.getElementById('thetaLabel');
+  if(thetaLabel) thetaLabel.textContent = theta.toFixed(2) + '°';
+  const out = document.getElementById('planoOutput');
+  if(out){
+    out.innerHTML = `Ángulo: ${theta.toFixed(2)}° &nbsp; | &nbsp; a<sub>∥</sub> = g·sen(θ) = ${a.toFixed(3)} m/s² &nbsp; | &nbsp; x(1 s) = ${x1.toFixed(3)} m`;
+  }
+  const tableWrap = document.getElementById('planoTableWrap');
+  if(tableWrap){
+    let rows = '<table><thead><tr><th>Tiempo</th><th>Posición</th><th>Despl. 1</th><th>Despl. 2</th></tr></thead><tbody>';
+    for(let n=0;n<=tMax;n++){
+      const x = 0.5 * a * n * n;
+      let d1 = 0, d2 = 0;
+      if(n>0){
+        const xprev = 0.5 * a * (n-1) * (n-1);
+        d1 = x1 !== 0 ? (x - xprev) / x1 : 0;
+        d2 = x1 !== 0 ? x / x1 : 0;
+      }
+      rows += `<tr><td>${n}</td><td>${x.toFixed(2)}</td><td>${n===0?'0':Math.round(d1)}</td><td>${n===0?'0':Math.round(d2)}</td></tr>`;
+    }
+    rows += '</tbody></table>';
+    tableWrap.innerHTML = rows;
+  }
+  const canvas = document.getElementById('galileoPlanoCanvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle = '#ffffff'; ctx.fillRect(0,0,W,H);
+  const ml=64, mr=24, mt=28, mb=70;
+  const pw=W-ml-mr, ph=H-mt-mb;
+  const xMax = Math.max(1,tMax);
+  const yMax = Math.max(1,0.5*a*tMax*tMax);
+  ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1;
+  ctx.font='14px system-ui, sans-serif'; ctx.fillStyle='#475569';
+  for(let i=0;i<=5;i++){
+    const yy = mt + ph - ph*i/5;
+    ctx.beginPath(); ctx.moveTo(ml,yy); ctx.lineTo(W-mr,yy); ctx.stroke();
+    const val = yMax*i/5;
+    ctx.fillText(val.toFixed(val>=10?0:1), 12, yy+5);
+  }
+  for(let i=0;i<=Math.min(tMax,10);i++){
+    const xx = ml + pw*i/Math.min(tMax,10);
+    ctx.beginPath(); ctx.moveTo(xx,mt); ctx.lineTo(xx,mt+ph); ctx.stroke();
+  }
+  ctx.strokeStyle='#64748b'; ctx.lineWidth=2;
+  ctx.beginPath(); ctx.moveTo(ml,mt); ctx.lineTo(ml,mt+ph); ctx.lineTo(W-mr,mt+ph); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(W-mr,mt+ph); ctx.lineTo(W-mr-10,mt+ph-5); ctx.lineTo(W-mr-10,mt+ph+5); ctx.closePath(); ctx.fillStyle='#64748b'; ctx.fill();
+  ctx.beginPath(); ctx.moveTo(ml,mt); ctx.lineTo(ml-5,mt+10); ctx.lineTo(ml+5,mt+10); ctx.closePath(); ctx.fill();
+  ctx.fillStyle='#334155'; ctx.fillText('t (s)', W-70, H-28); ctx.fillText('x (m)', 12, 22);
+  function sx(t){return ml + (t/xMax)*pw}
+  function sy(x){return mt + ph - (x/yMax)*ph}
+  ctx.strokeStyle='#ef4444'; ctx.lineWidth=3; ctx.setLineDash([4,6]);
+  ctx.beginPath();
+  for(let i=0;i<=240;i++){
+    const t = xMax*i/240; const x = 0.5*a*t*t;
+    const X=sx(t), Y=sy(x);
+    if(i===0) ctx.moveTo(X,Y); else ctx.lineTo(X,Y);
+  }
+  ctx.stroke(); ctx.setLineDash([]);
+  ctx.fillStyle='#ef4444';
+  for(let n=0;n<=tMax;n++){
+    const x=0.5*a*n*n; const X=sx(n), Y=sy(x);
+    ctx.beginPath(); ctx.arc(X,Y,4,0,2*Math.PI); ctx.fill();
+  }
+  ctx.fillStyle='#ef4444'; ctx.font='italic 18px Georgia, serif';
+  ctx.fillText('x(t)=1/2·a∥·t²', ml+pw*0.38, mt+30);
+  ctx.fillStyle='#2563eb'; ctx.font='16px system-ui, sans-serif';
+  ctx.fillText(`a∥=${a.toFixed(2)} m/s²`, ml+pw*0.38, mt+55);
+}
+
+
+let hunterAnim = { running:false, start:0, t:0 };
+function hunterParams(){
+  const H = parseFloat(document.getElementById('hunterH')?.value || 20);
+  const thetaDeg = parseFloat(document.getElementById('hunterAngle')?.value || 22.35);
+  const v0 = parseFloat(document.getElementById('hunterV0')?.value || 60);
+  const g = parseFloat(document.getElementById('hunterG')?.value || 9.81);
+  const th = thetaDeg * Math.PI/180;
+  const xm = H / Math.tan(th);
+  const vx0 = v0 * Math.cos(th);
+  const vy0 = v0 * Math.sin(th);
+  const tHit = xm / vx0;
+  const tGroundMonkey = Math.sqrt(2*H/g);
+  const yHit = H - 0.5*g*tHit*tHit;
+  return {H, thetaDeg, th, v0, g, xm, vx0, vy0, tHit, tGroundMonkey, yHit};
+}
+function simMonoCazador(useAnim){
+  const p = hunterParams();
+  const hLabel = document.getElementById('hunterHLabel');
+  const aLabel = document.getElementById('hunterAngleLabel');
+  if(hLabel) hLabel.textContent = p.H.toFixed(0)+' m';
+  if(aLabel) aLabel.textContent = p.thetaDeg.toFixed(2)+'°';
+  if(!useAnim) hunterAnim.t = 0;
+  const t = Math.min(hunterAnim.t || 0, p.tHit);
+  const out = document.getElementById('hunterOut');
+  if(out){
+    const warning = p.yHit < 0 ? ' | Advertencia: el impacto ideal ocurre por debajo del suelo si se considera piso en y=0. Aumente v₀ o el ángulo, o reduzca la altura/distancia.' : ' | Impacto ideal antes de que el mono llegue al suelo.';
+    out.innerHTML = `x<sub>mono</sub> = ${p.xm.toFixed(2)} m &nbsp; | &nbsp; v<sub>0x</sub> = ${p.vx0.toFixed(2)} m/s &nbsp; | &nbsp; v<sub>0y</sub> = ${p.vy0.toFixed(2)} m/s &nbsp; | &nbsp; t<sub>impacto</sub> = ${p.tHit.toFixed(3)} s &nbsp; | &nbsp; y<sub>impacto</sub> = ${p.yHit.toFixed(2)} m${warning}`;
+  }
+  drawHunter(p,t);
+  fillHunterTable(p);
+}
+function fillHunterTable(p){
+  const wrap = document.getElementById('hunterTableWrap');
+  if(!wrap) return;
+  let rows = '<table><thead><tr><th>t (s)</th><th>x_p (m)</th><th>y_p sin g (m)</th><th>Δy_g p (m)</th><th>y_p real (m)</th><th>y_m sin g (m)</th><th>Δy_g m (m)</th><th>y_m real (m)</th><th>y_p-y_m (m)</th></tr></thead><tbody>';
+  const steps = 8;
+  for(let i=0;i<=steps;i++){
+    const t = p.tHit * i/steps;
+    const x = p.vx0*t;
+    const drop = 0.5*p.g*t*t;
+    const ypNoG = p.vy0*t;
+    const yp = ypNoG - drop;
+    const ymNoG = p.H;
+    const ym = p.H - drop;
+    const diff = yp - ym;
+    rows += `<tr><td>${t.toFixed(3)}</td><td>${x.toFixed(2)}</td><td>${ypNoG.toFixed(2)}</td><td>${drop.toFixed(2)}</td><td>${yp.toFixed(2)}</td><td>${ymNoG.toFixed(2)}</td><td>${drop.toFixed(2)}</td><td>${ym.toFixed(2)}</td><td>${diff.toFixed(2)}</td></tr>`;
+  }
+  rows += '</tbody></table>';
+  wrap.innerHTML = rows;
+}
+function drawHunter(p,t){
+  const canvas = document.getElementById('hunterCanvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W=canvas.width,Hc=canvas.height;
+  ctx.clearRect(0,0,W,Hc);
+  ctx.fillStyle='#fff'; ctx.fillRect(0,0,W,Hc);
+  const ml=58,mr=30,mt=35,mb=58;
+  const xMax = Math.max(p.xm*1.12, 10);
+  const yMax = Math.max(p.H*1.25, p.vy0*p.tHit*1.1, 10);
+  const sx = x => ml + (x/xMax)*(W-ml-mr);
+  const sy = y => mt + (yMax-y)/yMax*(Hc-mt-mb);
+  // grid
+  ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1;
+  ctx.font='13px system-ui, sans-serif'; ctx.fillStyle='#64748b';
+  for(let i=0;i<=5;i++){
+    const yy=sy(yMax*i/5); ctx.beginPath(); ctx.moveTo(ml,yy); ctx.lineTo(W-mr,yy); ctx.stroke(); ctx.fillText((yMax*i/5).toFixed(0),12,yy+4);
+  }
+  for(let i=0;i<=5;i++){
+    const xx=sx(xMax*i/5); ctx.beginPath(); ctx.moveTo(xx,mt); ctx.lineTo(xx,Hc-mb); ctx.stroke(); ctx.fillText((xMax*i/5).toFixed(0),xx-8,Hc-30);
+  }
+  // axes
+  ctx.strokeStyle='#64748b'; ctx.lineWidth=2;
+  ctx.beginPath(); ctx.moveTo(ml,mt); ctx.lineTo(ml,Hc-mb); ctx.lineTo(W-mr,Hc-mb); ctx.stroke();
+  ctx.fillStyle='#334155'; ctx.fillText('x (m)', W-76, Hc-13); ctx.fillText('y (m)', 10, 24);
+  // initial aim line
+  ctx.strokeStyle='#777'; ctx.lineWidth=2; ctx.setLineDash([8,6]); ctx.beginPath(); ctx.moveTo(sx(0),sy(0)); ctx.lineTo(sx(p.xm),sy(p.H)); ctx.stroke(); ctx.setLineDash([]);
+  // trajectory
+  ctx.strokeStyle='#ef4444'; ctx.lineWidth=3; ctx.setLineDash([3,5]); ctx.beginPath();
+  const total = Math.max(p.tHit, 0.1);
+  for(let i=0;i<=180;i++){
+    const tt = total*i/180; const x = p.vx0*tt; const y = p.vy0*tt-0.5*p.g*tt*tt;
+    const X=sx(x), Y=sy(y); if(i===0) ctx.moveTo(X,Y); else ctx.lineTo(X,Y);
+  }
+  ctx.stroke(); ctx.setLineDash([]);
+  // monkey vertical fall path
+  ctx.strokeStyle='#16a34a'; ctx.lineWidth=2; ctx.setLineDash([4,5]); ctx.beginPath(); ctx.moveTo(sx(p.xm),sy(p.H)); ctx.lineTo(sx(p.xm),sy(p.yHit)); ctx.stroke(); ctx.setLineDash([]);
+  // current positions
+  const xp = p.vx0*t, yp = p.vy0*t - 0.5*p.g*t*t;
+  const ym = p.H - 0.5*p.g*t*t;
+  ctx.fillStyle='#ef4444'; ctx.beginPath(); ctx.arc(sx(xp),sy(yp),7,0,2*Math.PI); ctx.fill();
+  ctx.fillStyle='#16a34a'; ctx.font='25px system-ui, sans-serif'; ctx.fillText('🐒', sx(p.xm)-12, sy(ym)+8);
+  ctx.fillStyle='#2563eb'; ctx.font='16px system-ui, sans-serif';
+  ctx.fillText(`t = ${t.toFixed(2)} s`, sx(p.xm)*0.55, mt+30);
+  ctx.fillText(`r⃗p = (${xp.toFixed(1)}, ${yp.toFixed(1)}) m`, sx(p.xm)*0.55, mt+55);
+  ctx.fillText(`r⃗m = (${p.xm.toFixed(1)}, ${ym.toFixed(1)}) m`, sx(p.xm)*0.55, mt+80);
+  // target marker
+  ctx.strokeStyle='#16a34a'; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(sx(p.xm),sy(p.H),8,0,2*Math.PI); ctx.stroke();
+  ctx.fillStyle='#111827'; ctx.font='13px system-ui, sans-serif'; ctx.fillText('posición inicial del mono', sx(p.xm)-68, sy(p.H)-12);
+  ctx.fillText('línea de mira inicial', sx(p.xm*0.38), sy(p.H*0.42)-10);
+}
+function hunterReset(){
+  hunterAnim.running=false; hunterAnim.t=0; simMonoCazador(false);
+}
+function hunterFire(){
+  const p = hunterParams();
+  hunterAnim.running=true; hunterAnim.start=performance.now();
+  function step(now){
+    if(!hunterAnim.running) return;
+    const elapsed = (now-hunterAnim.start)/1000;
+    hunterAnim.t = Math.min(elapsed, p.tHit);
+    simMonoCazador(true);
+    if(hunterAnim.t < p.tHit) requestAnimationFrame(step); else hunterAnim.running=false;
+  }
+  requestAnimationFrame(step);
+}
+
+window.addEventListener('load',()=>{ if(document.getElementById('thetaSlider')) simPlanoGalileo(); if(document.getElementById('hunterCanvas')) simMonoCazador(false); });
+
+</script></body>
+</html>
