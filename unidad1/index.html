@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Unidad 1 - Magnitudes físicas y vectores | Física Aplicada a la Tecnología de Alimentos</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, tags:'ams' },
+  svg: { fontCache:'global' }
+};
+(function(){
+  const candidates = ['../lib/mathjax/tex-svg.js','lib/mathjax/tex-svg.js','https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js'];
+  function load(i){
+    const s=document.createElement('script'); s.src=candidates[i]; s.async=true;
+    s.onerror=()=>{ if(i+1<candidates.length) load(i+1); };
+    document.head.appendChild(s);
+  }
+  load(0);
+})();
+</script>
+<style>
+:root{--bg:#f6f8fb;--paper:#ffffff;--ink:#1f2937;--muted:#64748b;--brand:#1e3a8a;--brand2:#2563eb;--line:#dbe3ef;--key:#ecfeff;--warn:#fff7ed;--app:#f0fdf4;--deep:#eef2ff;--shadow:0 10px 30px rgba(15,23,42,.08)}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;line-height:1.62}
+header{background:linear-gradient(135deg,#0f172a,#1e3a8a 60%,#2563eb);color:white;padding:56px 22px 38px;text-align:center}
+header h1{font-size:clamp(2rem,4vw,3.45rem);margin:.25rem auto;max-width:1150px;line-height:1.08} header p{max-width:1050px;margin:14px auto 0;color:#dbeafe;font-size:1.05rem}
+.layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:24px;max-width:1400px;margin:0 auto;padding:24px}
+nav{position:sticky;top:12px;align-self:start;background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);max-height:calc(100vh - 24px);overflow:auto;padding:16px}
+nav h2{font-size:1rem;margin:0 0 10px;color:var(--brand)} nav a{display:block;color:#334155;text-decoration:none;padding:7px 8px;border-radius:10px;font-size:.92rem} nav a:hover{background:#eff6ff;color:#1d4ed8}
+.toggle{position:fixed;right:16px;bottom:16px;z-index:20;border:0;border-radius:999px;background:var(--brand2);color:white;padding:12px 16px;box-shadow:var(--shadow);cursor:pointer;font-weight:700}
+main{min-width:0}.paper{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(18px,3vw,38px);box-shadow:var(--shadow);margin-bottom:24px}
+h2{color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-top:0} h3{color:#1e3a8a;margin-top:30px} h4{color:#334155;margin-bottom:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:14px}.card{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff}.card h4{margin-top:0;color:#1e3a8a}
+.box{border-left:5px solid var(--brand2);padding:14px 16px;margin:18px 0;border-radius:12px;background:var(--deep)} .key{background:var(--key);border-left-color:#0891b2}.warn{background:var(--warn);border-left-color:#f97316}.app{background:var(--app);border-left-color:#16a34a}
+.eq{background:linear-gradient(180deg,#f2f8ff 0%, #e8f2ff 100%);color:#07111f;border:1px solid #9dc5ee;border-left:6px solid #2563eb;border-radius:16px;padding:16px 18px;margin:16px 0;overflow-x:auto;box-shadow:0 6px 18px rgba(37,99,235,.10)} .eq small{color:#1f3b57;display:block;margin-top:8px;font-size:.92rem}
+table{width:100%;border-collapse:collapse;margin:16px 0;background:white;border-radius:14px;overflow:hidden} th,td{border:1px solid var(--line);padding:10px;vertical-align:top} th{background:#eaf1ff;color:#1e3a8a;text-align:left}
+.example{border:1px solid #bfdbfe;background:#f8fbff;border-radius:18px;padding:18px;margin:18px 0}.step{padding:10px 12px;border-left:3px solid #93c5fd;background:white;margin:10px 0;border-radius:10px}
+.btn{display:inline-block;background:var(--brand2);color:white!important;text-decoration:none;border-radius:999px;padding:10px 14px;font-weight:700;margin-top:10px}.badge{display:inline-block;background:#dbeafe;color:#1e3a8a;border-radius:999px;padding:3px 9px;font-size:.78rem;font-weight:700;margin-right:4px}.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.three{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.toc-hidden nav{display:none}.toc-hidden .layout{grid-template-columns:1fr;max-width:1120px}
+.diagram-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:18px 0}.diagram{border:1px solid var(--line);border-radius:18px;padding:14px;background:#f8fbff;box-shadow:var(--shadow)}.diagram h4{margin:0 0 8px;color:#1e3a8a}.diagram svg{width:100%;height:auto;border:1px solid #dbe3ee;border-radius:14px;background:white}
+.diagram svg{overflow:visible}.trig-svg text{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}.formula-cards{display:grid;gap:12px}.formula-cards .eq{margin:0;padding:12px 14px;text-align:center}.formula-cards .eq mjx-container{font-size:.84em !important;margin:0 auto !important}.formula-cards .hint{margin:2px 4px 0;color:#475569;font-size:.92rem}.ratio-card{display:grid;gap:12px}.ratio-item{border:1px solid #bfdbfe;border-left:6px solid #2563eb;border-radius:16px;padding:12px 14px;background:#f4f8ff}.ratio-item h5{margin:0 0 6px;color:#1e3a8a;font-size:.98rem}.ratio-item .eq{margin:0;padding:10px 12px;text-align:center}.ratio-item .eq mjx-container{font-size:.82em !important;margin:0 auto !important}.ratio-item p{margin:6px 0 0;font-size:.92rem;color:#334155}.trig-note{margin-top:10px;font-size:.93rem;color:#475569}.two-line{line-height:1.15}
+.formula-html{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;width:100%;font-family:Georgia,'Times New Roman',serif;font-size:1.18rem;line-height:1.15;color:#07111f;white-space:nowrap}
+.formula-html.compact{font-size:1.06rem}
+.formula-html .func{font-style:italic}
+.formula-html .theta{font-style:italic}
+.formula-html .frac{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.05;min-width:7.2rem}
+.formula-html .frac .top{border-bottom:2px solid #07111f;padding:0 .35rem .12rem;text-align:center;width:100%}
+.formula-html .frac .bottom{padding:.12rem .35rem 0;text-align:center;width:100%}
+.angle-formulas{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:16px 0}
+.angle-formula-card{background:linear-gradient(180deg,#f2f8ff 0%,#e8f2ff 100%);border:1px solid #9dc5ee;border-left:6px solid #2563eb;border-radius:16px;padding:14px 16px;text-align:center}
+.angle-formula-card p{margin:.45rem 0 0;color:#475569;font-size:.92rem;text-align:left}
+.component-formula .formula-html{font-size:1.08rem}
+@media(max-width:600px){.formula-html{font-size:1rem;white-space:normal}.formula-html .frac{min-width:5.8rem}.angle-formulas{grid-template-columns:1fr}}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:18px 0}.flow .node{background:#f8fbff;border:1px solid #bfdbfe;border-radius:16px;padding:12px;text-align:center}.flow .node strong{display:block;color:#1e3a8a}.flow .arrow{font-size:1.5rem;color:#2563eb;align-self:center;text-align:center}
+.sim{border:1px solid #cbd5e1;border-radius:18px;background:#f8fafc;padding:16px;margin:18px 0}.sim-info{background:#eef6ff;border:1px solid #bfdbfe;border-left:5px solid #2563eb;border-radius:14px;padding:13px 15px;margin:10px 0 16px;color:#1f2937}.sim-info p{margin:.25rem 0 .55rem}.sim-info ul{margin:.35rem 0 0 1rem;padding-left:1rem}.sim-info li{margin:.22rem 0}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}.controls label{font-size:.9rem;color:#334155}.controls input,.controls select{width:100%;padding:8px;border:1px solid #cbd5e1;border-radius:10px;background:white}.sim button{margin-top:10px;border:0;border-radius:10px;background:#2563eb;color:#fff;padding:9px 13px;font-weight:700;cursor:pointer}.sim button.secondary{background:#475569;margin-left:8px}.out{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px;margin-top:10px;font-family:ui-monospace,Consolas,monospace;white-space:pre-wrap;overflow:auto} canvas{width:100%;height:280px;border:1px solid #cbd5e1;border-radius:14px;background:white;margin-top:12px}
+.kbd{font-family:ui-monospace,Consolas,monospace;background:#eef2ff;border:1px solid #c7d2fe;border-radius:6px;padding:1px 5px}.unit{font-family:ui-monospace,Consolas,monospace;color:#0f172a}.small{font-size:.92rem;color:#475569}.formula-line{display:block;margin:.2rem 0}.quad{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.quad div{border:1px solid #dbe3ef;border-radius:10px;padding:8px;background:#fff}.sym{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:600;color:#0f172a}.hint{font-size:.9rem;color:#64748b} footer{text-align:center;color:#64748b;padding:30px}
+@media(max-width:900px){.layout{grid-template-columns:1fr;padding:12px}nav{position:relative;max-height:360px}.two,.three{grid-template-columns:1fr}header{padding-top:42px}.paper{border-radius:16px}.flow{grid-template-columns:1fr}.flow .arrow{transform:rotate(90deg)}}
+@media print{nav,.toggle{display:none}.layout{display:block;max-width:none}.paper{box-shadow:none;border:0}body{background:white}header{background:white;color:#111;padding:10px}header p{color:#333}}
+</style>
+</head>
+<body>
+<header>
+<div class="badge">Física Aplicada a la Tecnología de Alimentos</div>
+<div class="badge">Unidad 1</div>
+<h1>Magnitudes físicas, unidades y vectores</h1>
+<p>Apunte didáctico con enfoque aplicado a mediciones industriales: magnitudes escalares y vectoriales, Sistema Internacional, conversiones, notación científica, trigonometría básica y operaciones vectoriales.</p>
+</header>
+<button class="toggle" onclick="document.body.classList.toggle('toc-hidden')">Índice</button>
+<div class="layout">
+<nav>
+<h2>Índice</h2>
+<a href="#intro">1. Introducción</a>
+<a href="#objetivos">2. Objetivos</a>
+<a href="#recorrido">3. Recorrido de la unidad</a>
+<a href="#magnitudes">4. Magnitudes físicas</a>
+<a href="#si">5. Sistema Internacional</a>
+<a href="#unidades-industriales">6. Unidades en alimentos</a>
+<a href="#conversion">7. Conversión de unidades</a>
+<a href="#notacion">8. Notación científica</a>
+<a href="#escalares">9. Magnitudes escalares y trigonometría</a>
+<a href="#calculadora">10. Calculadora, ángulos y cuadrantes</a>
+<a href="#vectores">11. Vectores</a>
+<a href="#componentes">12. Componentes vectoriales</a>
+<a href="#operaciones">13. Operaciones con vectores</a>
+<a href="#medicion-industrial">14. Medición industrial</a>
+<a href="#ejemplos">15. Ejemplos resueltos</a>
+<a href="#simuladores">16. Simuladores</a>
+<a href="#errores">17. Errores frecuentes</a>
+<a href="#preguntas">18. Preguntas conceptuales</a>
+<a href="#ejercicios">19. Ejercicios propuestos</a>
+<a href="#actividad">20. Actividad práctica</a>
+<a href="#resumen">21. Resumen final</a>
+<a href="#glosario">22. Glosario</a>
+</nav>
+<main>
+<section class="paper" id="intro">
+<h2>1. Introducción contextualizada</h2>
+<p>En la industria alimentaria se mide permanentemente: masa de ingredientes, volumen de líquidos, temperatura de pasteurización, presión de vapor, caudal de una bomba, concentración de salmuera, velocidad de una cinta, posición de un envase, torque en un agitador o aceleración en una centrífuga. Cada medición tiene sentido técnico solo si se conoce <strong>qué magnitud se mide</strong>, <strong>con qué unidad</strong>, <strong>cómo se convierte</strong> y <strong>qué interpretación física tiene</strong>.</p>
+<p>Esta unidad es la base de todas las unidades posteriores. Antes de estudiar cinemática, dinámica, energía o fluidos, se necesita dominar el lenguaje cuantitativo de la física: magnitudes escalares, magnitudes vectoriales, unidades, notación científica, trigonometría elemental y operaciones con vectores.</p>
+<div class="box key"><strong>Idea clave.</strong> Medir no es solo leer un número en un instrumento. Medir es asignar una magnitud física, una unidad, una incertidumbre y una interpretación útil para tomar decisiones de proceso, calidad y seguridad.</div>
+</section>
+
+<section class="paper" id="objetivos">
+<h2>2. Objetivos de aprendizaje</h2>
+<div class="grid">
+<div class="card"><h4>Reconocer magnitudes</h4><p>Diferenciar magnitudes escalares y vectoriales en situaciones de planta alimentaria.</p></div>
+<div class="card"><h4>Usar unidades</h4><p>Aplicar el Sistema Internacional y convertir unidades técnicas, anglosajonas y de uso industrial.</p></div>
+<div class="card"><h4>Calcular con orden de magnitud</h4><p>Expresar mediciones en notación científica y evaluar resultados con criterios de escala.</p></div>
+<div class="card"><h4>Trabajar con vectores</h4><p>Representar, descomponer, sumar, restar y operar vectores mediante componentes.</p></div>
+<div class="card"><h4>Aplicar trigonometría</h4><p>Usar seno, coseno, tangente y funciones inversas para obtener componentes y ángulos.</p></div>
+<div class="card"><h4>Interpretar mediciones</h4><p>Relacionar las magnitudes físicas con calidad, seguridad, control y eficiencia del proceso.</p></div>
+</div>
+</section>
+
+<section class="paper" id="recorrido">
+<h2>3. Recorrido recomendado de la unidad</h2>
+<p>El tránsito conceptual de esta unidad avanza desde la medición básica hasta la representación vectorial de fenómenos industriales. Conviene estudiarla en el siguiente orden:</p>
+<div class="flow">
+<div class="node"><strong>1. Medir</strong><span>Identificar magnitud, unidad e instrumento.</span></div>
+<div class="arrow">→</div>
+<div class="node"><strong>2. Convertir</strong><span>Pasar entre SI, unidades técnicas y anglosajonas.</span></div>
+<div class="arrow">→</div>
+<div class="node"><strong>3. Escalar</strong><span>Usar números, proporciones, trigonometría y notación científica.</span></div>
+<div class="arrow">→</div>
+<div class="node"><strong>4. Vectorizar</strong><span>Incorporar dirección, sentido y componentes.</span></div>
+<div class="arrow">→</div>
+<div class="node"><strong>5. Operar</strong><span>Sumar, restar y calcular productos entre vectores.</span></div>
+<div class="arrow">→</div>
+<div class="node"><strong>6. Aplicar</strong><span>Analizar mediciones industriales reales.</span></div>
+</div>
+<div class="box app"><strong>Uso de los simuladores.</strong> Al finalizar cada bloque, use los simuladores para comprobar conversiones, explorar ángulos, visualizar componentes y verificar operaciones vectoriales.</div>
+</section>
+
+<section class="paper" id="magnitudes">
+<h2>4. Magnitudes físicas</h2>
+<p>Una magnitud física es una propiedad de un sistema que puede medirse o calcularse. Toda magnitud cuantitativa se expresa como:</p>
+<div class="eq">\[ \text{Magnitud} = \text{valor numérico}\times \text{unidad} \] <small>Por ejemplo: masa = \(2,50\,\mathrm{kg}\), temperatura = \(72\,^{\circ}\mathrm{C}\), presión = \(180\,\mathrm{kPa}\).</small></div>
+<h3>4.1 Magnitudes escalares</h3>
+<p>Una magnitud escalar queda definida por un número y una unidad. No requiere dirección ni sentido.</p>
+<table><tr><th>Magnitud escalar</th><th>Ejemplo en alimentos</th><th>Unidad típica</th></tr>
+<tr><td>Masa</td><td>Materia prima pesada en balanza</td><td>kg, g, lb</td></tr>
+<tr><td>Volumen</td><td>Leche dosificada, jarabe, agua de proceso</td><td>L, mL, gal</td></tr>
+<tr><td>Temperatura</td><td>Pasteurización, refrigeración, cocción</td><td>°C, K, °F</td></tr>
+<tr><td>Tiempo</td><td>Tiempo de residencia, mezcla, enfriamiento</td><td>s, min, h</td></tr>
+<tr><td>Presión</td><td>Vapor, aire comprimido, líneas CIP</td><td>Pa, bar, psi</td></tr>
+<tr><td>Concentración</td><td>Salmuera, azúcar, aditivos</td><td>%, ppm, °Brix, mg/L</td></tr>
+</table>
+<h3>4.2 Magnitudes vectoriales</h3>
+<p>Una magnitud vectorial necesita <strong>módulo</strong>, <strong>dirección</strong> y <strong>sentido</strong>. En el plano se representa mediante componentes.</p>
+<div class="eq">\[ \vec A=A_x\,\hat i+A_y\,\hat j \] <small>Forma cartesiana de un vector en dos dimensiones.</small></div>
+<table><tr><th>Magnitud vectorial</th><th>Ejemplo industrial</th><th>Qué información agrega</th></tr>
+<tr><td>Desplazamiento</td><td>Avance de un envase hacia una estación</td><td>Cuánto y hacia dónde se movió.</td></tr>
+<tr><td>Velocidad</td><td>Movimiento de cinta o producto</td><td>Rapidez, dirección y sentido.</td></tr>
+<tr><td>Aceleración</td><td>Arranque/frenado de cinta, centrífuga</td><td>Cambio de velocidad con dirección.</td></tr>
+<tr><td>Fuerza</td><td>Empuje, peso, tensión, reacción</td><td>Acción mecánica orientada.</td></tr>
+</table>
+</section>
+
+<section class="paper" id="si">
+<h2>5. Sistema Internacional de unidades</h2>
+<p>El Sistema Internacional de unidades, SI, ofrece un lenguaje común para informar mediciones. En física aplicada a procesos alimentarios se trabaja con unidades base y derivadas.</p>
+<table><tr><th>Magnitud base</th><th>Unidad SI</th><th>Símbolo</th><th>Uso típico</th></tr>
+<tr><td>Longitud</td><td>metro</td><td class="unit">m</td><td>Dimensiones de equipos, distancias de sensores.</td></tr>
+<tr><td>Masa</td><td>kilogramo</td><td class="unit">kg</td><td>Pesado de ingredientes, balances de masa.</td></tr>
+<tr><td>Tiempo</td><td>segundo</td><td class="unit">s</td><td>Residencia, respuesta de sensores, control.</td></tr>
+<tr><td>Temperatura termodinámica</td><td>kelvin</td><td class="unit">K</td><td>Cálculos térmicos y termodinámicos.</td></tr>
+<tr><td>Cantidad de sustancia</td><td>mol</td><td class="unit">mol</td><td>Estequiometría, composición química.</td></tr>
+<tr><td>Corriente eléctrica</td><td>ampere</td><td class="unit">A</td><td>Instrumentación, motores, sensores.</td></tr>
+<tr><td>Intensidad luminosa</td><td>candela</td><td class="unit">cd</td><td>Óptica, color, inspección visual.</td></tr>
+</table>
+<h3>5.1 Unidades derivadas frecuentes</h3>
+<table><tr><th>Magnitud</th><th>Unidad SI</th><th>Equivalencia</th><th>Ejemplo</th></tr>
+<tr><td>Área</td><td>m²</td><td>m·m</td><td>Área de intercambio térmico.</td></tr>
+<tr><td>Volumen</td><td>m³</td><td>m³</td><td>Tanques, cámaras, caudal volumétrico.</td></tr>
+<tr><td>Velocidad</td><td>m/s</td><td>m·s⁻¹</td><td>Cinta transportadora.</td></tr>
+<tr><td>Aceleración</td><td>m/s²</td><td>m·s⁻²</td><td>Arranque, centrífugas.</td></tr>
+<tr><td>Fuerza</td><td>newton</td><td>N = kg·m/s²</td><td>Peso, empuje, tensión.</td></tr>
+<tr><td>Presión</td><td>pascal</td><td>Pa = N/m²</td><td>Vapor, aire, fluidos.</td></tr>
+<tr><td>Energía</td><td>joule</td><td>J = N·m</td><td>Calentamiento, trabajo mecánico.</td></tr>
+<tr><td>Potencia</td><td>watt</td><td>W = J/s</td><td>Resistencias, motores, bombas.</td></tr>
+<tr><td>Densidad</td><td>kg/m³</td><td>kg·m⁻³</td><td>Leche, jarabes, aceites.</td></tr>
+</table>
+<div class="box warn"><strong>Error frecuente.</strong> El grado Celsius es habitual en planta, pero en ecuaciones termodinámicas muchas veces se requiere kelvin. La diferencia de temperatura tiene el mismo tamaño en °C y K, pero la temperatura absoluta no.</div>
+</section>
+
+<section class="paper" id="unidades-industriales">
+<h2>6. Otras unidades relevantes en alimentos</h2>
+<p>En documentación técnica, equipos importados, recetas industriales y manuales de operación aparecen unidades que no pertenecen al SI o que son de uso técnico. El técnico debe reconocerlas y convertirlas correctamente.</p>
+<table><tr><th>Familia</th><th>Unidades habituales</th><th>Uso en alimentos</th><th>Relación útil</th></tr>
+<tr><td>Masa</td><td>g, mg, t, lb, oz</td><td>Formulación, etiquetas, ingredientes</td><td>1 lb ≈ 0,453592 kg; 1 oz ≈ 28,3495 g</td></tr>
+<tr><td>Volumen</td><td>L, mL, gal US, fl oz, cup, tbsp, tsp</td><td>Dosificación, recetas, laboratorios</td><td>1 L = 1000 mL; 1 gal US ≈ 3,78541 L</td></tr>
+<tr><td>Longitud</td><td>mm, cm, m, in, ft</td><td>Diámetros, altura de caída, tuberías</td><td>1 in = 25,4 mm; 1 ft = 0,3048 m</td></tr>
+<tr><td>Temperatura</td><td>°C, K, °F</td><td>Refrigeración, pasteurización, hornos</td><td>°F = 1,8·°C + 32</td></tr>
+<tr><td>Presión</td><td>Pa, kPa, bar, atm, psi</td><td>Vapor, compresores, filtros</td><td>1 bar = 100 kPa; 1 psi ≈ 6,89476 kPa</td></tr>
+<tr><td>Concentración</td><td>%, ppm, ppb, mg/L, g/100 g, °Brix</td><td>Aditivos, salmueras, azúcar, control</td><td>1 ppm ≈ 1 mg/L en agua diluida</td></tr>
+<tr><td>Rotación</td><td>rpm, Hz, rad/s</td><td>Mezcladores, centrífugas</td><td>1 Hz = 60 rpm; \(\omega=2\pi f\)</td></tr>
+<tr><td>Viscosidad</td><td>Pa·s, mPa·s, cP</td><td>Salsas, jarabes, lácteos</td><td>1 cP = 1 mPa·s</td></tr>
+</table>
+<div class="box app"><strong>Aplicación industrial.</strong> Un manual puede indicar una presión de aire de 80 psi, un sensor puede entregar kPa y el cálculo físico requerir Pa. La conversión correcta evita errores de calibración, selección de equipos y seguridad operativa.</div>
+</section>
+
+<section class="paper" id="conversion">
+<h2>7. Conversión de unidades</h2>
+<p>Convertir unidades significa multiplicar por factores iguales a 1. El valor físico no cambia; cambia la forma de expresarlo.</p>
+<div class="eq">\[ 1=\frac{1000\,\mathrm{g}}{1\,\mathrm{kg}}=\frac{1\,\mathrm{kg}}{1000\,\mathrm{g}} \] <small>Se elige la fracción que permita cancelar la unidad no deseada.</small></div>
+<h3>7.1 Método por factores de conversión</h3>
+<div class="example"><h3>Ejemplo. Convertir 2,50 kg a g</h3>
+<div class="eq">\[ 2,50\,\mathrm{kg}\times\frac{1000\,\mathrm{g}}{1\,\mathrm{kg}}=2500\,\mathrm{g} \]</div>
+<p>La unidad kg se cancela algebraicamente y queda g.</p></div>
+<h3>7.2 Conversión con unidades compuestas</h3>
+<div class="example"><h3>Ejemplo. Convertir 0,75 m/s a cm/s</h3>
+<div class="eq">\[0,75\,\frac{\mathrm{m}}{\mathrm{s}}\times\frac{100\,\mathrm{cm}}{1\,\mathrm{m}}=75\,\frac{\mathrm{cm}}{\mathrm{s}}\]</div>
+</div>
+<h3>7.3 Conversiones no lineales: temperatura</h3>
+<p>Algunas conversiones no se hacen multiplicando solamente por un factor. La temperatura en °F y °C incluye desplazamiento de escala.</p>
+<div class="eq">\[ T_{^{\circ}\!F}=1,8T_{^{\circ}\!C}+32 \qquad T_{^{\circ}\!C}=\frac{T_{^{\circ}\!F}-32}{1,8} \]</div>
+<div class="eq">\[ T_K=T_{^{\circ}\!C}+273,15 \]</div>
+</section>
+
+<section class="paper" id="notacion">
+<h2>8. Notación científica, prefijos y cifras significativas</h2>
+<p>La notación científica permite escribir números muy grandes o muy pequeños de manera compacta. Se expresa como:</p>
+<div class="eq">\[ N=a\times10^n \qquad 1\le |a|<10 \] <small>\(a\) es la mantisa y \(n\) el exponente entero.</small></div>
+<table><tr><th>Prefijo</th><th>Símbolo</th><th>Factor</th><th>Ejemplo</th></tr>
+<tr><td>kilo</td><td>k</td><td>\(10^3\)</td><td>1 kPa = 1000 Pa</td></tr>
+<tr><td>centi</td><td>c</td><td>\(10^{-2}\)</td><td>1 cm = 0,01 m</td></tr>
+<tr><td>mili</td><td>m</td><td>\(10^{-3}\)</td><td>1 mL = 0,001 L</td></tr>
+<tr><td>micro</td><td>µ</td><td>\(10^{-6}\)</td><td>1 µm = 10⁻⁶ m</td></tr>
+<tr><td>mega</td><td>M</td><td>\(10^6\)</td><td>1 MPa = 10⁶ Pa</td></tr>
+</table>
+<h3>8.1 Cifras significativas</h3>
+<p>Las cifras significativas expresan la precisión con que se informa una medición. Por ejemplo, 2,50 kg no tiene la misma información que 2,5 kg: el primer valor informa hasta centésimas de kilogramo.</p>
+<div class="box key"><strong>Regla práctica.</strong> En cálculos de laboratorio o planta, el resultado no debe informar más precisión que la permitida por los datos medidos.</div>
+</section>
+
+<section class="paper" id="escalares">
+<h2>9. Magnitudes escalares y funciones trigonométricas</h2>
+<p>Muchas magnitudes escalares se obtienen a partir de relaciones geométricas: longitud de una rampa, altura de caída, inclinación de un plano, diámetro de una tubería o distancia entre sensores. Por eso se necesita trigonometría básica.</p>
+<h3>9.1 Triángulo rectángulo</h3>
+<div class="diagram-grid">
+<div class="diagram"><h4>Catetos, hipotenusa y ángulo</h4>
+<svg class="trig-svg" viewBox="0 0 390 250" role="img" aria-label="Triángulo rectángulo con catetos, hipotenusa y ángulo">
+<rect width="390" height="250" fill="#fff"/>
+<path d="M60 190 L300 190 L300 70 Z" fill="#eef6ff" stroke="#2563eb" stroke-width="4"/>
+<path d="M278 190 L278 168 L300 168" fill="none" stroke="#64748b" stroke-width="3"/>
+<path d="M115 190 A40 40 0 0 0 105 165" fill="none" stroke="#ef4444" stroke-width="4"/>
+<text x="117" y="184" fill="#ef4444" font-size="18" font-weight="700">θ</text>
+<text x="180" y="217" text-anchor="middle" fill="#0f172a" font-size="15">cateto adyacente</text>
+<text x="326" y="125" text-anchor="middle" fill="#0f172a" font-size="15" class="two-line"><tspan x="328" dy="0">cateto</tspan><tspan x="330" dy="18">opuesto</tspan></text>
+<text x="188" y="108" fill="#0f172a" font-size="15" transform="rotate(-26 188 108)">hipotenusa</text>
+</svg>
+<div class="trig-note">El ángulo <strong>θ</strong> se mide entre el cateto adyacente y la hipotenusa. A partir de esa referencia se definen las razones trigonométricas.</div>
+</div>
+<div class="diagram"><h4>Razones trigonométricas</h4>
+<div class="ratio-card">
+  <div class="ratio-item">
+    <h5>Seno</h5>
+    <div class="eq">
+      <div class="formula-html"><span class="func">sin</span><span class="theta">θ</span><span>=</span><span class="frac"><span class="top">cateto opuesto</span><span class="bottom">hipotenusa</span></span></div>
+    </div>
+    <p>Relaciona la altura con la longitud total del triángulo.</p>
+  </div>
+  <div class="ratio-item">
+    <h5>Coseno</h5>
+    <div class="eq">
+      <div class="formula-html"><span class="func">cos</span><span class="theta">θ</span><span>=</span><span class="frac"><span class="top">cateto adyacente</span><span class="bottom">hipotenusa</span></span></div>
+    </div>
+    <p>Relaciona la base del triángulo con la hipotenusa.</p>
+  </div>
+  <div class="ratio-item">
+    <h5>Tangente</h5>
+    <div class="eq">
+      <div class="formula-html"><span class="func">tan</span><span class="theta">θ</span><span>=</span><span class="frac"><span class="top">cateto opuesto</span><span class="bottom">cateto adyacente</span></span></div>
+    </div>
+    <p>Compara directamente la altura con la base.</p>
+  </div>
+</div>
+</div>
+</div>
+<h3>9.2 Determinación de ángulos</h3>
+<p>Si se conocen lados del triángulo, el ángulo se obtiene mediante funciones inversas. En esta sección conviene escribirlas con tamaño controlado para que no se mezclen con fórmulas de desarrollo más largo.</p>
+<div class="angle-formulas">
+  <div class="angle-formula-card">
+    <div class="formula-html compact"><span class="theta">θ</span><span>=</span><span>arcsin</span><span class="frac"><span class="top">opuesto</span><span class="bottom">hipotenusa</span></span></div>
+    <p>Se usa cuando se conoce el cateto opuesto y la hipotenusa.</p>
+  </div>
+  <div class="angle-formula-card">
+    <div class="formula-html compact"><span class="theta">θ</span><span>=</span><span>arccos</span><span class="frac"><span class="top">adyacente</span><span class="bottom">hipotenusa</span></span></div>
+    <p>Se usa cuando se conoce el cateto adyacente y la hipotenusa.</p>
+  </div>
+  <div class="angle-formula-card">
+    <div class="formula-html compact"><span class="theta">θ</span><span>=</span><span>arctan</span><span class="frac"><span class="top">opuesto</span><span class="bottom">adyacente</span></span></div>
+    <p>Se usa cuando se conocen ambos catetos.</p>
+  </div>
+</div>
+<h3>9.3 Aplicación a componentes</h3>
+<p>Si una fuerza, velocidad o desplazamiento forma un ángulo \(\theta\) con el eje \(x\), sus componentes son:</p>
+<div class="angle-formulas component-formula">
+  <div class="angle-formula-card"><div class="formula-html"><span>A<sub>x</sub></span><span>=</span><span>A</span><span>cos</span><span class="theta">θ</span></div></div>
+  <div class="angle-formula-card"><div class="formula-html"><span>A<sub>y</sub></span><span>=</span><span>A</span><span>sin</span><span class="theta">θ</span></div></div>
+</div>
+<div class="box app"><strong>Aplicación industrial.</strong> En una cinta inclinada, la componente de una fuerza o del peso paralela a la cinta determina tendencia al deslizamiento. En una rampa, el ángulo modifica la componente de gravedad sobre el plano.</div>
+</section>
+<section class="paper" id="calculadora">
+<h2>10. Calculadora, grados, radianes y cuadrantes</h2>
+<p>Una fuente común de errores es usar la calculadora en un modo angular incorrecto. Las funciones trigonométricas pueden trabajar en grados o en radianes.</p>
+<table><tr><th>Modo</th><th>Qué significa</th><th>Cuándo usarlo</th></tr>
+<tr><td><span class="kbd">DEG</span></td><td>El ángulo se expresa en grados.</td><td>Geometría elemental, planos inclinados informados en °, pendientes.</td></tr>
+<tr><td><span class="kbd">RAD</span></td><td>El ángulo se expresa en radianes.</td><td>Cálculo, movimiento circular, derivadas, \(\omega\) en rad/s.</td></tr>
+</table>
+<div class="eq">\[ 180^{\circ}=\pi\,\mathrm{rad} \qquad 1\,\mathrm{rad}\approx57,3^{\circ} \]</div>
+<h3>10.1 Funciones inversas y cuadrantes</h3>
+<p>Las funciones inversas de calculadora entregan un <strong>valor principal</strong>. Eso no siempre identifica el cuadrante real si solo se usa una razón.</p>
+<table><tr><th>Función</th><th>Rango usual de salida</th><th>Limitación</th></tr>
+<tr><td>\(\sin^{-1}(x)\) o asin</td><td>\([-90^{\circ},90^{\circ}]\)</td><td>No distingue por sí sola entre cuadrantes I y II.</td></tr>
+<tr><td>\(\cos^{-1}(x)\) o acos</td><td>\([0^{\circ},180^{\circ}]\)</td><td>No distingue por sí sola entre cuadrantes III y IV.</td></tr>
+<tr><td>\(\tan^{-1}(y/x)\) o atan</td><td>\((-90^{\circ},90^{\circ})\)</td><td>Puede confundir I con III o IV con II.</td></tr>
+<tr><td>atan2(y,x)</td><td>\((-180^{\circ},180^{\circ}]\)</td><td>Usa signos de \(x\) e \(y\) y ubica el cuadrante.</td></tr>
+</table>
+<div class="quad">
+<div><strong>Cuadrante I</strong><br/>\(x>0, y>0\)<br/>ángulo entre 0° y 90°</div>
+<div><strong>Cuadrante II</strong><br/>\(x<0, y>0\)<br/>ángulo entre 90° y 180°</div>
+<div><strong>Cuadrante III</strong><br/>\(x<0, y<0\)<br/>ángulo entre -180° y -90° o 180° a 270°</div>
+<div><strong>Cuadrante IV</strong><br/>\(x>0, y<0\)<br/>ángulo entre -90° y 0° o 270° a 360°</div>
+</div>
+<div class="box warn"><strong>Error frecuente.</strong> Si \(x=-3\) e \(y=-4\), \(\arctan(y/x)=\arctan(1,333)\approx53,1^{\circ}\), pero el vector está en el tercer cuadrante. El ángulo correcto desde el eje positivo \(x\) es aproximadamente \(233,1^{\circ}\) o \(-126,9^{\circ}\). Use atan2(y,x).</div>
+</section>
+
+<section class="paper" id="vectores">
+<h2>11. Vectores: representación, módulo, dirección y sentido</h2>
+<p>Un vector se representa mediante una flecha. La longitud de la flecha indica el módulo, la recta de acción indica la dirección y la punta de la flecha indica el sentido.</p>
+<div class="eq">\[ \vec A=A_x\hat i+A_y\hat j \qquad |\vec A|=\sqrt{A_x^2+A_y^2} \]</div>
+<div class="diagram-grid">
+<div class="diagram"><h4>Vector en el plano</h4>
+<svg viewBox="0 0 380 260" role="img" aria-label="Vector y componentes">
+<rect width="380" height="260" fill="#fff"/>
+<line x1="55" y1="205" x2="340" y2="205" stroke="#334155" stroke-width="2" marker-end="url(#arr1)"/>
+<line x1="55" y1="205" x2="55" y2="30" stroke="#334155" stroke-width="2" marker-end="url(#arr1)"/>
+<defs><marker id="arr1" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="arrBlue" markerWidth="11" markerHeight="11" refX="10" refY="5.5" orient="auto"><path d="M0,0 L11,5.5 L0,11 z" fill="#2563eb"/></marker></defs>
+<line x1="55" y1="205" x2="270" y2="82" stroke="#2563eb" stroke-width="5" marker-end="url(#arrBlue)"/>
+<line x1="55" y1="205" x2="270" y2="205" stroke="#ef4444" stroke-width="3" stroke-dasharray="6 5"/>
+<line x1="270" y1="205" x2="270" y2="82" stroke="#16a34a" stroke-width="3" stroke-dasharray="6 5"/>
+<path d="M90 205 A35 35 0 0 0 85 184" stroke="#9333ea" stroke-width="3" fill="none"/>
+<text x="96" y="190" fill="#9333ea" font-size="16">θ</text>
+<text x="170" y="62" fill="#1e3a8a" font-size="18">\(\vec A\)</text>
+<text x="160" y="225" fill="#b91c1c" font-size="16">\(A_x\)</text>
+<text x="278" y="150" fill="#166534" font-size="16">\(A_y\)</text>
+</svg></div>
+<div class="diagram"><h4>De módulo y ángulo a componentes</h4>
+<div class="formula-cards component-formula">
+<div class="eq"><div class="formula-html"><span>A<sub>x</sub></span><span>=</span><span>A</span><span>cos</span><span class="theta">θ</span></div></div>
+<div class="eq"><div class="formula-html"><span>A<sub>y</sub></span><span>=</span><span>A</span><span>sin</span><span class="theta">θ</span></div></div>
+<div class="eq"><div class="formula-html compact"><span class="theta">θ</span><span>=</span><span>arctan</span><span class="frac"><span class="top">A<sub>y</sub></span><span class="bottom">A<sub>x</sub></span></span></div></div>
+<p class="hint">Si el vector puede estar en cualquier cuadrante, usar <span class="kbd">atan2(A_y,A_x)</span> para obtener el ángulo correcto a partir de los signos de las componentes.</p>
+</div></div>
+</div>
+</section>
+
+<section class="paper" id="componentes">
+<h2>12. Componentes vectoriales</h2>
+<p>Descomponer un vector significa reemplazarlo por dos vectores perpendiculares equivalentes. Esta idea permite resolver problemas con álgebra simple.</p>
+<div class="eq">\[ \vec A=A_x\hat i+A_y\hat j \]</div>
+<div class="eq">\[ A_x=A\cos\theta,\qquad A_y=A\sin\theta \]</div>
+<div class="eq">\[ A=\sqrt{A_x^2+A_y^2},\qquad \theta=\operatorname{atan2}(A_y,A_x) \]</div>
+<p>En un sistema de referencia elegido, una componente puede ser positiva o negativa. El signo indica sentido respecto del eje.</p>
+<div class="box app"><strong>Aplicación industrial.</strong> La velocidad de un envase sobre una rampa puede separarse en una componente horizontal y una vertical. Esto permite estimar avance, elevación y tiempos de transporte.</div>
+</section>
+
+<section class="paper" id="operaciones">
+<h2>13. Operaciones con vectores</h2>
+<h3>13.1 Suma y resta de vectores</h3>
+<p>La suma vectorial se realiza componente a componente.</p>
+<div class="eq">\[ \vec R=\vec A+\vec B=(A_x+B_x)\hat i+(A_y+B_y)\hat j \]</div>
+<div class="eq">\[ \vec D=\vec A-\vec B=(A_x-B_x)\hat i+(A_y-B_y)\hat j \]</div>
+<h3>13.2 Producto de un escalar por un vector</h3>
+<p>Multiplicar un vector por un escalar cambia su módulo y, si el escalar es negativo, también invierte su sentido.</p>
+<div class="eq">\[ k\vec A=(kA_x)\hat i+(kA_y)\hat j \]</div>
+<h3>13.3 Producto escalar</h3>
+<p>El producto escalar da como resultado un escalar. Mide cuánto de un vector se proyecta sobre otro.</p>
+<div class="eq">\[ \vec A\cdot\vec B=AB\cos\phi=A_xB_x+A_yB_y+A_zB_z \]</div>
+<p>Es positivo si los vectores apuntan de manera similar, cero si son perpendiculares y negativo si apuntan en sentidos opuestos.</p>
+<h3>13.4 Producto vectorial</h3>
+<p>El producto vectorial da como resultado otro vector perpendicular al plano formado por los dos vectores.</p>
+<div class="eq">\[ |\vec A\times\vec B|=AB\sin\phi \]</div>
+<p>En dos dimensiones, si los vectores están en el plano \(xy\), el producto vectorial tiene componente \(z\):</p>
+<div class="eq">\[ \vec A\times\vec B=(A_xB_y-A_yB_x)\hat k \]</div>
+<div class="box app"><strong>Aplicación industrial.</strong> El producto vectorial aparece al estudiar momentos o torques. En un agitador, una fuerza aplicada a cierta distancia del eje produce tendencia de giro: \(\vec\tau=\vec r\times\vec F\).</div>
+<table><tr><th>Operación</th><th>Resultado</th><th>Uso físico</th></tr>
+<tr><td>\(\vec A+\vec B\)</td><td>Vector</td><td>Resultante de desplazamientos, velocidades o fuerzas.</td></tr>
+<tr><td>\(k\vec A\)</td><td>Vector</td><td>Cambio de escala o inversión de sentido.</td></tr>
+<tr><td>\(\vec A\cdot\vec B\)</td><td>Escalar</td><td>Proyección, trabajo, alineación.</td></tr>
+<tr><td>\(\vec A\times\vec B\)</td><td>Vector</td><td>Torque, rotación, orientación perpendicular.</td></tr>
+</table>
+</section>
+
+<section class="paper" id="medicion-industrial">
+<h2>14. Aplicación en mediciones industriales</h2>
+<p>Las mediciones industriales no son aisladas: forman parte de decisiones operativas. Un mismo valor puede ser útil o peligroso según unidad, escala, dirección y contexto.</p>
+<table><tr><th>Proceso</th><th>Magnitudes involucradas</th><th>Tipo</th><th>Uso técnico</th></tr>
+<tr><td>Pesado de ingredientes</td><td>Masa, porcentaje, concentración</td><td>Escalares</td><td>Formulación, trazabilidad, costos.</td></tr>
+<tr><td>Dosificación líquida</td><td>Volumen, caudal, tiempo</td><td>Escalares</td><td>Precisión de llenado.</td></tr>
+<tr><td>Cinta transportadora</td><td>Posición, velocidad</td><td>Vectoriales</td><td>Sincronización con sensores y actuadores.</td></tr>
+<tr><td>Rampa o elevador</td><td>Desplazamiento, ángulo, componentes</td><td>Vectoriales y trigonométricas</td><td>Altura ganada, longitud de transporte, esfuerzo.</td></tr>
+<tr><td>Agitador</td><td>rpm, torque, fuerza, radio</td><td>Escalares y vectoriales</td><td>Mezcla, seguridad mecánica.</td></tr>
+<tr><td>Centrífuga</td><td>Radio, rpm, aceleración centrípeta</td><td>Vectorial</td><td>Separación y solicitación mecánica.</td></tr>
+</table>
+<div class="box key"><strong>Criterio técnico.</strong> Antes de usar una medición en una ecuación, verificar: unidad, escala, signo, dirección, modo angular, instrumento y si el dato representa una magnitud escalar o vectorial.</div>
+</section>
+
+<section class="paper" id="ejemplos">
+<h2>15. Ejemplos resueltos paso a paso</h2>
+<div class="example"><h3>Ejemplo 1. Conversión de presión en una línea de aire</h3><p>Un equipo importado recomienda una presión de trabajo de 80 psi. Convertir a kPa y bar.</p>
+<div class="step"><strong>Dato.</strong> \(1\,\mathrm{psi}=6,89476\,\mathrm{kPa}\).</div>
+<div class="eq">\[80\,\mathrm{psi}\times6,89476\,\frac{\mathrm{kPa}}{\mathrm{psi}}=551,6\,\mathrm{kPa}\]</div>
+<div class="eq">\[551,6\,\mathrm{kPa}=5,516\,\mathrm{bar}\]</div>
+<p><strong>Interpretación.</strong> Si el manómetro local trabaja en bar, el ajuste esperado es aproximadamente 5,5 bar.</p></div>
+<div class="example"><h3>Ejemplo 2. Notación científica en dosificación de aditivo</h3><p>Una concentración máxima permitida se expresa como \(0,00025\,\mathrm{kg}\) por lote. Expresarla en g y en notación científica.</p>
+<div class="eq">\[0,00025\,\mathrm{kg}\times1000=0,25\,\mathrm{g}\]</div>
+<div class="eq">\[0,00025=2,5\times10^{-4}\]</div>
+<p><strong>Interpretación.</strong> La notación científica ayuda a evitar pérdida de ceros en valores pequeños.</p></div>
+<div class="example"><h3>Ejemplo 3. Rampa de transporte</h3><p>Una rampa eleva producto 0,80 m en una longitud de 4,0 m. Calcular el ángulo de inclinación.</p>
+<div class="step">La hipotenusa es la longitud de la rampa y el cateto opuesto es la altura.</div>
+<div class="eq">\[\sin\theta=\frac{0,80}{4,0}=0,20\]</div>
+<div class="eq">\[\theta=\arcsin(0,20)=11,5^{\circ}\]</div>
+</div>
+<div class="example"><h3>Ejemplo 4. Componentes de una velocidad en cinta inclinada</h3><p>Un producto se mueve a \(0,60\,\mathrm{m/s}\) sobre una cinta inclinada \(20^{\circ}\). Calcular componentes horizontal y vertical.</p>
+<div class="eq">\[v_x=v\cos20^{\circ}=0,60(0,9397)=0,564\,\mathrm{m/s}\]</div>
+<div class="eq">\[v_y=v\sin20^{\circ}=0,60(0,342)=0,205\,\mathrm{m/s}\]</div>
+</div>
+<div class="example"><h3>Ejemplo 5. Producto escalar y alineación</h3><p>Dos vectores de velocidad medidos en una transferencia son \(\vec A=(0,8,0,2)\,\mathrm{m/s}\) y \(\vec B=(0,6,-0,1)\,\mathrm{m/s}\). Calcular \(\vec A\cdot\vec B\).</p>
+<div class="eq">\[\vec A\cdot\vec B=(0,8)(0,6)+(0,2)(-0,1)=0,48-0,02=0,46\]</div>
+<p>El valor positivo indica que las velocidades tienen componente dominante en el mismo sentido.</p></div>
+</section>
+
+<section class="paper" id="simuladores">
+<h2>16. Simuladores interactivos</h2>
+<p>Los siguientes simuladores permiten verificar los cálculos principales de la unidad. Se recomienda usarlos con una consigna previa: <em>prediga el resultado antes de calcular</em>.</p>
+
+<div class="sim"><h3>Simulador 1: Conversor de unidades</h3><div class="sim-info"><p><strong>Qué hace.</strong> Convierte entre unidades SI, técnicas y anglosajonas frecuentes en alimentos.</p><ul><li><strong>Objetivo:</strong> reconocer que el valor físico no cambia, solo cambia la unidad.</li><li><strong>Variables a modificar:</strong> familia de magnitud, valor, unidad inicial y unidad final.</li><li><strong>Qué observar:</strong> cambio de escala, cancelación de unidades y conversiones no lineales de temperatura.</li></ul></div>
+<div class="controls"><label>Magnitud<select id="convType" onchange="updateUnits()"><option value="mass">Masa</option><option value="length">Longitud</option><option value="volume">Volumen</option><option value="temp">Temperatura</option><option value="pressure">Presión</option><option value="density">Densidad</option><option value="speed">Velocidad</option><option value="rotation">Rotación</option></select></label><label>Valor<input id="convVal" type="number" step="any" value="80"></label><label>Desde<select id="convFrom"></select></label><label>Hacia<select id="convTo"></select></label></div><button onclick="convertUnits()">Convertir</button><div class="out" id="convOut"></div></div>
+
+<div class="sim"><h3>Simulador 2: Notación científica</h3><div class="sim-info"><p><strong>Qué hace.</strong> Expresa un número decimal como mantisa por potencia de diez.</p><ul><li><strong>Objetivo:</strong> interpretar orden de magnitud y evitar errores con ceros.</li><li><strong>Variables a modificar:</strong> valor numérico y cantidad de cifras significativas.</li><li><strong>Qué observar:</strong> mantisa, exponente y efecto del redondeo.</li></ul></div><div class="controls"><label>Número<input id="sciVal" type="number" step="any" value="0.00025"></label><label>Cifras significativas<input id="sciSig" type="number" min="1" max="8" step="1" value="3"></label></div><button onclick="simSci()">Expresar</button><div class="out" id="sciOut"></div></div>
+
+<div class="sim"><h3>Simulador 3: Trigonometría y cuadrantes</h3><div class="sim-info"><p><strong>Qué hace.</strong> Calcula módulo, ángulo y razones trigonométricas a partir de dos componentes o catetos.</p><ul><li><strong>Objetivo:</strong> distinguir atan(y/x) de atan2(y,x).</li><li><strong>Variables a modificar:</strong> componente/cateto horizontal \(x\) y vertical \(y\).</li><li><strong>Qué observar:</strong> cuadrante, ángulo principal y ángulo real desde el eje positivo \(x\).</li></ul></div><div class="controls"><label>x o cateto adyacente<input id="triX" type="number" step="any" value="-3"></label><label>y o cateto opuesto<input id="triY" type="number" step="any" value="-4"></label></div><button onclick="simTrig()">Calcular</button><div class="out" id="triOut"></div><canvas id="triCanvas" width="900" height="280"></canvas></div>
+
+<div class="sim"><h3>Simulador 4: Componentes de un vector</h3><div class="sim-info"><p><strong>Qué hace.</strong> Convierte entre forma polar y forma cartesiana de un vector.</p><ul><li><strong>Objetivo:</strong> visualizar módulo, dirección, sentido y componentes.</li><li><strong>Variables a modificar:</strong> módulo y ángulo.</li><li><strong>Qué observar:</strong> signos de las componentes y ubicación del vector en el cuadrante correspondiente.</li></ul></div><div class="controls"><label>Módulo A<input id="vecMag" type="number" step="any" value="10"></label><label>Ángulo θ (grados)<input id="vecAng" type="number" step="any" value="35"></label></div><button onclick="simVec()">Calcular</button><div class="out" id="vecOut"></div><canvas id="vecCanvas" width="900" height="300"></canvas></div>
+
+<div class="sim"><h3>Simulador 5: Operaciones vectoriales</h3><div class="sim-info"><p><strong>Qué hace.</strong> Calcula suma, resta, producto por escalar, producto escalar y producto vectorial en 2D.</p><ul><li><strong>Objetivo:</strong> relacionar operaciones algebraicas con interpretación geométrica.</li><li><strong>Variables a modificar:</strong> componentes de \(\vec A\), componentes de \(\vec B\) y escalar \(k\).</li><li><strong>Qué observar:</strong> dirección de la resultante, signo del producto escalar y sentido del producto vectorial.</li></ul></div><div class="controls"><label>Aₓ<input id="opAx" type="number" step="any" value="4"></label><label>Aᵧ<input id="opAy" type="number" step="any" value="2"></label><label>Bₓ<input id="opBx" type="number" step="any" value="1"></label><label>Bᵧ<input id="opBy" type="number" step="any" value="3"></label><label>Escalar k<input id="opK" type="number" step="any" value="2"></label></div><button onclick="simOps()">Calcular</button><div class="out" id="opOut"></div><canvas id="opCanvas" width="900" height="320"></canvas></div>
+</section>
+
+<section class="paper" id="errores"><h2>17. Errores frecuentes</h2><div class="grid">
+<div class="card"><h4>Mezclar unidades</h4><p>Usar kg con g, °F con °C o psi con kPa sin convertir.</p></div><div class="card"><h4>Olvidar unidades</h4><p>Un número sin unidad no comunica una medición física.</p></div><div class="card"><h4>Confundir escalar y vector</h4><p>Rapidez no es lo mismo que velocidad; masa no tiene dirección.</p></div><div class="card"><h4>Calculadora en modo incorrecto</h4><p>Usar radianes cuando el dato está en grados, o viceversa.</p></div><div class="card"><h4>Usar atan simple</h4><p>\(\arctan(y/x)\) puede ubicar mal el cuadrante; preferir atan2.</p></div><div class="card"><h4>Producto escalar/vectorial</h4><p>El producto escalar da escalar; el vectorial da vector perpendicular.</p></div></div></section>
+
+<section class="paper" id="preguntas"><h2>18. Preguntas conceptuales</h2><ol><li>¿Qué diferencia hay entre medir masa y medir fuerza?</li><li>¿Por qué una temperatura en °F no puede convertirse a °C solo multiplicando por un factor?</li><li>¿Qué información falta si se dice “la velocidad es 2 m/s” sin indicar sentido?</li><li>¿Por qué el signo de una componente vectorial depende del sistema de referencia?</li><li>¿Qué representa físicamente el producto escalar entre dos vectores?</li><li>¿Qué interpretación tiene el producto vectorial en problemas de torque?</li><li>¿Qué problema puede causar usar \(\tan^{-1}(y/x)\) en lugar de atan2?</li></ol></section>
+
+<section class="paper" id="ejercicios"><h2>19. Ejercicios propuestos con respuestas orientativas</h2><table><tr><th>#</th><th>Enunciado</th><th>Respuesta orientativa</th></tr>
+<tr><td>1</td><td>Convertir 3,5 kg a g y lb.</td><td>3500 g; 7,72 lb.</td></tr>
+<tr><td>2</td><td>Convertir 2 gal US a L.</td><td>7,57 L.</td></tr>
+<tr><td>3</td><td>Convertir 85 °F a °C.</td><td>29,4 °C.</td></tr>
+<tr><td>4</td><td>Expresar 0,0000048 en notación científica.</td><td>\(4,8\times10^{-6}\).</td></tr>
+<tr><td>5</td><td>Una rampa tiene altura 1,2 m y longitud 6,0 m. Hallar el ángulo.</td><td>\(\theta=\arcsin(0,2)=11,5^{\circ}\).</td></tr>
+<tr><td>6</td><td>Vector de módulo 20 N a 30°. Calcular componentes.</td><td>\(A_x=17,3\,N\), \(A_y=10,0\,N\).</td></tr>
+<tr><td>7</td><td>\(\vec A=(3,4)\), \(\vec B=(-2,5)\). Calcular \(\vec A+\vec B\).</td><td>\((1,9)\).</td></tr>
+<tr><td>8</td><td>Con los vectores anteriores, calcular \(\vec A\cdot\vec B\).</td><td>\(3(-2)+4(5)=14\).</td></tr>
+<tr><td>9</td><td>Con los vectores anteriores, calcular \(\vec A\times\vec B\) en 2D.</td><td>\((3·5-4·(-2))\hat k=23\hat k\).</td></tr>
+<tr><td>10</td><td>Un vector tiene componentes \((-3,-4)\). Hallar módulo y ángulo.</td><td>\(5\); \(-126,9^{\circ}\) o \(233,1^{\circ}\).</td></tr>
+</table></section>
+
+<section class="paper" id="actividad"><h2>20. Actividad práctica o simulada</h2><h3>Auditoría de magnitudes y unidades en una línea alimentaria</h3><p>Elegir una línea real o simulada compuesta por recepción de materia prima, dosificación, transporte, calentamiento/enfriamiento y mezcla. Para cada etapa:</p><ol><li>Identificar al menos tres magnitudes medidas.</li><li>Clasificarlas como escalares o vectoriales.</li><li>Indicar unidad SI y unidad industrial habitual.</li><li>Realizar al menos dos conversiones de unidades.</li><li>Representar un vector de velocidad, fuerza o desplazamiento con componentes.</li><li>Usar trigonometría para calcular un ángulo o componente.</li><li>Explicar una consecuencia de error de unidad, signo o cuadrante.</li></ol></section>
+
+<section class="paper" id="resumen"><h2>21. Resumen final</h2><ul><li>Una magnitud física se expresa mediante valor numérico y unidad.</li><li>Las magnitudes escalares no tienen dirección; las vectoriales sí.</li><li>El SI es la base común, pero en alimentos conviven unidades técnicas y anglosajonas.</li><li>Convertir unidades exige cancelar unidades correctamente.</li><li>La notación científica permite manejar valores muy grandes o pequeños.</li><li>La trigonometría permite calcular componentes y ángulos.</li><li>Las funciones inversas de calculadora entregan valores principales; para cuadrantes se usa atan2.</li><li>Los vectores se operan por componentes.</li><li>Producto escalar y producto vectorial tienen significados físicos distintos.</li></ul></section>
+
+<section class="paper" id="glosario"><h2>22. Glosario breve</h2><table><tr><th>Término</th><th>Definición</th></tr><tr><td>Magnitud física</td><td>Propiedad medible de un sistema.</td></tr><tr><td>Unidad</td><td>Referencia usada para cuantificar una magnitud.</td></tr><tr><td>Escalar</td><td>Magnitud definida por número y unidad.</td></tr><tr><td>Vector</td><td>Magnitud con módulo, dirección y sentido.</td></tr><tr><td>Componente</td><td>Proyección de un vector sobre un eje.</td></tr><tr><td>Notación científica</td><td>Forma \(a\times10^n\) para expresar números.</td></tr><tr><td>Seno</td><td>Cateto opuesto dividido por hipotenusa.</td></tr><tr><td>Coseno</td><td>Cateto adyacente dividido por hipotenusa.</td></tr><tr><td>Tangente</td><td>Cateto opuesto dividido por cateto adyacente.</td></tr><tr><td>Producto escalar</td><td>Operación entre vectores que da un escalar.</td></tr><tr><td>Producto vectorial</td><td>Operación entre vectores que da un vector perpendicular.</td></tr></table></section>
+</main>
+</div>
+<footer>Apunte didáctico para Física Aplicada a la Tecnología de Alimentos - Unidad 1: Magnitudes físicas y vectores.</footer>
+<script>
+const unitData={
+ mass:{kg:1,g:0.001,mg:1e-6,lb:0.45359237,oz:0.028349523125,t:1000},
+ length:{m:1,cm:0.01,mm:0.001,in:0.0254,ft:0.3048},
+ volume:{L:1,mL:0.001,'m³':1000,'gal US':3.785411784,'fl oz US':0.0295735295625,cup:0.2365882365,tbsp:0.01478676478125,tsp:0.00492892159375},
+ pressure:{Pa:1,kPa:1000,bar:100000,atm:101325,psi:6894.757293},
+ density:{'kg/m³':1,'g/mL':1000,'kg/L':1000,'g/L':1,'lb/ft³':16.01846337},
+ speed:{'m/s':1,'cm/s':0.01,'m/min':1/60,'km/h':1/3.6,'ft/s':0.3048},
+ rotation:{rpm:1,Hz:60,'rad/s':60/(2*Math.PI)}
+};
+function updateUnits(){const t=document.getElementById('convType').value, f=document.getElementById('convFrom'), to=document.getElementById('convTo');f.innerHTML='';to.innerHTML='';const units=t==='temp'?['°C','°F','K']:Object.keys(unitData[t]);units.forEach(u=>{f.add(new Option(u,u));to.add(new Option(u,u));}); if(t==='pressure'){f.value='psi';to.value='kPa';document.getElementById('convVal').value=80;} if(t==='mass'){f.value='kg';to.value='g';document.getElementById('convVal').value=2.5;} if(t==='temp'){f.value='°F';to.value='°C';document.getElementById('convVal').value=85;} convertUnits();}
+function tempToC(v,u){if(u==='°C')return v;if(u==='°F')return (v-32)/1.8;if(u==='K')return v-273.15} function cToTemp(c,u){if(u==='°C')return c;if(u==='°F')return c*1.8+32;if(u==='K')return c+273.15}
+function convertUnits(){const t=convType.value,v=parseFloat(convVal.value),from=convFrom.value,to=convTo.value;let res,detail=''; if(!isFinite(v)){convOut.textContent='Ingrese un valor válido.';return;} if(t==='temp'){const c=tempToC(v,from);res=cToTemp(c,to);detail=`Conversión no lineal: primero se lleva a °C y luego a la unidad final.`;} else {const base=v*unitData[t][from];res=base/unitData[t][to];detail=`${v} ${from} × factor(${from}→base) / factor(${to}→base)`;} convOut.textContent=`Resultado: ${res.toPrecision(8)} ${to}\n${detail}`;}
+function simSci(){const v=parseFloat(sciVal.value),sig=Math.max(1,Math.min(8,parseInt(sciSig.value||3))); if(!isFinite(v)||v===0){sciOut.textContent='Ingrese un número distinto de cero.';return;} const exp=Math.floor(Math.log10(Math.abs(v))); const mant=v/Math.pow(10,exp); sciOut.textContent=`${v} = ${mant.toPrecision(sig)} × 10^${exp}\nMantisa: ${mant}\nExponente: ${exp}\nOrden de magnitud aproximado: 10^${exp}`;}
+function drawBase(ctx,W,H){ctx.clearRect(0,0,W,H);ctx.fillStyle='#fff';ctx.fillRect(0,0,W,H);ctx.strokeStyle='#cbd5e1';ctx.lineWidth=1;for(let x=50;x<W;x+=50){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}for(let y=40;y<H;y+=40){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}ctx.strokeStyle='#334155';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(W/2,20);ctx.lineTo(W/2,H-20);ctx.moveTo(20,H/2);ctx.lineTo(W-20,H/2);ctx.stroke();}
+function arrow(ctx,x1,y1,x2,y2,color,label){ctx.strokeStyle=color;ctx.fillStyle=color;ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();const ang=Math.atan2(y2-y1,x2-x1);ctx.beginPath();ctx.moveTo(x2,y2);ctx.lineTo(x2-12*Math.cos(ang-Math.PI/6),y2-12*Math.sin(ang-Math.PI/6));ctx.lineTo(x2-12*Math.cos(ang+Math.PI/6),y2-12*Math.sin(ang+Math.PI/6));ctx.closePath();ctx.fill();if(label){ctx.font='16px system-ui';ctx.fillText(label,x2+8,y2-8);}}
+function simTrig(){const x=parseFloat(triX.value),y=parseFloat(triY.value);const h=Math.hypot(x,y); if(h===0){triOut.textContent='El vector nulo no tiene ángulo definido.';return;} const sin=y/h, cos=x/h, tan=x!==0?y/x:Infinity, atan=Math.atan(tan)*180/Math.PI, atan2=Math.atan2(y,x)*180/Math.PI;let q=x>=0&&y>=0?'I':x<0&&y>=0?'II':x<0&&y<0?'III':'IV';triOut.textContent=`Hipotenusa/módulo = ${h.toFixed(4)}\nsen θ = ${sin.toFixed(4)}\ncos θ = ${cos.toFixed(4)}\ntan θ = ${isFinite(tan)?tan.toFixed(4):'no definida'}\natan(y/x) = ${isFinite(atan)?atan.toFixed(2)+'°':'no definida'}\natan2(y,x) = ${atan2.toFixed(2)}°\nCuadrante: ${q}`;const c=triCanvas,ctx=c.getContext('2d'),W=c.width,H=c.height;drawBase(ctx,W,H);const scale=90/Math.max(Math.abs(x),Math.abs(y),1);const cx=W/2,cy=H/2;arrow(ctx,cx,cy,cx+x*scale,cy-y*scale,'#2563eb','A');}
+function simVec(){const A=parseFloat(vecMag.value),deg=parseFloat(vecAng.value),th=deg*Math.PI/180;const Ax=A*Math.cos(th),Ay=A*Math.sin(th);vecOut.textContent=`Ax = A cos θ = ${Ax.toFixed(4)}\nAy = A sin θ = ${Ay.toFixed(4)}\nVector: (${Ax.toFixed(4)}, ${Ay.toFixed(4)})\nMódulo verificado: ${Math.hypot(Ax,Ay).toFixed(4)}`;const c=vecCanvas,ctx=c.getContext('2d'),W=c.width,H=c.height;drawBase(ctx,W,H);const scale=110/Math.max(Math.abs(Ax),Math.abs(Ay),1);const cx=W/2,cy=H/2;arrow(ctx,cx,cy,cx+Ax*scale,cy-Ay*scale,'#2563eb','A');arrow(ctx,cx,cy,cx+Ax*scale,cy,'#ef4444','Ax');arrow(ctx,cx+Ax*scale,cy,cx+Ax*scale,cy-Ay*scale,'#16a34a','Ay');}
+function simOps(){const Ax=+opAx.value,Ay=+opAy.value,Bx=+opBx.value,By=+opBy.value,k=+opK.value;const S=[Ax+Bx,Ay+By],D=[Ax-Bx,Ay-By],K=[k*Ax,k*Ay],dot=Ax*Bx+Ay*By,cross=Ax*By-Ay*Bx;opOut.textContent=`A+B = (${S[0].toFixed(3)}, ${S[1].toFixed(3)})\nA-B = (${D[0].toFixed(3)}, ${D[1].toFixed(3)})\nkA = (${K[0].toFixed(3)}, ${K[1].toFixed(3)})\nA·B = ${dot.toFixed(3)}\nA×B = ${cross.toFixed(3)} k̂\nInterpretación: dot positivo = tendencia similar; cross positivo = giro antihorario de A hacia B.`;const c=opCanvas,ctx=c.getContext('2d'),W=c.width,H=c.height;drawBase(ctx,W,H);const m=Math.max(Math.abs(Ax),Math.abs(Ay),Math.abs(Bx),Math.abs(By),Math.abs(S[0]),Math.abs(S[1]),1);const scale=110/m,cx=W/2,cy=H/2;arrow(ctx,cx,cy,cx+Ax*scale,cy-Ay*scale,'#2563eb','A');arrow(ctx,cx,cy,cx+Bx*scale,cy-By*scale,'#16a34a','B');arrow(ctx,cx,cy,cx+S[0]*scale,cy-S[1]*scale,'#ef4444','A+B');}
+window.addEventListener('load',()=>{updateUnits();simSci();simTrig();simVec();simOps();});
+</script>
+</body>
+</html>
