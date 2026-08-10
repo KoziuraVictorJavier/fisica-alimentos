@@ -1,0 +1,1848 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <question type="category">
+    <category>
+      <text>$course$/top/Unidad 1/Vectores</text>
+    </category>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][VECT][V01] ¿Qué información es necesaria para definir completamente una magnitud vectorial?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;¿Qué información es necesaria para definir completamente una magnitud vectorial?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Una magnitud vectorial requiere módulo, dirección y sentido; en el plano también puede representarse mediante sus componentes.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. Una magnitud vectorial requiere módulo, dirección y sentido; en el plano también puede representarse mediante sus componentes.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Vectores</text>
+      </tag>
+      <tag>
+        <text>VECT</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Sólo un valor numérico.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Una magnitud vectorial requiere módulo, dirección y sentido; en el plano también puede representarse mediante sus componentes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Un valor numérico y una unidad.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Una magnitud vectorial requiere módulo, dirección y sentido; en el plano también puede representarse mediante sus componentes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Módulo, dirección y sentido.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. Una magnitud vectorial requiere módulo, dirección y sentido; en el plano también puede representarse mediante sus componentes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Únicamente una dirección.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Una magnitud vectorial requiere módulo, dirección y sentido; en el plano también puede representarse mediante sus componentes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][VECT][V02] Si dos vectores tienen exactamente las mismas componentes x e y, ¿qué puede afirmarse?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Si dos vectores tienen exactamente las mismas componentes x e y, ¿qué puede afirmarse?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Las componentes determinan completamente al vector en un sistema de referencia; si coinciden, los vectores son iguales.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. Las componentes determinan completamente al vector en un sistema de referencia; si coinciden, los vectores son iguales.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Vectores</text>
+      </tag>
+      <tag>
+        <text>VECT</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Tienen necesariamente sentidos opuestos.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Las componentes determinan completamente al vector en un sistema de referencia; si coinciden, los vectores son iguales.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Representan el mismo vector.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. Las componentes determinan completamente al vector en un sistema de referencia; si coinciden, los vectores son iguales.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Sólo tienen el mismo módulo, pero no la misma dirección.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Las componentes determinan completamente al vector en un sistema de referencia; si coinciden, los vectores son iguales.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Uno debe ser escalar.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Las componentes determinan completamente al vector en un sistema de referencia; si coinciden, los vectores son iguales.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][VECT][V03] Dos vectores tienen el mismo módulo y la misma dirección, pero sentidos opuestos. ¿Qué relación existe entre ellos?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Dos vectores tienen el mismo módulo y la misma dirección, pero sentidos opuestos. ¿Qué relación existe entre ellos?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;El vector opuesto conserva el módulo y la dirección de la recta de acción, pero invierte el sentido.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. El vector opuesto conserva el módulo y la dirección de la recta de acción, pero invierte el sentido.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Vectores</text>
+      </tag>
+      <tag>
+        <text>VECT</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Son iguales.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. El vector opuesto conserva el módulo y la dirección de la recta de acción, pero invierte el sentido.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Son perpendiculares.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. El vector opuesto conserva el módulo y la dirección de la recta de acción, pero invierte el sentido.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Uno es el vector opuesto del otro.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. El vector opuesto conserva el módulo y la dirección de la recta de acción, pero invierte el sentido.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Su suma siempre aumenta el módulo.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. El vector opuesto conserva el módulo y la dirección de la recta de acción, pero invierte el sentido.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][VECT][V04] Un vector A forma un ángulo θ medido desde el eje x positivo. ¿Cuál es su componente sobre el eje x?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Un vector A forma un ángulo θ medido desde el eje x positivo. ¿Cuál es su componente sobre el eje x?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Cuando θ se mide desde el eje x positivo, la proyección horizontal es Aₓ = A cos θ.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. Cuando θ se mide desde el eje x positivo, la proyección horizontal es Aₓ = A cos θ.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Vectores</text>
+      </tag>
+      <tag>
+        <text>VECT</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Aₓ = A sen θ&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Cuando θ se mide desde el eje x positivo, la proyección horizontal es Aₓ = A cos θ.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Aₓ = A cos θ&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. Cuando θ se mide desde el eje x positivo, la proyección horizontal es Aₓ = A cos θ.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Aₓ = A tan θ&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Cuando θ se mide desde el eje x positivo, la proyección horizontal es Aₓ = A cos θ.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Aₓ = A/θ&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Cuando θ se mide desde el eje x positivo, la proyección horizontal es Aₓ = A cos θ.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][VECT][V05] Un vector se encuentra en el segundo cuadrante. ¿Qué signos tienen sus componentes?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Un vector se encuentra en el segundo cuadrante. ¿Qué signos tienen sus componentes?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;En el segundo cuadrante la componente horizontal es negativa y la vertical es positiva.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. En el segundo cuadrante la componente horizontal es negativa y la vertical es positiva.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Vectores</text>
+      </tag>
+      <tag>
+        <text>VECT</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Aₓ &amp;gt; 0 y Aᵧ &amp;gt; 0&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. En el segundo cuadrante la componente horizontal es negativa y la vertical es positiva.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Aₓ &amp;lt; 0 y Aᵧ &amp;gt; 0&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. En el segundo cuadrante la componente horizontal es negativa y la vertical es positiva.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Aₓ &amp;lt; 0 y Aᵧ &amp;lt; 0&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. En el segundo cuadrante la componente horizontal es negativa y la vertical es positiva.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Aₓ &amp;gt; 0 y Aᵧ &amp;lt; 0&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. En el segundo cuadrante la componente horizontal es negativa y la vertical es positiva.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][VECT][V06] ¿Cuál es el procedimiento correcto para sumar varios vectores mediante componentes?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;¿Cuál es el procedimiento correcto para sumar varios vectores mediante componentes?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;La suma vectorial por componentes se realiza calculando Rₓ = ΣAₓ y Rᵧ = ΣAᵧ.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. La suma vectorial por componentes se realiza calculando Rₓ = ΣAₓ y Rᵧ = ΣAᵧ.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Vectores</text>
+      </tag>
+      <tag>
+        <text>VECT</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Sumar únicamente sus módulos.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. La suma vectorial por componentes se realiza calculando Rₓ = ΣAₓ y Rᵧ = ΣAᵧ.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Sumar todos los ángulos y luego todos los módulos.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. La suma vectorial por componentes se realiza calculando Rₓ = ΣAₓ y Rᵧ = ΣAᵧ.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Sumar por separado las componentes x y las componentes y.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. La suma vectorial por componentes se realiza calculando Rₓ = ΣAₓ y Rᵧ = ΣAᵧ.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Multiplicar entre sí las componentes de cada vector.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. La suma vectorial por componentes se realiza calculando Rₓ = ΣAₓ y Rᵧ = ΣAᵧ.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][VECT][V07] ¿Qué tipo de resultado produce el producto escalar entre dos vectores?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;¿Qué tipo de resultado produce el producto escalar entre dos vectores?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;El producto escalar o producto punto produce una magnitud escalar y expresa el grado de alineación entre los vectores.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. El producto escalar o producto punto produce una magnitud escalar y expresa el grado de alineación entre los vectores.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Vectores</text>
+      </tag>
+      <tag>
+        <text>VECT</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Siempre un vector perpendicular.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. El producto escalar o producto punto produce una magnitud escalar y expresa el grado de alineación entre los vectores.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Una cantidad escalar.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. El producto escalar o producto punto produce una magnitud escalar y expresa el grado de alineación entre los vectores.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Un vector de módulo uno.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. El producto escalar o producto punto produce una magnitud escalar y expresa el grado de alineación entre los vectores.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Una matriz de componentes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. El producto escalar o producto punto produce una magnitud escalar y expresa el grado de alineación entre los vectores.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][VECT][V08] Si dos vectores no nulos son perpendiculares, ¿qué ocurre con su producto escalar?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Si dos vectores no nulos son perpendiculares, ¿qué ocurre con su producto escalar?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Para vectores perpendiculares θ = 90° y cos 90° = 0, por lo que el producto escalar es cero.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. Para vectores perpendiculares θ = 90° y cos 90° = 0, por lo que el producto escalar es cero.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Vectores</text>
+      </tag>
+      <tag>
+        <text>VECT</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Es máximo y positivo.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Para vectores perpendiculares θ = 90° y cos 90° = 0, por lo que el producto escalar es cero.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Es igual al producto de sus módulos.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Para vectores perpendiculares θ = 90° y cos 90° = 0, por lo que el producto escalar es cero.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Es cero.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. Para vectores perpendiculares θ = 90° y cos 90° = 0, por lo que el producto escalar es cero.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Es necesariamente negativo.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Para vectores perpendiculares θ = 90° y cos 90° = 0, por lo que el producto escalar es cero.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][VECT][V09] ¿Cuál es una característica del producto vectorial de dos vectores?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;¿Cuál es una característica del producto vectorial de dos vectores?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;El producto vectorial genera un vector perpendicular al plano de los vectores originales; su sentido se determina con la regla de la mano derecha.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. El producto vectorial genera un vector perpendicular al plano de los vectores originales; su sentido se determina con la regla de la mano derecha.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Vectores</text>
+      </tag>
+      <tag>
+        <text>VECT</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Su resultado es siempre un escalar.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. El producto vectorial genera un vector perpendicular al plano de los vectores originales; su sentido se determina con la regla de la mano derecha.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Su resultado es un vector perpendicular al plano definido por los vectores originales.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. El producto vectorial genera un vector perpendicular al plano de los vectores originales; su sentido se determina con la regla de la mano derecha.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Siempre tiene la misma dirección que el primer vector.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. El producto vectorial genera un vector perpendicular al plano de los vectores originales; su sentido se determina con la regla de la mano derecha.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Sólo puede calcularse si los vectores son paralelos.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. El producto vectorial genera un vector perpendicular al plano de los vectores originales; su sentido se determina con la regla de la mano derecha.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][VECT][V10] ¿Qué efecto tiene multiplicar un vector por un escalar negativo?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;¿Qué efecto tiene multiplicar un vector por un escalar negativo?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Un escalar negativo modifica el módulo según su valor absoluto e invierte el sentido del vector.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. Un escalar negativo modifica el módulo según su valor absoluto e invierte el sentido del vector.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Vectores</text>
+      </tag>
+      <tag>
+        <text>VECT</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;El vector se transforma en una magnitud escalar.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Un escalar negativo modifica el módulo según su valor absoluto e invierte el sentido del vector.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;El módulo se multiplica por el valor absoluto del escalar y el sentido se invierte.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. Un escalar negativo modifica el módulo según su valor absoluto e invierte el sentido del vector.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Sólo cambia la unidad del vector.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Un escalar negativo modifica el módulo según su valor absoluto e invierte el sentido del vector.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;La dirección gira siempre 90°.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Un escalar negativo modifica el módulo según su valor absoluto e invierte el sentido del vector.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="category">
+    <category>
+      <text>$course$/top/Unidad 1/Trigonometría</text>
+    </category>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][TRIG][T01] En un triángulo rectángulo, ¿cómo se define el seno de un ángulo θ?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;En un triángulo rectángulo, ¿cómo se define el seno de un ángulo θ?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;sen θ = cateto opuesto / hipotenusa.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. sen θ = cateto opuesto / hipotenusa.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Trigonometría</text>
+      </tag>
+      <tag>
+        <text>TRIG</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Cateto adyacente / hipotenusa&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. sen θ = cateto opuesto / hipotenusa.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Cateto opuesto / hipotenusa&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. sen θ = cateto opuesto / hipotenusa.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Cateto opuesto / cateto adyacente&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. sen θ = cateto opuesto / hipotenusa.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Hipotenusa / cateto opuesto&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. sen θ = cateto opuesto / hipotenusa.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][TRIG][T02] En un triángulo rectángulo, ¿cómo se define el coseno de un ángulo θ?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;En un triángulo rectángulo, ¿cómo se define el coseno de un ángulo θ?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;cos θ = cateto adyacente / hipotenusa.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. cos θ = cateto adyacente / hipotenusa.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Trigonometría</text>
+      </tag>
+      <tag>
+        <text>TRIG</text>
+      </tag>
+    </tags>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Cateto adyacente / hipotenusa&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. cos θ = cateto adyacente / hipotenusa.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Cateto opuesto / hipotenusa&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. cos θ = cateto adyacente / hipotenusa.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Hipotenusa / cateto adyacente&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. cos θ = cateto adyacente / hipotenusa.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Cateto opuesto / cateto adyacente&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. cos θ = cateto adyacente / hipotenusa.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][TRIG][T03] En un triángulo rectángulo, ¿cómo se define la tangente de un ángulo θ?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;En un triángulo rectángulo, ¿cómo se define la tangente de un ángulo θ?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;tan θ = cateto opuesto / cateto adyacente.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. tan θ = cateto opuesto / cateto adyacente.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Trigonometría</text>
+      </tag>
+      <tag>
+        <text>TRIG</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Hipotenusa / cateto opuesto&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. tan θ = cateto opuesto / cateto adyacente.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Cateto adyacente / hipotenusa&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. tan θ = cateto opuesto / cateto adyacente.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Cateto opuesto / cateto adyacente&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. tan θ = cateto opuesto / cateto adyacente.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Cateto adyacente / cateto opuesto&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. tan θ = cateto opuesto / cateto adyacente.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][TRIG][T04] Si un vector A forma un ángulo θ con el eje x positivo, ¿qué relación permite obtener su componente vertical?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Si un vector A forma un ángulo θ con el eje x positivo, ¿qué relación permite obtener su componente vertical?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Con el ángulo medido desde el eje x, la componente vertical se obtiene mediante Aᵧ = A sen θ.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. Con el ángulo medido desde el eje x, la componente vertical se obtiene mediante Aᵧ = A sen θ.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Trigonometría</text>
+      </tag>
+      <tag>
+        <text>TRIG</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Aᵧ = A cos θ&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Con el ángulo medido desde el eje x, la componente vertical se obtiene mediante Aᵧ = A sen θ.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Aᵧ = A sen θ&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. Con el ángulo medido desde el eje x, la componente vertical se obtiene mediante Aᵧ = A sen θ.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Aᵧ = A tan θ&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Con el ángulo medido desde el eje x, la componente vertical se obtiene mediante Aᵧ = A sen θ.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Aᵧ = A + θ&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Con el ángulo medido desde el eje x, la componente vertical se obtiene mediante Aᵧ = A sen θ.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][TRIG][T05] Si se conocen las componentes Aₓ y Aᵧ de un vector, ¿qué expresión permite obtener su módulo?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Si se conocen las componentes Aₓ y Aᵧ de un vector, ¿qué expresión permite obtener su módulo?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Las componentes forman un triángulo rectángulo, por lo que el módulo se obtiene mediante el teorema de Pitágoras.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. Las componentes forman un triángulo rectángulo, por lo que el módulo se obtiene mediante el teorema de Pitágoras.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Trigonometría</text>
+      </tag>
+      <tag>
+        <text>TRIG</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A = Aₓ + Aᵧ&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Las componentes forman un triángulo rectángulo, por lo que el módulo se obtiene mediante el teorema de Pitágoras.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A = √(Aₓ² + Aᵧ²)&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. Las componentes forman un triángulo rectángulo, por lo que el módulo se obtiene mediante el teorema de Pitágoras.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A = Aₓ/Aᵧ&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Las componentes forman un triángulo rectángulo, por lo que el módulo se obtiene mediante el teorema de Pitágoras.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A = Aₓ·Aᵧ&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Las componentes forman un triángulo rectángulo, por lo que el módulo se obtiene mediante el teorema de Pitágoras.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][TRIG][T06] Para determinar el ángulo de un vector a partir de sus componentes, ¿qué función es especialmente útil para conservar la información del cuadrante?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Para determinar el ángulo de un vector a partir de sus componentes, ¿qué función es especialmente útil para conservar la información del cuadrante?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;atan2(Aᵧ, Aₓ) utiliza los signos de ambas componentes y permite ubicar correctamente el ángulo en el cuadrante correspondiente.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. atan2(Aᵧ, Aₓ) utiliza los signos de ambas componentes y permite ubicar correctamente el ángulo en el cuadrante correspondiente.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Trigonometría</text>
+      </tag>
+      <tag>
+        <text>TRIG</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;sen(Aₓ + Aᵧ)&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. atan2(Aᵧ, Aₓ) utiliza los signos de ambas componentes y permite ubicar correctamente el ángulo en el cuadrante correspondiente.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;cos(Aₓ/Aᵧ)&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. atan2(Aᵧ, Aₓ) utiliza los signos de ambas componentes y permite ubicar correctamente el ángulo en el cuadrante correspondiente.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;atan2(Aᵧ, Aₓ)&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. atan2(Aᵧ, Aₓ) utiliza los signos de ambas componentes y permite ubicar correctamente el ángulo en el cuadrante correspondiente.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;tan(Aₓ·Aᵧ)&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. atan2(Aᵧ, Aₓ) utiliza los signos de ambas componentes y permite ubicar correctamente el ángulo en el cuadrante correspondiente.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][TRIG][T07] ¿Por qué usar únicamente arctan(Aᵧ/Aₓ) puede conducir a un ángulo incorrecto?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;¿Por qué usar únicamente arctan(Aᵧ/Aₓ) puede conducir a un ángulo incorrecto?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;El cociente Aᵧ/Aₓ no distingue todos los pares de signos; por eso debe verificarse el cuadrante o utilizar atan2.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. El cociente Aᵧ/Aₓ no distingue todos los pares de signos; por eso debe verificarse el cuadrante o utilizar atan2.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Trigonometría</text>
+      </tag>
+      <tag>
+        <text>TRIG</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Porque la tangente sólo existe para ángulos menores de 45°.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. El cociente Aᵧ/Aₓ no distingue todos los pares de signos; por eso debe verificarse el cuadrante o utilizar atan2.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Porque el cociente puede perder información sobre los signos individuales de las componentes y, por tanto, sobre el cuadrante.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. El cociente Aᵧ/Aₓ no distingue todos los pares de signos; por eso debe verificarse el cuadrante o utilizar atan2.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Porque arctan siempre devuelve un resultado en radianes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. El cociente Aᵧ/Aₓ no distingue todos los pares de signos; por eso debe verificarse el cuadrante o utilizar atan2.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Porque arctan sólo puede aplicarse a magnitudes escalares con unidad.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. El cociente Aᵧ/Aₓ no distingue todos los pares de signos; por eso debe verificarse el cuadrante o utilizar atan2.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][TRIG][T08] Si un vector apunta exactamente sobre el eje x positivo (θ = 0°), ¿qué ocurre con sus componentes?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Si un vector apunta exactamente sobre el eje x positivo (θ = 0°), ¿qué ocurre con sus componentes?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Para θ = 0°, cos 0° = 1 y sen 0° = 0; por ello Aₓ = A y Aᵧ = 0.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. Para θ = 0°, cos 0° = 1 y sen 0° = 0; por ello Aₓ = A y Aᵧ = 0.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Trigonometría</text>
+      </tag>
+      <tag>
+        <text>TRIG</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Aₓ = 0 y Aᵧ = A&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Para θ = 0°, cos 0° = 1 y sen 0° = 0; por ello Aₓ = A y Aᵧ = 0.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Aₓ = A y Aᵧ = 0&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. Para θ = 0°, cos 0° = 1 y sen 0° = 0; por ello Aₓ = A y Aᵧ = 0.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Aₓ = −A y Aᵧ = 0&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Para θ = 0°, cos 0° = 1 y sen 0° = 0; por ello Aₓ = A y Aᵧ = 0.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Aₓ = A y Aᵧ = A&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Para θ = 0°, cos 0° = 1 y sen 0° = 0; por ello Aₓ = A y Aᵧ = 0.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][TRIG][T09] Si un problema proporciona un ángulo en grados, ¿qué debe verificarse antes de usar las funciones trigonométricas de la calculadora?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Si un problema proporciona un ángulo en grados, ¿qué debe verificarse antes de usar las funciones trigonométricas de la calculadora?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;El modo angular de la calculadora debe coincidir con la unidad del dato: grados con grados y radianes con radianes.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. El modo angular de la calculadora debe coincidir con la unidad del dato: grados con grados y radianes con radianes.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Trigonometría</text>
+      </tag>
+      <tag>
+        <text>TRIG</text>
+      </tag>
+    </tags>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Que la calculadora esté configurada en grados.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. El modo angular de la calculadora debe coincidir con la unidad del dato: grados con grados y radianes con radianes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Que la calculadora esté configurada obligatoriamente en radianes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. El modo angular de la calculadora debe coincidir con la unidad del dato: grados con grados y radianes con radianes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Que el ángulo sea siempre positivo.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. El modo angular de la calculadora debe coincidir con la unidad del dato: grados con grados y radianes con radianes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Que el vector esté en el primer cuadrante.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. El modo angular de la calculadora debe coincidir con la unidad del dato: grados con grados y radianes con radianes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][TRIG][T10] Un vector está en el cuarto cuadrante. ¿Qué combinación de signos es coherente con seno y coseno del ángulo medido desde x positivo?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Un vector está en el cuarto cuadrante. ¿Qué combinación de signos es coherente con seno y coseno del ángulo medido desde x positivo?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;En el cuarto cuadrante x es positivo e y negativo; por ello cos θ es positivo y sen θ es negativo.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. En el cuarto cuadrante x es positivo e y negativo; por ello cos θ es positivo y sen θ es negativo.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Trigonometría</text>
+      </tag>
+      <tag>
+        <text>TRIG</text>
+      </tag>
+    </tags>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;cos θ &amp;gt; 0 y sen θ &amp;lt; 0&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. En el cuarto cuadrante x es positivo e y negativo; por ello cos θ es positivo y sen θ es negativo.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;cos θ &amp;lt; 0 y sen θ &amp;gt; 0&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. En el cuarto cuadrante x es positivo e y negativo; por ello cos θ es positivo y sen θ es negativo.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;cos θ &amp;lt; 0 y sen θ &amp;lt; 0&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. En el cuarto cuadrante x es positivo e y negativo; por ello cos θ es positivo y sen θ es negativo.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;cos θ &amp;gt; 0 y sen θ &amp;gt; 0&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. En el cuarto cuadrante x es positivo e y negativo; por ello cos θ es positivo y sen θ es negativo.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="category">
+    <category>
+      <text>$course$/top/Unidad 1/Aplicaciones y medición</text>
+    </category>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][APLI][A01] En una línea de alimentos, ¿qué hace que una lectura instrumental constituya una medición físicamente interpretable?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;En una línea de alimentos, ¿qué hace que una lectura instrumental constituya una medición físicamente interpretable?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Una medición debe vincular un valor con una magnitud y una unidad, y debe interpretarse dentro del proceso para ser técnicamente útil.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. Una medición debe vincular un valor con una magnitud y una unidad, y debe interpretarse dentro del proceso para ser técnicamente útil.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Aplicaciones y medición</text>
+      </tag>
+      <tag>
+        <text>APLI</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Que el instrumento muestre muchos dígitos, aunque no se conozca la unidad.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Una medición debe vincular un valor con una magnitud y una unidad, y debe interpretarse dentro del proceso para ser técnicamente útil.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Que se identifique la magnitud, el valor, la unidad y su interpretación en el proceso.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. Una medición debe vincular un valor con una magnitud y una unidad, y debe interpretarse dentro del proceso para ser técnicamente útil.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Que el valor sea siempre entero.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Una medición debe vincular un valor con una magnitud y una unidad, y debe interpretarse dentro del proceso para ser técnicamente útil.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Que se exprese exclusivamente en unidades anglosajonas.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Una medición debe vincular un valor con una magnitud y una unidad, y debe interpretarse dentro del proceso para ser técnicamente útil.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][APLI][A02] La temperatura de pasteurización indicada como 72 °C es, desde el punto de vista de esta unidad, un ejemplo de...</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;La temperatura de pasteurización indicada como 72 °C es, desde el punto de vista de esta unidad, un ejemplo de...&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;La temperatura es una magnitud escalar: queda caracterizada por su valor y unidad, sin dirección ni sentido espacial.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. La temperatura es una magnitud escalar: queda caracterizada por su valor y unidad, sin dirección ni sentido espacial.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Aplicaciones y medición</text>
+      </tag>
+      <tag>
+        <text>APLI</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;magnitud vectorial, porque tiene un sentido térmico.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. La temperatura es una magnitud escalar: queda caracterizada por su valor y unidad, sin dirección ni sentido espacial.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;magnitud escalar, porque se especifica mediante valor y unidad sin dirección espacial.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. La temperatura es una magnitud escalar: queda caracterizada por su valor y unidad, sin dirección ni sentido espacial.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;producto vectorial.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. La temperatura es una magnitud escalar: queda caracterizada por su valor y unidad, sin dirección ni sentido espacial.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;componente de una fuerza.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. La temperatura es una magnitud escalar: queda caracterizada por su valor y unidad, sin dirección ni sentido espacial.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][APLI][A03] La velocidad de una cinta transportadora se informa como 0,75 m/s hacia la derecha. ¿Por qué esta información es vectorial?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;La velocidad de una cinta transportadora se informa como 0,75 m/s hacia la derecha. ¿Por qué esta información es vectorial?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;La velocidad es vectorial porque, además de su módulo, requiere dirección y sentido.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. La velocidad es vectorial porque, además de su módulo, requiere dirección y sentido.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Aplicaciones y medición</text>
+      </tag>
+      <tag>
+        <text>APLI</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Porque contiene una unidad compuesta.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. La velocidad es vectorial porque, además de su módulo, requiere dirección y sentido.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Porque incluye módulo y además dirección/sentido.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. La velocidad es vectorial porque, además de su módulo, requiere dirección y sentido.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Porque toda velocidad industrial se mide en m/s.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. La velocidad es vectorial porque, además de su módulo, requiere dirección y sentido.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Porque el valor es menor que 1.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. La velocidad es vectorial porque, además de su módulo, requiere dirección y sentido.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][APLI][A04] Un manual indica una presión en psi, el sensor informa kPa y el cálculo físico se realizará en Pa. ¿Cuál es la práctica correcta?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Un manual indica una presión en psi, el sensor informa kPa y el cálculo físico se realizará en Pa. ¿Cuál es la práctica correcta?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Antes de operar deben utilizarse unidades compatibles. Mezclar valores numéricos expresados en unidades diferentes conduce a errores de proceso y calibración.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. Antes de operar deben utilizarse unidades compatibles. Mezclar valores numéricos expresados en unidades diferentes conduce a errores de proceso y calibración.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Aplicaciones y medición</text>
+      </tag>
+      <tag>
+        <text>APLI</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Usar directamente todos los valores porque representan presión.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Antes de operar deben utilizarse unidades compatibles. Mezclar valores numéricos expresados en unidades diferentes conduce a errores de proceso y calibración.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Convertir las magnitudes a unidades compatibles antes de operar.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. Antes de operar deben utilizarse unidades compatibles. Mezclar valores numéricos expresados en unidades diferentes conduce a errores de proceso y calibración.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Eliminar las unidades y trabajar sólo con los números.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Antes de operar deben utilizarse unidades compatibles. Mezclar valores numéricos expresados en unidades diferentes conduce a errores de proceso y calibración.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Promediar los valores numéricos de psi, kPa y Pa.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Antes de operar deben utilizarse unidades compatibles. Mezclar valores numéricos expresados en unidades diferentes conduce a errores de proceso y calibración.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][APLI][A05] Al convertir 2,50 kg en 2500 g, ¿qué cambia realmente?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Al convertir 2,50 kg en 2500 g, ¿qué cambia realmente?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;La conversión de unidades cambia la forma de expresar la cantidad, no la cantidad física medida.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. La conversión de unidades cambia la forma de expresar la cantidad, no la cantidad física medida.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Aplicaciones y medición</text>
+      </tag>
+      <tag>
+        <text>APLI</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;La masa física del producto.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. La conversión de unidades cambia la forma de expresar la cantidad, no la cantidad física medida.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;El objeto medido.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. La conversión de unidades cambia la forma de expresar la cantidad, no la cantidad física medida.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;El valor numérico y la unidad con que se expresa la misma masa.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. La conversión de unidades cambia la forma de expresar la cantidad, no la cantidad física medida.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;La dimensión física de la magnitud.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. La conversión de unidades cambia la forma de expresar la cantidad, no la cantidad física medida.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][APLI][A06] ¿Por qué la conversión entre °C y °F no puede realizarse, en general, multiplicando únicamente por un factor constante?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;¿Por qué la conversión entre °C y °F no puede realizarse, en general, multiplicando únicamente por un factor constante?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Entre °C y °F hay tanto un factor de escala como un desplazamiento; por eso aparece el término +32 o −32 en las ecuaciones de conversión.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. Entre °C y °F hay tanto un factor de escala como un desplazamiento; por eso aparece el término +32 o −32 en las ecuaciones de conversión.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Aplicaciones y medición</text>
+      </tag>
+      <tag>
+        <text>APLI</text>
+      </tag>
+    </tags>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Porque ambas escalas poseen un desplazamiento de origen además de un factor de escala.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. Entre °C y °F hay tanto un factor de escala como un desplazamiento; por eso aparece el término +32 o −32 en las ecuaciones de conversión.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Porque °C es una magnitud vectorial.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Entre °C y °F hay tanto un factor de escala como un desplazamiento; por eso aparece el término +32 o −32 en las ecuaciones de conversión.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Porque °F no mide temperatura.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Entre °C y °F hay tanto un factor de escala como un desplazamiento; por eso aparece el término +32 o −32 en las ecuaciones de conversión.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Porque sólo se pueden convertir temperaturas a kelvin.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Entre °C y °F hay tanto un factor de escala como un desplazamiento; por eso aparece el término +32 o −32 en las ecuaciones de conversión.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][APLI][A07] ¿Cuál de las siguientes expresiones está normalizada correctamente en notación científica?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;¿Cuál de las siguientes expresiones está normalizada correctamente en notación científica?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;En notación científica normalizada, el coeficiente debe cumplir 1 ≤ |a| &amp;lt; 10.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. En notación científica normalizada, el coeficiente debe cumplir 1 ≤ |a| &amp;lt; 10.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Aplicaciones y medición</text>
+      </tag>
+      <tag>
+        <text>APLI</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;25 × 10³&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. En notación científica normalizada, el coeficiente debe cumplir 1 ≤ |a| &amp;lt; 10.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;0,25 × 10⁵&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. En notación científica normalizada, el coeficiente debe cumplir 1 ≤ |a| &amp;lt; 10.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;2,5 × 10⁴&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. En notación científica normalizada, el coeficiente debe cumplir 1 ≤ |a| &amp;lt; 10.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;25000 × 10⁰&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. En notación científica normalizada, el coeficiente debe cumplir 1 ≤ |a| &amp;lt; 10.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][APLI][A08] ¿Qué expresa correctamente el prefijo kilo en el Sistema Internacional?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;¿Qué expresa correctamente el prefijo kilo en el Sistema Internacional?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;El prefijo kilo (k) representa un factor 10³; por ejemplo, 1 kPa = 1000 Pa.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. El prefijo kilo (k) representa un factor 10³; por ejemplo, 1 kPa = 1000 Pa.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Aplicaciones y medición</text>
+      </tag>
+      <tag>
+        <text>APLI</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;10⁻⁶&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. El prefijo kilo (k) representa un factor 10³; por ejemplo, 1 kPa = 1000 Pa.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;10⁻³&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. El prefijo kilo (k) representa un factor 10³; por ejemplo, 1 kPa = 1000 Pa.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;10³&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. El prefijo kilo (k) representa un factor 10³; por ejemplo, 1 kPa = 1000 Pa.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;10⁶&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. El prefijo kilo (k) representa un factor 10³; por ejemplo, 1 kPa = 1000 Pa.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][APLI][A09] ¿Cuál es la principal función del Sistema Internacional de unidades en el trabajo técnico?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;¿Cuál es la principal función del Sistema Internacional de unidades en el trabajo técnico?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;El SI establece referencias comunes para expresar mediciones y facilita la comunicación científica y técnica.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. El SI establece referencias comunes para expresar mediciones y facilita la comunicación científica y técnica.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Aplicaciones y medición</text>
+      </tag>
+      <tag>
+        <text>APLI</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Evitar que existan unidades derivadas.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. El SI establece referencias comunes para expresar mediciones y facilita la comunicación científica y técnica.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Proporcionar un lenguaje común y coherente para comunicar y comparar mediciones.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. El SI establece referencias comunes para expresar mediciones y facilita la comunicación científica y técnica.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Obligar a que todas las mediciones tengan valores enteros.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. El SI establece referencias comunes para expresar mediciones y facilita la comunicación científica y técnica.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Reemplazar la necesidad de instrumentos de medición.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. El SI establece referencias comunes para expresar mediciones y facilita la comunicación científica y técnica.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>[U1][APLI][A10] En un registro de proceso aparece solamente el valor «180», sin indicar la unidad. ¿Cuál es el principal problema?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;En un registro de proceso aparece solamente el valor «180», sin indicar la unidad. ¿Cuál es el principal problema?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Un número aislado no comunica una medición física completa; se necesita saber qué magnitud representa y con qué unidad fue expresada.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>ABCD</answernumbering>
+    <correctfeedback format="html">
+      <text>&lt;p&gt;Correcto.&lt;/p&gt;</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>&lt;p&gt;Revisá la respuesta y la retroalimentación conceptual.&lt;/p&gt;</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>&lt;p&gt;Incorrecto. Un número aislado no comunica una medición física completa; se necesita saber qué magnitud representa y con qué unidad fue expresada.&lt;/p&gt;</text>
+    </incorrectfeedback>
+    <tags>
+      <tag>
+        <text>Unidad 1</text>
+      </tag>
+      <tag>
+        <text>Aplicaciones y medición</text>
+      </tag>
+      <tag>
+        <text>APLI</text>
+      </tag>
+    </tags>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;El número es demasiado pequeño.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Un número aislado no comunica una medición física completa; se necesita saber qué magnitud representa y con qué unidad fue expresada.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;No se puede interpretar inequívocamente la medición física sin conocer su unidad y magnitud asociada.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correcto. Un número aislado no comunica una medición física completa; se necesita saber qué magnitud representa y con qué unidad fue expresada.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Todo registro industrial debe expresarse en notación científica.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Un número aislado no comunica una medición física completa; se necesita saber qué magnitud representa y con qué unidad fue expresada.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;El valor debe convertirse automáticamente a kelvin.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrecto. Un número aislado no comunica una medición física completa; se necesita saber qué magnitud representa y con qué unidad fue expresada.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+</quiz>
