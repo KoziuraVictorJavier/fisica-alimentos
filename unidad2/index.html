@@ -116,13 +116,68 @@
     .flow-step .num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#1e3a8a;color:#fff;font-weight:800;margin-right:8px}
     .flow-step h4{display:flex;align-items:center;margin:0 0 8px;color:#1e3a8a;font-size:1rem}
     .flow-step p{margin:.25rem 0;color:#475569;font-size:.94rem}
-    .infografia-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:18px;margin:20px 0}
+    .infografia-grid{display:grid;grid-template-columns:1fr;gap:24px;margin:20px 0}
     .infografia-figure{background:#ffffff;border:1px solid var(--line);border-radius:18px;padding:14px;margin:0;box-shadow:var(--shadow)}
-    .infografia-figure img{display:block;width:100%;height:auto;border:1px solid #dbe3ef;border-radius:14px;background:#fff}
+    .infografia-figure img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;border:1px solid #dbe3ef;border-radius:14px;background:#fff;cursor:zoom-in}
+    .infografia-figure img:focus{outline:3px solid #60a5fa;outline-offset:4px}
     .infografia-figure figcaption{font-size:.92rem;color:#475569;margin-top:10px;line-height:1.45}
+    .infografia-zoom-hint{display:block;margin-top:7px;color:#1d4ed8;font-size:.86rem;font-weight:700}
     .route-note{background:#f8fbff;border:1px dashed #93c5fd;border-radius:14px;padding:13px 15px;margin-top:14px;color:#334155}
 
-    @media(max-width:900px){.layout{grid-template-columns:1fr;padding:12px}nav{position:relative;max-height:360px}.two{grid-template-columns:1fr}header{padding-top:42px}.paper{border-radius:16px}}
+    .kin-graphs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:20px 0}
+    .kin-graph{margin:0;background:#fff;border:1px solid #cbd5e1;border-radius:16px;padding:14px;box-shadow:0 6px 18px rgba(15,23,42,.06)}
+    .kin-graph h4{margin:0 0 8px;color:#1e3a8a;font-size:1rem}
+    .kin-graph svg{display:block;width:100%;height:auto;background:#fbfdff;border:1px solid #e2e8f0;border-radius:12px}
+    .kin-graph figcaption{margin-top:9px;color:#475569;font-size:.9rem;line-height:1.4}
+    .kin-axis{stroke:#334155;stroke-width:2}
+    .kin-grid{stroke:#dbe4ef;stroke-width:1;stroke-dasharray:4 5}
+    .kin-curve{fill:none;stroke:#2563eb;stroke-width:4;stroke-linecap:round}
+    .kin-curve-alt{fill:none;stroke:#16a34a;stroke-width:4;stroke-linecap:round}
+    .kin-label{fill:#334155;font:600 15px system-ui,sans-serif}
+    .kin-note{fill:#475569;font:500 13px system-ui,sans-serif}
+
+    .infografia-modal{position:fixed;inset:0;z-index:9999;display:none;background:rgba(2,6,23,.92);padding:18px}
+    .infografia-modal.open{display:flex;flex-direction:column}
+    .infografia-modal-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#fff;margin-bottom:10px}
+    .infografia-modal-title{font-size:.95rem;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .infografia-modal-actions{display:flex;gap:8px;flex:0 0 auto}
+    .infografia-modal button{border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:#fff;border-radius:10px;padding:8px 12px;font:inherit;cursor:pointer}
+    .infografia-modal button:hover{background:rgba(255,255,255,.22)}
+
+    .infografia-modal-stage{
+      flex:1;
+      min-height:0;
+      overflow:auto;
+      display:block;
+      border-radius:12px;
+      overscroll-behavior:contain;
+      background:rgba(255,255,255,.03);
+    }
+    .infografia-modal-canvas{
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      min-width:100%;
+      width:max-content;
+      padding:0 12px 28px;
+      box-sizing:border-box;
+    }
+    .infografia-modal-stage img{
+      display:block;
+      width:auto;
+      min-width:0;
+      max-width:none !important;
+      max-height:none !important;
+      height:auto;
+      flex:none;
+      transition:width .18s ease;
+      background:#fff;
+      border-radius:8px;
+      cursor:zoom-out;
+      user-select:none;
+      -webkit-user-drag:none;
+    }
+@media(max-width:900px){.layout{grid-template-columns:1fr;padding:12px}nav{position:relative;max-height:360px}.two,.kin-graphs{grid-template-columns:1fr}header{padding-top:42px}.paper{border-radius:16px}}
     @media print{nav,.toggle{display:none}.layout{display:block;max-width:none}.paper{box-shadow:none;border:0}body{background:white}header{background:white;color:#111;padding:10px}header p{color:#333}}
   
 
@@ -491,6 +546,30 @@ nav a.nav-home:hover{background:#1d4ed8;color:#fff;}
 <div class="eq">\[ x(t)=x_0+v_x t \] <small>La posición es una función lineal del tiempo.</small></div>
 <p>Si se deriva:</p>
 <div class="eq">\[ \frac{dx}{dt}=v_x,\qquad \frac{d^2x}{dt^2}=0 \] <small>La pendiente de \(x(t)\) es constante y la aceleración es cero.</small></div>
+<div class="kin-graphs" aria-label="Gráficas características del movimiento rectilíneo uniforme">
+<figure class="kin-graph">
+<h4>Posición vs. tiempo — MRU</h4>
+<svg viewBox="0 0 520 300" role="img" aria-label="Gráfica de posición contra tiempo para MRU: recta de pendiente constante positiva">
+<defs><marker id="arrow-mru-x" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#334155"/></marker></defs>
+<line class="kin-grid" x1="70" y1="75" x2="470" y2="75"/><line class="kin-grid" x1="70" y1="145" x2="470" y2="145"/><line class="kin-grid" x1="70" y1="215" x2="470" y2="215"/>
+<line class="kin-axis" x1="70" y1="250" x2="485" y2="250" marker-end="url(#arrow-mru-x)"/><line class="kin-axis" x1="70" y1="255" x2="70" y2="28" marker-end="url(#arrow-mru-x)"/>
+<path class="kin-curve" d="M78 220 L458 62"/>
+<text class="kin-label" x="490" y="255">t</text><text class="kin-label" x="48" y="30">x</text><text class="kin-note" x="92" y="211">x₀</text><text class="kin-note" x="300" y="118">pendiente = v = constante</text>
+</svg>
+<figcaption>La posición cambia linealmente con el tiempo. La pendiente de la recta es la velocidad constante.</figcaption>
+</figure>
+<figure class="kin-graph">
+<h4>Velocidad vs. tiempo — MRU</h4>
+<svg viewBox="0 0 520 300" role="img" aria-label="Gráfica de velocidad contra tiempo para MRU: línea horizontal de velocidad constante">
+<defs><marker id="arrow-mru-v" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#334155"/></marker></defs>
+<line class="kin-grid" x1="70" y1="80" x2="470" y2="80"/><line class="kin-grid" x1="70" y1="150" x2="470" y2="150"/><line class="kin-grid" x1="70" y1="220" x2="470" y2="220"/>
+<line class="kin-axis" x1="70" y1="250" x2="485" y2="250" marker-end="url(#arrow-mru-v)"/><line class="kin-axis" x1="70" y1="255" x2="70" y2="28" marker-end="url(#arrow-mru-v)"/>
+<path class="kin-curve-alt" d="M78 108 L458 108"/>
+<text class="kin-label" x="490" y="255">t</text><text class="kin-label" x="48" y="30">v</text><text class="kin-note" x="92" y="97">v = constante</text><text class="kin-note" x="285" y="238">pendiente = 0 → a = 0</text>
+</svg>
+<figcaption>La velocidad permanece constante: la gráfica es horizontal. Su pendiente es cero, por lo tanto la aceleración es nula.</figcaption>
+</figure>
+</div>
 <div class="box app"><strong>Aplicación industrial.</strong> Una cinta que avanza a velocidad constante entre una etiquetadora y una balanza dinámica puede modelarse inicialmente como MRU. La ecuación permite calcular el tiempo de llegada del envase.</div>
 </section>
 <section class="paper" id="mruv">
@@ -503,6 +582,30 @@ nav a.nav-home:hover{background:#1d4ed8;color:#fff;}
 <div class="eq">\[ x(t)=x_0+v_{0x}t+\frac{1}{2}a_x t^2 \] <small>La posición es una función cuadrática del tiempo.</small></div>
 <p>También se usa la relación sin tiempo:</p>
 <div class="eq">\[ v_x^2=v_{0x}^2+2a_x(x-x_0) \] <small>Útil cuando no se conoce el tiempo.</small></div>
+<div class="kin-graphs" aria-label="Gráficas características del movimiento rectilíneo uniformemente variado">
+<figure class="kin-graph">
+<h4>Posición vs. tiempo — MRUV</h4>
+<svg viewBox="0 0 520 300" role="img" aria-label="Gráfica de posición contra tiempo para MRUV con aceleración positiva: curva parabólica cóncava hacia arriba">
+<defs><marker id="arrow-mruv-x" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#334155"/></marker></defs>
+<line class="kin-grid" x1="70" y1="75" x2="470" y2="75"/><line class="kin-grid" x1="70" y1="145" x2="470" y2="145"/><line class="kin-grid" x1="70" y1="215" x2="470" y2="215"/>
+<line class="kin-axis" x1="70" y1="250" x2="485" y2="250" marker-end="url(#arrow-mruv-x)"/><line class="kin-axis" x1="70" y1="255" x2="70" y2="28" marker-end="url(#arrow-mruv-x)"/>
+<path class="kin-curve" d="M78 224 C185 220, 300 194, 458 58"/>
+<text class="kin-label" x="490" y="255">t</text><text class="kin-label" x="48" y="30">x</text><text class="kin-note" x="88" y="214">x₀</text><text class="kin-note" x="255" y="154">pendiente creciente → v aumenta</text>
+</svg>
+<figcaption>Para aceleración positiva, la posición es una función cuadrática y la curva se hace cada vez más inclinada.</figcaption>
+</figure>
+<figure class="kin-graph">
+<h4>Velocidad vs. tiempo — MRUV</h4>
+<svg viewBox="0 0 520 300" role="img" aria-label="Gráfica de velocidad contra tiempo para MRUV con aceleración positiva: recta creciente">
+<defs><marker id="arrow-mruv-v" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#334155"/></marker></defs>
+<line class="kin-grid" x1="70" y1="75" x2="470" y2="75"/><line class="kin-grid" x1="70" y1="145" x2="470" y2="145"/><line class="kin-grid" x1="70" y1="215" x2="470" y2="215"/>
+<line class="kin-axis" x1="70" y1="250" x2="485" y2="250" marker-end="url(#arrow-mruv-v)"/><line class="kin-axis" x1="70" y1="255" x2="70" y2="28" marker-end="url(#arrow-mruv-v)"/>
+<path class="kin-curve-alt" d="M78 215 L458 67"/>
+<text class="kin-label" x="490" y="255">t</text><text class="kin-label" x="48" y="30">v</text><text class="kin-note" x="90" y="204">v₀</text><text class="kin-note" x="285" y="123">pendiente = a = constante</text>
+</svg>
+<figcaption>La velocidad varía linealmente con el tiempo. La pendiente de la recta es la aceleración constante.</figcaption>
+</figure>
+</div>
 <div class="box key"><strong>Lectura física.</strong> El término \(v_{0x}t\) representa el avance que tendría el cuerpo si mantuviera la velocidad inicial. El término \(\frac{1}{2}a_xt^2\) representa el aporte adicional debido a la aceleración.</div>
 </section>
 <section class="paper" id="graficas">
@@ -1131,16 +1234,16 @@ nav a.nav-home:hover{background:#1d4ed8;color:#fff;}
 <div class="route-note"><strong>Cómo usar estas imágenes.</strong> La <strong>Infografía 1</strong> sintetiza los conceptos fundamentales. La <strong>Infografía 2</strong> muestra el tramo de integración con movimiento en dos dimensiones, sistemas rotativos, aplicaciones alimentarias y simuladores. La <strong>Infografía 3</strong> sintetiza el movimiento armónico simple como cierre cinemático de la unidad y como transición hacia vibraciones y modelos oscilatorios.</div>
 <div class="infografia-grid">
 <figure class="infografia-figure">
-<img alt="Infografía 1: conceptos fundamentales de cinemática aplicada a tecnología de alimentos" src="assets/images/infografia_1_conceptos_fundamentales.png"/>
-<figcaption><strong>Infografía 1.</strong> Conceptos fundamentales: sistema de referencia, magnitudes escalares y vectoriales, posición, desplazamiento, distancia, rapidez, velocidad, aceleración, MRU, MRUV e interpretación de gráficas.</figcaption>
+<img tabindex="0" data-infografia-zoom="1" alt="Infografía 1: conceptos fundamentales de cinemática aplicada a tecnología de alimentos" src="assets/images/infografia_1_conceptos_fundamentales.png"/>
+<figcaption><strong>Infografía 1.</strong> Conceptos fundamentales: sistema de referencia, magnitudes escalares y vectoriales, posición, desplazamiento, distancia, rapidez, velocidad, aceleración, MRU, MRUV e interpretación de gráficas.<span class="infografia-zoom-hint">Doble clic sobre la imagen para abrirla ampliada al 180 %. Dentro del visor, otro doble clic alterna entre ampliación y ajuste a pantalla.</span></figcaption>
 </figure>
 <figure class="infografia-figure">
-<img alt="Infografía 2: movimiento en dos dimensiones, sistemas rotativos y simuladores" src="assets/images/infografia_2_movimiento_2d_rotativos_simuladores.png"/>
-<figcaption><strong>Infografía 2.</strong> Integración aplicada: movimiento en dos dimensiones, caída desde cinta, movimiento circular, mezcladores, centrífugas, líneas de envasado, simuladores y poleas unidas por correa.</figcaption>
+<img tabindex="0" data-infografia-zoom="1" alt="Infografía 2: movimiento en dos dimensiones, sistemas rotativos y simuladores" src="assets/images/infografia_2_movimiento_2d_rotativos_simuladores.png"/>
+<figcaption><strong>Infografía 2.</strong> Integración aplicada: movimiento en dos dimensiones, caída desde cinta, movimiento circular, mezcladores, centrífugas, líneas de envasado, simuladores y poleas unidas por correa.<span class="infografia-zoom-hint">Doble clic sobre la imagen para abrirla ampliada al 180 %. Dentro del visor, otro doble clic alterna entre ampliación y ajuste a pantalla.</span></figcaption>
 </figure>
 <figure class="infografia-figure">
-<img alt="Infografía 3: movimiento armónico simple" src="assets/images/infografia_3_movimiento_armonico_simple.png"/>
-<figcaption><strong>Infografía 3.</strong> Síntesis del movimiento armónico simple: definición, variables características, ecuaciones cinemáticas, gráficos \(x(t)\), \(v(t)\) y \(a(t)\), relación con el movimiento circular uniforme y aplicaciones en tecnología de alimentos.</figcaption>
+<img tabindex="0" data-infografia-zoom="1" alt="Infografía 3: movimiento armónico simple" src="assets/images/infografia_3_movimiento_armonico_simple.png"/>
+<figcaption><strong>Infografía 3.</strong> Síntesis del movimiento armónico simple: definición, variables características, ecuaciones cinemáticas, gráficos \(x(t)\), \(v(t)\) y \(a(t)\), relación con el movimiento circular uniforme y aplicaciones en tecnología de alimentos.<span class="infografia-zoom-hint">Doble clic sobre la imagen para abrirla ampliada al 180 %. Dentro del visor, otro doble clic alterna entre ampliación y ajuste a pantalla.</span></figcaption>
 </figure>
 </div>
 </div></section>
@@ -1172,6 +1275,21 @@ nav a.nav-home:hover{background:#1d4ed8;color:#fff;}
 </ul>
 </section>
 </section></main>
+</div>
+
+<div class="infografia-modal" id="infografiaModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Visor ampliado de infografía">
+  <div class="infografia-modal-toolbar">
+    <div class="infografia-modal-title" id="infografiaModalTitle">Infografía ampliada</div>
+    <div class="infografia-modal-actions">
+      <button type="button" id="infografiaZoomToggle" aria-label="Alternar aumento">Ajustar a pantalla</button>
+      <button type="button" id="infografiaClose" aria-label="Cerrar visor">Cerrar ✕</button>
+    </div>
+  </div>
+  <div class="infografia-modal-stage" id="infografiaModalStage">
+    <div class="infografia-modal-canvas" id="infografiaModalCanvas">
+      <img id="infografiaModalImg" alt=""/>
+    </div>
+  </div>
 </div>
 <footer class="site-footer">
 <div class="footer-brand">
@@ -1272,7 +1390,131 @@ function drawPoleas(r1,r2,rpm1,rpm2,v,slip,a1=0,a2=0){
   ctx.textAlign='start';
 }
 
-window.addEventListener('load',()=>{simGalileo();simCinta();simMRUV();sim2D();simCirc();simPoleas(false);});
+
+function initInfografiaZoom(){
+  const modal=document.getElementById('infografiaModal');
+  const modalImg=document.getElementById('infografiaModalImg');
+  const modalTitle=document.getElementById('infografiaModalTitle');
+  const stage=document.getElementById('infografiaModalStage');
+  const canvas=document.getElementById('infografiaModalCanvas');
+  const closeBtn=document.getElementById('infografiaClose');
+  const zoomBtn=document.getElementById('infografiaZoomToggle');
+
+  if(!modal || !modalImg || !stage || !canvas || !closeBtn || !zoomBtn) return;
+
+  let lastFocus=null;
+  let zoomed=true;
+
+  const FIT_FACTOR=0.92;
+  const ZOOM_FACTOR=1.80;
+
+  function applyZoom(){
+    if(!modal.classList.contains('open')) return;
+
+    const stageWidth=Math.max(320, stage.clientWidth || window.innerWidth);
+    const fitWidth=Math.max(280, Math.floor(stageWidth*FIT_FACTOR));
+    const targetWidth=Math.floor(fitWidth*(zoomed ? ZOOM_FACTOR : 1));
+
+    // Se fija un ancho absoluto en píxeles. Así ningún max-width ni flex
+    // puede "devolver" la imagen al mismo tamaño visual.
+    modalImg.style.width=targetWidth+'px';
+    modalImg.style.minWidth=targetWidth+'px';
+    modalImg.style.maxWidth='none';
+    modalImg.style.maxHeight='none';
+    modalImg.style.height='auto';
+    modalImg.style.transform='none';
+    modalImg.style.cursor=zoomed ? 'zoom-out' : 'zoom-in';
+
+    canvas.style.width=Math.max(targetWidth,stageWidth)+'px';
+    canvas.style.justifyContent=targetWidth>stageWidth ? 'flex-start' : 'center';
+
+    zoomBtn.textContent=zoomed ? 'Ajustar a pantalla' : 'Ampliar ×1,80';
+    zoomBtn.setAttribute('aria-pressed', zoomed ? 'true' : 'false');
+
+    requestAnimationFrame(()=>{
+      stage.scrollTop=0;
+      stage.scrollLeft=zoomed
+        ? Math.max(0, (targetWidth-stage.clientWidth)/2)
+        : 0;
+    });
+  }
+
+  function setZoom(on){
+    zoomed=Boolean(on);
+    applyZoom();
+  }
+
+  function openZoom(img){
+    lastFocus=document.activeElement;
+    modalImg.alt=img.alt || '';
+    modalTitle.textContent=img.alt || 'Infografía ampliada';
+
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+
+    zoomed=true;
+
+    modalImg.onload=()=>applyZoom();
+    modalImg.src=img.currentSrc || img.src;
+
+    // También fuerza el cálculo si el navegador ya tenía la imagen en caché.
+    requestAnimationFrame(()=>requestAnimationFrame(applyZoom));
+    closeBtn.focus();
+  }
+
+  function closeZoom(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    modalImg.onload=null;
+    modalImg.removeAttribute('style');
+    modalImg.src='';
+    canvas.removeAttribute('style');
+    zoomed=true;
+
+    if(lastFocus && typeof lastFocus.focus==='function') lastFocus.focus();
+  }
+
+  document.querySelectorAll('img[data-infografia-zoom]').forEach(img=>{
+    img.addEventListener('dblclick',e=>{
+      e.preventDefault();
+      openZoom(img);
+    });
+
+    img.addEventListener('keydown',e=>{
+      if(e.key==='Enter' || e.key===' '){
+        e.preventDefault();
+        openZoom(img);
+      }
+    });
+  });
+
+  modalImg.addEventListener('dblclick',e=>{
+    e.preventDefault();
+    e.stopPropagation();
+    setZoom(!zoomed);
+  });
+
+  zoomBtn.addEventListener('click',()=>setZoom(!zoomed));
+  closeBtn.addEventListener('click',closeZoom);
+
+  // No se cierra al hacer clic dentro del área desplazable.
+  modal.addEventListener('click',e=>{
+    if(e.target===modal) closeZoom();
+  });
+
+  window.addEventListener('resize',()=>{
+    if(modal.classList.contains('open')) applyZoom();
+  });
+
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape' && modal.classList.contains('open')) closeZoom();
+  });
+}
+
+
+window.addEventListener('load',()=>{simGalileo();simCinta();simMRUV();sim2D();simCirc();simPoleas(false);initInfografiaZoom();});
 </script>
 <script>
 /* Funciones del bloque Galileo integrado */
