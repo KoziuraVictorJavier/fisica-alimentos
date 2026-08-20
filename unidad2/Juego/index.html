@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Recorrido de desafíos · Cinemática</title>
+<link rel="stylesheet" href="css/juego.css">
+<script>
+window.MathJax={
+  tex:{inlineMath:[['\\(','\\)'],['$','$']],displayMath:[['\\[','\\]'],['$$','$$']]},
+  svg:{fontCache:'global'}
+};
+</script>
+<script defer src="lib/mathjax/tex-svg.js"></script>
+<script defer src="js/math_utils.js"></script>
+<script defer src="js/banco_preguntas.js"></script>
+<script defer src="js/simuladores.js"></script>
+<script defer src="js/motor.js"></script>
+</head>
+<body>
+<main class="app">
+  <header class="topbar branded-topbar">
+    <div class="brand-lockup">
+      <div class="brand-logos" aria-label="Identidad institucional">
+        <img src="assets/logos/logo_utn.png" alt="UTN La Plata" class="logo-utn">
+        <img src="assets/logos/logo_ciap.jpg" alt="CIAP" class="logo-ciap">
+      </div>
+      <div>
+        <div class="kicker">Física · Unidad 2</div>
+        <h1>Recorrido de desafíos de Cinemática</h1>
+        <p class="subtitle">50 casillas · 250 actividades · recorrido de la Unidad 2</p>
+      </div>
+    </div>
+    <div class="version">V0.8.1 · offline / GitHub Pages</div>
+  </header>
+
+  <section class="hud" aria-label="Progreso de la partida">
+    <div class="hud-card"><span>Posición</span><strong id="positionVal">Salida</strong><div class="progress"><div id="progressBar"></div></div></div>
+    <div class="hud-card"><span>Puntaje</span><strong id="scoreVal">0</strong></div>
+    <div class="hud-card"><span>Aciertos</span><strong id="correctVal">0</strong></div>
+    <div class="hud-card"><span>Estado</span><strong id="gameStatus">Recorrido de práctica</strong></div>
+    <div class="hud-card energy-card" id="energyWrap">
+      <span>Energía</span>
+      <strong id="energyVal">10.0 / 30</strong>
+      <div class="energy-track"><div id="energyBar"></div></div>
+      <div class="energy-flash" id="energyFlash"></div>
+    </div>
+    <div class="hud-actions">
+      <button class="secondary" id="statsBtn">Ver progreso</button>
+      <button class="secondary" id="resetBtn">Nueva partida</button>
+    </div>
+  </section>
+
+  <section class="game-shell">
+    <div class="board-card">
+      <div class="board-head">
+        <h2>Recorrido completo · Fundamentos → MRUV → 2D → circular → MAS → integración</h2>
+        <span class="status-pill" id="zoneStatus">50 casillas</span>
+      </div>
+      <div class="board" id="board" aria-label="Tablero de casillas"></div>
+    </div>
+
+    <aside class="side-card">
+      <div class="die-panel">
+        <div class="kicker">Movimiento</div>
+        <div class="die" id="die">1</div>
+        <button class="primary" id="diceBtn">Tirar dado</button>
+        <button class="energy-shop-btn" id="energyShopBtn" title="Responder una pregunta de nivel 3 para recuperar energía">
+          ⚡ Comprar energía (+3)
+        </button>
+        <div class="energy-shop-note">
+          Pregunta aleatoria de <strong>nivel 3</strong>, de cualquier tema.
+          Si acertás: <strong>+3 de energía</strong>. Si fallás: <strong>−1</strong>.
+          No suma puntaje ni mueve la ficha.
+        </div>
+      </div>
+
+      <div class="instructions">
+        <strong>Mecánica del prototipo</strong><br>
+        Energía inicial: <strong>10</strong>. Respuesta correcta del recorrido: <strong>+0,5</strong>.
+        Respuesta incorrecta: <strong>−1</strong>. Si llega a 0, la partida debe reiniciarse.
+        El botón <strong>Comprar energía</strong> abre una pregunta aleatoria de nivel 3.<br><br>
+        El dado propone un avance de 1 a 3 casillas. Para consolidarlo hay que resolver la actividad de la casilla de destino.
+        Una respuesta incorrecta <strong>no hace retroceder</strong>: se conserva la posición previa y se brinda retroalimentación.
+      </div>
+
+      <div class="legend">
+        <div class="legend-row"><span class="dot current"></span> posición actual</div>
+        <div class="legend-row"><span class="dot passed"></span> casilla superada</div>
+        <div class="legend-row"><span class="dot checkpoint"></span> checkpoint / cierre de bloque</div>
+      </div>
+
+      <div class="instructions difficulty-legend">
+        <strong>Puntaje por dificultad</strong><br>
+        Nivel 1 → <strong>100 pts</strong><br>
+        Nivel 2 → <strong>150 pts</strong><br>
+        Nivel 3 → <strong>200 pts</strong><br>
+        La barra de energía se calcula por separado.
+      </div>
+    </aside>
+  </section>
+
+  <div class="footer-note">Todo funciona localmente. No requiere servidor, conexión a Internet ni librerías externas.</div>
+</main>
+
+<!-- Challenge modal -->
+<div class="modal" id="challengeModal" aria-hidden="true">
+  <section class="dialog large" role="dialog" aria-modal="true" aria-labelledby="challengeTopic">
+    <div class="dialog-top">
+      <div>
+        <div class="badges"><span class="badge" id="challengeCell"></span><span class="badge" id="challengeType"></span><span class="badge difficulty-badge" id="challengeDifficulty"></span></div>
+        <h3 id="challengeTopic"></h3>
+      </div>
+    </div>
+    <div class="prompt" id="challengePrompt"></div>
+    <div id="modalBody"></div>
+    <div class="feedback" id="feedback"></div>
+    <div class="dialog-actions"><button class="primary" id="continueBtn" hidden>Continuar</button></div>
+  </section>
+</div>
+
+<!-- Stats modal -->
+<div class="modal" id="statsModal" aria-hidden="true">
+  <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="statsTitle">
+    <div class="dialog-top">
+      <div><div class="kicker">Sesión local</div><h3 id="statsTitle">Progreso registrado</h3></div>
+      <button class="close-x" id="closeStats">Cerrar</button>
+    </div>
+    <div id="statsBody"></div>
+  </section>
+</div>
+</body>
+</html>
