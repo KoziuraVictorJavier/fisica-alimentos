@@ -1,0 +1,225 @@
+BANCO DE PREGUNTAS — GUÍA DE EDICIÓN
+======================================
+
+Archivo:
+  js/banco_preguntas.js
+
+Puede editar terminología, redacción, opciones y retroalimentación SIN tocar
+el motor del juego.
+
+Ejemplo:
+
+{
+  id:"U2_MRU_001",
+  type:"mcq",
+  difficulty:1,
+  prompt:"En un MRU ideal, ¿qué magnitud permanece constante?",
+  options:["la velocidad","la posición","...","..."],
+  answer:"A",
+  explanation:"En MRU la velocidad es constante..."
+}
+
+Respuesta correcta:
+  "A", "B", "C" o "D"
+También se aceptan 0, 1, 2 o 3.
+
+MATEMÁTICA
+==========
+Para futuras ediciones se recomienda:
+
+  "$v=\\Delta x/\\Delta t$"
+
+Ejemplo:
+  prompt:"Si $v=3\\,m/s$, ¿qué distancia recorre en $4\\,s$?"
+
+TIPOS
+=====
+mcq         -> selección múltiple
+graph_mcq   -> selección múltiple con gráfica
+simulation  -> desafío con sliders
+
+IMPORTANTE
+==========
+No cambie el id de una pregunta ya utilizada si desea comparar estadísticas
+entre distintas versiones. Para una pregunta nueva, cree un id nuevo.
+
+
+V0.3 — ORDEN ALEATORIO DE OPCIONES
+===================================
+Las opciones de cada multiple choice se mezclan automáticamente cada vez
+que se muestra una pregunta.
+
+Por lo tanto, el alumno no puede memorizar que "la respuesta es la B".
+
+IMPORTANTE AL EDITAR
+====================
+El campo:
+
+  answer:"A"
+
+se refiere al ORDEN ORIGINAL escrito en este archivo, no a la letra que
+aparecerá visualmente en una partida.
+
+Ejemplo:
+
+  options:[
+    "velocidad",      <- A en el archivo
+    "posición",       <- B
+    "aceleración",    <- C
+    "tiempo"          <- D
+  ],
+  answer:"A"
+
+El juego puede mostrar visualmente:
+
+  A) tiempo
+  B) velocidad
+  C) posición
+  D) aceleración
+
+y seguirá reconociendo correctamente "velocidad" como respuesta válida.
+
+Para la analítica futura se registran:
+- índice original elegido;
+- posición visual mostrada;
+- letra visual seleccionada;
+- índice original de la respuesta correcta.
+
+
+V0.4 — NUEVOS TIPOS DE GRÁFICAS
+===============================
+El motor incorpora ahora:
+  xt_mru
+  vt_mru
+  vt_accel
+  at_const
+  xt_accel
+
+Estos nombres aparecen en preguntas de tipo graph_mcq.
+
+NUEVOS SIMULADORES
+==================
+  freeFallHeightTarget
+  conveyorLandingTarget
+
+Al igual que los simuladores anteriores, no muestran la solución mientras
+el alumno mueve los controles. La respuesta se calcula sólo al evaluar.
+
+
+V0.5 — DIFICULTAD Y PUNTAJE
+============================
+Cada actividad posee:
+
+  difficulty: 1
+  difficulty: 2
+  difficulty: 3
+
+El motor transforma automáticamente esa dificultad en puntaje:
+
+  Nivel 1 = 100 puntos
+  Nivel 2 = 150 puntos
+  Nivel 3 = 200 puntos
+
+Esto permite modificar posteriormente la dificultad de una pregunta sin
+tener que escribir manualmente su puntaje.
+
+La energía es independiente:
+  correcta   +0.5
+  incorrecta -1.0
+
+Por lo tanto pueden analizarse por separado:
+- precisión;
+- dificultad;
+- puntaje ponderado;
+- tiempo de respuesta;
+- energía;
+- número de intentos en simulaciones.
+
+CANTIDAD V0.5
+=============
+Hay 23 casillas y 5 actividades por casilla:
+
+  23 × 5 = 115 actividades.
+
+La selección dentro de cada casilla continúa siendo aleatoria.
+
+
+V0.6 — ALCANCE DEL BANCO
+========================
+36 casillas × 5 actividades = 180 actividades.
+
+Las nuevas casillas corresponden a las filminas s25 a s36 de la
+presentación, incluyendo s28a para la transmisión por poleas/cadenas.
+
+Nuevos simuladores disponibles:
+  angularFrequencyTarget
+  tangentialSpeedTarget
+  pulleyRatioTarget
+  centripetalTarget
+  masFrequencyTarget
+  masPhaseTarget
+  pendulumPeriodTarget
+
+
+V0.7 — EDITOR LOCAL
+===================
+Ya no es necesario editar este archivo JavaScript manualmente.
+
+Abrir:
+  editor_banco.html
+
+El editor permite modificar visualmente:
+- enunciados;
+- opciones;
+- respuesta correcta;
+- dificultad;
+- explicación;
+- tipo de pregunta;
+- simulador asociado;
+- objeto graph en modo avanzado.
+
+Después debe exportarse el archivo:
+  banco_preguntas.js
+
+y reemplazar:
+  js/banco_preguntas.js
+
+IMPORTANTE
+==========
+El desafío "Comprar energía" toma preguntas de dificultad 3 de cualquier
+tema. Para que una pregunta pueda aparecer allí debe cumplir:
+
+  difficulty: 3
+
+y ser:
+  type: "mcq"
+o:
+  type: "graph_mcq"
+
+Las simulaciones nivel 3 siguen disponibles en el recorrido normal, pero no
+se utilizan para comprar energía, para que la recuperación sea rápida.
+
+
+V0.8 — BANCO COMPLETO
+=====================
+52 casillas × 5 actividades = 260 actividades.
+
+Correspondencia:
+  casilla 1  → s2
+  ...
+  casilla 52 → s52
+
+editor_banco.html obtiene las casillas directamente del banco, por lo que
+las nuevas entradas aparecen automáticamente en el selector.
+
+
+V0.8.1
+======
+El banco contiene ahora 50 casillas y 250 actividades.
+
+Se eliminaron del recorrido:
+- s3  · Objetivos de aprendizaje.
+- s52 · Fuentes y criterio de uso.
+
+El editor local sigue disponible abriendo manualmente:
+  editor_banco.html

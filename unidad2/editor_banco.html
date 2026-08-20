@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Editor local · Banco de preguntas de Cinemática · V0.8.1</title>
+<link rel="stylesheet" href="css/editor_banco.css">
+<script>
+window.MathJax={
+  tex:{inlineMath:[['\\(','\\)'],['$','$']],displayMath:[['\\[','\\]'],['$$','$$']]},
+  svg:{fontCache:'global'}
+};
+</script>
+<script defer src="lib/mathjax/tex-svg.js"></script>
+<script defer src="js/math_utils.js"></script>
+<script defer src="js/banco_preguntas.js"></script>
+<script defer src="js/editor_banco.js"></script>
+</head>
+<body>
+<main class="editor-app">
+  <header class="editor-head">
+    <div class="editor-logos">
+      <img src="assets/logos/logo_utn.png" class="utn" alt="UTN La Plata">
+      <img src="assets/logos/logo_ciap.jpg" class="ciap" alt="CIAP">
+    </div>
+    <div>
+      <div class="kicker">Física · Unidad 2</div>
+      <h1>Editor local del banco de preguntas</h1>
+      <div class="head-note">
+        Edite el banco sin tocar JavaScript. Al finalizar, descargue
+        <code>banco_preguntas.js</code> y reemplace el archivo de la carpeta <code>js/</code>.
+      </div>
+    </div>
+    <div class="editor-actions">
+      <button class="secondary" id="validateBtn">Validar banco</button>
+      <button class="success" id="downloadBtn">Descargar banco actualizado</button>
+      <button class="primary" id="saveAsBtn">Guardar como…</button>
+    </div>
+  </header>
+
+  <section class="workspace">
+    <aside class="panel sidebar">
+      <div class="field">
+        <label>Casilla / filmina</label>
+        <select id="cellSelect"></select>
+      </div>
+
+      <div class="field">
+        <label>Buscar dentro de la casilla</label>
+        <input id="search" type="search" placeholder="ID o texto">
+      </div>
+
+      <div class="activity-list" id="activityList"></div>
+
+      <div class="help">
+        <strong>Consejo:</strong> modifique principalmente enunciado, opciones,
+        respuesta, dificultad y retroalimentación. Conviene conservar el
+        <code>id</code> de una actividad ya utilizada.
+      </div>
+    </aside>
+
+    <section class="panel">
+      <div class="meta-row">
+        <div class="field">
+          <label>Versión del banco</label>
+          <input id="bankVersion" type="text">
+        </div>
+        <div class="field">
+          <label>Versión del juego</label>
+          <input id="gameVersion" type="text">
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="field">
+          <label>Título de la casilla</label>
+          <input id="cellTitle" type="text">
+        </div>
+        <div class="field">
+          <label>Tema</label>
+          <input id="cellTopic" type="text">
+        </div>
+        <div></div>
+
+        <div class="field">
+          <label>ID de la actividad</label>
+          <input id="qId" type="text">
+        </div>
+        <div class="field">
+          <label>Tipo</label>
+          <select id="qType">
+            <option value="mcq">Multiple choice</option>
+            <option value="graph_mcq">Multiple choice + gráfica</option>
+            <option value="simulation">Simulación</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Dificultad</label>
+          <select id="qDifficulty">
+            <option value="1">Nivel 1 · 100 pts</option>
+            <option value="2">Nivel 2 · 150 pts</option>
+            <option value="3">Nivel 3 · 200 pts</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Enunciado</label>
+        <textarea id="prompt"></textarea>
+      </div>
+
+      <div class="options-grid">
+        <div class="field"><label>Opción A · orden original</label><textarea id="optA"></textarea></div>
+        <div class="field"><label>Opción B · orden original</label><textarea id="optB"></textarea></div>
+        <div class="field"><label>Opción C · orden original</label><textarea id="optC"></textarea></div>
+        <div class="field"><label>Opción D · orden original</label><textarea id="optD"></textarea></div>
+      </div>
+
+      <div class="form-grid">
+        <div class="field">
+          <label>Respuesta correcta · orden original</label>
+          <select id="answer">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+          </select>
+        </div>
+        <div class="field hidden" id="simRow">
+          <label>Nombre del simulador</label>
+          <input id="simulator" type="text">
+        </div>
+        <div class="field hidden" id="graphRow">
+          <label>Objeto graph · JSON avanzado</label>
+          <textarea id="graphJson" placeholder='{"kind":"xt_mru","x0":0,"slope":2}'></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Retroalimentación / explicación</label>
+        <textarea id="explanation"></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button class="primary" id="applyBtn">Aplicar cambios</button>
+        <button class="secondary" id="newBtn">Nueva pregunta</button>
+        <button class="secondary" id="duplicateBtn">Duplicar</button>
+        <button class="danger" id="deleteBtn">Eliminar</button>
+      </div>
+
+      <div class="preview">
+        <h3>Vista previa del contenido matemático</h3>
+        <div class="preview-block" id="previewPrompt"></div>
+        <div id="previewOptions"></div>
+        <div class="preview-block" id="previewExplanation"></div>
+      </div>
+
+      <div class="validation" id="validation"></div>
+    </section>
+  </section>
+</main>
+</body>
+</html>

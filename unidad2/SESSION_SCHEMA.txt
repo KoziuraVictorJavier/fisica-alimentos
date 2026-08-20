@@ -1,0 +1,184 @@
+ESQUEMA INTERNO DE SESIÓN — PREPARADO PARA ANALÍTICA FUTURA
+
+session = {
+  schemaVersion,
+  gameId,
+  gameVersion,
+  bankVersion,
+  startedAt,
+  updatedAt,
+  finishedAt,
+  position,
+  score,
+  rolls,
+  correct,
+  incorrect,
+  simulationsSolved,
+  events: [],
+  answers: [],
+  simulations: []
+}
+
+answers[] registra:
+- fecha/hora
+- casilla
+- filmina asociada
+- tema
+- id de pregunta
+- tipo
+- respuesta elegida
+- respuesta correcta
+- correcto/incorrecto
+- tiempo de respuesta
+
+simulations[] registra:
+- casilla
+- filmina
+- tema
+- desafío
+- objetivo
+- parámetros obtenidos
+- número de intentos
+- tiempo
+
+IMPORTANTE
+==========
+V0.1 NO exporta archivos al alumno.
+El registro queda en localStorage.
+
+La estructura se deja preparada para una fase futura de:
+- comprobante Moodle;
+- archivo .u2r / JSON protegido;
+- procesamiento estadístico por lote;
+- eventual integración más robusta con Moodle/servidor.
+
+
+V0.2 — ENERGÍA
+===============
+energy
+energyMax
+energyHistory[]
+
+Configuración:
+- inicio: 20
+- máximo: 30
+- correcta: +0.5
+- incorrecta: -1.0
+- energía = 0: reinicio obligatorio
+
+Cada cambio registra:
+- valor anterior
+- variación
+- valor posterior
+- motivo
+- fecha/hora
+
+Los intentos fallidos dentro de una simulación no restan energía porque
+se consideran exploración. Resolver el desafío correctamente suma +0.5.
+
+
+V0.3 — ORDEN DE OPCIONES
+========================
+En answers[] se registran además:
+- selectedOriginalIndex
+- selectedDisplayIndex
+- displayedLetter
+- correctOriginalIndex
+
+Esto permite reconstruir posteriormente qué opciones vio el alumno y evita
+que la estadística dependa de que una alternativa haya aparecido como A, B,
+C o D.
+
+
+V0.4 — NUEVAS ACTIVIDADES
+=========================
+Las simulaciones pueden registrar ahora, según el desafío:
+- altura
+- tiempo objetivo
+- tiempo calculado
+- velocidad horizontal
+- alcance objetivo
+- alcance obtenido
+- cantidad de intentos
+
+Esto mantiene preparada la futura exportación estadística a Moodle.
+
+
+V0.5 — ANALÍTICA DE DIFICULTAD
+==============================
+answers[] incorpora:
+- difficulty
+- pointsPossible
+- pointsAwarded
+
+simulations[] incorpora:
+- difficulty
+- pointsPossible
+- pointsAwarded
+
+El panel de progreso calcula:
+- intentos por dificultad;
+- porcentaje de aciertos;
+- tiempo medio;
+- puntos obtenidos / puntos posibles.
+
+Escala:
+  dificultad 1 = 100 puntos
+  dificultad 2 = 150 puntos
+  dificultad 3 = 200 puntos
+
+
+V0.6 — VARIABLES REGISTRADAS EN NUEVOS DESAFÍOS
+================================================
+Según la actividad se almacenan:
+- T, f y omega;
+- r, vt;
+- r1, r2, omega1, omega2;
+- aceleración centrípeta;
+- amplitud, fase y posición del MAS;
+- longitud y período del péndulo;
+- número de intentos;
+- dificultad y puntaje posible/logrado.
+
+
+V0.7 — DESAFÍOS DE COMPRA DE ENERGÍA
+=====================================
+Se incorpora:
+  energyChallenges[]
+
+Cada registro almacena:
+- fecha y hora;
+- casilla/tema de origen de la pregunta;
+- questionId;
+- dificultad = 3;
+- orden original y visual de opciones;
+- correcto / incorrecto;
+- tiempo empleado;
+- energía antes;
+- variación de energía;
+- energía después.
+
+Estos desafíos no se agregan al puntaje normal y se mantienen separados
+de answers[] para no contaminar la estadística del recorrido principal.
+
+
+V0.8 — COBERTURA COMPLETA
+=========================
+El esquema de registro se aplica ahora a las 52 casillas:
+- questionId
+- tema / filmina
+- dificultad
+- puntos posibles/logrados
+- tiempo
+- orden original/visual
+- energía
+- desafíos de compra
+- variables de simuladores
+
+
+V0.8.1 — RENUMERACIÓN
+=====================
+La sesión utiliza un nuevo STORAGE_KEY para evitar mezclar partidas de la
+versión de 52 casillas con el nuevo recorrido de 50 casillas.
+
+Los questionId se conservan aunque cambie el número visual de casilla.
