@@ -22,7 +22,7 @@
 window.CINEMATICA_BANK = {
   "meta": {
     "gameId": "FISICA_U2_RECORRIDO",
-    "gameVersion": "0.8.1",
+    "gameVersion": "0.8.2",
     "bankVersion": "2026.08-prototipo-v08.1",
     "unit": "Unidad 2 · Cinemática"
   },

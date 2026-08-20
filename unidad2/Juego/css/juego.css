@@ -316,3 +316,104 @@ h1{margin:4px 0 3px;font-size:clamp(26px,3vw,42px);color:var(--navy)}
 @media(min-width:1550px){
   .board{grid-template-columns:repeat(8,1fr)}
 }
+
+
+/* V0.8.2 · checkpoints funcionales */
+.cell.checkpoint-gate{
+  position:relative;
+  box-shadow:inset 0 0 0 2px rgba(124,58,237,.06);
+}
+.cell.checkpoint-locked{
+  border-color:#a78bfa;
+}
+.cell.checkpoint-cleared{
+  border-color:#22c55e;
+}
+.checkpoint-tag{
+  margin-top:auto;
+  align-self:flex-start;
+  border-radius:999px;
+  padding:4px 7px;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.04em;
+  background:#f5f3ff;
+  color:#6d28d9;
+  border:1px solid #ddd6fe;
+}
+.checkpoint-cleared .checkpoint-tag{
+  background:#f0fdf4;
+  color:#166534;
+  border-color:#bbf7d0;
+}
+.checkpoint-action{
+  background:linear-gradient(135deg,#7c3aed,#6d28d9)!important;
+  box-shadow:0 6px 18px rgba(124,58,237,.22);
+}
+.status-pill.checkpoint-status{
+  background:#f5f3ff;
+  color:#6d28d9;
+  border-color:#ddd6fe;
+}
+
+.checkpoint-dialog{
+  border-top:7px solid #7c3aed;
+}
+.checkpoint-badge{
+  background:#f5f3ff!important;
+  color:#6d28d9!important;
+  border-color:#ddd6fe!important;
+}
+.checkpoint-subtitle{
+  color:#64748b;
+  font-size:14px;
+  margin-top:4px;
+}
+.checkpoint-rule{
+  margin:14px 0 10px;
+  border:1px solid #ddd6fe;
+  background:#faf5ff;
+  color:#5b21b6;
+  border-radius:12px;
+  padding:10px 12px;
+  line-height:1.4;
+}
+.checkpoint-meter{
+  height:9px;
+  background:#ede9fe;
+  border-radius:999px;
+  overflow:hidden;
+  margin-bottom:12px;
+}
+.checkpoint-meter-bar{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,#8b5cf6,#6d28d9);
+  transition:width .3s ease;
+}
+.checkpoint-difficulty{
+  display:inline-block;
+  margin-bottom:10px;
+  padding:5px 9px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+}
+.checkpoint-difficulty.level-2{
+  background:#fffbeb;
+  color:#92400e;
+  border:1px solid #fde68a;
+}
+.checkpoint-difficulty.level-3{
+  background:#fef2f2;
+  color:#991b1b;
+  border:1px solid #fecaca;
+}
+.checkpoint-final{
+  margin-top:9px;
+  padding-top:9px;
+  border-top:1px solid rgba(100,116,139,.22);
+}
+.checkpoint-stats strong{
+  font-size:18px!important;
+}

@@ -182,3 +182,23 @@ La sesión utiliza un nuevo STORAGE_KEY para evitar mezclar partidas de la
 versión de 52 casillas con el nuevo recorrido de 50 casillas.
 
 Los questionId se conservan aunque cambie el número visual de casilla.
+
+
+V0.8.2 — CHECKPOINTS
+====================
+Se agregan:
+- checkpointPassed{}
+- checkpointAttempts[]
+
+Cada intento registra:
+- checkpointId;
+- casilla-puerta;
+- cantidad correcta / total;
+- requerido para aprobar;
+- aprobado / no aprobado;
+- detalle de cada respuesta;
+- dificultad;
+- puntos posibles/logrados;
+- variación de energía.
+
+Los checkpoints no pueden ser saltados por una tirada de dado.

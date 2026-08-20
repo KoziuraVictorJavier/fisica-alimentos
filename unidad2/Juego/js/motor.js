@@ -1,12 +1,19 @@
 (() => {
   const BANK=window.CINEMATICA_BANK;
-  const STORAGE_KEY="fisica_u2_juego_v081";
+  const CHECKPOINTS=window.CINEMATICA_CHECKPOINTS||{};
+  const STORAGE_KEY="fisica_u2_juego_v082";
   const CONFIG={finalCell:50,energy:{start:10,max:30,correct:0.5,incorrect:-1,purchaseReward:3},difficultyPoints:{1:100,2:150,3:200}};
   const $=s=>document.querySelector(s);
-  const board=$("#board"),diceBtn=$("#diceBtn"),energyShopBtn=$("#energyShopBtn"),resetBtn=$("#resetBtn"),modal=$("#challengeModal"),modalBody=$("#modalBody"),feedback=$("#feedback"),continueBtn=$("#continueBtn"),statsBtn=$("#statsBtn"),statsModal=$("#statsModal"),statsBody=$("#statsBody"),closeStats=$("#closeStats");
+  const board=$("#board"),diceBtn=$("#diceBtn"),energyShopBtn=$("#energyShopBtn"),resetBtn=$("#resetBtn"),
+        modal=$("#challengeModal"),modalBody=$("#modalBody"),feedback=$("#feedback"),continueBtn=$("#continueBtn"),
+        checkpointModal=$("#checkpointModal"),checkpointTitle=$("#checkpointTitle"),checkpointSubtitle=$("#checkpointSubtitle"),
+        checkpointProgressBadge=$("#checkpointProgressBadge"),checkpointMeterBar=$("#checkpointMeterBar"),
+        checkpointPrompt=$("#checkpointPrompt"),checkpointBody=$("#checkpointBody"),
+        checkpointFeedback=$("#checkpointFeedback"),checkpointNextBtn=$("#checkpointNextBtn"),
+        statsBtn=$("#statsBtn"),statsModal=$("#statsModal"),statsBody=$("#statsBody"),closeStats=$("#closeStats");
 
   function blankSession(){
-    return {schemaVersion:2,gameId:BANK.meta.gameId,gameVersion:BANK.meta.gameVersion,bankVersion:BANK.meta.bankVersion,startedAt:new Date().toISOString(),updatedAt:new Date().toISOString(),finishedAt:null,position:0,score:0,energy:CONFIG.energy.start,energyMax:CONFIG.energy.max,energyHistory:[],rolls:0,correct:0,incorrect:0,simulationsSolved:0,pending:null,events:[],answers:[],simulations:[],energyChallenges:[]};
+    return {schemaVersion:2,gameId:BANK.meta.gameId,gameVersion:BANK.meta.gameVersion,bankVersion:BANK.meta.bankVersion,startedAt:new Date().toISOString(),updatedAt:new Date().toISOString(),finishedAt:null,position:0,score:0,energy:CONFIG.energy.start,energyMax:CONFIG.energy.max,energyHistory:[],rolls:0,correct:0,incorrect:0,simulationsSolved:0,pending:null,events:[],answers:[],simulations:[],energyChallenges:[],checkpointPassed:{},checkpointAttempts:[]};
   }
 
   let session;
@@ -14,6 +21,8 @@
   if(typeof session.energy!=="number")session.energy=CONFIG.energy.start;
   if(!Array.isArray(session.energyHistory))session.energyHistory=[];
   if(!Array.isArray(session.energyChallenges))session.energyChallenges=[];
+  if(!session.checkpointPassed||typeof session.checkpointPassed!=="object")session.checkpointPassed={};
+  if(!Array.isArray(session.checkpointAttempts))session.checkpointAttempts=[];
   session.energyMax=CONFIG.energy.max;session.pending=null;
 
   function save(){session.updatedAt=new Date().toISOString();localStorage.setItem(STORAGE_KEY,JSON.stringify(session));}
@@ -39,6 +48,29 @@
     return `Nivel ${level} · ${difficultyPoints(q)} pts`;
   }
 
+  const CHECKPOINT_GATES=Object.keys(CHECKPOINTS).map(Number).sort((a,b)=>a-b);
+  let checkpointRun=null;
+
+  function checkpointAt(cellId){
+    return CHECKPOINTS[String(cellId)] || CHECKPOINTS[cellId] || null;
+  }
+
+  function checkpointPassed(cellId){
+    return !!session.checkpointPassed[String(cellId)];
+  }
+
+  function pendingCheckpointAtCurrentPosition(){
+    return checkpointAt(session.position) && !checkpointPassed(session.position)
+      ? checkpointAt(session.position)
+      : null;
+  }
+
+  function capTargetAtCheckpoint(from,target){
+    const gate=CHECKPOINT_GATES.find(g=>g>from && g<=target && !checkpointPassed(g));
+    return gate||target;
+  }
+
+
   function renderEnergy(delta=null){
     const val=$("#energyVal"),bar=$("#energyBar"),wrap=$("#energyWrap"),flash=$("#energyFlash");
     if(!val||!bar)return;
@@ -61,11 +93,20 @@
 
   function renderBoard(){
     board.innerHTML="";
+
     BANK.cells.forEach(cell=>{
-      const el=document.createElement("div");el.className="cell";
+      const el=document.createElement("div");
+      el.className="cell";
+
       if(cell.id<session.position)el.classList.add("passed");
       if(cell.id===session.position)el.classList.add("current");
-      if([4,9,14,17,22,28,35,41,46].includes(cell.id))el.classList.add("checkpoint");
+
+      if(CHECKPOINT_GATES.includes(cell.id)){
+        el.classList.add("checkpoint","checkpoint-gate");
+        if(checkpointPassed(cell.id))el.classList.add("checkpoint-cleared");
+        else el.classList.add("checkpoint-locked");
+      }
+
       if(cell.id<=9)el.classList.add("zone-foundations");
       else if(cell.id<=17)el.classList.add("zone-rectilinear");
       else if(cell.id<=22)el.classList.add("zone-2d");
@@ -73,33 +114,321 @@
       else if(cell.id<=35)el.classList.add("zone-mas");
       else if(cell.id<=46)el.classList.add("zone-integration");
       else el.classList.add("zone-summary");
-      el.innerHTML=`<span class="cell-number">${cell.id}</span><span class="cell-topic">${cell.topic}</span><span class="cell-title">${cell.title}</span>`;
-      if(cell.id===session.position){const pawn=document.createElement("span");pawn.className="pawn";pawn.textContent="●";el.append(pawn);}
+
+      el.innerHTML=
+        `<span class="cell-number">${cell.id}</span>
+         <span class="cell-topic">${cell.topic}</span>
+         <span class="cell-title">${cell.title}</span>`;
+
+      if(CHECKPOINT_GATES.includes(cell.id)){
+        const gate=document.createElement("span");
+        gate.className="checkpoint-tag";
+        gate.textContent=checkpointPassed(cell.id)?"✓ SUPERADO":"🔒 CHECKPOINT";
+        el.append(gate);
+      }
+
+      if(cell.id===session.position){
+        const pawn=document.createElement("span");
+        pawn.className="pawn";
+        pawn.textContent="●";
+        el.append(pawn);
+      }
+
       board.append(el);
     });
+
     $("#positionVal").textContent=session.position===0?"Salida":`${session.position} / ${CONFIG.finalCell}`;
-    $("#scoreVal").textContent=session.score;$("#correctVal").textContent=session.correct;$("#progressBar").style.width=`${session.position/CONFIG.finalCell*100}%`;renderEnergy();
+    $("#scoreVal").textContent=session.score;
+    $("#correctVal").textContent=session.correct;
+    $("#progressBar").style.width=`${session.position/CONFIG.finalCell*100}%`;
+    renderEnergy();
+
+    const gatePending=!!pendingCheckpointAtCurrentPosition();
+
     diceBtn.disabled=!!session.pending||session.position>=CONFIG.finalCell||session.energy<=0;
+    diceBtn.textContent=gatePending?"Superar checkpoint":"Tirar dado";
+    diceBtn.classList.toggle("checkpoint-action",gatePending);
+
     if(energyShopBtn){
       energyShopBtn.disabled=!!session.pending||session.energy<=0||session.energy>=CONFIG.energy.max;
       energyShopBtn.textContent=session.energy>=CONFIG.energy.max
         ?"⚡ Energía completa"
         :"⚡ Comprar energía (+3)";
     }
-    const st=$("#gameStatus");st.classList.remove("done","danger");
-    if(session.energy<=0){st.textContent="Sin energía · reiniciar";st.classList.add("danger");}
-    else if(session.position>=CONFIG.finalCell){st.textContent="Prototipo completado";st.classList.add("done");}
-    else st.textContent="Recorrido de práctica";
+
+    const st=$("#gameStatus");
+    st.classList.remove("done","danger","checkpoint-status");
+
+    if(session.energy<=0){
+      st.textContent="Sin energía · reiniciar";
+      st.classList.add("danger");
+    }else if(session.position>=CONFIG.finalCell){
+      st.textContent="Recorrido completado";
+      st.classList.add("done");
+    }else if(gatePending){
+      st.textContent="Checkpoint pendiente";
+      st.classList.add("checkpoint-status");
+    }else{
+      st.textContent="Recorrido de práctica";
+    }
   }
 
   function rollDice(){
     if(session.pending||session.position>=CONFIG.finalCell||session.energy<=0)return;
-    const roll=1+Math.floor(Math.random()*3),from=session.position,target=Math.min(CONFIG.finalCell,session.position+roll);
-    session.rolls++;session.pending={kind:"board",from,target,roll,startedAt:Date.now()};log("roll",{from,target,roll});animateDie(roll,()=>openChallenge(target));
+
+    if(pendingCheckpointAtCurrentPosition()){
+      openCheckpoint(session.position);
+      return;
+    }
+
+    const roll=1+Math.floor(Math.random()*3);
+    const from=session.position;
+    let target=Math.min(CONFIG.finalCell,session.position+roll);
+    target=capTargetAtCheckpoint(from,target);
+
+    session.rolls++;
+    session.pending={kind:"board",from,target,roll,startedAt:Date.now()};
+    log("roll",{from,target,roll,checkpointCap:target<from+roll});
+    animateDie(roll,()=>openChallenge(target));
   }
   function animateDie(value,done){const die=$("#die");let n=0;const timer=setInterval(()=>{die.textContent=1+Math.floor(Math.random()*6);if(++n>8){clearInterval(timer);die.textContent=value;done();}},70);}
   function chooseQuestion(cellId){const list=BANK.questions[cellId]||[],recent=session.answers.slice(-10).map(x=>x.questionId),preferred=list.filter(q=>!recent.includes(q.id)),pool=preferred.length?preferred:list;return pool[Math.floor(Math.random()*pool.length)];}
   function challengeLabel(q){return q.type==="simulation"?"Desafío interactivo":q.type==="graph_mcq"?"Interpretación gráfica":"Pregunta";}
+
+
+  function shuffleArray(arr){
+    const a=[...arr];
+    for(let i=a.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [a[i],a[j]]=[a[j],a[i]];
+    }
+    return a;
+  }
+
+  function openCheckpoint(gateCell){
+    const cp=checkpointAt(gateCell);
+    if(!cp||checkpointPassed(gateCell)||session.energy<=0)return;
+
+    const selected=shuffleArray(cp.questions).slice(0,cp.draw||3);
+
+    checkpointRun={
+      gateCell,
+      checkpointId:cp.id,
+      title:cp.title,
+      subtitle:cp.subtitle,
+      required:cp.required||2,
+      index:0,
+      correct:0,
+      results:[],
+      questions:selected,
+      startedAt:new Date().toISOString(),
+      finished:false,
+      passed:false
+    };
+
+    session.pending={kind:"checkpoint",gateCell,checkpointId:cp.id};
+    save();
+
+    checkpointModal.classList.add("open");
+    checkpointModal.setAttribute("aria-hidden","false");
+    checkpointTitle.textContent=cp.title;
+    checkpointSubtitle.textContent=cp.subtitle||"";
+    checkpointFeedback.innerHTML="";
+    checkpointNextBtn.hidden=true;
+
+    showCheckpointQuestion();
+  }
+
+  function showCheckpointQuestion(){
+    if(!checkpointRun)return;
+
+    const q=checkpointRun.questions[checkpointRun.index];
+    checkpointProgressBadge.textContent=`${checkpointRun.index+1} / ${checkpointRun.questions.length}`;
+    checkpointMeterBar.style.width=`${checkpointRun.index/checkpointRun.questions.length*100}%`;
+    checkpointPrompt.innerHTML=q.prompt;
+    checkpointBody.innerHTML="";
+    checkpointFeedback.innerHTML="";
+    checkpointNextBtn.hidden=true;
+
+    const info=document.createElement("div");
+    info.className=`checkpoint-difficulty level-${q.difficulty||2}`;
+    info.textContent=`Nivel ${q.difficulty||2} · ${difficultyPoints(q)} pts`;
+    checkpointBody.append(info);
+
+    const choices=document.createElement("div");
+    choices.className="choices checkpoint-choices";
+
+    shuffledOptions(q).forEach((item,displayIndex)=>{
+      const b=document.createElement("button");
+      b.className="choice";
+      b.dataset.originalIndex=String(item.originalIndex);
+      b.dataset.displayIndex=String(displayIndex);
+      b.innerHTML=
+        `<span class="choice-letter">${String.fromCharCode(65+displayIndex)}</span>
+         <span>${item.text}</span>`;
+      b.addEventListener("click",()=>answerCheckpointQuestion(q,item.originalIndex,displayIndex,b,choices));
+      choices.append(b);
+    });
+
+    checkpointBody.append(choices);
+    window.CINEMATICA_MATH?.typeset(checkpointModal);
+  }
+
+  function answerCheckpointQuestion(q,originalIndex,displayIndex,button,choices){
+    if(!checkpointRun||checkpointRun.finished)return;
+
+    [...choices.children].forEach(b=>b.disabled=true);
+
+    const ci=answerIndex(q);
+    const ok=originalIndex===ci;
+
+    button.classList.add(ok?"correct":"wrong");
+
+    if(!ok){
+      const correctButton=[...choices.children].find(
+        b=>Number(b.dataset.originalIndex)===ci
+      );
+      if(correctButton)correctButton.classList.add("correct");
+    }
+
+    const delta=ok?CONFIG.energy.correct:CONFIG.energy.incorrect;
+    changeEnergy(delta,ok?"checkpoint_correcto":"checkpoint_incorrecto");
+
+    if(ok){
+      session.correct++;
+      session.score+=difficultyPoints(q);
+      checkpointRun.correct++;
+    }else{
+      session.incorrect++;
+    }
+
+    const result={
+      questionId:q.id,
+      difficulty:Number(q.difficulty)||2,
+      pointsPossible:difficultyPoints(q),
+      pointsAwarded:ok?difficultyPoints(q):0,
+      selectedOriginalIndex:originalIndex,
+      selectedDisplayIndex:displayIndex,
+      displayedLetter:String.fromCharCode(65+displayIndex),
+      correctOriginalIndex:ci,
+      correct:ok,
+      energyDelta:delta,
+      at:new Date().toISOString()
+    };
+    checkpointRun.results.push(result);
+
+    checkpointFeedback.className="feedback "+(ok?"success":"error");
+    checkpointFeedback.innerHTML=ok
+      ? `<strong>Correcto.</strong> ${q.explanation}
+         <br><span class="points-note">+${difficultyPoints(q)} puntos</span>
+         · <span class="energy-note">Energía +${CONFIG.energy.correct.toFixed(1)}</span>`
+      : `<strong>Respuesta incorrecta.</strong> ${q.explanation}
+         <br><span class="energy-note">Energía ${CONFIG.energy.incorrect.toFixed(1)}</span>`;
+
+    checkpointMeterBar.style.width=`${(checkpointRun.index+1)/checkpointRun.questions.length*100}%`;
+
+    if(session.energy<=0){
+      checkpointRun.finished=true;
+      checkpointNextBtn.textContent="Reiniciar partida";
+      checkpointNextBtn.hidden=false;
+      checkpointFeedback.innerHTML+=
+        `<div class="energy-zero"><strong>La energía llegó a 0.</strong> La partida debe reiniciarse.</div>`;
+      save();
+      window.CINEMATICA_MATH?.typeset(checkpointFeedback);
+      return;
+    }
+
+    if(checkpointRun.index>=checkpointRun.questions.length-1){
+      finishCheckpoint();
+    }else{
+      checkpointNextBtn.textContent="Siguiente desafío";
+      checkpointNextBtn.hidden=false;
+    }
+
+    save();
+    window.CINEMATICA_MATH?.typeset(checkpointFeedback);
+  }
+
+  function finishCheckpoint(){
+    checkpointRun.finished=true;
+    checkpointRun.passed=checkpointRun.correct>=checkpointRun.required;
+
+    const attempt={
+      at:new Date().toISOString(),
+      gateCell:checkpointRun.gateCell,
+      checkpointId:checkpointRun.checkpointId,
+      correct:checkpointRun.correct,
+      total:checkpointRun.questions.length,
+      required:checkpointRun.required,
+      passed:checkpointRun.passed,
+      results:checkpointRun.results
+    };
+
+    session.checkpointAttempts.push(attempt);
+
+    if(checkpointRun.passed){
+      session.checkpointPassed[String(checkpointRun.gateCell)]=true;
+      log("checkpoint_passed",{
+        gateCell:checkpointRun.gateCell,
+        checkpointId:checkpointRun.checkpointId,
+        correct:checkpointRun.correct,
+        total:checkpointRun.questions.length
+      });
+
+      checkpointFeedback.className="feedback success checkpoint-result";
+      checkpointFeedback.innerHTML+=
+        `<div class="checkpoint-final">
+          <strong>Checkpoint superado: ${checkpointRun.correct}/${checkpointRun.questions.length}.</strong><br>
+          La siguiente zona quedó habilitada.
+        </div>`;
+      checkpointNextBtn.textContent="Continuar recorrido";
+    }else{
+      log("checkpoint_failed",{
+        gateCell:checkpointRun.gateCell,
+        checkpointId:checkpointRun.checkpointId,
+        correct:checkpointRun.correct,
+        total:checkpointRun.questions.length
+      });
+
+      checkpointFeedback.className="feedback error checkpoint-result";
+      checkpointFeedback.innerHTML+=
+        `<div class="checkpoint-final">
+          <strong>Checkpoint no superado: ${checkpointRun.correct}/${checkpointRun.questions.length}.</strong><br>
+          Se requieren ${checkpointRun.required} respuestas correctas. Permanecés en esta casilla y podrás intentarlo nuevamente.
+        </div>`;
+      checkpointNextBtn.textContent="Volver al tablero";
+    }
+
+    checkpointNextBtn.hidden=false;
+    save();
+  }
+
+  function checkpointNext(){
+    if(!checkpointRun)return;
+
+    if(session.energy<=0){
+      closeCheckpointModal();
+      restartImmediately();
+      return;
+    }
+
+    if(checkpointRun.finished){
+      closeCheckpointModal();
+      return;
+    }
+
+    checkpointRun.index++;
+    showCheckpointQuestion();
+  }
+
+  function closeCheckpointModal(){
+    checkpointModal.classList.remove("open");
+    checkpointModal.setAttribute("aria-hidden","true");
+    session.pending=null;
+    checkpointRun=null;
+    save();
+    renderBoard();
+  }
 
 
   function energyQuestionPool(){
@@ -512,6 +841,20 @@
     });
 
 
+    session.checkpointAttempts.forEach(attempt=>{
+      (attempt.results||[]).forEach(r=>{
+        const d=byDifficulty[r.difficulty||2];
+        d.attempts++;
+        if(r.correct)d.ok++;
+        d.possible+=r.pointsPossible||0;
+        d.earned+=r.pointsAwarded||0;
+      });
+    });
+
+    const checkpointPassedCount=Object.values(session.checkpointPassed).filter(Boolean).length;
+    const checkpointAttemptCount=session.checkpointAttempts.length;
+
+
     const energyTotal=session.energyChallenges.length;
     const energyCorrect=session.energyChallenges.filter(e=>e.correct).length;
     const energyRecovered=session.energyChallenges
@@ -565,6 +908,14 @@
         <tbody>${topicRows||`<tr><td colspan="4">Todavía no hay respuestas registradas.</td></tr>`}</tbody>
       </table>
 
+      <h4 class="stats-subtitle">Checkpoints</h4>
+      <div class="stats-cards checkpoint-stats">
+        <div><span>Superados</span><strong>${checkpointPassedCount}/${CHECKPOINT_GATES.length}</strong></div>
+        <div><span>Intentos</span><strong>${checkpointAttemptCount}</strong></div>
+        <div><span>Regla</span><strong>2 / 3</strong></div>
+        <div><span>Puertas</span><strong>${CHECKPOINT_GATES.join(" · ")}</strong></div>
+      </div>
+
       <h4 class="stats-subtitle">Recuperación de energía</h4>
       <div class="stats-cards energy-stats">
         <div><span>Desafíos</span><strong>${energyTotal}</strong></div>
@@ -584,6 +935,9 @@
     statsModal.setAttribute("aria-hidden","false");
   }
 
-  diceBtn.addEventListener("click",rollDice);if(energyShopBtn)energyShopBtn.addEventListener("click",openEnergyChallenge);continueBtn.addEventListener("click",closeChallenge);resetBtn.addEventListener("click",resetGame);statsBtn.addEventListener("click",showStats);closeStats.addEventListener("click",()=>{statsModal.classList.remove("open");statsModal.setAttribute("aria-hidden","true");});
+  diceBtn.addEventListener("click",rollDice);
+  if(energyShopBtn)energyShopBtn.addEventListener("click",openEnergyChallenge);
+  if(checkpointNextBtn)checkpointNextBtn.addEventListener("click",checkpointNext);
+  continueBtn.addEventListener("click",closeChallenge);resetBtn.addEventListener("click",resetGame);statsBtn.addEventListener("click",showStats);closeStats.addEventListener("click",()=>{statsModal.classList.remove("open");statsModal.setAttribute("aria-hidden","true");});
   renderBoard();
 })();

@@ -237,3 +237,30 @@ AJUSTE V0.8.1
     texto "Arquitectura preparada para crecer".
 - editor_banco.html continúa dentro del paquete para uso local directo,
   pero ya no aparece como opción dentro del juego.
+
+
+V0.8.2 — CHECKPOINTS FUNCIONALES
+================================
+Se convierten en puertas reales de avance los checkpoints ubicados después de:
+- casilla 9  · Fundamentos
+- casilla 17 · Movimiento rectilíneo
+- casilla 22 · Movimiento en 2D
+- casilla 28 · Movimiento circular
+- casilla 35 · MAS
+- casilla 46 · Integración industrial
+
+Mecánica:
+- al llegar a una casilla de checkpoint, no puede avanzarse a la zona siguiente;
+- el botón "Tirar dado" cambia a "Superar checkpoint";
+- cada intento presenta 3 preguntas integradoras elegidas al azar de un banco de 5;
+- se requieren 2 respuestas correctas de 3;
+- si se falla, el alumno permanece en la casilla y puede reintentar;
+- el dado no puede saltar una puerta de checkpoint;
+- las respuestas correctas/incorrectas conservan la regla de energía (+0.5 / -1);
+- el puntaje sigue ponderado por dificultad;
+- los resultados de checkpoint se registran por separado.
+
+Se incorpora:
+  js/checkpoints.js
+
+con 30 preguntas integradoras específicas.
