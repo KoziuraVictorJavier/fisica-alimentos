@@ -186,7 +186,7 @@ window.CINEMATICA_SIM = {
           </label>
         </div>
 
-        <div class="sim-equation">\[x=x_0+vt\]</div>
+        <div class="sim-equation">\[x=x_0+v\,t\]</div>
 
         <div class="sim-live pending" id="mruResultBox">
           <span>Posición obtenida</span>
@@ -505,7 +505,7 @@ window.CINEMATICA_SIM = {
       <div class="sim-challenge">
         <div class="sim-target">
           Objetivo: lograr un tiempo de caída de
-          <strong>${targetT.toFixed(2)} s</strong> con $g=9.8\,m/s^2$.
+          <strong>${targetT.toFixed(2)} s</strong> con \(g=9.8\,\mathrm{m/s^2}\).
         </div>
 
         <div class="sim-grid one">
@@ -663,7 +663,7 @@ window.CINEMATICA_SIM = {
 
         <div class="sim-grid one">
           <label>
-            Velocidad de la cinta $v_{0x}$
+            Velocidad de la cinta \(v_{0x}\)
             <input id="cvV" type="range" min="0.5" max="8" step="0.1" value="2.0">
             <span id="cvVVal">2.0 m/s</span>
           </label>
@@ -916,7 +916,7 @@ window.CINEMATICA_SIM = {
             <span id="vtRVal">0.40 m</span>
           </label>
         </div>
-        <div class="sim-equation">\[v_t=r\omega\]</div>
+        <div class="sim-equation">\[v_t=r\,\omega\]</div>
         <div class="sim-live pending" id="vtBox">
           <span>Rapidez tangencial</span><strong id="vtOut">Sin evaluar</strong>
           <span id="vtErr">Elegí r y presioná Evaluar.</span>
@@ -1040,7 +1040,7 @@ window.CINEMATICA_SIM = {
             <span id="cpWVal">2.0 rad/s</span>
           </label>
         </div>
-        <div class="sim-equation">\[a_c=\omega^2r\]</div>
+        <div class="sim-equation">\[a_c=\omega^2 r\]</div>
         <div class="sim-live pending" id="cpBox">
           <span>Aceleración centrípeta</span><strong id="cpOut">Sin evaluar</strong>
           <span id="cpErr">Elegí ω y presioná Evaluar.</span>
@@ -1096,7 +1096,7 @@ window.CINEMATICA_SIM = {
             <span id="mfTVal">2.0 s</span>
           </label>
         </div>
-        <div class="sim-equation">\[f=\frac1T,\qquad \omega=\frac{2\pi}{T}\]</div>
+        <div class="sim-equation">\[f=\frac{1}{T},\qquad \omega=\frac{2\pi}{T}\]</div>
         <div class="sim-live pending" id="mfBox">
           <span>Frecuencia calculada</span><strong id="mfOut">Sin evaluar</strong>
           <span id="mfErr">Elegí T y presioná Evaluar.</span>
@@ -1222,7 +1222,7 @@ window.CINEMATICA_SIM = {
             <span id="pdLVal">1.00 m</span>
           </label>
         </div>
-        <div class="sim-equation">\[T\approx2\pi\sqrt{\frac{L}{g}}\]</div>
+        <div class="sim-equation">\[T\approx 2\pi\sqrt{\frac{L}{g}}\]</div>
         <div class="sim-live pending" id="pdBox">
           <span>Período calculado</span><strong id="pdOut">Sin evaluar</strong>
           <span id="pdErr">Elegí L y presioná Evaluar.</span>
@@ -1293,7 +1293,7 @@ window.CINEMATICA_SIM = {
           \[
             f=\frac{\mathrm{rpm}}{60},
             \qquad \omega=2\pi f,
-            \qquad a_c=r\omega^2
+            \qquad a_c=r\,\omega^2
           \]
         </div>
         <div class="sim-live pending" id="cfBox">

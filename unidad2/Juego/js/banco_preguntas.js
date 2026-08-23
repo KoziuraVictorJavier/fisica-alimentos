@@ -1,29 +1,21 @@
 /*
- BANCO DE PREGUNTAS EDITABLE — Física · Unidad 2
+ BANCO DE PREGUNTAS — Física · Unidad 2
+ V0.8.2.1 · revisión tipográfica de fórmulas
 
- V0.8.1
- -------
- Se eliminaron:
-   - casilla original 2  -> filmina s3 "Objetivos de aprendizaje"
-   - casilla original 52 -> filmina s52 "Fuentes y criterio de uso"
-
- Las restantes se renumeraron en forma continua:
-   casillas 1 a 50.
-
- Total:
-   50 casillas × 5 actividades = 250 actividades.
-
- Los identificadores internos de las preguntas se conservan para mantener
- trazabilidad estadística entre versiones.
-
- Para edición visual puede seguir utilizándose editor_banco.html,
- aunque el acceso al editor fue retirado de la pantalla principal del juego.
+ Ajustes:
+ - delimitadores matemáticos uniformados a \( ... \);
+ - fracciones escritas con \frac{...}{...};
+ - raíces con argumentos entre llaves;
+ - derivadas y cocientes con notación fraccionaria;
+ - subíndice "med" en romano;
+ - unidades físicas en tipografía romana;
+ - sin cambios en la respuesta correcta ni en la dificultad.
 */
 window.CINEMATICA_BANK = {
   "meta": {
     "gameId": "FISICA_U2_RECORRIDO",
-    "gameVersion": "0.8.2",
-    "bankVersion": "2026.08-prototipo-v08.1",
+    "gameVersion": "0.8.2.1",
+    "bankVersion": "2026.08-formulas-v08.2.1",
     "unit": "Unidad 2 · Cinemática"
   },
   "cells": [
@@ -448,7 +440,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_APP_004",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Una zona útil de un túnel mide $12\\,m$ y la cinta avanza a $0.60\\,m/s$. Si el movimiento es uniforme, el tiempo de residencia es...",
+        "prompt": "Una zona útil de un túnel mide \\(12\\,\\mathrm{m}\\) y la cinta avanza a \\(0.60\\,\\mathrm{m/s}\\). Si el movimiento es uniforme, el tiempo de residencia es...",
         "options": [
           "20 s",
           "7.2 s",
@@ -456,7 +448,7 @@ window.CINEMATICA_BANK = {
           "0.05 s"
         ],
         "answer": "A",
-        "explanation": "Para velocidad constante, $t=L/v=12/0.60=20\\,s$."
+        "explanation": "Para velocidad constante, \\(t=L/v=12/0.60=20\\,\\mathrm{s}\\)."
       },
       {
         "id": "U2_APP_005",
@@ -464,7 +456,7 @@ window.CINEMATICA_BANK = {
         "difficulty": 1,
         "prompt": "En un mezclador, las variables cinemáticas destacadas en la unidad son...",
         "options": [
-          "$\\omega$ y $f$",
+          "\\(\\omega\\) y \\(f\\)",
           "masa y densidad solamente",
           "pH y conductividad",
           "trabajo y energía únicamente"
@@ -697,10 +689,10 @@ window.CINEMATICA_BANK = {
         "prompt": "¿Cuál es la expresión correcta del desplazamiento?",
         "math": true,
         "options": [
-          "\\(\\Delta\\vec r=\\vec r_f-\\vec r_i\\)",
-          "\\(\\Delta\\vec r=\\vec r_f+\\vec r_i\\)",
-          "\\(\\Delta\\vec r=d/\\Delta t\\)",
-          "\\(\\Delta\\vec r=\\vec v_f-\\vec v_i\\)"
+          "\\(\\Delta \\vec r=\\vec r_f-\\vec r_i\\)",
+          "\\(\\Delta \\vec r=\\vec r_f+\\vec r_i\\)",
+          "\\(\\Delta \\vec r=\\frac{d}{\\Delta\\,t}\\)",
+          "\\(\\Delta \\vec r=\\vec v_f-\\vec v_i\\)"
         ],
         "answer": 0,
         "explanation": "El desplazamiento es la diferencia entre la posición final y la inicial."
@@ -709,13 +701,13 @@ window.CINEMATICA_BANK = {
         "id": "U2_DEF_002",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Si \\(\\vec r_i=(1,2)\\,m\\) y \\(\\vec r_f=(4,6)\\,m\\), entonces \\(\\Delta\\vec r\\) es...",
+        "prompt": "Si \\(\\vec r_i=(1,2)\\,\\mathrm{m}\\) y \\(\\vec r_f=(4,6)\\,\\mathrm{m}\\), entonces \\(\\Delta \\vec r\\) es...",
         "math": true,
         "options": [
-          "\\((3,4)\\,m\\)",
-          "\\((5,8)\\,m\\)",
-          "\\((-3,-4)\\,m\\)",
-          "\\((4,6)\\,m\\)"
+          "\\((3,4)\\,\\mathrm{m}\\)",
+          "\\((5,8)\\,\\mathrm{m}\\)",
+          "\\((-3,-4)\\,\\mathrm{m}\\)",
+          "\\((4,6)\\,\\mathrm{m}\\)"
         ],
         "answer": 0,
         "explanation": "Se restan componentes: (4−1, 6−2) = (3,4) m."
@@ -739,21 +731,21 @@ window.CINEMATICA_BANK = {
         "id": "U2_DEF_004",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Si $\\vec r_i=(-2,3)\\,m$ y $\\vec r_f=(4,-1)\\,m$, el desplazamiento es...",
+        "prompt": "Si \\(\\vec r_i=(-2,3)\\,\\mathrm{m}\\) y \\(\\vec r_f=(4,-1)\\,\\mathrm{m}\\), el desplazamiento es...",
         "options": [
-          "$(6,-4)\\,m$",
-          "$(2,2)\\,m$",
-          "$(-6,4)\\,m$",
-          "$(4,-1)\\,m$"
+          "\\((6,-4)\\,\\mathrm{m}\\)",
+          "\\((2,2)\\,\\mathrm{m}\\)",
+          "\\((-6,4)\\,\\mathrm{m}\\)",
+          "\\((4,-1)\\,\\mathrm{m}\\)"
         ],
         "answer": "A",
-        "explanation": "$\\Delta\\vec r=\\vec r_f-\\vec r_i=(4-(-2),-1-3)=(6,-4)\\,m$."
+        "explanation": "\\(\\Delta \\vec r=\\vec r_f-\\vec r_i=(4-(-2),-1-3)=(6,-4)\\,\\mathrm{m}\\)."
       },
       {
         "id": "U2_DEF_005",
         "type": "mcq",
         "difficulty": 1,
-        "prompt": "La expresión $\\Delta\\vec r=\\vec r_f-\\vec r_i$ muestra que el desplazamiento...",
+        "prompt": "La expresión \\(\\Delta \\vec r=\\vec r_f-\\vec r_i\\) muestra que el desplazamiento...",
         "options": [
           "depende de las posiciones inicial y final.",
           "depende de toda la longitud recorrida.",
@@ -786,10 +778,10 @@ window.CINEMATICA_BANK = {
         "prompt": "La velocidad media se calcula como...",
         "math": true,
         "options": [
-          "\\(\\vec v_{med}=\\Delta\\vec r/\\Delta t\\)",
-          "\\(v_{med}=d^2/\\Delta t\\)",
-          "\\(\\vec v_{med}=\\Delta\\vec v/\\Delta t\\)",
-          "\\(\\vec v_{med}=\\vec r_f+\\vec r_i\\)"
+          "\\(\\vec v_{\\mathrm{med}}=\\frac{\\Delta \\vec r}{\\Delta\\,t}\\)",
+          "\\(v_{\\mathrm{med}}=\\frac{d^2}{\\Delta\\,t}\\)",
+          "\\(\\vec v_{\\mathrm{med}}=\\frac{\\Delta \\vec v}{\\Delta\\,t}\\)",
+          "\\(\\vec v_{\\mathrm{med}}=\\vec r_f+\\vec r_i\\)"
         ],
         "answer": 0,
         "explanation": "La velocidad media usa el desplazamiento vectorial dividido por el intervalo de tiempo."
@@ -812,7 +804,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_VEL_004",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Un móvil recorre $100\\,m$ y vuelve al punto de partida recorriendo otros $100\\,m$ en un total de $20\\,s$. Su rapidez media y el módulo de su velocidad media son...",
+        "prompt": "Un móvil recorre \\(100\\,\\mathrm{m}\\) y vuelve al punto de partida recorriendo otros \\(100\\,\\mathrm{m}\\) en un total de \\(20\\,\\mathrm{s}\\). Su rapidez media y el módulo de su velocidad media son...",
         "options": [
           "10 m/s y 0 m/s",
           "5 m/s y 5 m/s",
@@ -834,7 +826,7 @@ window.CINEMATICA_BANK = {
           "la masa"
         ],
         "answer": "A",
-        "explanation": "$\\vec v_{med}=\\Delta\\vec r/\\Delta t$, por lo que conserva la dirección del desplazamiento."
+        "explanation": "\\(\\vec v_{\\mathrm{med}}=\\frac{\\Delta \\vec r}{\\Delta\\,t}\\), por lo que conserva la dirección del desplazamiento."
       }
     ],
     "8": [
@@ -845,10 +837,10 @@ window.CINEMATICA_BANK = {
         "prompt": "La velocidad instantánea puede expresarse como...",
         "math": true,
         "options": [
-          "\\(\\vec v(t)=d\\vec r/dt\\)",
-          "\\(\\vec v(t)=d^2\\vec r/dt^2\\)",
-          "\\(\\vec v(t)=\\Delta\\vec v/\\Delta t\\)",
-          "\\(\\vec v(t)=d/\\Delta t\\) siempre"
+          "\\(\\vec v(t)=\\frac{d\\vec r}{dt}\\)",
+          "\\(\\vec v(t)=\\frac{d^2\\vec r}{dt^2}\\)",
+          "\\(\\vec v(t)=\\frac{\\Delta \\vec v}{\\Delta\\,t}\\)",
+          "\\(\\vec v(t)=\\frac{d}{\\Delta\\,t}\\) siempre"
         ],
         "answer": 0,
         "explanation": "La velocidad instantánea es la derivada temporal del vector posición."
@@ -872,7 +864,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_DER_003",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Reducir \\(\\Delta t\\) cada vez más en la velocidad media conduce conceptualmente a...",
+        "prompt": "Reducir \\(\\Delta\\,t\\) cada vez más en la velocidad media conduce conceptualmente a...",
         "math": true,
         "options": [
           "la velocidad instantánea.",
@@ -887,7 +879,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_DER_004",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Si $x(t)=t^2$ en metros, la velocidad instantánea en $t=3\\,s$ es...",
+        "prompt": "Si \\(x(t)=t^2\\) en metros, la velocidad instantánea en \\(t=3\\,\\mathrm{s}\\) es...",
         "options": [
           "6 m/s",
           "3 m/s",
@@ -895,7 +887,7 @@ window.CINEMATICA_BANK = {
           "2 m/s"
         ],
         "answer": "A",
-        "explanation": "$v=dx/dt=2t$; para $t=3\\,s$, $v=6\\,m/s$."
+        "explanation": "\\(v=\\frac{dx}{dt}=2t\\); para \\(t=3\\,\\mathrm{s}\\), \\(v=6\\,\\mathrm{m/s}\\)."
       },
       {
         "id": "U2_DER_005",
@@ -909,7 +901,7 @@ window.CINEMATICA_BANK = {
           "la curvatura sin relación con la pendiente."
         ],
         "answer": "A",
-        "explanation": "La derivada $dx/dt$ se interpreta como la pendiente de la tangente a x(t)."
+        "explanation": "La derivada \\(\\frac{dx}{dt}\\) se interpreta como la pendiente de la tangente a x(t)."
       }
     ],
     "9": [
@@ -934,10 +926,10 @@ window.CINEMATICA_BANK = {
         "prompt": "La aceleración media se define como...",
         "math": true,
         "options": [
-          "\\(\\vec a_{med}=\\Delta\\vec v/\\Delta t\\)",
-          "\\(\\vec a_{med}=\\Delta\\vec r/\\Delta t\\)",
-          "\\(\\vec a_{med}=d/\\Delta t\\)",
-          "\\(\\vec a_{med}=\\vec r/t^2\\) siempre"
+          "\\(\\vec a_{\\mathrm{med}}=\\frac{\\Delta \\vec v}{\\Delta\\,t}\\)",
+          "\\(\\vec a_{\\mathrm{med}}=\\frac{\\Delta \\vec r}{\\Delta\\,t}\\)",
+          "\\(\\vec a_{\\mathrm{med}}=\\frac{d}{\\Delta\\,t}\\)",
+          "\\(\\vec a_{\\mathrm{med}}=\\frac{\\vec r}{t^2}\\) siempre"
         ],
         "answer": 0,
         "explanation": "La aceleración media mide el cambio del vector velocidad por unidad de tiempo."
@@ -946,9 +938,9 @@ window.CINEMATICA_BANK = {
         "id": "U2_ACC_SIM_001",
         "type": "simulation",
         "difficulty": 2,
-        "prompt": "Desafío: ajustá \\(\\Delta v\\) y \\(\\Delta t\\) para obtener la aceleración objetivo.",
+        "prompt": "Desafío: ajustá \\(\\Delta v\\) y \\(\\Delta\\,t\\) para obtener la aceleración objetivo.",
         "simulator": "accelerationTarget",
-        "explanation": "Usamos \\(a=\\Delta v/\\Delta t\\). Hay varias combinaciones posibles que pueden alcanzar el mismo valor de aceleración."
+        "explanation": "Usamos \\(a=\\frac{\\Delta v}{\\Delta\\,t}\\). Hay varias combinaciones posibles que pueden alcanzar el mismo valor de aceleración."
       },
       {
         "id": "U2_ACC_003",
@@ -968,7 +960,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_ACC_004",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Si $v(t)=2+3t$ en m/s, la aceleración instantánea es...",
+        "prompt": "Si \\(v(t)=2+3t\\) en m/s, la aceleración instantánea es...",
         "options": [
           "3 m/s²",
           "2 m/s²",
@@ -976,7 +968,7 @@ window.CINEMATICA_BANK = {
           "3t m/s²"
         ],
         "answer": "A",
-        "explanation": "$a=dv/dt=3\\,m/s^2$."
+        "explanation": "\\(a=\\frac{dv}{dt}=3\\,\\mathrm{m/s^2}\\)."
       }
     ],
     "10": [
@@ -998,7 +990,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_MRU_002",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Un producto se desplaza con velocidad constante de $2.5\\,m/s$. ¿Qué distancia recorre en $4\\,s$?",
+        "prompt": "Un producto se desplaza con velocidad constante de \\(2.5\\,\\mathrm{m/s}\\). ¿Qué distancia recorre en \\(4\\,\\mathrm{s}\\)?",
         "options": [
           "6 m",
           "10 m",
@@ -1006,7 +998,7 @@ window.CINEMATICA_BANK = {
           "12.5 m"
         ],
         "answer": "B",
-        "explanation": "En MRU, $\\Delta x=v\\,\\Delta t=2.5\\times4=10\\,m$."
+        "explanation": "En MRU, \\(\\Delta x=v\\,\\Delta\\,t=2.5\\times4=10\\,\\mathrm{m}\\)."
       },
       {
         "id": "U2_MRU_SIM_001",
@@ -1014,13 +1006,13 @@ window.CINEMATICA_BANK = {
         "difficulty": 2,
         "prompt": "Desafío MRU: ajustá la velocidad para que el móvil llegue exactamente a la posición objetivo en el tiempo indicado.",
         "simulator": "mruTarget",
-        "explanation": "En MRU usamos $x=x_0+vt$. El objetivo puede alcanzarse calculando la velocidad necesaria."
+        "explanation": "En MRU usamos \\(x=x_0+v\\,t\\). El objetivo puede alcanzarse calculando la velocidad necesaria."
       },
       {
         "id": "U2_MRU_003",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Para $x_0=-2\\,m$, $v=3\\,m/s$ y $t=4\\,s$, la posición en MRU es...",
+        "prompt": "Para \\(x_0=-2\\,\\mathrm{m}\\), \\(v=3\\,\\mathrm{m/s}\\) y \\(t=4\\,\\mathrm{s}\\), la posición en MRU es...",
         "options": [
           "10 m",
           "14 m",
@@ -1028,13 +1020,13 @@ window.CINEMATICA_BANK = {
           "−14 m"
         ],
         "answer": "A",
-        "explanation": "$x=x_0+vt=-2+3\\times4=10\\,m$."
+        "explanation": "\\(x=x_0+v\\,t=-2+3\\times4=10\\,\\mathrm{m}\\)."
       },
       {
         "id": "U2_MRU_004",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "En una gráfica $x$–$t$ de MRU con pendiente negativa, la velocidad...",
+        "prompt": "En una gráfica \\(x\\)–\\(t\\) de MRU con pendiente negativa, la velocidad...",
         "options": [
           "es constante y negativa",
           "es positiva y creciente",
@@ -1042,7 +1034,7 @@ window.CINEMATICA_BANK = {
           "cambia de signo continuamente"
         ],
         "answer": "A",
-        "explanation": "En MRU la pendiente es la velocidad; una pendiente negativa representa $v_x<0$."
+        "explanation": "En MRU la pendiente es la velocidad; una pendiente negativa representa \\(v_x<0\\)."
       }
     ],
     "11": [
@@ -1087,7 +1079,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_GMRU_003",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "En una gráfica $x$–$t$ de MRU, la pendiente de la recta representa...",
+        "prompt": "En una gráfica \\(x\\)–\\(t\\) de MRU, la pendiente de la recta representa...",
         "options": [
           "la velocidad",
           "la aceleración",
@@ -1095,7 +1087,7 @@ window.CINEMATICA_BANK = {
           "la distancia total siempre"
         ],
         "answer": "A",
-        "explanation": "La pendiente $\\Delta x/\\Delta t$ representa la velocidad."
+        "explanation": "La pendiente \\(\\frac{\\Delta x}{\\Delta\\,t}\\) representa la velocidad."
       },
       {
         "id": "U2_GMRU_004",
@@ -1115,7 +1107,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_GMRU_005",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "En una gráfica $v$–$t$, una velocidad constante de $-2\\,m/s$ durante $3\\,s$ produce un desplazamiento de...",
+        "prompt": "En una gráfica \\(v\\)–\\(t\\), una velocidad constante de \\(-2\\,\\mathrm{m/s}\\) durante \\(3\\,\\mathrm{s}\\) produce un desplazamiento de...",
         "options": [
           "−6 m",
           "6 m",
@@ -1123,7 +1115,7 @@ window.CINEMATICA_BANK = {
           "0 m"
         ],
         "answer": "A",
-        "explanation": "El área algebraica es $\\Delta x=v\\Delta t=-2\\times3=-6\\,m$."
+        "explanation": "El área algebraica es \\(\\Delta x=v\\Delta\\,t=-2\\times3=-6\\,\\mathrm{m}\\)."
       }
     ],
     "12": [
@@ -1161,19 +1153,19 @@ window.CINEMATICA_BANK = {
         "difficulty": 2,
         "prompt": "Si el movimiento parte del reposo con aceleración constante, la posición recorrida es proporcional a...",
         "options": [
-          "$t^2$",
-          "$t$",
-          "$1/t$",
-          "$\\sqrt t$"
+          "\\(t^2\\)",
+          "\\(t\\)",
+          "\\(\\frac{1}{t}\\)",
+          "\\(\\sqrt{t}\\)"
         ],
         "answer": "A",
-        "explanation": "Para $v_0=0$ y aceleración constante, $x=\\frac12at^2$, por lo tanto $x\\propto t^2$."
+        "explanation": "Para \\(v_0=0\\) y aceleración constante, \\(x=\\frac{1}{2}at^2\\), por lo tanto \\(x\\propto t^2\\)."
       },
       {
         "id": "U2_GAL_004",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "En el modelo estudiado por Galileo, obtener $x\\propto t^2$ es compatible con...",
+        "prompt": "En el modelo estudiado por Galileo, obtener \\(x\\propto t^2\\) es compatible con...",
         "options": [
           "una aceleración aproximadamente constante partiendo del reposo.",
           "una velocidad necesariamente constante.",
@@ -1181,7 +1173,7 @@ window.CINEMATICA_BANK = {
           "un movimiento circular uniforme."
         ],
         "answer": "A",
-        "explanation": "Para $v_0=0$ y aceleración constante, $x=\\frac12at^2$."
+        "explanation": "Para \\(v_0=0\\) y aceleración constante, \\(x=\\frac{1}{2}at^2\\)."
       },
       {
         "id": "U2_GAL_005",
@@ -1217,12 +1209,12 @@ window.CINEMATICA_BANK = {
         "id": "U2_ODD_002",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Los desplazamientos acumulados desde el origen, para tiempos $1,2,3,4...$, son proporcionales a...",
+        "prompt": "Los desplazamientos acumulados desde el origen, para tiempos \\(1,2,3,4...\\), son proporcionales a...",
         "options": [
-          "$1^2,2^2,3^2,4^2...$",
+          "\\(1^2,2^2,3^2,4^2...\\)",
           "1,3,5,7...",
           "1,2,3,4...",
-          "$1/t$"
+          "\\(\\frac{1}{t}\\)"
         ],
         "answer": "A",
         "explanation": "La posición acumulada crece como el cuadrado del tiempo."
@@ -1233,19 +1225,19 @@ window.CINEMATICA_BANK = {
         "difficulty": 2,
         "prompt": "La regla de los números impares constituye una evidencia experimental compatible con...",
         "options": [
-          "$x\\propto t^2$",
-          "$x\\propto t$",
-          "$v=0$",
-          "$a=0$"
+          "\\(x\\propto t^2\\)",
+          "\\(x\\propto t\\)",
+          "\\(v=0\\)",
+          "\\(a=0\\)"
         ],
         "answer": "A",
-        "explanation": "La sucesión de desplazamientos parciales impares conduce a posiciones acumuladas proporcionales a $t^2$."
+        "explanation": "La sucesión de desplazamientos parciales impares conduce a posiciones acumuladas proporcionales a \\(t^2\\)."
       },
       {
         "id": "U2_ODD_004",
         "type": "mcq",
         "difficulty": 1,
-        "prompt": "Si los desplazamientos parciales siguen $1,3,5,7,...$, el siguiente valor es...",
+        "prompt": "Si los desplazamientos parciales siguen \\(1,3,5,7,...\\), el siguiente valor es...",
         "options": [
           "9",
           "8",
@@ -1267,7 +1259,7 @@ window.CINEMATICA_BANK = {
           "25"
         ],
         "answer": "A",
-        "explanation": "Los acumulados son $1,4,9,16,...$, es decir, cuadrados perfectos."
+        "explanation": "Los acumulados son \\(1,4,9,16,...\\), es decir, cuadrados perfectos."
       }
     ],
     "14": [
@@ -1289,7 +1281,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_MRUV_002",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Si $v_0=2\\,m/s$, $a=3\\,m/s^2$ y $t=4\\,s$, la velocidad final es...",
+        "prompt": "Si \\(v_0=2\\,\\mathrm{m/s}\\), \\(a=3\\,\\mathrm{m/s^2}\\) y \\(t=4\\,\\mathrm{s}\\), la velocidad final es...",
         "options": [
           "14 m/s",
           "12 m/s",
@@ -1297,7 +1289,7 @@ window.CINEMATICA_BANK = {
           "5 m/s"
         ],
         "answer": "A",
-        "explanation": "$v=v_0+at=2+3\\times4=14\\,m/s$."
+        "explanation": "\\(v=v_0+a\\,t=2+3\\times4=14\\,\\mathrm{m/s}\\)."
       },
       {
         "id": "U2_MRUV_SIM_001",
@@ -1305,7 +1297,7 @@ window.CINEMATICA_BANK = {
         "difficulty": 2,
         "prompt": "Desafío MRUV: ajustá la aceleración para alcanzar la velocidad final objetivo en el tiempo indicado.",
         "simulator": "mruvVelocityTarget",
-        "explanation": "En MRUV, $v_f=v_0+a\\,t$. Ajustar $a$ permite controlar la velocidad final."
+        "explanation": "En MRUV, \\(v_f=v_0+a\\,t\\). Ajustar \\(a\\) permite controlar la velocidad final."
       },
       {
         "id": "U2_MRUV_003",
@@ -1325,7 +1317,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_MRUV_004",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Si $x_0=1\\,m$, $v_0=2\\,m/s$, $a=1\\,m/s^2$ y $t=3\\,s$, la posición es...",
+        "prompt": "Si \\(x_0=1\\,\\mathrm{m}\\), \\(v_0=2\\,\\mathrm{m/s}\\), \\(a=1\\,\\mathrm{m/s^2}\\) y \\(t=3\\,\\mathrm{s}\\), la posición es...",
         "options": [
           "11.5 m",
           "10 m",
@@ -1333,7 +1325,7 @@ window.CINEMATICA_BANK = {
           "13 m"
         ],
         "answer": "A",
-        "explanation": "$x=1+2(3)+\\frac12(1)(3^2)=11.5\\,m$."
+        "explanation": "\\(x=1+2(3)+\\frac{1}{2}(1)(3^2)=11.5\\,\\mathrm{m}\\)."
       }
     ],
     "15": [
@@ -1341,7 +1333,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_MRUV_ST_001",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "¿Cuándo resulta especialmente útil la ecuación $v_x^2=v_{0x}^2+2a_x(x-x_0)$?",
+        "prompt": "¿Cuándo resulta especialmente útil la ecuación \\(v_x^2=v_{0x}^2+2a_x(x-x_0)\\)?",
         "options": [
           "Cuando el tiempo no es dato ni incógnita.",
           "Cuando la aceleración es necesariamente cero.",
@@ -1355,21 +1347,21 @@ window.CINEMATICA_BANK = {
         "id": "U2_MRUV_ST_002",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Un móvil parte con $v_0=2\\,m/s$, acelera a $3\\,m/s^2$ y recorre $8\\,m$. ¿Qué expresión permite hallar directamente $v_f$ sin calcular antes el tiempo?",
+        "prompt": "Un móvil parte con \\(v_0=2\\,\\mathrm{m/s}\\), acelera a \\(3\\,\\mathrm{m/s^2}\\) y recorre \\(8\\,\\mathrm{m}\\). ¿Qué expresión permite hallar directamente \\(v_f\\) sin calcular antes el tiempo?",
         "options": [
-          "$v_f^2=v_0^2+2a\\Delta x$",
-          "$v_f=v_0/t$",
-          "$\\Delta x=v_f/a$",
-          "$a=v_f\\Delta x$"
+          "\\(v_f^2=v_0^2+2a\\Delta x\\)",
+          "\\(v_f=v_0/t\\)",
+          "\\(\\Delta x=v_f/a\\)",
+          "\\(a=v_f\\Delta x\\)"
         ],
         "answer": "A",
-        "explanation": "La ecuación sin tiempo es la herramienta directa cuando se conocen $v_0$, $a$ y $\\Delta x$."
+        "explanation": "La ecuación sin tiempo es la herramienta directa cuando se conocen \\(v_0\\), \\(a\\) y \\(\\Delta x\\)."
       },
       {
         "id": "U2_MRUV_ST_003",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "En la ecuación sin tiempo del MRUV, el término $2a\\Delta x$ modifica directamente...",
+        "prompt": "En la ecuación sin tiempo del MRUV, el término \\(2a\\Delta x\\) modifica directamente...",
         "options": [
           "el cuadrado de la velocidad.",
           "el tiempo al cuadrado.",
@@ -1377,13 +1369,13 @@ window.CINEMATICA_BANK = {
           "la posición inicial solamente."
         ],
         "answer": "A",
-        "explanation": "La ecuación expresa cómo el cambio de posición bajo aceleración modifica $v^2$."
+        "explanation": "La ecuación expresa cómo el cambio de posición bajo aceleración modifica \\(v^2\\)."
       },
       {
         "id": "U2_MRUV_ST_004",
         "type": "mcq",
         "difficulty": 3,
-        "prompt": "Un móvil lleva $10\\,m/s$ y frena uniformemente con $a=-2\\,m/s^2$ hasta detenerse. ¿Qué distancia de frenado resulta de la ecuación sin tiempo?",
+        "prompt": "Un móvil lleva \\(10\\,\\mathrm{m/s}\\) y frena uniformemente con \\(a=-2\\,\\mathrm{m/s^2}\\) hasta detenerse. ¿Qué distancia de frenado resulta de la ecuación sin tiempo?",
         "options": [
           "25 m",
           "50 m",
@@ -1391,21 +1383,21 @@ window.CINEMATICA_BANK = {
           "10 m"
         ],
         "answer": "A",
-        "explanation": "$0=10^2+2(-2)\\Delta x$, de donde $\\Delta x=25\\,m$."
+        "explanation": "\\(0=10^2+2(-2)\\Delta x\\), de donde \\(\\Delta x=25\\,\\mathrm{m}\\)."
       },
       {
         "id": "U2_MRUV_ST_005",
         "type": "mcq",
         "difficulty": 3,
-        "prompt": "En una frenada con $a<0$ y desplazamiento positivo, el término $2a\\Delta x$ es...",
+        "prompt": "En una frenada con \\(a<0\\) y desplazamiento positivo, el término \\(2a\\Delta x\\) es...",
         "options": [
-          "negativo y reduce $v^2$.",
-          "positivo y aumenta siempre $v^2$.",
+          "negativo y reduce \\(v^2\\).",
+          "positivo y aumenta siempre \\(v^2\\).",
           "cero necesariamente.",
           "independiente de la aceleración."
         ],
         "answer": "A",
-        "explanation": "Con $a<0$ y $\\Delta x>0$, el término es negativo y el cuadrado de la velocidad disminuye."
+        "explanation": "Con \\(a<0\\) y \\(\\Delta x>0\\), el término es negativo y el cuadrado de la velocidad disminuye."
       }
     ],
     "16": [
@@ -1413,7 +1405,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_GRAF_001",
         "type": "graph_mcq",
         "difficulty": 2,
-        "prompt": "Observá la gráfica $v$–$t$. ¿Qué representa su pendiente?",
+        "prompt": "Observá la gráfica \\(v\\)–\\(t\\). ¿Qué representa su pendiente?",
         "graph": {
           "kind": "vt_accel",
           "v0": 1,
@@ -1426,13 +1418,13 @@ window.CINEMATICA_BANK = {
           "la distancia total"
         ],
         "answer": "A",
-        "explanation": "En una gráfica velocidad-tiempo, la pendiente $dv/dt$ representa la aceleración."
+        "explanation": "En una gráfica velocidad-tiempo, la pendiente \\(\\frac{dv}{dt}\\) representa la aceleración."
       },
       {
         "id": "U2_GRAF_002",
         "type": "graph_mcq",
         "difficulty": 2,
-        "prompt": "Observá la gráfica $a$–$t$. ¿Qué representa el área sombreada bajo la curva?",
+        "prompt": "Observá la gráfica \\(a\\)–\\(t\\). ¿Qué representa el área sombreada bajo la curva?",
         "graph": {
           "kind": "at_const",
           "value": 2
@@ -1444,13 +1436,13 @@ window.CINEMATICA_BANK = {
           "la aceleración instantánea"
         ],
         "answer": "A",
-        "explanation": "El área algebraica bajo $a(t)$ da $\\Delta v$."
+        "explanation": "El área algebraica bajo \\(a(t)\\) da \\(\\Delta v\\)."
       },
       {
         "id": "U2_GRAF_003",
         "type": "graph_mcq",
         "difficulty": 3,
-        "prompt": "En esta gráfica $x$–$t$, la pendiente aumenta con el tiempo. ¿Qué interpretación es compatible con ello?",
+        "prompt": "En esta gráfica \\(x\\)–\\(t\\), la pendiente aumenta con el tiempo. ¿Qué interpretación es compatible con ello?",
         "graph": {
           "kind": "xt_accel"
         },
@@ -1461,7 +1453,7 @@ window.CINEMATICA_BANK = {
           "La aceleración es necesariamente nula."
         ],
         "answer": "A",
-        "explanation": "Si la pendiente de $x(t)$ aumenta, aumenta la magnitud de la velocidad."
+        "explanation": "Si la pendiente de \\(x(t)\\) aumenta, aumenta la magnitud de la velocidad."
       },
       {
         "id": "U2_GRAF_004",
@@ -1481,7 +1473,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_GRAF_005",
         "type": "mcq",
         "difficulty": 1,
-        "prompt": "Si $a(t)=0$ durante un intervalo, entonces en ese intervalo la velocidad...",
+        "prompt": "Si \\(a(t)=0\\) durante un intervalo, entonces en ese intervalo la velocidad...",
         "options": [
           "permanece constante",
           "debe ser cero",
@@ -1489,7 +1481,7 @@ window.CINEMATICA_BANK = {
           "disminuye siempre"
         ],
         "answer": "A",
-        "explanation": "Si $a=dv/dt=0$, la velocidad no cambia."
+        "explanation": "Si \\(a=\\frac{dv}{dt}=0\\), la velocidad no cambia."
       }
     ],
     "17": [
@@ -1497,15 +1489,15 @@ window.CINEMATICA_BANK = {
         "id": "U2_CAIDA_001",
         "type": "mcq",
         "difficulty": 1,
-        "prompt": "Si elegimos el eje $y$ positivo hacia arriba, la aceleración de la gravedad se escribe...",
+        "prompt": "Si elegimos el eje \\(y\\) positivo hacia arriba, la aceleración de la gravedad se escribe...",
         "options": [
-          "$a_y=-g$",
-          "$a_y=+g$ siempre",
-          "$a_y=0$",
-          "$a_y=v_y/t$ necesariamente"
+          "\\(a_y=-g\\)",
+          "\\(a_y=+g\\) siempre",
+          "\\(a_y=0\\)",
+          "\\(a_y=v_y/t\\) necesariamente"
         ],
         "answer": "A",
-        "explanation": "Con eje positivo hacia arriba, la gravedad apunta en sentido negativo: $a_y=-g$."
+        "explanation": "Con eje positivo hacia arriba, la gravedad apunta en sentido negativo: \\(a_y=-g\\)."
       },
       {
         "id": "U2_CAIDA_002",
@@ -1527,7 +1519,7 @@ window.CINEMATICA_BANK = {
         "difficulty": 2,
         "prompt": "Desafío de caída libre: ajustá la altura para lograr el tiempo de caída objetivo.",
         "simulator": "freeFallHeightTarget",
-        "explanation": "Para una caída desde el reposo, $t=\\sqrt{2h/g}$. La altura elegida determina el tiempo de caída."
+        "explanation": "Para una caída desde el reposo, \\(t=\\sqrt{\\frac{2h}{g}}\\). La altura elegida determina el tiempo de caída."
       },
       {
         "id": "U2_CAIDA_003",
@@ -1535,10 +1527,10 @@ window.CINEMATICA_BANK = {
         "difficulty": 2,
         "prompt": "En un lanzamiento vertical hacia arriba, en el punto más alto se cumple que...",
         "options": [
-          "$v_y=0$ pero $a_y=-g$.",
-          "$v_y=0$ y $a_y=0$.",
-          "$v_y=g$ y $a_y=0$.",
-          "$v_y$ y $a_y$ son ambos positivos."
+          "\\(v_y=0\\) pero \\(a_y=-g\\).",
+          "\\(v_y=0\\) y \\(a_y=0\\).",
+          "\\(v_y=g\\) y \\(a_y=0\\).",
+          "\\(v_y\\) y \\(a_y\\) son ambos positivos."
         ],
         "answer": "A",
         "explanation": "La velocidad vertical se anula instantáneamente en la altura máxima, pero la gravedad continúa actuando."
@@ -1547,7 +1539,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_CAIDA_004",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Un cuerpo se deja caer desde $19.6\\,m$ con $g=9.8\\,m/s^2$. El tiempo ideal de caída es...",
+        "prompt": "Un cuerpo se deja caer desde \\(19.6\\,\\mathrm{m}\\) con \\(g=9.8\\,\\mathrm{m/s^2}\\). El tiempo ideal de caída es...",
         "options": [
           "2.0 s",
           "1.0 s",
@@ -1555,7 +1547,7 @@ window.CINEMATICA_BANK = {
           "19.6 s"
         ],
         "answer": "A",
-        "explanation": "$h=\\frac12gt^2$; entonces $19.6=4.9t^2$ y $t=2\\,s$."
+        "explanation": "\\(h=\\frac{1}{2}gt^2\\); entonces \\(19.6=4.9t^2\\) y \\(t=2\\,\\mathrm{s}\\)."
       }
     ],
     "18": [
@@ -1571,21 +1563,21 @@ window.CINEMATICA_BANK = {
           "No pueden analizarse por separado."
         ],
         "answer": "A",
-        "explanation": "La independencia de movimientos permite estudiar $x(t)$ e $y(t)$ por separado y combinarlos en el mismo instante."
+        "explanation": "La independencia de movimientos permite estudiar \\(x(t)\\) e \\(y(t)\\) por separado y combinarlos en el mismo instante."
       },
       {
         "id": "U2_IND_002",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Si no hay aceleración horizontal, la ecuación de la componente $x$ es...",
+        "prompt": "Si no hay aceleración horizontal, la ecuación de la componente \\(x\\) es...",
         "options": [
-          "$x=x_0+v_{0x}t$",
-          "$x=x_0-\\frac12gt^2$",
-          "$x=v_{0y}t$",
-          "$x=gt$"
+          "\\(x=x_0+v_{0x}t\\)",
+          "\\(x=x_0-\\frac{1}{2}gt^2\\)",
+          "\\(x=v_{0y}t\\)",
+          "\\(x=gt\\)"
         ],
         "answer": "A",
-        "explanation": "Con $a_x=0$, la componente horizontal es un MRU."
+        "explanation": "Con \\(a_x=0\\), la componente horizontal es un MRU."
       },
       {
         "id": "U2_IND_003",
@@ -1599,7 +1591,7 @@ window.CINEMATICA_BANK = {
           "la masa del proyectil."
         ],
         "answer": "A",
-        "explanation": "En el modelo ideal de proyectil, $a_x=0$ y $a_y=-g$."
+        "explanation": "En el modelo ideal de proyectil, \\(a_x=0\\) y \\(a_y=-g\\)."
       },
       {
         "id": "U2_IND_004",
@@ -1619,7 +1611,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_IND_005",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Al reconstruir una trayectoria 2D a partir de $x(t)$ e $y(t)$, ambas componentes deben evaluarse...",
+        "prompt": "Al reconstruir una trayectoria 2D a partir de \\(x(t)\\) e \\(y(t)\\), ambas componentes deben evaluarse...",
         "options": [
           "en el mismo instante t",
           "en tiempos independientes elegidos al azar",
@@ -1643,13 +1635,13 @@ window.CINEMATICA_BANK = {
           "Porque la velocidad horizontal del proyectil aumenta por la gravedad."
         ],
         "answer": "A",
-        "explanation": "Ambos cuerpos pierden la misma cantidad de altura $\\frac12gt^2$ respecto de sus trayectorias sin gravedad."
+        "explanation": "Ambos cuerpos pierden la misma cantidad de altura \\(\\frac{1}{2}gt^2\\) respecto de sus trayectorias sin gravedad."
       },
       {
         "id": "U2_MONO_002",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Si se duplicara $g$ manteniendo las demás condiciones ideales y el disparo siguiera alcanzando al mono antes de tocar el suelo, ¿qué aspecto conceptual permanece válido?",
+        "prompt": "Si se duplicara \\(g\\) manteniendo las demás condiciones ideales y el disparo siguiera alcanzando al mono antes de tocar el suelo, ¿qué aspecto conceptual permanece válido?",
         "options": [
           "Ambos tienen la misma caída vertical gravitatoria durante el mismo intervalo.",
           "Sólo cae el mono.",
@@ -1685,7 +1677,7 @@ window.CINEMATICA_BANK = {
           "la gravedad no actúa."
         ],
         "answer": "A",
-        "explanation": "La clave conceptual es que ambos sufren la misma caída $\\frac12gt^2$ respecto de sus trayectorias sin gravedad."
+        "explanation": "La clave conceptual es que ambos sufren la misma caída \\(\\frac{1}{2}gt^2\\) respecto de sus trayectorias sin gravedad."
       },
       {
         "id": "U2_MONO_005",
@@ -1707,7 +1699,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_REL_001",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Un pasajero camina a $1\\,m/s$ hacia proa respecto de un barco que avanza a $4\\,m/s$ respecto de la costa. Si ambas velocidades tienen el mismo sentido, la velocidad del pasajero respecto de la costa es...",
+        "prompt": "Un pasajero camina a \\(1\\,\\mathrm{m/s}\\) hacia proa respecto de un barco que avanza a \\(4\\,\\mathrm{m/s}\\) respecto de la costa. Si ambas velocidades tienen el mismo sentido, la velocidad del pasajero respecto de la costa es...",
         "options": [
           "5 m/s",
           "3 m/s",
@@ -1715,7 +1707,7 @@ window.CINEMATICA_BANK = {
           "1 m/s"
         ],
         "answer": "A",
-        "explanation": "En una dimensión y con igual sentido, las velocidades relativas se suman: $1+4=5\\,m/s$."
+        "explanation": "En una dimensión y con igual sentido, las velocidades relativas se suman: \\(1+4=5\\,\\mathrm{m/s}\\)."
       },
       {
         "id": "U2_REL_002",
@@ -1723,10 +1715,10 @@ window.CINEMATICA_BANK = {
         "difficulty": 2,
         "prompt": "La relación correcta entre velocidades relativas es...",
         "options": [
-          "$\\vec v_{B/O}=\\vec v_{B/A}+\\vec v_{A/O}$",
-          "$\\vec v_{B/O}=\\vec v_{B/A}-\\vec v_{B/O}$",
-          "$\\vec v_{B/O}=\\vec a_{B/A}+\\vec r_{A/O}$",
-          "$\\vec v_{B/O}=0$ siempre"
+          "\\(\\vec v_{B/O}=\\vec v_{B/A}+\\vec v_{A/O}\\)",
+          "\\(\\vec v_{B/O}=\\vec v_{B/A}-\\vec v_{B/O}\\)",
+          "\\(\\vec v_{B/O}=\\vec a_{B/A}+\\vec r_{A/O}\\)",
+          "\\(\\vec v_{B/O}=0\\) siempre"
         ],
         "answer": "A",
         "explanation": "La velocidad observada desde O se obtiene componiendo la velocidad de B respecto de A con la de A respecto de O."
@@ -1749,7 +1741,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_REL_004",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Un pasajero camina a $1\\,m/s$ hacia popa respecto de un barco que avanza a $4\\,m/s$ respecto de la costa. Tomando hacia proa como positivo, la velocidad del pasajero respecto de la costa es...",
+        "prompt": "Un pasajero camina a \\(1\\,\\mathrm{m/s}\\) hacia popa respecto de un barco que avanza a \\(4\\,\\mathrm{m/s}\\) respecto de la costa. Tomando hacia proa como positivo, la velocidad del pasajero respecto de la costa es...",
         "options": [
           "3 m/s",
           "5 m/s",
@@ -1757,21 +1749,21 @@ window.CINEMATICA_BANK = {
           "−3 m/s"
         ],
         "answer": "A",
-        "explanation": "$v_{P/C}=v_{P/B}+v_{B/C}=-1+4=3\\,m/s$."
+        "explanation": "\\(v_{P/C}=v_{P/B}+v_{B/C}=-1+4=3\\,\\mathrm{m/s}\\)."
       },
       {
         "id": "U2_REL_005",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "De $\\vec v_{B/O}=\\vec v_{B/A}+\\vec v_{A/O}$ se obtiene que $\\vec v_{B/A}$ es...",
+        "prompt": "De \\(\\vec v_{B/O}=\\vec v_{B/A}+\\vec v_{A/O}\\) se obtiene que \\(\\vec v_{B/A}\\) es...",
         "options": [
-          "$\\vec v_{B/O}-\\vec v_{A/O}$",
-          "$\\vec v_{B/O}+\\vec v_{A/O}$",
-          "$\\vec v_{A/O}-\\vec v_{B/O}$ siempre",
+          "\\(\\vec v_{B/O}-\\vec v_{A/O}\\)",
+          "\\(\\vec v_{B/O}+\\vec v_{A/O}\\)",
+          "\\(\\vec v_{A/O}-\\vec v_{B/O}\\) siempre",
           "cero necesariamente"
         ],
         "answer": "A",
-        "explanation": "Se despeja restando $\\vec v_{A/O}$ en ambos miembros."
+        "explanation": "Se despeja restando \\(\\vec v_{A/O}\\) en ambos miembros."
       }
     ],
     "21": [
@@ -1781,10 +1773,10 @@ window.CINEMATICA_BANK = {
         "difficulty": 2,
         "prompt": "En movimiento bidimensional, la posición se expresa como...",
         "options": [
-          "$\\vec r(t)=x(t)\\hat i+y(t)\\hat j$",
-          "$\\vec r(t)=x(t)+y(t)$ sin direcciones",
-          "$\\vec r(t)=gt$",
-          "$\\vec r(t)=v^2/r$"
+          "\\(\\vec r(t)=x(t)\\hat i+y(t)\\hat j\\)",
+          "\\(\\vec r(t)=x(t)+y(t)\\) sin direcciones",
+          "\\(\\vec r(t)=gt\\)",
+          "\\(\\vec r(t)=v^2/r\\)"
         ],
         "answer": "A",
         "explanation": "El vector posición se construye a partir de sus componentes cartesianas."
@@ -1793,7 +1785,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_2D_002",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Si $v_{0x}=8\\,m/s$ y transcurren $2\\,s$ sin aceleración horizontal, la posición horizontal recorrida desde $x_0=0$ es...",
+        "prompt": "Si \\(v_{0x}=8\\,\\mathrm{m/s}\\) y transcurren \\(2\\,\\mathrm{s}\\) sin aceleración horizontal, la posición horizontal recorrida desde \\(x_0=0\\) es...",
         "options": [
           "16 m",
           "4 m",
@@ -1801,13 +1793,13 @@ window.CINEMATICA_BANK = {
           "32 m"
         ],
         "answer": "A",
-        "explanation": "Como $x=v_{0x}t$, resulta $x=8\\times2=16\\,m$."
+        "explanation": "Como \\(x=v_{0x}t\\), resulta \\(x=8\\times2=16\\,\\mathrm{m}\\)."
       },
       {
         "id": "U2_2D_003",
         "type": "graph_mcq",
         "difficulty": 2,
-        "prompt": "La gráfica horizontal $x(t)$ de un proyectil ideal es una recta. ¿Qué significa?",
+        "prompt": "La gráfica horizontal \\(x(t)\\) de un proyectil ideal es una recta. ¿Qué significa?",
         "graph": {
           "kind": "xt_mru",
           "x0": 0,
@@ -1826,7 +1818,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_2D_004",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Para $v_{0y}=10\\,m/s$, $g=9.8\\,m/s^2$ y $t=1\\,s$, tomando $y_0=0$, la posición vertical es...",
+        "prompt": "Para \\(v_{0y}=10\\,\\mathrm{m/s}\\), \\(g=9.8\\,\\mathrm{m/s^2}\\) y \\(t=1\\,\\mathrm{s}\\), tomando \\(y_0=0\\), la posición vertical es...",
         "options": [
           "5.1 m",
           "10 m",
@@ -1834,21 +1826,21 @@ window.CINEMATICA_BANK = {
           "9.8 m"
         ],
         "answer": "A",
-        "explanation": "$y=10(1)-\\frac12(9.8)(1^2)=5.1\\,m$."
+        "explanation": "\\(y=10(1)-\\frac{1}{2}(9.8)(1^2)=5.1\\,\\mathrm{m}\\)."
       },
       {
         "id": "U2_2D_005",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Si en el mismo instante $x=8\\,m$ e $y=5.1\\,m$, el vector posición puede escribirse como...",
+        "prompt": "Si en el mismo instante \\(x=8\\,\\mathrm{m}\\) e \\(y=5.1\\,\\mathrm{m}\\), el vector posición puede escribirse como...",
         "options": [
-          "$\\vec r=8\\hat i+5.1\\hat j\\,m$",
-          "$\\vec r=13.1\\,m$ sin dirección",
-          "$\\vec r=8\\hat j+5.1\\hat i$ necesariamente",
-          "$\\vec r=0$"
+          "\\(\\vec r=8\\hat i+5.1\\hat j\\,\\mathrm{m}\\)",
+          "\\(\\vec r=13.1\\,\\mathrm{m}\\) sin dirección",
+          "\\(\\vec r=8\\hat j+5.1\\hat i\\) necesariamente",
+          "\\(\\vec r=0\\)"
         ],
         "answer": "A",
-        "explanation": "En coordenadas cartesianas, $\\vec r=x\\hat i+y\\hat j$."
+        "explanation": "En coordenadas cartesianas, \\(\\vec r=x\\hat i+y\\hat j\\)."
       }
     ],
     "22": [
@@ -1864,21 +1856,21 @@ window.CINEMATICA_BANK = {
           "se vuelve cero."
         ],
         "answer": "A",
-        "explanation": "El tiempo de caída depende del movimiento vertical; con la misma altura y $v_{0y}=0$, no depende de $v_{0x}$."
+        "explanation": "El tiempo de caída depende del movimiento vertical; con la misma altura y \\(v_{0y}=0\\), no depende de \\(v_{0x}\\)."
       },
       {
         "id": "U2_CINTA_002",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Para una descarga horizontal desde altura $h$, el alcance ideal se calcula como...",
+        "prompt": "Para una descarga horizontal desde altura \\(h\\), el alcance ideal se calcula como...",
         "options": [
-          "$R=v_{0x}\\sqrt{2h/g}$",
-          "$R=gh$",
-          "$R=v_{0x}/g$",
-          "$R=\\frac12gt^2$"
+          "\\(R=v_{0x}\\sqrt{\\frac{2h}{g}}\\)",
+          "\\(R=gh\\)",
+          "\\(R=\\frac{v_{0x}}{g}\\)",
+          "\\(R=\\frac{1}{2}gt^2\\)"
         ],
         "answer": "A",
-        "explanation": "Primero se obtiene $t_{caída}=\\sqrt{2h/g}$ y luego $R=v_{0x}t_{caída}$."
+        "explanation": "Primero se obtiene \\(t_{caída}=\\sqrt{2h/g}\\) y luego \\(R=v_{0x}t_{caída}\\)."
       },
       {
         "id": "U2_CINTA_SIM_001",
@@ -1900,7 +1892,7 @@ window.CINEMATICA_BANK = {
           "se reducen a la mitad."
         ],
         "answer": "A",
-        "explanation": "Como $t\\propto\\sqrt h$, cuadruplicar h duplica t; y como $R=v_{0x}t$, también duplica R."
+        "explanation": "Como \\(t\\propto\\sqrt{h}\\), cuadruplicar h duplica t; y como \\(R=v_{0x}t\\), también duplica R."
       },
       {
         "id": "U2_CINTA_004",
@@ -1914,7 +1906,7 @@ window.CINEMATICA_BANK = {
           "permanecer igual."
         ],
         "answer": "A",
-        "explanation": "Con h fija, el tiempo de caída no cambia y $R=v_{0x}t$, por lo que R es directamente proporcional a $v_{0x}$."
+        "explanation": "Con h fija, el tiempo de caída no cambia y \\(R=v_{0x}t\\), por lo que R es directamente proporcional a \\(v_{0x}\\)."
       }
     ],
     "23": [
@@ -1996,10 +1988,10 @@ window.CINEMATICA_BANK = {
         "difficulty": 1,
         "prompt": "La posición angular en radianes se define mediante...",
         "options": [
-          "$\\theta=s/r$",
-          "$\\theta=sr$",
-          "$\\theta=r/s^2$",
-          "$\\theta=2\\pi r$"
+          "\\(\\theta=\\frac{s}{r}\\)",
+          "\\(\\theta=sr\\)",
+          "\\(\\theta=\\frac{r}{s^2}\\)",
+          "\\(\\theta=2\\pi r\\)"
         ],
         "answer": "A",
         "explanation": "El radián se define como el cociente entre la longitud de arco y el radio."
@@ -2011,12 +2003,12 @@ window.CINEMATICA_BANK = {
         "prompt": "Si un arco tiene longitud igual al radio, el ángulo subtendido vale...",
         "options": [
           "1 rad",
-          "$\\pi$ rad",
-          "$2\\pi$ rad",
+          "\\(\\pi\\) rad",
+          "\\(2\\pi\\) rad",
           "90 rad"
         ],
         "answer": "A",
-        "explanation": "Si $s=r$, entonces $\\theta=s/r=1\\,rad$."
+        "explanation": "Si \\(s=r\\), entonces \\(\\theta=\\frac{s}{r}=1\\,\\mathrm{rad}\\)."
       },
       {
         "id": "U2_ANG_003",
@@ -2024,19 +2016,19 @@ window.CINEMATICA_BANK = {
         "difficulty": 2,
         "prompt": "Una vuelta completa corresponde a...",
         "options": [
-          "$2\\pi$ rad",
-          "$\\pi/2$ rad",
+          "\\(2\\pi\\) rad",
+          "\\(\\frac{\\pi}{2}\\) rad",
           "1 rad",
-          "$\\pi$ rad"
+          "\\(\\pi\\) rad"
         ],
         "answer": "A",
-        "explanation": "Una circunferencia completa tiene arco $2\\pi r$, por lo que $\\theta=2\\pi$ rad."
+        "explanation": "Una circunferencia completa tiene arco \\(2\\pi r\\), por lo que \\(\\theta=2\\pi\\) rad."
       },
       {
         "id": "U2_ANG_004",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Para $r=0.50\\,m$ y $\\theta=2\\,rad$, el arco recorrido es...",
+        "prompt": "Para \\(r=0.50\\,\\mathrm{m}\\) y \\(\\theta=2\\,\\mathrm{rad}\\), el arco recorrido es...",
         "options": [
           "1.0 m",
           "0.25 m",
@@ -2044,21 +2036,21 @@ window.CINEMATICA_BANK = {
           "2.5 m"
         ],
         "answer": "A",
-        "explanation": "$s=r\\theta=0.50\\times2=1.0\\,m$."
+        "explanation": "\\(s=r\\theta=0.50\\times2=1.0\\,\\mathrm{m}\\)."
       },
       {
         "id": "U2_ANG_005",
         "type": "mcq",
         "difficulty": 3,
-        "prompt": "Dos discos tienen radios distintos. En ambos un punto recorre $\\theta=1\\,rad$. ¿Qué punto recorre un arco mayor?",
+        "prompt": "Dos discos tienen radios distintos. En ambos un punto recorre \\(\\theta=1\\,\\mathrm{rad}\\). ¿Qué punto recorre un arco mayor?",
         "options": [
           "El que está en el disco de mayor radio.",
           "Ambos recorren el mismo arco.",
           "El que está en el disco de menor radio.",
-          "No puede saberse porque $s$ no depende de r."
+          "No puede saberse porque \\(s\\) no depende de r."
         ],
         "answer": "A",
-        "explanation": "Como $s=r\\theta$, para el mismo ángulo el arco es proporcional al radio."
+        "explanation": "Como \\(s=r\\theta\\), para el mismo ángulo el arco es proporcional al radio."
       }
     ],
     "25": [
@@ -2066,7 +2058,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_TFW_001",
         "type": "mcq",
         "difficulty": 1,
-        "prompt": "El período $T$ es...",
+        "prompt": "El período \\(T\\) es...",
         "options": [
           "el tiempo necesario para completar una vuelta.",
           "la cantidad de vueltas por segundo.",
@@ -2080,12 +2072,12 @@ window.CINEMATICA_BANK = {
         "id": "U2_TFW_002",
         "type": "mcq",
         "difficulty": 1,
-        "prompt": "La frecuencia $f$ se relaciona con el período mediante...",
+        "prompt": "La frecuencia \\(f\\) se relaciona con el período mediante...",
         "options": [
-          "$f=1/T$",
-          "$f=T^2$",
-          "$f=2\\pi T$",
-          "$f=T/2$"
+          "\\(f=\\frac{1}{T}\\)",
+          "\\(f=T^2\\)",
+          "\\(f=2\\pi T\\)",
+          "\\(f=\\frac{T}{2}\\)"
         ],
         "answer": "A",
         "explanation": "Frecuencia y período son magnitudes recíprocas."
@@ -2094,29 +2086,29 @@ window.CINEMATICA_BANK = {
         "id": "U2_TFW_003",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Si $T=2\\,s$, la frecuencia es...",
+        "prompt": "Si \\(T=2\\,\\mathrm{s}\\), la frecuencia es...",
         "options": [
           "0.50 Hz",
           "2 Hz",
-          "$2\\pi$ Hz",
+          "\\(2\\pi\\) Hz",
           "4 Hz"
         ],
         "answer": "A",
-        "explanation": "$f=1/T=1/2=0.50\\,Hz$."
+        "explanation": "\\(f=\\frac{1}{T}=1/2=0.50\\,\\mathrm{Hz}\\)."
       },
       {
         "id": "U2_TFW_004",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Para un movimiento circular uniforme, $\\omega$ puede calcularse como...",
+        "prompt": "Para un movimiento circular uniforme, \\(\\omega\\) puede calcularse como...",
         "options": [
-          "$\\omega=2\\pi/T$",
-          "$\\omega=T/2\\pi$",
-          "$\\omega=Tr$",
-          "$\\omega=r/T^2$"
+          "\\(\\omega=\\frac{2\\pi}{T}\\)",
+          "\\(\\omega=\\frac{T}{2\\pi}\\)",
+          "\\(\\omega=Tr\\)",
+          "\\(\\omega=\\frac{r}{T^2}\\)"
         ],
         "answer": "A",
-        "explanation": "Una vuelta equivale a $2\\pi$ rad recorridos durante un período T."
+        "explanation": "Una vuelta equivale a \\(2\\pi\\) rad recorridos durante un período T."
       },
       {
         "id": "U2_TFW_SIM_001",
@@ -2124,7 +2116,7 @@ window.CINEMATICA_BANK = {
         "difficulty": 2,
         "prompt": "Desafío angular: ajustá el período para obtener la frecuencia objetivo.",
         "simulator": "angularFrequencyTarget",
-        "explanation": "La relación $f=1/T$ permite vincular directamente período y frecuencia."
+        "explanation": "La relación \\(f=\\frac{1}{T}\\) permite vincular directamente período y frecuencia."
       }
     ],
     "26": [
@@ -2134,10 +2126,10 @@ window.CINEMATICA_BANK = {
         "difficulty": 1,
         "prompt": "La relación entre rapidez tangencial y velocidad angular es...",
         "options": [
-          "$v_t=r\\omega$",
-          "$v_t=\\omega/r$",
-          "$v_t=r/\\omega$",
-          "$v_t=r\\omega^2$"
+          "\\(v_t=r\\omega\\)",
+          "\\(v_t=\\frac{\\omega}{r}\\)",
+          "\\(v_t=\\frac{r}{\\omega}\\)",
+          "\\(v_t=r\\omega^2\\)"
         ],
         "answer": "A",
         "explanation": "La rapidez tangencial resulta de multiplicar radio por velocidad angular."
@@ -2154,7 +2146,7 @@ window.CINEMATICA_BANK = {
           "la aceleración centrípeta necesariamente"
         ],
         "answer": "A",
-        "explanation": "Todos los puntos del disco completan cada vuelta en el mismo tiempo, por lo que comparten $\\omega$."
+        "explanation": "Todos los puntos del disco completan cada vuelta en el mismo tiempo, por lo que comparten \\(\\omega\\)."
       },
       {
         "id": "U2_VT_003",
@@ -2168,13 +2160,13 @@ window.CINEMATICA_BANK = {
           "rapidez necesariamente cero"
         ],
         "answer": "A",
-        "explanation": "Como $v_t=r\\omega$ y $\\omega$ es común, $v_t$ aumenta con el radio."
+        "explanation": "Como \\(v_t=r\\omega\\) y \\(\\omega\\) es común, \\(v_t\\) aumenta con el radio."
       },
       {
         "id": "U2_VT_004",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Para $r=0.40\\,m$ y $\\omega=5\\,rad/s$, la rapidez tangencial vale...",
+        "prompt": "Para \\(r=0.40\\,\\mathrm{m}\\) y \\(\\omega=5\\,\\mathrm{rad/s}\\), la rapidez tangencial vale...",
         "options": [
           "2.0 m/s",
           "12.5 m/s",
@@ -2182,15 +2174,15 @@ window.CINEMATICA_BANK = {
           "0.08 m/s"
         ],
         "answer": "A",
-        "explanation": "$v_t=r\\omega=0.40\\times5=2.0\\,m/s$."
+        "explanation": "\\(v_t=r\\omega=0.40\\times5=2.0\\,\\mathrm{m/s}\\)."
       },
       {
         "id": "U2_VT_SIM_001",
         "type": "simulation",
         "difficulty": 3,
-        "prompt": "Desafío tangencial: ajustá el radio para obtener la rapidez tangencial objetivo manteniendo fija $\\omega$.",
+        "prompt": "Desafío tangencial: ajustá el radio para obtener la rapidez tangencial objetivo manteniendo fija \\(\\omega\\).",
         "simulator": "tangentialSpeedTarget",
-        "explanation": "Con $\\omega$ fija, la rapidez tangencial es directamente proporcional al radio."
+        "explanation": "Con \\(\\omega\\) fija, la rapidez tangencial es directamente proporcional al radio."
       }
     ],
     "27": [
@@ -2200,10 +2192,10 @@ window.CINEMATICA_BANK = {
         "difficulty": 2,
         "prompt": "En una transmisión ideal por correa sin deslizamiento, se cumple...",
         "options": [
-          "$\\omega_1r_1=\\omega_2r_2$",
-          "$\\omega_1=\\omega_2$ siempre",
-          "$r_1=r_2$ siempre",
-          "$\\omega_1/r_1=\\omega_2/r_2$"
+          "\\(\\omega_1r_1=\\omega_2r_2\\)",
+          "\\(\\omega_1=\\omega_2\\) siempre",
+          "\\(r_1=r_2\\) siempre",
+          "\\(\\frac{\\omega_1}{r_1}=\\frac{\\omega_2}{r_2}\\)"
         ],
         "answer": "A",
         "explanation": "La rapidez lineal de la correa es la misma en el contorno de ambas poleas."
@@ -2220,13 +2212,13 @@ window.CINEMATICA_BANK = {
           "necesariamente cero"
         ],
         "answer": "A",
-        "explanation": "De $\\omega_2=\\omega_1r_1/r_2$, un $r_2$ mayor produce una reducción de $\\omega_2$."
+        "explanation": "De \\(\\omega_2=\\omega_1\\frac{r_1}{r_2}\\), un \\(r_2\\) mayor produce una reducción de \\(\\omega_2\\)."
       },
       {
         "id": "U2_PUL_003",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Si $r_1=0.20\\,m$, $r_2=0.40\\,m$ y $\\omega_1=6\\,rad/s$, entonces $\\omega_2$ es...",
+        "prompt": "Si \\(r_1=0.20\\,\\mathrm{m}\\), \\(r_2=0.40\\,\\mathrm{m}\\) y \\(\\omega_1=6\\,\\mathrm{rad/s}\\), entonces \\(\\omega_2\\) es...",
         "options": [
           "3 rad/s",
           "12 rad/s",
@@ -2234,18 +2226,18 @@ window.CINEMATICA_BANK = {
           "1.5 rad/s"
         ],
         "answer": "A",
-        "explanation": "$\\omega_2=6(0.20/0.40)=3\\,rad/s$."
+        "explanation": "\\(\\omega_2=6(0.20/0.40)=3\\,\\mathrm{rad/s}\\)."
       },
       {
         "id": "U2_PUL_004",
         "type": "mcq",
         "difficulty": 3,
-        "prompt": "Para aumentar la velocidad angular de salida manteniendo fijos $r_1$ y $\\omega_1$, conviene...",
+        "prompt": "Para aumentar la velocidad angular de salida manteniendo fijos \\(r_1\\) y \\(\\omega_1\\), conviene...",
         "options": [
-          "disminuir $r_2$",
-          "aumentar $r_2$",
-          "hacer $r_2$ infinito",
-          "anular $\\omega_1$"
+          "disminuir \\(r_2\\)",
+          "aumentar \\(r_2\\)",
+          "hacer \\(r_2\\) infinito",
+          "anular \\(\\omega_1\\)"
         ],
         "answer": "A",
         "explanation": "La velocidad de salida es inversamente proporcional al radio de la polea conducida."
@@ -2256,7 +2248,7 @@ window.CINEMATICA_BANK = {
         "difficulty": 3,
         "prompt": "Desafío de transmisión: ajustá el radio de salida para obtener la velocidad angular requerida.",
         "simulator": "pulleyRatioTarget",
-        "explanation": "En una transmisión ideal sin deslizamiento, $\\omega_2=\\omega_1r_1/r_2$."
+        "explanation": "En una transmisión ideal sin deslizamiento, \\(\\omega_2=\\omega_1\\frac{r_1}{r_2}\\)."
       }
     ],
     "28": [
@@ -2280,33 +2272,33 @@ window.CINEMATICA_BANK = {
         "difficulty": 2,
         "prompt": "La aceleración centrípeta puede expresarse como...",
         "options": [
-          "$a_c=\\omega^2r$",
-          "$a_c=\\omega/r$",
-          "$a_c=r/\\omega$",
-          "$a_c=\\alpha/r$"
+          "\\(a_c=\\omega^2r\\)",
+          "\\(a_c=\\frac{\\omega}{r}\\)",
+          "\\(a_c=\\frac{r}{\\omega}\\)",
+          "\\(a_c=\\frac{\\alpha}{r}\\)"
         ],
         "answer": "A",
-        "explanation": "También puede escribirse $a_c=v_t^2/r$."
+        "explanation": "También puede escribirse \\(a_c=\\frac{v_t^2}{r}\\)."
       },
       {
         "id": "U2_ACIRC_003",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Si $\\alpha=0$ en un movimiento circular, entonces...",
+        "prompt": "Si \\(\\alpha=0\\) en un movimiento circular, entonces...",
         "options": [
-          "$a_t=0$ pero puede existir $a_c$.",
-          "$a_c=0$ necesariamente.",
+          "\\(a_t=0\\) pero puede existir \\(a_c\\).",
+          "\\(a_c=0\\) necesariamente.",
           "no existe aceleración de ningún tipo.",
           "la rapidez tangencial debe ser cero."
         ],
         "answer": "A",
-        "explanation": "Con $\\alpha=0$, la rapidez permanece constante, pero sigue cambiando la dirección de la velocidad."
+        "explanation": "Con \\(\\alpha=0\\), la rapidez permanece constante, pero sigue cambiando la dirección de la velocidad."
       },
       {
         "id": "U2_ACIRC_004",
         "type": "mcq",
         "difficulty": 3,
-        "prompt": "Si se duplica $\\omega$ manteniendo fijo el radio, la aceleración centrípeta se...",
+        "prompt": "Si se duplica \\(\\omega\\) manteniendo fijo el radio, la aceleración centrípeta se...",
         "options": [
           "cuadruplica",
           "duplica",
@@ -2314,15 +2306,15 @@ window.CINEMATICA_BANK = {
           "mantiene igual"
         ],
         "answer": "A",
-        "explanation": "Como $a_c=\\omega^2r$, duplicar $\\omega$ multiplica $a_c$ por cuatro."
+        "explanation": "Como \\(a_c=\\omega^2r\\), duplicar \\(\\omega\\) multiplica \\(a_c\\) por cuatro."
       },
       {
         "id": "U2_ACIRC_SIM_001",
         "type": "simulation",
         "difficulty": 3,
-        "prompt": "Desafío centrípeto: ajustá $\\omega$ para obtener la aceleración centrípeta objetivo.",
+        "prompt": "Desafío centrípeto: ajustá \\(\\omega\\) para obtener la aceleración centrípeta objetivo.",
         "simulator": "centripetalTarget",
-        "explanation": "Con radio fijo, $a_c=\\omega^2r$."
+        "explanation": "Con radio fijo, \\(a_c=\\omega^2r\\)."
       }
     ],
     "29": [
@@ -2410,18 +2402,18 @@ window.CINEMATICA_BANK = {
           "la fase cuando t=0 únicamente"
         ],
         "answer": "A",
-        "explanation": "Por definición, $|x|_{max}=A$."
+        "explanation": "Por definición, \\(|x|_{max}=A\\)."
       },
       {
         "id": "U2_MASP_002",
         "type": "mcq",
         "difficulty": 1,
-        "prompt": "En el MAS, $f$ y $T$ se relacionan mediante...",
+        "prompt": "En el MAS, \\(f\\) y \\(T\\) se relacionan mediante...",
         "options": [
-          "$f=1/T$",
-          "$f=T$",
-          "$f=2\\pi T$",
-          "$f=T^2$"
+          "\\(f=\\frac{1}{T}\\)",
+          "\\(f=T\\)",
+          "\\(f=2\\pi T\\)",
+          "\\(f=T^2\\)"
         ],
         "answer": "A",
         "explanation": "La frecuencia es el número de ciclos por unidad de tiempo y es el recíproco del período."
@@ -2432,21 +2424,21 @@ window.CINEMATICA_BANK = {
         "difficulty": 2,
         "prompt": "La frecuencia angular del MAS vale...",
         "options": [
-          "$\\omega=2\\pi f$",
-          "$\\omega=f/2\\pi$",
-          "$\\omega=Af$",
-          "$\\omega=T^2$"
+          "\\(\\omega=2\\pi f\\)",
+          "\\(\\omega=\\frac{f}{2\\pi}\\)",
+          "\\(\\omega=Af\\)",
+          "\\(\\omega=T^2\\)"
         ],
         "answer": "A",
-        "explanation": "Cada ciclo representa un cambio de fase de $2\\pi$ rad."
+        "explanation": "Cada ciclo representa un cambio de fase de \\(2\\pi\\) rad."
       },
       {
         "id": "U2_MASP_004",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "La fase inicial $\\varphi$ determina...",
+        "prompt": "La fase inicial \\(\\varphi\\) determina...",
         "options": [
-          "el estado de la oscilación cuando $t=0$.",
+          "el estado de la oscilación cuando \\(t=0\\).",
           "el valor de g.",
           "la masa del sistema.",
           "la posición de equilibrio física exclusivamente."
@@ -2460,7 +2452,7 @@ window.CINEMATICA_BANK = {
         "difficulty": 2,
         "prompt": "Desafío de período y frecuencia: ajustá T para alcanzar la frecuencia requerida.",
         "simulator": "masFrequencyTarget",
-        "explanation": "En el MAS se mantiene la relación $f=1/T$."
+        "explanation": "En el MAS se mantiene la relación \\(f=\\frac{1}{T}\\)."
       }
     ],
     "31": [
@@ -2470,10 +2462,10 @@ window.CINEMATICA_BANK = {
         "difficulty": 1,
         "prompt": "Una forma válida de expresar la posición en un MAS es...",
         "options": [
-          "$x(t)=A\\cos(\\omega t+\\varphi)$",
-          "$x(t)=At^2$",
-          "$x(t)=A+\\omega+t$",
-          "$x(t)=\\omega/r$"
+          "\\(x(t)=A\\cos(\\omega\\,t+\\varphi)\\)",
+          "\\(x(t)=At^2\\)",
+          "\\(x(t)=A+\\omega+t\\)",
+          "\\(x(t)=\\frac{\\omega}{r}\\)"
         ],
         "answer": "A",
         "explanation": "Una función sinusoidal describe la variación periódica de la elongación."
@@ -2496,12 +2488,12 @@ window.CINEMATICA_BANK = {
         "id": "U2_MASX_003",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Si $A=0.30\\,m$, entonces la elongación x(t) nunca puede superar, en módulo,...",
+        "prompt": "Si \\(A=0.30\\,\\mathrm{m}\\), entonces la elongación x(t) nunca puede superar, en módulo,...",
         "options": [
           "0.30 m",
           "0.60 m",
           "1.0 m",
-          "$2\\pi$ m"
+          "\\(2\\pi\\) m"
         ],
         "answer": "A",
         "explanation": "La amplitud es el máximo valor absoluto de la elongación."
@@ -2510,21 +2502,21 @@ window.CINEMATICA_BANK = {
         "id": "U2_MASX_004",
         "type": "mcq",
         "difficulty": 3,
-        "prompt": "Para $x(t)=A\\cos(\\omega t)$, en $t=0$ el móvil comienza...",
+        "prompt": "Para \\(x(t)=A\\cos(\\omega\\,t)\\), en \\(t=0\\) el móvil comienza...",
         "options": [
-          "en $x=+A$",
-          "en $x=0$",
-          "en $x=-A$",
+          "en \\(x=+A\\)",
+          "en \\(x=0\\)",
+          "en \\(x=-A\\)",
           "con posición indeterminada"
         ],
         "answer": "A",
-        "explanation": "Como $\\cos 0=1$, resulta $x(0)=A$."
+        "explanation": "Como \\(\\cos 0=1\\), resulta \\(x(0)=A\\)."
       },
       {
         "id": "U2_MASX_SIM_001",
         "type": "simulation",
         "difficulty": 3,
-        "prompt": "Desafío de fase: ajustá $\\varphi$ para que la posición alcance el valor objetivo en el instante indicado.",
+        "prompt": "Desafío de fase: ajustá \\(\\varphi\\) para que la posición alcance el valor objetivo en el instante indicado.",
         "simulator": "masPhaseTarget",
         "explanation": "La fase inicial desplaza el estado de la oscilación sin modificar A ni T."
       }
@@ -2534,12 +2526,12 @@ window.CINEMATICA_BANK = {
         "id": "U2_MASVA_001",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Para $x(t)=A\\cos(\\omega t+\\varphi)$, la velocidad es...",
+        "prompt": "Para \\(x(t)=A\\cos(\\omega\\,t+\\varphi)\\), la velocidad es...",
         "options": [
-          "$v(t)=-A\\omega\\sin(\\omega t+\\varphi)$",
-          "$v(t)=A\\cos(\\omega t+\\varphi)$",
-          "$v(t)=-\\omega^2x$",
-          "$v(t)=A/t$"
+          "\\(v(t)=-A\\omega\\sin(\\omega\\,t+\\varphi)\\)",
+          "\\(v(t)=A\\cos(\\omega\\,t+\\varphi)\\)",
+          "\\(v(t)=-\\omega^2x\\)",
+          "\\(v(t)=\\frac{A}{t}\\)"
         ],
         "answer": "A",
         "explanation": "La velocidad resulta de derivar la función de posición respecto del tiempo."
@@ -2548,11 +2540,11 @@ window.CINEMATICA_BANK = {
         "id": "U2_MASVA_002",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "En los extremos $x=\\pm A$ de un MAS se cumple...",
+        "prompt": "En los extremos \\(x=\\pm A\\) de un MAS se cumple...",
         "options": [
-          "$v=0$ y $|a|$ es máximo.",
-          "$|v|$ es máximo y $a=0$.",
-          "$v=a=0$.",
+          "\\(v=0\\) y \\(|a|\\) es máximo.",
+          "\\(|v|\\) es máximo y \\(a=0\\).",
+          "\\(v=a=0\\).",
           "la aceleración no tiene relación con x."
         ],
         "answer": "A",
@@ -2562,11 +2554,11 @@ window.CINEMATICA_BANK = {
         "id": "U2_MASVA_003",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Al pasar por $x=0$ en un MAS ideal...",
+        "prompt": "Al pasar por \\(x=0\\) en un MAS ideal...",
         "options": [
-          "$|v|$ es máximo y $a=0$.",
-          "$v=0$ y $|a|$ es máximo.",
-          "$x=A$.",
+          "\\(|v|\\) es máximo y \\(a=0\\).",
+          "\\(v=0\\) y \\(|a|\\) es máximo.",
+          "\\(x=A\\).",
           "la velocidad angular es cero."
         ],
         "answer": "A",
@@ -2576,7 +2568,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_MASVA_004",
         "type": "mcq",
         "difficulty": 3,
-        "prompt": "La relación $a=-\\omega^2x$ indica que la aceleración...",
+        "prompt": "La relación \\(a=-\\omega^2x\\) indica que la aceleración...",
         "options": [
           "tiene signo opuesto a la elongación.",
           "tiene siempre el mismo signo que x.",
@@ -2590,7 +2582,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_MASVA_005",
         "type": "mcq",
         "difficulty": 3,
-        "prompt": "Si se duplica $\\omega$ manteniendo la misma elongación instantánea x, el módulo de la aceleración...",
+        "prompt": "Si se duplica \\(\\omega\\) manteniendo la misma elongación instantánea x, el módulo de la aceleración...",
         "options": [
           "se cuadruplica",
           "se duplica",
@@ -2598,7 +2590,7 @@ window.CINEMATICA_BANK = {
           "no cambia"
         ],
         "answer": "A",
-        "explanation": "Como $|a|=\\omega^2|x|$, duplicar $\\omega$ multiplica el módulo por cuatro."
+        "explanation": "Como \\(|a|=\\omega^2|x|\\), duplicar \\(\\omega\\) multiplica el módulo por cuatro."
       }
     ],
     "33": [
@@ -2642,13 +2634,13 @@ window.CINEMATICA_BANK = {
           "una oscilación sin período"
         ],
         "answer": "A",
-        "explanation": "La fase aumenta $2\\pi$ en una vuelta, exactamente lo que ocurre durante un período del MAS."
+        "explanation": "La fase aumenta \\(2\\pi\\) en una vuelta, exactamente lo que ocurre durante un período del MAS."
       },
       {
         "id": "U2_MASMCU_004",
         "type": "mcq",
         "difficulty": 3,
-        "prompt": "La expresión $\\theta=\\omega t+\\varphi$ permite interpretar $\\varphi$ como...",
+        "prompt": "La expresión \\(\\theta=\\omega\\,t+\\varphi\\) permite interpretar \\(\\varphi\\) como...",
         "options": [
           "el desplazamiento angular inicial de fase.",
           "la amplitud.",
@@ -2656,13 +2648,13 @@ window.CINEMATICA_BANK = {
           "la aceleración centrípeta."
         ],
         "answer": "A",
-        "explanation": "$\\varphi$ fija la fase de partida cuando t=0."
+        "explanation": "\\(\\varphi\\) fija la fase de partida cuando t=0."
       },
       {
         "id": "U2_MASMCU_005",
         "type": "mcq",
         "difficulty": 3,
-        "prompt": "Si dos MAS tienen igual A y $\\omega$ pero distinta $\\varphi$, entonces...",
+        "prompt": "Si dos MAS tienen igual A y \\(\\omega\\) pero distinta \\(\\varphi\\), entonces...",
         "options": [
           "tienen la misma forma y período, pero comienzan en estados diferentes.",
           "tienen distinto período necesariamente.",
@@ -2670,7 +2662,7 @@ window.CINEMATICA_BANK = {
           "uno deja de ser periódico."
         ],
         "answer": "A",
-        "explanation": "Cambiar la fase desplaza la oscilación en el tiempo sin modificar A ni $\\omega$."
+        "explanation": "Cambiar la fase desplaza la oscilación en el tiempo sin modificar A ni \\(\\omega\\)."
       }
     ],
     "34": [
@@ -2694,10 +2686,10 @@ window.CINEMATICA_BANK = {
         "difficulty": 2,
         "prompt": "Para ángulos pequeños expresados en radianes se utiliza...",
         "options": [
-          "$\\sin\\theta\\approx\\theta$",
-          "$\\sin\\theta\\approx1$",
-          "$\\sin\\theta\\approx\\theta^2$",
-          "$\\cos\\theta\\approx0$ siempre"
+          "\\(\\sin\\theta\\approx\\theta\\)",
+          "\\(\\sin\\theta\\approx1\\)",
+          "\\(\\sin\\theta\\approx\\theta^2\\)",
+          "\\(\\cos\\theta\\approx0\\) siempre"
         ],
         "answer": "A",
         "explanation": "Esta aproximación permite describir el movimiento angular como aproximadamente sinusoidal."
@@ -2708,10 +2700,10 @@ window.CINEMATICA_BANK = {
         "difficulty": 2,
         "prompt": "El período aproximado de un péndulo simple es...",
         "options": [
-          "$T\\approx2\\pi\\sqrt{L/g}$",
-          "$T=L/g$",
-          "$T=2\\pi g/L$",
-          "$T=\\sqrt{g/L}$"
+          "\\(T\\approx2\\pi\\sqrt{\\frac{L}{g}}\\)",
+          "\\(T=\\frac{L}{g}\\)",
+          "\\(T=\\frac{2\\pi g}{L}\\)",
+          "\\(T=\\sqrt{\\frac{g}{L}}\\)"
         ],
         "answer": "A",
         "explanation": "Para pequeñas oscilaciones, el período depende de L y g según esa expresión."
@@ -2728,7 +2720,7 @@ window.CINEMATICA_BANK = {
           "no cambia"
         ],
         "answer": "A",
-        "explanation": "Como $T\\propto\\sqrt L$, multiplicar L por cuatro multiplica T por dos."
+        "explanation": "Como \\(T\\propto\\sqrt{L}\\), multiplicar L por cuatro multiplica T por dos."
       },
       {
         "id": "U2_PEND_SIM_001",
@@ -2736,7 +2728,7 @@ window.CINEMATICA_BANK = {
         "difficulty": 3,
         "prompt": "Desafío del péndulo: ajustá la longitud para obtener el período objetivo.",
         "simulator": "pendulumPeriodTarget",
-        "explanation": "Para pequeñas oscilaciones, $T\\approx2\\pi\\sqrt{L/g}$."
+        "explanation": "Para pequeñas oscilaciones, \\(T\\approx2\\pi\\sqrt{\\frac{L}{g}}\\)."
       }
     ],
     "35": [
@@ -2758,7 +2750,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_VIB_002",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "En un alimentador vibratorio, describir $x(t)$ y $v(t)$ ayuda a analizar...",
+        "prompt": "En un alimentador vibratorio, describir \\(x(t)\\) y \\(v(t)\\) ayuda a analizar...",
         "options": [
           "la regularidad del movimiento de la bandeja y la dosificación.",
           "la composición química del producto.",
@@ -2780,7 +2772,7 @@ window.CINEMATICA_BANK = {
           "la elongación siempre vale cero."
         ],
         "answer": "A",
-        "explanation": "En un MAS, las aceleraciones características crecen con $\\omega^2$."
+        "explanation": "En un MAS, las aceleraciones características crecen con \\(\\omega^2\\)."
       },
       {
         "id": "U2_VIB_004",
@@ -2800,7 +2792,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_VIB_005",
         "type": "mcq",
         "difficulty": 3,
-        "prompt": "Dos equipos vibran con igual amplitud A, pero uno tiene el doble de $\\omega$. Para la misma fase instantánea, su aceleración característica puede ser...",
+        "prompt": "Dos equipos vibran con igual amplitud A, pero uno tiene el doble de \\(\\omega\\). Para la misma fase instantánea, su aceleración característica puede ser...",
         "options": [
           "cuatro veces mayor",
           "dos veces mayor",
@@ -2808,7 +2800,7 @@ window.CINEMATICA_BANK = {
           "idéntica necesariamente"
         ],
         "answer": "A",
-        "explanation": "La escala de aceleración del MAS es $A\\omega^2$, por lo que depende del cuadrado de la frecuencia angular."
+        "explanation": "La escala de aceleración del MAS es \\(A\\omega^2\\), por lo que depende del cuadrado de la frecuencia angular."
       }
     ],
     "36": [
@@ -2888,7 +2880,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_EXMRU_001",
         "type": "mcq",
         "difficulty": 1,
-        "prompt": "En el ejemplo de la llenadora, la distancia entre sensor y llenadora es $1.80\\,m$ y la cinta avanza a $0.45\\,m/s$. El tiempo cinemático de llegada es...",
+        "prompt": "En el ejemplo de la llenadora, la distancia entre sensor y llenadora es \\(1.80\\,\\mathrm{m}\\) y la cinta avanza a \\(0.45\\,\\mathrm{m/s}\\). El tiempo cinemático de llegada es...",
         "options": [
           "4.0 s",
           "0.81 s",
@@ -2896,13 +2888,13 @@ window.CINEMATICA_BANK = {
           "8.0 s"
         ],
         "answer": "A",
-        "explanation": "En MRU, $t=\\Delta x/v=1.80/0.45=4.0\\,s$."
+        "explanation": "En MRU, \\(t=\\Delta x/v=1.80/0.45=4.0\\,\\mathrm{s}\\)."
       },
       {
         "id": "U2_EXMRU_002",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "¿Por qué puede utilizarse directamente $x=x_0+v_xt$ en el ejemplo de la cinta?",
+        "prompt": "¿Por qué puede utilizarse directamente \\(x=x_0+v_xt\\) en el ejemplo de la cinta?",
         "options": [
           "Porque la velocidad se considera constante.",
           "Porque la aceleración es máxima.",
@@ -2910,13 +2902,13 @@ window.CINEMATICA_BANK = {
           "Porque el tiempo es negativo."
         ],
         "answer": "A",
-        "explanation": "El modelo adoptado es MRU, por lo que $v_x$ permanece constante."
+        "explanation": "El modelo adoptado es MRU, por lo que \\(v_x\\) permanece constante."
       },
       {
         "id": "U2_EXMRU_003",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Si la misma distancia de $1.80\\,m$ se recorre a $0.90\\,m/s$, el tiempo ideal sería...",
+        "prompt": "Si la misma distancia de \\(1.80\\,\\mathrm{m}\\) se recorre a \\(0.90\\,\\mathrm{m/s}\\), el tiempo ideal sería...",
         "options": [
           "2.0 s",
           "4.0 s",
@@ -2946,7 +2938,7 @@ window.CINEMATICA_BANK = {
         "difficulty": 2,
         "prompt": "Desafío MRU industrial: ajustá la velocidad para alcanzar la posición objetivo en el tiempo indicado.",
         "simulator": "mruTarget",
-        "explanation": "La sincronización ideal se basa en $x=x_0+vt$."
+        "explanation": "La sincronización ideal se basa en \\(x=x_0+v\\,t\\)."
       }
     ],
     "38": [
@@ -2954,7 +2946,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_EXMRUV_001",
         "type": "mcq",
         "difficulty": 1,
-        "prompt": "Una cinta parte del reposo y alcanza $0.60\\,m/s$ en $3.0\\,s$. Su aceleración constante es...",
+        "prompt": "Una cinta parte del reposo y alcanza \\(0.60\\,\\mathrm{m/s}\\) en \\(3.0\\,\\mathrm{s}\\). Su aceleración constante es...",
         "options": [
           "0.20 m/s²",
           "1.80 m/s²",
@@ -2962,7 +2954,7 @@ window.CINEMATICA_BANK = {
           "3.0 m/s²"
         ],
         "answer": "A",
-        "explanation": "$a=(0.60-0)/3.0=0.20\\,m/s^2$."
+        "explanation": "\\(a=(0.60-0)/3.0=0.20\\,\\mathrm{m/s^2}\\)."
       },
       {
         "id": "U2_EXMRUV_002",
@@ -2976,7 +2968,7 @@ window.CINEMATICA_BANK = {
           "2.70 m"
         ],
         "answer": "A",
-        "explanation": "Con $v_0=0$, $\\Delta x=\\frac12at^2=0.90\\,m$."
+        "explanation": "Con \\(v_0=0\\), \\(\\Delta x=\\frac{1}{2}at^2=0.90\\,\\mathrm{m}\\)."
       },
       {
         "id": "U2_EXMRUV_003",
@@ -3004,7 +2996,7 @@ window.CINEMATICA_BANK = {
           "se cuadruplica necesariamente"
         ],
         "answer": "A",
-        "explanation": "Como $a=\\Delta v/\\Delta t$, para el mismo cambio de velocidad y mitad de tiempo la aceleración se duplica."
+        "explanation": "Como \\(a=\\frac{\\Delta v}{\\Delta\\,t}\\), para el mismo cambio de velocidad y mitad de tiempo la aceleración se duplica."
       },
       {
         "id": "U2_EXMRUV_SIM_001",
@@ -3012,7 +3004,7 @@ window.CINEMATICA_BANK = {
         "difficulty": 2,
         "prompt": "Desafío de arranque: ajustá la aceleración para llegar a la velocidad final requerida.",
         "simulator": "mruvVelocityTarget",
-        "explanation": "En MRUV, $v_f=v_0+at$."
+        "explanation": "En MRUV, \\(v_f=v_0+a\\,t\\)."
       }
     ],
     "39": [
@@ -3020,7 +3012,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_EXCINTA_001",
         "type": "mcq",
         "difficulty": 1,
-        "prompt": "En el ejemplo, el producto sale horizontalmente a $0.80\\,m/s$ desde $0.90\\,m$. El tiempo de caída ideal es aproximadamente...",
+        "prompt": "En el ejemplo, el producto sale horizontalmente a \\(0.80\\,\\mathrm{m/s}\\) desde \\(0.90\\,\\mathrm{m}\\). El tiempo de caída ideal es aproximadamente...",
         "options": [
           "0.428 s",
           "0.90 s",
@@ -3028,7 +3020,7 @@ window.CINEMATICA_BANK = {
           "1.80 s"
         ],
         "answer": "A",
-        "explanation": "$t=\\sqrt{2h/g}\\approx0.428\\,s$."
+        "explanation": "\\(t=\\sqrt{\\frac{2h}{g}}\\approx0.428\\,\\mathrm{s}\\)."
       },
       {
         "id": "U2_EXCINTA_002",
@@ -3042,7 +3034,7 @@ window.CINEMATICA_BANK = {
           "1.71 m"
         ],
         "answer": "A",
-        "explanation": "$R=v_{0x}t\\approx0.342\\,m$."
+        "explanation": "\\(R=v_{0x}t\\approx0.342\\,\\mathrm{m}\\)."
       },
       {
         "id": "U2_EXCINTA_003",
@@ -3070,7 +3062,7 @@ window.CINEMATICA_BANK = {
           "25 % menor"
         ],
         "answer": "A",
-        "explanation": "Con h fija, el tiempo de caída no cambia y R es directamente proporcional a $v_{0x}$."
+        "explanation": "Con h fija, el tiempo de caída no cambia y R es directamente proporcional a \\(v_{0x}\\)."
       },
       {
         "id": "U2_EXCINTA_SIM_001",
@@ -3086,7 +3078,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_GOTA_001",
         "type": "mcq",
         "difficulty": 1,
-        "prompt": "Una gota cae desde una boquilla situada $0.12\\,m$ por encima del envase. El tiempo ideal de caída es aproximadamente...",
+        "prompt": "Una gota cae desde una boquilla situada \\(0.12\\,\\mathrm{m}\\) por encima del envase. El tiempo ideal de caída es aproximadamente...",
         "options": [
           "0.156 s",
           "0.12 s",
@@ -3094,13 +3086,13 @@ window.CINEMATICA_BANK = {
           "1.56 s"
         ],
         "answer": "A",
-        "explanation": "$t=\\sqrt{2(0.12)/9.81}\\approx0.156\\,s$."
+        "explanation": "\\(t=\\sqrt{\\frac{2(0.12)}{9.81}}\\approx0.156\\,\\mathrm{s}\\)."
       },
       {
         "id": "U2_GOTA_002",
         "type": "mcq",
         "difficulty": 1,
-        "prompt": "Si la cinta avanza a $0.30\\,m/s$, durante los $0.156\\,s$ de caída el envase avanza aproximadamente...",
+        "prompt": "Si la cinta avanza a \\(0.30\\,\\mathrm{m/s}\\), durante los \\(0.156\\,\\mathrm{s}\\) de caída el envase avanza aproximadamente...",
         "options": [
           "4.7 cm",
           "30 cm",
@@ -3108,7 +3100,7 @@ window.CINEMATICA_BANK = {
           "0.47 cm"
         ],
         "answer": "A",
-        "explanation": "$\\Delta x=vt=0.0468\\,m\\approx4.7\\,cm$."
+        "explanation": "\\(\\Delta x=vt=0.0468\\,\\mathrm{m}\\approx4.7\\,cm\\)."
       },
       {
         "id": "U2_GOTA_003",
@@ -3166,13 +3158,13 @@ window.CINEMATICA_BANK = {
           "2 Hz"
         ],
         "answer": "A",
-        "explanation": "$1200\\,rpm/60=20\\,Hz$."
+        "explanation": "\\(1200\\,\\mathrm{rpm}/60=20\\,\\mathrm{Hz}\\)."
       },
       {
         "id": "U2_CENT_002",
         "type": "mcq",
         "difficulty": 1,
-        "prompt": "Para $f=20\\,Hz$, el período es...",
+        "prompt": "Para \\(f=20\\,\\mathrm{Hz}\\), el período es...",
         "options": [
           "0.050 s",
           "20 s",
@@ -3180,13 +3172,13 @@ window.CINEMATICA_BANK = {
           "5.0 s"
         ],
         "answer": "A",
-        "explanation": "$T=1/f=0.050\\,s$."
+        "explanation": "\\(T=1/f=0.050\\,\\mathrm{s}\\)."
       },
       {
         "id": "U2_CENT_003",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "La velocidad angular correspondiente a $20\\,Hz$ es aproximadamente...",
+        "prompt": "La velocidad angular correspondiente a \\(20\\,\\mathrm{Hz}\\) es aproximadamente...",
         "options": [
           "125.7 rad/s",
           "20 rad/s",
@@ -3194,7 +3186,7 @@ window.CINEMATICA_BANK = {
           "1200 rad/s"
         ],
         "answer": "A",
-        "explanation": "$\\omega=2\\pi f\\approx125.7\\,rad/s$."
+        "explanation": "\\(\\omega=2\\pi f\\approx125.7\\,\\mathrm{rad/s}\\)."
       },
       {
         "id": "U2_CENT_004",
@@ -3202,13 +3194,13 @@ window.CINEMATICA_BANK = {
         "difficulty": 3,
         "prompt": "¿Por qué un pequeño aumento porcentual de rpm puede elevar fuertemente la aceleración centrípeta?",
         "options": [
-          "Porque $a_c$ depende del cuadrado de $\\omega$.",
-          "Porque $a_c$ es inversamente proporcional a rpm.",
+          "Porque \\(a_c\\) depende del cuadrado de \\(\\omega\\).",
+          "Porque \\(a_c\\) es inversamente proporcional a rpm.",
           "Porque el radio se vuelve cero.",
-          "Porque $a_c$ no depende de la velocidad angular."
+          "Porque \\(a_c\\) no depende de la velocidad angular."
         ],
         "answer": "A",
-        "explanation": "$a_c=r\\omega^2$, por lo que el crecimiento con velocidad angular es cuadrático."
+        "explanation": "\\(a_c=r\\omega^2\\), por lo que el crecimiento con velocidad angular es cuadrático."
       },
       {
         "id": "U2_CENT_SIM_001",
@@ -3216,7 +3208,7 @@ window.CINEMATICA_BANK = {
         "difficulty": 3,
         "prompt": "Desafío de centrífuga: ajustá las rpm para alcanzar la aceleración centrípeta objetivo.",
         "simulator": "centrifugeRpmTarget",
-        "explanation": "Primero se convierten rpm a $\\omega$ y luego se usa $a_c=r\\omega^2$."
+        "explanation": "Primero se convierten rpm a \\(\\omega\\) y luego se usa \\(a_c=r\\omega^2\\)."
       }
     ],
     "42": [
@@ -3260,7 +3252,7 @@ window.CINEMATICA_BANK = {
           "fase y elongación solamente"
         ],
         "answer": "A",
-        "explanation": "Ese simulador relaciona velocidad de giro y radio con $a_c$."
+        "explanation": "Ese simulador relaciona velocidad de giro y radio con \\(a_c\\)."
       },
       {
         "id": "U2_SIM_004",
@@ -3318,7 +3310,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_ERR_003",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "El signo de $g$...",
+        "prompt": "El signo de \\(g\\)...",
         "options": [
           "depende del eje y del sentido positivo elegidos",
           "es siempre positivo por definición",
@@ -3332,7 +3324,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_ERR_004",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Usar $x=x_0+vt$ durante un intervalo en el que la velocidad cambia es un error porque...",
+        "prompt": "Usar \\(x=x_0+v\\,t\\) durante un intervalo en el que la velocidad cambia es un error porque...",
         "options": [
           "esa ecuación corresponde al MRU",
           "la ecuación no contiene posición",
@@ -3346,15 +3338,15 @@ window.CINEMATICA_BANK = {
         "id": "U2_ERR_005",
         "type": "mcq",
         "difficulty": 3,
-        "prompt": "En un movimiento 2D ideal, afirmar que la caída vertical reduce automáticamente $v_x$ es incorrecto porque...",
+        "prompt": "En un movimiento 2D ideal, afirmar que la caída vertical reduce automáticamente \\(v_x\\) es incorrecto porque...",
         "options": [
-          "si $a_x=0$, la componente horizontal permanece constante",
+          "si \\(a_x=0\\), la componente horizontal permanece constante",
           "la gravedad actúa horizontalmente",
           "el tiempo vertical es distinto del horizontal",
           "la velocidad no tiene componentes"
         ],
         "answer": "A",
-        "explanation": "La gravedad modifica la componente vertical, no $v_x$ si $a_x=0$."
+        "explanation": "La gravedad modifica la componente vertical, no \\(v_x\\) si \\(a_x=0\\)."
       }
     ],
     "44": [
@@ -3384,7 +3376,7 @@ window.CINEMATICA_BANK = {
           "se hace cero"
         ],
         "answer": "A",
-        "explanation": "El tiempo vertical no cambia y $R=v_xt$."
+        "explanation": "El tiempo vertical no cambia y \\(R=v_xt\\)."
       },
       {
         "id": "U2_CONC_003",
@@ -3434,7 +3426,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_EJPROP_001",
         "type": "mcq",
         "difficulty": 1,
-        "prompt": "Una cinta avanza a $0.50\\,m/s$ y debe recorrer $3.0\\,m$. El resultado esperado es...",
+        "prompt": "Una cinta avanza a \\(0.50\\,\\mathrm{m/s}\\) y debe recorrer \\(3.0\\,\\mathrm{m}\\). El resultado esperado es...",
         "options": [
           "6.0 s",
           "1.5 s",
@@ -3442,13 +3434,13 @@ window.CINEMATICA_BANK = {
           "0.167 s"
         ],
         "answer": "A",
-        "explanation": "$t=3.0/0.50=6.0\\,s$."
+        "explanation": "\\(t=3.0/0.50=6.0\\,\\mathrm{s}\\)."
       },
       {
         "id": "U2_EJPROP_002",
         "type": "mcq",
         "difficulty": 1,
-        "prompt": "Un móvil pasa de 0 a $0.80\\,m/s$ en $4\\,s$ con aceleración constante. El resultado esperado es...",
+        "prompt": "Un móvil pasa de 0 a \\(0.80\\,\\mathrm{m/s}\\) en \\(4\\,\\mathrm{s}\\) con aceleración constante. El resultado esperado es...",
         "options": [
           "0.20 m/s²",
           "3.20 m/s²",
@@ -3456,13 +3448,13 @@ window.CINEMATICA_BANK = {
           "5.0 m/s²"
         ],
         "answer": "A",
-        "explanation": "$a=0.80/4=0.20\\,m/s^2$."
+        "explanation": "\\(a=0.80/4=0.20\\,\\mathrm{m/s^2}\\)."
       },
       {
         "id": "U2_EJPROP_003",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "Para una caída desde $0.80\\,m$, el tiempo ideal esperado es aproximadamente...",
+        "prompt": "Para una caída desde \\(0.80\\,\\mathrm{m}\\), el tiempo ideal esperado es aproximadamente...",
         "options": [
           "0.40 s",
           "0.80 s",
@@ -3470,7 +3462,7 @@ window.CINEMATICA_BANK = {
           "8.0 s"
         ],
         "answer": "A",
-        "explanation": "$t\\approx\\sqrt{2(0.80)/9.8}\\approx0.40\\,s$."
+        "explanation": "\\(t\\approx\\sqrt{\\frac{2(0.80)}{9.8}}\\approx0.40\\,\\mathrm{s}\\)."
       },
       {
         "id": "U2_EJPROP_004",
@@ -3484,13 +3476,13 @@ window.CINEMATICA_BANK = {
           "6.28 rad/s"
         ],
         "answer": "A",
-        "explanation": "600 rpm = 10 Hz y $\\omega\\approx62.8\\,rad/s$."
+        "explanation": "600 rpm = 10 Hz y \\(\\omega\\approx62.8\\,\\mathrm{rad/s}\\)."
       },
       {
         "id": "U2_EJPROP_005",
         "type": "mcq",
         "difficulty": 3,
-        "prompt": "Con $r=0.20\\,m$ y $\\omega=62.8\\,rad/s$, la aceleración centrípeta es aproximadamente...",
+        "prompt": "Con \\(r=0.20\\,\\mathrm{m}\\) y \\(\\omega=62.8\\,\\mathrm{rad/s}\\), la aceleración centrípeta es aproximadamente...",
         "options": [
           "789 m/s²",
           "12.6 m/s²",
@@ -3498,7 +3490,7 @@ window.CINEMATICA_BANK = {
           "314 m/s²"
         ],
         "answer": "A",
-        "explanation": "$a_c=r\\omega^2\\approx789\\,m/s^2$, alrededor de 80 g."
+        "explanation": "\\(a_c=r\\omega^2\\approx789\\,\\mathrm{m/s^2}\\), alrededor de 80 g."
       }
     ],
     "46": [
@@ -3592,7 +3584,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_INFO1_002",
         "type": "mcq",
         "difficulty": 1,
-        "prompt": "En MRU, la gráfica $x$–$t$ característica es...",
+        "prompt": "En MRU, la gráfica \\(x\\)–\\(t\\) característica es...",
         "options": [
           "una recta",
           "una parábola",
@@ -3606,7 +3598,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_INFO1_003",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "En MRUV, una gráfica $v$–$t$ con aceleración constante es...",
+        "prompt": "En MRUV, una gráfica \\(v\\)–\\(t\\) con aceleración constante es...",
         "options": [
           "una recta cuya pendiente es a",
           "una horizontal siempre",
@@ -3614,13 +3606,13 @@ window.CINEMATICA_BANK = {
           "una circunferencia"
         ],
         "answer": "A",
-        "explanation": "$v=v_0+at$ es lineal en el tiempo."
+        "explanation": "\\(v=v_0+a\\,t\\) es lineal en el tiempo."
       },
       {
         "id": "U2_INFO1_004",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "La pendiente de $x(t)$ representa...",
+        "prompt": "La pendiente de \\(x(t)\\) representa...",
         "options": [
           "la velocidad",
           "la aceleración centrípeta",
@@ -3652,7 +3644,7 @@ window.CINEMATICA_BANK = {
         "difficulty": 1,
         "prompt": "En un movimiento 2D ideal bajo gravedad, la componente horizontal puede modelarse como...",
         "options": [
-          "MRU si $a_x=0$",
+          "MRU si \\(a_x=0\\)",
           "caída libre vertical",
           "MAS",
           "movimiento circular uniforme"
@@ -3666,13 +3658,13 @@ window.CINEMATICA_BANK = {
         "difficulty": 2,
         "prompt": "La relación entre rapidez tangencial y velocidad angular es...",
         "options": [
-          "$v_t=r\\omega$",
-          "$v_t=\\omega/r$",
-          "$v_t=r/\\omega$",
-          "$v_t=2\\pi r^2$"
+          "\\(v_t=r\\omega\\)",
+          "\\(v_t=\\frac{\\omega}{r}\\)",
+          "\\(v_t=\\frac{r}{\\omega}\\)",
+          "\\(v_t=2\\pi r^2\\)"
         ],
         "answer": "A",
-        "explanation": "La relación lineal-angular fundamental es $v_t=r\\omega$."
+        "explanation": "La relación lineal-angular fundamental es \\(v_t=r\\omega\\)."
       },
       {
         "id": "U2_INFO2_003",
@@ -3680,10 +3672,10 @@ window.CINEMATICA_BANK = {
         "difficulty": 2,
         "prompt": "En una transmisión ideal sin deslizamiento, la igualdad correcta es...",
         "options": [
-          "$\\omega_1r_1=\\omega_2r_2$",
-          "$\\omega_1=\\omega_2$ siempre",
-          "$r_1=r_2$ siempre",
-          "$\\omega_1/r_1=0$"
+          "\\(\\omega_1r_1=\\omega_2r_2\\)",
+          "\\(\\omega_1=\\omega_2\\) siempre",
+          "\\(r_1=r_2\\) siempre",
+          "\\(\\omega_1/r_1=0\\)"
         ],
         "answer": "A",
         "explanation": "La velocidad lineal de la correa coincide en ambas poleas."
@@ -3694,13 +3686,13 @@ window.CINEMATICA_BANK = {
         "difficulty": 2,
         "prompt": "La aceleración centrípeta puede escribirse como...",
         "options": [
-          "$a_c=\\omega^2r$",
-          "$a_c=\\omega/r$",
-          "$a_c=\\alpha/r$",
-          "$a_c=r/\\omega^2$"
+          "\\(a_c=\\omega^2r\\)",
+          "\\(a_c=\\frac{\\omega}{r}\\)",
+          "\\(a_c=\\frac{\\alpha}{r}\\)",
+          "\\(a_c=\\frac{r}{\\omega}^2\\)"
         ],
         "answer": "A",
-        "explanation": "También es equivalente a $v_t^2/r$."
+        "explanation": "También es equivalente a \\(v_t^2/r\\)."
       },
       {
         "id": "U2_INFO2_005",
@@ -3730,7 +3722,7 @@ window.CINEMATICA_BANK = {
           "la aceleración angular"
         ],
         "answer": "A",
-        "explanation": "La amplitud fija los extremos $x=\\pm A$."
+        "explanation": "La amplitud fija los extremos \\(x=\\pm A\\)."
       },
       {
         "id": "U2_INFO3_002",
@@ -3738,10 +3730,10 @@ window.CINEMATICA_BANK = {
         "difficulty": 1,
         "prompt": "La relación entre frecuencia y período en el MAS es...",
         "options": [
-          "$f=1/T$",
-          "$f=T$",
-          "$f=T^2$",
-          "$f=2\\pi T$"
+          "\\(f=\\frac{1}{T}\\)",
+          "\\(f=T\\)",
+          "\\(f=T^2\\)",
+          "\\(f=2\\pi T\\)"
         ],
         "answer": "A",
         "explanation": "Frecuencia y período son recíprocos."
@@ -3764,7 +3756,7 @@ window.CINEMATICA_BANK = {
         "id": "U2_INFO3_004",
         "type": "mcq",
         "difficulty": 2,
-        "prompt": "La relación $a=-\\omega^2x$ muestra que...",
+        "prompt": "La relación \\(a=-\\omega^2x\\) muestra que...",
         "options": [
           "la aceleración tiene sentido opuesto a la elongación",
           "la aceleración siempre es positiva",

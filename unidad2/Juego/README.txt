@@ -264,3 +264,20 @@ Se incorpora:
   js/checkpoints.js
 
 con 30 preguntas integradoras específicas.
+
+
+REVISIÓN V0.8.2.1 — FÓRMULAS
+=============================
+Se realizó una auditoría completa de las expresiones matemáticas del banco
+de preguntas, checkpoints y simuladores.
+
+Se normalizaron:
+- fracciones: \frac{...}{...};
+- derivadas y cocientes;
+- raíces cuadradas;
+- subíndices descriptivos como "med";
+- unidades físicas en letra romana;
+- delimitadores MathJax;
+- espaciado de productos.
+
+No se modificaron respuestas correctas, puntajes, dificultad ni mecánica.

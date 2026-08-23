@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="720" viewBox="0 0 1100 700" role="img" aria-label="Movimiento circular vertical: gráficos de cuerpo libre">
+  <defs>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto"><path d="M0,0 L8,3.5 L0,7 Z" fill="#274690"/></marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto"><path d="M0,0 L8,3.5 L0,7 Z" fill="#d62828"/></marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto"><path d="M0,0 L8,3.5 L0,7 Z" fill="#2a9d4b"/></marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto"><path d="M0,0 L8,3.5 L0,7 Z" fill="#f39c12"/></marker>
+    <style>
+      .title{font: 600 36px Georgia, 'Times New Roman', serif; fill:#1f3f88;}
+      .subtitle{font: 600 20px Georgia, 'Times New Roman', serif; fill:#596d8f;}
+      .eq{font: italic 18px Georgia, 'Times New Roman', serif; fill:#56657f;}
+      .label{font: 600 16px Georgia, 'Times New Roman', serif;}
+      .small{font: 16px Georgia, 'Times New Roman', serif; fill:#596d8f;}
+      .note{font: 16px Georgia, 'Times New Roman', serif; fill:#596d8f;}
+      .n{fill:#274690;} .mg{fill:#d62828;} .c{fill:#2a9d4b;} .t{fill:#f39c12;}
+      .thin{stroke-width:4; fill:none; stroke-linecap:round;}
+      .dash{stroke-dasharray:10 8;}
+    </style>
+  </defs>
+
+  <rect x="10" y="10" width="1080" height="690" rx="22" ry="22" fill="#ffffff" stroke="#d8e0ea"/>
+  <rect x="20" y="20" width="1060" height="670" rx="18" ry="18" fill="#fcfdff" stroke="#d8e0ea"/>
+  <text x="60" y="90" class="title">Movimiento circular vertical: gráficos de cuerpo libre</text>
+
+  <!-- global equations -->
+  <text x="300" y="140" class="eq">∑ F<tspan baseline-shift="sub" font-size="70%">r</tspan> = m v² / R</text>
+  <text x="650" y="140" class="eq">∑ F<tspan baseline-shift="sub" font-size="70%">t</tspan> = m a<tspan baseline-shift="sub" font-size="70%">t</tspan></text>
+
+  <!-- left: bottom point -->
+  <text x="120" y="180" class="subtitle">Punto inferior</text>
+  <text x="140" y="215" class="small">(θ = 0)</text>
+  <circle cx="170" cy="410" r="15" fill="#ffffff" stroke="#7a49c5" stroke-width="6"/>
+  <line x1="170" y1="410" x2="170" y2="300" stroke="#274690" class="thin" marker-end="url(#arrowBlue)"/>
+  <text x="156" y="292" class="label n">N</text>
+  <line x1="170" y1="410" x2="170" y2="520" stroke="#d62828" class="thin" marker-end="url(#arrowRed)"/>
+  <text x="177" y="520" class="label mg">mg</text>
+  <line x1="210" y1="410" x2="210" y2="320" stroke="#2a9d4b" class="thin dash" marker-end="url(#arrowGreen)"/>
+  <text x="218" y="330" class="label c">centro</text>
+  <line x1="210" y1="410" x2="265" y2="410" stroke="#f39c12" class="thin dash" marker-end="url(#arrowOrange)"/>
+  <text x="270" y="420" class="label t">t</text>
+  <text x="60" y="575" class="eq">∑ F<tspan baseline-shift="sub" font-size="70%">r</tspan> = N − mg = m v² / R</text>
+  <text x="93" y="603" class="eq">∑ F<tspan baseline-shift="sub" font-size="70%">t</tspan> = 0</text>
+  <circle cx="170" cy="320" r="88" fill="none" stroke="#7083a1" stroke-width="4" stroke-dasharray="10 8"/>
+
+
+  <!-- center: mid point on right -->
+  <text x="460" y="180" class="subtitle">Punto medio</text>
+  <text x="485" y="215" class="small">(θ = π/2)</text>
+  <circle cx="550" cy="350" r="88" fill="none" stroke="#7083a1" stroke-width="4" stroke-dasharray="10 8"/>
+  <circle cx="638" cy="350" r="15" fill="#ffffff" stroke="#7a49c5" stroke-width="6"/>
+  <line x1="678" y1="325" x2="600" y2="325" stroke="#2a9d4b" class="thin dash" marker-end="url(#arrowGreen)"/>
+  <text x="510" y="325" class="label c">centro</text>
+  <line x1="638" y1="350" x2="540" y2="350" stroke="#274690" class="thin" marker-end="url(#arrowBlue)"/>
+  <text x="525" y="343" class="label n">N</text>
+  <line x1="638" y1="350" x2="638" y2="460" stroke="#d62828" class="thin" marker-end="url(#arrowRed)"/>
+  <text x="646" y="458" class="label mg">mg</text>
+  <line x1="678" y1="325" x2="678" y2="250" stroke="#f39c12" class="thin dash" marker-end="url(#arrowOrange)"/>
+  <text x="686" y="262" class="label t">t</text>
+  <text x="562" y="475" class="small">θ</text>
+  <path d="M 535 270 A 90 90 0 0 0 500 310" fill="none" stroke="#f39c12" stroke-width="3" marker-end="url(#arrowOrange)"/>
+  <text x="388" y="575" class="eq">∑ F<tspan baseline-shift="sub" font-size="70%">r</tspan> = N = m v² / R</text>
+  <text x="388" y="603" class="eq">∑ F<tspan baseline-shift="sub" font-size="70%">t</tspan> = −mg = m a<tspan baseline-shift="sub" font-size="70%">t</tspan></text>
+
+  <!-- right: top point -->
+  <text x="810" y="180" class="subtitle">Punto superior</text>
+  <text x="854" y="215" class="small">(θ = π)</text>
+  <circle cx="862" cy="250" r="15" fill="#ffffff" stroke="#7a49c5" stroke-width="6"/>
+  <line x1="875" y1="250" x2="875" y2="360" stroke="#274690" class="thin" marker-end="url(#arrowBlue)"/>
+  <text x="885" y="360" class="label n">N</text>
+  <line x1="847" y1="250" x2="847" y2="360" stroke="#d62828" class="thin" marker-end="url(#arrowRed)"/>
+  <text x="805" y="360" class="label mg">mg</text>
+  <line x1="800" y1="250" x2="800" y2="320" stroke="#2a9d4b" class="thin dash" marker-end="url(#arrowGreen)"/>
+  <text x="770" y="340" class="label c">centro</text>
+  <line x1="800" y1="250" x2="730" y2="250" stroke="#f39c12" class="thin dash" marker-end="url(#arrowOrange)"/>
+  <text x="748" y="257" class="label t">t</text>
+  <text x="760" y="575" class="eq">∑ F<tspan baseline-shift="sub" font-size="70%">r</tspan> = N + mg = m v² / R</text>
+  <text x="800" y="603" class="eq">∑ F<tspan baseline-shift="sub" font-size="70%">t</tspan> = 0</text>
+  <circle cx="862" cy="335" r="88" fill="none" stroke="#7083a1" stroke-width="4" stroke-dasharray="10 8"/>
+
+  <text x="132" y="570" class="note"></text>
+  <text x="120" y="650" class="note">El eje radial positivo se toma siempre apuntando hacia el centro.</text>
+</svg>
