@@ -1,940 +1,548 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Unidad 3 · Dinámica · Presentación V0.2</title>
-<script>
-window.MathJax={
-  tex:{
-    inlineMath:[['\\(','\\)']],
-    displayMath:[['\\[','\\]']],
-    processEscapes:true
-  },
-  svg:{fontCache:'global'}
-};
-</script>
-<script defer src="lib/mathjax/tex-svg.js"></script>
-<style>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Unidad 3 · Dinámica · Presentación V0.5</title><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]],processEscapes:true},svg:{fontCache:"global"}};</script><script defer="" src="lib/mathjax/tex-svg.js"></script><script defer="" src="guiones.js"></script><style>
 :root{--navy:#0b1f4d;--blue:#175cc5;--sky:#eaf4ff;--ink:#101828;--muted:#5e6b7e;--line:#c9d7ea;--paper:#fff;--green:#087a60;--amber:#b45b00;--red:#b42318;--shadow:0 16px 50px rgba(14,35,75,.15)}
-*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#07152f;color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif}.deck{width:100%;height:100%}.slide{display:none;position:absolute;inset:0;background:linear-gradient(145deg,#f8fbff,#fff 62%,#edf5ff);padding:34px 54px 38px}.slide.active{display:grid;grid-template-rows:auto 1fr auto;animation:fade .22s ease}@keyframes fade{from{opacity:.15;transform:translateX(10px)}to{opacity:1;transform:none}}
-.slide:before{content:"";position:absolute;left:0;top:0;bottom:0;width:11px;background:linear-gradient(#0b1f4d,#175cc5)}.slide-top{display:flex;align-items:flex-start;justify-content:space-between;gap:30px;border-bottom:2px solid #d9e4f2;padding-bottom:13px}.kicker{text-transform:uppercase;letter-spacing:.08em;color:var(--blue);font-size:14px;font-weight:800}.slide h2{font-size:clamp(28px,3.2vw,50px);line-height:1.06;margin:5px 0 0;color:var(--navy);font-weight:820}.unit-chip{background:var(--navy);color:#fff;border-radius:999px;padding:9px 14px;font-weight:750;font-size:14px;white-space:nowrap}.slide-body{min-height:0;display:flex;flex-direction:column;justify-content:center;gap:17px;padding:22px 0 14px;overflow:auto}.slide-footer{display:flex;justify-content:space-between;align-items:center;gap:20px;border-top:1px solid #d9e4f2;padding-top:10px;color:#53647b;font-size:12px}.src{max-width:85%}.num{font-weight:800;color:var(--navy)}
-.hero-grid,.two-col,.media-two{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}.media-two{grid-template-columns:1fr 1fr}.lead{font-size:clamp(30px,4.2vw,58px);font-weight:780;color:var(--navy);line-height:1.05}.sublead{font-size:22px;color:var(--muted);font-weight:650}.author{margin-top:30px;color:#53647b;font-weight:650;font-size:18px}.hero-logos{display:flex;flex-direction:column;gap:18px;align-items:center;justify-self:end}.hero-logos img{width:min(250px,28vw);height:auto;max-height:220px;object-fit:contain}.tag-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.tag-row span{padding:8px 13px;background:#e5f1ff;color:#174f9c;border:1px solid #b8d7ff;border-radius:999px;font-weight:750}.big{font-size:clamp(24px,2.6vw,38px);line-height:1.2;color:var(--navy);font-weight:690}.note,.key,.warnbox{background:#eff7ff;border:1px solid #b6d8ff;border-left:8px solid var(--blue);padding:16px 18px;border-radius:16px;font-size:21px;line-height:1.35}.key{background:#eefaf6;border-color:#bde8d9;border-left-color:var(--green)}.warnbox{background:#fff8ed;border-color:#ffd8a8;border-left-color:var(--amber)}
-.grid-3,.grid-4,.grid-5,.summary-grid,.question-grid{display:grid;gap:16px}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-4{grid-template-columns:repeat(4,1fr)}.grid-5{grid-template-columns:repeat(5,1fr)}.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:19px 20px;box-shadow:0 8px 20px rgba(14,35,75,.06)}.card h3{font-size:22px;color:var(--navy);margin:0 0 10px}.card p,.card li{font-size:18px;line-height:1.35}.card.emphasis{background:#f1f7ff;border-color:#acd2ff}.card.warn{background:#fff8ed;border-color:#ffd8a8}.compact .card{padding:15px}.compact .card h3{font-size:18px}.compact .card p{font-size:15px}.grid-5.compact{gap:10px}.formula{font-size:clamp(28px,3.4vw,48px);color:var(--navy);text-align:center;background:#fff;border:1px solid #d9e4f2;border-radius:18px;padding:12px;margin:8px 0}.formula.small{font-size:clamp(20px,2vw,30px);padding:9px}.process-list,.pill-stack{display:flex;flex-direction:column;gap:10px}.process-list div,.pill-stack span{background:#fff;border:1px solid var(--line);border-radius:18px;padding:13px 16px;font-size:22px;font-weight:720;color:var(--navy);box-shadow:0 5px 16px rgba(14,35,75,.05)}.pill-stack span{font-size:18px;color:#174f9c;background:#eaf4ff}.timeline{display:grid;grid-template-columns:repeat(6,1fr);gap:13px}.timeline div{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px 14px;min-height:130px;box-shadow:0 8px 20px rgba(14,35,75,.06)}.timeline b{display:inline-flex;background:var(--blue);color:#fff;width:34px;height:34px;align-items:center;justify-content:center;border-radius:50%;margin-bottom:12px}.timeline span{display:block;color:var(--navy);font-size:18px;font-weight:740;line-height:1.22}.concept-map{display:grid;grid-template-columns:1.1fr auto 1fr auto 1fr auto 1fr auto 1fr auto 1fr;align-items:center;gap:10px}.node{background:#fff;border:2px solid #b8d7ff;border-radius:22px;padding:20px 14px;text-align:center;color:var(--navy);font-size:23px;font-weight:780;min-height:126px;display:flex;flex-direction:column;justify-content:center}.node.main{background:#eaf4ff}.node small{font-size:13px;color:var(--muted);font-weight:700;margin-top:7px}.arrow{font-size:34px;color:var(--blue);font-weight:900}figure{margin:0;text-align:center}figure img{max-width:100%;max-height:62vh;object-fit:contain}figcaption{color:#63738a;font-size:13px;font-weight:650;margin-top:6px}.imgs figure img{height:46vh;width:100%}.steps,.steps-wide{counter-reset:step;display:grid;gap:13px}.steps li,.steps-wide div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 15px;font-size:22px;line-height:1.28}.steps-wide{grid-template-columns:repeat(3,1fr)}.steps-wide div b{display:inline-flex;margin-right:10px;background:var(--blue);color:#fff;border-radius:50%;width:32px;height:32px;align-items:center;justify-content:center}.bigsteps div{min-height:110px}.grid-mini{display:grid;gap:12px}.grid-mini div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}.grid-mini b{display:block;color:var(--navy);font-size:23px}.grid-mini span{color:var(--muted);font-size:17px}.sim-box{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px 20px;box-shadow:0 8px 20px rgba(14,35,75,.06)}.sim-box h3{margin:0 0 12px;color:var(--navy);font-size:24px}.sim-box label{display:grid;grid-template-columns:1fr 190px 90px;gap:10px;align-items:center;margin:9px 0;font-size:16px;font-weight:700;color:#334155}.sim-box input{width:100%}.sim-box label span{text-align:right;color:var(--blue);font-weight:800}.sim-out{background:#eff7ff;border:1px solid #cfe4ff;border-radius:14px;padding:12px;margin-top:14px;color:var(--navy);font-size:18px;line-height:1.35}.data-table{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 8px 22px rgba(14,35,75,.06)}.data-table th{background:#0b1f4d;color:#fff;text-align:left;padding:11px 13px;font-size:16px}.data-table td{border-bottom:1px solid #e5edf8;padding:10px 13px;font-size:17px;line-height:1.24}.data-table.smalltxt td{font-size:15px}.question-grid{grid-template-columns:repeat(3,1fr)}.question-grid div{background:#fff;border:1px solid var(--line);border-radius:18px;padding:21px;font-size:21px;font-weight:700;color:var(--navy);min-height:120px}.system-diagram{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}.system-diagram div{background:#fff;border:2px solid #b8d7ff;border-radius:18px;padding:18px 22px;font-size:22px;font-weight:800;color:var(--navy)}.system-diagram span{font-size:32px;color:var(--blue);font-weight:900}.summary-grid{grid-template-columns:repeat(3,1fr)}.summary-grid div{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;font-size:21px;color:var(--navy);font-weight:700;line-height:1.25}.imageOnly .slide-body{padding:10px 0}.image-slide{height:100%;display:flex;align-items:center;justify-content:center}.image-slide img{max-width:100%;max-height:73vh;object-fit:contain;border-radius:16px;box-shadow:0 12px 28px rgba(14,35,75,.18)}
-.controls{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:8px;background:rgba(7,21,47,.88);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:8px 10px}.controls button,.controls a{border:0;border-radius:999px;background:#fff;color:#0b1f4d;font-weight:800;padding:9px 12px;text-decoration:none;font-size:13px}.controls button.active{background:#1f7ae0;color:#fff}.progress{position:fixed;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.18);z-index:29}.bar{height:100%;background:#5ab0ff;width:0}.menu{position:fixed;right:16px;top:16px;bottom:70px;width:min(420px,92vw);z-index:40;background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:16px;display:none;overflow:auto}.menu.open{display:block}.menu h3{margin:0 0 10px;color:var(--navy)}.menu button{display:block;width:100%;text-align:left;margin:4px 0;border:1px solid #d9e4f2;background:#f8fbff;border-radius:12px;padding:10px;font-weight:700;color:#10223f}.menu button:hover{border-color:#82baff;background:#eef7ff}.hidden{display:none!important}
-@media (max-width:900px){.hero-grid,.two-col,.media-two,.grid-3,.grid-4,.grid-5,.summary-grid,.question-grid{grid-template-columns:1fr}.timeline,.concept-map{display:flex;flex-direction:column}.arrow{transform:rotate(90deg)}.slide{padding:24px 28px 34px}.slide-body{justify-content:flex-start}.controls{left:8px;right:8px;transform:none;justify-content:center;flex-wrap:wrap}.sim-box label{grid-template-columns:1fr}.hero-logos{flex-direction:row;justify-self:start}.hero-logos img{width:100px}}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#07152f;color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif}.deck{width:100%;height:100%}.slide{display:none;position:absolute;inset:0;background:linear-gradient(145deg,#f8fbff,#fff 62%,#edf5ff);padding:34px 54px 42px}.slide.active{display:grid;grid-template-rows:auto 1fr auto}.slide:before{content:"";position:absolute;left:0;top:0;bottom:0;width:11px;background:linear-gradient(#0b1f4d,#175cc5)}
+.slide-top{display:flex;align-items:flex-start;justify-content:space-between;gap:30px;border-bottom:2px solid #d9e4f2;padding-bottom:13px}.kicker{text-transform:uppercase;letter-spacing:.08em;color:var(--blue);font-size:14px;font-weight:800}.slide h2{font-size:clamp(28px,3.2vw,48px);line-height:1.06;margin:5px 0 0;color:var(--navy);font-weight:820}.unit-chip{background:var(--navy);color:#fff;border-radius:999px;padding:9px 14px;font-weight:750;font-size:14px;white-space:nowrap}.slide-body{min-height:0;display:flex;flex-direction:column;justify-content:center;gap:17px;padding:22px 0 14px;overflow:auto}.slide-footer{display:flex;justify-content:space-between;align-items:center;gap:20px;border-top:1px solid #d9e4f2;padding-top:10px;color:#53647b;font-size:12px}.hero,.two{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center}.wide-left{grid-template-columns:1fr 1.1fr}.lead{font-size:clamp(30px,4.2vw,58px);font-weight:780;color:var(--navy);line-height:1.05}.hero p{font-size:22px;color:var(--muted);font-weight:650}.logos{display:flex;flex-direction:column;gap:18px;align-items:center;justify-self:end}.logos img{width:min(250px,28vw);max-height:220px;object-fit:contain}.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.chips span{padding:8px 13px;background:#e5f1ff;color:#174f9c;border:1px solid #b8d7ff;border-radius:999px;font-weight:750}.big{font-size:clamp(23px,2.35vw,36px);line-height:1.2;color:var(--navy);font-weight:690}.note,.key,.si{background:#eff7ff;border:1px solid #b6d8ff;border-left:8px solid var(--blue);padding:14px 16px;border-radius:16px;font-size:19px;line-height:1.35;margin-top:10px}.key{background:#eefaf6;border-color:#bde8d9;border-left-color:var(--green)}.si{background:#fff8ed;border-color:#ffd8a8;border-left-color:var(--amber)}.formula{font-size:clamp(26px,3vw,42px);color:var(--navy);text-align:center;background:#fff;border:1px solid #d9e4f2;border-radius:18px;padding:12px;margin:8px 0}.formula.small{font-size:clamp(19px,1.8vw,27px);padding:9px}.grid3,.cards-from-guion{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.cards-from-guion{grid-template-columns:repeat(2,1fr)}.card,.sim-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:19px 20px;box-shadow:0 8px 20px rgba(14,35,75,.06)}.card h3,.sim-card h3{font-size:22px;color:var(--navy);margin:0 0 10px}.card p,.card li,.sim-card p{font-size:18px;line-height:1.38}.card.emphasis{background:#f1f7ff}.timeline{display:grid;grid-template-columns:repeat(6,1fr);gap:13px}.timeline div{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px 14px;min-height:130px;box-shadow:0 8px 20px rgba(14,35,75,.06)}.timeline b{display:inline-flex;background:var(--blue);color:#fff;width:34px;height:34px;align-items:center;justify-content:center;border-radius:50%;margin-bottom:12px}.timeline span{display:block;color:var(--navy);font-size:18px;font-weight:740;line-height:1.22}.concept-map{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr auto 1fr auto 1fr;align-items:center;gap:10px}.concept-map div{background:#fff;border:2px solid #b8d7ff;border-radius:20px;padding:18px 10px;text-align:center;color:var(--navy);font-size:20px;font-weight:780;min-height:110px;display:flex;flex-direction:column;justify-content:center}.concept-map span{font-size:30px;color:var(--blue);font-weight:900}.concept-map small{font-size:12px;color:var(--muted);font-weight:700;margin-top:7px}figure{margin:0;text-align:center}figure img{max-width:100%;max-height:61vh;object-fit:contain}figcaption{color:#63738a;font-size:13px;font-weight:650;margin-top:6px}.image-slide{height:100%;display:flex;align-items:center;justify-content:center}.image-slide img{max-width:100%;max-height:73vh;object-fit:contain;border-radius:16px;box-shadow:0 12px 28px rgba(14,35,75,.18)}.bullets{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px 26px 22px 44px;box-shadow:0 8px 20px rgba(14,35,75,.06)}.bullets li{font-size:20px;line-height:1.36;margin:8px 0;color:#26364f}.data-table{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 8px 22px rgba(14,35,75,.06)}.data-table th{background:#0b1f4d;color:#fff;text-align:left;padding:11px 13px;font-size:15px}.data-table td{border-bottom:1px solid #e5edf8;padding:10px 13px;font-size:17px;line-height:1.24}.data-table.grav td,.data-table.grav th{font-size:16px}.controls{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:6px;max-width:calc(100vw - 190px);background:rgba(11,31,77,.94);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.20);border-radius:14px;padding:7px 8px;box-shadow:0 10px 32px rgba(0,0,0,.28)}.ctl-btn{border:1px solid rgba(255,255,255,.22);border-radius:9px;background:#fff;color:#0b1f4d;font-weight:800;padding:8px 10px;min-height:36px;white-space:nowrap;font-size:13px;line-height:1}.ctl-btn.active{background:#1f7ae0;color:#fff;border-color:#5ab0ff}.ctl-btn.paused{background:#fff3cd;color:#7a4b00;border-color:#ffd56a}.nav-arrow{min-width:40px;font-size:18px}.slide-counter{color:#fff;font-weight:800;min-width:64px;text-align:center;padding:0 5px}.back-to-notes{position:fixed;right:18px;bottom:17px;z-index:61;display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:8px 13px;border-radius:10px;background:#fff;color:#0b1f4d;border:1px solid #bfd2eb;box-shadow:0 8px 22px rgba(0,0,0,.16);text-decoration:none;font-size:13px;font-weight:850}.progress{position:fixed;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.18);z-index:29}.bar{height:100%;background:#5ab0ff;width:0}.menu{position:fixed;right:16px;top:16px;bottom:70px;width:min(420px,92vw);z-index:70;background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:16px;display:none;overflow:auto}.menu.open{display:block}.menu h3{margin:0 0 10px;color:var(--navy)}.menu button{display:block;width:100%;text-align:left;margin:4px 0;border:1px solid #d9e4f2;background:#f8fbff;border-radius:12px;padding:10px;font-weight:700;color:#10223f}.script-panel{position:fixed;left:18px;top:18px;bottom:72px;z-index:58;width:min(470px,92vw);display:none;overflow:auto;background:rgba(255,255,255,.98);border:1px solid #c9d7ea;border-radius:18px;box-shadow:0 18px 55px rgba(4,23,57,.28);padding:17px 18px 18px}.script-panel.open{display:block}.script-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding-bottom:11px;margin-bottom:12px;border-bottom:1px solid #d9e4f2}.script-head h3{margin:3px 0 0;color:#0b1f4d;font-size:21px}.script-kicker{color:#175cc5;text-transform:uppercase;letter-spacing:.08em;font-size:11px;font-weight:850}.script-close{width:34px;height:34px;border:1px solid #c9d7ea;border-radius:9px;background:#f8fbff;color:#0b1f4d;font-size:23px;line-height:1}.script-text{font-size:18px;line-height:1.52;color:#25364e;white-space:pre-wrap}.script-hint{margin-top:16px;padding-top:12px;border-top:1px solid #e2e8f0;color:#66768b;font-size:12px;line-height:1.4}.script-hint code{background:#eef4fb;padding:2px 5px;border-radius:5px}@media(max-width:1000px){.hero,.two,.grid3,.cards-from-guion,.timeline{grid-template-columns:1fr}.concept-map{display:flex;flex-direction:column}.slide{padding:24px 28px 48px}.controls{left:8px;right:8px;bottom:8px;transform:none;max-width:none;justify-content:center;flex-wrap:wrap}.back-to-notes{right:10px;bottom:92px}.script-panel{bottom:126px}}
 
-/* ===== Controles y guion · patrón visual Unidad 2 ===== */
-.controls.u2-controls{
-  position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:60;
-  display:flex;align-items:center;gap:6px;max-width:calc(100vw - 190px);
-  background:rgba(7,21,47,.92);backdrop-filter:blur(9px);
-  border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:7px 8px;
-  box-shadow:0 10px 34px rgba(0,0,0,.26)
+/* V0.5.2 — Página 8: conserva el formato de dos bloques y agrega ejemplos industriales */
+.force-types-grid{align-items:stretch;gap:22px}
+.force-type-card{display:flex;flex-direction:column;justify-content:flex-start;padding:18px 20px}
+.force-type-card h3{font-size:23px;margin-bottom:10px}
+.force-list{margin:0;padding-left:22px;display:grid;gap:10px}
+.force-list li{font-size:17px;line-height:1.22;color:#1f2937;padding-left:2px}
+.force-list li b{display:block;color:#0b1f4d;font-size:18px;margin-bottom:2px}
+.force-list li span{display:block;color:#516174;font-size:14px;line-height:1.28}
+@media(max-width:900px){.force-list li{font-size:16px}.force-list li b{font-size:17px}.force-list li span{font-size:13px}}
+
+
+/* V0.5.3 · gráfica g vs altura en filmina 9 */
+.grav-stack{display:grid;grid-template-rows:auto auto;gap:14px}
+.grav-graph{background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px 14px 10px;box-shadow:0 8px 20px rgba(14,35,75,.06)}
+.grav-graph h3{margin:0 0 6px;color:var(--navy);font-size:17px;line-height:1.2;font-weight:800}.grav-graph svg{display:block;width:100%;height:auto}
+.grav-graph .caption{margin-top:8px;font-size:13px;line-height:1.35;color:#4f6178}.grav-graph text{font-family:Inter,Segoe UI,Arial,sans-serif}
+
+/* V0.5.5 · ajuste responsive filmina 9 */
+#s9 .slide-body{gap:12px;padding:14px 0 10px}
+#s9 .two.wide-left{grid-template-columns:.95fr 1.05fr;gap:20px;align-items:start}
+#s9 .big{font-size:clamp(18px,1.8vw,27px);line-height:1.18;margin:0}
+#s9 .formula{font-size:clamp(22px,2.3vw,31px);padding:8px 10px;margin:8px 0}
+#s9 .key,#s9 .si{font-size:15px;line-height:1.28;padding:10px 12px;margin-top:8px}
+#s9 .grav-stack{display:grid;grid-template-rows:auto auto;gap:10px}
+#s9 .table-scroll{width:100%;overflow-x:auto;border-radius:18px}
+#s9 .data-table.grav{min-width:420px}
+#s9 .data-table.grav th{font-size:13px;padding:8px 9px;line-height:1.15}
+#s9 .data-table.grav td{font-size:13px;padding:7px 9px;line-height:1.15}
+#s9 .grav-graph{padding:10px 12px 8px}
+#s9 .grav-graph h3{font-size:15px;margin:0 0 4px}
+#s9 .grav-graph .caption{font-size:12px;line-height:1.3;margin-top:6px}
+#s9 .grav-graph svg{width:100%;height:auto;max-height:250px}
+#s9 .slide-footer{padding-top:7px}
+@media (max-width: 980px){
+  #s9 .two.wide-left{grid-template-columns:1fr;gap:14px}
+  #s9 .big{font-size:clamp(18px,4.4vw,24px)}
+  #s9 .formula{font-size:clamp(19px,4.6vw,26px)}
+  #s9 .key,#s9 .si{font-size:14px}
+  #s9 .grav-graph svg{max-height:none}
 }
-.controls.u2-controls .ctl-btn{
-  border:1px solid rgba(255,255,255,.18);border-radius:10px;background:#fff;color:#0b1f4d;
-  font-weight:800;padding:8px 10px;text-decoration:none;font-size:13px;line-height:1;min-height:36px;
-  white-space:nowrap;cursor:pointer;transition:.15s ease
-}
-.controls.u2-controls .ctl-btn:hover{background:#eaf4ff;transform:translateY(-1px)}
-.controls.u2-controls .ctl-btn.active{background:#1f7ae0;color:#fff;border-color:#5ab0ff}
-.controls.u2-controls .ctl-btn.paused{background:#fff3cd;color:#7a4b00;border-color:#ffd56a}
-.controls.u2-controls .nav-arrow{min-width:40px;font-size:18px;padding-left:9px;padding-right:9px}
-.slide-counter{color:#fff;font-weight:800;min-width:64px;text-align:center;padding:0 5px;font-variant-numeric:tabular-nums}
-.back-to-notes{
-  position:fixed;right:18px;bottom:15px;z-index:61;display:inline-flex;align-items:center;justify-content:center;
-  min-height:38px;padding:8px 13px;border-radius:10px;background:#fff;color:#0b1f4d;border:1px solid #bfd2eb;
-  box-shadow:0 8px 22px rgba(0,0,0,.16);text-decoration:none;font-size:13px;font-weight:850
-}
-.back-to-notes:hover{background:#eaf4ff}
-.script-panel{
-  position:fixed;left:18px;top:18px;bottom:72px;z-index:58;width:min(480px,92vw);display:none;overflow:auto;
-  background:rgba(255,255,255,.985);border:1px solid #c9d7ea;border-radius:18px;
-  box-shadow:0 18px 55px rgba(4,23,57,.28);padding:17px 18px 18px
-}
-.script-panel.open{display:block}
-.script-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding-bottom:11px;margin-bottom:12px;border-bottom:1px solid #d9e4f2}
-.script-head h3{margin:3px 0 0;color:#0b1f4d;font-size:21px}.script-kicker{color:#175cc5;text-transform:uppercase;letter-spacing:.08em;font-size:11px;font-weight:850}
-.script-close{width:34px;height:34px;border:1px solid #c9d7ea;border-radius:9px;background:#f8fbff;color:#0b1f4d;font-size:23px;line-height:1;cursor:pointer}
-.script-text{font-size:18px;line-height:1.52;color:#25364e;white-space:pre-wrap}.script-hint{margin-top:16px;padding-top:12px;border-top:1px solid #e2e8f0;color:#66768b;font-size:12px;line-height:1.4}
-.script-hint code{background:#eef4fb;padding:2px 5px;border-radius:5px}
-@media(max-width:1050px){
-  .controls.u2-controls{left:8px;right:8px;bottom:8px;transform:none;max-width:none;justify-content:center;flex-wrap:wrap}
-  .controls.u2-controls .ctl-btn{padding:7px 9px}.back-to-notes{right:10px;bottom:94px}.script-panel{bottom:128px}
+@media (max-width: 640px){
+  #s9 .slide-top{gap:12px}
+  #s9 h2{font-size:clamp(24px,7vw,34px)}
+  #s9 .unit-chip{font-size:12px;padding:7px 10px}
+  #s9 .data-table.grav{min-width:360px}
+  #s9 .data-table.grav th,#s9 .data-table.grav td{font-size:12px;padding:6px 7px}
+  #s9 .grav-graph h3{font-size:14px}
+  #s9 .grav-graph .caption{font-size:11px}
 }
 
-</style>
-</head>
-<body>
-<div class="deck">
-<section class="slide title" id="s1">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>Dinámica</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="hero-grid">
-  <div>
-    <div class="lead">Fuerzas, movimiento y equilibrio en sistemas aplicados a tecnología de alimentos</div>
-    <p class="sublead">Presentación introductoria del apunte de la Unidad 3.</p>
-    <div class="tag-row"><span>Newton</span><span>Rozamiento</span><span>Circular</span><span>Hooke</span><span>Torque</span></div>
-    <div class="author">Prof. Víctor Javier Koziura</div>
-  </div>
-  <div class="hero-logos">
-    <img src="assets/images/logo_utn.png" alt="UTN FRLP">
-    <img src="assets/images/logo-ciab.jpg" alt="CIAP">
-  </div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">1/57</span></div>
+
+/* V0.5.6 · sistemas inerciales/no inerciales */
+.inercial-cards .card h3{font-size:20px;color:var(--navy);margin:0 0 8px}
+.inercial-cards .card p{font-size:17px;line-height:1.32;margin:7px 0}
+.inercial-cards .formula.small{font-size:clamp(18px,1.75vw,25px);padding:8px;margin:7px 0}
+@media(max-width:900px){.inercial-cards .card p{font-size:15px}.inercial-cards .card h3{font-size:18px}}
+
+
+/* V0.5.7 · simulaciones de marcos inerciales y no inerciales */
+.simslide{display:grid;grid-template-rows:auto 1fr auto;gap:14px;height:100%}
+.sim-toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#f7fbff;border:1px solid var(--line);border-radius:14px;padding:9px 12px}
+.sim-toolbar label{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--navy)}
+.sim-toolbar input[type=range]{width:150px}
+.sim-toolbar button{border:1px solid #c8d8eb;border-radius:9px;background:#fff;color:var(--navy);font-weight:800;padding:7px 10px;font-size:13px}
+.sim-toolbar .readout{font-size:13px;color:#4f6178;font-weight:700}
+.sim-compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch}
+.sim-panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:10px 12px;box-shadow:0 8px 20px rgba(14,35,75,.06);display:grid;grid-template-rows:auto 1fr auto;gap:8px;min-height:0}
+.sim-panel h3{margin:0;color:var(--navy);font-size:20px}
+.sim-panel .mini{margin:0;color:#5a6f87;font-size:13px;line-height:1.25}
+.sim-panel svg{display:block;width:100%;height:100%;min-height:240px}
+.sim-note{font-size:14px;line-height:1.35;color:#41556d;background:#eef5ff;border:1px solid #cfe0f5;border-left:6px solid var(--blue);padding:10px 12px;border-radius:12px}
+.sim-legend{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:#425771;font-weight:700}
+.sim-legend span{display:inline-flex;align-items:center;gap:6px}.sim-legend i{display:inline-block;width:16px;height:4px;border-radius:999px}
+.inertial-badge,.noninertial-badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.inertial-badge{background:#e8f4ff;color:#175cc5}.noninertial-badge{background:#fff4e5;color:#a35a00}
+@media(max-width:1050px){.sim-compare{grid-template-columns:1fr}.sim-panel svg{min-height:210px}}
+
+/* V0.5.11 · imágenes de Segunda y Tercera Ley con guiones externos restaurados */
+.newton-law-figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:16px;padding:9px;box-shadow:0 8px 20px rgba(14,35,75,.06)}
+.newton-law-figure img{display:block;width:100%;height:auto;border-radius:10px;max-height:310px;object-fit:contain}
+.newton-law-figure figcaption{margin-top:7px;font-size:12.5px;line-height:1.3;color:#50637b}
+#s15 .law-stack,#s16 .law-stack{display:grid;gap:12px;align-items:start}
+#s15 .sim-card,#s16 .sim-card{margin:0}
+#s16 .newton-law-figure img{max-height:360px}
+@media(max-width:980px){.newton-law-figure{padding:7px}.newton-law-figure figcaption{font-size:12px}.newton-law-figure img,#s16 .newton-law-figure img{max-height:none}}
+</style></head><body><div class="deck">
+<section class="slide" id="s1">
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>Dinámica</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="hero"><div><div class="lead">Fuerzas, movimiento y equilibrio en sistemas aplicados a tecnología de alimentos</div><p>Presentación introductoria del apunte de la Unidad 3.</p><div class="chips"><span>Newton</span><span>Rozamiento</span><span>Circular</span><span>Hooke</span><span>Torque</span></div></div><div class="logos"><img src="assets/images/logo_utn.png"/><img src="assets/images/logo-ciab.jpg"/></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>1/59</span></div>
 </section>
-
 <section class="slide" id="s2">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>Recorrido de la unidad</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="timeline">
-  <div><b>1</b><span>Fuerzas e interacciones</span></div>
-  <div><b>2</b><span>Leyes de Newton y DCL</span></div>
-  <div><b>3</b><span>Rozamiento y equilibrio traslacional</span></div>
-  <div><b>4</b><span>Dinámica circular</span></div>
-  <div><b>5</b><span>Hooke, MAS y vibraciones</span></div>
-  <div><b>6</b><span>Momento lineal, torque y equilibrio rotacional</span></div>
-</div>
-<div class="note"><b>Idea conductora:</b> elegir el sistema, dibujar fuerzas externas, plantear ecuaciones y leer el resultado en contexto técnico.</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">2/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>Recorrido de la unidad</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="timeline"><div><b>1</b><span>Fuerzas e interacciones</span></div><div><b>2</b><span>Leyes de Newton y DCL</span></div><div><b>3</b><span>Rozamiento y equilibrio</span></div><div><b>4</b><span>Dinámica circular</span></div><div><b>5</b><span>Hooke, MAS y vibraciones</span></div><div><b>6</b><span>Torque y equilibrio rotacional</span></div></div><div class="note"><b>Idea conductora:</b> elegir sistema, dibujar fuerzas externas, plantear ecuaciones y leer el resultado en contexto técnico.</div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>2/59</span></div>
 </section>
-
 <section class="slide" id="s3">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>1. Introducción contextualizada</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="two-col">
-  <div>
-    <p class="big">La cinemática describe <b>cómo</b> se mueve un cuerpo; la dinámica estudia <b>por qué</b> cambia o no cambia ese movimiento.</p>
-    <div class="key">La dinámica vincula fuerzas, rozamiento y torques con seguridad, calidad, mantenimiento y eficiencia energética.</div>
-  </div>
-  <div class="process-list">
-    <div>Cinta que arranca</div><div>Envase que no debe deslizar</div><div>Rampa de descarga</div><div>Tapa sostenida</div><div>Motor de mezclador</div><div>Eje con torque</div>
-  </div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">3/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>1. Introducción contextualizada</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>La dinámica aparece de manera permanente en una planta alimentaria.</p></div><div class="card"><p>Cuando una cinta arranca, el producto necesita una fuerza para adquirir aceleración.</p></div><div class="card"><p>Cuando un envase se mueve sobre esa cinta, el rozamiento puede ser el mecanismo que lo arrastra sin deslizamiento.</p></div><div class="card"><p>En una rampa, la componente del peso paralela al plano puede favorecer o dificultar el desplazamiento.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>3/59</span></div>
 </section>
-
 <section class="slide" id="s4">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>2. Objetivos de aprendizaje</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="grid-5">
- <div class="card"><h3>Comprender fuerzas</h3><p>Reconocer módulo, dirección, sentido y punto de aplicación.</p></div>
- <div class="card"><h3>Aplicar Newton</h3><p>Reposo, MRU, aceleración y fuerza neta.</p></div>
- <div class="card"><h3>Dibujar DCL</h3><p>Aislar el cuerpo y representar fuerzas externas.</p></div>
- <div class="card"><h3>Analizar rozamiento</h3><p>Distinguir estático, cinético, útil y no deseado.</p></div>
- <div class="card"><h3>Calcular torque</h3><p>Estudiar momentos de fuerza y equilibrio rotacional.</p></div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">4/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>2. Objetivos de aprendizaje</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>Los objetivos de esta unidad pueden resumirse en cinco capacidades.</p></div><div class="card"><p>La primera es reconocer fuerzas y describirlas correctamente como vectores, con módulo, dirección, sentido y punto de aplicación.</p></div><div class="card"><p>La segunda es aplicar las leyes de Newton para distinguir entre equilibrio, movimiento uniforme y movimiento acelerado.</p></div><div class="card"><p>La tercera es construir diagramas de cuerpo libre, porque ese dibujo es el puente entre la situación real y las ecuaciones.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>4/59</span></div>
 </section>
-
 <section class="slide" id="s5">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>3. Importancia técnica</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="two-col">
-  <div class="card emphasis"><h3>Lo que debe poder interpretar el técnico</h3>
-    <ul><li>Aceleración de cintas.</li><li>Adherencia de envases.</li><li>Fuerzas sobre rampas.</li><li>Cargas suspendidas.</li><li>Torque en mezcladores.</li><li>Esfuerzos en tapas y compuertas.</li></ul>
-  </div>
-  <div class="card"><h3>Variables medidas o controladas</h3>
-    <div class="pill-stack"><span>velocidad</span><span>carga</span><span>corriente de motor</span><span>torque</span><span>vibraciones</span></div>
-    <p>Permiten anticipar fallas, ajustar operación y proteger el proceso.</p>
-  </div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">5/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>3. Importancia técnica</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>Desde el punto de vista técnico, la dinámica permite interpretar variables que muchas veces se miden directamente en una instalación.</p></div><div class="card"><p>La velocidad y la aceleración de una cinta indican cómo se transporta el producto.</p></div><div class="card"><p>La corriente de un motor puede dar información indirecta sobre el esfuerzo que está realizando.</p></div><div class="card"><p>El torque permite analizar ejes, mezcladores o compuertas.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>5/59</span></div>
 </section>
-
 <section class="slide" id="s6">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>4. Mapa conceptual de la unidad</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="concept-map">
-  <div class="node main">Fuerza<br><small>interacción vectorial</small></div>
-  <div class="arrow">→</div><div class="node">Newton<br><small>fuerza y aceleración</small></div>
-  <div class="arrow">→</div><div class="node">DCL<br><small>cuerpo aislado</small></div>
-  <div class="arrow">→</div><div class="node">Rozamiento<br><small>adherencia o pérdida</small></div>
-  <div class="arrow">→</div><div class="node">Torque<br><small>tendencia al giro</small></div>
-  <div class="arrow">→</div><div class="node">Equilibrio<br><small>fuerzas y torques nulos</small></div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">6/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>4. Mapa conceptual de la unidad</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="concept-map"><div>Fuerza<br/><small>interacción vectorial</small></div><span>→</span><div>Newton<br/><small>fuerza y aceleración</small></div><span>→</span><div>DCL<br/><small>cuerpo aislado</small></div><span>→</span><div>Rozamiento</div><span>→</span><div>Torque</div><span>→</span><div>Equilibrio</div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>6/59</span></div>
 </section>
-
 <section class="slide" id="s7">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>5. Fuerzas e interacciones</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="media-two">
-  <div>
-    <p class="big">Una fuerza es una <b>interacción mutua</b> entre dos cuerpos o entre un cuerpo y su entorno.</p>
-    <div class="formula">\[\vec F=F_x\hat i+F_y\hat j\]</div>
-    <div class="key">Siempre conviene nombrar quién ejerce la fuerza y sobre qué sistema actúa.</div>
-  </div>
-  <figure><img src="assets/tikz/fuerza_vector.svg" alt="Fuerza como vector"><figcaption>Fuerza como vector: módulo, dirección, sentido y componentes.</figcaption></figure>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">7/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>5. Fuerzas e interacciones</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two"><div><p class="big">Una fuerza es una interacción y, además, una magnitud vectorial.</p><div class="formula">\[\vec F=F_x\hat{\imath}+F_y\hat{\jmath}\]</div><div class="key"><b>Versor:</b> vector de módulo uno. \(\hat{\imath}\) indica la dirección positiva del eje x y \(\hat{\jmath}\) la dirección positiva del eje y.</div><div class="si"><b>SI:</b> \(F_x\) y \(F_y\) son escalares con signo medidos en newton, \(\mathrm{N}\).</div></div><figure><img src="assets/tikz/fuerza_vector.svg"/><figcaption>Fuerza como vector: módulo, dirección, sentido y componentes.</figcaption></figure></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>7/59</span></div>
 </section>
-
 <section class="slide" id="s8">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>5.1 Tipos de fuerzas frecuentes</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="two-col">
-  <div class="card"><h3>Fuerzas de contacto</h3><ul><li>Fuerza aplicada \(\vec F\)</li><li>Tensión \(\vec T\)</li><li>Normal \(\vec N\)</li><li>Rozamiento \(\vec f\)</li></ul></div>
-  <div class="card"><h3>Fuerzas a distancia</h3><ul><li>Gravitatoria \(\vec F_g\)</li><li>Eléctrica</li><li>Magnética</li><li>Nucleares</li></ul></div>
+<div class="slide-top">
+<div>
+<div class="kicker">Física · Unidad 3</div>
+<h2>5.1 Tipos de fuerzas frecuentes</h2>
 </div>
-<div class="note"><b>Uso didáctico:</b> esta clasificación ayuda a construir diagramas de cuerpo libre sin agregar fuerzas inexistentes.</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">8/57</span></div>
+<div class="unit-chip">Unidad 3</div>
+</div>
+<div class="slide-body">
+<div class="two-col force-types-grid">
+<div class="card force-type-card">
+<h3>Fuerzas de contacto</h3>
+<ul class="force-list">
+<li><b>Fuerza aplicada \(\vec F\)</b><span>Ejemplo industrial: empuje de un actuador neumático sobre una compuerta o un carro.</span></li>
+<li><b>Tensión \(\vec T\)</b><span>Ejemplo industrial: cable o cadena que sostiene una tapa, una carga o una tolva suspendida.</span></li>
+<li><b>Normal \(\vec N\)</b><span>Ejemplo industrial: reacción de apoyo de una cinta transportadora o una mesa sobre un envase.</span></li>
+<li><b>Rozamiento \(\vec f\)</b><span>Ejemplo industrial: adherencia entre la cinta transportadora y el envase durante el arranque.</span></li>
+</ul>
+</div>
+<div class="card force-type-card">
+<h3>Fuerzas a distancia</h3>
+<ul class="force-list">
+<li><b>Gravitatoria \(\vec F_g\)</b><span>Ejemplo industrial: peso de un producto, envase, tolva o conjunto mecánico.</span></li>
+<li><b>Eléctrica</b><span>Ejemplo industrial: atracción o repulsión de partículas finas por cargas electrostáticas.</span></li>
+<li><b>Magnética</b><span>Ejemplo industrial: separadores magnéticos para retirar partículas ferromagnéticas del producto.</span></li>
+<li><b>Nucleares</b><span>Ejemplo industrial: base física de técnicas de medición con fuentes radiactivas, como ciertos medidores de espesor o densidad.</span></li>
+</ul>
+</div>
+</div>
+<div class="note"><b>Uso didáctico:</b> esta clasificación ayuda a construir diagramas de cuerpo libre sin agregar fuerzas inexistentes y a relacionar cada interacción con un elemento real del proceso.</div>
+</div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>8/59</span></div>
 </section>
-
 <section class="slide" id="s9">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>5.2 Fuerza gravitatoria, peso y \(g\)</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="grid-3">
-  <div class="card"><h3>Ley universal</h3><div class="formula small">\[F=G\frac{m_1m_2}{r^2}\]</div></div>
-  <div class="card"><h3>Peso cerca de la Tierra</h3><div class="formula small">\[\vec P=m\vec g\]</div></div>
-  <div class="card"><h3>Modelo local</h3><div class="formula small">\[g\approx9.8\,\mathrm{m/s^2}\]</div></div>
-</div>
-<div class="key">En problemas de planta se adopta gravedad uniforme y vertical, porque las dimensiones del equipo son pequeñas frente al radio terrestre.</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">9/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>5.2 Fuerza gravitatoria, peso y g</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two wide-left"><div><p class="big">El peso es la fuerza gravitatoria local: \(\vec P=m\vec g\).</p><div class="formula">\[F=G\frac{m_1m_2}{r^2}\qquad g_0=G\frac{M_T}{R_T^2}\]</div><div class="key">La \(G\) mayúscula es la constante universal. La \(g\) minúscula agrupa \(G\), la masa terrestre y el radio terrestre para la superficie.</div><div class="si"><b>Sistema Internacional:</b> masa en \(\mathrm{kg}\); peso y fuerzas en \(\mathrm{N}\); aceleración en \(\mathrm{m/s^2}\).</div></div><div class="grav-stack"><div class="table-scroll"><table class="data-table grav"><tr><th>Altura sobre la superficie</th><th>g(h) [m/s²]</th><th>Respecto de g₀</th></tr><tr><td>0</td><td>9,807</td><td>100,0%</td></tr><tr><td>1 km</td><td>9,804</td><td>100,0%</td></tr><tr><td>10 km</td><td>9,776</td><td>99,7%</td></tr><tr><td>100 km</td><td>9,506</td><td>96,9%</td></tr><tr><td>400 km</td><td>8,682</td><td>88,5%</td></tr><tr><td>1.000 km</td><td>7,326</td><td>74,7%</td></tr><tr><td>35.786 km</td><td>0,224</td><td>2,3%</td></tr></table></div><div class="grav-graph">
+<h3>Gráfico: g en función de la altura</h3>
+<svg aria-label="Gráfico de g versus altura" role="img" viewbox="0 0 470 230">
+<rect fill="white" height="230" width="470" x="0" y="0"></rect>
+<g transform="translate(58,18)">
+<rect fill="#f9fbfe" height="150" rx="8" stroke="#d9e4f2" width="382" x="0" y="0"></rect>
+<g stroke="#d9e4f2" stroke-width="1">
+<line x1="0" x2="382" y1="150" y2="150"></line>
+<line x1="0" x2="382" y1="120" y2="120"></line>
+<line x1="0" x2="382" y1="90" y2="90"></line>
+<line x1="0" x2="382" y1="60" y2="60"></line>
+<line x1="0" x2="382" y1="30" y2="30"></line>
+<line x1="0" x2="382" y1="0" y2="0"></line>
+</g>
+<g stroke="#314662" stroke-width="2">
+<line x1="0" x2="0" y1="0" y2="150"></line>
+<line x1="0" x2="382" y1="150" y2="150"></line>
+</g>
+<g fill="#314662" font-size="12" text-anchor="end">
+<text x="-8" y="154">0</text><text x="-8" y="124">2</text><text x="-8" y="94">4</text><text x="-8" y="64">6</text><text x="-8" y="34">8</text><text x="-8" y="4">10</text>
+</g>
+<g fill="#314662" font-size="11" text-anchor="middle">
+<text x="18" y="172">0</text><text x="72" y="172">1</text><text x="126" y="172">10</text><text x="180" y="172">100</text><text x="234" y="172">400</text><text x="288" y="172">1000</text><text x="352" y="172">35786</text>
+</g>
+<g stroke="#6e83a0" stroke-width="1">
+<line x1="18" x2="18" y1="150" y2="156"></line><line x1="72" x2="72" y1="150" y2="156"></line><line x1="126" x2="126" y1="150" y2="156"></line><line x1="180" x2="180" y1="150" y2="156"></line><line x1="234" x2="234" y1="150" y2="156"></line><line x1="288" x2="288" y1="150" y2="156"></line><line x1="352" x2="352" y1="150" y2="156"></line>
+</g>
+<polyline fill="none" points="18,2.9 72,2.9 126,3.4 180,7.4 234,19.8 288,40.1 352,146.6" stroke="#1f7ae0" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></polyline>
+<g fill="#b42318" stroke="white" stroke-width="2"><circle cx="18" cy="2.9" r="4.5"></circle><circle cx="72" cy="2.9" r="4.5"></circle><circle cx="126" cy="3.4" r="4.5"></circle><circle cx="180" cy="7.4" r="4.5"></circle><circle cx="234" cy="19.8" r="4.5"></circle><circle cx="288" cy="40.1" r="4.5"></circle><circle cx="352" cy="146.6" r="4.5"></circle></g>
+<text fill="#314662" font-size="12" font-weight="700" transform="rotate(-90 -38,10)" x="-38" y="10">g (m/s²)</text>
+<text fill="#314662" font-size="12" font-weight="700" x="191" y="202">altura sobre la superficie (km)</text>
+</g>
+</svg>
+<div class="caption">Se representan los mismos valores de la tabla. El gráfico muestra que cerca de la superficie terrestre la disminución de g es pequeña, mientras que a grandes alturas la caída es mucho más marcada.</div>
+</div></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>9/59</span></div>
 </section>
-
 <section class="slide" id="s10">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>6. Leyes de Newton: idea previa</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="two-col">
-  <div><p class="big">Las leyes de Newton relacionan <b>fuerzas externas</b> con reposo, movimiento uniforme o aceleración.</p>
-  <div class="key">No se analiza “el movimiento” de forma aislada: se analiza un cuerpo o sistema elegido.</div></div>
-  <figure><img src="assets/tikz/diagrama_particula.svg" alt="Diagrama de partícula"><figcaption>El sistema se representa aislado para identificar fuerzas externas.</figcaption></figure>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">10/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>6. Leyes de Newton: idea previa</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two"><div><ul class="bullets"><li>Antes de aplicar cualquier ley de Newton hay una decisión que condiciona todo el problema: elegir el sistema que vamos a estudiar.</li><li>Puede ser una caja, una tapa, una tolva, un conjunto formado por varios cuerpos o incluso una porción de un mecanismo.</li><li>Una vez elegido el sistema, sólo deben considerarse las fuerzas externas que actúan sobre él.</li></ul></div><figure><img src="assets/tikz/diagrama_particula.svg"/></figure></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>10/59</span></div>
 </section>
-
 <section class="slide" id="s11">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>6.1 Primera ley: inercia</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="two-col">
-  <div>
-    <div class="formula">\[\sum \vec F=\vec 0 \quad\Rightarrow\quad \vec a=\vec 0\]</div>
-    <p>Si la fuerza externa neta es nula, el cuerpo permanece en reposo o en movimiento rectilíneo uniforme.</p>
-  </div>
-  <div class="card warn"><h3>Condición de validez</h3><p>La primera ley se aplica directamente en sistemas de referencia inerciales. En marcos acelerados o rotantes aparecen efectos aparentes.</p></div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">11/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>6.1 Primera ley: inercia</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body">
+<div class="cards-from-guion inercial-cards">
+<div class="card emphasis">
+<h3>Sistema de referencia inercial</h3>
+<p>Es un marco de observación que <b>no acelera ni rota</b> respecto de otro marco inercial.</p>
+<p>En él, un cuerpo libre conserva su estado de reposo o de MRU.</p>
+</div>
+<div class="card">
+<h3>Primera ley como criterio</h3>
+<div class="formula small">\[\sum \vec F=\vec 0\quad\Rightarrow\quad \vec a=\vec 0\]</div>
+<p>Si la fuerza externa neta es nula, no aparece aceleración.</p>
+</div>
+<div class="card warn">
+<h3>Sistema no inercial</h3>
+<p>Es un marco que <b>acelera o gira</b>: ascensor acelerando, vehículo que frena, plataforma rotante.</p>
+<p>Desde él pueden observarse aceleraciones sin una fuerza real equivalente en el marco del suelo.</p>
+</div>
+<div class="card">
+<h3>Validez de las leyes</h3>
+<p>Las leyes de Newton se aplican directamente en marcos inerciales.</p>
+<p>En marcos no inerciales deben agregarse fuerzas aparentes, como fuerza ficticia, centrífuga o de Coriolis.</p>
+</div>
+</div>
+</div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>11/59</span></div>
 </section>
-
 <section class="slide" id="s12">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>Sistemas inerciales y no inerciales</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="grid-3">
-  <div class="card"><h3>Inercial</h3><p>Reposo o velocidad constante.</p><p>La ley de inercia se verifica directamente.</p></div>
-  <div class="card"><h3>No inercial lineal</h3><p>Vehículo que acelera.</p><p>Puede aparecer una fuerza ficticia para describir el movimiento desde ese marco.</p></div>
-  <div class="card"><h3>No inercial rotante</h3><p>Plataforma giratoria.</p><p>La trayectoria observada depende del sistema de referencia.</p></div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">12/57</span></div>
-</section>
-
-<section class="slide" id="s13">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>6.2 Segunda ley: fuerza neta y aceleración</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="two-col">
-  <div>
-    <div class="formula">\[\sum \vec F=m\vec a\]</div>
-    <div class="formula small">\[\sum F_x=ma_x \qquad \sum F_y=ma_y\]</div>
-    <p>La aceleración tiene la dirección de la fuerza neta.</p>
-  </div>
-  <div class="sim-box" data-sim="newton">
-    <h3>Simulación rápida</h3>
-    <label>Masa \(m\) <input id="newtonM" type="range" min="1" max="20" step="1" value="5"><span></span></label>
-    <label>Fuerza aplicada <input id="newtonF" type="range" min="0" max="100" step="5" value="40"><span></span></label>
-    <label>Fuerza resistente <input id="newtonR" type="range" min="0" max="80" step="5" value="10"><span></span></label>
-    <div class="sim-out" id="newtonOut"></div>
-  </div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">13/57</span></div>
-</section>
-
-<section class="slide" id="s14">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>6.3 Tercera ley: acción y reacción</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="media-two">
-  <div>
-    <p class="big">Las fuerzas aparecen en pares de interacción.</p>
-    <div class="formula">\[\vec F_{A\to B}=-\vec F_{B\to A}\]</div>
-    <div class="key">No se cancelan en el mismo diagrama porque actúan sobre cuerpos distintos.</div>
-  </div>
-  <figure><img src="assets/tikz/tercera_ley.svg" alt="Tercera ley"><figcaption>Par acción-reacción entre dos cuerpos.</figcaption></figure>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">14/57</span></div>
-</section>
-
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>Sistemas inerciales y no inerciales</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body">
+<div class="cards-from-guion inercial-cards">
+<div class="card emphasis">
+<h3>Segunda ley</h3>
+<div class="formula small">\[\sum \vec F_{\mathrm{reales}}=m\vec a\]</div>
+<p>Esta forma se usa sin correcciones cuando el observador está en un sistema inercial.</p>
+</div>
+<div class="card warn">
+<h3>Si el marco acelera</h3>
+<div class="formula small">\[\sum \vec F_{\mathrm{reales}}+\vec F_{\mathrm{fic}}=m\vec a_{\mathrm{rel}}\]</div>
+<p>La fuerza ficticia no proviene de una interacción real; compensa la aceleración del marco.</p>
+</div>
+<div class="card">
+<h3>Tercera ley</h3>
+<p>Acción y reacción describen pares de <b>fuerzas reales</b> entre dos cuerpos.</p>
+<p>Las fuerzas ficticias de un marco no inercial no forman pares acción-reacción.</p>
+</div>
+<div class="card">
+<h3>Criterio práctico</h3>
+<p>Para resolver, conviene elegir primero un marco aproximadamente inercial: piso del laboratorio o estructura fija de planta.</p>
+<p>Si se analiza desde una cinta que arranca o una plataforma que gira, hay que declararlo como no inercial.</p>
+</div>
+</div>
+</div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>12/59</span></div>
+</section><section class="slide" id="s13"><div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>6.1.1 Simulación: globo en un autobús que acelera</h2></div><div class="unit-chip">Unidad 3</div></div><div class="slide-body">
+<div class="simslide bus-slide">
+<div class="sim-toolbar">
+<label>Aceleración del autobús <input id="busAcc" max="1.6" min="0.3" step="0.1" type="range" value="0.9"/></label>
+<span class="readout" id="busAccVal">a = 0.9 u/s²</span>
+<button id="busPlay">Reproducir</button>
+<button id="busReset">Reiniciar</button>
+<span class="readout">Hipótesis: se desprecia el efecto del aire sobre el globo.</span>
+</div>
+<div class="sim-compare">
+<div class="sim-panel">
+<div>
+<h3>Vista externa <span class="inertial-badge">inercial</span></h3>
+<p class="mini">Para el observador del suelo, el autobús acelera hacia la derecha y el globo tiende a conservar su estado de movimiento horizontal.</p>
+</div>
+<svg aria-label="Vista externa del globo y del autobús" id="busExt" role="img" viewbox="0 0 520 260"></svg>
+<div class="sim-legend"><span><i style="background:#175cc5"></i> autobús</span><span><i style="background:#d94841"></i> globo</span></div>
+</div>
+<div class="sim-panel">
+<div>
+<h3>Vista desde el autobús <span class="noninertial-badge">no inercial</span></h3>
+<p class="mini">Para el observador sentado dentro del vehículo, el globo parece desplazarse hacia atrás, aunque no haya una fuerza horizontal real aplicada sobre él.</p>
+</div>
+<svg aria-label="Vista interna del globo en el autobús" id="busInt" role="img" viewbox="0 0 520 260"></svg>
+<div class="sim-legend"><span><i style="background:#175cc5"></i> autobús como marco de referencia</span><span><i style="background:#d94841"></i> globo</span></div>
+</div>
+</div>
+<div class="sim-note"><b>Lectura conceptual:</b> en el sistema inercial, el autobús cambia su velocidad y el globo conserva aproximadamente su estado horizontal. En el sistema solidario al autobús, el globo parece ir hacia atrás. Esta diferencia muestra por qué un marco acelerado es <b>no inercial</b>.</div>
+</div>
+</div><div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>13/59</span></div></section><section class="slide" id="s14"><div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>6.1.2 Simulación: trayectoria recta observada desde una plataforma giratoria</h2></div><div class="unit-chip">Unidad 3</div></div><div class="slide-body">
+<div class="simslide rot-slide">
+<div class="sim-toolbar">
+<label>Velocidad angular <input id="rotOmega" max="2.0" min="0.4" step="0.1" type="range" value="1.0"/></label>
+<span class="readout" id="rotOmegaVal">ω = 1.0 rad/s</span>
+<button id="rotPlay">Reproducir</button>
+<button id="rotReset">Reiniciar</button>
+<span class="readout">La pelota se lanza en línea recta a través del diámetro.</span>
+</div>
+<div class="sim-compare">
+<div class="sim-panel">
+<div>
+<h3>Cámara externa <span class="inertial-badge">inercial</span></h3>
+<p class="mini">La plataforma gira, pero la pelota sigue una trayectoria recta de izquierda a derecha mientras cruza el disco.</p>
+</div>
+<svg aria-label="Vista externa de la trayectoria recta sobre plataforma giratoria" id="rotExt" role="img" viewbox="0 0 520 300"></svg>
+<div class="sim-legend"><span><i style="background:#175cc5"></i> plataforma giratoria</span><span><i style="background:#d94841"></i> trayectoria de la pelota</span></div>
+</div>
+<div class="sim-panel">
+<div>
+<h3>Cámara que gira con la plataforma <span class="noninertial-badge">no inercial</span></h3>
+<p class="mini">Desde el sistema que rota con la plataforma, la trayectoria ya no se ve recta: aparece curvada.</p>
+</div>
+<svg aria-label="Vista rotante de la trayectoria curva sobre plataforma giratoria" id="rotInt" role="img" viewbox="0 0 520 300"></svg>
+<div class="sim-legend"><span><i style="background:#175cc5"></i> disco fijo en el marco rotante</span><span><i style="background:#d94841"></i> trayectoria observada</span></div>
+</div>
+</div>
+<div class="sim-note"><b>Lectura conceptual:</b> el cambio de trayectoria no se debe a una fuerza lateral real sobre la pelota, sino al cambio de sistema de referencia. En un marco rotante, para describir el movimiento con las leyes de Newton hay que introducir fuerzas aparentes, como la centrífuga y la de Coriolis.</div>
+</div>
+</div><div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>14/59</span></div></section>
 <section class="slide" id="s15">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>7. Hipótesis simplificativas y modelos</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="grid-4">
-  <div class="card"><h3>Tierra plana local</h3><p>Gravedad uniforme y vertical.</p></div>
-  <div class="card"><h3>Partícula</h3><p>Importa la traslación, no la rotación.</p></div>
-  <div class="card"><h3>Cuerpo rígido</h3><p>Importan forma, puntos de aplicación y torques.</p></div>
-  <div class="card"><h3>Cuerdas y poleas ideales</h3><p>Modelos sin masa ni rozamiento, salvo indicación.</p></div>
-</div>
-<div class="note"><b>Idea clave:</b> simplificar no es cometer un error; es declarar qué efectos se conservan y cuáles se desprecian.</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">15/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>6.2 Segunda ley: fuerza neta y aceleración</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two"><div><div class="formula">\[\sum \vec F=m\vec a\]</div><div class="formula small">\[\sum F_x=ma_x\qquad \sum F_y=ma_y\]</div><p class="big">La aceleración queda determinada por la fuerza neta externa.</p></div><div class="law-stack"><figure class="newton-law-figure"><img alt="Infografía de la segunda ley de Newton con perspectiva física y aplicación en la industria alimenticia" src="assets/images/segunda_ley_newton_industria.png"/><figcaption>Perspectiva física y ejemplo aplicado: para una misma fuerza neta, una mayor masa produce una menor aceleración.</figcaption></figure><h3>Lectura aplicada</h3><p>Si una cinta acelera una carga, lo relevante no es sólo la fuerza aplicada, sino la diferencia entre fuerzas motrices y resistentes.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>15/59</span></div>
 </section>
-
 <section class="slide" id="s16">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>7.4 Diagrama de cuerpo libre</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="media-two">
-  <div>
-    <ol class="steps"><li>Definir el cuerpo analizado.</li><li>Aislarlo del entorno.</li><li>Dibujar sólo fuerzas externas.</li><li>Elegir ejes convenientes.</li><li>Descomponer fuerzas inclinadas.</li><li>Plantear ecuaciones.</li></ol>
-  </div>
-  <figure><img src="assets/tikz/cuerpo_libre_cinta.svg" alt="DCL en cinta"><figcaption>DCL de un producto sobre una cinta.</figcaption></figure>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">16/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>6.3 Tercera ley: acción y reacción</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two"><div><ul class="bullets"><li>La tercera ley de Newton describe las fuerzas como pares de interacción.</li><li>Si un cuerpo A ejerce una fuerza sobre un cuerpo B, entonces B ejerce simultáneamente sobre A una fuerza de igual módulo y sentido opuesto.</li><li>La dificultad aparece cuando se intenta cancelar estas dos fuerzas en un mismo diagrama.</li></ul></div><div class="law-stack"><figure class="newton-law-figure"><img alt="Infografía de tercera ley de Newton con un producto apoyado sobre una mesa, peso, normal y pares de acción y reacción" src="assets/images/tercera_ley_newton_pares_accion_reaccion.png"/><figcaption>Producto apoyado sobre una mesa: se distinguen peso, normal y los pares de acción y reacción correspondientes.</figcaption></figure></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>16/59</span></div>
 </section>
-
 <section class="slide" id="s17">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>8. Componentes, fuerza neta y equilibrio traslacional</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="grid-3">
-  <div class="card"><h3>Fuerza neta</h3><div class="formula small">\[\vec F_{\mathrm{net}}=\sum \vec F\]</div></div>
-  <div class="card"><h3>Componentes</h3><div class="formula small">\[F_x=F\cos\theta\qquad F_y=F\sin\theta\]</div></div>
-  <div class="card"><h3>Equilibrio</h3><div class="formula small">\[\sum F_x=0\qquad \sum F_y=0\]</div></div>
-</div>
-<div class="key">Si hay aceleración: \(\sum F_x=ma_x\), \(\sum F_y=ma_y\).</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">17/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>7. Hipótesis simplificativas y modelos</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>En dinámica trabajamos con modelos simplificados.</p></div><div class="card"><p>Modelar no significa ignorar la realidad, sino seleccionar los efectos que son relevantes para la pregunta que queremos responder.</p></div><div class="card"><p>Podemos tratar una caja como partícula si sólo nos interesa su traslación y no su rotación.</p></div><div class="card"><p>Podemos considerarla cuerpo rígido si interesa analizar vuelco o torque.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>17/59</span></div>
 </section>
-
 <section class="slide" id="s18">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>9. Rozamiento</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="two-col">
-  <div>
-    <p class="big">El rozamiento puede ser útil o perjudicial.</p>
-    <div class="formula">\[f_s\leq \mu_s N\qquad f_k=\mu_k N\]</div>
-    <div class="key">El rozamiento estático se ajusta hasta un máximo; el cinético se modela con valor aproximadamente constante.</div>
-  </div>
-  <figure><img src="assets/tikz/rozamiento.svg" alt="Rozamiento"><figcaption>Rozamiento en el contacto.</figcaption></figure>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">18/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>7.4 Diagrama de cuerpo libre</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two"><div><ul class="bullets"><li>El diagrama de cuerpo libre es una herramienta central de toda la unidad.</li><li>El procedimiento recomendable es: primero aislar el cuerpo; segundo, reemplazar cada interacción con el entorno por la fuerza correspondiente; tercero, elegir ejes convenientes; y cuarto, recién entonces plantear ecuaciones.</li><li>En el diagrama no se dibuja el movimiento, se dibujan fuerzas.</li></ul></div><figure><img src="assets/tikz/cuerpo_libre_cinta.svg"/></figure></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>18/59</span></div>
 </section>
-
 <section class="slide" id="s19">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>Simulación: rozamiento y pérdida de adherencia</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="two-col">
-  <div class="sim-box" data-sim="fric">
-    <h3>Rozamiento en cinta</h3>
-    <label>Masa <input id="fricM" type="range" min="1" max="20" step="1" value="5"><span></span></label>
-    <label>\(\mu_s\) <input id="fricMus" type="range" min="0.1" max="1" step="0.05" value="0.5"><span></span></label>
-    <label>\(\mu_k\) <input id="fricMuk" type="range" min="0.05" max="0.8" step="0.05" value="0.3"><span></span></label>
-    <label>Fuerza requerida <input id="fricF" type="range" min="0" max="80" step="2" value="20"><span></span></label>
-    <div class="sim-out" id="fricOut"></div>
-  </div>
-  <div class="card"><h3>Lectura didáctica</h3><p>Mientras la fuerza requerida sea menor que \(f_{s,\max}\), no hay deslizamiento. Si se supera ese límite, aparece deslizamiento y el modelo cambia.</p></div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">19/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>8. Componentes, fuerza neta y equilibrio traslacional</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="grid3"><div class="card"><h3>Fuerza neta</h3><div class="formula small">\[\vec F_{\mathrm{net}}=\sum\vec F\]</div></div><div class="card"><h3>Componentes</h3><div class="formula small">\[F_x=F\cos\theta\quad F_y=F\sin\theta\]</div></div><div class="card"><h3>Equilibrio</h3><div class="formula small">\[\sum F_x=0\quad \sum F_y=0\]</div></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>19/59</span></div>
 </section>
-
 <section class="slide" id="s20">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>Plano inclinado: componentes del peso</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="media-two">
-  <div>
-    <div class="formula">\[P_\parallel=mg\sin\theta\qquad P_\perp=mg\cos\theta\]</div>
-    <div class="formula small">\[N=mg\cos\theta\]</div>
-    <p>Los ejes se eligen paralelos y perpendiculares al plano para simplificar el problema.</p>
-  </div>
-  <figure><img src="assets/tikz/plano_inclinado.svg" alt="Plano inclinado"><figcaption>DCL en un plano inclinado.</figcaption></figure>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">20/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>9. Rozamiento</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two"><div><div class="formula">\[f_s\leq \mu_sN\qquad f_k=\mu_kN\]</div><p class="big">El rozamiento estático se ajusta hasta un máximo; el cinético se modela con un valor aproximadamente constante.</p></div><figure><img src="assets/tikz/rozamiento.svg"/></figure></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>20/59</span></div>
 </section>
-
 <section class="slide" id="s21">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>Simulación: plano inclinado con rozamiento</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="two-col">
-  <div class="sim-box" data-sim="plane">
-    <h3>Plano inclinado</h3>
-    <label>Ángulo \(\theta\) <input id="plTheta" type="range" min="0" max="45" step="1" value="25"><span></span></label>
-    <label>Coeficiente \(\mu_k\) <input id="plMu" type="range" min="0" max="0.8" step="0.02" value="0.15"><span></span></label>
-    <div class="sim-out" id="plOut"></div>
-  </div>
-  <div class="card"><h3>Modelo usado</h3><div class="formula small">\[a=g(\sin\theta-\mu_k\cos\theta)\]</div><p>Si el resultado es negativo, el deslizamiento no se inicia bajo esa hipótesis.</p></div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">21/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>Simulación: rozamiento y pérdida de adherencia</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>En esta simulación conviene observar cómo responde el rozamiento estático a medida que aumenta la fuerza aplicada.</p></div><div class="card"><p>Mientras el bloque permanece en reposo relativo, el rozamiento se ajusta y compensa la fuerza aplicada.</p></div><div class="card"><p>Por eso, si la fuerza aplicada vale diez newtons, el rozamiento estático puede valer diez newtons aunque su valor máximo sea mucho mayor.</p></div><div class="card"><p>Recién cuando la fuerza requerida supera el límite mu estático por N se pierde la adherencia.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>21/59</span></div>
 </section>
-
 <section class="slide" id="s22">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>10. Dinámica del movimiento circular</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="grid-3">
-  <div class="card"><h3>Fuerza neta radial</h3><div class="formula small">\[\sum F_r=ma_c\]</div></div>
-  <div class="card"><h3>Aceleración centrípeta</h3><div class="formula small">\[a_c=\frac{v^2}{r}=\omega^2 r\]</div></div>
-  <div class="card"><h3>No es una fuerza nueva</h3><p>La fuerza centrípeta es la resultante radial de fuerzas reales.</p></div>
-</div>
-<div class="note">En una mesa giratoria, la adherencia depende de que el rozamiento máximo pueda aportar la fuerza radial necesaria.</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">22/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>Plano inclinado: componentes del peso</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two"><div><div class="formula">\[P_{\parallel}=mg\sin\theta\qquad P_{\perp}=mg\cos\theta\]</div><div class="formula small">\[N=mg\cos\theta\]</div><p>Los ejes se eligen paralelos y perpendiculares al plano.</p></div><figure><img src="assets/tikz/plano_inclinado.svg"/></figure></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>22/59</span></div>
 </section>
-
 <section class="slide" id="s23">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>Casos de dinámica circular</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="grid-3 imgs">
-  <figure><img src="assets/tikz/peralte_dcl.svg" alt="Peralte"><figcaption>Curva peraltada</figcaption></figure>
-  <figure><img src="assets/tikz/pendulo_conico_dcl.svg" alt="Péndulo cónico"><figcaption>Péndulo cónico</figcaption></figure>
-  <figure><img src="assets/tikz/circular_vertical_dcl.svg" alt="Circular vertical"><figcaption>Circular vertical</figcaption></figure>
-</div>
-<div class="key">La ecuación radial cambia según el caso, pero la lógica es la misma: proyectar fuerzas reales hacia el centro.</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">23/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>Simulación: plano inclinado con rozamiento</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>Esta simulación combina plano inclinado y rozamiento.</p></div><div class="card"><p>El ángulo controla cuánto del peso queda proyectado en la dirección del plano, mientras que el coeficiente de rozamiento determina la resistencia al deslizamiento.</p></div><div class="card"><p>A medida que aumenta el ángulo, crece la componente del peso que impulsa el movimiento y disminuye la componente normal.</p></div><div class="card"><p>Por eso una rampa más inclinada puede favorecer el desplazamiento del producto.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>23/59</span></div>
 </section>
-
 <section class="slide" id="s24">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>Simulación: fuerza centrípeta y adherencia</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="two-col">
-  <div class="sim-box" data-sim="cent">
-    <h3>Envase en mesa giratoria</h3>
-    <label>Masa <input id="centM" type="range" min="0.5" max="10" step="0.5" value="2"><span></span></label>
-    <label>Radio <input id="centR" type="range" min="0.1" max="1.5" step="0.05" value="0.5"><span></span></label>
-    <label>Velocidad \(v\) <input id="centV" type="range" min="0" max="5" step="0.1" value="1.5"><span></span></label>
-    <label>\(\mu_s\) <input id="centMu" type="range" min="0.1" max="1" step="0.05" value="0.4"><span></span></label>
-    <div class="sim-out" id="centOut"></div>
-  </div>
-  <div class="card"><h3>Criterio</h3><div class="formula small">\[F_c=m\frac{v^2}{r}\qquad f_{s,\max}=\mu_s m g\]</div><p>Si \(F_c>f_{s,\max}\), el envase desliza.</p></div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">24/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>10. Dinámica del movimiento circular</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="grid3"><div class="card"><h3>Radial</h3><div class="formula small">\[\sum F_r=ma_c\]</div></div><div class="card"><h3>Centrípeta</h3><div class="formula small">\[a_c=\frac{v^2}{r}=\omega^2r\]</div></div><div class="card"><h3>Clave</h3><p>La fuerza centrípeta no es una fuerza nueva: es la resultante radial de fuerzas reales.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>24/59</span></div>
 </section>
-
 <section class="slide" id="s25">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>11. Elasticidad y ley de Hooke</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="two-col">
-  <div>
-    <div class="formula">\[F_e=-kx\]</div>
-    <p>Dentro del rango elástico lineal, la fuerza recuperadora es proporcional a la deformación.</p>
-    <div class="key">El signo negativo indica que la fuerza apunta hacia la posición de equilibrio.</div>
-  </div>
-  <div class="sim-box" data-sim="hooke">
-    <h3>Fuerza elástica</h3>
-    <label>Rigidez \(k\) <input id="hkK" type="range" min="10" max="500" step="10" value="120"><span></span></label>
-    <label>Deformación \(x\) <input id="hkX" type="range" min="-0.2" max="0.2" step="0.01" value="0.08"><span></span></label>
-    <div class="sim-out" id="hkOut"></div>
-  </div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">25/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>Casos de dinámica circular</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two"><div><ul class="bullets"><li>Los distintos ejemplos de movimiento circular cambian de aspecto, pero comparten la misma estructura física.</li><li>En una curva peraltada intervienen normal, peso y eventualmente rozamiento.</li><li>En un péndulo cónico, la componente horizontal de la tensión aporta la resultante radial.</li></ul></div><figure><img src="assets/tikz/peralte_dcl.svg"/></figure></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>25/59</span></div>
 </section>
-
 <section class="slide" id="s26">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>11.2 Aplicaciones de Hooke en alimentos</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="grid-4">
-  <div class="card"><h3>Soportes antivibratorios</h3><p>Reducen transmisión de vibraciones.</p></div>
-  <div class="card"><h3>Celdas de carga</h3><p>Relacionan deformación y medición de peso.</p></div>
-  <div class="card"><h3>Alimentadores vibratorios</h3><p>Combinan elasticidad y oscilación.</p></div>
-  <div class="card"><h3>Envases</h3><p>Compresión dentro de límites elásticos.</p></div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">26/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>Simulación: fuerza centrípeta y adherencia</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>Esta simulación representa un envase sobre una mesa giratoria.</p></div><div class="card"><p>Para que el envase acompañe la rotación sin deslizar, el rozamiento estático debe proporcionar la fuerza centrípeta necesaria.</p></div><div class="card"><p>Esa fuerza requerida crece con la masa, aumenta con el cuadrado de la velocidad y disminuye cuando aumenta el radio para una misma velocidad lineal.</p></div><div class="card"><p>Por otro lado, el máximo rozamiento estático depende de la normal y del coeficiente de adherencia.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>26/59</span></div>
 </section>
-
 <section class="slide" id="s27">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>12. Dinámica del movimiento armónico simple</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="two-col">
-  <div>
-    <div class="formula">\[a=-\omega^2x\]</div>
-    <div class="formula small">\[\sum F=-kx=m a\]</div>
-    <p>El MAS aparece cuando la aceleración es proporcional y opuesta a la elongación.</p>
-  </div>
-  <div class="card"><h3>Lectura dinámica</h3><ul><li>En \(x=0\): equilibrio y rapidez máxima.</li><li>En \(x=\pm A\): velocidad instantánea nula y aceleración máxima.</li></ul></div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">27/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>11. Elasticidad y ley de Hooke</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two"><div><div class="formula">\[F_e=-kx\]</div><p class="big">Dentro del rango elástico lineal, la fuerza recuperadora es proporcional a la deformación.</p></div><div class="sim-card"><h3>Aplicaciones</h3><p>Soportes antivibratorios, celdas de carga, alimentadores vibratorios y envases sometidos a compresión.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>27/59</span></div>
 </section>
-
 <section class="slide" id="s28">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>12.1 Resorte ideal: frecuencia natural</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="two-col">
-  <div>
-    <div class="formula">\[\omega_0=\sqrt{\frac{k}{m}}\qquad T=2\pi\sqrt{\frac{m}{k}}\]</div>
-    <p>A mayor rigidez, mayor frecuencia natural. A mayor masa, menor frecuencia natural.</p>
-  </div>
-  <div class="card emphasis"><h3>Interpretación industrial</h3><p>La relación entre masa, rigidez y frecuencia ayuda a analizar vibraciones en soportes, zarandas, alimentadores y estructuras.</p></div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">28/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>11.2 Aplicaciones de Hooke en alimentos</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>La elasticidad aparece en muchos sistemas industriales aunque no veamos un resorte convencional.</p></div><div class="card"><p>Los soportes antivibratorios se deforman para aislar vibraciones.</p></div><div class="card"><p>Las celdas de carga convierten pequeñas deformaciones en señales que permiten estimar fuerzas o pesos.</p></div><div class="card"><p>Los alimentadores vibratorios combinan rigidez y masa para producir oscilaciones controladas.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>28/59</span></div>
 </section>
-
 <section class="slide" id="s29">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>12.2 Péndulo, amortiguamiento y resonancia</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="grid-3">
-  <div class="card"><h3>Péndulo simple</h3><div class="formula small">\[\omega_0=\sqrt{\frac{g}{L}}\]</div><p>Válido para ángulos pequeños en radianes.</p></div>
-  <div class="card"><h3>Amortiguamiento</h3><p>La amplitud disminuye por disipación de energía.</p></div>
-  <div class="card"><h3>Resonancia</h3><p>La respuesta crece cuando la excitación se acerca a la frecuencia natural.</p></div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">29/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>12. Dinámica del movimiento armónico simple</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two"><div><div class="formula">\[a=-\omega^2x\]</div><div class="formula small">\[\sum F=-kx=ma\]</div><p>El MAS aparece cuando la aceleración es proporcional y opuesta a la elongación.</p></div><div class="card"><h3>Lectura dinámica</h3><ul><li>En \(x=0\): rapidez máxima.</li><li>En \(x=\pm A\): aceleración máxima.</li></ul></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>29/59</span></div>
 </section>
-
 <section class="slide" id="s30">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>13. Cantidad de movimiento lineal e impulso</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="media-two">
-  <div>
-    <div class="formula">\[\vec p=m\vec v\]</div>
-    <div class="formula small">\[\vec J=\int \vec F\,dt=\Delta \vec p\]</div>
-    <p>La cantidad de movimiento permite analizar choques, impactos y cambios bruscos de velocidad.</p>
-  </div>
-  <figure><img src="assets/tikz/momento_lineal.svg" alt="Momento lineal"><figcaption>Momento lineal: masa por velocidad.</figcaption></figure>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">30/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>12.1 Resorte ideal: frecuencia natural</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two"><div><div class="formula">\[\omega_0=\sqrt{\frac{k}{m}}\qquad T=2\pi\sqrt{\frac{m}{k}}\]</div><p>A mayor rigidez, mayor frecuencia natural. A mayor masa, menor frecuencia natural.</p></div><div class="card emphasis"><h3>Aplicación</h3><p>Vibraciones en soportes, zarandas, alimentadores y estructuras.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>30/59</span></div>
 </section>
-
 <section class="slide" id="s31">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>13.2 Centro de masa</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="two-col">
-  <div>
-    <p class="big">El centro de masa permite describir el movimiento global de un sistema de partículas.</p>
-    <div class="formula">\[\vec v_{CM}=\frac{\sum m_i\vec v_i}{\sum m_i}\]</div>
-  </div>
-  <div class="card"><h3>Uso técnico</h3><p>Ayuda a simplificar cargas distribuidas, conjuntos de piezas, recipientes parcialmente llenos y cuerpos con masa extendida.</p></div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">31/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>12.2 Péndulo, amortiguamiento y resonancia</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="grid3"><div class="card"><h3>Péndulo</h3><div class="formula small">\[\omega_0=\sqrt{\frac{g}{L}}\]</div><p>Válido para ángulos pequeños en radianes.</p></div><div class="card"><h3>Amortiguamiento</h3><p>La amplitud disminuye por disipación.</p></div><div class="card"><h3>Resonancia</h3><p>La respuesta crece cerca de la frecuencia natural.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>31/59</span></div>
 </section>
-
 <section class="slide" id="s32">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>14. Sistemas de partículas y cuerpo rígido</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="media-two">
-  <div>
-    <div class="grid-mini"><div><b>Partícula</b><span>traslación</span></div><div><b>Sistema de partículas</b><span>fuerzas internas y externas</span></div><div><b>Cuerpo rígido</b><span>traslación y rotación</span></div></div>
-    <div class="key">La elección del modelo depende de la pregunta física.</div>
-  </div>
-  <figure><img src="assets/tikz/sistema_particulas_cuerpo_rigido.svg" alt="Sistema y cuerpo rígido"><figcaption>Diferencia entre partícula, sistema y cuerpo rígido.</figcaption></figure>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">32/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>13. Cantidad de movimiento lineal e impulso</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two"><div><div class="formula">\[\vec p=m\vec v\]</div><div class="formula small">\[\vec J=\int \vec F\,dt=\Delta\vec p\]</div><p>Cantidad de movimiento e impulso permiten analizar impactos y cambios bruscos de velocidad.</p></div><figure><img src="assets/tikz/momento_lineal.svg"/></figure></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>32/59</span></div>
 </section>
-
 <section class="slide" id="s33">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>15. Torque: tendencia al giro</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="media-two">
-  <div>
-    <div class="formula">\[\tau=rF\sin\theta\]</div>
-    <p>El torque aumenta con la fuerza, con la distancia al eje y con el brazo perpendicular.</p>
-    <div class="key">Una misma fuerza produce mayor efecto de giro si se aplica más lejos del eje.</div>
-  </div>
-  <figure><img src="assets/tikz/torque.svg" alt="Torque"><figcaption>Torque y brazo de palanca.</figcaption></figure>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">33/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>13.2 Centro de masa</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>Cuando trabajamos con un conjunto de partículas o con un cuerpo extendido, el centro de masa permite describir el movimiento global del sistema.</p></div><div class="card"><p>Su posición es un promedio ponderado por las masas y su velocidad se obtiene de la misma manera a partir de las velocidades de las partículas.</p></div><div class="card"><p>Desde el punto de vista dinámico, el centro de masa se mueve como si toda la masa del sistema estuviera concentrada allí y actuara sobre ella la fuerza externa neta.</p></div><div class="card"><p>Esta idea simplifica muchos problemas.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>33/59</span></div>
 </section>
-
 <section class="slide" id="s34">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>Simulación: torque</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="two-col">
-  <div class="sim-box" data-sim="torque">
-    <h3>Momento de fuerza</h3>
-    <label>Fuerza <input id="tqF" type="range" min="0" max="100" step="5" value="45"><span></span></label>
-    <label>Distancia \(r\) <input id="tqR" type="range" min="0.1" max="1.2" step="0.05" value="0.6"><span></span></label>
-    <label>Ángulo \(\theta\) <input id="tqA" type="range" min="0" max="180" step="5" value="90"><span></span></label>
-    <div class="sim-out" id="tqOut"></div>
-  </div>
-  <figure><img src="assets/tikz/mezclador_torque.svg" alt="Mezclador torque"><figcaption>Torque en una paleta de mezclador.</figcaption></figure>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">34/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>14. Sistemas de partículas y cuerpo rígido</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two"><div><ul class="bullets"><li>Hasta aquí muchas veces representamos los cuerpos como partículas, pero un objeto real puede tener extensión y puede rotar.</li><li>Un sistema de partículas está formado por varios elementos que pueden moverse entre sí; un cuerpo rígido es un modelo ideal en el que las distancias entre sus puntos permanecen constantes.</li><li>Esta diferencia determina qué magnitudes necesitamos.</li></ul></div><figure><img src="assets/tikz/sistema_particulas_cuerpo_rigido.svg"/></figure></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>34/59</span></div>
 </section>
-
 <section class="slide" id="s35">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>15.1 Momento de inercia y momento angular</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="grid-3">
-  <div class="card"><h3>Momento de inercia</h3><p>Depende de cómo se distribuye la masa respecto del eje.</p></div>
-  <div class="card"><h3>Momento angular</h3><div class="formula small">\[\vec L=\vec r\times \vec p\]</div></div>
-  <div class="card"><h3>Conservación</h3><p>Si el torque externo neto es nulo, el momento angular se conserva.</p></div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">35/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>15. Torque: tendencia al giro</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two"><div><div class="formula">\[\tau=rF\sin\theta\]</div><p class="big">El torque aumenta con la fuerza, con la distancia al eje y con el brazo perpendicular.</p></div><figure><img src="assets/tikz/torque.svg"/></figure></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>35/59</span></div>
 </section>
-
 <section class="slide" id="s36">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>15.5 Aplicaciones en equipos alimentarios</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="grid-3">
-  <div class="card"><h3>Mezcladores</h3><p>Torque resistente, viscosidad, selección de motor.</p></div>
-  <div class="card"><h3>Centrífugas</h3><p>Alta velocidad angular, balanceo y vibraciones.</p></div>
-  <div class="card"><h3>Rodillos y tambores</h3><p>Momento de inercia, aceleración angular y carga.</p></div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">36/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>Simulación: torque</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two"><div><ul class="bullets"><li>En esta simulación podemos explorar cómo cambia el torque al modificar fuerza, distancia y ángulo.</li><li>Si la fuerza es perpendicular al brazo, el seno del ángulo vale uno y el torque es máximo para esos valores de fuerza y distancia.</li><li>Si la fuerza apunta directamente hacia el eje o se aleja de él sobre la misma línea, el torque se hace cero.</li></ul></div><figure><img src="assets/tikz/mezclador_torque.svg"/></figure></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>36/59</span></div>
 </section>
-
 <section class="slide" id="s37">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>16. Equilibrio rotacional y equilibrio completo</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="media-two">
-  <div>
-    <div class="formula">\[\sum F_x=0\qquad \sum F_y=0\qquad \sum \tau=0\]</div>
-    <p>Un cuerpo rígido está en equilibrio completo si no acelera lineal ni angularmente.</p>
-  </div>
-  <figure><img src="assets/tikz/equilibrio_rotacional.svg" alt="Equilibrio rotacional"><figcaption>Torques opuestos: \(F_1r_1=F_2r_2\).</figcaption></figure>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">37/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>15.1 Momento de inercia y momento angular</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>El momento de inercia cumple en rotación un papel análogo al de la masa en traslación: mide la resistencia del cuerpo a cambiar su velocidad angular.</p></div><div class="card"><p>Pero, a diferencia de la masa, depende de cómo está distribuida la materia respecto del eje.</p></div><div class="card"><p>Alejar masa del eje aumenta el momento de inercia.</p></div><div class="card"><p>El momento angular, por su parte, es una magnitud asociada al estado de rotación y puede expresarse para una partícula mediante el producto vectorial entre posición y momento lineal.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>37/59</span></div>
 </section>
-
 <section class="slide" id="s38">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>Simulación: equilibrio rotacional</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="two-col">
-  <div class="sim-box" data-sim="equil">
-    <h3>Tapa o barra en equilibrio</h3>
-    <label>Peso carga <input id="eqP" type="range" min="20" max="200" step="10" value="80"><span></span></label>
-    <label>Distancia carga <input id="eqRp" type="range" min="0.1" max="1" step="0.05" value="0.3"><span></span></label>
-    <label>Distancia sostén <input id="eqRf" type="range" min="0.2" max="1.2" step="0.05" value="0.6"><span></span></label>
-    <div class="sim-out" id="eqOut"></div>
-  </div>
-  <div class="card"><h3>Condición usada</h3><div class="formula small">\[F\,r_F=P\,r_P\]</div><p>A mayor brazo de sostén, menor fuerza necesaria.</p></div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">38/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>15.5 Aplicaciones en equipos alimentarios</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>En equipos alimentarios aparecen continuamente magnitudes rotacionales.</p></div><div class="card"><p>En un mezclador interesa el torque motor necesario para vencer la resistencia del producto.</p></div><div class="card"><p>En una centrífuga, la distribución de masa y la velocidad angular influyen fuertemente en las cargas mecánicas y en las vibraciones.</p></div><div class="card"><p>En rodillos y tambores, el momento de inercia condiciona cuánto torque hace falta para acelerar o frenar el sistema.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>38/59</span></div>
 </section>
-
 <section class="slide" id="s39">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>17. Aplicaciones industriales alimentarias</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><table class="data-table">
-<tr><th>Sistema</th><th>Fuerzas o torques</th><th>Impacto</th></tr>
-<tr><td>Cinta transportadora</td><td>Peso, normal, rozamiento, fuerza motriz</td><td>Estabilidad y sincronización</td></tr>
-<tr><td>Rampa o tolva</td><td>Peso, normal, rozamiento</td><td>Flujo estable y prevención de atascos</td></tr>
-<tr><td>Mezclador</td><td>Torque motor y fuerzas resistentes</td><td>Homogeneidad y seguridad</td></tr>
-<tr><td>Tapa o compuerta</td><td>Peso, bisagra y fuerza de sostén</td><td>Ergonomía y prevención de accidentes</td></tr>
-<tr><td>Soportes vibratorios</td><td>Fuerza elástica y amortiguamiento</td><td>Reducción de vibraciones</td></tr>
-</table></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">39/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>16. Equilibrio rotacional y equilibrio completo</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two"><div><div class="formula">\[\sum F_x=0\qquad \sum F_y=0\qquad \sum \tau=0\]</div><p>Un cuerpo rígido está en equilibrio completo si no acelera lineal ni angularmente.</p></div><figure><img src="assets/tikz/equilibrio_rotacional.svg"/></figure></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>39/59</span></div>
 </section>
-
 <section class="slide" id="s40">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>18. Ejemplos resueltos: traslación</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="grid-3">
-  <div class="card"><h3>1. Producto sobre cinta</h3><p>\(m=2.0\,kg\), velocidad constante.</p><div class="formula small">\[N=mg=19.6\,N\]</div></div>
-  <div class="card"><h3>2. Arranque con rozamiento</h3><p>\(m=3.0\,kg\), \(a=1.2\,m/s^2\), \(\mu_s=0.50\).</p><div class="formula small">\[F=ma=3.6\,\mathrm{N}\lt 14.7\,\mathrm{N}\]</div></div>
-  <div class="card"><h3>3. Rampa sin rozamiento</h3><p>\(m=1.5\,kg\), \(\theta=25^\circ\).</p><div class="formula small">\[a=g\sin25^\circ\]</div></div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">40/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>Simulación: equilibrio rotacional</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>Esta simulación representa una barra o tapa en equilibrio rotacional.</p></div><div class="card"><p>Una carga produce un torque que debe ser compensado por la fuerza de sostén.</p></div><div class="card"><p>La condición básica es que los torques horarios y antihorarios tengan igual magnitud.</p></div><div class="card"><p>Si aumentamos la distancia de aplicación de la fuerza de sostén respecto del eje, la fuerza necesaria disminuye.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>40/59</span></div>
 </section>
-
 <section class="slide" id="s41">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>18. Ejemplos resueltos: tensión y torque</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="grid-3">
-  <div class="card"><h3>4. Tensión en soporte</h3><p>Tolva de \(12\,kg\).</p><div class="formula small">\[T=mg=117.7\,N\]</div></div>
-  <div class="card"><h3>5. Torque en paleta</h3><p>\(r=0.18\,m\), \(F=35\,N\).</p><div class="formula small">\[\tau=rF=6.3\,N\,m\]</div></div>
-  <div class="card"><h3>6. Tapa en equilibrio</h3><p>Peso \(80\,N\) a \(0.30\,m\); sostén a \(0.60\,m\).</p><div class="formula small">\[F=40\,N\]</div></div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">41/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>17. Aplicaciones industriales alimentarias</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="table-wrap"><ul class="bullets"><li>La tabla reúne varias aplicaciones y permite ver que los mismos principios aparecen en equipos muy distintos.</li><li>En una cinta transportadora dominan peso, normal, rozamiento y fuerza motriz.</li><li>En una rampa importan las componentes del peso y el rozamiento.</li><li>En un mezclador, el torque motor debe equilibrar o superar los torques resistentes.</li><li>En una tapa o compuerta, las fuerzas y sus brazos determinan el esfuerzo de apertura.</li></ul></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>41/59</span></div>
 </section>
-
 <section class="slide" id="s42">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>19. Interpretación de diagramas</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="steps-wide">
-  <div><b>1</b>Definir el cuerpo</div><div><b>2</b>Aislarlo</div><div><b>3</b>Dibujar fuerzas externas</div><div><b>4</b>Elegir ejes</div><div><b>5</b>Descomponer</div><div><b>6</b>Plantear ecuaciones</div>
-</div>
-<div class="warnbox"><b>Advertencia:</b> acción y reacción no se dibujan como fuerzas que se cancelan en el mismo cuerpo, porque actúan sobre cuerpos distintos.</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">42/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>18. Ejemplos resueltos: traslación</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>En estos ejemplos de traslación conviene fijarse más en el procedimiento que en el resultado numérico.</p></div><div class="card"><p>En el producto que se mueve con velocidad constante, la aceleración es cero y las fuerzas se equilibran; verticalmente, normal y peso tienen igual módulo porque no hay otras fuerzas en esa dirección.</p></div><div class="card"><p>En el arranque con rozamiento, primero calculamos la fuerza necesaria para producir la aceleración y luego la comparamos con el máximo rozamiento estático disponible.</p></div><div class="card"><p>Esa comparación decide si el producto acompaña a la cinta o desliza.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>42/59</span></div>
 </section>
-
 <section class="slide" id="s43">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>20. Errores frecuentes</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="grid-5 compact">
-  <div class="card warn"><h3>Masa y peso</h3><p>Confundir kg con N.</p></div>
-  <div class="card warn"><h3>Normal</h3><p>Suponer siempre \(N=mg\).</p></div>
-  <div class="card warn"><h3>Rozamiento estático</h3><p>Usar \(f_s=\mu_sN\) cuando corresponde \(f_s\leq\mu_sN\).</p></div>
-  <div class="card warn"><h3>Torque</h3><p>Olvidar el brazo perpendicular o \(\sin\theta\).</p></div>
-  <div class="card warn"><h3>Equilibrio</h3><p>Creer que \(\sum F=0\) garantiza \(\sum \tau=0\).</p></div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">43/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>18. Ejemplos resueltos: tensión y torque</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>Los ejemplos de tensión y torque amplían el análisis.</p></div><div class="card"><p>Una tolva suspendida y en reposo tiene tensión igual al peso sólo bajo una configuración vertical simple y sin aceleración.</p></div><div class="card"><p>En la paleta de mezclador, el torque se obtiene multiplicando fuerza por el brazo perpendicular cuando la fuerza es perpendicular al radio.</p></div><div class="card"><p>En la tapa en equilibrio aparece una idea especialmente útil: no es necesario aplicar una fuerza tan grande como el peso si se dispone de un brazo de palanca mayor.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>43/59</span></div>
 </section>
-
 <section class="slide" id="s44">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>21. Preguntas conceptuales para discusión</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="question-grid">
-  <div>¿Qué fuerzas actúan sobre un producto en una cinta?</div>
-  <div>¿Cuál es la diferencia entre masa y peso?</div>
-  <div>¿Puede un cuerpo moverse con velocidad constante si actúan fuerzas?</div>
-  <div>¿Por qué acción y reacción no se cancelan?</div>
-  <div>¿Cuándo el rozamiento es útil?</div>
-  <div>¿Qué diferencia hay entre fuerza y torque?</div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">44/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>19. Interpretación de diagramas</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>Interpretar un diagrama de cuerpo libre significa poder reconstruir la situación física a partir de las flechas.</p></div><div class="card"><p>Primero debemos saber qué cuerpo está aislado.</p></div><div class="card"><p>Luego, para cada fuerza, identificar quién la ejerce.</p></div><div class="card"><p>Después elegimos ejes y signos, y recién entonces proyectamos las fuerzas.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>44/59</span></div>
 </section>
-
 <section class="slide" id="s45">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>22. Ejercicios numéricos propuestos</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><table class="data-table smalltxt">
-<tr><th>#</th><th>Situación</th><th>Dato central</th><th>Respuesta orientativa</th></tr>
-<tr><td>1</td><td>Peso de caja</td><td>\(m=8\,kg\)</td><td>\(P\approx78.5\,N\)</td></tr>
-<tr><td>2</td><td>Fuerza neta</td><td>\(m=12\,kg, a=0.5\,m/s^2\)</td><td>\(F=6\,N\)</td></tr>
-<tr><td>4</td><td>Rozamiento máximo</td><td>\(m=5\,kg, \mu_s=0.4\)</td><td>\(19.6\,N\)</td></tr>
-<tr><td>6</td><td>Plano sin rozamiento</td><td>\(\theta=30^\circ\)</td><td>\(a=4.9\,m/s^2\)</td></tr>
-<tr><td>9</td><td>Torque</td><td>\(r=0.25\,m, F=40\,N\)</td><td>\(10\,N\,m\)</td></tr>
-</table></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">45/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>20. Errores frecuentes</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>Esta diapositiva reúne errores que conviene convertir en una lista de control.</p></div><div class="card"><p>Masa y peso no son lo mismo: kilogramos y newtons representan magnitudes distintas.</p></div><div class="card"><p>La normal no es siempre igual al peso; depende de la geometría y de otras fuerzas.</p></div><div class="card"><p>El rozamiento estático no se reemplaza automáticamente por mu estático por N, porque ése es sólo su valor máximo.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>45/59</span></div>
 </section>
-
 <section class="slide" id="s46">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>23. Simuladores interactivos de la unidad</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="grid-5 compact">
-  <div class="card"><h3>1. Newton</h3><p>Masa, fuerza aplicada y resistencia.</p></div>
-  <div class="card"><h3>2. Rozamiento</h3><p>Adherencia o deslizamiento.</p></div>
-  <div class="card"><h3>3. Plano inclinado</h3><p>Ángulo, rozamiento y aceleración.</p></div>
-  <div class="card"><h3>4. Torque</h3><p>Fuerza, radio y ángulo.</p></div>
-  <div class="card"><h3>5. Equilibrio</h3><p>Fuerza de sostén y brazos.</p></div>
-</div>
-<div class="note"><b>Uso recomendado:</b> predecir primero, ajustar parámetros después y finalmente contrastar con el resultado.</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">46/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>21. Preguntas conceptuales para discusión</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>Las preguntas conceptuales están pensadas para justificar antes de calcular.</p></div><div class="card"><p>Por ejemplo, un cuerpo puede moverse con velocidad constante aunque actúen varias fuerzas, siempre que su resultante sea cero.</p></div><div class="card"><p>Acción y reacción no se cancelan porque actúan sobre cuerpos distintos.</p></div><div class="card"><p>El rozamiento puede ser útil si transmite movimiento sin deslizamiento y perjudicial si produce desgaste o pérdida de energía.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>46/59</span></div>
 </section>
-
 <section class="slide" id="s47">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>24. Actividad práctica o simulada</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="steps-wide bigsteps">
-  <div><b>1</b>Definir sistema y referencia</div><div><b>2</b>Dibujar DCL del producto</div><div><b>3</b>Calcular peso, normal y rozamiento máximo</div><div><b>4</b>Analizar si desliza durante el arranque</div><div><b>5</b>Estimar torque en una paleta</div><div><b>6</b>Relacionar con seguridad y eficiencia</div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">47/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>22. Ejercicios numéricos propuestos</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="table-wrap"><ul class="bullets"><li>Los ejercicios numéricos propuestos cubren los modelos principales de la unidad: peso, fuerza neta, equilibrio, rozamiento, plano inclinado, tensión y torque.</li><li>La recomendación es no comenzar buscando una fórmula que contenga todos los datos.</li><li>Primero se identifica el sistema, luego se dibuja el diagrama de cuerpo libre y se eligen ejes.</li><li>Después se escribe la ecuación general correspondiente y sólo al final se reemplazan valores.</li><li>En los problemas de rozamiento hay que decidir si el cuerpo está adherido o desliza.</li></ul></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>47/59</span></div>
 </section>
-
 <section class="slide" id="s48">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>25. Actividad integradora</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="system-diagram">
-  <div>Cinta</div><span>→</span><div>Rampa</div><span>→</span><div>Tolva</div><span>→</span><div>Mezclador</div><span>→</span><div>Tapa / descarga</div>
-</div>
-<div class="card"><h3>Consigna integradora</h3><p>Identificar fuerzas, construir diagramas, calcular aceleraciones, rozamientos y torques, detectar riesgos mecánicos y justificar mejoras.</p></div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">48/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>23. Simuladores interactivos de la unidad</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>Los simuladores deben utilizarse como herramientas de exploración y contraste, no como máquinas de dar respuestas.</p></div><div class="card"><p>Una secuencia útil es: primero predecir qué ocurrirá al cambiar una variable; después modificar el control; finalmente comparar el resultado con la predicción y explicarlo con una ecuación.</p></div><div class="card"><p>En la segunda ley podemos estudiar cómo cambia la aceleración al variar masa o fuerza neta.</p></div><div class="card"><p>En rozamiento, cuándo se pierde adherencia.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>48/59</span></div>
 </section>
-
-<section class="slide imageOnly" id="s49">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>26. Infografía 1 · Fuerzas e interacciones</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="image-slide"><img src="assets/images/infografias/infografia_1_fuerzas_e_interacciones.png" alt="Infografía fuerzas e interacciones"></div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">49/57</span></div>
+<section class="slide" id="s49">
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>24. Actividad práctica o simulada</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>La actividad práctica integra transporte y mezclado para obligarnos a combinar varios conceptos.</p></div><div class="card"><p>Primero se define el sistema y el marco de referencia.</p></div><div class="card"><p>Después se construye el diagrama de cuerpo libre del producto transportado.</p></div><div class="card"><p>Con ese diagrama se calculan peso, normal, rozamiento máximo y fuerza neta durante el arranque.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>49/59</span></div>
 </section>
-
-<section class="slide imageOnly" id="s50">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>26. Infografía 2 · Newton y fuerza neta</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="image-slide"><img src="assets/images/infografias/infografia_2_leyes_de_newton_y_fuerza_neta.png" alt="Infografía leyes de Newton"></div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">50/57</span></div>
+<section class="slide" id="s50">
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>25. Actividad integradora</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>La actividad integradora propone mirar una línea completa y no fenómenos aislados.</p></div><div class="card"><p>Una cinta entrega producto a una rampa; la rampa alimenta una tolva; la tolva descarga hacia un mezclador; luego intervienen tapas o compuertas.</p></div><div class="card"><p>Cada etapa puede analizarse con los conceptos de la unidad.</p></div><div class="card"><p>En la cinta dominan aceleración y rozamiento.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>50/59</span></div>
 </section>
-
-<section class="slide imageOnly" id="s51">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>26. Infografía 3 · Diagramas y componentes</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="image-slide"><img src="assets/images/infografias/infografia_3_diagramas_y_componentes.png" alt="Infografía diagramas y componentes"></div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">51/57</span></div>
+<section class="slide" id="s51">
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>26. Infografía 1 · Fuerzas e interacciones</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="image-slide"><img src="assets/images/infografias/infografia_1_fuerzas_e_interacciones.png"/></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>51/59</span></div>
 </section>
-
-<section class="slide imageOnly" id="s52">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>26. Infografía 4 · Rozamiento</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="image-slide"><img src="assets/images/infografias/infografia_4_rozamiento.png" alt="Infografía rozamiento"></div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">52/57</span></div>
+<section class="slide" id="s52">
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>26. Infografía 2 · Newton y fuerza neta</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="image-slide"><img src="assets/images/infografias/infografia_2_leyes_de_newton_y_fuerza_neta.png"/></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>52/59</span></div>
 </section>
-
-<section class="slide imageOnly" id="s53">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>26. Infografía 5 · Torque y equilibrio rotacional</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="image-slide"><img src="assets/images/infografias/infografia_5_torque_y_equilibrio_rotacional.png" alt="Infografía torque y equilibrio"></div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">53/57</span></div>
+<section class="slide" id="s53">
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>26. Infografía 3 · Diagramas y componentes</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="image-slide"><img src="assets/images/infografias/infografia_3_diagramas_y_componentes.png"/></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>53/59</span></div>
 </section>
-
-<section class="slide imageOnly" id="s54">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>26. Infografía 6 · Hooke y MAS</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="image-slide"><img src="assets/images/infografias/infografia_6_hooke_y_mas.png" alt="Infografía Hooke y MAS"></div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">54/57</span></div>
+<section class="slide" id="s54">
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>26. Infografía 4 · Rozamiento</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="image-slide"><img src="assets/images/infografias/infografia_4_rozamiento.png"/></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>54/59</span></div>
 </section>
-
 <section class="slide" id="s55">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>27. Resumen final</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="summary-grid">
-  <div>La dinámica estudia causas del movimiento y equilibrio.</div>
-  <div>Las fuerzas son vectores y se suman por componentes.</div>
-  <div>El rozamiento puede ser útil o perjudicial.</div>
-  <div>En circular, la resultante radial sostiene \(a_c\).</div>
-  <div>Hooke modela fuerzas elásticas lineales.</div>
-  <div>El torque permite estudiar rotación y equilibrio.</div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">55/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>26. Infografía 5 · Torque y equilibrio rotacional</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="image-slide"><img src="assets/images/infografias/infografia_5_torque_y_equilibrio_rotacional.png"/></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>55/59</span></div>
 </section>
-
 <section class="slide" id="s56">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>28. Glosario breve</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><table class="data-table smalltxt">
-<tr><th>Término</th><th>Significado</th></tr>
-<tr><td>Fuerza</td><td>Interacción vectorial capaz de modificar movimiento o deformar.</td></tr>
-<tr><td>Masa</td><td>Medida de inercia.</td></tr>
-<tr><td>Peso</td><td>Fuerza gravitatoria sobre un cuerpo.</td></tr>
-<tr><td>Normal</td><td>Fuerza perpendicular de contacto.</td></tr>
-<tr><td>Rozamiento</td><td>Fuerza tangencial asociada al contacto.</td></tr>
-<tr><td>Torque</td><td>Tendencia de una fuerza a producir giro.</td></tr>
-</table></div>
-  <div class="slide-footer"><span class="src">Fuente base: Apunte Unidad 3 · Dinámica</span><span class="num">56/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>26. Infografía 6 · Hooke y MAS</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="image-slide"><img src="assets/images/infografias/infografia_6_hooke_y_mas.png"/></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>56/59</span></div>
 </section>
-
 <section class="slide" id="s57">
-  <div class="slide-top">
-    <div><div class="kicker">Física · Unidad 3</div><h2>Cierre y uso del material</h2></div>
-    <div class="unit-chip">Unidad 3</div>
-  </div>
-  <div class="slide-body"><div class="two-col">
-  <div>
-    <p class="big">Material didáctico complementario para Física aplicada a la Tecnología de Alimentos.</p>
-    <div class="note"><b>Uso:</b> apoyo para clases, actividades, simuladores y estudio autónomo.</div>
-  </div>
-  <div class="card"><h3>Fuentes de trabajo</h3><ul><li>Apunte Unidad 3 · Dinámica.</li><li>Tippens, Física: conceptos y aplicaciones.</li><li>Bibliografía general de Física universitaria.</li></ul></div>
-</div></div>
-  <div class="slide-footer"><span class="src">Fuentes: Apunte Unidad 3; Tippens; bibliografía de cátedra</span><span class="num">57/57</span></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>27. Resumen final</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>Como síntesis, la dinámica nos permite pasar de describir el movimiento a explicar sus causas.</p></div><div class="card"><p>Las fuerzas son interacciones vectoriales y su suma determina la aceleración traslacional.</p></div><div class="card"><p>El rozamiento puede transmitir movimiento o generar pérdidas.</p></div><div class="card"><p>En trayectorias circulares, una resultante radial mantiene la aceleración centrípeta.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>57/59</span></div>
 </section>
-</div>
-<nav class="controls u2-controls" aria-label="Controles de presentación">
-  <button id="menuBtn" class="ctl-btn" title="Abrir índice">☰ Índice</button>
-  <button id="prevBtn" class="ctl-btn nav-arrow" title="Diapositiva anterior">←</button>
-  <button id="nextBtn" class="ctl-btn nav-arrow" title="Diapositiva siguiente">→</button>
-  <button id="scriptBtn" class="ctl-btn" title="Mostrar u ocultar el guion">Guion</button>
-  <button id="readBtn" class="ctl-btn" title="Leer el guion">Leer</button>
-  <button id="pauseBtn" class="ctl-btn" title="Pausar o reanudar la lectura">Pausa</button>
-  <button id="stopBtn" class="ctl-btn" title="Detener la lectura">Detener</button>
-  <button id="autoBtn" class="ctl-btn" title="Avanzar automáticamente después de la lectura">Auto: OFF</button>
-  <button id="fullBtn" class="ctl-btn" title="Pantalla completa">⛶</button>
-  <span id="counter" class="slide-counter"></span>
-</nav>
-<a class="back-to-notes" href="../" title="Volver al apunte de la Unidad 3">Apunte U3</a>
-<div class="progress"><div class="bar"></div></div>
-<aside id="scriptPanel" class="script-panel" aria-hidden="true">
-  <div class="script-head">
-    <div>
-      <div class="script-kicker">Guion de exposición</div>
-      <h3 id="scriptTitle">Diapositiva</h3>
-    </div>
-    <button id="closeScriptBtn" class="script-close" title="Cerrar guion" aria-label="Cerrar guion">×</button>
-  </div>
-  <div id="scriptText" class="script-text"></div>
-  <div class="script-hint">Este texto se edita en <code>guiones.js</code> y es el mismo que utiliza la lectura por voz.</div>
-</aside>
-<aside id="menu" class="menu"><h3>Índice de la presentación</h3><button data-go="1"><b>1</b> Dinámica</button>
+<section class="slide" id="s58">
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>28. Glosario breve</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>El glosario no debe leerse sólo como una lista de definiciones, sino como un conjunto de distinciones que necesitamos manejar con precisión.</p></div><div class="card"><p>Masa no es peso; la masa mide inercia y el peso es una fuerza gravitatoria.</p></div><div class="card"><p>La normal es una fuerza de contacto perpendicular a la superficie y no tiene por qué valer siempre lo mismo que el peso.</p></div><div class="card"><p>El rozamiento actúa tangencialmente en el contacto.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>58/59</span></div>
+</section>
+<section class="slide" id="s59">
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>Cierre y uso del material</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="cards-from-guion"><div class="card"><p>Esta presentación funciona como apoyo visual y oral del apunte de la Unidad 3.</p></div><div class="card"><p>Las diapositivas resumen conceptos, ecuaciones, diagramas, simulaciones e infografías, pero el desarrollo completo y las actividades quedan en el apunte y en la bibliografía de la cátedra.</p></div><div class="card"><p>La recomendación para estudiar es no memorizar fórmulas de manera aislada.</p></div><div class="card"><p>Conviene reconstruir cada ecuación desde el sistema físico y el diagrama de cuerpo libre, identificar qué hipótesis se están utilizando y verificar las unidades y el sentido del resultado.</p></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>59/59</span></div>
+</section>
+</div><nav aria-label="Controles de presentación" class="controls"><button class="ctl-btn" id="menuBtn">☰ Índice</button><button class="ctl-btn nav-arrow" id="prevBtn">←</button><button class="ctl-btn nav-arrow" id="nextBtn">→</button><button class="ctl-btn" id="scriptBtn">Guion</button><button class="ctl-btn" id="readBtn">Leer</button><button class="ctl-btn" id="pauseBtn">Pausa</button><button class="ctl-btn" id="stopBtn">Detener</button><button class="ctl-btn" id="autoBtn">Auto: OFF</button><button class="ctl-btn" id="fullBtn">⛶</button><span class="slide-counter" id="counter"></span></nav><a class="back-to-notes" href="../" title="Volver al apunte">Apunte U3</a><div class="progress"><div class="bar"></div></div><aside aria-hidden="true" class="script-panel" id="scriptPanel"><div class="script-head"><div><div class="script-kicker">Guion de exposición</div><h3 id="scriptTitle">Diapositiva</h3></div><button class="script-close" id="closeScriptBtn">×</button></div><div class="script-text" id="scriptText"></div><div class="script-hint">El texto se edita en <code>guiones.js</code> y es el mismo que utiliza la lectura por voz.</div></aside><aside class="menu" id="menu"><h3>Índice de la presentación</h3><button data-go="1"><b>1</b> Dinámica</button>
 <button data-go="2"><b>2</b> Recorrido de la unidad</button>
 <button data-go="3"><b>3</b> 1. Introducción contextualizada</button>
 <button data-go="4"><b>4</b> 2. Objetivos de aprendizaje</button>
@@ -942,166 +550,168 @@ window.MathJax={
 <button data-go="6"><b>6</b> 4. Mapa conceptual de la unidad</button>
 <button data-go="7"><b>7</b> 5. Fuerzas e interacciones</button>
 <button data-go="8"><b>8</b> 5.1 Tipos de fuerzas frecuentes</button>
-<button data-go="9"><b>9</b> 5.2 Fuerza gravitatoria, peso y \(g\)</button>
+<button data-go="9"><b>9</b> 5.2 Fuerza gravitatoria, peso y g</button>
 <button data-go="10"><b>10</b> 6. Leyes de Newton: idea previa</button>
 <button data-go="11"><b>11</b> 6.1 Primera ley: inercia</button>
 <button data-go="12"><b>12</b> Sistemas inerciales y no inerciales</button>
-<button data-go="13"><b>13</b> 6.2 Segunda ley: fuerza neta y aceleración</button>
-<button data-go="14"><b>14</b> 6.3 Tercera ley: acción y reacción</button>
-<button data-go="15"><b>15</b> 7. Hipótesis simplificativas y modelos</button>
-<button data-go="16"><b>16</b> 7.4 Diagrama de cuerpo libre</button>
-<button data-go="17"><b>17</b> 8. Componentes, fuerza neta y equilibrio traslacional</button>
-<button data-go="18"><b>18</b> 9. Rozamiento</button>
-<button data-go="19"><b>19</b> Simulación: rozamiento y pérdida de adherencia</button>
-<button data-go="20"><b>20</b> Plano inclinado: componentes del peso</button>
-<button data-go="21"><b>21</b> Simulación: plano inclinado con rozamiento</button>
-<button data-go="22"><b>22</b> 10. Dinámica del movimiento circular</button>
-<button data-go="23"><b>23</b> Casos de dinámica circular</button>
-<button data-go="24"><b>24</b> Simulación: fuerza centrípeta y adherencia</button>
-<button data-go="25"><b>25</b> 11. Elasticidad y ley de Hooke</button>
-<button data-go="26"><b>26</b> 11.2 Aplicaciones de Hooke en alimentos</button>
-<button data-go="27"><b>27</b> 12. Dinámica del movimiento armónico simple</button>
-<button data-go="28"><b>28</b> 12.1 Resorte ideal: frecuencia natural</button>
-<button data-go="29"><b>29</b> 12.2 Péndulo, amortiguamiento y resonancia</button>
-<button data-go="30"><b>30</b> 13. Cantidad de movimiento lineal e impulso</button>
-<button data-go="31"><b>31</b> 13.2 Centro de masa</button>
-<button data-go="32"><b>32</b> 14. Sistemas de partículas y cuerpo rígido</button>
-<button data-go="33"><b>33</b> 15. Torque: tendencia al giro</button>
-<button data-go="34"><b>34</b> Simulación: torque</button>
-<button data-go="35"><b>35</b> 15.1 Momento de inercia y momento angular</button>
-<button data-go="36"><b>36</b> 15.5 Aplicaciones en equipos alimentarios</button>
-<button data-go="37"><b>37</b> 16. Equilibrio rotacional y equilibrio completo</button>
-<button data-go="38"><b>38</b> Simulación: equilibrio rotacional</button>
-<button data-go="39"><b>39</b> 17. Aplicaciones industriales alimentarias</button>
-<button data-go="40"><b>40</b> 18. Ejemplos resueltos: traslación</button>
-<button data-go="41"><b>41</b> 18. Ejemplos resueltos: tensión y torque</button>
-<button data-go="42"><b>42</b> 19. Interpretación de diagramas</button>
-<button data-go="43"><b>43</b> 20. Errores frecuentes</button>
-<button data-go="44"><b>44</b> 21. Preguntas conceptuales para discusión</button>
-<button data-go="45"><b>45</b> 22. Ejercicios numéricos propuestos</button>
-<button data-go="46"><b>46</b> 23. Simuladores interactivos de la unidad</button>
-<button data-go="47"><b>47</b> 24. Actividad práctica o simulada</button>
-<button data-go="48"><b>48</b> 25. Actividad integradora</button>
-<button data-go="49"><b>49</b> 26. Infografía 1 · Fuerzas e interacciones</button>
-<button data-go="50"><b>50</b> 26. Infografía 2 · Newton y fuerza neta</button>
-<button data-go="51"><b>51</b> 26. Infografía 3 · Diagramas y componentes</button>
-<button data-go="52"><b>52</b> 26. Infografía 4 · Rozamiento</button>
-<button data-go="53"><b>53</b> 26. Infografía 5 · Torque y equilibrio rotacional</button>
-<button data-go="54"><b>54</b> 26. Infografía 6 · Hooke y MAS</button>
-<button data-go="55"><b>55</b> 27. Resumen final</button>
-<button data-go="56"><b>56</b> 28. Glosario breve</button>
-<button data-go="57"><b>57</b> Cierre y uso del material</button></aside>
-<script src="guiones.js"></script>
-<script>
+<button data-go="13"><b>13</b> 6.1.1 Simulación: globo en un autobús que acelera</button>
+<button data-go="14"><b>14</b> 6.1.2 Simulación: trayectoria recta observada desde una plataforma giratoria</button>
+<button data-go="15"><b>15</b> 6.2 Segunda ley: fuerza neta y aceleración</button>
+<button data-go="16"><b>16</b> 6.3 Tercera ley: acción y reacción</button>
+<button data-go="17"><b>17</b> 7. Hipótesis simplificativas y modelos</button>
+<button data-go="18"><b>18</b> 7.4 Diagrama de cuerpo libre</button>
+<button data-go="19"><b>19</b> 8. Componentes, fuerza neta y equilibrio traslacional</button>
+<button data-go="20"><b>20</b> 9. Rozamiento</button>
+<button data-go="21"><b>21</b> Simulación: rozamiento y pérdida de adherencia</button>
+<button data-go="22"><b>22</b> Plano inclinado: componentes del peso</button>
+<button data-go="23"><b>23</b> Simulación: plano inclinado con rozamiento</button>
+<button data-go="24"><b>24</b> 10. Dinámica del movimiento circular</button>
+<button data-go="25"><b>25</b> Casos de dinámica circular</button>
+<button data-go="26"><b>26</b> Simulación: fuerza centrípeta y adherencia</button>
+<button data-go="27"><b>27</b> 11. Elasticidad y ley de Hooke</button>
+<button data-go="28"><b>28</b> 11.2 Aplicaciones de Hooke en alimentos</button>
+<button data-go="29"><b>29</b> 12. Dinámica del movimiento armónico simple</button>
+<button data-go="30"><b>30</b> 12.1 Resorte ideal: frecuencia natural</button>
+<button data-go="31"><b>31</b> 12.2 Péndulo, amortiguamiento y resonancia</button>
+<button data-go="32"><b>32</b> 13. Cantidad de movimiento lineal e impulso</button>
+<button data-go="33"><b>33</b> 13.2 Centro de masa</button>
+<button data-go="34"><b>34</b> 14. Sistemas de partículas y cuerpo rígido</button>
+<button data-go="35"><b>35</b> 15. Torque: tendencia al giro</button>
+<button data-go="36"><b>36</b> Simulación: torque</button>
+<button data-go="37"><b>37</b> 15.1 Momento de inercia y momento angular</button>
+<button data-go="38"><b>38</b> 15.5 Aplicaciones en equipos alimentarios</button>
+<button data-go="39"><b>39</b> 16. Equilibrio rotacional y equilibrio completo</button>
+<button data-go="40"><b>40</b> Simulación: equilibrio rotacional</button>
+<button data-go="41"><b>41</b> 17. Aplicaciones industriales alimentarias</button>
+<button data-go="42"><b>42</b> 18. Ejemplos resueltos: traslación</button>
+<button data-go="43"><b>43</b> 18. Ejemplos resueltos: tensión y torque</button>
+<button data-go="44"><b>44</b> 19. Interpretación de diagramas</button>
+<button data-go="45"><b>45</b> 20. Errores frecuentes</button>
+<button data-go="46"><b>46</b> 21. Preguntas conceptuales para discusión</button>
+<button data-go="47"><b>47</b> 22. Ejercicios numéricos propuestos</button>
+<button data-go="48"><b>48</b> 23. Simuladores interactivos de la unidad</button>
+<button data-go="49"><b>49</b> 24. Actividad práctica o simulada</button>
+<button data-go="50"><b>50</b> 25. Actividad integradora</button>
+<button data-go="51"><b>51</b> 26. Infografía 1 · Fuerzas e interacciones</button>
+<button data-go="52"><b>52</b> 26. Infografía 2 · Newton y fuerza neta</button>
+<button data-go="53"><b>53</b> 26. Infografía 3 · Diagramas y componentes</button>
+<button data-go="54"><b>54</b> 26. Infografía 4 · Rozamiento</button>
+<button data-go="55"><b>55</b> 26. Infografía 5 · Torque y equilibrio rotacional</button>
+<button data-go="56"><b>56</b> 26. Infografía 6 · Hooke y MAS</button>
+<button data-go="57"><b>57</b> 27. Resumen final</button>
+<button data-go="58"><b>58</b> 28. Glosario breve</button>
+<button data-go="59"><b>59</b> Cierre y uso del material</button>
+</aside><script>
 (function(){
-  const slides=[...document.querySelectorAll('.slide')];
-  let idx=0, speaking=false, paused=false, autoNext=false, voices=[];
-  const $=q=>document.querySelector(q);
-  const bar=$('.bar'), menu=$('#menu'), counter=$('#counter');
-  const scriptPanel=$('#scriptPanel'), scriptText=$('#scriptText'), scriptTitle=$('#scriptTitle');
-
-  function loadVoices(){
-    if(!('speechSynthesis' in window)) return [];
-    voices=window.speechSynthesis.getVoices()||[];
-    return voices;
-  }
-  function preferredVoice(){
-    const list=voices.length?voices:loadVoices();
-    return list.find(v=>/^es-AR$/i.test(v.lang)) ||
-           list.find(v=>/^es-UY$/i.test(v.lang)) ||
-           list.find(v=>/^es([_-]|$)/i.test(v.lang)) || null;
-  }
-  if('speechSynthesis' in window){loadVoices();window.speechSynthesis.onvoiceschanged=loadVoices;}
-
-  function narration(){
-    return slides[idx].dataset.narration?.trim() ||
-           window.GUIONES_U3?.[slides[idx].id]?.replace(/\s+/g,' ').trim() || '';
-  }
-  function title(){return slides[idx].querySelector('h2')?.textContent?.trim() || `Diapositiva ${idx+1}`;}
-  function updateScript(){
-    scriptTitle.textContent=`${idx+1}. ${title()}`;
-    scriptText.textContent=narration()||'Esta diapositiva no tiene guion cargado.';
-  }
-  function setRead(on){$('#readBtn').classList.toggle('active',on)}
-  function setPause(on){paused=on;$('#pauseBtn').classList.toggle('paused',on);$('#pauseBtn').textContent=on?'Reanudar':'Pausa'}
-
-  function show(i,{fromAuto=false}={}){
-    idx=Math.max(0,Math.min(slides.length-1,i));
-    slides.forEach((slide,n)=>slide.classList.toggle('active',n===idx));
-    bar.style.width=((idx+1)/slides.length*100)+'%';
-    counter.textContent=(idx+1)+' / '+slides.length;
-    const h='#'+slides[idx].id;
-    if(location.hash!==h) history.replaceState(null,'',h);
-    updateScript();
-    if(window.MathJax?.typesetPromise) MathJax.typesetPromise([slides[idx]]).catch(console.warn);
-    initSims(slides[idx]);
-    if(!fromAuto && speaking) stopSpeak();
-  }
-  function next(opts){show(idx+1,opts)}
-  function prev(){show(idx-1)}
-
-  function stopSpeak(){
-    if('speechSynthesis' in window) window.speechSynthesis.cancel();
-    speaking=false;setRead(false);setPause(false);
-  }
-  function speak(){
-    if(!('speechSynthesis' in window)){alert('Este navegador no ofrece lectura por voz.');return;}
-    const text=narration();
-    if(!text){alert('No hay un guion cargado para esta diapositiva.');return;}
-    stopSpeak();
-    const u=new SpeechSynthesisUtterance(text), voice=preferredVoice();
-    if(voice) u.voice=voice;
-    u.lang=voice?.lang||'es-AR';u.rate=.95;u.pitch=1;u.volume=1;
-    u.onstart=()=>{speaking=true;setRead(true);setPause(false)};
-    u.onpause=()=>setPause(true);u.onresume=()=>setPause(false);
-    u.onerror=e=>{if(!['interrupted','canceled'].includes(e.error))console.warn('Lectura por voz:',e.error);speaking=false;setRead(false);setPause(false)};
-    u.onend=()=>{speaking=false;setRead(false);setPause(false);if(autoNext&&idx<slides.length-1){next({fromAuto:true});setTimeout(speak,450)}};
-    speaking=true;setRead(true);window.speechSynthesis.speak(u);
-  }
-  function toggleRead(){speaking?stopSpeak():speak()}
-  function pauseResume(){
-    if(!speaking||!('speechSynthesis' in window)) return;
-    if(window.speechSynthesis.paused){window.speechSynthesis.resume();setPause(false)}
-    else{window.speechSynthesis.pause();setPause(true)}
-  }
-  function toggleAuto(){autoNext=!autoNext;$('#autoBtn').classList.toggle('active',autoNext);$('#autoBtn').textContent=autoNext?'Auto: ON':'Auto: OFF'}
-  function toggleScript(){
-    const open=!scriptPanel.classList.contains('open');scriptPanel.classList.toggle('open',open);scriptPanel.setAttribute('aria-hidden',String(!open));$('#scriptBtn').classList.toggle('active',open);updateScript();
-  }
-  async function toggleFullscreen(){
-    try{if(!document.fullscreenElement)await document.documentElement.requestFullscreen();else await document.exitFullscreen();}catch(e){console.warn('Pantalla completa:',e)}
-  }
-
-  $('#nextBtn').onclick=()=>next();$('#prevBtn').onclick=prev;$('#menuBtn').onclick=()=>menu.classList.toggle('open');
-  $('#scriptBtn').onclick=toggleScript;$('#closeScriptBtn').onclick=()=>{scriptPanel.classList.remove('open');scriptPanel.setAttribute('aria-hidden','true');$('#scriptBtn').classList.remove('active')};
-  $('#readBtn').onclick=toggleRead;$('#pauseBtn').onclick=pauseResume;$('#stopBtn').onclick=stopSpeak;$('#autoBtn').onclick=toggleAuto;$('#fullBtn').onclick=toggleFullscreen;
-  document.addEventListener('fullscreenchange',()=>$('#fullBtn').classList.toggle('active',!!document.fullscreenElement));
-  document.addEventListener('keydown',e=>{
-    const tag=document.activeElement?.tagName;if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT')return;
-    if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();next()}
-    if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev()}
-    if(e.key.toLowerCase()==='m')menu.classList.toggle('open');
-    if(e.key.toLowerCase()==='g')toggleScript();
-    if(e.key.toLowerCase()==='r')toggleRead();
-    if(e.key===' '&&speaking){e.preventDefault();pauseResume()}
-    if(e.key.toLowerCase()==='f')toggleFullscreen();
-    if(e.key==='Escape'){menu.classList.remove('open');scriptPanel.classList.remove('open');$('#scriptBtn').classList.remove('active');stopSpeak()}
-  });
-  document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{menu.classList.remove('open');show(+b.dataset.go-1)});
-
-  function val(id){return parseFloat(document.getElementById(id).value)}
-  function setLabel(el,v){el.parentElement.querySelector('span').textContent=v}
-  function initSims(root){root.querySelectorAll('.sim-box').forEach(box=>{if(box.dataset.ready)return;box.dataset.ready='1';box.querySelectorAll('input').forEach(inp=>inp.addEventListener('input',()=>updateSim(box.dataset.sim)));updateSim(box.dataset.sim)})}
-  function updateSim(kind){const g=9.8;
-    if(kind==='newton'){let m=val('newtonM'),F=val('newtonF'),R=val('newtonR');setLabel(newtonM,m+' kg');setLabel(newtonF,F+' N');setLabel(newtonR,R+' N');let fn=F-R,a=fn/m;newtonOut.innerHTML=`Fuerza neta: <b>${fn.toFixed(1)} N</b><br>Aceleración: <b>${a.toFixed(2)} m/s²</b>`}
-    if(kind==='fric'){let m=val('fricM'),mus=val('fricMus'),muk=val('fricMuk'),F=val('fricF');setLabel(fricM,m+' kg');setLabel(fricMus,mus.toFixed(2));setLabel(fricMuk,muk.toFixed(2));setLabel(fricF,F+' N');let N=m*g,fs=mus*N,fk=muk*N;let ok=F<=fs;fricOut.innerHTML=`N=${N.toFixed(1)} N · f<sub>s,max</sub>=${fs.toFixed(1)} N · f<sub>k</sub>=${fk.toFixed(1)} N<br><b>${ok?'No desliza: el rozamiento estático alcanza.':'Desliza: se supera el rozamiento estático máximo.'}</b>`}
-    if(kind==='plane'){let th=val('plTheta'),mu=val('plMu');setLabel(plTheta,th+'°');setLabel(plMu,mu.toFixed(2));let r=th*Math.PI/180;let a=g*(Math.sin(r)-mu*Math.cos(r));plOut.innerHTML=`a = ${a.toFixed(2)} m/s²<br><b>${a>0?'Desliza hacia abajo bajo el modelo planteado.':'No inicia deslizamiento bajo este modelo.'}</b>`}
-    if(kind==='cent'){let m=val('centM'),r=val('centR'),v=val('centV'),mu=val('centMu');setLabel(centM,m.toFixed(1)+' kg');setLabel(centR,r.toFixed(2)+' m');setLabel(centV,v.toFixed(1)+' m/s');setLabel(centMu,mu.toFixed(2));let Fc=m*v*v/r,fs=mu*m*g;centOut.innerHTML=`F<sub>c</sub>=${Fc.toFixed(1)} N · f<sub>s,max</sub>=${fs.toFixed(1)} N<br><b>${Fc<=fs?'Adherencia suficiente.':'Pierde adherencia: el rozamiento no alcanza.'}</b>`}
-    if(kind==='hooke'){let k=val('hkK'),x=val('hkX');setLabel(hkK,k+' N/m');setLabel(hkX,x.toFixed(2)+' m');let F=-k*x;hkOut.innerHTML=`F<sub>e</sub>= -kx = <b>${F.toFixed(1)} N</b><br>La fuerza apunta hacia el equilibrio.`}
-    if(kind==='torque'){let F=val('tqF'),r=val('tqR'),a=val('tqA');setLabel(tqF,F+' N');setLabel(tqR,r.toFixed(2)+' m');setLabel(tqA,a+'°');let tau=r*F*Math.sin(a*Math.PI/180);tqOut.innerHTML=`τ = rF senθ = <b>${tau.toFixed(2)} N·m</b>`}
-    if(kind==='equil'){let P=val('eqP'),rp=val('eqRp'),rf=val('eqRf');setLabel(eqP,P+' N');setLabel(eqRp,rp.toFixed(2)+' m');setLabel(eqRf,rf.toFixed(2)+' m');let F=P*rp/rf;eqOut.innerHTML=`F sostén = <b>${F.toFixed(1)} N</b><br>Condición: F r<sub>F</sub> = P r<sub>P</sub>`}
-  }
-  const start=location.hash.match(/^#s(\d+)$/);show(start?+start[1]-1:0);
+const slides=[...document.querySelectorAll('.slide')];let idx=0;let speaking=false;let paused=false;let autoNext=false;let voices=[];const $=s=>document.querySelector(s);const bar=$('.bar'),menu=$('#menu'),counter=$('#counter'),scriptPanel=$('#scriptPanel'),scriptText=$('#scriptText'),scriptTitle=$('#scriptTitle');
+function loadVoices(){if(!('speechSynthesis' in window))return[];voices=window.speechSynthesis.getVoices()||[];return voices}function preferredVoice(){const list=voices.length?voices:loadVoices();return list.find(v=>/^es-AR$/i.test(v.lang))||list.find(v=>/^es-(AR|UY)$/i.test(v.lang))||list.find(v=>/^es([_-]|$)/i.test(v.lang))||null}if('speechSynthesis'in window){loadVoices();speechSynthesis.onvoiceschanged=loadVoices}
+function narr(){return slides[idx].dataset.narration?.trim()||window.GUIONES_U3?.[slides[idx].id]?.replace(/\s+/g,' ').trim()||''}function title(){return slides[idx].querySelector('h2')?.textContent?.trim()||`Diapositiva ${idx+1}`}function updateScript(){scriptTitle.textContent=`${idx+1}. ${title()}`;scriptText.textContent=narr()||'Esta diapositiva no tiene un guion cargado.'}
+function show(i,{fromAuto=false}={}){idx=Math.max(0,Math.min(slides.length-1,i));slides.forEach((s,n)=>s.classList.toggle('active',n===idx));bar.style.width=((idx+1)/slides.length*100)+'%';counter.textContent=(idx+1)+' / '+slides.length;const h='#'+slides[idx].id;if(location.hash!==h)history.replaceState(null,'',h);updateScript();if(window.MathJax?.typesetPromise)MathJax.typesetPromise([slides[idx]]).catch(console.warn);if(!fromAuto&&speaking)stopSpeak()}
+function next(opts){show(idx+1,opts)}function prev(){show(idx-1)}function setRead(a){$('#readBtn').classList.toggle('active',a)}function setPause(a){$('#pauseBtn').classList.toggle('paused',a);$('#pauseBtn').textContent=a?'Reanudar':'Pausa'}
+function speak(){if(!('speechSynthesis'in window)){alert('Este navegador no ofrece lectura por voz.');return}const text=narr();if(!text){alert('No hay guion de lectura.');return}stopSpeak();const u=new SpeechSynthesisUtterance(text);const v=preferredVoice();if(v)u.voice=v;u.lang=v?.lang||'es-AR';u.rate=.95;u.pitch=1;u.onstart=()=>{speaking=true;paused=false;setRead(true);setPause(false)};u.onpause=()=>{paused=true;setPause(true)};u.onresume=()=>{paused=false;setPause(false)};u.onerror=e=>{if(!['interrupted','canceled'].includes(e.error))console.warn(e.error);speaking=false;paused=false;setRead(false);setPause(false)};u.onend=()=>{speaking=false;paused=false;setRead(false);setPause(false);if(autoNext&&idx<slides.length-1){next({fromAuto:true});setTimeout(speak,450)}};speaking=true;setRead(true);speechSynthesis.speak(u)}
+function stopSpeak(){if('speechSynthesis'in window)speechSynthesis.cancel();speaking=false;paused=false;setRead(false);setPause(false)}function pauseResume(){if(!speaking||!('speechSynthesis'in window))return;if(speechSynthesis.paused){speechSynthesis.resume();setPause(false)}else{speechSynthesis.pause();setPause(true)}}function toggleScript(){const open=!scriptPanel.classList.contains('open');scriptPanel.classList.toggle('open',open);scriptPanel.setAttribute('aria-hidden',String(!open));$('#scriptBtn').classList.toggle('active',open);updateScript()}function toggleAuto(){autoNext=!autoNext;$('#autoBtn').classList.toggle('active',autoNext);$('#autoBtn').textContent=autoNext?'Auto: ON':'Auto: OFF'}async function toggleFullscreen(){try{if(!document.fullscreenElement)await document.documentElement.requestFullscreen();else await document.exitFullscreen()}catch(e){console.warn(e)}}
+$('#nextBtn').onclick=()=>next();$('#prevBtn').onclick=prev;$('#menuBtn').onclick=()=>menu.classList.toggle('open');$('#scriptBtn').onclick=toggleScript;$('#closeScriptBtn').onclick=()=>{scriptPanel.classList.remove('open');scriptPanel.setAttribute('aria-hidden','true');$('#scriptBtn').classList.remove('active')};$('#readBtn').onclick=()=>speaking?stopSpeak():speak();$('#pauseBtn').onclick=pauseResume;$('#stopBtn').onclick=stopSpeak;$('#autoBtn').onclick=toggleAuto;$('#fullBtn').onclick=toggleFullscreen;document.addEventListener('fullscreenchange',()=>$('#fullBtn').classList.toggle('active',!!document.fullscreenElement));document.addEventListener('keydown',e=>{if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName))return;if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();next()}if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev()}if(e.key.toLowerCase()==='m')menu.classList.toggle('open');if(e.key.toLowerCase()==='g')toggleScript();if(e.key.toLowerCase()==='r')speaking?stopSpeak():speak();if(e.key===' '&&speaking){e.preventDefault();pauseResume()}if(e.key.toLowerCase()==='f')toggleFullscreen();if(e.key==='Escape'){menu.classList.remove('open');scriptPanel.classList.remove('open');$('#scriptBtn').classList.remove('active');stopSpeak()}});document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{menu.classList.remove('open');show(+b.dataset.go-1)});const h=location.hash.match(/^#s(\d+)$/);show(h?+h[1]-1:0);
 })();
-</script>
-</body></html>
+</script><script>
+(function(){
+  // ==========================
+  // Simulación 1: globo en autobús
+  // ==========================
+  const bus={playing:false,t:0,last:0,duration:6,acc:0.9};
+  const busPlay=document.getElementById('busPlay');
+  const busReset=document.getElementById('busReset');
+  const busAcc=document.getElementById('busAcc');
+  const busAccVal=document.getElementById('busAccVal');
+  const busExt=document.getElementById('busExt');
+  const busInt=document.getElementById('busInt');
+  function busX(t){return .5*bus.acc*t*t*18}
+  function svgEl(tag, attrs){const el=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const[k,v]of Object.entries(attrs||{}))el.setAttribute(k,v);return el}
+  function clearSVG(svg){while(svg.firstChild)svg.removeChild(svg.firstChild)}
+  function drawBusScene(svg, mode){clearSVG(svg);const w=520,h=260,ground=212;
+    svg.appendChild(svgEl('rect',{x:0,y:0,width:w,height:h,fill:'#f9fbfe'}));
+    svg.appendChild(svgEl('line',{x1:0,y1:ground,x2:w,y2:ground,stroke:'#7187a4','stroke-width':3}));
+    const startBus=110, busW=250, busH=84, y=108; const cxFixed=210; const bx=busX(bus.t);
+    let busScreenX, balloonX;
+    if(mode==='ext'){busScreenX=startBus+bx; balloonX=cxFixed+38;}
+    else{busScreenX=startBus; balloonX=startBus + 120 - bx;}
+    // bus
+    svg.appendChild(svgEl('rect',{x:busScreenX,y:y,width:busW,height:busH,rx:18,fill:'#175cc5'}));
+    svg.appendChild(svgEl('rect',{x:busScreenX+18,y:y+16,width:48,height:28,rx:6,fill:'#dbeafe'}));
+    svg.appendChild(svgEl('rect',{x:busScreenX+76,y:y+16,width:48,height:28,rx:6,fill:'#dbeafe'}));
+    svg.appendChild(svgEl('rect',{x:busScreenX+134,y:y+16,width:48,height:28,rx:6,fill:'#dbeafe'}));
+    svg.appendChild(svgEl('rect',{x:busScreenX+192,y:y+16,width:40,height:28,rx:6,fill:'#dbeafe'}));
+    svg.appendChild(svgEl('circle',{cx:busScreenX+55,cy:y+busH+10,r:15,fill:'#26364d'}));
+    svg.appendChild(svgEl('circle',{cx:busScreenX+195,cy:y+busH+10,r:15,fill:'#26364d'}));
+    const lbl=svgEl('text',{x:busScreenX+busW/2,y:y+busH+34,'text-anchor':'middle',fill:'#0b1f4d','font-size':'14','font-weight':'700'});
+    lbl.textContent = mode==='ext' ? 'autobús acelerando' : 'autobús como marco no inercial'; svg.appendChild(lbl);
+    // observer marker
+    if(mode==='ext'){
+      svg.appendChild(svgEl('circle',{cx:52,cy:178,r:11,fill:'#22a06b',stroke:'#ffffff','stroke-width':2}));
+      const obsTxt=svgEl('text',{x:70,y:182,fill:'#156f49','font-size':'13','font-weight':'700'});obsTxt.textContent='observador inercial';svg.appendChild(obsTxt);
+      const obsLine=svgEl('line',{x1:52,y1:190,x2:52,y2:208,stroke:'#156f49','stroke-width':3}); svg.appendChild(obsLine);
+    } else {
+      svg.appendChild(svgEl('circle',{cx:busScreenX+56,cy:y+62,r:10,fill:'#f59e0b',stroke:'#ffffff','stroke-width':2}));
+      const obsTxt=svgEl('text',{x:busScreenX+74,y:y+66,fill:'#fff','font-size':'13','font-weight':'700'});obsTxt.textContent='observador';svg.appendChild(obsTxt);
+    }
+    // balloon simple shape
+    const gx=mode==='ext'? balloonX : balloonX; const gy=88;
+    svg.appendChild(svgEl('ellipse',{cx:gx,cy:gy,rx:18,ry:22,fill:'#d94841'}));
+    svg.appendChild(svgEl('polygon',{points:`${gx-5},107 ${gx+5},107 ${gx},115`,fill:'#d94841'}));
+    svg.appendChild(svgEl('line',{x1:gx,y1:115,x2:gx,y2:145,stroke:'#915f5c','stroke-width':2}));
+    const gl=svgEl('text',{x:gx,y:64,'text-anchor':'middle',fill:'#b42318','font-size':'14','font-weight':'700'}); gl.textContent='globo'; svg.appendChild(gl);
+    // arrows
+    if(mode==='ext'){
+      const ar=svgEl('line',{x1:busScreenX+busW+10,y1:y+42,x2:busScreenX+busW+54,y2:y+42,stroke:'#0b1f4d','stroke-width':4}); svg.appendChild(ar);
+      svg.appendChild(svgEl('polygon',{points:`${busScreenX+54+busW},${y+42} ${busScreenX+44+busW},${y+36} ${busScreenX+44+busW},${y+48}`,fill:'#0b1f4d'}));
+      const at=svgEl('text',{x:busScreenX+busW+36,y:y+26,'text-anchor':'middle',fill:'#0b1f4d','font-size':'13','font-weight':'700'}); at.textContent='a'; svg.appendChild(at);
+      const gt=svgEl('text',{x:28,y:30,fill:'#175cc5','font-size':'14','font-weight':'700'}); gt.textContent='El globo no recibe una fuerza horizontal real.'; svg.appendChild(gt);
+    } else {
+      const rel=svgEl('line',{x1:gx+26,y1:gy,x2:gx-20,y2:gy,stroke:'#b42318','stroke-width':3}); svg.appendChild(rel);
+      svg.appendChild(svgEl('polygon',{points:`${gx-28},${gy} ${gx-18},${gy-6} ${gx-18},${gy+6}`,fill:'#b42318'}));
+      const rt=svgEl('text',{x:gx-8,y:gy-10,'text-anchor':'middle',fill:'#b42318','font-size':'13','font-weight':'700'}); rt.textContent='parece ir hacia atrás'; svg.appendChild(rt);
+    }
+  }
+  function renderBus(){bus.acc=parseFloat(busAcc.value);busAccVal.textContent=`a = ${bus.acc.toFixed(1)} u/s²`;drawBusScene(busExt,'ext');drawBusScene(busInt,'int');}
+  busAcc?.addEventListener('input',()=>{renderBus()});
+  busPlay?.addEventListener('click',()=>{bus.playing=!bus.playing;busPlay.textContent=bus.playing?'Pausar':'Reproducir'; if(bus.playing){bus.last=0; requestAnimationFrame(busLoop)}});
+  busReset?.addEventListener('click',()=>{bus.playing=false;busPlay.textContent='Reproducir';bus.t=0;renderBus()});
+  function busLoop(ts){if(!bus.playing)return; if(!bus.last)bus.last=ts; const dt=(ts-bus.last)/1000; bus.last=ts; bus.t+=dt; if(bus.t>bus.duration) bus.t=0; renderBus(); requestAnimationFrame(busLoop)}
+  renderBus();
+
+  // ==========================
+  // Simulación 2: plataforma giratoria
+  // ==========================
+  const rot={playing:false,t:0,last:0,duration:6,omega:1.0,R:105};
+  const rotPlay=document.getElementById('rotPlay');
+  const rotReset=document.getElementById('rotReset');
+  const rotOmega=document.getElementById('rotOmega');
+  const rotOmegaVal=document.getElementById('rotOmegaVal');
+  const rotExt=document.getElementById('rotExt');
+  const rotInt=document.getElementById('rotInt');
+  function drawDiscBase(svg,titleMode){clearSVG(svg); svg.appendChild(svgEl('rect',{x:0,y:0,width:520,height:300,fill:'#f9fbfe'}));}
+  function rotBallPos(t){const x=-rot.R + 2*rot.R*(t/rot.duration); const y=0; return {x,y};}
+  function rotToFrame(x,y,theta){return {x: x*Math.cos(theta)+y*Math.sin(theta), y: -x*Math.sin(theta)+y*Math.cos(theta)};}
+  function renderRot(){rot.omega=parseFloat(rotOmega.value); rotOmegaVal.textContent=`ω = ${rot.omega.toFixed(1)} rad/s`; const cx=260,cy=150,R=rot.R; const theta=rot.omega*rot.t; const extTrace=[]; const intTrace=[]; for(let tt=0; tt<=rot.t; tt+=0.06){const p=rotBallPos(tt); extTrace.push([cx+p.x,cy+p.y]); const localTheta=rot.omega*tt; const q=rotToFrame(p.x,p.y,localTheta); intTrace.push([cx+q.x,cy+q.y]); }
+    // external
+    drawDiscBase(rotExt); rotExt.appendChild(svgEl('circle',{cx,cy,r:R,fill:'#eaf4ff',stroke:'#175cc5','stroke-width':4}));
+    // rotating spoke
+    rotExt.appendChild(svgEl('line',{x1:cx,y1:cy,x2:cx+R*Math.cos(theta),y2:cy+R*Math.sin(theta),stroke:'#175cc5','stroke-width':3,'stroke-dasharray':'8 6'}));
+    const path1=extTrace.map((p,i)=> (i?'L':'M')+p[0].toFixed(1)+','+p[1].toFixed(1)).join(' ');
+    rotExt.appendChild(svgEl('path',{d:path1,fill:'none',stroke:'#d94841','stroke-width':4,'stroke-linecap':'round'}));
+    const bp=rotBallPos(rot.t); rotExt.appendChild(svgEl('circle',{cx:cx+bp.x,cy:cy+bp.y,r:8,fill:'#d94841',stroke:'#fff','stroke-width':2}));
+    const txt1=svgEl('text',{x:18,y:26,fill:'#0b1f4d','font-size':'14','font-weight':'700'}); txt1.textContent='La trayectoria observada es recta.'; rotExt.appendChild(txt1);
+    // internal rotating frame (disc fixed)
+    drawDiscBase(rotInt); rotInt.appendChild(svgEl('circle',{cx,cy,r:R,fill:'#eef8ff',stroke:'#175cc5','stroke-width':4}));
+    rotInt.appendChild(svgEl('line',{x1:cx-R,y1:cy,x2:cx+R,y2:cy,stroke:'#9fb2ca','stroke-width':2,'stroke-dasharray':'6 6'}));
+    const path2=intTrace.map((p,i)=> (i?'L':'M')+p[0].toFixed(1)+','+p[1].toFixed(1)).join(' ');
+    rotInt.appendChild(svgEl('path',{d:path2,fill:'none',stroke:'#d94841','stroke-width':4,'stroke-linecap':'round'}));
+    const q=rotToFrame(bp.x,bp.y,rot.omega*rot.t); rotInt.appendChild(svgEl('circle',{cx:cx+q.x,cy:cy+q.y,r:8,fill:'#d94841',stroke:'#fff','stroke-width':2}));
+    const txt2=svgEl('text',{x:18,y:26,fill:'#0b1f4d','font-size':'14','font-weight':'700'}); txt2.textContent='En el marco rotante, la trayectoria se curva.'; rotInt.appendChild(txt2);
+  }
+  rotOmega?.addEventListener('input',renderRot);
+  rotPlay?.addEventListener('click',()=>{rot.playing=!rot.playing;rotPlay.textContent=rot.playing?'Pausar':'Reproducir'; if(rot.playing){rot.last=0; requestAnimationFrame(rotLoop)}});
+  rotReset?.addEventListener('click',()=>{rot.playing=false;rotPlay.textContent='Reproducir';rot.t=0;renderRot()});
+  function rotLoop(ts){if(!rot.playing)return; if(!rot.last)rot.last=ts; const dt=(ts-rot.last)/1000; rot.last=ts; rot.t+=dt; if(rot.t>rot.duration) rot.t=0; renderRot(); requestAnimationFrame(rotLoop)}
+  renderRot();
+})();
+</script></body></html>

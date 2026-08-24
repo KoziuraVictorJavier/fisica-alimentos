@@ -1,9 +1,20 @@
 /*
-  GUIONES EDITABLES — Unidad 3
-  =============================
-  Editar el texto entre acentos graves.
-*/
+  GUIONES EDITABLES — Unidad 3 · V0.3
+  =====================================
+  Guiones ampliados para exposición oral.
 
+  Criterios de esta revisión:
+  - desarrollo conceptual más completo;
+  - mayor vínculo entre ecuaciones y significado físico;
+  - conexión explícita con aplicaciones de tecnología de alimentos;
+  - lenguaje pensado para lectura por voz, evitando leer código LaTeX;
+  - simulaciones presentadas como predicción + contraste, no sólo como cálculo;
+  - mantenimiento de la correspondencia s1 ... s57 de la presentación actual.
+
+  Edite únicamente el texto situado entre los signos ` ... `.
+  El botón GUION muestra este texto y el botón LEER utiliza exactamente el mismo guion.
+  Guarde el archivo en UTF-8 y recargue index.html después de editarlo.
+*/
 window.GUIONES_U3 = {
   // Página 1
   s1: `
@@ -96,9 +107,21 @@ Para construir un buen diagrama de cuerpo libre es útil distinguir dos grandes 
 `,
   // Página 9
   s9: `
-En esta filmina relacionamos la fuerza gravitatoria general con el peso en las cercanías de la Tierra. Recordemos que el peso es la fuerza gravitatoria local y se expresa como P igual a m por g. La g minúscula de nueve coma ocho metros por segundo al cuadrado surge de agrupar la constante universal G mayúscula, la masa de la Tierra y el radio de la Tierra al cuadrado, evaluados en la superficie. Por eso, en el sistema internacional, la masa se expresa en kilogramos y el peso, al ser una fuerza, en newtones.
-
-A la derecha aparece la tabla de valores de g según la altura y, debajo, el gráfico g en función de la altura. Ambos muestran la misma idea física: cerca de la superficie terrestre la gravedad varía muy poco, pero a medida que la altura aumenta la disminución se vuelve más marcada. Esto explica por qué para la mayoría de los problemas de ingeniería y laboratorio podemos tomar g aproximadamente constante, mientras que para grandes alturas ya conviene considerar su variación.
+La gravedad puede describirse de manera general mediante la interacción gravitatoria entre masas, pero en
+problemas de laboratorio o de planta usamos un modelo local mucho más simple. La letra G mayúscula
+representa la constante de gravitación universal. En cambio, la letra g minúscula, la que usamos como
+nueve coma ocho metros por segundo cuadrado, representa la intensidad local del campo gravitatorio
+terrestre o aceleración de caída libre. Cerca de la superficie, esa g minúscula surge de agrupar tres
+magnitudes: G mayúscula, la masa de la Tierra y el radio terrestre. En forma simbólica: g sub cero es
+igual a G por masa de la Tierra dividido radio de la Tierra al cuadrado. Si el cuerpo está a cierta
+altura h, la distancia al centro de la Tierra ya no es sólo el radio terrestre, sino radio terrestre más
+h, y por eso g disminuye con la altura según una ley inversa al cuadrado. En una planta alimentaria, esta
+variación es despreciable porque las alturas son muy pequeñas comparadas con el radio terrestre. Pero
+conceptualmente es importante: permite entender por qué g no es una constante universal, sino un valor
+local. También recordemos la convención de unidades: estamos trabajando en el Sistema Internacional. La
+masa se expresa en kilogramos, mientras que el peso es una fuerza y se expresa en newtons. Por eso, decir
+que un cuerpo pesa diez kilogramos es una forma cotidiana de hablar; en física diremos que tiene una masa
+de diez kilogramos y, cerca de la Tierra, un peso aproximado de noventa y ocho newtons.
 `,
   // Página 10
   s10: `
@@ -113,54 +136,49 @@ posteriores.
 `,
   // Página 11
   s11: `
-La primera ley de Newton no sólo habla de reposo o de movimiento uniforme: también nos permite definir qué entendemos por sistema de referencia inercial. Un sistema inercial es un marco de observación que no está acelerando ni girando respecto de otro sistema inercial. En ese marco, si un cuerpo está libre de fuerza externa neta, mantiene su estado de reposo o de movimiento rectilíneo uniforme.
-
-Por eso escribimos que si la suma vectorial de las fuerzas externas es cero, la aceleración es cero. Esta idea funciona como criterio de identificación: si necesitamos explicar una aceleración observada sin que exista una fuerza real sobre el cuerpo, probablemente estamos mirando desde un sistema no inercial.
-
-Un sistema no inercial es, por ejemplo, un ascensor que acelera, un vehículo que frena o una plataforma giratoria. Desde esos marcos pueden aparecer efectos aparentes. Para trabajar desde allí, no basta con aplicar las ecuaciones de Newton en forma directa: hay que incorporar fuerzas aparentes o ficticias y aclarar explícitamente el sistema desde el cual se describe el movimiento.
+La primera ley de Newton establece la condición de inercia. Si la suma vectorial de las fuerzas externas
+sobre un cuerpo es cero, su aceleración es cero. Eso significa que el cuerpo puede permanecer en reposo o
+continuar moviéndose con velocidad constante en línea recta. Un error frecuente es asociar fuerza neta cero
+con reposo necesariamente. No es así: también puede existir movimiento rectilíneo uniforme. En una cinta que
+se desplaza a velocidad constante, por ejemplo, un envase puede moverse sin aceleración aunque existan
+varias fuerzas sobre él; lo importante es que se equilibren. Esta ley también permite definir los sistemas
+de referencia inerciales, es decir, aquellos en los que un cuerpo sin fuerza neta conserva su estado de
+movimiento.
 `,
   // Página 12
   s12: `
-Esta filmina refuerza una condición metodológica importante. La forma habitual de la segunda ley, suma de fuerzas igual a masa por aceleración, está formulada para sistemas de referencia inerciales. En una planta, muchas veces tomamos como inercial, con buena aproximación, el piso del laboratorio, la estructura fija del equipo o la mesa de trabajo.
-
-Si el observador está en un sistema que acelera o rota, la descripción cambia. En ese caso se puede seguir resolviendo el problema, pero hay que agregar fuerzas ficticias, como la fuerza asociada a la aceleración del marco, la centrífuga o la de Coriolis. Esas fuerzas no nacen de una interacción física entre dos cuerpos; son recursos para describir el movimiento desde un marco no inercial.
-
-También conviene aclarar la tercera ley. Acción y reacción se refieren a pares de fuerzas reales entre cuerpos diferentes: por ejemplo, la cinta sobre el envase y el envase sobre la cinta. Las fuerzas ficticias que aparecen en un sistema no inercial no tienen un par acción-reacción real. Por eso, antes de plantear ecuaciones, siempre debemos indicar desde qué sistema de referencia estamos observando.
+Los sistemas de referencia merecen atención porque la descripción del movimiento depende del observador. Un
+marco aproximadamente en reposo respecto del piso puede tratarse como inercial para muchos problemas de
+planta. En cambio, un vehículo que acelera o una plataforma que gira son marcos no inerciales. Desde esos
+marcos puede parecer que un cuerpo se desplaza o se desvía sin una fuerza real adicional que explique ese
+efecto desde el marco del suelo. Para trabajar dentro de un sistema no inercial pueden introducirse fuerzas
+ficticias, pero hay que dejar claro que no representan una nueva interacción física entre cuerpos. El punto
+didáctico es distinguir qué parte del efecto proviene de fuerzas reales y qué parte surge por estar
+observando desde un marco acelerado o rotante.
 `,
   // Página 13
   s13: `
-En esta simulación analizamos un autobús que arranca y un globo cuyo efecto con el aire vamos a despreciar deliberadamente para concentrarnos sólo en la idea de sistema de referencia. Desde el observador externo, que consideramos inercial, el autobús acelera hacia la derecha. El globo, en cambio, tiende a conservar su estado de movimiento horizontal. Por eso no acompaña instantáneamente la aceleración del vehículo.
-
-Ahora observemos el mismo fenómeno desde el interior del autobús. Para el pasajero sentado, que está en un marco acelerado y por lo tanto no inercial, el globo parece desplazarse hacia atrás. Ese movimiento aparente podría llevar a pensar erróneamente que existe una fuerza horizontal real aplicada sobre el globo. Pero en realidad lo que cambió fue el sistema desde el cual estamos describiendo el fenómeno.
-
-La simulación sirve para fijar una idea clave: en un sistema inercial la primera ley se cumple en forma directa. En un sistema no inercial, en cambio, aparecen movimientos aparentes que obligan a introducir fuerzas ficticias si queremos seguir aplicando las ecuaciones de Newton desde ese marco.
+La segunda ley de Newton cuantifica la relación entre fuerza neta y aceleración. La suma vectorial de las
+fuerzas externas es igual a la masa por la aceleración. Como se trata de una ecuación vectorial, normalmente
+la usamos por componentes: suma de fuerzas en x igual a masa por aceleración en x, y lo mismo para y. La
+dirección de la aceleración coincide con la dirección de la fuerza neta, no necesariamente con la dirección
+de la velocidad. Esta distinción es muy importante. Un cuerpo puede moverse hacia la derecha y estar
+acelerando hacia la izquierda si se está frenando. En una línea de transporte, esta ley permite estimar qué
+fuerza neta se necesita para lograr una aceleración dada o, inversamente, qué aceleración producirá un
+conjunto de fuerzas conocidas.
 `,
   // Página 14
   s14: `
-En esta segunda simulación comparamos la trayectoria de una pelota lanzada de un lado al otro de una plataforma que gira. Vista desde una cámara externa, que consideramos inercial, la pelota recorre una trayectoria recta mientras la plataforma rota por debajo. La rotación del disco no cambia el hecho de que la pelota, una vez lanzada, continúa su movimiento de acuerdo con las condiciones iniciales y las fuerzas reales que actúan sobre ella.
-
-Sin embargo, cuando la observamos desde una cámara solidaria con la plataforma, es decir, desde un sistema no inercial rotante, la trayectoria ya no se ve recta sino curva. Esa diferencia no se debe a que haya aparecido mágicamente una fuerza lateral real sobre la pelota, sino a que cambió el sistema de referencia desde el cual la describimos.
-
-Este ejemplo es muy útil porque muestra por qué en marcos rotantes las leyes de Newton no se aplican en su forma más simple. Para describir el movimiento desde ese sistema debemos introducir fuerzas aparentes, como la centrífuga y la de Coriolis. La comparación entre ambas vistas ayuda a entender por qué un sistema rotante no es un sistema inercial.
+La tercera ley de Newton describe las fuerzas como pares de interacción. Si un cuerpo A ejerce una fuerza
+sobre un cuerpo B, entonces B ejerce simultáneamente sobre A una fuerza de igual módulo y sentido opuesto.
+La dificultad aparece cuando se intenta cancelar estas dos fuerzas en un mismo diagrama. Eso es incorrecto
+porque cada una actúa sobre un cuerpo distinto. Si dibujamos el diagrama de un envase sobre una cinta, debe
+aparecer la fuerza de la cinta sobre el envase. La reacción correspondiente, es decir, la fuerza del envase
+sobre la cinta, pertenece al diagrama de la cinta. Esta idea es fundamental para interpretar contactos,
+tensiones, apoyos y empujes sin mezclar fuerzas internas y externas.
 `,
   // Página 15
   s15: `
-La segunda ley de Newton establece que la fuerza neta externa es igual al producto de la masa por la aceleración. Esto significa que la aceleración no depende de una fuerza aislada, sino del resultado de sumar vectorialmente todas las fuerzas externas que actúan sobre el cuerpo. Si trabajamos por componentes, podemos escribir la ley sobre el eje x y sobre el eje y por separado, lo cual simplifica mucho la resolución de problemas.
-
-La imagen de esta filmina está organizada con dos lecturas. En la parte física general se representa un cuerpo sometido a una fuerza neta y se recuerda que la aceleración tiene la misma dirección y el mismo sentido que esa fuerza neta. También se destaca que, si aumenta la fuerza neta, aumenta la aceleración; y que, para una misma fuerza neta, si aumenta la masa, la aceleración disminuye.
-
-En la parte aplicada se muestra una situación típica de la industria alimenticia: una cinta, carro o sistema motriz que transporta productos. La interpretación es directa: para una misma fuerza del motor, una carga mayor acelera menos que una carga liviana. Por eso, en transporte de cajas, bandejas o envases, no alcanza con hablar de fuerza aplicada: hay que considerar la masa transportada y las fuerzas resistentes.
-`,
-  // Página 16
-  s16: `
-La tercera ley de Newton describe las fuerzas como pares de interacción. Si un cuerpo A ejerce una fuerza sobre un cuerpo B, entonces B ejerce simultáneamente sobre A una fuerza de igual módulo, misma dirección y sentido opuesto. La clave conceptual es que estas dos fuerzas actúan sobre cuerpos distintos; por eso no se cancelan dentro de un mismo diagrama de cuerpo libre.
-
-La imagen muestra un producto apoyado sobre una mesa de trabajo. Sobre el bloque actúan dos fuerzas: el peso, dirigido hacia abajo y aplicado en el centro de masa, y la normal de la mesa, dirigida hacia arriba y aplicada en la superficie de contacto. Si el bloque está en reposo, puede cumplirse que normal y peso tengan igual módulo, pero eso no significa que formen un par de acción y reacción.
-
-El primer par de tercera ley es gravitatorio: la Tierra ejerce sobre el bloque la fuerza peso, y el bloque ejerce sobre la Tierra una fuerza gravitatoria igual y opuesta. El segundo par es de contacto: la mesa ejerce sobre el bloque la fuerza normal, y el bloque ejerce sobre la mesa una fuerza hacia abajo de igual módulo. La aclaración importante es que peso y normal actúan sobre el mismo cuerpo, el bloque, por lo tanto no son entre sí un par acción-reacción. Son fuerzas que pueden equilibrarse, pero pertenecen a interacciones diferentes.
-`,
-  // Página 17
-  s17: `
 En dinámica trabajamos con modelos simplificados. Modelar no significa ignorar la realidad, sino seleccionar
 los efectos que son relevantes para la pregunta que queremos responder. Podemos tratar una caja como
 partícula si sólo nos interesa su traslación y no su rotación. Podemos considerarla cuerpo rígido si
@@ -170,8 +188,8 @@ tiene un dominio de validez. Por eso conviene declarar qué estamos despreciando
 bastante simple para poder resolverse, pero conserva los mecanismos físicos esenciales del fenómeno que
 estamos estudiando.
 `,
-  // Página 18
-  s18: `
+  // Página 16
+  s16: `
 El diagrama de cuerpo libre es una herramienta central de toda la unidad. El procedimiento recomendable es:
 primero aislar el cuerpo; segundo, reemplazar cada interacción con el entorno por la fuerza correspondiente;
 tercero, elegir ejes convenientes; y cuarto, recién entonces plantear ecuaciones. En el diagrama no se
@@ -181,8 +199,8 @@ Cuando el cuerpo está sobre un plano inclinado, por ejemplo, suele simplificar 
 al plano y otro perpendicular. Un DCL correcto suele contener casi toda la física necesaria para resolver el
 problema.
 `,
-  // Página 19
-  s19: `
+  // Página 17
+  s17: `
 La fuerza neta es la suma vectorial de todas las fuerzas externas que actúan sobre el sistema. Para operar
 con ella conviene trabajar por componentes. Si una fuerza forma un ángulo con el eje x, sus componentes
 pueden expresarse mediante seno y coseno según la geometría elegida. En equilibrio traslacional, la suma de
@@ -191,8 +209,8 @@ aceleración en la dirección correspondiente. Esto permite separar un problema 
 escalares. La selección de ejes no cambia la física, pero puede simplificar mucho el cálculo. La mejor
 elección suele ser aquella que alinea los ejes con el movimiento esperado o con las superficies de contacto.
 `,
-  // Página 20
-  s20: `
+  // Página 18
+  s18: `
 El rozamiento es una fuerza de contacto tangencial que aparece entre superficies. En tecnología de alimentos
 puede ser beneficioso, por ejemplo, cuando permite que una cinta acelere un envase sin que éste deslice.
 También puede ser indeseable si produce desgaste, calentamiento, daño superficial o pérdidas de energía. Hay
@@ -202,8 +220,8 @@ iniciado el deslizamiento y se modela aproximadamente como mu cinético por la n
 el rozamiento estático no vale siempre su máximo: sólo alcanza ese límite en la condición de deslizamiento
 inminente.
 `,
-  // Página 21
-  s21: `
+  // Página 19
+  s19: `
 En esta simulación conviene observar cómo responde el rozamiento estático a medida que aumenta la fuerza
 aplicada. Mientras el bloque permanece en reposo relativo, el rozamiento se ajusta y compensa la fuerza
 aplicada. Por eso, si la fuerza aplicada vale diez newtons, el rozamiento estático puede valer diez newtons
@@ -212,8 +230,8 @@ se pierde la adherencia. A partir de ese instante cambia el modelo y pasa a actu
 Antes de mover los controles, conviene predecir qué ocurrirá al aumentar la masa, la normal o el coeficiente
 de rozamiento. La simulación sirve para contrastar esa predicción con el comportamiento del modelo.
 `,
-  // Página 22
-  s22: `
+  // Página 20
+  s20: `
 En un plano inclinado el peso sigue apuntando verticalmente hacia abajo, pero resulta más cómodo elegir ejes
 paralelos y perpendiculares al plano. Con esa elección, el peso se descompone en una componente paralela,
 que tiende a hacer deslizar el cuerpo, y una componente perpendicular, que contribuye a determinar la fuerza
@@ -222,8 +240,8 @@ vale masa por gravedad por coseno del ángulo. Si no existen otras fuerzas norma
 el valor de esa componente perpendicular. Esta elección de ejes muestra que la normal no es necesariamente
 igual al peso: depende de la geometría y de las demás fuerzas que actúan sobre el cuerpo.
 `,
-  // Página 23
-  s23: `
+  // Página 21
+  s21: `
 Esta simulación combina plano inclinado y rozamiento. El ángulo controla cuánto del peso queda proyectado en
 la dirección del plano, mientras que el coeficiente de rozamiento determina la resistencia al deslizamiento.
 A medida que aumenta el ángulo, crece la componente del peso que impulsa el movimiento y disminuye la
@@ -233,8 +251,8 @@ usar el control, conviene preguntar: ¿qué ocurre si aumentamos el ángulo mant
 si aumentamos el coeficiente de rozamiento con el mismo ángulo? La respuesta debe justificarse primero desde
 las fuerzas.
 `,
-  // Página 24
-  s24: `
+  // Página 22
+  s22: `
 En la unidad anterior describimos el movimiento circular desde la cinemática. Ahora lo analizamos
 dinámicamente. Incluso si la rapidez permanece constante, el vector velocidad cambia de dirección de manera
 continua. Ese cambio requiere una aceleración centrípeta dirigida hacia el centro. Por la segunda ley de
@@ -244,8 +262,8 @@ por tensión, rozamiento, normal, gravedad o una combinación de fuerzas reales.
 velocidad al cuadrado dividido por radio indica cuánto debe valer la resultante radial necesaria para
 mantener la trayectoria circular.
 `,
-  // Página 25
-  s25: `
+  // Página 23
+  s23: `
 Los distintos ejemplos de movimiento circular cambian de aspecto, pero comparten la misma estructura física.
 En una curva peraltada intervienen normal, peso y eventualmente rozamiento. En un péndulo cónico, la
 componente horizontal de la tensión aporta la resultante radial. En un movimiento circular vertical, la
@@ -255,8 +273,8 @@ escribir la suma radial igual a masa por aceleración centrípeta. Esta idea ayu
 específicas para cada dibujo. Lo esencial es reconocer qué fuerzas reales están suministrando la resultante
 hacia el centro.
 `,
-  // Página 26
-  s26: `
+  // Página 24
+  s24: `
 Esta simulación representa un envase sobre una mesa giratoria. Para que el envase acompañe la rotación sin
 deslizar, el rozamiento estático debe proporcionar la fuerza centrípeta necesaria. Esa fuerza requerida
 crece con la masa, aumenta con el cuadrado de la velocidad y disminuye cuando aumenta el radio para una
@@ -266,8 +284,8 @@ los controles, conviene prever qué variable resulta más crítica. Duplicar la 
 duplica la fuerza centrípeta: la multiplica por cuatro. Esa dependencia cuadrática es especialmente
 importante en equipos rotativos.
 `,
-  // Página 27
-  s27: `
+  // Página 25
+  s25: `
 La ley de Hooke describe el comportamiento de un resorte ideal o de un sistema elástico dentro de un rango
 aproximadamente lineal. La fuerza elástica es proporcional a la deformación y apunta en sentido contrario al
 desplazamiento respecto de la posición de equilibrio. El signo negativo de la ecuación no significa que la
@@ -277,8 +295,8 @@ elemento trabaje dentro de su rango elástico. Si la deformación es demasiado g
 de responder linealmente o incluso sufrir deformación permanente. Por eso toda aplicación real debe
 considerar el dominio de validez del modelo.
 `,
-  // Página 28
-  s28: `
+  // Página 26
+  s26: `
 La elasticidad aparece en muchos sistemas industriales aunque no veamos un resorte convencional. Los
 soportes antivibratorios se deforman para aislar vibraciones. Las celdas de carga convierten pequeñas
 deformaciones en señales que permiten estimar fuerzas o pesos. Los alimentadores vibratorios combinan
@@ -288,8 +306,8 @@ entre fuerza y deformación es lineal. Desde el punto de vista técnico interesa
 como el límite del comportamiento elástico, porque una deformación excesiva puede alterar alineación,
 precisión de medición o integridad mecánica.
 `,
-  // Página 29
-  s29: `
+  // Página 27
+  s27: `
 En la unidad 2 estudiamos el movimiento armónico simple desde la cinemática: posición, velocidad,
 aceleración, amplitud, período y frecuencia. Ahora queremos explicar por qué aparece ese movimiento. Si la
 fuerza neta es proporcional al desplazamiento y apunta hacia la posición de equilibrio, la segunda ley
@@ -299,8 +317,8 @@ es una ecuación diferencial de segundo orden. La idea física es muy clara: cua
 equilibrio, mayor es la fuerza restauradora; cuando pasa por el equilibrio, la fuerza y la aceleración se
 anulan instantáneamente, pero la velocidad es máxima.
 `,
-  // Página 30
-  s30: `
+  // Página 28
+  s28: `
 Para el sistema masa-resorte ideal, la frecuencia natural no es arbitraria. Está determinada por la rigidez
 del resorte y por la masa: omega cero es la raíz cuadrada de k dividido por m. Esto permite interpretar
 tendencias sin hacer un cálculo completo. Si aumentamos k, el sistema se vuelve más rígido y oscila más
@@ -309,8 +327,8 @@ proporcional a la raíz cuadrada de m sobre k. Esta relación tiene gran importa
 porque toda estructura o conjunto masa-rigidez posee frecuencias naturales. Conocerlas permite evaluar si
 una excitación periódica de una máquina puede acercarse a una condición de resonancia.
 `,
-  // Página 31
-  s31: `
+  // Página 29
+  s29: `
 El péndulo simple también puede aproximarse a un movimiento armónico simple, pero sólo cuando el ángulo es
 pequeño y está expresado en radianes, de modo que seno de theta pueda aproximarse por theta. Bajo esa
 condición, la frecuencia natural depende de la gravedad y de la longitud del péndulo. A este comportamiento
@@ -320,8 +338,8 @@ frecuencia de excitación se aproxima a la frecuencia natural, la amplitud puede
 aparece la resonancia. En máquinas y estructuras, esta condición puede ser indeseable y debe detectarse o
 evitarse.
 `,
-  // Página 32
-  s32: `
+  // Página 30
+  s30: `
 La cantidad de movimiento lineal, o momento lineal, se define como masa por velocidad y es una magnitud
 vectorial. Resulta especialmente útil en situaciones donde las fuerzas actúan durante intervalos breves,
 como golpes, choques, impactos o transferencias rápidas. El impulso de una fuerza corresponde a la integral
@@ -331,8 +349,8 @@ sistema es despreciable, la cantidad de movimiento total se conserva. Esto no si
 fuerzas internas durante un choque; significa que esas fuerzas internas aparecen en pares y no modifican el
 momento lineal total del sistema aislado.
 `,
-  // Página 33
-  s33: `
+  // Página 31
+  s31: `
 Cuando trabajamos con un conjunto de partículas o con un cuerpo extendido, el centro de masa permite
 describir el movimiento global del sistema. Su posición es un promedio ponderado por las masas y su
 velocidad se obtiene de la misma manera a partir de las velocidades de las partículas. Desde el punto de
@@ -342,8 +360,8 @@ una tolva parcialmente llena o un conjunto de piezas, podemos separar el movimie
 los movimientos internos. Más adelante, cuando estudiamos equilibrio y torque, una idea relacionada es el
 centro de gravedad, punto donde podemos considerar aplicado el peso resultante.
 `,
-  // Página 34
-  s34: `
+  // Página 32
+  s32: `
 Hasta aquí muchas veces representamos los cuerpos como partículas, pero un objeto real puede tener extensión
 y puede rotar. Un sistema de partículas está formado por varios elementos que pueden moverse entre sí; un
 cuerpo rígido es un modelo ideal en el que las distancias entre sus puntos permanecen constantes. Esta
@@ -353,8 +371,8 @@ inercia y las variables angulares. Elegir el modelo correcto es parte de la reso
 caja sobre una cinta puede tratarse como partícula si sólo calculamos su aceleración, pero debe tratarse
 como cuerpo rígido si queremos analizar si puede volcar.
 `,
-  // Página 35
-  s35: `
+  // Página 33
+  s33: `
 El torque, o momento de una fuerza, mide la tendencia de esa fuerza a producir rotación respecto de un eje o
 punto. Su magnitud depende de tres factores: el valor de la fuerza, la distancia al eje y el ángulo entre el
 vector posición y la fuerza. De manera equivalente, puede calcularse como fuerza por brazo de palanca, donde
@@ -363,8 +381,8 @@ geométrico es fundamental. Si la línea de acción pasa por el eje, el brazo va
 la fuerza sea grande. Por eso una misma fuerza puede ser muy eficaz para girar una tapa si se aplica lejos
 de la bisagra y casi inútil si se aplica cerca del eje.
 `,
-  // Página 36
-  s36: `
+  // Página 34
+  s34: `
 En esta simulación podemos explorar cómo cambia el torque al modificar fuerza, distancia y ángulo. Si la
 fuerza es perpendicular al brazo, el seno del ángulo vale uno y el torque es máximo para esos valores de
 fuerza y distancia. Si la fuerza apunta directamente hacia el eje o se aleja de él sobre la misma línea, el
@@ -373,8 +391,8 @@ aplica. En un mezclador, el torque requerido depende de la resistencia que ofrec
 geometría de las paletas. En una compuerta, una mayor distancia al eje puede reducir la fuerza necesaria
 para abrirla. La simulación debe usarse para verificar estas relaciones, no sólo para obtener un número.
 `,
-  // Página 37
-  s37: `
+  // Página 35
+  s35: `
 El momento de inercia cumple en rotación un papel análogo al de la masa en traslación: mide la resistencia
 del cuerpo a cambiar su velocidad angular. Pero, a diferencia de la masa, depende de cómo está distribuida
 la materia respecto del eje. Alejar masa del eje aumenta el momento de inercia. El momento angular, por su
@@ -384,8 +402,8 @@ se relaciona con el momento de inercia y la velocidad angular. Si el torque exte
 angular total del sistema se conserva. Estas ideas son relevantes en elementos rotativos, balanceo y cambios
 de velocidad.
 `,
-  // Página 38
-  s38: `
+  // Página 36
+  s36: `
 En equipos alimentarios aparecen continuamente magnitudes rotacionales. En un mezclador interesa el torque
 motor necesario para vencer la resistencia del producto. En una centrífuga, la distribución de masa y la
 velocidad angular influyen fuertemente en las cargas mecánicas y en las vibraciones. En rodillos y tambores,
@@ -395,8 +413,8 @@ conviene relacionar las ecuaciones con variables observables: corriente de motor
 velocidad angular, vibración y temperatura. La física permite interpretar esas señales como consecuencias de
 fuerzas y torques actuando sobre un sistema real.
 `,
-  // Página 39
-  s39: `
+  // Página 37
+  s37: `
 Para que un cuerpo rígido permanezca en equilibrio completo deben cumplirse dos condiciones independientes.
 La primera es equilibrio traslacional: la suma de fuerzas externas debe ser cero, de modo que el centro de
 masa no tenga aceleración. La segunda es equilibrio rotacional: la suma algebraica de los torques respecto
@@ -406,8 +424,8 @@ que produce rotación sin fuerza neta. En problemas de equilibrio conviene elegi
 torques de manera estratégica, por ejemplo pasando por el punto de aplicación de una fuerza desconocida para
 eliminar su contribución al momento.
 `,
-  // Página 40
-  s40: `
+  // Página 38
+  s38: `
 Esta simulación representa una barra o tapa en equilibrio rotacional. Una carga produce un torque que debe
 ser compensado por la fuerza de sostén. La condición básica es que los torques horarios y antihorarios
 tengan igual magnitud. Si aumentamos la distancia de aplicación de la fuerza de sostén respecto del eje, la
@@ -416,8 +434,8 @@ de la bisagra. También conviene observar que elegir como eje la bisagra simplif
 fuerzas de reacción aplicadas allí tienen brazo de palanca cero. Antes de modificar los controles, intenten
 anticipar cómo cambiará la fuerza requerida si duplicamos el brazo de sostén o si acercamos la carga al eje.
 `,
-  // Página 41
-  s41: `
+  // Página 39
+  s39: `
 La tabla reúne varias aplicaciones y permite ver que los mismos principios aparecen en equipos muy
 distintos. En una cinta transportadora dominan peso, normal, rozamiento y fuerza motriz. En una rampa
 importan las componentes del peso y el rozamiento. En un mezclador, el torque motor debe equilibrar o
@@ -427,8 +445,8 @@ utilidad del modelo físico está en relacionar esas magnitudes con variables qu
 controlan. Así, una ecuación deja de ser un ejercicio abstracto y se convierte en una herramienta para
 interpretar el estado del proceso.
 `,
-  // Página 42
-  s42: `
+  // Página 40
+  s40: `
 En estos ejemplos de traslación conviene fijarse más en el procedimiento que en el resultado numérico. En el
 producto que se mueve con velocidad constante, la aceleración es cero y las fuerzas se equilibran;
 verticalmente, normal y peso tienen igual módulo porque no hay otras fuerzas en esa dirección. En el
@@ -438,8 +456,8 @@ cinta o desliza. En la rampa sin rozamiento, la aceleración surge de la compone
 plano. Los tres casos muestran que una misma ley, suma de fuerzas igual a masa por aceleración, adopta
 formas distintas según el diagrama de cuerpo libre.
 `,
-  // Página 43
-  s43: `
+  // Página 41
+  s41: `
 Los ejemplos de tensión y torque amplían el análisis. Una tolva suspendida y en reposo tiene tensión igual
 al peso sólo bajo una configuración vertical simple y sin aceleración. En la paleta de mezclador, el torque
 se obtiene multiplicando fuerza por el brazo perpendicular cuando la fuerza es perpendicular al radio. En la
@@ -448,8 +466,8 @@ el peso si se dispone de un brazo de palanca mayor. La condición es equilibrar 
 bisagra. Conviene observar que en todos los casos la elección del sistema y del eje de rotación simplifica
 el planteo. El cálculo debe acompañarse siempre con una interpretación física del resultado.
 `,
-  // Página 44
-  s44: `
+  // Página 42
+  s42: `
 Interpretar un diagrama de cuerpo libre significa poder reconstruir la situación física a partir de las
 flechas. Primero debemos saber qué cuerpo está aislado. Luego, para cada fuerza, identificar quién la
 ejerce. Después elegimos ejes y signos, y recién entonces proyectamos las fuerzas. Si existe una fuerza
@@ -458,8 +476,8 @@ Si estudiamos rotación, además debemos identificar las líneas de acción y lo
 ejercicio es mirar un DCL y preguntarse qué ecuaciones se pueden escribir sin hacer todavía ningún cálculo.
 Esa lectura conceptual permite detectar errores antes de que se propaguen al desarrollo algebraico.
 `,
-  // Página 45
-  s45: `
+  // Página 43
+  s43: `
 Esta diapositiva reúne errores que conviene convertir en una lista de control. Masa y peso no son lo mismo:
 kilogramos y newtons representan magnitudes distintas. La normal no es siempre igual al peso; depende de la
 geometría y de otras fuerzas. El rozamiento estático no se reemplaza automáticamente por mu estático por N,
@@ -468,8 +486,8 @@ distancia no es perpendicular a la línea de acción. Y en equilibrio completo n
 fuerzas sea cero: también debe anularse la suma de torques. La mejor forma de evitar estos errores es volver
 al modelo físico y al diagrama antes de manipular ecuaciones.
 `,
-  // Página 46
-  s46: `
+  // Página 44
+  s44: `
 Las preguntas conceptuales están pensadas para justificar antes de calcular. Por ejemplo, un cuerpo puede
 moverse con velocidad constante aunque actúen varias fuerzas, siempre que su resultante sea cero. Acción y
 reacción no se cancelan porque actúan sobre cuerpos distintos. El rozamiento puede ser útil si transmite
@@ -479,8 +497,8 @@ tendencia a modificar la rotación respecto de un eje. Al discutir estas pregunt
 de una sola palabra. La meta es construir una explicación breve que nombre el principio físico y lo
 relacione con la situación.
 `,
-  // Página 47
-  s47: `
+  // Página 45
+  s45: `
 Los ejercicios numéricos propuestos cubren los modelos principales de la unidad: peso, fuerza neta,
 equilibrio, rozamiento, plano inclinado, tensión y torque. La recomendación es no comenzar buscando una
 fórmula que contenga todos los datos. Primero se identifica el sistema, luego se dibuja el diagrama de
@@ -489,8 +507,8 @@ reemplazan valores. En los problemas de rozamiento hay que decidir si el cuerpo 
 los de torque hay que definir el eje y la convención de signos. Y al obtener el resultado, siempre debe
 verificarse la unidad y preguntarse si el valor y el sentido son físicamente razonables.
 `,
-  // Página 48
-  s48: `
+  // Página 46
+  s46: `
 Los simuladores deben utilizarse como herramientas de exploración y contraste, no como máquinas de dar
 respuestas. Una secuencia útil es: primero predecir qué ocurrirá al cambiar una variable; después modificar
 el control; finalmente comparar el resultado con la predicción y explicarlo con una ecuación. En la segunda
@@ -499,8 +517,8 @@ pierde adherencia. En el plano inclinado, el efecto del ángulo. En torque, la i
 ángulo. En equilibrio rotacional, la relación entre fuerza y distancia al eje. Si el simulador produce algo
 inesperado, ése es justamente el momento de volver al modelo físico y revisar la hipótesis.
 `,
-  // Página 49
-  s49: `
+  // Página 47
+  s47: `
 La actividad práctica integra transporte y mezclado para obligarnos a combinar varios conceptos. Primero se
 define el sistema y el marco de referencia. Después se construye el diagrama de cuerpo libre del producto
 transportado. Con ese diagrama se calculan peso, normal, rozamiento máximo y fuerza neta durante el
@@ -509,8 +527,8 @@ torque sobre una paleta del mezclador y se relaciona con el esfuerzo del motor. 
 obtener una lista de números, sino interpretar qué condiciones podrían generar derrames, deslizamientos,
 sobrecargas o vibraciones. La física se usa así como herramienta de diagnóstico y de decisión técnica.
 `,
-  // Página 50
-  s50: `
+  // Página 48
+  s48: `
 La actividad integradora propone mirar una línea completa y no fenómenos aislados. Una cinta entrega
 producto a una rampa; la rampa alimenta una tolva; la tolva descarga hacia un mezclador; luego intervienen
 tapas o compuertas. Cada etapa puede analizarse con los conceptos de la unidad. En la cinta dominan
@@ -519,8 +537,8 @@ mezclador, torque y rotación. En una tapa, equilibrio de fuerzas y momentos. El
 modelo conviene en cada punto y cómo una modificación en una parte puede afectar el resto del proceso. Esa
 mirada integrada es la que más se aproxima a una situación industrial real.
 `,
-  // Página 51
-  s51: `
+  // Página 49
+  s49: `
 Esta infografía resume el concepto de fuerza como interacción. Al observarla, conviene distinguir fuerzas de
 contacto y fuerzas a distancia y recordar que cada flecha debe responder a dos preguntas: quién ejerce la
 fuerza y sobre qué cuerpo actúa. También es importante identificar el carácter vectorial de la fuerza y
@@ -529,8 +547,8 @@ lógica se repite: cinta sobre producto, superficie sobre envase, gravedad sobre
 puede utilizarse como síntesis del primer bloque de la unidad y como guía para construir diagramas de cuerpo
 libre sin agregar fuerzas que no pertenecen al sistema.
 `,
-  // Página 52
-  s52: `
+  // Página 50
+  s50: `
 Esta segunda infografía reúne las leyes de Newton y la idea de fuerza neta. Conviene leerla comparando tres
 situaciones: fuerza neta cero, fuerza neta distinta de cero y pares de interacción. Con fuerza neta cero la
 aceleración es cero, aunque el cuerpo puede estar moviéndose con velocidad constante. Con fuerza neta no
@@ -539,8 +557,8 @@ sobre cuerpos diferentes. El objetivo de esta síntesis visual es que las leyes 
 memorizadas, sino como herramientas para decidir qué ecuación corresponde a cada situación y qué
 interpretación física tiene el resultado.
 `,
-  // Página 53
-  s53: `
+  // Página 51
+  s51: `
 La tercera infografía se concentra en diagramas de cuerpo libre y componentes. El punto central es que un
 DCL no reproduce el dibujo real del equipo: aísla un cuerpo y reemplaza cada interacción por una fuerza. A
 partir de allí podemos elegir ejes convenientes y descomponer las fuerzas inclinadas. En un plano inclinado,
@@ -549,8 +567,8 @@ físicos claros. Esta infografía funciona bien como lista de verificación: sis
 identificadas, ejes elegidos, componentes correctas y ecuaciones coherentes. Si esos pasos están claros, la
 resolución matemática suele ser mucho más segura.
 `,
-  // Página 54
-  s54: `
+  // Página 52
+  s52: `
 La infografía de rozamiento permite repasar la diferencia entre estático y cinético. El rozamiento estático
 se adapta al valor necesario mientras no exista deslizamiento, pero no puede superar mu estático por la
 normal. Una vez que el cuerpo desliza, se utiliza el modelo de rozamiento cinético. En aplicaciones con
@@ -559,8 +577,8 @@ Esto ayuda a superar la idea intuitiva de que el rozamiento siempre se opone al 
 respecto del suelo. En realidad, se opone al deslizamiento relativo en la superficie de contacto. La imagen
 puede usarse para discutir adherencia, arranque, frenado y desgaste.
 `,
-  // Página 55
-  s55: `
+  // Página 53
+  s53: `
 Esta infografía resume torque y equilibrio rotacional. Conviene fijarse en la diferencia entre distancia al
 eje y brazo de palanca: lo que entra directamente en el torque es la distancia perpendicular a la línea de
 acción de la fuerza. También debemos definir un sentido positivo para los torques, por ejemplo antihorario
@@ -569,8 +587,8 @@ para equilibrio completo además necesita suma de fuerzas igual a cero. La image
 ideas con tapas, palancas, ejes y mezcladores. Una buena pregunta de repaso es: ¿cómo puede una fuerza
 pequeña equilibrar una fuerza grande? La respuesta está en los distintos brazos de palanca.
 `,
-  // Página 56
-  s56: `
+  // Página 54
+  s54: `
 La última infografía conecta ley de Hooke y movimiento armónico simple. La fuerza elástica crece
 proporcionalmente con la deformación dentro del rango lineal y apunta hacia la posición de equilibrio. Al
 combinar esa fuerza con la segunda ley de Newton surge la condición dinámica del MAS. La frecuencia natural
@@ -579,8 +597,8 @@ más rígido o una carga más grande modifican la frecuencia de vibración. Tamb
 sistemas reales presentan amortiguamiento y pueden ser excitados externamente, por lo que aparece el
 fenómeno de resonancia. Esta síntesis visual integra elasticidad, oscilación y aplicación técnica.
 `,
-  // Página 57
-  s57: `
+  // Página 55
+  s55: `
 Como síntesis, la dinámica nos permite pasar de describir el movimiento a explicar sus causas. Las fuerzas
 son interacciones vectoriales y su suma determina la aceleración traslacional. El rozamiento puede
 transmitir movimiento o generar pérdidas. En trayectorias circulares, una resultante radial mantiene la
@@ -590,8 +608,8 @@ rápidas. En cuerpos extendidos, el torque y el momento de inercia permiten estu
 equilibrio completo deben anularse tanto la fuerza neta como el torque neto. La clave metodológica de toda
 la unidad sigue siendo la misma: sistema, diagrama, ecuaciones e interpretación.
 `,
-  // Página 58
-  s58: `
+  // Página 56
+  s56: `
 El glosario no debe leerse sólo como una lista de definiciones, sino como un conjunto de distinciones que
 necesitamos manejar con precisión. Masa no es peso; la masa mide inercia y el peso es una fuerza
 gravitatoria. La normal es una fuerza de contacto perpendicular a la superficie y no tiene por qué valer
@@ -600,8 +618,8 @@ fuerza elástica y deformación dentro del rango lineal. El momento lineal combi
 impulso mide el efecto acumulado de una fuerza en el tiempo. El torque mide tendencia al giro. Utilizar
 correctamente estos términos mejora tanto el planteo físico como la comunicación técnica de los resultados.
 `,
-  // Página 59
-  s59: `
+  // Página 57
+  s57: `
 Esta presentación funciona como apoyo visual y oral del apunte de la Unidad 3. Las diapositivas resumen
 conceptos, ecuaciones, diagramas, simulaciones e infografías, pero el desarrollo completo y las actividades
 quedan en el apunte y en la bibliografía de la cátedra. La recomendación para estudiar es no memorizar
@@ -611,7 +629,7 @@ resultado. Si esa metodología se mantiene, los mismos principios pueden transfe
 Ése es el objetivo final de la unidad: disponer de herramientas de dinámica que permitan interpretar y
 resolver problemas técnicos con criterio físico.
 `,
-};
+ };
 
 for (const [id, texto] of Object.entries(window.GUIONES_U3)) {
   const slide = document.getElementById(id);

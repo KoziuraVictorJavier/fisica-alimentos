@@ -1,0 +1,8 @@
+Unidad 3 · Presentación V0.5
+
+Corrección respecto de V0.4: el contenido solicitado se incorporó directamente en la presentación.
+
+Cambios principales:
+- Página 7: fuerza como suma vectorial Fx i + Fy j y definición de versor.
+- Página 9: g0 = G M_T / R_T^2, relación con G universal, tabla de variación de g con altura, y aclaración SI kg/N/m·s^-2.
+- Se conserva guiones.js con los guiones ampliados y los controles estilo Unidad 2.

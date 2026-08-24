@@ -1,5 +1,0 @@
-Presentación HTML · Unidad 3 · Dinámica
-
-Abrir index.html.
-Controles: flechas, botones inferiores, índice, lectura por voz del sistema y autoavance.
-El botón "Apunte U3" apunta a la carpeta superior, pensada para alojar esta presentación dentro de unidad3/Presentacion/.
