@@ -1,0 +1,31 @@
+Cómo modificar los gráficos TikZ del apunte
+==========================================
+
+Archivos editables:
+- peralte_dcl.tex
+- pendulo_conico_dcl.tex
+- circular_vertical_dcl.tex
+
+Salida usada por el HTML:
+- peralte_dcl.svg
+- pendulo_conico_dcl.svg
+- circular_vertical_dcl.svg
+
+Procedimiento recomendado:
+1) Editar el archivo .tex correspondiente.
+2) Compilar el .tex para obtener un PDF.
+3) Exportar el PDF a SVG con el mismo nombre.
+4) Mantener los SVG dentro de assets/tikz/.
+5) Abrir o recargar index.html.
+
+Comandos manuales, ejemplo:
+  cd assets/tikz
+  pdflatex -interaction=nonstopmode -halt-on-error peralte_dcl.tex
+  inkscape peralte_dcl.pdf --export-type=svg --export-filename=peralte_dcl.svg
+
+Scripts incluidos:
+- compilar_tikz.bat: Windows, requiere LaTeX e Inkscape en PATH.
+- compilar_tikz.sh: Linux/macOS, requiere LaTeX e Inkscape en PATH.
+
+Nota:
+El HTML usa los SVG como imágenes. Por eso, al modificar el TikZ, no alcanza con modificar el .tex: también hay que regenerar el .svg.
