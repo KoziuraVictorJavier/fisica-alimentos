@@ -16,6 +16,16 @@ window.MathJax={
 <script defer src="js/banco_preguntas.js"></script>
 <script defer src="js/simuladores.js"></script>
 <script defer src="js/checkpoints.js"></script>
+<script defer src="js/registro.js"></script>
+<script>
+// ============================================================
+// MODO DOCENTE / DEPURACIÓN
+// true  = muestra el número e ID interno de la pregunta.
+// false = modo normal para estudiantes.
+// Esta variable no aparece en la interfaz cuando está desactivada.
+window.CINEMATICA_DEBUG_SHOW_QUESTION_ID = false;
+// ============================================================
+</script>
 <script defer src="js/motor.js"></script>
 </head>
 <body>
@@ -29,10 +39,10 @@ window.MathJax={
       <div>
         <div class="kicker">Física · Unidad 2</div>
         <h1>Recorrido de desafíos de Cinemática</h1>
-        <p class="subtitle">50 casillas · 250 actividades · recorrido de la Unidad 2</p>
+        <p class="subtitle">36 casillas · 180 actividades · recorrido de la Unidad 2</p>
       </div>
     </div>
-    <div class="version">V0.8.2.1 · fórmulas revisadas</div>
+    <div class="version">V0.8.7 · recorrido 36 casillas · registro de foco · comprobante Moodle</div>
   </header>
 
   <section class="hud" aria-label="Progreso de la partida">
@@ -48,6 +58,7 @@ window.MathJax={
     </div>
     <div class="hud-actions">
       <button class="secondary" id="statsBtn">Ver progreso</button>
+      <button class="secondary" id="receiptBtn" hidden>Comprobante</button>
       <button class="secondary" id="resetBtn">Nueva partida</button>
     </div>
   </section>
@@ -56,7 +67,7 @@ window.MathJax={
     <div class="board-card">
       <div class="board-head">
         <h2>Recorrido completo · Fundamentos → MRUV → 2D → circular → MAS → integración</h2>
-        <span class="status-pill" id="zoneStatus">50 casillas</span>
+        <span class="status-pill" id="zoneStatus">36 casillas</span>
       </div>
       <div class="board" id="board" aria-label="Tablero de casillas"></div>
     </div>
@@ -101,8 +112,41 @@ window.MathJax={
     </aside>
   </section>
 
-  <div class="footer-note">Todo funciona localmente. No requiere servidor, conexión a Internet ni librerías externas.</div>
+  <div class="footer-note">El juego funciona desde GitHub Pages o localmente. Al finalizar genera un archivo JSON para entregar en Moodle.</div>
 </main>
+
+
+<!-- Student identification modal -->
+<div class="modal" id="studentModal" aria-hidden="true">
+  <section class="dialog identity-dialog" role="dialog" aria-modal="true" aria-labelledby="studentTitle">
+    <div class="dialog-top">
+      <div><div class="kicker">Identificación de la corrida</div><h3 id="studentTitle">Datos del estudiante</h3></div>
+    </div>
+    <p class="identity-note">Estos datos se incorporarán al comprobante JSON que se descargará al finalizar para entregar en Moodle.</p>
+    <div class="identity-grid">
+      <label>Apellido y nombre<input id="studentName" type="text" autocomplete="name" maxlength="100" placeholder="Ej.: Pérez, Juan"></label>
+      <label>Legajo / identificación<input id="studentId" type="text" maxlength="40" placeholder="Ej.: 12345"></label>
+      <label>Comisión <span class="optional">(opcional)</span><input id="studentGroup" type="text" maxlength="50" placeholder="Ej.: Alimentos 2026"></label>
+    </div>
+    <div class="feedback error" id="studentError" hidden></div>
+    <div class="dialog-actions"><button class="primary" id="studentStartBtn">Iniciar / continuar partida</button></div>
+  </section>
+</div>
+
+<!-- Final receipt modal -->
+<div class="modal" id="finalModal" aria-hidden="true">
+  <section class="dialog final-dialog" role="dialog" aria-modal="true" aria-labelledby="finalTitle">
+    <div class="dialog-top">
+      <div><div class="kicker">Corrida finalizada</div><h3 id="finalTitle">Comprobante para Moodle</h3></div>
+      <button class="close-x" id="closeFinal">Cerrar</button>
+    </div>
+    <div id="finalBody"></div>
+    <div class="dialog-actions final-actions">
+      <button class="primary" id="downloadReceiptBtn">Descargar archivo JSON</button>
+      <button class="secondary" id="closeFinalBtn">Volver al tablero</button>
+    </div>
+  </section>
+</div>
 
 <!-- Challenge modal -->
 <div class="modal" id="challengeModal" aria-hidden="true">
@@ -138,7 +182,7 @@ window.MathJax={
       <div>
         <div class="badges">
           <span class="badge checkpoint-badge">CHECKPOINT</span>
-          <span class="badge" id="checkpointProgressBadge">1 / 3</span>
+          <span class="badge" id="checkpointProgressBadge">1 / 1</span>
         </div>
         <h3 id="checkpointTitle">Checkpoint</h3>
         <div class="checkpoint-subtitle" id="checkpointSubtitle"></div>
@@ -146,8 +190,8 @@ window.MathJax={
     </div>
 
     <div class="checkpoint-rule">
-      Para habilitar la siguiente zona necesitás <strong>2 respuestas correctas de 3</strong>.
-      Cada respuesta mantiene la misma regla de energía del recorrido.
+      El checkpoint consta de <strong>una sola pregunta</strong>. Para habilitar la siguiente zona debe responderse correctamente.
+      La respuesta mantiene la misma regla de energía del recorrido.
     </div>
 
     <div class="checkpoint-meter">

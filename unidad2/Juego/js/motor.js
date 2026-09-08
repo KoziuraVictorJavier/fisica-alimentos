@@ -1,8 +1,9 @@
 (() => {
   const BANK=window.CINEMATICA_BANK;
   const CHECKPOINTS=window.CINEMATICA_CHECKPOINTS||{};
-  const STORAGE_KEY="fisica_u2_juego_v082";
-  const CONFIG={finalCell:50,energy:{start:10,max:30,correct:0.5,incorrect:-1,purchaseReward:3},difficultyPoints:{1:100,2:150,3:200}};
+  const STORAGE_KEY="fisica_u2_juego_v087";
+  const CONFIG={finalCell:36,energy:{start:10,max:30,correct:0.5,incorrect:-1,purchaseReward:3},difficultyPoints:{1:100,2:150,3:200}};
+  const DEBUG_SHOW_QUESTION_ID=window.CINEMATICA_DEBUG_SHOW_QUESTION_ID===true;
   const $=s=>document.querySelector(s);
   const board=$("#board"),diceBtn=$("#diceBtn"),energyShopBtn=$("#energyShopBtn"),resetBtn=$("#resetBtn"),
         modal=$("#challengeModal"),modalBody=$("#modalBody"),feedback=$("#feedback"),continueBtn=$("#continueBtn"),
@@ -10,10 +11,34 @@
         checkpointProgressBadge=$("#checkpointProgressBadge"),checkpointMeterBar=$("#checkpointMeterBar"),
         checkpointPrompt=$("#checkpointPrompt"),checkpointBody=$("#checkpointBody"),
         checkpointFeedback=$("#checkpointFeedback"),checkpointNextBtn=$("#checkpointNextBtn"),
-        statsBtn=$("#statsBtn"),statsModal=$("#statsModal"),statsBody=$("#statsBody"),closeStats=$("#closeStats");
+        statsBtn=$("#statsBtn"),statsModal=$("#statsModal"),statsBody=$("#statsBody"),closeStats=$("#closeStats"),
+        receiptBtn=$("#receiptBtn"),studentModal=$("#studentModal"),studentName=$("#studentName"),studentId=$("#studentId"),studentGroup=$("#studentGroup"),studentError=$("#studentError"),studentStartBtn=$("#studentStartBtn"),
+        finalModal=$("#finalModal"),finalBody=$("#finalBody"),downloadReceiptBtn=$("#downloadReceiptBtn"),closeFinal=$("#closeFinal"),closeFinalBtn=$("#closeFinalBtn");
 
-  function blankSession(){
-    return {schemaVersion:2,gameId:BANK.meta.gameId,gameVersion:BANK.meta.gameVersion,bankVersion:BANK.meta.bankVersion,startedAt:new Date().toISOString(),updatedAt:new Date().toISOString(),finishedAt:null,position:0,score:0,energy:CONFIG.energy.start,energyMax:CONFIG.energy.max,energyHistory:[],rolls:0,correct:0,incorrect:0,simulationsSolved:0,pending:null,events:[],answers:[],simulations:[],energyChallenges:[],checkpointPassed:{},checkpointAttempts:[]};
+  function blankSession(previousRuns=[],student=null){
+    const now=new Date().toISOString();
+    return {schemaVersion:5,gameId:BANK.meta.gameId,gameVersion:BANK.meta.gameVersion,bankVersion:BANK.meta.bankVersion,student,startedAt:now,updatedAt:now,finishedAt:null,receipt:null,position:0,score:0,energy:CONFIG.energy.start,energyMax:CONFIG.energy.max,energyHistory:[],rolls:0,correct:0,incorrect:0,simulationsSolved:0,pending:null,events:[],answers:[],simulations:[],energyChallenges:[],checkpointPassed:{},checkpointAttempts:[],attention:{lossCount:0,totalAwaySeconds:0,pageHideCount:0,activeStartedAt:null,activeReason:null},previousRuns:Array.isArray(previousRuns)?previousRuns:[]};
+  }
+
+  function archiveCurrentRun(endReason){
+    const endedAt=new Date().toISOString();
+    const startedMs=new Date(session.startedAt).getTime(),endedMs=new Date(endedAt).getTime();
+    const durationSeconds=Number.isFinite(startedMs)&&endedMs>=startedMs?Math.round((endedMs-startedMs)/1000):null;
+    return {
+      runNumber:(session.previousRuns?.length||0)+1,
+      endReason,
+      startedAt:session.startedAt,
+      endedAt,
+      durationSeconds,
+      result:{position:session.position,score:session.score,energy:session.energy,rolls:session.rolls,correct:session.correct,incorrect:session.incorrect,simulationsSolved:session.simulationsSolved,checkpointsPassed:Object.values(session.checkpointPassed||{}).filter(Boolean).length},
+      attention:{...(session.attention||{})},
+      answers:session.answers||[],
+      simulations:session.simulations||[],
+      energyChallenges:session.energyChallenges||[],
+      checkpointAttempts:session.checkpointAttempts||[],
+      energyHistory:session.energyHistory||[],
+      events:[...(session.events||[]),{at:endedAt,type:"run_ended",reason:endReason,cell:session.position}]
+    };
   }
 
   let session;
@@ -23,10 +48,115 @@
   if(!Array.isArray(session.energyChallenges))session.energyChallenges=[];
   if(!session.checkpointPassed||typeof session.checkpointPassed!=="object")session.checkpointPassed={};
   if(!Array.isArray(session.checkpointAttempts))session.checkpointAttempts=[];
+  if(!Array.isArray(session.previousRuns))session.previousRuns=[];
+  if(!session.attention||typeof session.attention!=="object")session.attention={lossCount:0,totalAwaySeconds:0,pageHideCount:0,activeStartedAt:null,activeReason:null};
+  session.attention.lossCount=Number(session.attention.lossCount)||0;
+  session.attention.totalAwaySeconds=Number(session.attention.totalAwaySeconds)||0;
+  session.attention.pageHideCount=Number(session.attention.pageHideCount)||0;
   session.energyMax=CONFIG.energy.max;session.pending=null;
 
   function save(){session.updatedAt=new Date().toISOString();localStorage.setItem(STORAGE_KEY,JSON.stringify(session));}
   function log(type,data={}){session.events.push({at:new Date().toISOString(),type,...data});save();}
+
+  // Registro de atención: indicador de pérdida de foco/visibilidad, no prueba del recurso consultado.
+  let pageVisible=!document.hidden;
+  let windowFocused=document.hasFocus();
+
+  function attentionRunning(){return !!session.student && !session.finishedAt;}
+
+  function startAttentionLoss(reason){
+    if(!attentionRunning()||session.attention.activeStartedAt)return;
+    const at=new Date().toISOString();
+    session.attention.activeStartedAt=at;
+    session.attention.activeReason=reason;
+    session.attention.lossCount+=1;
+    session.events.push({at,type:"attention_lost",reason,cell:session.position});
+    save();
+  }
+
+  function endAttentionLoss(reason){
+    if(!attentionRunning()||!session.attention.activeStartedAt||!pageVisible||!windowFocused)return;
+    const at=new Date().toISOString();
+    const startMs=new Date(session.attention.activeStartedAt).getTime();
+    const endMs=new Date(at).getTime();
+    const durationSeconds=Number.isFinite(startMs)&&endMs>=startMs?+((endMs-startMs)/1000).toFixed(1):null;
+    if(durationSeconds!==null)session.attention.totalAwaySeconds=+(session.attention.totalAwaySeconds+durationSeconds).toFixed(1);
+    session.events.push({at,type:"attention_restored",reason,durationSeconds,startedAt:session.attention.activeStartedAt,cell:session.position});
+    session.attention.activeStartedAt=null;
+    session.attention.activeReason=null;
+    save();
+  }
+
+  document.addEventListener("visibilitychange",()=>{
+    pageVisible=!document.hidden;
+    if(document.hidden)startAttentionLoss("document_hidden");
+    else endAttentionLoss("document_visible");
+  });
+
+  window.addEventListener("blur",()=>{windowFocused=false;startAttentionLoss("window_blur");});
+  window.addEventListener("focus",()=>{windowFocused=true;endAttentionLoss("window_focus");});
+
+  window.addEventListener("pagehide",()=>{
+    if(!attentionRunning())return;
+    session.attention.pageHideCount+=1;
+    startAttentionLoss("pagehide");
+    session.events.push({at:new Date().toISOString(),type:"pagehide",cell:session.position});
+    save();
+  });
+
+  // Si una partida se reabre después de cerrar/navegar la página, se cierra el episodio pendiente al recuperar foco.
+  if(session.attention.activeStartedAt && attentionRunning()){
+    setTimeout(()=>{pageVisible=!document.hidden;windowFocused=document.hasFocus();endAttentionLoss("session_resumed");},150);
+  }
+
+  function hasStudent(){return !!(session.student?.name&&session.student?.id);}
+  function openStudentIdentification(){
+    studentName.value=session.student?.name||"";
+    studentId.value=session.student?.id||"";
+    studentGroup.value=session.student?.group||"";
+    studentError.hidden=true;
+    studentModal.classList.add("open");
+    studentModal.setAttribute("aria-hidden","false");
+    setTimeout(()=>studentName.focus(),60);
+  }
+  function saveStudentIdentification(){
+    const name=studentName.value.trim(),id=studentId.value.trim(),group=studentGroup.value.trim();
+    if(!name||!id){studentError.hidden=false;studentError.textContent="Complete apellido y nombre, y legajo / identificación.";return;}
+    const previousStudentId=session.student?.id||null;
+    if(previousStudentId&&previousStudentId!==id)session.previousRuns=[];
+    session.student={name,id,group};
+    if(!session.events.some(e=>e.type==="student_identified"))session.events.push({at:new Date().toISOString(),type:"student_identified",studentId:id,group});
+    save();
+    studentModal.classList.remove("open");studentModal.setAttribute("aria-hidden","true");renderBoard();
+  }
+
+  function fmtDate(iso){try{return new Date(iso).toLocaleString("es-AR",{dateStyle:"short",timeStyle:"medium"});}catch{return iso||"—";}}
+  function fmtDuration(seconds){if(seconds==null)return "—";const m=Math.floor(seconds/60),s=seconds%60;return `${m} min ${String(s).padStart(2,"0")} s`;}
+  async function ensureReceipt(){
+    if(!session.finishedAt)return null;
+    const generatedAt=session.receipt?.generatedAt||new Date().toISOString();
+    const record=await window.CINEMATICA_REGISTRO.createRecord(session,generatedAt);
+    session.receipt={generatedAt,code:record.validation.code,digest:record.validation.digest,algorithm:record.validation.algorithm};
+    save();return record;
+  }
+  async function showFinalReceipt(){
+    const record=await ensureReceipt();if(!record)return;
+    finalBody.innerHTML=`
+      <div class="final-summary">
+        <div><span>Estudiante</span><strong>${record.student.name}</strong></div>
+        <div><span>Legajo / ID</span><strong>${record.student.id}</strong></div>
+        <div><span>Finalización</span><strong>${fmtDate(record.run.finishedAt)}</strong></div>
+        <div><span>Duración</span><strong>${fmtDuration(record.run.durationSeconds)}</strong></div>
+        <div><span>Casilla final</span><strong>${record.result.finalCell} / ${CONFIG.finalCell}</strong></div>
+        <div><span>Aciertos / errores</span><strong>${record.result.correct} / ${record.result.incorrect}</strong></div>
+        <div><span>Corridas realizadas</span><strong>${record.run.totalAttempts}</strong></div>
+      </div>
+      <div class="validation-box"><div>Código de validación</div><div class="validation-code">${record.validation.code}</div><small>Control de consistencia del archivo generado por esta corrida.</small></div>
+      <div class="moodle-instruction"><strong>Entrega:</strong> descargue el archivo JSON y súbalo como respuesta de la actividad correspondiente en Moodle. Moodle registrará además la fecha y hora de entrega.</div>`;
+    finalModal.classList.add("open");finalModal.setAttribute("aria-hidden","false");
+  }
+  async function downloadReceipt(){const record=await ensureReceipt();if(record)window.CINEMATICA_REGISTRO.download(record);}
+  function closeFinalModal(){finalModal.classList.remove("open");finalModal.setAttribute("aria-hidden","true");}
   function answerIndex(q){if(typeof q.answer==="number")return q.answer;if(typeof q.answer==="string"){const s=q.answer.trim().toUpperCase();if(/^[A-D]$/.test(s))return s.charCodeAt(0)-65;const n=Number(s);if(Number.isInteger(n))return n;}return -1;}
 
   function shuffledOptions(q){
@@ -145,41 +275,46 @@
 
     const gatePending=!!pendingCheckpointAtCurrentPosition();
 
-    diceBtn.disabled=!!session.pending||session.position>=CONFIG.finalCell||session.energy<=0;
+    diceBtn.disabled=!hasStudent()||!!session.pending||(session.position>=CONFIG.finalCell&&!gatePending)||session.energy<=0;
     diceBtn.textContent=gatePending?"Superar checkpoint":"Tirar dado";
     diceBtn.classList.toggle("checkpoint-action",gatePending);
 
     if(energyShopBtn){
-      energyShopBtn.disabled=!!session.pending||session.energy<=0||session.energy>=CONFIG.energy.max;
+      energyShopBtn.disabled=!hasStudent()||!!session.pending||session.energy<=0||session.energy>=CONFIG.energy.max;
       energyShopBtn.textContent=session.energy>=CONFIG.energy.max
         ?"⚡ Energía completa"
         :"⚡ Comprar energía (+3)";
     }
 
+    if(receiptBtn)receiptBtn.hidden=!session.finishedAt;
     const st=$("#gameStatus");
     st.classList.remove("done","danger","checkpoint-status");
 
-    if(session.energy<=0){
+    if(!hasStudent()){
+      st.textContent="Identificación pendiente";
+    }else if(session.energy<=0){
       st.textContent="Sin energía · reiniciar";
       st.classList.add("danger");
+    }else if(gatePending){
+      st.textContent=session.position>=CONFIG.finalCell?"Checkpoint final pendiente":"Checkpoint pendiente";
+      st.classList.add("checkpoint-status");
     }else if(session.position>=CONFIG.finalCell){
       st.textContent="Recorrido completado";
       st.classList.add("done");
-    }else if(gatePending){
-      st.textContent="Checkpoint pendiente";
-      st.classList.add("checkpoint-status");
     }else{
       st.textContent="Recorrido de práctica";
     }
   }
 
   function rollDice(){
-    if(session.pending||session.position>=CONFIG.finalCell||session.energy<=0)return;
+    if(session.pending||session.energy<=0)return;
 
     if(pendingCheckpointAtCurrentPosition()){
       openCheckpoint(session.position);
       return;
     }
+
+    if(session.position>=CONFIG.finalCell)return;
 
     const roll=1+Math.floor(Math.random()*3);
     const from=session.position;
@@ -195,6 +330,27 @@
   function chooseQuestion(cellId){const list=BANK.questions[cellId]||[],recent=session.answers.slice(-10).map(x=>x.questionId),preferred=list.filter(q=>!recent.includes(q.id)),pool=preferred.length?preferred:list;return pool[Math.floor(Math.random()*pool.length)];}
   function challengeLabel(q){return q.type==="simulation"?"Desafío interactivo":q.type==="graph_mcq"?"Interpretación gráfica":"Pregunta";}
 
+  function bankQuestionOrdinal(q){
+    let ordinal=0;
+    for(const cell of BANK.cells){
+      const list=BANK.questions[String(cell.id)]||BANK.questions[cell.id]||[];
+      for(const item of list){
+        ordinal++;
+        if(item===q || (q?.id && item.id===q.id)) return ordinal;
+      }
+    }
+    return null;
+  }
+
+  function questionPromptHtml(q){
+    if(!DEBUG_SHOW_QUESTION_ID)return q.prompt;
+    const ordinal=bankQuestionOrdinal(q);
+    const label=ordinal!==null
+      ? `Banco #${ordinal} · ${q.id}`
+      : `Pregunta interna · ${q.id||"sin ID"}`;
+    return `<div class="question-debug-id">${label}</div>${q.prompt}`;
+  }
+
 
   function shuffleArray(arr){
     const a=[...arr];
@@ -209,14 +365,22 @@
     const cp=checkpointAt(gateCell);
     if(!cp||checkpointPassed(gateCell)||session.energy<=0)return;
 
-    const selected=shuffleArray(cp.questions).slice(0,cp.draw||3);
+    let sourceQuestions=cp.questions||[];
+    if(cp.globalLevel3){
+      sourceQuestions=energyQuestionPool().map(item=>item.q);
+    }
+    const selected=shuffleArray(sourceQuestions).slice(0,1);
+    if(!selected.length){
+      alert("No hay preguntas disponibles para este checkpoint.");
+      return;
+    }
 
     checkpointRun={
       gateCell,
       checkpointId:cp.id,
       title:cp.title,
       subtitle:cp.subtitle,
-      required:cp.required||2,
+      required:1,
       index:0,
       correct:0,
       results:[],
@@ -245,7 +409,7 @@
     const q=checkpointRun.questions[checkpointRun.index];
     checkpointProgressBadge.textContent=`${checkpointRun.index+1} / ${checkpointRun.questions.length}`;
     checkpointMeterBar.style.width=`${checkpointRun.index/checkpointRun.questions.length*100}%`;
-    checkpointPrompt.innerHTML=q.prompt;
+    checkpointPrompt.innerHTML=questionPromptHtml(q);
     checkpointBody.innerHTML="";
     checkpointFeedback.innerHTML="";
     checkpointNextBtn.hidden=true;
@@ -368,6 +532,7 @@
 
     if(checkpointRun.passed){
       session.checkpointPassed[String(checkpointRun.gateCell)]=true;
+      if(checkpointRun.gateCell>=CONFIG.finalCell)session.finishedAt=new Date().toISOString();
       log("checkpoint_passed",{
         gateCell:checkpointRun.gateCell,
         checkpointId:checkpointRun.checkpointId,
@@ -376,12 +541,13 @@
       });
 
       checkpointFeedback.className="feedback success checkpoint-result";
+      const isFinalCheckpoint=checkpointRun.gateCell>=CONFIG.finalCell;
       checkpointFeedback.innerHTML+=
         `<div class="checkpoint-final">
           <strong>Checkpoint superado: ${checkpointRun.correct}/${checkpointRun.questions.length}.</strong><br>
-          La siguiente zona quedó habilitada.
+          ${isFinalCheckpoint?"Recorrido finalizado. Ya puede generarse el comprobante para Moodle.":"La siguiente zona quedó habilitada."}
         </div>`;
-      checkpointNextBtn.textContent="Continuar recorrido";
+      checkpointNextBtn.textContent=isFinalCheckpoint?"Generar comprobante":"Continuar recorrido";
     }else{
       log("checkpoint_failed",{
         gateCell:checkpointRun.gateCell,
@@ -413,7 +579,9 @@
     }
 
     if(checkpointRun.finished){
+      const showReceipt=checkpointRun.passed&&checkpointRun.gateCell>=CONFIG.finalCell;
       closeCheckpointModal();
+      if(showReceipt)setTimeout(()=>showFinalReceipt(),80);
       return;
     }
 
@@ -482,7 +650,7 @@
 
     $("#challengeCell").textContent="Compra de energía";
     $("#challengeTopic").textContent=`Desafío de nivel 3 · ${cell?.topic||"Tema aleatorio"}`;
-    $("#challengePrompt").innerHTML=q.prompt;
+    $("#challengePrompt").innerHTML=questionPromptHtml(q);
     $("#challengeType").textContent=`Premio: +${CONFIG.energy.purchaseReward} energía`;
 
     const difficultyBadge=$("#challengeDifficulty");
@@ -523,10 +691,10 @@
 
   function openChallenge(cellId){
     const cell=BANK.cells.find(c=>c.id===cellId),q=chooseQuestion(cellId);if(!q)return;
-    modal.classList.add("open");modal.setAttribute("aria-hidden","false");feedback.innerHTML="";continueBtn.hidden=true;continueBtn.textContent="Continuar";
+    modal.classList.add("open");modal.setAttribute("aria-hidden","false");feedback.innerHTML="";continueBtn.hidden=true;continueBtn.textContent="Continuar";continueBtn.onclick=closeChallenge;
     $("#challengeCell").textContent=`Casilla ${cellId}`;
     $("#challengeTopic").textContent=cell.title;
-    $("#challengePrompt").innerHTML=q.prompt;
+    $("#challengePrompt").innerHTML=questionPromptHtml(q);
     $("#challengeType").textContent=challengeLabel(q);
     const difficultyBadge=$("#challengeDifficulty");
     if(difficultyBadge){
@@ -555,7 +723,13 @@
       modalBody.append(choices);
       window.CINEMATICA_MATH?.typeset(modal);
     }else if(q.type==="simulation"){
-      const sim=document.createElement("div");modalBody.append(sim);const simState={simulationAttempts:0};window.CINEMATICA_SIM[q.simulator](sim,simState,result=>finishSimulation(q,result));
+      const sim=document.createElement("div");
+      modalBody.append(sim);
+      const simState={
+        simulationAttempts:0,
+        onFailedAttempt:(result)=>offerSimulationContinue(q,result)
+      };
+      window.CINEMATICA_SIM[q.simulator](sim,simState,result=>finishSimulation(q,result));
     }
   }
 
@@ -761,7 +935,49 @@
     window.CINEMATICA_MATH?.typeset(feedback);
   }
 
+
+  function offerSimulationContinue(q,result){
+    if(!session.pending || session.pending.questionId!==q.id)return;
+    feedback.className="feedback error";
+    feedback.innerHTML=`<strong>La configuración todavía no alcanza el objetivo.</strong> ${q.explanation}
+      <br><span class="small-feedback">Podés seguir ajustando el deslizador y volver a evaluar, o continuar para volver al tablero y recibir otra actividad en la próxima tirada.</span>`;
+    continueBtn.hidden=false;
+    continueBtn.textContent="Continuar sin resolver";
+    continueBtn.onclick=()=>finishSimulationAsIncorrect(q,result);
+    window.CINEMATICA_MATH?.typeset(feedback);
+  }
+
+  function finishSimulationAsIncorrect(q,result={}){
+    if(!session.pending || session.pending.questionId!==q.id)return;
+    const elapsed=(Date.now()-session.pending.questionStarted)/1000;
+    session.simulations.push({
+      at:new Date().toISOString(),
+      cell:session.pending.target,
+      slide:BANK.cells[session.pending.target-1].slide,
+      topic:BANK.cells[session.pending.target-1].topic,
+      challengeId:q.id,
+      difficulty:Number(q.difficulty)||1,
+      pointsPossible:difficultyPoints(q),
+      pointsAwarded:0,
+      correct:false,
+      elapsedSeconds:+elapsed.toFixed(1),
+      ...result
+    });
+    session.incorrect++;
+    changeEnergy(CONFIG.energy.incorrect,"simulacion_no_resuelta");
+    continueBtn.onclick=closeChallenge;
+    continueBtn.textContent="Continuar";
+    feedback.className="feedback error";
+    feedback.innerHTML=`<strong>Actividad no resuelta.</strong> ${q.explanation}
+      <br><span class="energy-note">Energía ${CONFIG.energy.incorrect.toFixed(1)}</span>
+      <br><span class="small-feedback">No perdés casillas: volvés a tu posición anterior y la próxima tirada presentará otra actividad.</span>`;
+    consolidateAdvance(false);
+    window.CINEMATICA_MATH?.typeset(feedback);
+  }
+
   function finishSimulation(q,result){
+    continueBtn.onclick=closeChallenge;
+    continueBtn.textContent="Continuar";
     const elapsed=(Date.now()-session.pending.questionStarted)/1000;
     session.simulations.push({
       at:new Date().toISOString(),
@@ -785,14 +1001,25 @@
 
   function consolidateAdvance(success){
     const p=session.pending;log(success?"challenge_correct":"challenge_incorrect",{cell:p.target,questionId:p.questionId,type:p.questionType});
-    if(success){session.position=p.target;if(session.position>=CONFIG.finalCell)session.finishedAt=new Date().toISOString();}
+    if(success){
+      session.position=p.target;
+      if(session.position>=CONFIG.finalCell && !pendingCheckpointAtCurrentPosition())session.finishedAt=new Date().toISOString();
+    }
     save();continueBtn.hidden=false;diceBtn.disabled=true;
     if(session.energy<=0){continueBtn.textContent="Reiniciar partida";feedback.innerHTML+=`<div class="energy-zero"><strong>La energía llegó a 0.</strong> Para continuar es necesario iniciar una nueva partida.</div>`;}
   }
 
   function closeChallenge(){if(session.energy<=0){restartImmediately();return;}session.pending=null;save();modal.classList.remove("open");modal.setAttribute("aria-hidden","true");renderBoard();}
-  function restartImmediately(){localStorage.removeItem(STORAGE_KEY);session=blankSession();modal.classList.remove("open");modal.setAttribute("aria-hidden","true");renderBoard();}
-  function resetGame(){if(confirm("¿Reiniciar la partida? Se borrará el progreso guardado en este navegador."))restartImmediately();}
+  function restartImmediately(reason="energy_depleted"){
+    const archived=archiveCurrentRun(reason);
+    const previous=[...(session.previousRuns||[]),archived];
+    const student=session.student?{...session.student}:null;
+    session=blankSession(previous,student);
+    if(student)session.events.push({at:new Date().toISOString(),type:"run_started",runNumber:previous.length+1,reason:"restart_after_"+reason,studentId:student.id});
+    save();
+    modal.classList.remove("open");modal.setAttribute("aria-hidden","true");checkpointModal.classList.remove("open");finalModal.classList.remove("open");renderBoard();openStudentIdentification();
+  }
+  function resetGame(){if(confirm("¿Reiniciar la corrida actual? Se conservará esta corrida en el historial del comprobante final."))restartImmediately("manual_reset");}
 
   function showStats(){
     const mins=(Date.now()-new Date(session.startedAt).getTime())/60000;
@@ -912,7 +1139,7 @@
       <div class="stats-cards checkpoint-stats">
         <div><span>Superados</span><strong>${checkpointPassedCount}/${CHECKPOINT_GATES.length}</strong></div>
         <div><span>Intentos</span><strong>${checkpointAttemptCount}</strong></div>
-        <div><span>Regla</span><strong>2 / 3</strong></div>
+        <div><span>Regla</span><strong>1 / 1</strong></div>
         <div><span>Puertas</span><strong>${CHECKPOINT_GATES.join(" · ")}</strong></div>
       </div>
 
@@ -938,6 +1165,13 @@
   diceBtn.addEventListener("click",rollDice);
   if(energyShopBtn)energyShopBtn.addEventListener("click",openEnergyChallenge);
   if(checkpointNextBtn)checkpointNextBtn.addEventListener("click",checkpointNext);
+  if(studentStartBtn)studentStartBtn.addEventListener("click",saveStudentIdentification);
+  [studentName,studentId,studentGroup].filter(Boolean).forEach(el=>el.addEventListener("keydown",e=>{if(e.key==="Enter")saveStudentIdentification();}));
+  if(downloadReceiptBtn)downloadReceiptBtn.addEventListener("click",downloadReceipt);
+  if(receiptBtn)receiptBtn.addEventListener("click",showFinalReceipt);
+  if(closeFinal)closeFinal.addEventListener("click",closeFinalModal);
+  if(closeFinalBtn)closeFinalBtn.addEventListener("click",closeFinalModal);
   continueBtn.addEventListener("click",closeChallenge);resetBtn.addEventListener("click",resetGame);statsBtn.addEventListener("click",showStats);closeStats.addEventListener("click",()=>{statsModal.classList.remove("open");statsModal.setAttribute("aria-hidden","true");});
   renderBoard();
+  if(!hasStudent())openStudentIdentification();
 })();

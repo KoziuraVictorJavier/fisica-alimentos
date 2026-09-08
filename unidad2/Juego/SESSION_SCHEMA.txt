@@ -202,3 +202,44 @@ Cada intento registra:
 - variación de energía.
 
 Los checkpoints no pueden ser saltados por una tirada de dado.
+
+V0.8.6 - ATTENTION / FOCUS MONITORING
+--------------------------------------
+session.attention = {
+  lossCount: number,
+  totalAwaySeconds: number,
+  pageHideCount: number,
+  activeStartedAt: ISO timestamp | null,
+  activeReason: string | null
+}
+
+Eventos posibles en session.events:
+- attention_lost: la pestaña se ocultó o la ventana perdió foco.
+- attention_restored: se recuperó foco/visibilidad; incluye durationSeconds.
+- pagehide: el navegador ocultó/descargó la página (puede ser cierre, recarga o navegación).
+
+En el comprobante JSON:
+researchData.attention = {
+  focusLossCount,
+  totalAwaySeconds,
+  pageHideCount,
+  note
+}
+
+Interpretación: son indicadores de pérdida de atención sobre la ventana del juego. No identifican ni prueban qué recurso externo fue consultado.
+
+
+V0.8.7 - HISTORIAL DE REINICIOS
+---------------------------------
+session.previousRuns[] conserva cada corrida terminada sin completar el juego.
+Cada elemento registra:
+- runNumber
+- endReason: energy_depleted | manual_reset
+- startedAt / endedAt / durationSeconds
+- resultado alcanzado al finalizar esa corrida
+- atención / pérdidas de foco
+- answers, simulations, energyChallenges
+- checkpointAttempts, energyHistory, events
+
+El JSON final usa FISICA_UTN_GAME_RESULT_V2.
+La corrida que completa el juego se mantiene como la corrida principal y las anteriores quedan en researchData.previousRuns[].

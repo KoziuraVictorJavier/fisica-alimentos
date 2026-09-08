@@ -1,0 +1,2786 @@
+/* BANCO DE PREGUNTAS — Física · Unidad 2
+   V0.8.3 · 36 casillas · 180 actividades
+   Banco recortado a las preguntas actualmente utilizadas en el recorrido.
+*/
+window.CINEMATICA_BANK = {
+  "meta": {
+    "gameId": "FISICA_U2_RECORRIDO",
+    "gameVersion": "0.8.3",
+    "bankVersion": "2026.09-36casillas-v0.8.3",
+    "unit": "Unidad 2 · Cinemática"
+  },
+  "cells": [
+    {
+      "id": 1,
+      "slide": "s2",
+      "title": "¿Qué estudia la cinemática?",
+      "topic": "Introducción"
+    },
+    {
+      "id": 2,
+      "slide": "s4",
+      "title": "Cinemática en planta",
+      "topic": "Aplicaciones"
+    },
+    {
+      "id": 3,
+      "slide": "s5",
+      "title": "Escalares y vectoriales",
+      "topic": "Magnitudes"
+    },
+    {
+      "id": 4,
+      "slide": "s6",
+      "title": "Sistema de referencia",
+      "topic": "Referencia"
+    },
+    {
+      "id": 5,
+      "slide": "s7",
+      "title": "Posición, desplazamiento y distancia",
+      "topic": "Posición"
+    },
+    {
+      "id": 6,
+      "slide": "s8",
+      "title": "Definiciones matemáticas",
+      "topic": "Desplazamiento"
+    },
+    {
+      "id": 7,
+      "slide": "s9",
+      "title": "Rapidez y velocidad",
+      "topic": "Velocidad"
+    },
+    {
+      "id": 8,
+      "slide": "s10",
+      "title": "Velocidad como derivada",
+      "topic": "Velocidad instantánea"
+    },
+    {
+      "id": 9,
+      "slide": "s11",
+      "title": "Aceleración",
+      "topic": "Aceleración"
+    },
+    {
+      "id": 10,
+      "slide": "s12",
+      "title": "Movimiento rectilíneo uniforme",
+      "topic": "MRU"
+    },
+    {
+      "id": 11,
+      "slide": "s13",
+      "title": "Gráficas del MRU",
+      "topic": "Gráficas MRU"
+    },
+    {
+      "id": 12,
+      "slide": "s14",
+      "title": "Galileo y el estudio cuantitativo",
+      "topic": "Galileo"
+    },
+    {
+      "id": 13,
+      "slide": "s15",
+      "title": "Regla de los números impares",
+      "topic": "Galileo / MRUV"
+    },
+    {
+      "id": 14,
+      "slide": "s16",
+      "title": "Movimiento rectilíneo uniformemente variado",
+      "topic": "MRUV"
+    },
+    {
+      "id": 15,
+      "slide": "s17",
+      "title": "Ecuación sin tiempo",
+      "topic": "MRUV"
+    },
+    {
+      "id": 16,
+      "slide": "s18",
+      "title": "Interpretación de gráficas",
+      "topic": "Gráficas"
+    },
+    {
+      "id": 17,
+      "slide": "s19",
+      "title": "Caída libre",
+      "topic": "Caída libre"
+    },
+    {
+      "id": 18,
+      "slide": "s20",
+      "title": "Independencia de los movimientos",
+      "topic": "Movimiento 2D"
+    },
+    {
+      "id": 19,
+      "slide": "s21",
+      "title": "El mono y el cazador",
+      "topic": "Movimiento 2D"
+    },
+    {
+      "id": 20,
+      "slide": "s22",
+      "title": "Velocidad relativa",
+      "topic": "Velocidad relativa"
+    },
+    {
+      "id": 21,
+      "slide": "s23",
+      "title": "Movimiento en dos dimensiones",
+      "topic": "Movimiento 2D"
+    },
+    {
+      "id": 22,
+      "slide": "s24",
+      "title": "Producto que sale de una cinta",
+      "topic": "Aplicación industrial"
+    },
+    {
+      "id": 23,
+      "slide": "s25",
+      "title": "Movimiento circular",
+      "topic": "Movimiento circular"
+    },
+    {
+      "id": 24,
+      "slide": "s26",
+      "title": "Posición angular: radián, arco y perímetro",
+      "topic": "Posición angular"
+    },
+    {
+      "id": 25,
+      "slide": "s27",
+      "title": "Período, frecuencia y velocidad angular",
+      "topic": "T · f · ω"
+    },
+    {
+      "id": 26,
+      "slide": "s28",
+      "title": "De lo angular a lo lineal",
+      "topic": "Velocidad tangencial"
+    },
+    {
+      "id": 27,
+      "slide": "s28a",
+      "title": "Poleas, correas y cadenas",
+      "topic": "Transmisiones"
+    },
+    {
+      "id": 28,
+      "slide": "s29",
+      "title": "Aceleraciones en movimiento circular",
+      "topic": "Aceleración circular"
+    },
+    {
+      "id": 29,
+      "slide": "s30",
+      "title": "Movimiento armónico simple",
+      "topic": "MAS"
+    },
+    {
+      "id": 30,
+      "slide": "s31",
+      "title": "Parámetros cinemáticos del MAS",
+      "topic": "Parámetros MAS"
+    },
+    {
+      "id": 31,
+      "slide": "s32",
+      "title": "Posición en función del tiempo",
+      "topic": "x(t) en MAS"
+    },
+    {
+      "id": 32,
+      "slide": "s33",
+      "title": "Posición, velocidad y aceleración",
+      "topic": "x · v · a en MAS"
+    },
+    {
+      "id": 33,
+      "slide": "s34",
+      "title": "MAS y movimiento circular uniforme",
+      "topic": "MAS ↔ MCU"
+    },
+    {
+      "id": 34,
+      "slide": "s35",
+      "title": "Péndulo simple como aproximación al MAS",
+      "topic": "Péndulo"
+    },
+    {
+      "id": 35,
+      "slide": "s36",
+      "title": "Aplicaciones cinemáticas del MAS",
+      "topic": "Vibraciones"
+    },
+    {
+      "id": 36,
+      "slide": "s37",
+      "title": "Aplicaciones industriales integradas",
+      "topic": "Aplicaciones industriales"
+    }
+  ],
+  "questions": {
+    "1": [
+      {
+        "id": "U2_CIN_001",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "¿Cuál de estas preguntas pertenece directamente al campo de la cinemática?",
+        "options": [
+          "¿Qué fuerza produce el movimiento?",
+          "¿Dónde está el cuerpo y cómo cambia su velocidad?",
+          "¿Qué material soporta mejor una carga?",
+          "¿Qué energía química contiene el producto?"
+        ],
+        "answer": 1,
+        "explanation": "La cinemática describe cómo se mueven los cuerpos: posición, desplazamiento, velocidad y aceleración, sin estudiar todavía las causas del movimiento."
+      },
+      {
+        "id": "U2_CIN_002",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "En una cinta transportadora, ¿qué consecuencia cinemática puede tener aumentar la velocidad de la cinta?",
+        "options": [
+          "Aumenta necesariamente la masa del producto.",
+          "Disminuye el tiempo de residencia para una misma longitud recorrida.",
+          "Anula la aceleración gravitatoria.",
+          "Convierte toda magnitud en vectorial."
+        ],
+        "answer": 1,
+        "explanation": "Para una longitud fija, al aumentar la velocidad disminuye el tiempo empleado en recorrerla."
+      },
+      {
+        "id": "U2_CIN_003",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "La cinemática se ocupa principalmente de...",
+        "options": [
+          "describir el movimiento mediante variables medibles.",
+          "determinar la composición química de un alimento.",
+          "explicar las fuerzas moleculares.",
+          "calcular únicamente velocidades constantes."
+        ],
+        "answer": 0,
+        "explanation": "La idea central es transformar observaciones del movimiento en variables como posición, velocidad y aceleración."
+      },
+      {
+        "id": "U2_CIN_004",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "¿Cuál de estas situaciones corresponde a describir el movimiento sin estudiar todavía su causa?",
+        "options": [
+          "Determinar cómo cambia la posición de una botella sobre una cinta.",
+          "Calcular la fuerza que ejerce un actuador sobre la botella.",
+          "Determinar la composición química del envase.",
+          "Calcular la energía eléctrica consumida por el motor."
+        ],
+        "answer": "A",
+        "explanation": "La cinemática describe posición, velocidad y aceleración sin analizar todavía las fuerzas que originan el movimiento."
+      },
+      {
+        "id": "U2_CIN_005",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En una línea de proceso se desea sincronizar dos estaciones. ¿Qué información es principalmente cinemática?",
+        "options": [
+          "Posición, velocidad y tiempos de traslado.",
+          "Composición química y pH.",
+          "Tensión admisible del material.",
+          "Potencia eléctrica instalada únicamente."
+        ],
+        "answer": "A",
+        "explanation": "La sincronización requiere describir dónde está el producto, cómo se mueve y cuánto tarda en desplazarse."
+      }
+    ],
+    "2": [
+      {
+        "id": "U2_APP_001",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "En un túnel de enfriamiento, si la longitud útil permanece constante, la velocidad de la cinta influye directamente sobre...",
+        "options": [
+          "el tiempo de residencia",
+          "la gravedad",
+          "la masa molecular",
+          "el sistema SI"
+        ],
+        "answer": 0,
+        "explanation": "La velocidad de avance determina cuánto tiempo permanece el producto dentro del túnel."
+      },
+      {
+        "id": "U2_APP_002",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "¿Qué variable cinemática es especialmente relevante en una centrífuga?",
+        "options": [
+          "aceleración centrípeta",
+          "conductividad térmica",
+          "presión osmótica",
+          "densidad aparente únicamente"
+        ],
+        "answer": 0,
+        "explanation": "En una centrífuga, la aceleración centrípeta está asociada al movimiento circular del producto."
+      },
+      {
+        "id": "U2_APP_003",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "Una llenadora arranca y frena de manera brusca. ¿Qué magnitud conviene observar además de la velocidad?",
+        "options": [
+          "aceleración",
+          "temperatura absoluta",
+          "densidad",
+          "humedad"
+        ],
+        "answer": 0,
+        "explanation": "Los cambios bruscos de velocidad se describen mediante la aceleración y pueden relacionarse con derrames o inestabilidad."
+      },
+      {
+        "id": "U2_APP_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Una zona útil de un túnel mide \\(12\\,\\mathrm{m}\\) y la cinta avanza a \\(0.60\\,\\mathrm{m/s}\\). Si el movimiento es uniforme, el tiempo de residencia es...",
+        "options": [
+          "20 s",
+          "7.2 s",
+          "12.6 s",
+          "0.05 s"
+        ],
+        "answer": "A",
+        "explanation": "Para velocidad constante, \\(t=L/v=12/0.60=20\\,\\mathrm{s}\\)."
+      },
+      {
+        "id": "U2_APP_005",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "En un mezclador, las variables cinemáticas destacadas en la unidad son...",
+        "options": [
+          "\\(\\omega\\) y \\(f\\)",
+          "masa y densidad solamente",
+          "pH y conductividad",
+          "trabajo y energía únicamente"
+        ],
+        "answer": "A",
+        "explanation": "En la presentación se vinculan velocidad angular y frecuencia con homogeneidad y esfuerzo mecánico."
+      }
+    ],
+    "3": [
+      {
+        "id": "U2_VEC_001",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "¿Cuál de las siguientes magnitudes es vectorial?",
+        "options": [
+          "distancia",
+          "rapidez",
+          "tiempo",
+          "desplazamiento"
+        ],
+        "answer": 3,
+        "explanation": "El desplazamiento requiere módulo, dirección y sentido."
+      },
+      {
+        "id": "U2_VEC_002",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "Un móvil recorre 10 m hacia la derecha y luego 10 m hacia la izquierda. ¿Qué afirmación es correcta?",
+        "options": [
+          "Distancia = 0 m y desplazamiento = 20 m.",
+          "Distancia = 20 m y desplazamiento = 0 m.",
+          "Distancia = desplazamiento = 20 m.",
+          "Distancia = desplazamiento = 0 m."
+        ],
+        "answer": 1,
+        "explanation": "La distancia suma todo el camino: 20 m. El punto final coincide con el inicial, por lo que el desplazamiento es cero."
+      },
+      {
+        "id": "U2_VEC_003",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "La rapidez instantánea puede interpretarse como...",
+        "options": [
+          "el módulo de la velocidad instantánea.",
+          "la dirección del desplazamiento.",
+          "una magnitud necesariamente negativa.",
+          "la segunda derivada de la posición."
+        ],
+        "answer": 0,
+        "explanation": "La rapidez es escalar y corresponde al módulo del vector velocidad."
+      },
+      {
+        "id": "U2_VEC_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Un móvil mantiene la misma rapidez pero cambia de dirección. ¿Qué afirmación es correcta?",
+        "options": [
+          "Su velocidad vectorial cambió.",
+          "Su velocidad vectorial permaneció idéntica.",
+          "Su desplazamiento necesariamente es cero.",
+          "Su posición no puede cambiar."
+        ],
+        "answer": "A",
+        "explanation": "La velocidad es vectorial: cambiar la dirección modifica el vector aunque su módulo permanezca constante."
+      },
+      {
+        "id": "U2_VEC_005",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "¿Cuál de estas magnitudes necesita módulo, dirección y sentido para quedar determinada?",
+        "options": [
+          "aceleración",
+          "tiempo",
+          "distancia",
+          "rapidez"
+        ],
+        "answer": "A",
+        "explanation": "La aceleración es una magnitud vectorial."
+      }
+    ],
+    "4": [
+      {
+        "id": "U2_REF_001",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "Para asignar correctamente signo a una posición o velocidad en una línea recta, primero debemos definir...",
+        "options": [
+          "el sistema de referencia",
+          "la masa del móvil",
+          "la energía cinética",
+          "el coeficiente de rozamiento"
+        ],
+        "answer": 0,
+        "explanation": "El origen, los ejes, el sentido positivo y la referencia temporal permiten interpretar signos y coordenadas."
+      },
+      {
+        "id": "U2_REF_002",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "Si el origen se coloca en un sensor y el eje +x apunta hacia la llenadora, una posición x = −0,50 m indica que el objeto está...",
+        "options": [
+          "0,50 m después de la llenadora.",
+          "0,50 m del lado opuesto al sentido +x respecto del sensor.",
+          "necesariamente detenido.",
+          "fuera del sistema de referencia."
+        ],
+        "answer": 1,
+        "explanation": "El signo negativo indica ubicación en el sentido opuesto al eje positivo elegido."
+      },
+      {
+        "id": "U2_REF_003",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "¿Qué conjunto define adecuadamente un sistema de referencia para un problema cinemático?",
+        "options": [
+          "origen, ejes, sentido positivo y reloj",
+          "masa, volumen y densidad",
+          "fuerza, trabajo y potencia",
+          "temperatura, presión y caudal"
+        ],
+        "answer": 0,
+        "explanation": "Esos elementos permiten ubicar espacial y temporalmente el movimiento."
+      },
+      {
+        "id": "U2_REF_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Si cambiamos el origen del sistema de referencia, pero el objeto permanece inmóvil físicamente, ¿qué puede cambiar?",
+        "options": [
+          "La coordenada asignada a su posición.",
+          "La ubicación física real del objeto.",
+          "La gravedad local necesariamente.",
+          "La longitud del objeto."
+        ],
+        "answer": "A",
+        "explanation": "Las coordenadas dependen del sistema de referencia; la ubicación física del cuerpo no cambia por redefinir el origen."
+      },
+      {
+        "id": "U2_REF_005",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "Elegir el sentido positivo del eje x determina principalmente...",
+        "options": [
+          "el signo con el que se expresan posiciones y velocidades sobre ese eje.",
+          "la masa del móvil.",
+          "el valor de la gravedad.",
+          "la duración real del proceso."
+        ],
+        "answer": "A",
+        "explanation": "El sentido positivo fija la convención de signos del problema."
+      }
+    ],
+    "5": [
+      {
+        "id": "U2_POS_001",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "Dos trayectorias diferentes parten del mismo punto y terminan en el mismo punto. ¿Qué magnitud necesariamente es la misma?",
+        "options": [
+          "distancia recorrida",
+          "desplazamiento",
+          "rapidez media",
+          "tiempo empleado"
+        ],
+        "answer": 1,
+        "explanation": "El desplazamiento depende sólo de la posición inicial y final; la distancia depende del camino."
+      },
+      {
+        "id": "U2_POS_002",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "La distancia recorrida es...",
+        "options": [
+          "la longitud total de la trayectoria.",
+          "siempre igual al módulo del desplazamiento.",
+          "un vector dirigido al origen.",
+          "la diferencia entre velocidad final e inicial."
+        ],
+        "answer": 0,
+        "explanation": "La distancia es una magnitud escalar que suma la longitud total del camino recorrido."
+      },
+      {
+        "id": "U2_POS_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Un producto se mueve desde x = 2 m hasta x = 8 m. Su desplazamiento sobre el eje x es...",
+        "options": [
+          "10 m",
+          "6 m",
+          "−6 m",
+          "4 m"
+        ],
+        "answer": 1,
+        "explanation": "Δx = x_f − x_i = 8 − 2 = 6 m."
+      },
+      {
+        "id": "U2_POS_004",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "Un móvil sale de un punto, recorre un camino y regresa exactamente al punto inicial. Entonces...",
+        "options": [
+          "el desplazamiento es cero y la distancia es mayor que cero.",
+          "distancia y desplazamiento son cero.",
+          "la distancia es cero y el desplazamiento no.",
+          "distancia y desplazamiento siempre son iguales."
+        ],
+        "answer": "A",
+        "explanation": "El desplazamiento depende de los extremos; la distancia suma toda la trayectoria recorrida."
+      },
+      {
+        "id": "U2_POS_005",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "Conociendo sólo la posición inicial y final, ¿puede determinarse siempre la distancia recorrida?",
+        "options": [
+          "No",
+          "Sí, siempre",
+          "Sólo si el tiempo es cero",
+          "Sólo con la masa"
+        ],
+        "answer": "A",
+        "explanation": "La distancia depende de la trayectoria completa, no sólo de los extremos."
+      }
+    ],
+    "6": [
+      {
+        "id": "U2_DEF_001",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "¿Cuál es la expresión correcta del desplazamiento?",
+        "math": true,
+        "options": [
+          "\\(\\Delta \\vec r=\\vec r_f-\\vec r_i\\)",
+          "\\(\\Delta \\vec r=\\vec r_f+\\vec r_i\\)",
+          "\\(\\Delta \\vec r=\\frac{d}{\\Delta\\,t}\\)",
+          "\\(\\Delta \\vec r=\\vec v_f-\\vec v_i\\)"
+        ],
+        "answer": 0,
+        "explanation": "El desplazamiento es la diferencia entre la posición final y la inicial."
+      },
+      {
+        "id": "U2_DEF_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Si \\(\\vec r_i=(1,2)\\,\\mathrm{m}\\) y \\(\\vec r_f=(4,6)\\,\\mathrm{m}\\), entonces \\(\\Delta \\vec r\\) es...",
+        "math": true,
+        "options": [
+          "\\((3,4)\\,\\mathrm{m}\\)",
+          "\\((5,8)\\,\\mathrm{m}\\)",
+          "\\((-3,-4)\\,\\mathrm{m}\\)",
+          "\\((4,6)\\,\\mathrm{m}\\)"
+        ],
+        "answer": 0,
+        "explanation": "Se restan componentes: (4−1, 6−2) = (3,4) m."
+      },
+      {
+        "id": "U2_DEF_003",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "La posición \\(\\vec r(t)\\) representa...",
+        "math": true,
+        "options": [
+          "la ubicación instantánea del móvil respecto del origen.",
+          "la longitud total de la trayectoria.",
+          "solamente la rapidez.",
+          "el cambio de velocidad por unidad de tiempo."
+        ],
+        "answer": 0,
+        "explanation": "El vector posición ubica al móvil en cada instante respecto del sistema de referencia."
+      },
+      {
+        "id": "U2_DEF_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Si \\(\\vec r_i=(-2,3)\\,\\mathrm{m}\\) y \\(\\vec r_f=(4,-1)\\,\\mathrm{m}\\), el desplazamiento es...",
+        "options": [
+          "\\((6,-4)\\,\\mathrm{m}\\)",
+          "\\((2,2)\\,\\mathrm{m}\\)",
+          "\\((-6,4)\\,\\mathrm{m}\\)",
+          "\\((4,-1)\\,\\mathrm{m}\\)"
+        ],
+        "answer": "A",
+        "explanation": "\\(\\Delta \\vec r=\\vec r_f-\\vec r_i=(4-(-2),-1-3)=(6,-4)\\,\\mathrm{m}\\)."
+      },
+      {
+        "id": "U2_DEF_005",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "La expresión \\(\\Delta \\vec r=\\vec r_f-\\vec r_i\\) muestra que el desplazamiento...",
+        "options": [
+          "depende de las posiciones inicial y final.",
+          "depende de toda la longitud recorrida.",
+          "es siempre positivo.",
+          "es una magnitud escalar."
+        ],
+        "answer": "A",
+        "explanation": "El desplazamiento es el cambio neto entre posición final e inicial."
+      }
+    ],
+    "7": [
+      {
+        "id": "U2_VEL_001",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "La rapidez media se calcula utilizando...",
+        "options": [
+          "distancia total y tiempo empleado.",
+          "desplazamiento vectorial y tiempo empleado.",
+          "cambio de velocidad y tiempo.",
+          "posición final solamente."
+        ],
+        "answer": 0,
+        "explanation": "La rapidez media es escalar y usa la distancia total recorrida."
+      },
+      {
+        "id": "U2_VEL_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "La velocidad media se calcula como...",
+        "math": true,
+        "options": [
+          "\\(\\vec v_{\\mathrm{med}}=\\frac{\\Delta \\vec r}{\\Delta\\,t}\\)",
+          "\\(v_{\\mathrm{med}}=\\frac{d^2}{\\Delta\\,t}\\)",
+          "\\(\\vec v_{\\mathrm{med}}=\\frac{\\Delta \\vec v}{\\Delta\\,t}\\)",
+          "\\(\\vec v_{\\mathrm{med}}=\\vec r_f+\\vec r_i\\)"
+        ],
+        "answer": 0,
+        "explanation": "La velocidad media usa el desplazamiento vectorial dividido por el intervalo de tiempo."
+      },
+      {
+        "id": "U2_VEL_003",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "En una trayectoria curva, la velocidad instantánea es...",
+        "options": [
+          "tangente a la trayectoria.",
+          "siempre radial.",
+          "siempre perpendicular al desplazamiento.",
+          "una magnitud escalar."
+        ],
+        "answer": 0,
+        "explanation": "La velocidad instantánea es tangente a la trayectoria en el punto considerado."
+      },
+      {
+        "id": "U2_VEL_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Un móvil recorre \\(100\\,\\mathrm{m}\\) y vuelve al punto de partida recorriendo otros \\(100\\,\\mathrm{m}\\) en un total de \\(20\\,\\mathrm{s}\\). Su rapidez media y el módulo de su velocidad media son...",
+        "options": [
+          "10 m/s y 0 m/s",
+          "5 m/s y 5 m/s",
+          "0 m/s y 10 m/s",
+          "20 m/s y 10 m/s"
+        ],
+        "answer": "A",
+        "explanation": "Rapidez media = 200/20 = 10 m/s. Como el desplazamiento neto es cero, la velocidad media es cero."
+      },
+      {
+        "id": "U2_VEL_005",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "La velocidad media tiene la misma dirección que...",
+        "options": [
+          "el desplazamiento neto",
+          "la distancia total",
+          "el tiempo",
+          "la masa"
+        ],
+        "answer": "A",
+        "explanation": "\\(\\vec v_{\\mathrm{med}}=\\frac{\\Delta \\vec r}{\\Delta\\,t}\\), por lo que conserva la dirección del desplazamiento."
+      }
+    ],
+    "8": [
+      {
+        "id": "U2_DER_001",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "La velocidad instantánea puede expresarse como...",
+        "math": true,
+        "options": [
+          "\\(\\vec v(t)=\\frac{d\\vec r}{dt}\\)",
+          "\\(\\vec v(t)=\\frac{d^2\\vec r}{dt^2}\\)",
+          "\\(\\vec v(t)=\\frac{\\Delta \\vec v}{\\Delta\\,t}\\)",
+          "\\(\\vec v(t)=\\frac{d}{\\Delta\\,t}\\) siempre"
+        ],
+        "answer": 0,
+        "explanation": "La velocidad instantánea es la derivada temporal del vector posición."
+      },
+      {
+        "id": "U2_DER_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Si \\(x(t)=3t+2\\) en metros, ¿cuál es la velocidad instantánea?",
+        "math": true,
+        "options": [
+          "3 m/s",
+          "2 m/s",
+          "3t m/s",
+          "5 m/s"
+        ],
+        "answer": 0,
+        "explanation": "La derivada de x(t)=3t+2 respecto del tiempo es v(t)=3 m/s."
+      },
+      {
+        "id": "U2_DER_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Reducir \\(\\Delta\\,t\\) cada vez más en la velocidad media conduce conceptualmente a...",
+        "math": true,
+        "options": [
+          "la velocidad instantánea.",
+          "la distancia total.",
+          "la aceleración media.",
+          "la masa del móvil."
+        ],
+        "answer": 0,
+        "explanation": "El límite cuando Δt tiende a cero define la velocidad instantánea."
+      },
+      {
+        "id": "U2_DER_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Si \\(x(t)=t^2\\) en metros, la velocidad instantánea en \\(t=3\\,\\mathrm{s}\\) es...",
+        "options": [
+          "6 m/s",
+          "3 m/s",
+          "9 m/s",
+          "2 m/s"
+        ],
+        "answer": "A",
+        "explanation": "\\(v=\\frac{dx}{dt}=2t\\); para \\(t=3\\,\\mathrm{s}\\), \\(v=6\\,\\mathrm{m/s}\\)."
+      },
+      {
+        "id": "U2_DER_005",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Geométricamente, la velocidad instantánea en una gráfica posición-tiempo corresponde a...",
+        "options": [
+          "la pendiente de la tangente a la curva.",
+          "el área bajo la curva.",
+          "la ordenada inicial solamente.",
+          "la curvatura sin relación con la pendiente."
+        ],
+        "answer": "A",
+        "explanation": "La derivada \\(\\frac{dx}{dt}\\) se interpreta como la pendiente de la tangente a x(t)."
+      }
+    ],
+    "9": [
+      {
+        "id": "U2_ACC_001",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "¿Puede existir aceleración si la rapidez es constante?",
+        "options": [
+          "Sí, si cambia la dirección del vector velocidad.",
+          "No, nunca.",
+          "Sólo si la masa cambia.",
+          "Sólo si la posición es cero."
+        ],
+        "answer": 0,
+        "explanation": "La aceleración mide el cambio del vector velocidad; puede cambiar su dirección aunque su módulo sea constante."
+      },
+      {
+        "id": "U2_ACC_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "La aceleración media se define como...",
+        "math": true,
+        "options": [
+          "\\(\\vec a_{\\mathrm{med}}=\\frac{\\Delta \\vec v}{\\Delta\\,t}\\)",
+          "\\(\\vec a_{\\mathrm{med}}=\\frac{\\Delta \\vec r}{\\Delta\\,t}\\)",
+          "\\(\\vec a_{\\mathrm{med}}=\\frac{d}{\\Delta\\,t}\\)",
+          "\\(\\vec a_{\\mathrm{med}}=\\frac{\\vec r}{t^2}\\) siempre"
+        ],
+        "answer": 0,
+        "explanation": "La aceleración media mide el cambio del vector velocidad por unidad de tiempo."
+      },
+      {
+        "id": "U2_ACC_SIM_001",
+        "type": "simulation",
+        "difficulty": 2,
+        "prompt": "Desafío: ajustá \\(\\Delta v\\) y \\(\\Delta\\,t\\) para obtener la aceleración objetivo.",
+        "simulator": "accelerationTarget",
+        "explanation": "Usamos \\(a=\\frac{\\Delta v}{\\Delta\\,t}\\). Hay varias combinaciones posibles que pueden alcanzar el mismo valor de aceleración."
+      },
+      {
+        "id": "U2_ACC_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Si un móvil cambia continuamente la dirección de su velocidad pero mantiene constante su rapidez, entonces...",
+        "options": [
+          "puede tener aceleración distinta de cero.",
+          "su aceleración debe ser cero.",
+          "su posición debe ser constante.",
+          "su desplazamiento siempre es cero."
+        ],
+        "answer": "A",
+        "explanation": "La aceleración mide cambios del vector velocidad, no solamente cambios de su módulo."
+      },
+      {
+        "id": "U2_ACC_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Si \\(v(t)=2+3t\\) en m/s, la aceleración instantánea es...",
+        "options": [
+          "3 m/s²",
+          "2 m/s²",
+          "5 m/s²",
+          "3t m/s²"
+        ],
+        "answer": "A",
+        "explanation": "\\(a=\\frac{dv}{dt}=3\\,\\mathrm{m/s^2}\\)."
+      }
+    ],
+    "10": [
+      {
+        "id": "U2_MRU_001",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "En un MRU ideal, ¿qué magnitud permanece constante?",
+        "options": [
+          "la velocidad",
+          "la posición",
+          "la distancia al origen",
+          "la aceleración distinta de cero"
+        ],
+        "answer": "A",
+        "explanation": "En MRU la velocidad es constante y, por lo tanto, la aceleración es cero."
+      },
+      {
+        "id": "U2_MRU_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Un producto se desplaza con velocidad constante de \\(2.5\\,\\mathrm{m/s}\\). ¿Qué distancia recorre en \\(4\\,\\mathrm{s}\\)?",
+        "options": [
+          "6 m",
+          "10 m",
+          "1.6 m",
+          "12.5 m"
+        ],
+        "answer": "B",
+        "explanation": "En MRU, \\(\\Delta x=v\\,\\Delta\\,t=2.5\\times4=10\\,\\mathrm{m}\\)."
+      },
+      {
+        "id": "U2_MRU_SIM_001",
+        "type": "simulation",
+        "difficulty": 2,
+        "prompt": "Desafío MRU: ajustá la velocidad para que el móvil llegue exactamente a la posición objetivo en el tiempo indicado.",
+        "simulator": "mruTarget",
+        "explanation": "En MRU usamos \\(x=x_0+v\\,t\\). El objetivo puede alcanzarse calculando la velocidad necesaria."
+      },
+      {
+        "id": "U2_MRU_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Para \\(x_0=-2\\,\\mathrm{m}\\), \\(v=3\\,\\mathrm{m/s}\\) y \\(t=4\\,\\mathrm{s}\\), la posición en MRU es...",
+        "options": [
+          "10 m",
+          "14 m",
+          "1 m",
+          "−14 m"
+        ],
+        "answer": "A",
+        "explanation": "\\(x=x_0+v\\,t=-2+3\\times4=10\\,\\mathrm{m}\\)."
+      },
+      {
+        "id": "U2_MRU_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En una gráfica \\(x\\)–\\(t\\) de MRU con pendiente negativa, la velocidad...",
+        "options": [
+          "es constante y negativa",
+          "es positiva y creciente",
+          "es cero",
+          "cambia de signo continuamente"
+        ],
+        "answer": "A",
+        "explanation": "En MRU la pendiente es la velocidad; una pendiente negativa representa \\(v_x<0\\)."
+      }
+    ],
+    "11": [
+      {
+        "id": "U2_GMRU_001",
+        "type": "graph_mcq",
+        "difficulty": 2,
+        "prompt": "Observá la gráfica posición-tiempo. ¿Qué interpretación es correcta?",
+        "graph": {
+          "kind": "xt_mru",
+          "x0": 1,
+          "slope": 2
+        },
+        "options": [
+          "El móvil tiene velocidad constante positiva.",
+          "El móvil está detenido.",
+          "La velocidad disminuye linealmente.",
+          "La aceleración es constante y positiva."
+        ],
+        "answer": "A",
+        "explanation": "Una recta creciente en x(t) tiene pendiente constante y positiva: representa velocidad constante positiva."
+      },
+      {
+        "id": "U2_GMRU_002",
+        "type": "graph_mcq",
+        "difficulty": 2,
+        "prompt": "En esta gráfica velocidad-tiempo de un MRU, ¿qué representa el área bajo la curva entre dos instantes?",
+        "graph": {
+          "kind": "vt_mru",
+          "value": 3
+        },
+        "options": [
+          "el desplazamiento",
+          "la aceleración",
+          "la posición inicial",
+          "la masa"
+        ],
+        "answer": "A",
+        "explanation": "El área bajo una gráfica v(t) representa el desplazamiento durante ese intervalo."
+      },
+      {
+        "id": "U2_GMRU_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En una gráfica \\(x\\)–\\(t\\) de MRU, la pendiente de la recta representa...",
+        "options": [
+          "la velocidad",
+          "la aceleración",
+          "el tiempo",
+          "la distancia total siempre"
+        ],
+        "answer": "A",
+        "explanation": "La pendiente \\(\\frac{\\Delta x}{\\Delta\\,t}\\) representa la velocidad."
+      },
+      {
+        "id": "U2_GMRU_004",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "Una línea horizontal en una gráfica posición-tiempo representa...",
+        "options": [
+          "un móvil en reposo",
+          "MRU con velocidad positiva",
+          "aceleración constante",
+          "caída libre"
+        ],
+        "answer": "A",
+        "explanation": "Si x no cambia con el tiempo, la velocidad es cero."
+      },
+      {
+        "id": "U2_GMRU_005",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En una gráfica \\(v\\)–\\(t\\), una velocidad constante de \\(-2\\,\\mathrm{m/s}\\) durante \\(3\\,\\mathrm{s}\\) produce un desplazamiento de...",
+        "options": [
+          "−6 m",
+          "6 m",
+          "−1.5 m",
+          "0 m"
+        ],
+        "answer": "A",
+        "explanation": "El área algebraica es \\(\\Delta x=v\\Delta\\,t=-2\\times3=-6\\,\\mathrm{m}\\)."
+      }
+    ],
+    "12": [
+      {
+        "id": "U2_GAL_001",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "¿Por qué el plano inclinado fue importante en los estudios de Galileo?",
+        "options": [
+          "Permitía ralentizar el movimiento y medir mejor los tiempos.",
+          "Eliminaba completamente la gravedad.",
+          "Convertía todo movimiento en circular.",
+          "Permitía medir directamente la masa."
+        ],
+        "answer": "A",
+        "explanation": "El plano inclinado hacía el movimiento más lento y, por lo tanto, más accesible a las mediciones de la época."
+      },
+      {
+        "id": "U2_GAL_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "El aporte metodológico de Galileo al estudio del movimiento se relaciona especialmente con...",
+        "options": [
+          "medir, comparar y buscar relaciones matemáticas.",
+          "evitar toda medición experimental.",
+          "describir sólo cualitativamente.",
+          "usar exclusivamente argumentos de autoridad."
+        ],
+        "answer": "A",
+        "explanation": "Su enfoque cuantitativo vinculó observación, medición y relaciones matemáticas."
+      },
+      {
+        "id": "U2_GAL_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Si el movimiento parte del reposo con aceleración constante, la posición recorrida es proporcional a...",
+        "options": [
+          "\\(t^2\\)",
+          "\\(t\\)",
+          "\\(\\frac{1}{t}\\)",
+          "\\(\\sqrt{t}\\)"
+        ],
+        "answer": "A",
+        "explanation": "Para \\(v_0=0\\) y aceleración constante, \\(x=\\frac{1}{2}at^2\\), por lo tanto \\(x\\propto t^2\\)."
+      },
+      {
+        "id": "U2_GAL_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En el modelo estudiado por Galileo, obtener \\(x\\propto t^2\\) es compatible con...",
+        "options": [
+          "una aceleración aproximadamente constante partiendo del reposo.",
+          "una velocidad necesariamente constante.",
+          "una aceleración exactamente nula.",
+          "un movimiento circular uniforme."
+        ],
+        "answer": "A",
+        "explanation": "Para \\(v_0=0\\) y aceleración constante, \\(x=\\frac{1}{2}at^2\\)."
+      },
+      {
+        "id": "U2_GAL_005",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "El plano inclinado permitía estudiar mejor el movimiento porque...",
+        "options": [
+          "reducía la aceleración efectiva a lo largo del plano y hacía el fenómeno más lento.",
+          "eliminaba totalmente la gravedad.",
+          "hacía constante la posición.",
+          "convertía el tiempo en una magnitud vectorial."
+        ],
+        "answer": "A",
+        "explanation": "El movimiento más lento facilitaba la medición sistemática de posiciones y tiempos."
+      }
+    ],
+    "13": [
+      {
+        "id": "U2_ODD_001",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En intervalos de tiempo iguales, un movimiento uniformemente acelerado desde el reposo recorre desplazamientos parciales en proporción...",
+        "options": [
+          "1, 3, 5, 7, 9...",
+          "1, 2, 3, 4, 5...",
+          "1, 4, 9, 16, 25...",
+          "2, 4, 6, 8, 10..."
+        ],
+        "answer": "A",
+        "explanation": "Los desplazamientos recorridos en intervalos iguales siguen la sucesión de números impares."
+      },
+      {
+        "id": "U2_ODD_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Los desplazamientos acumulados desde el origen, para tiempos \\(1,2,3,4...\\), son proporcionales a...",
+        "options": [
+          "\\(1^2,2^2,3^2,4^2...\\)",
+          "1,3,5,7...",
+          "1,2,3,4...",
+          "\\(\\frac{1}{t}\\)"
+        ],
+        "answer": "A",
+        "explanation": "La posición acumulada crece como el cuadrado del tiempo."
+      },
+      {
+        "id": "U2_ODD_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "La regla de los números impares constituye una evidencia experimental compatible con...",
+        "options": [
+          "\\(x\\propto t^2\\)",
+          "\\(x\\propto t\\)",
+          "\\(v=0\\)",
+          "\\(a=0\\)"
+        ],
+        "answer": "A",
+        "explanation": "La sucesión de desplazamientos parciales impares conduce a posiciones acumuladas proporcionales a \\(t^2\\)."
+      },
+      {
+        "id": "U2_ODD_004",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "Si los desplazamientos parciales siguen \\(1,3,5,7,...\\), el siguiente valor es...",
+        "options": [
+          "9",
+          "8",
+          "11",
+          "16"
+        ],
+        "answer": "A",
+        "explanation": "La sucesión aumenta de dos en dos: 1, 3, 5, 7, 9..."
+      },
+      {
+        "id": "U2_ODD_005",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Tomando el primer desplazamiento como unidad, el desplazamiento acumulado al finalizar el cuarto intervalo es...",
+        "options": [
+          "16",
+          "7",
+          "9",
+          "25"
+        ],
+        "answer": "A",
+        "explanation": "Los acumulados son \\(1,4,9,16,...\\), es decir, cuadrados perfectos."
+      }
+    ],
+    "14": [
+      {
+        "id": "U2_MRUV_001",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En un MRUV, ¿qué magnitud permanece constante?",
+        "options": [
+          "la aceleración",
+          "la velocidad",
+          "la posición",
+          "el desplazamiento por segundo"
+        ],
+        "answer": "A",
+        "explanation": "MRUV significa movimiento rectilíneo con aceleración constante."
+      },
+      {
+        "id": "U2_MRUV_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Si \\(v_0=2\\,\\mathrm{m/s}\\), \\(a=3\\,\\mathrm{m/s^2}\\) y \\(t=4\\,\\mathrm{s}\\), la velocidad final es...",
+        "options": [
+          "14 m/s",
+          "12 m/s",
+          "8 m/s",
+          "5 m/s"
+        ],
+        "answer": "A",
+        "explanation": "\\(v=v_0+a\\,t=2+3\\times4=14\\,\\mathrm{m/s}\\)."
+      },
+      {
+        "id": "U2_MRUV_SIM_001",
+        "type": "simulation",
+        "difficulty": 2,
+        "prompt": "Desafío MRUV: ajustá la aceleración para alcanzar la velocidad final objetivo en el tiempo indicado.",
+        "simulator": "mruvVelocityTarget",
+        "explanation": "En MRUV, \\(v_f=v_0+a\\,t\\). Ajustar \\(a\\) permite controlar la velocidad final."
+      },
+      {
+        "id": "U2_MRUV_003",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "En MRUV, durante intervalos de tiempo iguales, la velocidad cambia...",
+        "options": [
+          "en cantidades iguales.",
+          "de manera completamente aleatoria.",
+          "siempre de signo.",
+          "sólo si la posición es cero."
+        ],
+        "answer": "A",
+        "explanation": "Una aceleración constante produce cambios iguales de velocidad en tiempos iguales."
+      },
+      {
+        "id": "U2_MRUV_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Si \\(x_0=1\\,\\mathrm{m}\\), \\(v_0=2\\,\\mathrm{m/s}\\), \\(a=1\\,\\mathrm{m/s^2}\\) y \\(t=3\\,\\mathrm{s}\\), la posición es...",
+        "options": [
+          "11.5 m",
+          "10 m",
+          "8.5 m",
+          "13 m"
+        ],
+        "answer": "A",
+        "explanation": "\\(x=1+2(3)+\\frac{1}{2}(1)(3^2)=11.5\\,\\mathrm{m}\\)."
+      }
+    ],
+    "15": [
+      {
+        "id": "U2_MRUV_ST_001",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "¿Cuándo resulta especialmente útil la ecuación \\(v_x^2=v_{0x}^2+2a_x(x-x_0)\\)?",
+        "options": [
+          "Cuando el tiempo no es dato ni incógnita.",
+          "Cuando la aceleración es necesariamente cero.",
+          "Sólo cuando la velocidad inicial es cero.",
+          "Sólo para movimientos circulares."
+        ],
+        "answer": "A",
+        "explanation": "Esta forma del MRUV relaciona velocidades, aceleración y desplazamiento sin utilizar explícitamente el tiempo."
+      },
+      {
+        "id": "U2_MRUV_ST_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Un móvil parte con \\(v_0=2\\,\\mathrm{m/s}\\), acelera a \\(3\\,\\mathrm{m/s^2}\\) y recorre \\(8\\,\\mathrm{m}\\). ¿Qué expresión permite hallar directamente \\(v_f\\) sin calcular antes el tiempo?",
+        "options": [
+          "\\(v_f^2=v_0^2+2a\\Delta x\\)",
+          "\\(v_f=v_0/t\\)",
+          "\\(\\Delta x=v_f/a\\)",
+          "\\(a=v_f\\Delta x\\)"
+        ],
+        "answer": "A",
+        "explanation": "La ecuación sin tiempo es la herramienta directa cuando se conocen \\(v_0\\), \\(a\\) y \\(\\Delta x\\)."
+      },
+      {
+        "id": "U2_MRUV_ST_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En la ecuación sin tiempo del MRUV, el término \\(2a\\Delta x\\) modifica directamente...",
+        "options": [
+          "el cuadrado de la velocidad.",
+          "el tiempo al cuadrado.",
+          "la masa del móvil.",
+          "la posición inicial solamente."
+        ],
+        "answer": "A",
+        "explanation": "La ecuación expresa cómo el cambio de posición bajo aceleración modifica \\(v^2\\)."
+      },
+      {
+        "id": "U2_MRUV_ST_004",
+        "type": "mcq",
+        "difficulty": 3,
+        "prompt": "Un móvil lleva \\(10\\,\\mathrm{m/s}\\) y frena uniformemente con \\(a=-2\\,\\mathrm{m/s^2}\\) hasta detenerse. ¿Qué distancia de frenado resulta de la ecuación sin tiempo?",
+        "options": [
+          "25 m",
+          "50 m",
+          "20 m",
+          "10 m"
+        ],
+        "answer": "A",
+        "explanation": "\\(0=10^2+2(-2)\\Delta x\\), de donde \\(\\Delta x=25\\,\\mathrm{m}\\)."
+      },
+      {
+        "id": "U2_MRUV_ST_005",
+        "type": "mcq",
+        "difficulty": 3,
+        "prompt": "En una frenada con \\(a<0\\) y desplazamiento positivo, el término \\(2a\\Delta x\\) es...",
+        "options": [
+          "negativo y reduce \\(v^2\\).",
+          "positivo y aumenta siempre \\(v^2\\).",
+          "cero necesariamente.",
+          "independiente de la aceleración."
+        ],
+        "answer": "A",
+        "explanation": "Con \\(a<0\\) y \\(\\Delta x>0\\), el término es negativo y el cuadrado de la velocidad disminuye."
+      }
+    ],
+    "16": [
+      {
+        "id": "U2_GRAF_001",
+        "type": "graph_mcq",
+        "difficulty": 2,
+        "prompt": "Observá la gráfica \\(v\\)–\\(t\\). ¿Qué representa su pendiente?",
+        "graph": {
+          "kind": "vt_accel",
+          "v0": 1,
+          "slope": 1.5
+        },
+        "options": [
+          "la aceleración",
+          "el desplazamiento",
+          "la posición inicial",
+          "la distancia total"
+        ],
+        "answer": "A",
+        "explanation": "En una gráfica velocidad-tiempo, la pendiente \\(\\frac{dv}{dt}\\) representa la aceleración."
+      },
+      {
+        "id": "U2_GRAF_002",
+        "type": "graph_mcq",
+        "difficulty": 2,
+        "prompt": "Observá la gráfica \\(a\\)–\\(t\\). ¿Qué representa el área sombreada bajo la curva?",
+        "graph": {
+          "kind": "at_const",
+          "value": 2
+        },
+        "options": [
+          "el cambio de velocidad",
+          "la posición",
+          "la rapidez media",
+          "la aceleración instantánea"
+        ],
+        "answer": "A",
+        "explanation": "El área algebraica bajo \\(a(t)\\) da \\(\\Delta v\\)."
+      },
+      {
+        "id": "U2_GRAF_003",
+        "type": "graph_mcq",
+        "difficulty": 3,
+        "prompt": "En esta gráfica \\(x\\)–\\(t\\), la pendiente aumenta con el tiempo. ¿Qué interpretación es compatible con ello?",
+        "graph": {
+          "kind": "xt_accel"
+        },
+        "options": [
+          "La rapidez aumenta con el tiempo.",
+          "El móvil está detenido.",
+          "La velocidad es constante.",
+          "La aceleración es necesariamente nula."
+        ],
+        "answer": "A",
+        "explanation": "Si la pendiente de \\(x(t)\\) aumenta, aumenta la magnitud de la velocidad."
+      },
+      {
+        "id": "U2_GRAF_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "El área bajo una gráfica velocidad-tiempo debe interpretarse de forma...",
+        "options": [
+          "algebraica: puede aportar desplazamiento positivo o negativo.",
+          "siempre positiva.",
+          "sin unidades.",
+          "igual a la aceleración."
+        ],
+        "answer": "A",
+        "explanation": "El signo de v determina el signo del aporte al desplazamiento."
+      },
+      {
+        "id": "U2_GRAF_005",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "Si \\(a(t)=0\\) durante un intervalo, entonces en ese intervalo la velocidad...",
+        "options": [
+          "permanece constante",
+          "debe ser cero",
+          "aumenta linealmente",
+          "disminuye siempre"
+        ],
+        "answer": "A",
+        "explanation": "Si \\(a=\\frac{dv}{dt}=0\\), la velocidad no cambia."
+      }
+    ],
+    "17": [
+      {
+        "id": "U2_CAIDA_001",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "Si elegimos el eje \\(y\\) positivo hacia arriba, la aceleración de la gravedad se escribe...",
+        "options": [
+          "\\(a_y=-g\\)",
+          "\\(a_y=+g\\) siempre",
+          "\\(a_y=0\\)",
+          "\\(a_y=v_y/t\\) necesariamente"
+        ],
+        "answer": "A",
+        "explanation": "Con eje positivo hacia arriba, la gravedad apunta en sentido negativo: \\(a_y=-g\\)."
+      },
+      {
+        "id": "U2_CAIDA_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Un cuerpo se deja caer desde el reposo. ¿Qué ocurre con el módulo de su velocidad mientras cae, si despreciamos el aire?",
+        "options": [
+          "Aumenta",
+          "Permanece constante",
+          "Disminuye",
+          "Se anula a mitad de camino"
+        ],
+        "answer": "A",
+        "explanation": "La gravedad produce una aceleración prácticamente constante y el módulo de la velocidad aumenta durante la caída."
+      },
+      {
+        "id": "U2_CAIDA_SIM_001",
+        "type": "simulation",
+        "difficulty": 2,
+        "prompt": "Desafío de caída libre: ajustá la altura para lograr el tiempo de caída objetivo.",
+        "simulator": "freeFallHeightTarget",
+        "explanation": "Para una caída desde el reposo, \\(t=\\sqrt{\\frac{2h}{g}}\\). La altura elegida determina el tiempo de caída."
+      },
+      {
+        "id": "U2_CAIDA_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En un lanzamiento vertical hacia arriba, en el punto más alto se cumple que...",
+        "options": [
+          "\\(v_y=0\\) pero \\(a_y=-g\\).",
+          "\\(v_y=0\\) y \\(a_y=0\\).",
+          "\\(v_y=g\\) y \\(a_y=0\\).",
+          "\\(v_y\\) y \\(a_y\\) son ambos positivos."
+        ],
+        "answer": "A",
+        "explanation": "La velocidad vertical se anula instantáneamente en la altura máxima, pero la gravedad continúa actuando."
+      },
+      {
+        "id": "U2_CAIDA_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Un cuerpo se deja caer desde \\(19.6\\,\\mathrm{m}\\) con \\(g=9.8\\,\\mathrm{m/s^2}\\). El tiempo ideal de caída es...",
+        "options": [
+          "2.0 s",
+          "1.0 s",
+          "4.0 s",
+          "19.6 s"
+        ],
+        "answer": "A",
+        "explanation": "\\(h=\\frac{1}{2}gt^2\\); entonces \\(19.6=4.9t^2\\) y \\(t=2\\,\\mathrm{s}\\)."
+      }
+    ],
+    "18": [
+      {
+        "id": "U2_IND_001",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En un lanzamiento ideal sin rozamiento del aire, ¿qué ocurre con las componentes horizontal y vertical del movimiento?",
+        "options": [
+          "Evolucionan de manera independiente pero comparten el mismo tiempo.",
+          "La componente horizontal determina directamente la aceleración vertical.",
+          "La gravedad modifica por igual ambas componentes.",
+          "No pueden analizarse por separado."
+        ],
+        "answer": "A",
+        "explanation": "La independencia de movimientos permite estudiar \\(x(t)\\) e \\(y(t)\\) por separado y combinarlos en el mismo instante."
+      },
+      {
+        "id": "U2_IND_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Si no hay aceleración horizontal, la ecuación de la componente \\(x\\) es...",
+        "options": [
+          "\\(x=x_0+v_{0x}t\\)",
+          "\\(x=x_0-\\frac{1}{2}gt^2\\)",
+          "\\(x=v_{0y}t\\)",
+          "\\(x=gt\\)"
+        ],
+        "answer": "A",
+        "explanation": "Con \\(a_x=0\\), la componente horizontal es un MRU."
+      },
+      {
+        "id": "U2_IND_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "La gravedad modifica directamente...",
+        "options": [
+          "la componente vertical de la velocidad.",
+          "la componente horizontal ideal de la velocidad.",
+          "el tiempo horizontal pero no el vertical.",
+          "la masa del proyectil."
+        ],
+        "answer": "A",
+        "explanation": "En el modelo ideal de proyectil, \\(a_x=0\\) y \\(a_y=-g\\)."
+      },
+      {
+        "id": "U2_IND_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Dos objetos abandonan simultáneamente la misma altura: uno se deja caer y otro sale horizontalmente. En el modelo ideal, ¿cuál toca primero el suelo?",
+        "options": [
+          "Llegan al mismo tiempo.",
+          "El que tiene velocidad horizontal.",
+          "El que se deja caer.",
+          "Depende de la masa."
+        ],
+        "answer": "A",
+        "explanation": "Ambos tienen el mismo movimiento vertical inicial y la misma aceleración gravitatoria."
+      },
+      {
+        "id": "U2_IND_005",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Al reconstruir una trayectoria 2D a partir de \\(x(t)\\) e \\(y(t)\\), ambas componentes deben evaluarse...",
+        "options": [
+          "en el mismo instante t",
+          "en tiempos independientes elegidos al azar",
+          "sólo cuando y=0",
+          "sin utilizar un sistema de referencia"
+        ],
+        "answer": "A",
+        "explanation": "La independencia de componentes no significa independencia temporal: ambas describen el mismo móvil en el mismo instante."
+      }
+    ],
+    "19": [
+      {
+        "id": "U2_MONO_001",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En el problema del mono y el cazador, si el cazador apunta directamente a la posición inicial del mono y ambos comienzan simultáneamente, ¿por qué puede producirse el impacto?",
+        "options": [
+          "Porque proyectil y mono sufren la misma caída vertical debida a la gravedad durante el mismo tiempo.",
+          "Porque el proyectil no está sometido a gravedad.",
+          "Porque el mono permanece inmóvil.",
+          "Porque la velocidad horizontal del proyectil aumenta por la gravedad."
+        ],
+        "answer": "A",
+        "explanation": "Ambos cuerpos pierden la misma cantidad de altura \\(\\frac{1}{2}gt^2\\) respecto de sus trayectorias sin gravedad."
+      },
+      {
+        "id": "U2_MONO_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Si se duplicara \\(g\\) manteniendo las demás condiciones ideales y el disparo siguiera alcanzando al mono antes de tocar el suelo, ¿qué aspecto conceptual permanece válido?",
+        "options": [
+          "Ambos tienen la misma caída vertical gravitatoria durante el mismo intervalo.",
+          "Sólo cae el mono.",
+          "Sólo cae el proyectil.",
+          "La trayectoria del proyectil se vuelve horizontal."
+        ],
+        "answer": "A",
+        "explanation": "El principio clave es la igualdad de la caída gravitatoria para ambos cuerpos durante un mismo tiempo."
+      },
+      {
+        "id": "U2_MONO_003",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "Este experimento ilustra especialmente...",
+        "options": [
+          "la independencia y composición de movimientos.",
+          "la ley de Hooke.",
+          "la conservación de la energía elástica.",
+          "el equilibrio rotacional."
+        ],
+        "answer": "A",
+        "explanation": "El ejemplo combina movimiento horizontal/oblicuo y caída vertical bajo la misma gravedad."
+      },
+      {
+        "id": "U2_MONO_004",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "La frase «mismo tiempo, misma caída vertical» en el problema del mono y el cazador significa que...",
+        "options": [
+          "proyectil y mono reciben el mismo término gravitatorio vertical durante el intervalo común.",
+          "ambos tienen la misma velocidad horizontal.",
+          "ambos permanecen a la misma altura.",
+          "la gravedad no actúa."
+        ],
+        "answer": "A",
+        "explanation": "La clave conceptual es que ambos sufren la misma caída \\(\\frac{1}{2}gt^2\\) respecto de sus trayectorias sin gravedad."
+      },
+      {
+        "id": "U2_MONO_005",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "El principio del mono y el cazador depende esencialmente de comparar...",
+        "options": [
+          "la caída vertical de ambos cuerpos durante el mismo intervalo.",
+          "sus masas.",
+          "sus energías internas.",
+          "sus temperaturas."
+        ],
+        "answer": "A",
+        "explanation": "La comparación de los movimientos verticales bajo la misma gravedad explica el resultado."
+      }
+    ],
+    "20": [
+      {
+        "id": "U2_REL_001",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Un pasajero camina a \\(1\\,\\mathrm{m/s}\\) hacia proa respecto de un barco que avanza a \\(4\\,\\mathrm{m/s}\\) respecto de la costa. Si ambas velocidades tienen el mismo sentido, la velocidad del pasajero respecto de la costa es...",
+        "options": [
+          "5 m/s",
+          "3 m/s",
+          "4 m/s",
+          "1 m/s"
+        ],
+        "answer": "A",
+        "explanation": "En una dimensión y con igual sentido, las velocidades relativas se suman: \\(1+4=5\\,\\mathrm{m/s}\\)."
+      },
+      {
+        "id": "U2_REL_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "La relación correcta entre velocidades relativas es...",
+        "options": [
+          "\\(\\vec v_{B/O}=\\vec v_{B/A}+\\vec v_{A/O}\\)",
+          "\\(\\vec v_{B/O}=\\vec v_{B/A}-\\vec v_{B/O}\\)",
+          "\\(\\vec v_{B/O}=\\vec a_{B/A}+\\vec r_{A/O}\\)",
+          "\\(\\vec v_{B/O}=0\\) siempre"
+        ],
+        "answer": "A",
+        "explanation": "La velocidad observada desde O se obtiene componiendo la velocidad de B respecto de A con la de A respecto de O."
+      },
+      {
+        "id": "U2_REL_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En una planta, un producto avanza sobre una cinta. Para obtener su velocidad respecto de la estructura de la máquina debemos combinar...",
+        "options": [
+          "velocidad del producto respecto de la cinta + velocidad de la cinta respecto de la máquina.",
+          "masa del producto + velocidad de la cinta.",
+          "aceleración gravitatoria + posición inicial.",
+          "distancia total + frecuencia."
+        ],
+        "answer": "A",
+        "explanation": "Es una aplicación directa de velocidad relativa a un sistema industrial."
+      },
+      {
+        "id": "U2_REL_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Un pasajero camina a \\(1\\,\\mathrm{m/s}\\) hacia popa respecto de un barco que avanza a \\(4\\,\\mathrm{m/s}\\) respecto de la costa. Tomando hacia proa como positivo, la velocidad del pasajero respecto de la costa es...",
+        "options": [
+          "3 m/s",
+          "5 m/s",
+          "−5 m/s",
+          "−3 m/s"
+        ],
+        "answer": "A",
+        "explanation": "\\(v_{P/C}=v_{P/B}+v_{B/C}=-1+4=3\\,\\mathrm{m/s}\\)."
+      },
+      {
+        "id": "U2_REL_005",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "De \\(\\vec v_{B/O}=\\vec v_{B/A}+\\vec v_{A/O}\\) se obtiene que \\(\\vec v_{B/A}\\) es...",
+        "options": [
+          "\\(\\vec v_{B/O}-\\vec v_{A/O}\\)",
+          "\\(\\vec v_{B/O}+\\vec v_{A/O}\\)",
+          "\\(\\vec v_{A/O}-\\vec v_{B/O}\\) siempre",
+          "cero necesariamente"
+        ],
+        "answer": "A",
+        "explanation": "Se despeja restando \\(\\vec v_{A/O}\\) en ambos miembros."
+      }
+    ],
+    "21": [
+      {
+        "id": "U2_2D_001",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En movimiento bidimensional, la posición se expresa como...",
+        "options": [
+          "\\(\\vec r(t)=x(t)\\hat i+y(t)\\hat j\\)",
+          "\\(\\vec r(t)=x(t)+y(t)\\) sin direcciones",
+          "\\(\\vec r(t)=gt\\)",
+          "\\(\\vec r(t)=v^2/r\\)"
+        ],
+        "answer": "A",
+        "explanation": "El vector posición se construye a partir de sus componentes cartesianas."
+      },
+      {
+        "id": "U2_2D_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Si \\(v_{0x}=8\\,\\mathrm{m/s}\\) y transcurren \\(2\\,\\mathrm{s}\\) sin aceleración horizontal, la posición horizontal recorrida desde \\(x_0=0\\) es...",
+        "options": [
+          "16 m",
+          "4 m",
+          "8 m",
+          "32 m"
+        ],
+        "answer": "A",
+        "explanation": "Como \\(x=v_{0x}t\\), resulta \\(x=8\\times2=16\\,\\mathrm{m}\\)."
+      },
+      {
+        "id": "U2_2D_003",
+        "type": "graph_mcq",
+        "difficulty": 2,
+        "prompt": "La gráfica horizontal \\(x(t)\\) de un proyectil ideal es una recta. ¿Qué significa?",
+        "graph": {
+          "kind": "xt_mru",
+          "x0": 0,
+          "slope": 2
+        },
+        "options": [
+          "La velocidad horizontal permanece constante.",
+          "La aceleración horizontal aumenta.",
+          "La velocidad vertical es constante.",
+          "La gravedad actúa horizontalmente."
+        ],
+        "answer": "A",
+        "explanation": "La componente horizontal del movimiento ideal es uniforme."
+      },
+      {
+        "id": "U2_2D_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Para \\(v_{0y}=10\\,\\mathrm{m/s}\\), \\(g=9.8\\,\\mathrm{m/s^2}\\) y \\(t=1\\,\\mathrm{s}\\), tomando \\(y_0=0\\), la posición vertical es...",
+        "options": [
+          "5.1 m",
+          "10 m",
+          "0.2 m",
+          "9.8 m"
+        ],
+        "answer": "A",
+        "explanation": "\\(y=10(1)-\\frac{1}{2}(9.8)(1^2)=5.1\\,\\mathrm{m}\\)."
+      },
+      {
+        "id": "U2_2D_005",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Si en el mismo instante \\(x=8\\,\\mathrm{m}\\) e \\(y=5.1\\,\\mathrm{m}\\), el vector posición puede escribirse como...",
+        "options": [
+          "\\(\\vec r=8\\hat i+5.1\\hat j\\,\\mathrm{m}\\)",
+          "\\(\\vec r=13.1\\,\\mathrm{m}\\) sin dirección",
+          "\\(\\vec r=8\\hat j+5.1\\hat i\\) necesariamente",
+          "\\(\\vec r=0\\)"
+        ],
+        "answer": "A",
+        "explanation": "En coordenadas cartesianas, \\(\\vec r=x\\hat i+y\\hat j\\)."
+      }
+    ],
+    "22": [
+      {
+        "id": "U2_CINTA_001",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Un producto abandona horizontalmente una cinta desde una altura fija. Si aumenta la velocidad de la cinta, el tiempo de caída...",
+        "options": [
+          "permanece igual en el modelo ideal.",
+          "aumenta necesariamente.",
+          "disminuye necesariamente.",
+          "se vuelve cero."
+        ],
+        "answer": "A",
+        "explanation": "El tiempo de caída depende del movimiento vertical; con la misma altura y \\(v_{0y}=0\\), no depende de \\(v_{0x}\\)."
+      },
+      {
+        "id": "U2_CINTA_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Para una descarga horizontal desde altura \\(h\\), el alcance ideal se calcula como...",
+        "options": [
+          "\\(R=v_{0x}\\sqrt{\\frac{2h}{g}}\\)",
+          "\\(R=gh\\)",
+          "\\(R=\\frac{v_{0x}}{g}\\)",
+          "\\(R=\\frac{1}{2}gt^2\\)"
+        ],
+        "answer": "A",
+        "explanation": "Primero se obtiene \\(t_{caída}=\\sqrt{2h/g}\\) y luego \\(R=v_{0x}t_{caída}\\)."
+      },
+      {
+        "id": "U2_CINTA_SIM_001",
+        "type": "simulation",
+        "difficulty": 3,
+        "prompt": "Desafío de descarga: ajustá la velocidad de la cinta para que el producto caiga dentro de la bandeja objetivo.",
+        "simulator": "conveyorLandingTarget",
+        "explanation": "La altura fija determina el tiempo de caída y la velocidad horizontal determina el alcance."
+      },
+      {
+        "id": "U2_CINTA_003",
+        "type": "mcq",
+        "difficulty": 3,
+        "prompt": "Si se cuadruplica la altura de descarga y se mantiene la misma velocidad horizontal, el tiempo de caída y el alcance ideal...",
+        "options": [
+          "se duplican.",
+          "se cuadruplican.",
+          "no cambian.",
+          "se reducen a la mitad."
+        ],
+        "answer": "A",
+        "explanation": "Como \\(t\\propto\\sqrt{h}\\), cuadruplicar h duplica t; y como \\(R=v_{0x}t\\), también duplica R."
+      },
+      {
+        "id": "U2_CINTA_004",
+        "type": "mcq",
+        "difficulty": 3,
+        "prompt": "Para una altura fija, si se desea duplicar el alcance horizontal de la descarga ideal, la velocidad de la cinta debe...",
+        "options": [
+          "duplicarse.",
+          "cuadruplicarse.",
+          "reducirse a la mitad.",
+          "permanecer igual."
+        ],
+        "answer": "A",
+        "explanation": "Con h fija, el tiempo de caída no cambia y \\(R=v_{0x}t\\), por lo que R es directamente proporcional a \\(v_{0x}\\)."
+      }
+    ],
+    "23": [
+      {
+        "id": "U2_CIRC_001",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "En un movimiento circular, la trayectoria de un punto es...",
+        "options": [
+          "una circunferencia",
+          "una recta",
+          "una parábola",
+          "una trayectoria necesariamente aleatoria"
+        ],
+        "answer": "A",
+        "explanation": "La característica geométrica básica del movimiento circular es que el punto recorre una circunferencia."
+      },
+      {
+        "id": "U2_CIRC_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "¿Puede existir aceleración cuando la rapidez permanece constante en un movimiento circular?",
+        "options": [
+          "Sí, porque cambia la dirección del vector velocidad.",
+          "No, porque aceleración implica siempre cambio de rapidez.",
+          "Sólo si el radio es cero.",
+          "Sólo si la posición angular es cero."
+        ],
+        "answer": "A",
+        "explanation": "Aunque el módulo de la velocidad sea constante, el vector cambia de dirección y por eso existe aceleración."
+      },
+      {
+        "id": "U2_CIRC_003",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "Para localizar un punto sobre una circunferencia resulta especialmente conveniente utilizar...",
+        "options": [
+          "una posición angular",
+          "solamente una coordenada lineal x",
+          "la masa del punto",
+          "la aceleración gravitatoria"
+        ],
+        "answer": "A",
+        "explanation": "En una trayectoria circular la posición angular permite describir de manera natural cuánto ha girado el punto."
+      },
+      {
+        "id": "U2_CIRC_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Si un punto completa vueltas sucesivas en intervalos iguales, el movimiento posee carácter...",
+        "options": [
+          "periódico",
+          "aperiódico",
+          "rectilíneo",
+          "necesariamente acelerado tangencialmente"
+        ],
+        "answer": "A",
+        "explanation": "Un movimiento es periódico cuando su estado se repite después de intervalos iguales."
+      },
+      {
+        "id": "U2_CIRC_005",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En movimiento circular uniforme, la afirmación correcta es...",
+        "options": [
+          "la rapidez puede ser constante aunque la velocidad vectorial cambie.",
+          "la velocidad vectorial permanece totalmente constante.",
+          "no existe aceleración.",
+          "el radio cambia continuamente."
+        ],
+        "answer": "A",
+        "explanation": "La dirección tangencial cambia continuamente; por eso cambia el vector velocidad aunque su módulo sea constante."
+      }
+    ],
+    "24": [
+      {
+        "id": "U2_ANG_001",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "La posición angular en radianes se define mediante...",
+        "options": [
+          "\\(\\theta=\\frac{s}{r}\\)",
+          "\\(\\theta=sr\\)",
+          "\\(\\theta=\\frac{r}{s^2}\\)",
+          "\\(\\theta=2\\pi r\\)"
+        ],
+        "answer": "A",
+        "explanation": "El radián se define como el cociente entre la longitud de arco y el radio."
+      },
+      {
+        "id": "U2_ANG_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Si un arco tiene longitud igual al radio, el ángulo subtendido vale...",
+        "options": [
+          "1 rad",
+          "\\(\\pi\\) rad",
+          "\\(2\\pi\\) rad",
+          "90 rad"
+        ],
+        "answer": "A",
+        "explanation": "Si \\(s=r\\), entonces \\(\\theta=\\frac{s}{r}=1\\,\\mathrm{rad}\\)."
+      },
+      {
+        "id": "U2_ANG_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Una vuelta completa corresponde a...",
+        "options": [
+          "\\(2\\pi\\) rad",
+          "\\(\\frac{\\pi}{2}\\) rad",
+          "1 rad",
+          "\\(\\pi\\) rad"
+        ],
+        "answer": "A",
+        "explanation": "Una circunferencia completa tiene arco \\(2\\pi r\\), por lo que \\(\\theta=2\\pi\\) rad."
+      },
+      {
+        "id": "U2_ANG_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Para \\(r=0.50\\,\\mathrm{m}\\) y \\(\\theta=2\\,\\mathrm{rad}\\), el arco recorrido es...",
+        "options": [
+          "1.0 m",
+          "0.25 m",
+          "4.0 m",
+          "2.5 m"
+        ],
+        "answer": "A",
+        "explanation": "\\(s=r\\theta=0.50\\times2=1.0\\,\\mathrm{m}\\)."
+      },
+      {
+        "id": "U2_ANG_005",
+        "type": "mcq",
+        "difficulty": 3,
+        "prompt": "Dos discos tienen radios distintos. En ambos un punto recorre \\(\\theta=1\\,\\mathrm{rad}\\). ¿Qué punto recorre un arco mayor?",
+        "options": [
+          "El que está en el disco de mayor radio.",
+          "Ambos recorren el mismo arco.",
+          "El que está en el disco de menor radio.",
+          "No puede saberse porque \\(s\\) no depende de r."
+        ],
+        "answer": "A",
+        "explanation": "Como \\(s=r\\theta\\), para el mismo ángulo el arco es proporcional al radio."
+      }
+    ],
+    "25": [
+      {
+        "id": "U2_TFW_001",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "El período \\(T\\) es...",
+        "options": [
+          "el tiempo necesario para completar una vuelta.",
+          "la cantidad de vueltas por segundo.",
+          "el ángulo recorrido por segundo.",
+          "la longitud de la circunferencia."
+        ],
+        "answer": "A",
+        "explanation": "El período mide cuánto dura un ciclo completo."
+      },
+      {
+        "id": "U2_TFW_002",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "La frecuencia \\(f\\) se relaciona con el período mediante...",
+        "options": [
+          "\\(f=\\frac{1}{T}\\)",
+          "\\(f=T^2\\)",
+          "\\(f=2\\pi T\\)",
+          "\\(f=\\frac{T}{2}\\)"
+        ],
+        "answer": "A",
+        "explanation": "Frecuencia y período son magnitudes recíprocas."
+      },
+      {
+        "id": "U2_TFW_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Si \\(T=2\\,\\mathrm{s}\\), la frecuencia es...",
+        "options": [
+          "0.50 Hz",
+          "2 Hz",
+          "\\(2\\pi\\) Hz",
+          "4 Hz"
+        ],
+        "answer": "A",
+        "explanation": "\\(f=\\frac{1}{T}=1/2=0.50\\,\\mathrm{Hz}\\)."
+      },
+      {
+        "id": "U2_TFW_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Para un movimiento circular uniforme, \\(\\omega\\) puede calcularse como...",
+        "options": [
+          "\\(\\omega=\\frac{2\\pi}{T}\\)",
+          "\\(\\omega=\\frac{T}{2\\pi}\\)",
+          "\\(\\omega=Tr\\)",
+          "\\(\\omega=\\frac{r}{T^2}\\)"
+        ],
+        "answer": "A",
+        "explanation": "Una vuelta equivale a \\(2\\pi\\) rad recorridos durante un período T."
+      },
+      {
+        "id": "U2_TFW_SIM_001",
+        "type": "simulation",
+        "difficulty": 2,
+        "prompt": "Desafío angular: ajustá el período para obtener la frecuencia objetivo.",
+        "simulator": "angularFrequencyTarget",
+        "explanation": "La relación \\(f=\\frac{1}{T}\\) permite vincular directamente período y frecuencia."
+      }
+    ],
+    "26": [
+      {
+        "id": "U2_VT_001",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "La relación entre rapidez tangencial y velocidad angular es...",
+        "options": [
+          "\\(v_t=r\\omega\\)",
+          "\\(v_t=\\frac{\\omega}{r}\\)",
+          "\\(v_t=\\frac{r}{\\omega}\\)",
+          "\\(v_t=r\\omega^2\\)"
+        ],
+        "answer": "A",
+        "explanation": "La rapidez tangencial resulta de multiplicar radio por velocidad angular."
+      },
+      {
+        "id": "U2_VT_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Dos puntos pertenecen al mismo disco rígido y están a radios distintos. ¿Qué magnitud tienen igual?",
+        "options": [
+          "la velocidad angular",
+          "la rapidez tangencial",
+          "el arco recorrido",
+          "la aceleración centrípeta necesariamente"
+        ],
+        "answer": "A",
+        "explanation": "Todos los puntos del disco completan cada vuelta en el mismo tiempo, por lo que comparten \\(\\omega\\)."
+      },
+      {
+        "id": "U2_VT_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En un mismo disco rígido, el punto más alejado del eje tiene...",
+        "options": [
+          "mayor rapidez tangencial",
+          "menor rapidez tangencial",
+          "la misma rapidez tangencial",
+          "rapidez necesariamente cero"
+        ],
+        "answer": "A",
+        "explanation": "Como \\(v_t=r\\omega\\) y \\(\\omega\\) es común, \\(v_t\\) aumenta con el radio."
+      },
+      {
+        "id": "U2_VT_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Para \\(r=0.40\\,\\mathrm{m}\\) y \\(\\omega=5\\,\\mathrm{rad/s}\\), la rapidez tangencial vale...",
+        "options": [
+          "2.0 m/s",
+          "12.5 m/s",
+          "5.4 m/s",
+          "0.08 m/s"
+        ],
+        "answer": "A",
+        "explanation": "\\(v_t=r\\omega=0.40\\times5=2.0\\,\\mathrm{m/s}\\)."
+      },
+      {
+        "id": "U2_VT_SIM_001",
+        "type": "simulation",
+        "difficulty": 3,
+        "prompt": "Desafío tangencial: ajustá el radio para obtener la rapidez tangencial objetivo manteniendo fija \\(\\omega\\).",
+        "simulator": "tangentialSpeedTarget",
+        "explanation": "Con \\(\\omega\\) fija, la rapidez tangencial es directamente proporcional al radio."
+      }
+    ],
+    "27": [
+      {
+        "id": "U2_PUL_001",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En una transmisión ideal por correa sin deslizamiento, se cumple...",
+        "options": [
+          "\\(\\omega_1r_1=\\omega_2r_2\\)",
+          "\\(\\omega_1=\\omega_2\\) siempre",
+          "\\(r_1=r_2\\) siempre",
+          "\\(\\frac{\\omega_1}{r_1}=\\frac{\\omega_2}{r_2}\\)"
+        ],
+        "answer": "A",
+        "explanation": "La rapidez lineal de la correa es la misma en el contorno de ambas poleas."
+      },
+      {
+        "id": "U2_PUL_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Si la polea conducida tiene mayor radio que la motriz, la velocidad angular de salida es...",
+        "options": [
+          "menor",
+          "mayor",
+          "igual",
+          "necesariamente cero"
+        ],
+        "answer": "A",
+        "explanation": "De \\(\\omega_2=\\omega_1\\frac{r_1}{r_2}\\), un \\(r_2\\) mayor produce una reducción de \\(\\omega_2\\)."
+      },
+      {
+        "id": "U2_PUL_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Si \\(r_1=0.20\\,\\mathrm{m}\\), \\(r_2=0.40\\,\\mathrm{m}\\) y \\(\\omega_1=6\\,\\mathrm{rad/s}\\), entonces \\(\\omega_2\\) es...",
+        "options": [
+          "3 rad/s",
+          "12 rad/s",
+          "6 rad/s",
+          "1.5 rad/s"
+        ],
+        "answer": "A",
+        "explanation": "\\(\\omega_2=6(0.20/0.40)=3\\,\\mathrm{rad/s}\\)."
+      },
+      {
+        "id": "U2_PUL_004",
+        "type": "mcq",
+        "difficulty": 3,
+        "prompt": "Para aumentar la velocidad angular de salida manteniendo fijos \\(r_1\\) y \\(\\omega_1\\), conviene...",
+        "options": [
+          "disminuir \\(r_2\\)",
+          "aumentar \\(r_2\\)",
+          "hacer \\(r_2\\) infinito",
+          "anular \\(\\omega_1\\)"
+        ],
+        "answer": "A",
+        "explanation": "La velocidad de salida es inversamente proporcional al radio de la polea conducida."
+      },
+      {
+        "id": "U2_PUL_SIM_001",
+        "type": "simulation",
+        "difficulty": 3,
+        "prompt": "Desafío de transmisión: ajustá el radio de salida para obtener la velocidad angular requerida.",
+        "simulator": "pulleyRatioTarget",
+        "explanation": "En una transmisión ideal sin deslizamiento, \\(\\omega_2=\\omega_1\\frac{r_1}{r_2}\\)."
+      }
+    ],
+    "28": [
+      {
+        "id": "U2_ACIRC_001",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "La aceleración centrípeta apunta...",
+        "options": [
+          "hacia el centro de la trayectoria",
+          "tangente a la trayectoria",
+          "siempre hacia arriba",
+          "en el mismo sentido que la velocidad"
+        ],
+        "answer": "A",
+        "explanation": "La aceleración centrípeta modifica la dirección de la velocidad apuntando hacia el centro."
+      },
+      {
+        "id": "U2_ACIRC_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "La aceleración centrípeta puede expresarse como...",
+        "options": [
+          "\\(a_c=\\omega^2r\\)",
+          "\\(a_c=\\frac{\\omega}{r}\\)",
+          "\\(a_c=\\frac{r}{\\omega}\\)",
+          "\\(a_c=\\frac{\\alpha}{r}\\)"
+        ],
+        "answer": "A",
+        "explanation": "También puede escribirse \\(a_c=\\frac{v_t^2}{r}\\)."
+      },
+      {
+        "id": "U2_ACIRC_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Si \\(\\alpha=0\\) en un movimiento circular, entonces...",
+        "options": [
+          "\\(a_t=0\\) pero puede existir \\(a_c\\).",
+          "\\(a_c=0\\) necesariamente.",
+          "no existe aceleración de ningún tipo.",
+          "la rapidez tangencial debe ser cero."
+        ],
+        "answer": "A",
+        "explanation": "Con \\(\\alpha=0\\), la rapidez permanece constante, pero sigue cambiando la dirección de la velocidad."
+      },
+      {
+        "id": "U2_ACIRC_004",
+        "type": "mcq",
+        "difficulty": 3,
+        "prompt": "Si se duplica \\(\\omega\\) manteniendo fijo el radio, la aceleración centrípeta se...",
+        "options": [
+          "cuadruplica",
+          "duplica",
+          "reduce a la mitad",
+          "mantiene igual"
+        ],
+        "answer": "A",
+        "explanation": "Como \\(a_c=\\omega^2r\\), duplicar \\(\\omega\\) multiplica \\(a_c\\) por cuatro."
+      },
+      {
+        "id": "U2_ACIRC_SIM_001",
+        "type": "simulation",
+        "difficulty": 3,
+        "prompt": "Desafío centrípeto: ajustá \\(\\omega\\) para obtener la aceleración centrípeta objetivo.",
+        "simulator": "centripetalTarget",
+        "explanation": "Con radio fijo, \\(a_c=\\omega^2r\\)."
+      }
+    ],
+    "29": [
+      {
+        "id": "U2_MAS_001",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "Un movimiento armónico simple es una oscilación periódica alrededor de...",
+        "options": [
+          "una posición de equilibrio",
+          "un eje que necesariamente se traslada",
+          "una posición que nunca se repite",
+          "un punto de velocidad constante"
+        ],
+        "answer": "A",
+        "explanation": "El MAS describe un movimiento de ida y vuelta alrededor de una posición central de equilibrio."
+      },
+      {
+        "id": "U2_MAS_002",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "En los extremos de una oscilación armónica, el móvil...",
+        "options": [
+          "se detiene instantáneamente y cambia de sentido.",
+          "alcanza siempre su rapidez máxima.",
+          "tiene posición cero.",
+          "deja de pertenecer al movimiento periódico."
+        ],
+        "answer": "A",
+        "explanation": "En los extremos el móvil invierte el sentido y su velocidad instantánea es cero."
+      },
+      {
+        "id": "U2_MAS_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Al atravesar la posición de equilibrio en un MAS ideal, la rapidez es...",
+        "options": [
+          "máxima",
+          "cero",
+          "siempre negativa",
+          "independiente del período"
+        ],
+        "answer": "A",
+        "explanation": "La rapidez máxima se alcanza al pasar por el equilibrio."
+      },
+      {
+        "id": "U2_MAS_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "La repetición del estado del movimiento después de un tiempo T indica que el MAS es...",
+        "options": [
+          "periódico",
+          "rectilíneo uniforme",
+          "no repetitivo",
+          "estático"
+        ],
+        "answer": "A",
+        "explanation": "El período es precisamente el tiempo tras el cual se repite el ciclo."
+      },
+      {
+        "id": "U2_MAS_005",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En esta unidad el sistema masa-resorte se utiliza principalmente como...",
+        "options": [
+          "modelo visual cinemático de la oscilación.",
+          "deducción completa de la fuerza elástica.",
+          "estudio químico del resorte.",
+          "modelo exclusivo de equilibrio estático."
+        ],
+        "answer": "A",
+        "explanation": "El enfoque del bloque es cinemático: describir cómo cambia el movimiento, no deducir todavía su dinámica."
+      }
+    ],
+    "30": [
+      {
+        "id": "U2_MASP_001",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "La amplitud A es...",
+        "options": [
+          "el máximo alejamiento respecto del equilibrio.",
+          "el tiempo de un ciclo.",
+          "el número de ciclos por segundo.",
+          "la fase cuando t=0 únicamente"
+        ],
+        "answer": "A",
+        "explanation": "Por definición, \\(|x|_{max}=A\\)."
+      },
+      {
+        "id": "U2_MASP_002",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "En el MAS, \\(f\\) y \\(T\\) se relacionan mediante...",
+        "options": [
+          "\\(f=\\frac{1}{T}\\)",
+          "\\(f=T\\)",
+          "\\(f=2\\pi T\\)",
+          "\\(f=T^2\\)"
+        ],
+        "answer": "A",
+        "explanation": "La frecuencia es el número de ciclos por unidad de tiempo y es el recíproco del período."
+      },
+      {
+        "id": "U2_MASP_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "La frecuencia angular del MAS vale...",
+        "options": [
+          "\\(\\omega=2\\pi f\\)",
+          "\\(\\omega=\\frac{f}{2\\pi}\\)",
+          "\\(\\omega=Af\\)",
+          "\\(\\omega=T^2\\)"
+        ],
+        "answer": "A",
+        "explanation": "Cada ciclo representa un cambio de fase de \\(2\\pi\\) rad."
+      },
+      {
+        "id": "U2_MASP_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "La fase inicial \\(\\varphi\\) determina...",
+        "options": [
+          "el estado de la oscilación cuando \\(t=0\\).",
+          "el valor de g.",
+          "la masa del sistema.",
+          "la posición de equilibrio física exclusivamente."
+        ],
+        "answer": "A",
+        "explanation": "La fase inicial fija dónde comienza el ciclo al elegir el origen temporal."
+      },
+      {
+        "id": "U2_MASP_SIM_001",
+        "type": "simulation",
+        "difficulty": 2,
+        "prompt": "Desafío de período y frecuencia: ajustá T para alcanzar la frecuencia requerida.",
+        "simulator": "masFrequencyTarget",
+        "explanation": "En el MAS se mantiene la relación \\(f=\\frac{1}{T}\\)."
+      }
+    ],
+    "31": [
+      {
+        "id": "U2_MASX_001",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "Una forma válida de expresar la posición en un MAS es...",
+        "options": [
+          "\\(x(t)=A\\cos(\\omega\\,t+\\varphi)\\)",
+          "\\(x(t)=At^2\\)",
+          "\\(x(t)=A+\\omega+t\\)",
+          "\\(x(t)=\\frac{\\omega}{r}\\)"
+        ],
+        "answer": "A",
+        "explanation": "Una función sinusoidal describe la variación periódica de la elongación."
+      },
+      {
+        "id": "U2_MASX_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Usar seno en lugar de coseno para describir un MAS...",
+        "options": [
+          "es posible ajustando la fase inicial.",
+          "cambia necesariamente el período físico.",
+          "elimina la amplitud.",
+          "hace que el movimiento deje de ser periódico."
+        ],
+        "answer": "A",
+        "explanation": "Seno y coseno representan la misma familia de oscilaciones desplazadas en fase."
+      },
+      {
+        "id": "U2_MASX_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Si \\(A=0.30\\,\\mathrm{m}\\), entonces la elongación x(t) nunca puede superar, en módulo,...",
+        "options": [
+          "0.30 m",
+          "0.60 m",
+          "1.0 m",
+          "\\(2\\pi\\) m"
+        ],
+        "answer": "A",
+        "explanation": "La amplitud es el máximo valor absoluto de la elongación."
+      },
+      {
+        "id": "U2_MASX_004",
+        "type": "mcq",
+        "difficulty": 3,
+        "prompt": "Para \\(x(t)=A\\cos(\\omega\\,t)\\), en \\(t=0\\) el móvil comienza...",
+        "options": [
+          "en \\(x=+A\\)",
+          "en \\(x=0\\)",
+          "en \\(x=-A\\)",
+          "con posición indeterminada"
+        ],
+        "answer": "A",
+        "explanation": "Como \\(\\cos 0=1\\), resulta \\(x(0)=A\\)."
+      },
+      {
+        "id": "U2_MASX_SIM_001",
+        "type": "simulation",
+        "difficulty": 3,
+        "prompt": "Desafío de fase: ajustá \\(\\varphi\\) para que la posición alcance el valor objetivo en el instante indicado.",
+        "simulator": "masPhaseTarget",
+        "explanation": "La fase inicial desplaza el estado de la oscilación sin modificar A ni T."
+      }
+    ],
+    "32": [
+      {
+        "id": "U2_MASVA_001",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Para \\(x(t)=A\\cos(\\omega\\,t+\\varphi)\\), la velocidad es...",
+        "options": [
+          "\\(v(t)=-A\\omega\\sin(\\omega\\,t+\\varphi)\\)",
+          "\\(v(t)=A\\cos(\\omega\\,t+\\varphi)\\)",
+          "\\(v(t)=-\\omega^2x\\)",
+          "\\(v(t)=\\frac{A}{t}\\)"
+        ],
+        "answer": "A",
+        "explanation": "La velocidad resulta de derivar la función de posición respecto del tiempo."
+      },
+      {
+        "id": "U2_MASVA_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En los extremos \\(x=\\pm A\\) de un MAS se cumple...",
+        "options": [
+          "\\(v=0\\) y \\(|a|\\) es máximo.",
+          "\\(|v|\\) es máximo y \\(a=0\\).",
+          "\\(v=a=0\\).",
+          "la aceleración no tiene relación con x."
+        ],
+        "answer": "A",
+        "explanation": "En los extremos cambia el sentido del movimiento; la aceleración tiene su mayor módulo."
+      },
+      {
+        "id": "U2_MASVA_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Al pasar por \\(x=0\\) en un MAS ideal...",
+        "options": [
+          "\\(|v|\\) es máximo y \\(a=0\\).",
+          "\\(v=0\\) y \\(|a|\\) es máximo.",
+          "\\(x=A\\).",
+          "la velocidad angular es cero."
+        ],
+        "answer": "A",
+        "explanation": "En el equilibrio la aceleración se anula y la rapidez alcanza su máximo."
+      },
+      {
+        "id": "U2_MASVA_004",
+        "type": "mcq",
+        "difficulty": 3,
+        "prompt": "La relación \\(a=-\\omega^2x\\) indica que la aceleración...",
+        "options": [
+          "tiene signo opuesto a la elongación.",
+          "tiene siempre el mismo signo que x.",
+          "es independiente de x.",
+          "es siempre cero."
+        ],
+        "answer": "A",
+        "explanation": "El signo negativo muestra que la aceleración apunta hacia el equilibrio."
+      },
+      {
+        "id": "U2_MASVA_005",
+        "type": "mcq",
+        "difficulty": 3,
+        "prompt": "Si se duplica \\(\\omega\\) manteniendo la misma elongación instantánea x, el módulo de la aceleración...",
+        "options": [
+          "se cuadruplica",
+          "se duplica",
+          "se reduce a la mitad",
+          "no cambia"
+        ],
+        "answer": "A",
+        "explanation": "Como \\(|a|=\\omega^2|x|\\), duplicar \\(\\omega\\) multiplica el módulo por cuatro."
+      }
+    ],
+    "33": [
+      {
+        "id": "U2_MASMCU_001",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "La proyección de un movimiento circular uniforme sobre un diámetro puede describir...",
+        "options": [
+          "un movimiento armónico simple",
+          "un MRU necesariamente",
+          "una caída libre",
+          "un movimiento sin período"
+        ],
+        "answer": "A",
+        "explanation": "La proyección sinusoidal del MCU proporciona una interpretación geométrica del MAS."
+      },
+      {
+        "id": "U2_MASMCU_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En la analogía MCU–MAS, el radio del círculo corresponde a...",
+        "options": [
+          "la amplitud A",
+          "el período T",
+          "la frecuencia f",
+          "la aceleración gravitatoria"
+        ],
+        "answer": "A",
+        "explanation": "El máximo valor de la proyección es igual al radio del círculo, por lo que representa A."
+      },
+      {
+        "id": "U2_MASMCU_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Una vuelta completa del punto en MCU corresponde, en el MAS proyectado, a...",
+        "options": [
+          "un ciclo completo",
+          "medio ciclo",
+          "un cuarto de ciclo",
+          "una oscilación sin período"
+        ],
+        "answer": "A",
+        "explanation": "La fase aumenta \\(2\\pi\\) en una vuelta, exactamente lo que ocurre durante un período del MAS."
+      },
+      {
+        "id": "U2_MASMCU_004",
+        "type": "mcq",
+        "difficulty": 3,
+        "prompt": "La expresión \\(\\theta=\\omega\\,t+\\varphi\\) permite interpretar \\(\\varphi\\) como...",
+        "options": [
+          "el desplazamiento angular inicial de fase.",
+          "la amplitud.",
+          "la frecuencia lineal.",
+          "la aceleración centrípeta."
+        ],
+        "answer": "A",
+        "explanation": "\\(\\varphi\\) fija la fase de partida cuando t=0."
+      },
+      {
+        "id": "U2_MASMCU_005",
+        "type": "mcq",
+        "difficulty": 3,
+        "prompt": "Si dos MAS tienen igual A y \\(\\omega\\) pero distinta \\(\\varphi\\), entonces...",
+        "options": [
+          "tienen la misma forma y período, pero comienzan en estados diferentes.",
+          "tienen distinto período necesariamente.",
+          "tienen distinta amplitud.",
+          "uno deja de ser periódico."
+        ],
+        "answer": "A",
+        "explanation": "Cambiar la fase desplaza la oscilación en el tiempo sin modificar A ni \\(\\omega\\)."
+      }
+    ],
+    "34": [
+      {
+        "id": "U2_PEND_001",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "El péndulo simple puede aproximarse mediante un MAS cuando...",
+        "options": [
+          "las oscilaciones angulares son pequeñas.",
+          "el ángulo es arbitrariamente grande.",
+          "la gravedad es cero.",
+          "la longitud es cero."
+        ],
+        "answer": "A",
+        "explanation": "La aproximación armónica requiere ángulos pequeños."
+      },
+      {
+        "id": "U2_PEND_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Para ángulos pequeños expresados en radianes se utiliza...",
+        "options": [
+          "\\(\\sin\\theta\\approx\\theta\\)",
+          "\\(\\sin\\theta\\approx1\\)",
+          "\\(\\sin\\theta\\approx\\theta^2\\)",
+          "\\(\\cos\\theta\\approx0\\) siempre"
+        ],
+        "answer": "A",
+        "explanation": "Esta aproximación permite describir el movimiento angular como aproximadamente sinusoidal."
+      },
+      {
+        "id": "U2_PEND_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "El período aproximado de un péndulo simple es...",
+        "options": [
+          "\\(T\\approx2\\pi\\sqrt{\\frac{L}{g}}\\)",
+          "\\(T=\\frac{L}{g}\\)",
+          "\\(T=\\frac{2\\pi g}{L}\\)",
+          "\\(T=\\sqrt{\\frac{g}{L}}\\)"
+        ],
+        "answer": "A",
+        "explanation": "Para pequeñas oscilaciones, el período depende de L y g según esa expresión."
+      },
+      {
+        "id": "U2_PEND_004",
+        "type": "mcq",
+        "difficulty": 3,
+        "prompt": "Si se cuadruplica la longitud L de un péndulo ideal, su período aproximado...",
+        "options": [
+          "se duplica",
+          "se cuadruplica",
+          "se reduce a la mitad",
+          "no cambia"
+        ],
+        "answer": "A",
+        "explanation": "Como \\(T\\propto\\sqrt{L}\\), multiplicar L por cuatro multiplica T por dos."
+      },
+      {
+        "id": "U2_PEND_SIM_001",
+        "type": "simulation",
+        "difficulty": 3,
+        "prompt": "Desafío del péndulo: ajustá la longitud para obtener el período objetivo.",
+        "simulator": "pendulumPeriodTarget",
+        "explanation": "Para pequeñas oscilaciones, \\(T\\approx2\\pi\\sqrt{\\frac{L}{g}}\\)."
+      }
+    ],
+    "35": [
+      {
+        "id": "U2_VIB_001",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "En una zaranda o tamiz vibratorio son variables cinemáticas relevantes...",
+        "options": [
+          "A, f y T",
+          "pH, conductividad y humedad",
+          "masa molecular y densidad únicamente",
+          "trabajo y potencia solamente"
+        ],
+        "answer": "A",
+        "explanation": "Amplitud, frecuencia y período caracterizan el movimiento repetitivo de la superficie."
+      },
+      {
+        "id": "U2_VIB_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En un alimentador vibratorio, describir \\(x(t)\\) y \\(v(t)\\) ayuda a analizar...",
+        "options": [
+          "la regularidad del movimiento de la bandeja y la dosificación.",
+          "la composición química del producto.",
+          "la conductividad térmica del acero.",
+          "la presión atmosférica solamente."
+        ],
+        "answer": "A",
+        "explanation": "El comportamiento cinemático de la bandeja influye en cómo avanza y se dosifica el producto."
+      },
+      {
+        "id": "U2_VIB_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "Una mesa vibratoria puede alcanzar aceleraciones grandes aunque la amplitud sea pequeña si...",
+        "options": [
+          "la frecuencia angular es elevada.",
+          "la frecuencia es exactamente cero.",
+          "el período es infinito.",
+          "la elongación siempre vale cero."
+        ],
+        "answer": "A",
+        "explanation": "En un MAS, las aceleraciones características crecen con \\(\\omega^2\\)."
+      },
+      {
+        "id": "U2_VIB_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En monitoreo de vibraciones interesa identificar especialmente...",
+        "options": [
+          "amplitudes y frecuencias dominantes.",
+          "sólo la masa total del equipo.",
+          "únicamente la temperatura ambiente.",
+          "el color del equipo."
+        ],
+        "answer": "A",
+        "explanation": "La señal vibratoria se caracteriza cinemáticamente mediante amplitudes y frecuencias."
+      },
+      {
+        "id": "U2_VIB_005",
+        "type": "mcq",
+        "difficulty": 3,
+        "prompt": "Dos equipos vibran con igual amplitud A, pero uno tiene el doble de \\(\\omega\\). Para la misma fase instantánea, su aceleración característica puede ser...",
+        "options": [
+          "cuatro veces mayor",
+          "dos veces mayor",
+          "la mitad",
+          "idéntica necesariamente"
+        ],
+        "answer": "A",
+        "explanation": "La escala de aceleración del MAS es \\(A\\omega^2\\), por lo que depende del cuadrado de la frecuencia angular."
+      }
+    ],
+    "36": [
+      {
+        "id": "U2_APPINT_001",
+        "type": "mcq",
+        "difficulty": 1,
+        "prompt": "En una cinta transportadora, las variables cinemáticas destacadas en la síntesis industrial son...",
+        "options": [
+          "posición y velocidad",
+          "pH y conductividad",
+          "masa molar y densidad",
+          "trabajo y potencia solamente"
+        ],
+        "answer": "A",
+        "explanation": "La diapositiva vincula la cinta con x y v, porque ambas variables afectan la sincronización."
+      },
+      {
+        "id": "U2_APPINT_002",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En un túnel de proceso, controlar el tiempo de residencia mediante la velocidad de cinta busca evitar principalmente...",
+        "options": [
+          "un proceso térmico insuficiente",
+          "que la gravedad cambie",
+          "que el producto pierda masa por definición",
+          "que la frecuencia angular se anule"
+        ],
+        "answer": "A",
+        "explanation": "La síntesis industrial relaciona tiempo de residencia y velocidad de cinta con el cumplimiento del proceso térmico."
+      },
+      {
+        "id": "U2_APPINT_003",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En una llenadora, una desincronización entre tiempo y posición puede traducirse en...",
+        "options": [
+          "derrames o una apertura fuera de posición",
+          "cambio del valor de g",
+          "desaparición de la aceleración",
+          "conversión de velocidad en una magnitud escalar"
+        ],
+        "answer": "A",
+        "explanation": "La sincronización entre llegada del envase y actuación de la llenadora es crítica."
+      },
+      {
+        "id": "U2_APPINT_004",
+        "type": "mcq",
+        "difficulty": 2,
+        "prompt": "En una centrífuga, además de las rpm, la diapositiva destaca la vibración porque puede asociarse con...",
+        "options": [
+          "riesgo de falla mecánica",
+          "un cambio de pH",
+          "una caída libre ideal",
+          "MRU de la carcasa"
+        ],
+        "answer": "A",
+        "explanation": "La síntesis relaciona rpm, vibración y velocidad angular con el riesgo mecánico."
+      },
+      {
+        "id": "U2_APPINT_005",
+        "type": "mcq",
+        "difficulty": 3,
+        "prompt": "¿Qué idea resume mejor el pasaje «del modelo a la variable de proceso»?",
+        "options": [
+          "Elegir magnitudes cinemáticas medibles que permitan controlar una operación real.",
+          "Usar una única ecuación para todos los equipos.",
+          "Sustituir mediciones por definiciones teóricas.",
+          "Evitar relacionar el modelo con riesgos de proceso."
+        ],
+        "answer": "A",
+        "explanation": "La aplicación industrial exige traducir el modelo físico a variables medibles y controlables."
+      }
+    ]
+  }
+};

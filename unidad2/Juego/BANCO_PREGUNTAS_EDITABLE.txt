@@ -1,3 +1,28 @@
+V0.8.3 — CONFIGURACIÓN ACTUAL
+================================
+Recorrido vigente: 36 casillas y 180 actividades del banco.
+Checkpoints: 9, 17, 22, 28, 35 y 36.
+Cada checkpoint presenta UNA sola pregunta y requiere 1/1 para superarse.
+La casilla 35 cierra Movimiento Armónico Simple.
+La casilla 36 es el checkpoint final y selecciona una pregunta aleatoria de nivel 3 de cualquier tema del banco actual.
+
+MODO DOCENTE PARA IDENTIFICAR PREGUNTAS
+----------------------------------------
+En index.html se encuentra:
+
+  window.CINEMATICA_DEBUG_SHOW_QUESTION_ID = false;
+
+Cambiar únicamente a:
+
+  window.CINEMATICA_DEBUG_SHOW_QUESTION_ID = true;
+
+para mostrar, encima del enunciado, el número ordinal de la pregunta dentro
+del banco y su ID interno. Con false no aparece ninguna identificación al alumno.
+
+NOTA: las referencias históricas a 50/52 casillas que aparezcan más abajo
+corresponden a versiones anteriores y se conservan sólo como registro de cambios.
+
+
 BANCO DE PREGUNTAS — GUÍA DE EDICIÓN
 ======================================
 

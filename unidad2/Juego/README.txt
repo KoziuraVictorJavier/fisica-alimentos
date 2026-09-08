@@ -1,3 +1,48 @@
+V0.8.7 — REINICIOS Y CORRIDAS FALLIDAS
+========================================
+- Si la energía llega a 0, el reinicio se produce al pulsar el botón "Reiniciar partida"; no ocurre en medio de la visualización del resultado.
+- Antes de reiniciar se archiva la corrida fallida en previousRuns[].
+- Un reinicio manual también se archiva con endReason = manual_reset.
+- La nueva corrida comienza con puntaje, energía, posición y respuestas en cero, sin mezclar resultados.
+- El JSON final usa FISICA_UTN_GAME_RESULT_V2 e incluye todas las corridas anteriores en researchData.previousRuns[].
+- El comprobante final conserva una estructura JSON única y válida.
+- Si se cambia el legajo/ID al iniciar la nueva corrida, se descarta el historial previo para evitar mezclar datos de alumnos distintos en un equipo compartido.
+
+V0.8.6 — REGISTRO DE PÉRDIDA DE FOCO / VISIBILIDAD
+
+- Se registran episodios en los que la pestaña queda oculta o la ventana pierde foco.
+- Cada episodio guarda inicio, recuperación y duración aproximada.
+- El JSON resume: focusLossCount, totalAwaySeconds y pageHideCount.
+- Los eventos detallados quedan también en researchData.events.
+- pagehide indica cierre, recarga o navegación de la página; no permite distinguirlos con certeza.
+- Estos datos son indicadores de comportamiento y NO demuestran que el alumno haya consultado IA, Google u otro recurso.
+- El registro se detiene cuando la partida ya fue finalizada, para conservar estable el comprobante/código.
+
+V0.8.5 — CONFIGURACIÓN ACTUAL
+================================
+Recorrido vigente: 36 casillas y 180 actividades del banco.
+Checkpoints: 9, 17, 22, 28, 35 y 36.
+Cada checkpoint presenta UNA sola pregunta y requiere 1/1 para superarse.
+La casilla 35 cierra Movimiento Armónico Simple.
+La casilla 36 es el checkpoint final y selecciona una pregunta aleatoria de nivel 3 de cualquier tema del banco actual.
+
+MODO DOCENTE PARA IDENTIFICAR PREGUNTAS
+----------------------------------------
+En index.html se encuentra:
+
+  window.CINEMATICA_DEBUG_SHOW_QUESTION_ID = false;
+
+Cambiar únicamente a:
+
+  window.CINEMATICA_DEBUG_SHOW_QUESTION_ID = true;
+
+para mostrar, encima del enunciado, el número ordinal de la pregunta dentro
+del banco y su ID interno. Con false no aparece ninguna identificación al alumno.
+
+NOTA: las referencias históricas a 50/52 casillas que aparezcan más abajo
+corresponden a versiones anteriores y se conservan sólo como registro de cambios.
+
+
 RECORRIDO DE DESAFÍOS DE CINEMÁTICA — PROTOTIPO V0.7
 
 OBJETIVO
@@ -281,3 +326,43 @@ Se normalizaron:
 - espaciado de productos.
 
 No se modificaron respuestas correctas, puntajes, dificultad ni mecánica.
+
+
+--- V0.8.3 ---
+- Recorrido reducido a 36 casillas y 180 actividades del banco existente.
+- Checkpoints: 9, 17, 22, 28, 35 y 36.
+- Todos los checkpoints requieren una sola pregunta (1/1).
+- Casilla 35: checkpoint de Movimiento Armónico Simple.
+- Casilla 36: checkpoint final con una pregunta aleatoria de nivel 3 de cualquier tema del banco.
+- Modo docente de identificación de preguntas: editar index.html y cambiar
+  window.CINEMATICA_DEBUG_SHOW_QUESTION_ID = false;
+  por true.
+  Al activarlo se muestra el ordinal del banco y el ID interno de cada pregunta.
+
+V0.8.4
+- U2_MASP_SIM_001: slider T step 0.01 s; display 2 decimals; frequency tolerance ±0.010 Hz.
+- Failed evaluation now offers "Continuar sin resolver" to return to board; the activity is recorded incorrect and the next roll can present another question.
+
+V0.8.5 — COMPROBANTE JSON PARA MOODLE
+======================================
+- Se mantiene el juego alojable en GitHub Pages y también ejecutable localmente.
+- Al iniciar una corrida se solicitan:
+    * apellido y nombre;
+    * legajo / identificación;
+    * comisión (opcional).
+- Al superar el checkpoint final de la casilla 36 se fija la hora de finalización.
+- Se genera un comprobante JSON descargable para entregar en Moodle.
+- El JSON contiene:
+    * identificación del juego y versiones;
+    * identificación del estudiante;
+    * inicio, finalización, generación y duración;
+    * resultado general;
+    * respuestas, simulaciones, energía, checkpoints y eventos de la corrida;
+    * código de validación abreviado y digest completo.
+- El código de validación es un control de consistencia local. No es una firma de servidor.
+- La misma corrida conserva el mismo generatedAt y el mismo código al volver a descargar.
+- Se incorpora js/registro.js.
+- Se incorpora verificador_resultados.html para control docente de archivos JSON.
+
+Flujo recomendado:
+  GitHub Pages -> alumno completa el juego -> descarga JSON -> entrega el JSON en Moodle.

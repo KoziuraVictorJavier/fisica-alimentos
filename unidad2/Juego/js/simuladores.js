@@ -837,7 +837,7 @@ window.CINEMATICA_SIM = {
   angularFrequencyTarget(container,state,onSolved){
     const targets=[0.25,0.40,0.50,0.80];
     const target=targets[Math.floor(Math.random()*targets.length)];
-    const tolerance=0.015;
+    const tolerance=0.010;
 
     container.innerHTML=String.raw`
       <div class="sim-challenge">
@@ -862,7 +862,7 @@ window.CINEMATICA_SIM = {
           box=container.querySelector("#afBox"),canvas=container.querySelector("#afCanvas");
 
     function blank(){
-      Tval.textContent=parseFloat(T.value).toFixed(1)+" s";
+      Tval.textContent=parseFloat(T.value).toFixed(2)+" s";
       fval.textContent="Sin evaluar";err.textContent="Elegí T y presioná Evaluar.";
       box.classList.add("pending");box.classList.remove("evaluated");
       const ctx=canvas.getContext("2d");ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -1085,15 +1085,15 @@ window.CINEMATICA_SIM = {
   masFrequencyTarget(container,state,onSolved){
     const targets=[0.25,0.40,0.50,0.80];
     const target=targets[Math.floor(Math.random()*targets.length)];
-    const tolerance=0.015;
+    const tolerance=0.010;
 
     container.innerHTML=String.raw`
       <div class="sim-challenge">
         <div class="sim-target">Objetivo: obtener <strong>f=${target.toFixed(2)} Hz</strong> en el MAS.</div>
         <div class="sim-grid one">
           <label>Período T
-            <input id="mfT" type="range" min="0.5" max="6" step="0.1" value="2.0">
-            <span id="mfTVal">2.0 s</span>
+            <input id="mfT" type="range" min="0.5" max="6" step="0.01" value="2.00">
+            <span id="mfTVal">2.00 s</span>
           </label>
         </div>
         <div class="sim-equation">\[f=\frac{1}{T},\qquad \omega=\frac{2\pi}{T}\]</div>
@@ -1109,7 +1109,7 @@ window.CINEMATICA_SIM = {
           err=container.querySelector("#mfErr"),box=container.querySelector("#mfBox"),canvas=container.querySelector("#mfCanvas");
 
     function blank(){
-      Tval.textContent=parseFloat(T.value).toFixed(1)+" s";out.textContent="Sin evaluar";err.textContent="Elegí T y presioná Evaluar.";
+      Tval.textContent=parseFloat(T.value).toFixed(2)+" s";out.textContent="Sin evaluar";err.textContent="Elegí T y presioná Evaluar.";
       box.classList.add("pending");box.classList.remove("evaluated");
       const ctx=canvas.getContext("2d");ctx.clearRect(0,0,780,300);ctx.fillStyle="#fff";ctx.fillRect(0,0,780,300);
       ctx.fillStyle="#64748b";ctx.font="16px system-ui,sans-serif";ctx.fillText("La oscilación se graficará al evaluar.",245,155);
@@ -1121,7 +1121,7 @@ window.CINEMATICA_SIM = {
       ctx.strokeStyle="#475569";ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(l,cy);ctx.lineTo(r,cy);ctx.stroke();
       ctx.strokeStyle="#2563eb";ctx.lineWidth=4;ctx.beginPath();
       for(let i=0;i<=180;i++){const t=view*i/180,x=l+(r-l)*i/180,y=cy-A*Math.cos(2*Math.PI*t/period);if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}ctx.stroke();
-      ctx.fillStyle="#0b1f4d";ctx.font="16px system-ui,sans-serif";ctx.fillText("T="+period.toFixed(1)+" s",80,45);ctx.fillText("f="+f.toFixed(2)+" Hz",220,45);
+      ctx.fillStyle="#0b1f4d";ctx.font="16px system-ui,sans-serif";ctx.fillText("T="+period.toFixed(2)+" s",80,45);ctx.fillText("f="+f.toFixed(2)+" Hz",220,45);
     }
 
     T.addEventListener("input",blank);
@@ -1130,8 +1130,14 @@ window.CINEMATICA_SIM = {
       state.simulationAttempts=(state.simulationAttempts||0)+1;
       out.textContent=f.toFixed(2)+" Hz";err.textContent="error = "+e.toFixed(3)+" Hz";
       box.classList.remove("pending");box.classList.add("evaluated");evaluated(period,f);
-      if(e<=tolerance) onSolved({targetFrequency:target,T:period,f,omega:2*Math.PI/period,attempts:state.simulationAttempts});
-      else{box.classList.add("shake");setTimeout(()=>box.classList.remove("shake"),350);}
+      if(e<=tolerance) {
+        onSolved({targetFrequency:target,T:period,f,omega:2*Math.PI/period,attempts:state.simulationAttempts});
+      } else {
+        box.classList.add("shake");setTimeout(()=>box.classList.remove("shake"),350);
+        if(typeof state.onFailedAttempt==="function") {
+          state.onFailedAttempt({targetFrequency:target,T:period,f,omega:2*Math.PI/period,error:e,attempts:state.simulationAttempts});
+        }
+      }
     });
 
     blank();window.CINEMATICA_MATH?.typeset(container);

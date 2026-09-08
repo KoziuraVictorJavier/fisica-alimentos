@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verificador · Resultados Física U2</title>
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:#f3f6f9;color:#17212b}.wrap{max-width:850px;margin:40px auto;padding:0 18px}.card{background:white;border:1px solid #dbe3eb;border-radius:16px;padding:24px;box-shadow:0 8px 28px rgba(30,50,70,.08)}h1{margin-top:0}.drop{border:2px dashed #9fb4c8;border-radius:12px;padding:28px;text-align:center;background:#f8fbfd}.result{margin-top:18px;padding:16px;border-radius:12px;display:none}.ok{display:block;background:#effaf3;border:1px solid #a9d7b9}.bad{display:block;background:#fff2f2;border:1px solid #e0aaaa}.warn{display:block;background:#fff9e8;border:1px solid #e3cc84}.code{font-family:ui-monospace,Consolas,monospace;font-weight:800;font-size:1.15rem}.meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.meta div{background:#f7f9fb;padding:10px;border-radius:8px}.meta span{display:block;font-size:.8rem;color:#687382}@media(max-width:620px){.meta{grid-template-columns:1fr}}</style>
+</head>
+<body><main class="wrap"><section class="card">
+<h1>Verificador de comprobantes · Física U2</h1>
+<p>Seleccione el archivo JSON entregado por el alumno. Se recalcula la huella y se compara con la almacenada en el comprobante.</p>
+<div class="drop"><input id="file" type="file" accept="application/json,.json"></div>
+<div id="result" class="result"></div>
+</section></main>
+<script>
+const file=document.getElementById('file'),out=document.getElementById('result');
+function fallbackHash(text){let h1=0x811c9dc5,h2=0x9e3779b9;for(let i=0;i<text.length;i++){const c=text.charCodeAt(i);h1=Math.imul(h1^c,0x01000193)>>>0;h2=Math.imul(h2^c,0x85ebca6b)>>>0;}return(h1.toString(16).padStart(8,'0')+h2.toString(16).padStart(8,'0')).repeat(4).slice(0,64)}
+async function sha256(text){if(globalThis.crypto?.subtle){const data=new TextEncoder().encode(text),buf=await crypto.subtle.digest('SHA-256',data);return[...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join('')}return fallbackHash(text)}
+function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+file.addEventListener('change',async()=>{const f=file.files[0];if(!f)return;try{const record=JSON.parse(await f.text());const val=record.validation;if(!val?.digest)throw new Error('El archivo no contiene datos de validación.');const base={...record};delete base.validation;let digest;if(val.algorithm==='SHA-256'){if(!globalThis.crypto?.subtle){out.className='result warn';out.innerHTML='<strong>No se puede verificar SHA-256 en este contexto.</strong><br>Abra este verificador desde GitHub Pages o un navegador/contexto que habilite Web Crypto.';return;}digest=await sha256(JSON.stringify(base));}else{digest=fallbackHash(JSON.stringify(base));}const ok=digest.toLowerCase()===String(val.digest).toLowerCase();out.className='result '+(ok?'ok':'bad');out.innerHTML=`<strong>${ok?'✓ Archivo consistente':'✗ El archivo no coincide con su huella'}</strong><br><span class="code">${esc(val.code)}</span><div class="meta"><div><span>Estudiante</span>${esc(record.student?.name)}</div><div><span>Legajo</span>${esc(record.student?.id)}</div><div><span>Inicio</span>${esc(record.run?.startedAt)}</div><div><span>Finalización</span>${esc(record.run?.finishedAt)}</div><div><span>Versión</span>${esc(record.game?.version)}</div><div><span>Casilla final</span>${esc(record.result?.finalCell)}</div><div><span>Corridas realizadas</span>${esc(record.run?.totalAttempts??1)}</div><div><span>Corridas previas archivadas</span>${esc(record.run?.previousAttempts??0)}</div><div><span>Pérdidas de foco</span>${esc(record.researchData?.attention?.focusLossCount??0)}</div><div><span>Tiempo fuera de foco</span>${esc(record.researchData?.attention?.totalAwaySeconds??0)} s</div><div><span>Salidas/navegaciones detectadas</span>${esc(record.researchData?.attention?.pageHideCount??0)}</div></div>`;}catch(e){out.className='result bad';out.textContent='No se pudo verificar: '+e.message;}});
+</script></body></html>

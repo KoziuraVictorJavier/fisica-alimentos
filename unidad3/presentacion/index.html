@@ -1116,8 +1116,226 @@
 #s37b .sim-toolbar .formula-chip{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:#eef5ff;border:1px solid #d4e2f4;color:#174f9c;font-size:13px;font-weight:800}
 @media(max-width:980px){#s37b .roll-rank{grid-template-columns:1fr 1fr 1fr}}
 
+
+
+/* V0.5.64 · corrección MathJax dentro de paneles SVG y derivación de rodadura */
+#s37b .sim-panel .mjx-container[jax="SVG"],
+#s37b .sim-toolbar .mjx-container[jax="SVG"],
+#s37b .roll-derivation .mjx-container[jax="SVG"],
+#s37a .mjx-container[jax="SVG"]{
+  display:inline-block !important;
+  width:auto !important;
+  height:auto !important;
+  min-width:0 !important;
+  min-height:0 !important;
+  max-width:100% !important;
+  vertical-align:middle !important;
+  line-height:normal !important;
+}
+#s37b .sim-panel .mjx-container[jax="SVG"] > svg,
+#s37b .sim-toolbar .mjx-container[jax="SVG"] > svg,
+#s37b .roll-derivation .mjx-container[jax="SVG"] > svg,
+#s37a .mjx-container[jax="SVG"] > svg{
+  display:inline-block !important;
+  width:auto !important;
+  height:auto !important;
+  min-width:0 !important;
+  min-height:0 !important;
+  max-width:100% !important;
+  max-height:none !important;
+  vertical-align:middle !important;
+}
+#s37b .sim-panel .MathJax,
+#s37b .sim-toolbar .MathJax,
+#s37b .roll-derivation .MathJax,
+#s37b .data-table .MathJax,
+#s37a .data-table .MathJax{
+  font-size:inherit !important;
+}
+#s37b .formula-chip{
+  flex:0 1 auto;
+  white-space:normal !important;
+  line-height:1.2;
+}
+#s37b .roll-derivation{
+  background:#fff7ed;
+  border:1px solid #fed7aa;
+  border-left:6px solid #f59e0b;
+  border-radius:14px;
+  padding:10px 12px;
+  margin:0 0 10px 0;
+  color:#5b3a11;
+  font-size:13px;
+  line-height:1.32;
+}
+#s37b .roll-derivation h3{
+  margin:0 0 6px 0;
+  color:#9a3412;
+  font-size:15px;
+}
+#s37b .roll-derivation .derivation-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px 10px;
+  align-items:start;
+}
+#s37b .roll-derivation .deriv-line{
+  background:#fff;
+  border:1px solid #fde2c1;
+  border-radius:10px;
+  padding:6px 8px;
+}
+#s37b .roll-derivation .deriv-result{
+  grid-column:1 / -1;
+  background:#eefaf6;
+  border-color:#bde8d9;
+  color:#14532d;
+  font-weight:800;
+  text-align:center;
+}
+#s37a .roll-derivation-inline{
+  background:#fff7ed;
+  border:1px solid #fed7aa;
+  border-left:6px solid #f59e0b;
+  border-radius:14px;
+  padding:10px 12px;
+  margin-top:10px;
+  color:#5b3a11;
+  font-size:13px;
+  line-height:1.35;
+}
+#s37a .roll-derivation-inline .formula.small{
+  font-size:clamp(14px,1.35vw,18px);
+  margin:6px 0;
+}
+@media(max-width:980px){
+  #s37b .roll-derivation .derivation-grid{grid-template-columns:1fr}
+  #s37b .roll-derivation .deriv-result{grid-column:auto}
+}
+
+
+.menu-pdf-link{display:block;width:100%;margin:0 0 12px;padding:12px 13px;border-radius:14px;background:#0b1f4d;color:#fff;border:1px solid #175cc5;box-shadow:0 8px 18px rgba(14,35,75,.16);font-weight:850;text-decoration:none;line-height:1.25}.menu-pdf-link:hover{background:#175cc5;color:#fff}
+
+/* V0.5.65 · fórmulas de rodadura sin MathJax para evitar escalado incorrecto */
+#s37b .eq-inline,
+#s37b .eq-simple{
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  color:#0b1f4d;
+  white-space: normal;
+}
+#s37b .formula-chip.eq-simple{
+  display:inline-flex;
+  align-items:center;
+  max-width:100%;
+  overflow-wrap:anywhere;
+  font-size:13px;
+  line-height:1.2;
+}
+#s37b .sim-panel > .mini{
+  font-size:13px;
+  line-height:1.35;
+}
+#s37b .sim-panel > .mini .eq-inline{
+  font-size:1.08em;
+}
+#s37b .roll-derivation .derivation-intro{
+  margin:0 0 8px;
+  font-size:12.8px;
+  line-height:1.32;
+  color:#6b3d0a;
+}
+#s37b .roll-derivation .deriv-line{
+  font-size:12.4px;
+  line-height:1.25;
+  overflow:hidden;
+}
+#s37b .roll-derivation .deriv-line b{
+  display:block;
+  margin-bottom:4px;
+  color:#7c2d12;
+}
+#s37b .roll-derivation .deriv-line .eq-simple{
+  display:block;
+  font-size:clamp(16px,1.55vw,22px);
+  line-height:1.12;
+  overflow-wrap:anywhere;
+}
+#s37b .roll-derivation .deriv-result .eq-simple{
+  font-size:clamp(16px,1.65vw,23px);
+  color:#14532d;
+}
+#s37b .roll-table th,
+#s37b .roll-table td{
+  font-size:13px;
+  line-height:1.2;
+}
+@media(max-width:900px){
+  #s37b .roll-derivation .deriv-line .eq-simple,
+  #s37b .roll-derivation .deriv-result .eq-simple{font-size:16px;}
+}
+
+
+#s37b .roll-derivation .deriv-result .eq-simple + .eq-simple{
+  margin-top:4px;
+}
+
+
+#s33 .cm-figure{background:#fff;border:1px solid #d9e4f2;border-radius:18px;padding:10px;box-shadow:0 8px 20px rgba(14,35,75,.08)}
+#s33 .cm-figure img{display:block;width:100%;height:auto;max-height:56vh;object-fit:contain;border-radius:12px}
+#s33 .cm-figure figcaption{font-size:12.8px;line-height:1.35}
+@media(max-width:980px){#s33 .cm-figure img{max-height:none}}
+
+/* Simulación de torque en presentación: bloque autocontenido */
+#s36 .ptorque-wrap{display:grid;grid-template-columns:1.16fr .84fr;gap:16px;align-items:stretch;min-height:0;width:100%}
+#s36 .ptorque-panels{display:grid;grid-template-rows:1fr 1fr;gap:12px;min-height:0}
+#s36 .ptorque-panel,#s36 .ptorque-side{background:#fff;border:1px solid #d9e4f2;border-radius:18px;padding:12px;box-shadow:0 8px 20px rgba(14,35,75,.06);min-height:0}
+#s36 .ptorque-panel h3,#s36 .ptorque-side h3{margin:0 0 8px;color:#0b1f4d;font-size:18px}
+#s36 .ptorque-panel canvas{display:block;width:100%;height:calc((100vh - 255px)/2);min-height:185px;max-height:300px;border-radius:14px;border:1px solid #e3ecf8;background:#fff}
+#s36 .ptorque-side{display:flex;flex-direction:column;gap:12px;overflow:auto}
+#s36 .ptorque-control{display:grid;grid-template-columns:1fr auto;gap:8px 10px;align-items:center;background:#f8fbff;border:1px solid #d9e4f2;border-radius:14px;padding:10px 11px;color:#0b1f4d;font-weight:800}
+#s36 .ptorque-control input{grid-column:1 / -1;width:100%;accent-color:#175cc5}
+#s36 .ptorque-control strong{color:#175cc5;font-size:14px;white-space:nowrap}
+#s36 .ptorque-readout{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#s36 .ptorque-pill{background:#0b1f4d;color:#fff;border-radius:14px;padding:10px 12px;line-height:1.25;min-height:64px}
+#s36 .ptorque-pill b{display:block;font-size:12px;opacity:.85;margin-bottom:4px}
+#s36 .ptorque-pill span{font-size:18px;font-weight:900}
+#s36 .ptorque-equation{background:#eff7ff;border:1px solid #bfdbfe;border-left:7px solid #175cc5;border-radius:16px;padding:12px;color:#0b1f4d;font-size:17px;line-height:1.35;font-weight:760}
+#s36 .ptorque-note{background:#f0fdf4;border:1px solid #bbf7d0;border-left:7px solid #16a34a;border-radius:16px;padding:12px;color:#14532d;font-size:16px;line-height:1.35;font-weight:720}
+#s36 .ptorque-mini{font-size:14px;line-height:1.35;color:#475569;margin:0}
+@media(max-width:1050px){#s36 .ptorque-wrap{grid-template-columns:1fr}#s36 .ptorque-panel canvas{height:260px;max-height:none}#s36 .ptorque-readout{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){#s36 .ptorque-readout{grid-template-columns:1fr}#s36 .ptorque-panel canvas{height:230px}}
+
+
+#s37i .inertia-infographic-img{
+  width:100%;
+  max-height:66vh;
+  object-fit:contain;
+  border-radius:18px;
+  box-shadow:0 14px 32px rgba(15,23,42,.14);
+  background:#fff;
+}
+#s37i .inertia-focus{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+#s37i .inertia-focus .mini-note{
+  margin:0;
+}
+@media(max-width:1000px){
+  #s37i .inertia-focus{grid-template-columns:1fr}
+  #s37i .inertia-infographic-img{max-height:none}
+}
+
+
+/* Slides agregadas: momento angular y conservación */
+.angular-visual{background:#fff;border:1px solid #d9e4f2;border-radius:20px;padding:12px;box-shadow:0 10px 24px rgba(14,35,75,.08)}
+.angular-visual svg{width:100%;height:auto;max-height:44vh;display:block}
+.angular-eq-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}.angular-eq{background:#fff;border:1px solid #d9e4f2;border-radius:16px;padding:13px 14px;font-size:18px;line-height:1.3;color:#0b1f4d}.angular-eq b{display:block;color:#175cc5;margin-bottom:5px}.video-panel{background:#fff;border:1px solid #d9e4f2;border-radius:20px;padding:12px;box-shadow:0 10px 24px rgba(14,35,75,.08)}.video-frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#0b1f4d}.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.video-link{display:inline-flex;margin-top:10px;background:#0b1f4d;color:#fff;text-decoration:none;border-radius:12px;padding:9px 12px;font-weight:850}.video-link:hover{background:#175cc5;color:#fff}@media(max-width:1000px){.angular-eq-grid{grid-template-columns:1fr}.angular-visual svg{max-height:none}}
+
 </style></head><body><div class="deck">
-</div><nav aria-label="Controles de presentación" class="controls"><button class="ctl-btn" id="menuBtn">☰ Índice</button><button class="ctl-btn nav-arrow" id="prevBtn">←</button><button class="ctl-btn nav-arrow" id="nextBtn">→</button><button class="ctl-btn" id="scriptBtn">Guion</button><button class="ctl-btn" id="readBtn">Leer</button><button class="ctl-btn" id="pauseBtn">Pausa</button><button class="ctl-btn" id="stopBtn">Detener</button><label class="voice-control" title="Seleccionar voz de lectura">Voz <select id="voiceSelect"><option value="">Voz automática</option></select></label><label class="rate-control" title="Velocidad de lectura">Vel. <input id="rateRange" type="range" min="0.70" max="1.30" step="0.05" value="0.95"><span id="rateLabel">0.95×</span></label><button class="ctl-btn" id="autoBtn">Auto: OFF</button><button class="ctl-btn" id="fullBtn">⛶</button><span class="slide-counter" id="counter"></span></nav><a class="back-to-notes" href="../" title="Volver al apunte">Apunte U3</a><div class="progress"><div class="bar"></div></div><aside aria-hidden="true" class="script-panel" id="scriptPanel"><div class="script-head"><div><div class="script-kicker">Guion de exposición</div><h3 id="scriptTitle">Diapositiva</h3></div><button class="script-close" id="closeScriptBtn">×</button></div><div class="script-text" id="scriptText"></div><div class="script-hint">El texto se edita en <code>guiones.js</code> y es el mismo que utiliza la lectura por voz.</div></aside><aside class="menu" id="menu"><button data-go="1"><b>1</b> Dinámica</button><button data-go="2"><b>2</b> Recorrido de la unidad</button><button data-go="3"><b>3</b> 1. Introducción contextualizada</button><button data-go="4"><b>4</b> 2. Objetivos de aprendizaje</button><button data-go="5"><b>5</b> 3. Importancia técnica</button><button data-go="6"><b>6</b> 4. Mapa conceptual de la unidad</button><button data-go="7"><b>7</b> 5. Fuerzas e interacciones</button><button data-go="8"><b>8</b> 5.2 Fuerza gravitatoria, peso y g</button><button data-go="9"><b>9</b> 6.1.1 Simulación: globo en un autobús que acelera</button><button data-go="10"><b>10</b> 6.1.2 Simulación: trayectoria recta observada desde una plataforma giratoria</button><button data-go="11"><b>11</b> 6.2 Segunda ley: fuerza neta y aceleración</button><button data-go="12"><b>12</b> 6.3 Tercera ley: acción y reacción</button><button data-go="13"><b>13</b> Sistemas inerciales y no inerciales</button><button data-go="14"><b>14</b> 7. Hipótesis simplificativas y modelos</button><button data-go="15"><b>15</b> 7.4 Diagrama de cuerpo libre</button><button data-go="16"><b>16</b> 13. Cantidad de movimiento lineal e impulso</button><button data-go="17"><b>17</b> 13.2 Centro de masa</button><button data-go="18"><b>18</b> 13.3 Velocidad del centro de masa</button><button data-go="19"><b>19</b> 13.4 Aceleración del centro de masa</button><button data-go="20"><b>20</b> 14. Sistemas de partículas y cuerpo rígido</button><button data-go="21"><b>21</b> 15. Torque: tendencia al giro</button><button data-go="22"><b>22</b> Simulación: torque</button><button data-go="23"><b>23</b> 15.1 Momento de inercia y momento angular</button><button data-go="24"><b>24</b> 15.5 Aplicaciones en equipos alimentarios</button><button data-go="25"><b>25</b> 16. Equilibrio rotacional y equilibrio completo</button><button data-go="26"><b>26</b> Simulación: equilibrio rotacional</button><button data-go="27"><b>27</b> 17. Aplicaciones industriales alimentarias</button><button data-go="28"><b>28</b> 18. Ejemplos resueltos: traslación</button><button data-go="29"><b>29</b> 18. Ejemplos resueltos: tensión y torque</button><button data-go="30"><b>30</b> 19. Interpretación de diagramas</button><button data-go="31"><b>31</b> 20. Errores frecuentes</button><button data-go="32"><b>32</b> 21. Preguntas conceptuales para discusión</button><button data-go="33"><b>33</b> 22. Ejercicios numéricos propuestos</button><button data-go="34"><b>34</b> 23. Simuladores interactivos de la unidad</button><button data-go="35"><b>35</b> 24. Actividad práctica o simulada</button><button data-go="36"><b>36</b> 25. Actividad integradora</button><button data-go="37"><b>37</b> 26. Infografía 1 · Fuerzas e interacciones</button><button data-go="38"><b>38</b> 26. Infografía 2 · Newton y fuerza neta</button><button data-go="39"><b>39</b> 26. Infografía 3 · Diagramas y componentes</button><button data-go="40"><b>40</b> 26. Infografía 4 · Rozamiento</button><button data-go="41"><b>41</b> 26. Infografía 5 · Torque y equilibrio rotacional</button><button data-go="42"><b>42</b> 26. Infografía 6 · Hooke y MAS</button><button data-go="43"><b>43</b> 27. Resumen final</button><button data-go="44"><b>44</b> 28. Glosario breve</button><button data-go="45"><b>45</b> Cierre y uso del material</button></aside><section class="slide" id="s1">
+</div><nav aria-label="Controles de presentación" class="controls"><button class="ctl-btn" id="menuBtn">☰ Índice</button><button class="ctl-btn nav-arrow" id="prevBtn">←</button><button class="ctl-btn nav-arrow" id="nextBtn">→</button><button class="ctl-btn" id="scriptBtn">Guion</button><button class="ctl-btn" id="readBtn">Leer</button><button class="ctl-btn" id="pauseBtn">Pausa</button><button class="ctl-btn" id="stopBtn">Detener</button><label class="voice-control" title="Seleccionar voz de lectura">Voz <select id="voiceSelect"><option value="">Voz automática</option></select></label><label class="rate-control" title="Velocidad de lectura">Vel. <input id="rateRange" type="range" min="0.70" max="1.30" step="0.05" value="0.95"><span id="rateLabel">0.95×</span></label><button class="ctl-btn" id="autoBtn">Auto: OFF</button><button class="ctl-btn" id="fullBtn">⛶</button><span class="slide-counter" id="counter"></span></nav><a class="back-to-notes" href="../" title="Volver al apunte">Apunte U3</a><div class="progress"><div class="bar"></div></div><aside aria-hidden="true" class="script-panel" id="scriptPanel"><div class="script-head"><div><div class="script-kicker">Guion de exposición</div><h3 id="scriptTitle">Diapositiva</h3></div><button class="script-close" id="closeScriptBtn">×</button></div><div class="script-text" id="scriptText"></div><div class="script-hint">El texto se edita en <code>guiones.js</code> y es el mismo que utiliza la lectura por voz.</div></aside><aside class="menu" id="menu"><a class="menu-pdf-link" href="../Ejercicios/Guia_Unidad3_Dinamica_Ejercicios.pdf" target="_blank" rel="noopener">📄 Guía de ejercicios · Unidad 3</a><button data-go="1"><b>1</b> Dinámica</button><button data-go="2"><b>2</b> Recorrido de la unidad</button><button data-go="3"><b>3</b> 1. Introducción contextualizada</button><button data-go="4"><b>4</b> 2. Objetivos de aprendizaje</button><button data-go="5"><b>5</b> 3. Importancia técnica</button><button data-go="6"><b>6</b> 4. Mapa conceptual de la unidad</button><button data-go="7"><b>7</b> 5. Fuerzas e interacciones</button><button data-go="8"><b>8</b> 5.2 Fuerza gravitatoria, peso y g</button><button data-go="9"><b>9</b> 6.1.1 Simulación: globo en un autobús que acelera</button><button data-go="10"><b>10</b> 6.1.2 Simulación: trayectoria recta observada desde una plataforma giratoria</button><button data-go="11"><b>11</b> 6.2 Segunda ley: fuerza neta y aceleración</button><button data-go="12"><b>12</b> 6.3 Tercera ley: acción y reacción</button><button data-go="13"><b>13</b> Sistemas inerciales y no inerciales</button><button data-go="14"><b>14</b> 7. Hipótesis simplificativas y modelos</button><button data-go="15"><b>15</b> 7.4 Diagrama de cuerpo libre</button><button data-go="16"><b>16</b> 13. Cantidad de movimiento lineal e impulso</button><button data-go="17"><b>17</b> 13.2 Centro de masa</button><button data-go="18"><b>18</b> 13.3 Velocidad del centro de masa</button><button data-go="19"><b>19</b> 13.4 Aceleración del centro de masa</button><button data-go="20"><b>20</b> 14. Sistemas de partículas y cuerpo rígido</button><button data-go="21"><b>21</b> 15. Torque: qué mide y de qué depende</button><button data-go="22"><b>22</b> Simulación: torque</button><button data-go="23"><b>23</b> 15.1 Torque: ejemplos y procedimiento paso a paso</button><button data-go="24"><b>24</b> 15.2 Torque en estabilidad, vuelco y reacción del motor</button><button data-go="25"><b>25</b> 15.3 Momento de inercia: idea física y cálculo</button><button data-go="26"><b>26</b> 15.4 Infografía: momento de inercia en equipos alimentarios</button><button data-go="27"><b>27</b> 15.5 Momentos de inercia típicos</button><button data-go="28"><b>28</b> 15.6 Simulación: objetos que ruedan por un plano inclinado</button><button data-go="29"><b>29</b> 15.7 Momento angular: cantidad de giro</button><button data-go="30"><b>30</b> 15.8 Conservación del momento angular</button><button data-go="31"><b>31</b> 15.9 Aplicaciones en equipos alimentarios</button><button data-go="32"><b>32</b> 16. Equilibrio rotacional y equilibrio completo</button><button data-go="33"><b>33</b> Simulación: equilibrio rotacional</button><button data-go="34"><b>34</b> 17. Aplicaciones industriales alimentarias</button><button data-go="35"><b>35</b> 18. Ejemplos resueltos: traslación</button><button data-go="36"><b>36</b> 18. Ejemplos resueltos: tensión y torque</button><button data-go="37"><b>37</b> 19. Interpretación de diagramas</button><button data-go="38"><b>38</b> 20. Errores frecuentes</button><button data-go="39"><b>39</b> 21. Preguntas conceptuales para discusión</button><button data-go="40"><b>40</b> 22. Ejercicios numéricos propuestos</button><button data-go="41"><b>41</b> 23. Simuladores interactivos de la unidad</button><button data-go="42"><b>42</b> 24. Actividad práctica o simulada</button><button data-go="43"><b>43</b> 25. Actividad integradora</button><button data-go="44"><b>44</b> 26. Infografía 1 · Fuerzas e interacciones</button><button data-go="45"><b>45</b> 26. Infografía 2 · Newton y fuerza neta</button><button data-go="46"><b>46</b> 26. Infografía 3 · Diagramas y componentes</button><button data-go="47"><b>47</b> 26. Infografía 4 · Rozamiento</button><button data-go="48"><b>48</b> 26. Infografía 5 · Torque y equilibrio rotacional</button><button data-go="49"><b>49</b> 26. Infografía 6 · Hooke y MAS</button><button data-go="50"><b>50</b> 27. Resumen final</button><button data-go="51"><b>51</b> 28. Glosario breve</button><button data-go="52"><b>52</b> Cierre y uso del material</button></aside><section class="slide" id="s1">
 <div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>Dinámica</h2></div><div class="unit-chip">Unidad 3</div></div>
 <div class="slide-body"><div class="hero"><div><div class="lead">Fuerzas, movimiento y equilibrio en sistemas aplicados a tecnología de alimentos</div><p>Presentación introductoria del apunte de la Unidad 3.</p><div class="chips"><span>Newton</span><span>Rozamiento</span><span>Circular</span><span>Hooke</span><span>Torque</span></div></div><div class="logos"><img src="assets/images/logo_utn.png"/><img src="assets/images/logo-ciab.jpg"/></div></div></div>
 <div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>1/45</span></div>
@@ -2221,7 +2439,7 @@ La síntesis de la infografía es que la ley de Hooke permite interpretar tres a
 <div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>45/45</span></div>
 </section><section class="slide" id="s33">
 <div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>13.2 Centro de masa</h2></div><div class="unit-chip">Unidad 3</div></div>
-<div class="slide-body"><div class="two"><div><div class="formula">\[\vec r_{CM}=\frac{\sum_i m_i\vec r_i}{\sum_i m_i}=\frac{1}{M}\sum_i m_i\vec r_i\]</div><div class="formula small">\[x_{CM}=\frac{\sum_i m_i x_i}{\sum_i m_i}\qquad y_{CM}=\frac{\sum_i m_i y_i}{\sum_i m_i}\]</div><ul class="bullets"><li>El centro de masa resume cómo está distribuida la masa de un sistema.</li><li>Es un promedio ponderado: las masas mayores “tiran” más del centro de masa hacia su posición.</li><li>Permite describir el movimiento global del sistema aunque internamente las partículas se muevan entre sí.</li></ul><p class="big">En un cuerpo homogéneo suele coincidir con el centro geométrico; en una distribución no uniforme, no necesariamente.</p></div><figure><svg viewBox="0 0 980 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Centro de masa de un sistema de partículas"><defs><marker id="cmArrBlue" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#2563eb"></path></marker><marker id="cmArrRed" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#dc2626"></path></marker></defs><rect width="980" height="360" rx="20" fill="#ffffff"></rect><text x="34" y="42" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#1e3a8a">Centro de masa de un sistema discreto</text><text x="34" y="72" font-family="Arial, sans-serif" font-size="16" fill="#64748b">Las partículas de mayor masa influyen más en la posición del CM.</text><line x1="80" y1="220" x2="910" y2="220" stroke="#64748b" stroke-width="3"></line><line x1="160" y1="205" x2="160" y2="235" stroke="#94a3b8" stroke-width="2"></line><line x1="360" y1="205" x2="360" y2="235" stroke="#94a3b8" stroke-width="2"></line><line x1="720" y1="205" x2="720" y2="235" stroke="#94a3b8" stroke-width="2"></line><circle cx="160" cy="220" r="20" fill="#dbeafe" stroke="#2563eb" stroke-width="3"></circle><circle cx="360" cy="220" r="30" fill="#dbeafe" stroke="#2563eb" stroke-width="3"></circle><circle cx="720" cy="220" r="24" fill="#dbeafe" stroke="#2563eb" stroke-width="3"></circle><text x="147" y="225" font-family="Arial, sans-serif" font-size="18" fill="#0f172a">m₁</text><text x="346" y="226" font-family="Arial, sans-serif" font-size="18" fill="#0f172a">m₂</text><text x="706" y="225" font-family="Arial, sans-serif" font-size="18" fill="#0f172a">m₃</text><circle cx="430" cy="220" r="9" fill="#dc2626"></circle><text x="445" y="212" font-family="Arial, sans-serif" font-size="18" fill="#dc2626">CM</text><line x1="430" y1="220" x2="430" y2="126" stroke="#dc2626" stroke-width="3" marker-end="url(#cmArrRed)"></line><text x="442" y="124" font-family="Arial, sans-serif" font-size="16" fill="#dc2626">r_CM</text><line x1="80" y1="290" x2="160" y2="290" stroke="#94a3b8" stroke-width="2" marker-end="url(#cmArrBlue)"></line><line x1="160" y1="290" x2="430" y2="290" stroke="#94a3b8" stroke-width="2" marker-end="url(#cmArrBlue)"></line><line x1="430" y1="290" x2="720" y2="290" stroke="#94a3b8" stroke-width="2" marker-end="url(#cmArrBlue)"></line><text x="107" y="312" font-family="Arial, sans-serif" font-size="16" fill="#475569">x₁</text><text x="280" y="312" font-family="Arial, sans-serif" font-size="16" fill="#475569">x_CM</text><text x="570" y="312" font-family="Arial, sans-serif" font-size="16" fill="#475569">x₃</text><rect x="54" y="96" width="296" height="74" rx="14" fill="#eef6ff" stroke="#bfdbfe"></rect><text x="72" y="124" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#1e3a8a">Lectura física</text><text x="72" y="147" font-family="Arial, sans-serif" font-size="15" fill="#334155">Si m₂ es la mayor masa, el CM queda más cerca de m₂</text><text x="72" y="165" font-family="Arial, sans-serif" font-size="15" fill="#334155">que de las otras partículas.</text></svg></figure></div></div>
+<div class="slide-body"><div class="two"><div><div class="formula">\[\vec r_{CM}=\frac{\sum_i m_i\vec r_i}{\sum_i m_i}=\frac{1}{M}\sum_i m_i\vec r_i\]</div><div class="formula small">\[x_{CM}=\frac{\sum_i m_i x_i}{\sum_i m_i}\qquad y_{CM}=\frac{\sum_i m_i y_i}{\sum_i m_i}\]</div><ul class="bullets"><li>El centro de masa resume cómo está distribuida la masa de un sistema.</li><li>Es un promedio ponderado: las masas mayores “tiran” más del centro de masa hacia su posición.</li><li>Permite describir el movimiento global del sistema aunque internamente las partículas se muevan entre sí.</li></ul><p class="big">En un cuerpo homogéneo suele coincidir con el centro geométrico; en una distribución no uniforme, no necesariamente.</p></div><figure class="cm-figure"><img alt="Esquema tridimensional del centro de masa con ejes coordenados y vectores de posición" src="assets/images/centro_masa_3d_tikz.png"/><figcaption>Esquema espacial del centro de masa: \(\vec r_{CM}\) queda determinado por la distribución de las masas \(m_1\), \(m_2\) y \(m_3\).</figcaption></figure></div></div>
 <div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>46/45</span></div>
 </section><section class="slide" id="s33a">
 <div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>13.3 Velocidad del centro de masa</h2></div><div class="unit-chip">Unidad 3</div></div>
@@ -2241,22 +2459,72 @@ La síntesis de la infografía es que la ley de Hooke permite interpretar tres a
 <div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>0/0</span></div>
 </section><section class="slide" id="s36">
 <div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>Simulación: torque</h2></div><div class="unit-chip">Unidad 3</div></div>
-<div class="slide-body"><div class="two"><div><ul class="bullets"><li>En esta simulación podemos explorar cómo cambia el torque al modificar fuerza, distancia y ángulo.</li><li>Si la fuerza es perpendicular al brazo, el seno del ángulo vale uno y el torque es máximo para esos valores de fuerza y distancia.</li><li>Si la fuerza apunta directamente hacia el eje o se aleja de él sobre la misma línea, el torque se hace cero.</li></ul></div><figure><img src="assets/tikz/mezclador_torque.svg"/></figure></div></div>
+<div class="slide-body">
+  <div class="ptorque-wrap">
+    <div class="ptorque-panels">
+      <div class="ptorque-panel">
+        <h3>Esquema geométrico</h3>
+        <canvas id="ptorque_canvas" width="760" height="320" aria-label="Esquema interactivo de torque"></canvas>
+      </div>
+      <div class="ptorque-panel">
+        <h3>Torque en función del ángulo</h3>
+        <canvas id="ptorque_graph" width="760" height="320" aria-label="Gráfica de torque en función del ángulo"></canvas>
+      </div>
+    </div>
+    <aside class="ptorque-side" aria-label="Controles de la simulación de torque">
+      <h3>Variables modificables</h3>
+      <label class="ptorque-control"><span>Distancia al eje, r</span><strong id="ptorque_r_val">0.60 m</strong><input id="ptorque_r" type="range" min="0.10" max="1.20" step="0.01" value="0.60"></label>
+      <label class="ptorque-control"><span>Fuerza aplicada, F</span><strong id="ptorque_F_val">45 N</strong><input id="ptorque_F" type="range" min="5" max="120" step="1" value="45"></label>
+      <label class="ptorque-control"><span>Ángulo entre r y F, θ</span><strong id="ptorque_theta_val">90°</strong><input id="ptorque_theta" type="range" min="0" max="180" step="1" value="90"></label>
+      <div class="ptorque-readout">
+        <div class="ptorque-pill"><b>Torque</b><span id="ptorque_tau">27.00 N·m</span></div>
+        <div class="ptorque-pill"><b>Brazo perpendicular</b><span id="ptorque_dp">0.60 m</span></div>
+      </div>
+      <div class="ptorque-equation"><b>Modelo:</b><br>τ = r·F·sen(θ) = F·d⊥</div>
+      <div class="ptorque-note"><b>Lectura física.</b> El torque aumenta al aumentar la fuerza, la distancia al eje o la componente perpendicular de la fuerza. Para θ = 90° el torque es máximo; para θ = 0° o 180° el torque es nulo.</div>
+      <p class="ptorque-mini">Usá los controles para verificar por qué una fuerza aplicada lejos del eje y en dirección perpendicular produce mayor tendencia al giro.</p>
+    </aside>
+  </div>
+</div>
 <div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>51/45</span></div>
-</section><section class="slide" id="s37">
-<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>15.1 Momento de inercia: idea física y cálculo</h2></div><div class="unit-chip">Unidad 3</div></div>
+</section><section class="slide" id="s36a">
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>15.1 Torque: ejemplos y procedimiento paso a paso</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two"><div><ul class="bullets"><li>Esta infografía resume una <strong>ruta general</strong> para resolver ejercicios de torque.</li><li>Primero se define el eje de giro; luego se identifica la fuerza y se determina su <strong>brazo perpendicular</strong>.</li><li>Después se calcula \(\tau = rF\sin\theta\) o, de manera equivalente, \(\tau = F d_{\perp}\).</li><li>Por último, se interpreta el signo del torque y su incidencia práctica en tapas, compuertas, paletas y llaves.</li></ul><div class="key"><b>Lectura sugerida:</b> mirar la figura de izquierda a derecha y reconstruir el paso a paso del cálculo antes de reemplazar números.</div><div class="mini-note"><b>Idea central:</b> una misma fuerza puede tener efectos muy distintos si cambia el punto de aplicación o el ángulo con el que actúa.</div></div><figure><img src="assets/images/infografias/infografia_torque_paso_a_paso.png" alt="Infografía sobre cálculo de torque paso a paso" style="width:100%;max-height:64vh;object-fit:contain;border-radius:18px;box-shadow:0 14px 32px rgba(15,23,42,.14)"/></figure></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>0/0</span></div>
+</section>
+<section class="slide" id="s36b">
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>15.2 Torque en estabilidad, vuelco y reacción del motor</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two"><div><ul class="bullets"><li>El torque también sirve para estudiar <strong>estabilidad y seguridad</strong>, no sólo giro.</li><li>En el autoelevador, la carga genera un momento de vuelco respecto del eje delantero; la estabilidad depende de la posición del centro de masa y del contrapeso.</li><li>En una caja empujada en un punto alto, puede ocurrir vuelco antes de deslizamiento si el momento aplicado supera al estabilizante.</li><li>En un motor, el torque entregado al eje produce una <strong>reacción opuesta</strong> sobre la carcasa y el bastidor, que deben resistirla.</li></ul><div class="warn"><b>Conclusión útil:</b> calcular torques permite anticipar vuelcos, sobrecargas y solicitaciones sobre apoyos y estructuras.</div></div><figure><img src="assets/images/infografias/infografia_torque_vuelco_reaccion.png" alt="Infografía con casos de vuelco y reacción del motor" style="width:100%;max-height:64vh;object-fit:contain;border-radius:18px;box-shadow:0 14px 32px rgba(15,23,42,.14)"/></figure></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>0/0</span></div>
+</section>
+<section class="slide" id="s37">
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>15.3 Momento de inercia: idea física y cálculo</h2></div><div class="unit-chip">Unidad 3</div></div>
 <div class="slide-body"><div class="two"><div><div class="formula">\[I=\sum_i m_i r_i^2\qquad\text{(sistema discreto)}\]</div><div class="formula small">\[I=\int r^2\,dm\qquad \tau_{ext}=I\alpha\]</div><ul class="bullets"><li>El <b>momento de inercia</b> juega en rotación un papel análogo al de la masa en traslación: mide la resistencia a cambiar \(\omega\).</li><li>Depende de la <b>masa</b>, de cómo está <b>distribuida</b> y del <b>eje elegido</b>.</li><li>Como aparece \(r^2\), la masa ubicada más lejos del eje pesa mucho más en el valor de \(I\).</li><li>Por eso dos objetos con igual masa pueden comportarse distinto si la materia está distribuida de otra manera.</li></ul><div class="key"><b>Conexión útil:</b> si la fuerza de giro neta es la misma, el cuerpo con menor \(I\) adquiere mayor aceleración angular.</div></div><figure><svg viewBox="0 0 920 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cálculo e interpretación del momento de inercia"><rect width="920" height="420" rx="22" fill="#ffffff"></rect><text x="34" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#1e3a8a">Cómo leer la expresión de \(I\)</text><text x="34" y="68" font-family="Arial, sans-serif" font-size="15" fill="#64748b">Cada término aporta masa multiplicada por el cuadrado de la distancia al eje.</text><line x1="110" y1="140" x2="420" y2="140" stroke="#64748b" stroke-width="4"></line><line x1="265" y1="85" x2="265" y2="195" stroke="#0f172a" stroke-width="4"></line><text x="242" y="76" font-family="Arial, sans-serif" font-size="16" fill="#0f172a">eje</text><circle cx="185" cy="140" r="20" fill="#93c5fd" stroke="#2563eb" stroke-width="3"></circle><circle cx="345" cy="140" r="28" fill="#93c5fd" stroke="#2563eb" stroke-width="3"></circle><text x="175" y="146" font-family="Arial, sans-serif" font-size="16" fill="#0f172a">m₁</text><text x="334" y="146" font-family="Arial, sans-serif" font-size="16" fill="#0f172a">m₂</text><line x1="265" y1="140" x2="345" y2="140" stroke="#dc2626" stroke-width="4"></line><line x1="265" y1="140" x2="185" y2="140" stroke="#16a34a" stroke-width="4"></line><text x="206" y="128" font-family="Arial, sans-serif" font-size="15" fill="#166534">r₁</text><text x="294" y="128" font-family="Arial, sans-serif" font-size="15" fill="#dc2626">r₂</text><rect x="62" y="220" width="374" height="136" rx="16" fill="#eef6ff" stroke="#bfdbfe"></rect><text x="84" y="252" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#1e3a8a">Sistema discreto</text><text x="84" y="282" font-family="Arial, sans-serif" font-size="16" fill="#334155">I = m₁ r₁² + m₂ r₂² + ...</text><text x="84" y="308" font-family="Arial, sans-serif" font-size="16" fill="#334155">Si una masa se aleja del eje, su aporte aumenta mucho</text><text x="84" y="330" font-family="Arial, sans-serif" font-size="16" fill="#334155">porque la distancia aparece al cuadrado.</text><rect x="500" y="92" width="350" height="264" rx="16" fill="#f8fafc" stroke="#cbd5e1"></rect><text x="526" y="123" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#0f172a">Comparación cualitativa</text><line x1="556" y1="180" x2="794" y2="180" stroke="#64748b" stroke-width="4"></line><circle cx="610" cy="180" r="18" fill="#86efac" stroke="#16a34a" stroke-width="3"></circle><circle cx="740" cy="180" r="18" fill="#86efac" stroke="#16a34a" stroke-width="3"></circle><text x="556" y="208" font-family="Arial, sans-serif" font-size="15" fill="#166534">masas más cerca → I menor</text><line x1="556" y1="270" x2="794" y2="270" stroke="#64748b" stroke-width="4"></line><circle cx="570" cy="270" r="18" fill="#fdba74" stroke="#ea580c" stroke-width="3"></circle><circle cx="780" cy="270" r="18" fill="#fdba74" stroke="#ea580c" stroke-width="3"></circle><text x="556" y="298" font-family="Arial, sans-serif" font-size="15" fill="#9a3412">masas más lejos → I mayor</text><text x="526" y="334" font-family="Arial, sans-serif" font-size="16" fill="#334155">La distribución radial importa tanto como la masa total.</text></svg></figure></div></div>
 <div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>0/0</span></div>
+</section><section class="slide" id="s37i">
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>15.4 Infografía: momento de inercia en equipos alimentarios</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two wide-left"><figure><img class="inertia-infographic-img" src="assets/images/infografias/infografia_momento_de_inercia_industria_alimentaria.png" alt="Infografía sobre momento de inercia, cálculo y aplicaciones en industria alimentaria"/></figure><div><ul class="bullets"><li>El momento de inercia mide la <strong>resistencia a cambiar el estado de rotación</strong>.</li><li>Para masas discretas se calcula como \(I=\sum m_i r_i^2\); para cuerpos continuos, como \(I=\int r^2\,dm\).</li><li>La distancia al eje aparece al cuadrado: alejar masa del eje aumenta fuertemente \(I\).</li><li>En equipos alimentarios, \(I\) influye en el torque de arranque, frenado, consumo y solicitaciones mecánicas.</li></ul><div class="inertia-focus"><div class="mini-note"><b>Ejemplos de lectura:</b> tambor mezclador, rodillo transportador y disco de centrífuga.</div><div class="mini-note"><b>Puente con dinámica rotacional:</b> para una misma aceleración angular, mayor \(I\) exige mayor torque: \(\tau=I\alpha\).</div></div></div></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>0/0</span></div>
 </section><section class="slide" id="s37a">
-<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>15.2 Momentos de inercia típicos</h2></div><div class="unit-chip">Unidad 3</div></div>
-<div class="slide-body"><div class="two"><div><div class="table-wrap" style="overflow:auto;border-radius:16px"><table class="data-table"><thead><tr><th>Objeto (mismo \(M\) y \(R\))</th><th>Momento de inercia</th><th>\(\beta=I/(MR^2)\)</th></tr></thead><tbody><tr><td>Esfera maciza</td><td>\(I=\tfrac{2}{5}MR^2\)</td><td>0,40</td></tr><tr><td>Cilindro macizo / disco</td><td>\(I=\tfrac{1}{2}MR^2\)</td><td>0,50</td></tr><tr><td>Esfera hueca</td><td>\(I=\tfrac{2}{3}MR^2\)</td><td>0,67</td></tr><tr><td>Aro (anillo delgado)</td><td>\(I=MR^2\)</td><td>1,00</td></tr><tr><td>Cilindro de paredes finas</td><td>\(I=MR^2\)</td><td>1,00</td></tr></tbody></table></div><div class="mini-note"><b>Lectura física:</b> cuanto más masa queda lejos del eje, mayor es \(I\). Por eso el aro y el cilindro de paredes finas ofrecen más “inercia rotacional” que la esfera maciza.</div><div class="formula small">\[a=\frac{g\sin\theta}{1+I/(MR^2)}\]</div><div class="mini-note">En rodadura sin deslizamiento por un plano inclinado, un \(\beta\) menor implica mayor aceleración del centro de masa y, por lo tanto, una llegada más rápida.</div></div><figure><svg viewBox="0 0 920 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparación visual de objetos con distinto momento de inercia"><rect width="920" height="420" rx="22" fill="#ffffff"></rect><text x="34" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#1e3a8a">Comparación visual</text><text x="34" y="66" font-family="Arial, sans-serif" font-size="15" fill="#64748b">Todos con la misma masa y el mismo radio, pero distinta distribución de masa.</text><circle cx="132" cy="200" r="56" fill="#93c5fd" stroke="#2563eb" stroke-width="4"></circle><circle cx="132" cy="200" r="6" fill="#0f172a"></circle><text x="84" y="285" font-family="Arial, sans-serif" font-size="18" fill="#1e3a8a">Esfera</text><text x="82" y="309" font-family="Arial, sans-serif" font-size="15" fill="#334155">masa distribuida</text><circle cx="318" cy="200" r="56" fill="#bbf7d0" stroke="#16a34a" stroke-width="4"></circle><line x1="262" y1="200" x2="374" y2="200" stroke="#166534" stroke-width="3"></line><text x="255" y="285" font-family="Arial, sans-serif" font-size="18" fill="#166534">Cilindro</text><text x="255" y="309" font-family="Arial, sans-serif" font-size="15" fill="#334155">más masa hacia el borde</text><circle cx="504" cy="200" r="56" fill="#ffffff" stroke="#f59e0b" stroke-width="10"></circle><circle cx="504" cy="200" r="6" fill="#0f172a"></circle><text x="452" y="285" font-family="Arial, sans-serif" font-size="18" fill="#b45309">Esfera hueca</text><text x="458" y="309" font-family="Arial, sans-serif" font-size="15" fill="#334155">cáscara</text><circle cx="690" cy="200" r="56" fill="#ffffff" stroke="#dc2626" stroke-width="12"></circle><circle cx="690" cy="200" r="6" fill="#0f172a"></circle><text x="664" y="285" font-family="Arial, sans-serif" font-size="18" fill="#b91c1c">Aro</text><text x="626" y="309" font-family="Arial, sans-serif" font-size="15" fill="#334155">masa muy alejada del eje</text><rect x="760" y="144" width="98" height="112" rx="18" fill="#ffffff" stroke="#7c3aed" stroke-width="10"></rect><line x1="809" y1="144" x2="809" y2="256" stroke="#7c3aed" stroke-width="10"></line><text x="714" y="285" font-family="Arial, sans-serif" font-size="18" fill="#6d28d9">Cilindro</text><text x="714" y="309" font-family="Arial, sans-serif" font-size="15" fill="#334155">paredes finas</text><text x="52" y="366" font-family="Arial, sans-serif" font-size="16" fill="#334155">Ranking esperado al rodar por un plano: esfera maciza → cilindro macizo → esfera hueca → aro / cilindro de paredes finas.</text></svg></figure></div></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>15.5 Momentos de inercia típicos</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two"><div><div class="table-wrap" style="overflow:auto;border-radius:16px"><table class="data-table"><thead><tr><th>Objeto (mismo \(M\) y \(R\))</th><th>Momento de inercia</th><th>\(\beta=I/(MR^2)\)</th></tr></thead><tbody><tr><td>Esfera maciza</td><td>\(I=\tfrac{2}{5}MR^2\)</td><td>0,40</td></tr><tr><td>Cilindro macizo / disco</td><td>\(I=\tfrac{1}{2}MR^2\)</td><td>0,50</td></tr><tr><td>Esfera hueca</td><td>\(I=\tfrac{2}{3}MR^2\)</td><td>0,67</td></tr><tr><td>Aro (anillo delgado)</td><td>\(I=MR^2\)</td><td>1,00</td></tr><tr><td>Cilindro de paredes finas</td><td>\(I=MR^2\)</td><td>1,00</td></tr></tbody></table></div><div class="mini-note"><b>Lectura física:</b> cuanto más masa queda lejos del eje, mayor es \(I\). Por eso el aro y el cilindro de paredes finas ofrecen más “inercia rotacional” que la esfera maciza.</div><div class="roll-derivation-inline"><b>Origen de la aceleración en rodadura:</b> se combinan tres relaciones: traslación sobre el plano, rotación respecto del centro de masa y rodadura sin deslizamiento.<div class="formula small">\[Mg\sin\theta-f=Ma\qquad fR=I\alpha\qquad a=\alpha R\]</div><div class="formula small">\[f=\frac{I}{R^2}a\quad\Rightarrow\quad Mg\sin\theta-\frac{I}{R^2}a=Ma\]</div><div class="formula small">\[a=\frac{g\sin\theta}{1+I/(MR^2)}=\frac{g\sin\theta}{1+\beta}\]</div></div><div class="mini-note">En rodadura sin deslizamiento por un plano inclinado, un \(\beta\) menor implica mayor aceleración del centro de masa y, por lo tanto, una llegada más rápida.</div></div><figure><svg viewBox="0 0 920 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparación visual de objetos con distinto momento de inercia"><rect width="920" height="420" rx="22" fill="#ffffff"></rect><text x="34" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#1e3a8a">Comparación visual</text><text x="34" y="66" font-family="Arial, sans-serif" font-size="15" fill="#64748b">Todos con la misma masa y el mismo radio, pero distinta distribución de masa.</text><circle cx="132" cy="200" r="56" fill="#93c5fd" stroke="#2563eb" stroke-width="4"></circle><circle cx="132" cy="200" r="6" fill="#0f172a"></circle><text x="84" y="285" font-family="Arial, sans-serif" font-size="18" fill="#1e3a8a">Esfera</text><text x="82" y="309" font-family="Arial, sans-serif" font-size="15" fill="#334155">masa distribuida</text><circle cx="318" cy="200" r="56" fill="#bbf7d0" stroke="#16a34a" stroke-width="4"></circle><line x1="262" y1="200" x2="374" y2="200" stroke="#166534" stroke-width="3"></line><text x="255" y="285" font-family="Arial, sans-serif" font-size="18" fill="#166534">Cilindro</text><text x="255" y="309" font-family="Arial, sans-serif" font-size="15" fill="#334155">más masa hacia el borde</text><circle cx="504" cy="200" r="56" fill="#ffffff" stroke="#f59e0b" stroke-width="10"></circle><circle cx="504" cy="200" r="6" fill="#0f172a"></circle><text x="452" y="285" font-family="Arial, sans-serif" font-size="18" fill="#b45309">Esfera hueca</text><text x="458" y="309" font-family="Arial, sans-serif" font-size="15" fill="#334155">cáscara</text><circle cx="690" cy="200" r="56" fill="#ffffff" stroke="#dc2626" stroke-width="12"></circle><circle cx="690" cy="200" r="6" fill="#0f172a"></circle><text x="664" y="285" font-family="Arial, sans-serif" font-size="18" fill="#b91c1c">Aro</text><text x="626" y="309" font-family="Arial, sans-serif" font-size="15" fill="#334155">masa muy alejada del eje</text><rect x="760" y="144" width="98" height="112" rx="18" fill="#ffffff" stroke="#7c3aed" stroke-width="10"></rect><line x1="809" y1="144" x2="809" y2="256" stroke="#7c3aed" stroke-width="10"></line><text x="714" y="285" font-family="Arial, sans-serif" font-size="18" fill="#6d28d9">Cilindro</text><text x="714" y="309" font-family="Arial, sans-serif" font-size="15" fill="#334155">paredes finas</text><text x="52" y="366" font-family="Arial, sans-serif" font-size="16" fill="#334155">Ranking esperado al rodar por un plano: esfera maciza → cilindro macizo → esfera hueca → aro / cilindro de paredes finas.</text></svg></figure></div></div>
 <div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>0/0</span></div>
 </section><section class="slide" id="s37b">
-<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>15.3 Simulación: objetos que ruedan por un plano inclinado</h2></div><div class="unit-chip">Unidad 3</div></div>
-<div class="slide-body"><div class="simslide"><div class="sim-toolbar"><button id="rollPlay">Iniciar</button><button id="rollReset">Reiniciar</button><label>Ángulo del plano <input id="rollTheta" type="range" min="5" max="35" step="1" value="18"/></label><span class="readout" id="rollThetaVal">18°</span><span class="formula-chip">\(a = \dfrac{g\sin\theta}{1+\beta}\)</span></div><div class="sim-compare"><div class="sim-panel"><h3>Rodadura sin deslizamiento</h3><p class="mini">Todos parten del reposo y recorren la misma distancia sobre el plano.</p><svg id="rollSvg" viewBox="0 0 900 380" aria-label="Simulación de rodadura de objetos por un plano inclinado"></svg><div class="sim-legend"><span><i style="background:#2563eb"></i> esfera maciza</span><span><i style="background:#16a34a"></i> cilindro macizo</span><span><i style="background:#f59e0b"></i> esfera hueca</span><span><i style="background:#dc2626"></i> aro</span><span><i style="background:#7c3aed"></i> cilindro paredes finas</span></div></div><div class="sim-panel"><h3>Comparativa instantánea</h3><p class="mini">El parámetro \(\beta=I/(MR^2)\) resume el efecto de la distribución de masa.</p><div class="table-wrap"><table class="data-table roll-table"><thead><tr><th>Objeto</th><th>\(\beta\)</th><th>\(a\) [m/s²]</th><th>Tiempo</th><th>Posición</th></tr></thead><tbody id="rollTableBody"></tbody></table></div><div class="roll-rank" id="rollRank"></div></div></div><div class="sim-note">Si el rozamiento es suficiente para evitar deslizamiento, la energía potencial se reparte entre traslación y rotación. Los objetos con menor momento de inercia relativo \((\beta)\) destinan menos energía a rotar y aceleran más en traslación.</div></div></div>
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>15.6 Simulación: objetos que ruedan por un plano inclinado</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="simslide"><div class="sim-toolbar"><button id="rollPlay">Iniciar</button><button id="rollReset">Reiniciar</button><label>Ángulo del plano <input id="rollTheta" type="range" min="5" max="35" step="1" value="18"/></label><span class="readout" id="rollThetaVal">18°</span><span class="formula-chip eq-simple">a = g·sen θ / (1 + β)</span></div><div class="sim-compare"><div class="sim-panel"><h3>Rodadura sin deslizamiento</h3><p class="mini">Todos parten del reposo y recorren la misma distancia sobre el plano.</p><svg id="rollSvg" viewBox="0 0 900 380" aria-label="Simulación de rodadura de objetos por un plano inclinado"></svg><div class="sim-legend"><span><i style="background:#2563eb"></i> esfera maciza</span><span><i style="background:#16a34a"></i> cilindro macizo</span><span><i style="background:#f59e0b"></i> esfera hueca</span><span><i style="background:#dc2626"></i> aro</span><span><i style="background:#7c3aed"></i> cilindro paredes finas</span></div></div><div class="sim-panel"><h3>Comparativa instantánea</h3><p class="mini">El parámetro <span class="eq-inline">β = I / (M R<sup>2</sup>)</span> resume el efecto de la distribución de masa respecto del eje de giro.</p><div class="roll-derivation"><h3>De dónde sale la aceleración</h3><div class="derivation-intro">Para un cuerpo que rueda sin deslizar por un plano inclinado, la aceleración no se obtiene sólo de <b>F = ma</b>: también hay que considerar el giro.</div><div class="derivation-grid"><div class="deriv-line"><b>1. Traslación sobre el plano</b><span class="eq-simple">M g sen θ − f = M a</span></div><div class="deriv-line"><b>2. Rotación alrededor del centro</b><span class="eq-simple">f R = I α</span></div><div class="deriv-line"><b>3. Condición de rodadura</b><span class="eq-simple">a = α R</span></div><div class="deriv-line"><b>4. Rozamiento necesario para girar</b><span class="eq-simple">f = I a / R<sup>2</sup></span></div><div class="deriv-line deriv-result"><b>5. Sustituyendo y despejando</b><span class="eq-simple">M g sen θ − I a/R<sup>2</sup> = M a</span><span class="eq-simple">a [M + I/R<sup>2</sup>] = M g sen θ</span><span class="eq-simple">a = g sen θ / [1 + I/(M R<sup>2</sup>)] = g sen θ / (1 + β)</span></div></div></div><div class="table-wrap"><table class="data-table roll-table"><thead><tr><th>Objeto</th><th>β</th><th>a [m/s²]</th><th>Tiempo</th><th>Posición</th></tr></thead><tbody id="rollTableBody"></tbody></table></div><div class="roll-rank" id="rollRank"></div></div></div><div class="sim-note">El rozamiento usado en la deducción es <b>estático</b>: no disipa energía si no hay deslizamiento, pero sí genera el torque necesario para que el cuerpo rote. Los objetos con menor <span class="eq-inline">β</span> necesitan menos torque relativo para rodar y por eso tienen mayor aceleración traslacional.</div></div></div>
 <div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>0/0</span></div>
-</section><section class="slide" id="s38">
-<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>15.5 Aplicaciones en equipos alimentarios</h2></div><div class="unit-chip">Unidad 3</div></div>
+</section><section class="slide" id="s37c">
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>15.7 Momento angular: cantidad de giro</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two"><div><div class="formula">\[\vec L=\vec r\times\vec p\qquad \vec p=m\vec v\]</div><div class="formula small">\[|\vec L|=r\,p\,\sin\theta\qquad L=I\omega\ \text{(eje fijo)}\]</div><ul class="bullets"><li>El <strong>momento angular</strong> mide la cantidad de movimiento asociada a una rotación.</li><li>Depende de la cantidad de movimiento lineal, de la distancia al eje y del ángulo entre \(\vec r\) y \(\vec p\).</li><li>Su dirección es perpendicular al plano formado por \(\vec r\) y \(\vec p\), según la regla de la mano derecha.</li><li>En un cuerpo rígido que gira alrededor de un eje fijo, se usa la forma \(L=I\omega\).</li></ul></div><figure class="angular-visual"><svg viewBox="0 0 920 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Momento angular como producto vectorial"><defs><marker id="angBlue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#2563eb"/></marker><marker id="angRed" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#dc2626"/></marker><marker id="angViolet" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#7c3aed"/></marker></defs><rect width="920" height="560" rx="24" fill="#fff"/><text x="40" y="48" font-family="Arial" font-size="28" font-weight="800" fill="#123d8f">Representación vectorial</text><text x="40" y="80" font-family="Arial" font-size="17" fill="#64748b">El vector L queda perpendicular al plano definido por r y p.</text><polygon points="220,385 620,300 770,390 365,485" fill="#e0f2fe" stroke="#93c5fd" stroke-width="2" opacity="0.8"/><circle cx="220" cy="385" r="8" fill="#0f172a"/><text x="190" y="414" font-family="Arial" font-size="22" fill="#0f172a">O</text><circle cx="515" cy="335" r="17" fill="#93c5fd" stroke="#2563eb" stroke-width="3"/><text x="533" y="332" font-family="Arial" font-size="20" fill="#0f172a">partícula</text><line x1="220" y1="385" x2="498" y2="338" stroke="#2563eb" stroke-width="5" marker-end="url(#angBlue)"/><text x="345" y="340" font-family="Arial" font-size="26" font-weight="700" fill="#2563eb">r</text><line x1="515" y1="335" x2="650" y2="245" stroke="#dc2626" stroke-width="5" marker-end="url(#angRed)"/><text x="615" y="254" font-family="Arial" font-size="26" font-weight="700" fill="#dc2626">p = mv</text><line x1="515" y1="335" x2="515" y2="150" stroke="#7c3aed" stroke-width="6" marker-end="url(#angViolet)"/><text x="532" y="190" font-family="Arial" font-size="30" font-weight="800" fill="#7c3aed">L</text><path d="M302 371 A70 70 0 0 1 380 353" fill="none" stroke="#f59e0b" stroke-width="4"/><text x="344" y="386" font-family="Arial" font-size="24" fill="#b45309">θ</text><rect x="56" y="108" width="300" height="116" rx="18" fill="#eef6ff" stroke="#bfdbfe"/><text x="78" y="144" font-family="Arial" font-size="20" font-weight="800" fill="#1e3a8a">Lectura física</text><text x="78" y="176" font-family="Arial" font-size="17" fill="#334155">Más masa, más velocidad o mayor</text><text x="78" y="201" font-family="Arial" font-size="17" fill="#334155">distancia al eje → mayor L.</text><rect x="596" y="108" width="272" height="116" rx="18" fill="#f0fdf4" stroke="#bbf7d0"/><text x="618" y="144" font-family="Arial" font-size="20" font-weight="800" fill="#166534">Regla de mano derecha</text><text x="618" y="176" font-family="Arial" font-size="17" fill="#14532d">Los dedos giran de r hacia p;</text><text x="618" y="201" font-family="Arial" font-size="17" fill="#14532d">el pulgar indica L.</text><text x="96" y="522" font-family="Arial" font-size="19" fill="#334155">En ejes, discos, centrífugas y mezcladores: L resume el estado rotacional del conjunto.</text></svg><figcaption>Momento angular de una partícula respecto de un punto. Para un cuerpo rígido con eje fijo se usa \(L=I\omega\).</figcaption></figure></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>0/0</span></div>
+</section>
+<section class="slide" id="s37d">
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>15.8 Conservación del momento angular</h2></div><div class="unit-chip">Unidad 3</div></div>
+<div class="slide-body"><div class="two"><div><div class="formula">\[\sum \vec\tau_{ext}=\vec 0\quad\Rightarrow\quad \vec L=\text{cte}\]</div><div class="formula small">\[I_i\omega_i=I_f\omega_f\]</div><ul class="bullets"><li>Si el <strong>torque externo neto</strong> es nulo o despreciable, el momento angular total se conserva.</li><li>Si cambia el momento de inercia, la velocidad angular cambia para mantener constante \(L\).</li><li>Si \(I\) disminuye, \(\omega\) aumenta; si \(I\) aumenta, \(\omega\) disminuye.</li><li>El video adjunto puede usarse como ejemplo visual del fenómeno.</li></ul><div class="angular-eq-grid"><div class="angular-eq"><b>Ejemplo conceptual</b> Cuerpo girando que acerca masa al eje: baja \(I\), sube \(\omega\).</div><div class="angular-eq"><b>Aplicación técnica</b> Cambios de carga en centrífugas, tambores o mezcladores modifican la respuesta rotacional.</div></div></div><figure class="video-panel"><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/F-zdHbwbEUI" title="Video de referencia: conservación del momento angular" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><figcaption>Video de referencia para observar cualitativamente la conservación del momento angular. Si el navegador bloquea la inserción, abrirlo desde el enlace externo.</figcaption><a class="video-link" href="https://www.youtube.com/shorts/F-zdHbwbEUI" target="_blank" rel="noopener">Abrir video en YouTube</a></figure></div></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>0/0</span></div>
+</section>
+<section class="slide" id="s38">
+<div class="slide-top"><div><div class="kicker">Física · Unidad 3</div><h2>15.9 Aplicaciones en equipos alimentarios</h2></div><div class="unit-chip">Unidad 3</div></div>
 <div class="slide-body"><div class="cards-from-guion"><div class="card"><p>En equipos alimentarios aparecen continuamente magnitudes rotacionales.</p></div><div class="card"><p>En un mezclador interesa el torque motor necesario para vencer la resistencia del producto.</p></div><div class="card"><p>En una centrífuga, la distribución de masa y la velocidad angular influyen fuertemente en las cargas mecánicas y en las vibraciones.</p></div><div class="card"><p>En rodillos y tambores, el momento de inercia condiciona cuánto torque hace falta para acelerar o frenar el sistema.</p></div></div></div>
 <div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>53/45</span></div>
 </section><section class="slide" id="s39">
@@ -2345,7 +2613,7 @@ La síntesis de la infografía es que la ley de Hooke permite interpretar tres a
 <div class="slide-footer"><span>Presentación basada en Apunte Unidad 3 · Dinámica</span><span>74/45</span></div>
 </section><script>
 (function(){
-const slides=[...document.querySelectorAll('.slide')];let idx=0;let speaking=false;let paused=false;let autoNext=false;let voices=[];const $=s=>document.querySelector(s);const bar=$('.bar'),menu=$('#menu'),counter=$('#counter'),scriptPanel=$('#scriptPanel'),scriptText=$('#scriptText'),scriptTitle=$('#scriptTitle');slides.forEach((sl,i)=>{const spans=sl.querySelectorAll('.slide-footer span');if(spans.length>1)spans[1].textContent=`${i+1}/${slides.length}`;});if(menu){menu.innerHTML='';slides.forEach((sl,i)=>{const b=document.createElement('button');b.dataset.go=String(i+1);const t=sl.querySelector('h2')?.textContent?.trim()||`Diapositiva ${i+1}`;b.innerHTML=`<b>${i+1}</b> ${t}`;menu.appendChild(b);});}
+const slides=[...document.querySelectorAll('.slide')];let idx=0;let speaking=false;let paused=false;let autoNext=false;let voices=[];const $=s=>document.querySelector(s);const bar=$('.bar'),menu=$('#menu'),counter=$('#counter'),scriptPanel=$('#scriptPanel'),scriptText=$('#scriptText'),scriptTitle=$('#scriptTitle');slides.forEach((sl,i)=>{const spans=sl.querySelectorAll('.slide-footer span');if(spans.length>1)spans[1].textContent=`${i+1}/${slides.length}`;});if(menu){menu.innerHTML='';const pdfLink=document.createElement('a');pdfLink.className='menu-pdf-link';pdfLink.href='../Ejercicios/Guia_Unidad3_Dinamica_Ejercicios.pdf';pdfLink.target='_blank';pdfLink.rel='noopener';pdfLink.textContent='📄 Guía de ejercicios · Unidad 3';menu.appendChild(pdfLink);slides.forEach((sl,i)=>{const b=document.createElement('button');b.dataset.go=String(i+1);const t=sl.querySelector('h2')?.textContent?.trim()||`Diapositiva ${i+1}`;b.innerHTML=`<b>${i+1}</b> ${t}`;menu.appendChild(b);});}
 const VOICE_KEY='u3_voice_name';const RATE_KEY='u3_voice_rate';
 function populateVoiceSelect(){
   const sel=$('#voiceSelect');
@@ -3511,6 +3779,124 @@ $('#nextBtn').onclick=()=>next();$('#prevBtn').onclick=prev;$('#menuBtn').onclic
   resetBtn.addEventListener('click',()=>{ playing=false; t=0; last=null; playBtn.textContent='Iniciar'; draw(); });
   thetaInput.addEventListener('input',()=>{ last=null; draw(); if(window.MathJax?.typesetPromise){ MathJax.typesetPromise([document.getElementById('s37b')]).catch(()=>{}); } });
   draw(); requestAnimationFrame(tick);
+})();
+</script>
+
+
+<script>
+(function(){
+  function gid(id){return document.getElementById(id)}
+  function fmt(v,d){return Number(v).toFixed(d)}
+  function resizeCanvas(canvas){
+    if(!canvas) return;
+    const rect=canvas.getBoundingClientRect();
+    const dpr=window.devicePixelRatio||1;
+    const w=Math.max(320,Math.round(rect.width*dpr));
+    const h=Math.max(180,Math.round(rect.height*dpr));
+    if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}
+  }
+  function text(ctx,txt,x,y,c='#334155',f='14px system-ui',align='left'){
+    ctx.fillStyle=c;ctx.font=f;ctx.textAlign=align;ctx.textBaseline='alphabetic';ctx.fillText(txt,x,y);
+  }
+  function line(ctx,x1,y1,x2,y2,c='#2563eb',lw=2){ctx.strokeStyle=c;ctx.lineWidth=lw;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();}
+  function arrow(ctx,x1,y1,x2,y2,c='#2563eb',lw=3){
+    line(ctx,x1,y1,x2,y2,c,lw);
+    const a=Math.atan2(y2-y1,x2-x1), ah=12;
+    ctx.fillStyle=c;ctx.beginPath();ctx.moveTo(x2,y2);ctx.lineTo(x2-ah*Math.cos(a-Math.PI/6),y2-ah*Math.sin(a-Math.PI/6));ctx.lineTo(x2-ah*Math.cos(a+Math.PI/6),y2-ah*Math.sin(a+Math.PI/6));ctx.closePath();ctx.fill();
+  }
+  function roundedBox(ctx,x,y,w,h,r,fill,stroke){
+    ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fillStyle=fill;ctx.fill();ctx.strokeStyle=stroke;ctx.lineWidth=1.5;ctx.stroke();
+  }
+  function updateTorquePresentation(){
+    const rEl=gid('ptorque_r'), fEl=gid('ptorque_F'), thEl=gid('ptorque_theta');
+    if(!rEl||!fEl||!thEl) return;
+    const r=parseFloat(rEl.value), F=parseFloat(fEl.value), thDeg=parseFloat(thEl.value);
+    const th=thDeg*Math.PI/180;
+    const tau=r*F*Math.sin(th);
+    const dp=r*Math.sin(th);
+    const rv=gid('ptorque_r_val'), fv=gid('ptorque_F_val'), tv=gid('ptorque_theta_val'), tauv=gid('ptorque_tau'), dpv=gid('ptorque_dp');
+    if(rv) rv.textContent=`${fmt(r,2)} m`;
+    if(fv) fv.textContent=`${fmt(F,0)} N`;
+    if(tv) tv.textContent=`${fmt(thDeg,0)}°`;
+    if(tauv) tauv.textContent=`${fmt(tau,2)} N·m`;
+    if(dpv) dpv.textContent=`${fmt(dp,2)} m`;
+
+    const c=gid('ptorque_canvas');
+    if(c){
+      resizeCanvas(c);
+      const ctx=c.getContext('2d'), W=c.width, H=c.height;
+      ctx.clearRect(0,0,W,H);ctx.fillStyle='#fff';ctx.fillRect(0,0,W,H);
+      roundedBox(ctx,1,1,W-2,H-2,18,'#ffffff','#d9e4f2');
+      const px=W*0.16, py=H*0.72;
+      const rMin=0.10, rMax=1.20;
+      const drawLen=W*(0.25 + 0.42*(r-rMin)/(rMax-rMin));
+      const x2=px+drawLen, y2=py;
+      const flen=H*(0.24 + 0.23*(F/120));
+      const ux=Math.cos(-th), uy=-Math.sin(th);
+      const fx=x2+flen*ux, fy=y2+flen*uy;
+
+      text(ctx,'Eje de giro',px-35,py+34,'#0f172a',`${Math.round(H*0.043)}px system-ui`);
+      ctx.strokeStyle='#cbd5e1';ctx.lineWidth=Math.max(10,H*0.04);ctx.lineCap='round';
+      ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(x2,y2);ctx.stroke();ctx.lineCap='butt';
+      ctx.fillStyle='#0f172a';ctx.beginPath();ctx.arc(px,py,Math.max(6,H*0.022),0,Math.PI*2);ctx.fill();
+      arrow(ctx,px,py,x2,y2,'#175cc5',Math.max(3,H*0.012));
+      text(ctx,'r',px+drawLen/2,py-H*0.08,'#175cc5',`bold ${Math.round(H*0.06)}px system-ui`,'center');
+      arrow(ctx,x2,y2,fx,fy,'#dc2626',Math.max(4,H*0.015));
+      text(ctx,'F',fx+10,fy+5,'#dc2626',`bold ${Math.round(H*0.065)}px system-ui`);
+
+      // arc for theta, measured from r to F
+      ctx.strokeStyle='#f59e0b';ctx.lineWidth=Math.max(3,H*0.012);ctx.beginPath();ctx.arc(x2,y2,H*0.13,Math.PI,Math.PI-th,true);ctx.stroke();
+      text(ctx,'θ',x2-H*0.13,y2-H*0.07,'#d97706',`bold ${Math.round(H*0.055)}px system-ui`);
+
+      // line of action and perpendicular arm
+      ctx.setLineDash([9,6]);line(ctx,x2-ux*W*0.24,y2-uy*W*0.24,x2+ux*W*0.28,y2+uy*W*0.28,'#94a3b8',2);ctx.setLineDash([]);
+      const vx=px-x2, vy=py-y2, proj=vx*ux+vy*uy;
+      const cx=x2+proj*ux, cy=y2+proj*uy;
+      line(ctx,px,py,cx,cy,'#16a34a',Math.max(3,H*0.012));
+      text(ctx,'d⊥',(px+cx)/2+10,(py+cy)/2-8,'#166534',`bold ${Math.round(H*0.052)}px system-ui`);
+
+      // output box
+      const bw=Math.min(W*0.34,230), bh=Math.min(H*0.30,100);
+      roundedBox(ctx,W-bw-18,18,bw,bh,16,'#f8fbff','#bfdbfe');
+      text(ctx,`τ = ${fmt(tau,2)} N·m`,W-bw,18+bh*0.36,'#1e3a8a',`bold ${Math.round(H*0.058)}px system-ui`);
+      text(ctx,`d⊥ = ${fmt(dp,2)} m`,W-bw,18+bh*0.64,'#166534',`${Math.round(H*0.046)}px system-ui`);
+      text(ctx,`r=${fmt(r,2)} m · F=${fmt(F,0)} N · θ=${fmt(thDeg,0)}°`,24,H-18,'#475569',`${Math.round(H*0.043)}px system-ui`);
+    }
+
+    const g=gid('ptorque_graph');
+    if(g){
+      resizeCanvas(g);
+      const ctx=g.getContext('2d'), W=g.width, H=g.height;
+      ctx.clearRect(0,0,W,H);ctx.fillStyle='#fff';ctx.fillRect(0,0,W,H);roundedBox(ctx,1,1,W-2,H-2,18,'#ffffff','#d9e4f2');
+      const m={l:Math.max(48,W*0.08),r:24,t:24,b:38};
+      const iw=W-m.l-m.r, ih=H-m.t-m.b;
+      ctx.strokeStyle='#e8eef8';ctx.lineWidth=1;
+      for(let i=0;i<=5;i++){const y=m.t+i*ih/5;line(ctx,m.l,y,W-m.r,y,'#e8eef8',1)}
+      for(let i=0;i<=6;i++){const x=m.l+i*iw/6;line(ctx,x,m.t,x,H-m.b,'#e8eef8',1)}
+      line(ctx,m.l,H-m.b,W-m.r,H-m.b,'#0f172a',1.4);line(ctx,m.l,m.t,m.l,H-m.b,'#0f172a',1.4);
+      const ymax=Math.max(1,r*F*1.05), X=a=>m.l+a/180*iw, Y=v=>m.t+ih-(v/ymax)*ih;
+      ctx.strokeStyle='#175cc5';ctx.lineWidth=3;ctx.beginPath();
+      for(let i=0;i<=420;i++){const a=180*i/420, v=r*F*Math.sin(a*Math.PI/180), xx=X(a), yy=Y(v); if(i===0)ctx.moveTo(xx,yy); else ctx.lineTo(xx,yy)}
+      ctx.stroke();
+      line(ctx,X(thDeg),m.t,X(thDeg),m.t+ih,'#dc2626',2);
+      ctx.fillStyle='#dc2626';ctx.beginPath();ctx.arc(X(thDeg),Y(tau),6,0,Math.PI*2);ctx.fill();
+      text(ctx,'τ',m.l-30,m.t+12,'#0f172a',`${Math.round(H*0.045)}px system-ui`);
+      text(ctx,'θ',W/2,H-10,'#0f172a',`${Math.round(H*0.045)}px system-ui`,'center');
+      text(ctx,'0°',X(0),H-18,'#475569',`${Math.round(H*0.04)}px system-ui`,'center');
+      text(ctx,'90°',X(90),H-18,'#475569',`${Math.round(H*0.04)}px system-ui`,'center');
+      text(ctx,'180°',X(180),H-18,'#475569',`${Math.round(H*0.04)}px system-ui`,'center');
+      text(ctx,`punto seleccionado: ${fmt(tau,2)} N·m`,Math.min(X(thDeg)+10,W-230),Math.max(Y(tau)-12,36),'#991b1b',`bold ${Math.round(H*0.042)}px system-ui`);
+    }
+  }
+  ['ptorque_r','ptorque_F','ptorque_theta'].forEach(id=>{const el=gid(id); if(el) el.addEventListener('input',updateTorquePresentation)});
+  window.addEventListener('resize',updateTorquePresentation);
+  document.addEventListener('keydown',()=>setTimeout(updateTorquePresentation,60));
+  ['nextBtn','prevBtn'].forEach(id=>{const b=gid(id); if(b) b.addEventListener('click',()=>setTimeout(updateTorquePresentation,80));});
+  document.querySelectorAll('#menu button[data-go]').forEach(b=>b.addEventListener('click',()=>setTimeout(updateTorquePresentation,100)));
+  const torqueSlide=gid('s36');
+  if(torqueSlide && 'MutationObserver' in window){new MutationObserver(()=>{if(torqueSlide.classList.contains('active')) setTimeout(updateTorquePresentation,80);}).observe(torqueSlide,{attributes:true,attributeFilter:['class']});}
+  updateTorquePresentation();
+  setTimeout(updateTorquePresentation,250);
 })();
 </script>
 

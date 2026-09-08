@@ -417,3 +417,36 @@ h1{margin:4px 0 3px;font-size:clamp(26px,3vw,42px);color:var(--navy)}
 .checkpoint-stats strong{
   font-size:18px!important;
 }
+
+
+/* Modo docente: visible sólo si CINEMATICA_DEBUG_SHOW_QUESTION_ID=true */
+.question-debug-id{
+  display:inline-block;
+  margin:0 0 .65rem 0;
+  padding:.28rem .55rem;
+  border:1px dashed #64748b;
+  border-radius:7px;
+  background:#f8fafc;
+  color:#475569;
+  font:600 .78rem/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+
+
+/* V0.8.5 · identificación y comprobante Moodle */
+.identity-dialog,.final-dialog{max-width:720px}
+.identity-note{margin:0 0 18px;color:var(--muted,#5b6573);line-height:1.5}
+.identity-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.identity-grid label{display:flex;flex-direction:column;gap:7px;font-weight:700;color:#243447}
+.identity-grid label:first-child{grid-column:1/-1}
+.identity-grid input{width:100%;box-sizing:border-box;border:1px solid #c7d1dc;border-radius:10px;padding:11px 12px;font:inherit;background:#fff;color:#17212b}
+.identity-grid input:focus{outline:3px solid rgba(38,101,170,.14);border-color:#3978b8}
+.optional{font-weight:400;color:#6d7886;font-size:.9em}
+.final-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}
+.final-summary>div{border:1px solid #dbe3eb;border-radius:12px;padding:12px;background:#f8fafc}
+.final-summary span{display:block;color:#667281;font-size:.82rem;margin-bottom:3px}
+.final-summary strong{font-size:1.08rem;color:#17212b}
+.validation-box{border:1px solid #b7d7c4;background:#f1fbf5;border-radius:12px;padding:14px;margin:14px 0}
+.validation-code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:1.22rem;letter-spacing:.04em;font-weight:800;word-break:break-word}
+.moodle-instruction{border-left:4px solid #3978b8;background:#f4f8fc;padding:12px 14px;border-radius:8px;line-height:1.5}
+.final-actions{flex-wrap:wrap}
+@media(max-width:650px){.identity-grid,.final-summary{grid-template-columns:1fr}.identity-grid label:first-child{grid-column:auto}}

@@ -1,14 +1,14 @@
-/*
- CHECKPOINTS — Física · Unidad 2
- V0.8.2.1 · revisión tipográfica de fórmulas
+/* CHECKPOINTS — Física · Unidad 2
+   V0.8.3 · una pregunta por checkpoint
+   Casilla 35: MAS · Casilla 36: checkpoint final aleatorio de nivel 3.
 */
 window.CINEMATICA_CHECKPOINTS = {
   "9": {
     "id": "CP_FUNDAMENTOS",
     "title": "Checkpoint 1 · Fundamentos",
     "subtitle": "Sistema de referencia, posición, desplazamiento, velocidad y aceleración",
-    "required": 2,
-    "draw": 3,
+    "required": 1,
+    "draw": 1,
     "questions": [
       {
         "id": "CP_FUND_001",
@@ -86,8 +86,8 @@ window.CINEMATICA_CHECKPOINTS = {
     "id": "CP_RECTILINEO",
     "title": "Checkpoint 2 · Movimiento rectilíneo",
     "subtitle": "MRU, MRUV, gráficas, Galileo y caída libre",
-    "required": 2,
-    "draw": 3,
+    "required": 1,
+    "draw": 1,
     "questions": [
       {
         "id": "CP_RECT_001",
@@ -165,8 +165,8 @@ window.CINEMATICA_CHECKPOINTS = {
     "id": "CP_2D",
     "title": "Checkpoint 3 · Movimiento en dos dimensiones",
     "subtitle": "Independencia de componentes, velocidad relativa y proyectiles",
-    "required": 2,
-    "draw": 3,
+    "required": 1,
+    "draw": 1,
     "questions": [
       {
         "id": "CP_2D_001",
@@ -244,8 +244,8 @@ window.CINEMATICA_CHECKPOINTS = {
     "id": "CP_CIRCULAR",
     "title": "Checkpoint 4 · Movimiento circular",
     "subtitle": "Radián, T, f, ω, velocidad tangencial, transmisiones y aceleración centrípeta",
-    "required": 2,
-    "draw": 3,
+    "required": 1,
+    "draw": 1,
     "questions": [
       {
         "id": "CP_CIRC_001",
@@ -323,8 +323,8 @@ window.CINEMATICA_CHECKPOINTS = {
     "id": "CP_MAS",
     "title": "Checkpoint 5 · Movimiento armónico simple",
     "subtitle": "Amplitud, fase, x(t), v(t), a(t), MCU y péndulo",
-    "required": 2,
-    "draw": 3,
+    "required": 1,
+    "draw": 1,
     "questions": [
       {
         "id": "CP_MAS_001",
@@ -398,83 +398,13 @@ window.CINEMATICA_CHECKPOINTS = {
       }
     ]
   },
-  "46": {
-    "id": "CP_INTEGRACION",
-    "title": "Checkpoint 6 · Integración industrial",
-    "subtitle": "Selección del modelo, variables de proceso y predicción",
-    "required": 2,
-    "draw": 3,
-    "questions": [
-      {
-        "id": "CP_INT_001",
-        "type": "mcq",
-        "difficulty": 3,
-        "prompt": "En una llenadora, el sensor detecta un envase antes de la boquilla. ¿Qué combinación resulta necesaria para sincronizar el llenado?",
-        "options": [
-          "Distancia, velocidad de cinta y retardos del sistema.",
-          "Sólo la masa del envase.",
-          "Sólo la gravedad.",
-          "Radio y frecuencia angular exclusivamente."
-        ],
-        "answer": "A",
-        "explanation": "El tiempo cinemático debe combinarse con los retardos reales de sensores, comunicación y actuadores."
-      },
-      {
-        "id": "CP_INT_002",
-        "type": "mcq",
-        "difficulty": 3,
-        "prompt": "Un producto abandona una cinta y debe caer en una bandeja. ¿Qué modelo combina correctamente el problema?",
-        "options": [
-          "MRU horizontal + caída vertical.",
-          "MRUV horizontal + MAS vertical.",
-          "MCU horizontal + MRU vertical.",
-          "Sólo caída libre sin componente horizontal."
-        ],
-        "answer": "A",
-        "explanation": "La componente horizontal es uniforme y la vertical está sometida a g."
-      },
-      {
-        "id": "CP_INT_003",
-        "type": "mcq",
-        "difficulty": 3,
-        "prompt": "Para aumentar al doble el alcance de una descarga horizontal manteniendo fija la altura, conviene...",
-        "options": [
-          "duplicar la velocidad horizontal.",
-          "cuadruplicar la velocidad horizontal.",
-          "duplicar la altura solamente.",
-          "reducir la velocidad a la mitad."
-        ],
-        "answer": "A",
-        "explanation": "Con h fija, el tiempo de caída es constante y \\(R\\propto v_x\\)."
-      },
-      {
-        "id": "CP_INT_004",
-        "type": "mcq",
-        "difficulty": 3,
-        "prompt": "Una centrífuga incrementa 20 % sus rpm con radio constante. La aceleración centrípeta cambia aproximadamente por un factor...",
-        "options": [
-          "\\(1.20^2=1.44\\)",
-          "1.20",
-          "0.80",
-          "2.00"
-        ],
-        "answer": "A",
-        "explanation": "Como \\(a_c\\propto\\omega^2\\), el incremento es cuadrático."
-      },
-      {
-        "id": "CP_INT_005",
-        "type": "mcq",
-        "difficulty": 3,
-        "prompt": "¿Qué estrategia resume mejor el uso pedagógico de los simuladores del juego?",
-        "options": [
-          "Predecir, elegir parámetros, evaluar y explicar la diferencia entre hipótesis y resultado.",
-          "Mover sliders hasta encontrar coincidencia visual.",
-          "Memorizar los valores finales.",
-          "Evitar utilizar ecuaciones antes de simular."
-        ],
-        "answer": "A",
-        "explanation": "La simulación se utiliza para contrastar una predicción razonada con el comportamiento del modelo."
-      }
-    ]
+  "36": {
+    "id": "CP_FINAL_N3",
+    "title": "Checkpoint final · Integración de Cinemática",
+    "subtitle": "Una pregunta aleatoria de nivel 3 tomada de cualquiera de los temas del banco",
+    "required": 1,
+    "draw": 1,
+    "globalLevel3": true,
+    "questions": []
   }
 };
