@@ -1,15 +1,31 @@
 \babel@toc {spanish}{}\relax 
-\contentsline {section}{Ejercicio 1: Semáforo sostenido por tres cables}{2}{section*.2}%
-\contentsline {section}{Ejercicio 2: Rozamiento estático y cinético sobre una superficie horizontal}{5}{section*.12}%
-\contentsline {section}{Ejercicio 3: Bloque con rozamiento unido a un sistema de cuerdas}{9}{section*.22}%
-\contentsline {section}{Ejercicio 4: Bloques con rozamiento cinético en tres configuraciones}{13}{section*.32}%
-\contentsline {section}{Ejercicio 5: Lectura de una balanza de resorte dentro de un ascensor}{18}{section*.43}%
-\contentsline {section}{Ejercicio 6: Caja sobre la plataforma de un camión acelerado}{22}{section*.54}%
-\contentsline {section}{Ejercicio 7: Tres masas conectadas mediante dos cuerdas sobre una mesa rugosa}{26}{section*.64}%
-\contentsline {section}{Ejercicio 8: Tres bloques conectados: superficie horizontal y plano inclinado rugosos}{30}{section*.78}%
-\contentsline {section}{Ejercicios de movimiento circular}{35}{section*.94}%
-\contentsline {section}{Ejercicio 9: Masa atada a una cuerda en un círculo vertical}{36}{section*.95}%
-\contentsline {section}{Ejercicio 10: Velocidad máxima antes de romper una cuerda}{39}{section*.107}%
-\contentsline {section}{Ejercicio 11: Péndulo cónico}{41}{section*.115}%
-\contentsline {section}{Ejercicio 12: Automóvil en una curva horizontal plana}{44}{section*.123}%
-\contentsline {section}{Ejercicio 13: Peralte de una carretera sin necesidad de fricción lateral}{46}{section*.131}%
+\contentsline {section}{Ejercicio 1: Semáforo sostenido por tres cables}{3}{section*.2}%
+\contentsline {section}{Ejercicio 2: Rozamiento estático y cinético sobre una superficie horizontal}{6}{section*.12}%
+\contentsline {section}{Ejercicio 3: Bloque con rozamiento unido a un sistema de cuerdas}{10}{section*.22}%
+\contentsline {section}{Ejercicio 4: Bloques con rozamiento cinético en tres configuraciones}{14}{section*.32}%
+\contentsline {section}{Ejercicio 5: Lectura de una balanza de resorte dentro de un ascensor}{19}{section*.43}%
+\contentsline {section}{Ejercicio 6: Caja sobre la plataforma de un camión acelerado}{23}{section*.54}%
+\contentsline {section}{Ejercicio 7: Tres masas conectadas mediante dos cuerdas sobre una mesa rugosa}{27}{section*.64}%
+\contentsline {section}{Ejercicio 8: Tres bloques conectados: superficie horizontal y plano inclinado rugosos}{31}{section*.78}%
+\contentsline {section}{Ejercicios de movimiento circular}{36}{section*.94}%
+\contentsline {section}{Ejercicio 9: Masa atada a una cuerda en un círculo vertical}{37}{section*.95}%
+\contentsline {section}{Ejercicio 10: Velocidad máxima antes de romper una cuerda}{40}{section*.107}%
+\contentsline {section}{Ejercicio 11: Péndulo cónico}{42}{section*.115}%
+\contentsline {section}{Ejercicio 12: Automóvil en una curva horizontal plana}{45}{section*.123}%
+\contentsline {section}{Ejercicio 13: Peralte de una carretera sin necesidad de fricción lateral}{47}{section*.131}%
+\contentsline {section}{Ejercicios de movimiento oscilatorio}{49}{section*.139}%
+\contentsline {section}{Ejercicio 14: Oscilador armónico descrito por su ecuación de posición}{50}{section*.140}%
+\contentsline {section}{Ejercicio 15: Periodo, frecuencia y frecuencia angular a partir del número de vibraciones}{53}{section*.149}%
+\contentsline {section}{Ejercicio 16: MAS a partir de la aceleración máxima y la amplitud}{55}{section*.157}%
+\contentsline {section}{Ejercicio 17: Masa suspendida de un resorte: constante elástica y periodo}{57}{section*.165}%
+\contentsline {section}{Ejercicio 18: Cambio del periodo de un péndulo al modificar su longitud}{59}{section*.173}%
+\contentsline {section}{Ejercicio 19: Péndulo simple en sistemas acelerados}{61}{section*.181}%
+\contentsline {section}{Ejercicios de sistemas de partículas y cantidad de movimiento}{64}{section*.189}%
+\contentsline {section}{Ejercicio 20: Impulso sobre una pelota de béisbol}{65}{section*.190}%
+\contentsline {section}{Ejercicio 21: Muchacha caminando sobre un tablón sin rozamiento con el hielo}{67}{section*.198}%
+\contentsline {section}{Ejercicios de cuerpo rígido}{69}{section*.206}%
+\contentsline {section}{Ejercicio 22: Cuatro masas puntuales en los vértices de un rectángulo}{70}{section*.207}%
+\contentsline {section}{Ejercicio 23: Volante de motor con par constante}{72}{section*.215}%
+\contentsline {section}{Ejercicio 24: Escalera con rozamiento y una persona que asciende}{74}{section*.223}%
+\contentsline {section}{Ejercicio 25: Fuerzas horizontales en los goznes de una puerta}{76}{section*.231}%
+\contentsline {section}{Ejercicio 26: Bloque arrastrado con rozamiento: línea de acción de la normal y vuelco}{78}{section*.239}%

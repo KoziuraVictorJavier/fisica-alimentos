@@ -10,7 +10,7 @@
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{tikz}
-\usetikzlibrary{angles,quotes,arrows.meta,calc,babel}
+\usetikzlibrary{angles,quotes,arrows.meta,calc,babel,decorations.pathmorphing}
 \usepackage[a4paper,margin=2.2cm]{geometry}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
@@ -2248,6 +2248,1201 @@ Es decir, el borde exterior debe quedar aproximadamente
 por encima del borde interior.
 
 \textbf{Interpretación física.} A la rapidez de diseño, la componente horizontal de la normal es suficiente para producir la aceleración centrípeta, de modo que el vehículo no necesita depender del rozamiento lateral.
+
+
+
+% ============================================================
+% NUEVO BLOQUE TEMATICO: MOVIMIENTO OSCILATORIO
+% ============================================================
+\clearpage
+\section*{\color{AzulFisica}Ejercicios de movimiento oscilatorio}
+\addcontentsline{toc}{section}{Ejercicios de movimiento oscilatorio}
+
+En este bloque se conserva la estructura de seis pasos de la guía. En los problemas de movimiento armónico simple (MAS), el paso 5 se utiliza para formular las relaciones dinámicas y cinemáticas propias del modelo. Para pequeñas oscilaciones, la fuerza o el torque restaurador es proporcional y opuesto al desplazamiento respecto del equilibrio.
+
+\[
+F_x=-kx\qquad\Longrightarrow\qquad a_x=-\omega^2x,
+\]
+\[
+\omega=\sqrt{\frac{k}{m}},\qquad
+T=\frac{2\pi}{\omega},\qquad
+f=\frac{1}{T}.
+\]
+
+% ============================================================
+% EJERCICIO 14
+% ============================================================
+\ejercicio{Oscilador armónico descrito por su ecuación de posición}
+
+\subsection*{Enunciado}
+Un oscilador armónico simple está descrito por
+\[
+x=0,4\,\sen\!\left[\pi\left(0,1t+0,5\right)\right],
+\]
+donde $x$ y $t$ están expresados en metros y segundos, respectivamente. Hallar:
+\begin{enumerate}[label=\alph*)]
+  \item amplitud, periodo, frecuencia y fase inicial;
+  \item expresiones generales para la velocidad y la aceleración;
+  \item condiciones iniciales;
+  \item posición, velocidad y aceleración para $t=\SI{5}{\second}$;
+  \item representación de $x(t)$, $v(t)$ y $a(t)$.
+\end{enumerate}
+
+\paso{1}{Definición del sistema en estudio}
+El sistema es una \textbf{partícula que oscila en una dimensión} alrededor de una posición de equilibrio que se toma como $x=0$. La ecuación dada especifica completamente su evolución temporal.
+
+\paso{2}{Hipótesis simplificativas}
+\begin{itemize}[itemsep=2pt]
+  \item Modelo de partícula.
+  \item Movimiento unidimensional.
+  \item Oscilación armónica ideal, sin amortiguamiento ni fuerzas disipativas.
+  \item La posición $x$ se mide desde el equilibrio.
+  \item El tiempo $t=0$ se toma como origen temporal de la ecuación dada.
+\end{itemize}
+
+\paso{3}{Interacciones y pares de acción y reacción}
+Para que el movimiento sea armónico simple debe existir una interacción restauradora cuya resultante sobre la partícula sea opuesta al desplazamiento. Si el oscilador se realiza con un resorte, la interacción resorte--partícula produce $\vec F_e=-k\vec x$, y la reacción correspondiente actúa sobre el resorte.
+
+\paso{4}{Modelo de partícula y representación vectorial}
+\begin{center}
+\begin{tikzpicture}[>=Latex,scale=1.05]
+  \draw[->,gray] (-4.3,0)--(4.3,0) node[right] {$x$};
+  \draw[thick] (0,-0.18)--(0,0.18);
+  \node[below] at (0,-0.18) {equilibrio};
+  \coordinate (P) at (2.4,0);
+  \fill (P) circle (2.5pt);
+  \node[above] at (P) {partícula};
+  \draw[->,very thick,RojoFuerza] (P)--++(180:1.65) node[above] {$\vec F_{\rm rest}$};
+  \draw[<->,AzulFisica] (0,-0.75)--(2.4,-0.75) node[midway,below] {$x>0$};
+  \node[align=center] at (0,-1.55) {La fuerza restauradora y la aceleración\\apuntan hacia el equilibrio.};
+\end{tikzpicture}
+\end{center}
+
+\paso{5}{Planteo del modelo matemático del MAS}
+La forma general adoptada es
+\[
+x=A\sen(\omega t+\phi_0).
+\]
+Comparando con la ecuación dada:
+\[
+x=0,4\sen(0,1\pi t+0,5\pi),
+\]
+se identifica
+\[
+A=\SI{0.4}{\meter},\qquad
+\omega=0,1\pi\ \si{\radian\per\second},\qquad
+\phi_0=\frac{\pi}{2}\ \si{\radian}.
+\]
+Las derivadas temporales son
+\[
+v(t)=\frac{dx}{dt}=A\omega\cos(\omega t+\phi_0),
+\]
+\[
+a(t)=\frac{d^2x}{dt^2}=-A\omega^2\sen(\omega t+\phi_0)=-\omega^2x(t).
+\]
+
+\paso{6}{Resolución matemática e interpretación}
+El periodo y la frecuencia son
+\[
+T=\frac{2\pi}{\omega}=\frac{2\pi}{0,1\pi}=\boxed{\SI{20}{\second}},
+\qquad
+f=\frac1T=\boxed{\SI{0.050}{\hertz}}.
+\]
+Por lo tanto,
+\[
+\boxed{v(t)=0,04\pi\cos(0,1\pi t+0,5\pi)\ \si{\meter\per\second}},
+\]
+\[
+\boxed{a(t)=-0,004\pi^2\sen(0,1\pi t+0,5\pi)\ \si{\meter\per\second\squared}}.
+\]
+
+En $t=0$:
+\[
+x_0=\SI{0.4}{\meter},\qquad v_0=0,
+\]
+\[
+a_0=-0,004\pi^2\approx\boxed{-\SI{0.0395}{\meter\per\second\squared}}.
+\]
+La partícula parte de la elongación positiva máxima y, por lo tanto, inicialmente se acelera hacia el equilibrio.
+
+Para $t=\SI{5}{\second}$, el argumento vale $\pi$:
+\[
+\boxed{x(5)=0},
+\]
+\[
+\boxed{v(5)=-0,04\pi\approx-\SI{0.126}{\meter\per\second}},
+\]
+\[
+\boxed{a(5)=0}.
+\]
+
+\subsubsection*{Representación temporal}
+\begin{center}
+\begin{tikzpicture}[x=0.18cm,y=2.0cm,>=Latex]
+  % x(t)
+  \begin{scope}[yshift=3.6cm]
+    \draw[->,gray] (0,0)--(42,0) node[right] {$t\,(\si{\second})$};
+    \draw[->,gray] (0,-0.55)--(0,0.65) node[above] {$x\,(\si{\meter})$};
+    \draw[AzulFisica,very thick,samples=180,domain=0:40,smooth,variable=\t]
+      plot ({\t},{0.4*sin(deg(0.1*pi*\t+0.5*pi))});
+    \foreach \t in {0,10,20,30,40} \draw (\t,0.03)--(\t,-0.03) node[below=2pt] {\small \t};
+    \node[AzulFisica] at (34,0.48) {$x(t)$};
+  \end{scope}
+  % v(t), escala vertical grafica 1 unidad = 0.30 m/s
+  \begin{scope}[yshift=1.7cm]
+    \draw[->,gray] (0,0)--(42,0) node[right] {$t\,(\si{\second})$};
+    \draw[->,gray] (0,-0.58)--(0,0.62) node[above] {$v$};
+    \draw[VerdeRoz,very thick,samples=180,domain=0:40,smooth,variable=\t]
+      plot ({\t},{3.1*0.04*pi*cos(deg(0.1*pi*\t+0.5*pi))});
+    \node[VerdeRoz] at (34,0.46) {$v(t)$};
+  \end{scope}
+  % a(t), escala vertical grafica 1 unidad = 0.10 m/s2
+  \begin{scope}[yshift=-0.2cm]
+    \draw[->,gray] (0,0)--(42,0) node[right] {$t\,(\si{\second})$};
+    \draw[->,gray] (0,-0.58)--(0,0.62) node[above] {$a$};
+    \draw[RojoFuerza,very thick,samples=180,domain=0:40,smooth,variable=\t]
+      plot ({\t},{12*(-0.004*pi*pi)*sin(deg(0.1*pi*\t+0.5*pi))});
+    \node[RojoFuerza] at (34,0.46) {$a(t)$};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\textbf{Interpretación física.} Posición y aceleración están en oposición de fase: $a=-\omega^2x$. La velocidad se desfasa un cuarto de periodo respecto de la posición y alcanza su módulo máximo al pasar por el equilibrio.
+
+% ============================================================
+% EJERCICIO 15
+% ============================================================
+\ejercicio{Periodo, frecuencia y frecuencia angular a partir del número de vibraciones}
+
+\subsection*{Enunciado}
+Un oscilador armónico simple tarda $\SI{12}{\second}$ en efectuar cinco vibraciones completas. Encontrar:
+\begin{enumerate}[label=\alph*)]
+  \item el periodo;
+  \item la frecuencia en hertz;
+  \item la frecuencia angular en radianes por segundo.
+\end{enumerate}
+
+\paso{1}{Definición del sistema en estudio}
+El sistema es un oscilador que ejecuta un movimiento periódico. Se observa un intervalo de cinco ciclos completos.
+
+\paso{2}{Hipótesis simplificativas}
+\begin{itemize}[itemsep=2pt]
+  \item Movimiento periódico estable.
+  \item Cada ciclo tiene el mismo periodo.
+  \item Se desprecia cualquier variación apreciable de la frecuencia durante los $\SI{12}{\second}$ observados.
+\end{itemize}
+
+\paso{3}{Interacciones y pares de acción y reacción}
+El enunciado no especifica el mecanismo físico que produce la oscilación, por lo que no es necesario detallar fuerzas particulares. La información suministrada es puramente temporal.
+
+\paso{4}{Modelo de partícula y representación del ciclo}
+\begin{center}
+\begin{tikzpicture}[>=Latex,scale=1.0]
+  \draw[->,gray] (0,0)--(11.2,0) node[right] {$t$};
+  \draw[AzulFisica,very thick,samples=160,domain=0:10.5,smooth,variable=\x]
+    plot ({\x},{0.7*sin(deg(2*pi*\x/2.1))});
+  \draw[<->,thick] (0,-1.2)--(10.5,-1.2) node[midway,below] {$5T=\SI{12}{\second}$};
+  \node at (5.25,1.15) {cinco vibraciones completas};
+\end{tikzpicture}
+\end{center}
+
+\paso{5}{Planteo de las relaciones periódicas}
+Si en un tiempo $\Delta t$ se completan $N$ oscilaciones,
+\[
+T=\frac{\Delta t}{N},\qquad
+f=\frac1T=\frac{N}{\Delta t},\qquad
+\omega=2\pi f.
+\]
+
+\paso{6}{Resolución matemática e interpretación}
+\[
+T=\frac{12}{5}=\boxed{\SI{2.40}{\second}},
+\]
+\[
+f=\frac{5}{12}=\boxed{\SI{0.417}{\hertz}},
+\]
+\[
+\omega=2\pi\left(\frac{5}{12}\right)=\boxed{\SI{2.62}{\radian\per\second}}.
+\]
+
+\textbf{Interpretación física.} La frecuencia indica que el sistema realiza aproximadamente $0,417$ ciclos por segundo, mientras que $\omega$ expresa la rapidez de cambio de la fase en radianes por segundo.
+
+% ============================================================
+% EJERCICIO 16
+% ============================================================
+\ejercicio{MAS a partir de la aceleración máxima y la amplitud}
+
+\subsection*{Enunciado}
+Una partícula de masa $m=\SI{1}{\gram}$ vibra con movimiento armónico simple de amplitud $A=\SI{2}{\milli\meter}$. Su aceleración al final de la trayectoria es $a_{\max}=\SI{8.0e3}{\meter\per\second\squared}$. Calcular:
+\begin{enumerate}[label=\alph*)]
+  \item la frecuencia del movimiento;
+  \item la velocidad de la partícula cuando pasa por el equilibrio y cuando $x=\SI{1.2}{\milli\meter}$;
+  \item la fuerza que actúa sobre la partícula como función de la posición y como función del tiempo.
+\end{enumerate}
+
+\paso{1}{Definición del sistema en estudio}
+El sistema en estudio es la partícula de
+\[
+m=\SI{0.001}{\kilogram}
+\]
+que oscila sobre un eje alrededor de $x=0$.
+
+\paso{2}{Hipótesis simplificativas}
+\begin{itemize}[itemsep=2pt]
+  \item Modelo de partícula.
+  \item MAS ideal y unidimensional.
+  \item Se desprecia amortiguamiento.
+  \item La aceleración indicada ``al final de la trayectoria'' se interpreta como su módulo máximo, correspondiente a $|x|=A$.
+\end{itemize}
+
+\paso{3}{Interacciones y pares de acción y reacción}
+La interacción restauradora ejerce sobre la partícula una fuerza proporcional y opuesta al desplazamiento. La reacción de la partícula actúa sobre el elemento restaurador y no forma parte del DCL de la partícula.
+
+\paso{4}{Modelo de partícula y diagrama vectorial}
+\begin{center}
+\begin{tikzpicture}[>=Latex,scale=1.05]
+  \draw[->,gray] (-3.8,0)--(3.8,0) node[right] {$x$};
+  \draw[thick] (0,-0.18)--(0,0.18) node[above=3pt] {equilibrio};
+  \coordinate (P) at (2.4,0);
+  \fill (P) circle (2.5pt);
+  \draw[->,very thick,RojoFuerza] (P)--++(180:1.7) node[above] {$\vec F$};
+  \draw[<->,AzulFisica] (0,-0.65)--(2.4,-0.65) node[midway,below] {$x$};
+  \node[below] at (-3.1,-0.1) {$-A$};
+  \node[below] at (3.1,-0.1) {$+A$};
+\end{tikzpicture}
+\end{center}
+
+\paso{5}{Planteo de la segunda ley de Newton para el MAS}
+En MAS,
+\[
+a=-\omega^2x.
+\]
+En un extremo, $|x|=A$, por lo que
+\[
+a_{\max}=\omega^2A.
+\]
+Además,
+\[
+v^2=\omega^2(A^2-x^2),
+\]
+y por la segunda ley,
+\[
+F=ma=-m\omega^2x.
+\]
+
+\paso{6}{Resolución matemática e interpretación}
+Con $A=\SI{0.002}{\meter}$,
+\[
+\omega=\sqrt{\frac{8000}{0,002}}=\boxed{\SI{2000}{\radian\per\second}}.
+\]
+Entonces,
+\[
+f=\frac{\omega}{2\pi}=\boxed{\SI{318}{\hertz}}.
+\]
+
+En el equilibrio, $x=0$:
+\[
+v_{\max}=\omega A=(2000)(0,002)=\boxed{\SI{4.00}{\meter\per\second}}.
+\]
+Para $x=\SI{1.2}{\milli\meter}=\SI{0.0012}{\meter}$:
+\[
+|v|=2000\sqrt{(0,002)^2-(0,0012)^2}=\boxed{\SI{3.20}{\meter\per\second}}.
+\]
+El signo de $v$ dependerá del sentido en que la partícula atraviese esa posición.
+
+La fuerza en función de $x$ es
+\[
+F(x)=-(0,001)(2000)^2x,
+\]
+\[
+\boxed{F(x)=-4000x\ \si{\newton}},
+\]
+con $x$ expresado en metros.
+
+Para escribir $F(t)$ es necesario fijar una fase. Tomando $t=0$ cuando la partícula se encuentra en $x=+A$,
+\[
+x(t)=A\cos(\omega t)=0,002\cos(2000t),
+\]
+por lo tanto
+\[
+\boxed{F(t)=-8\cos(2000t)\ \si{\newton}}.
+\]
+Una elección distinta del origen temporal modifica únicamente la fase, no la amplitud ni la frecuencia de la fuerza.
+
+% ============================================================
+% EJERCICIO 17
+% ============================================================
+\ejercicio{Masa suspendida de un resorte: constante elástica y periodo}
+
+\subsection*{Enunciado}
+Una partícula de $\SI{2}{\kilogram}$ suspendida de un resorte de masa despreciable produce en éste un alargamiento de $\SI{20}{\centi\meter}$.
+\begin{enumerate}[label=\alph*)]
+  \item ¿Cuál es la constante recuperadora del resorte?
+  \item ¿Cuál es el periodo de vibración de la partícula de $\SI{2}{\kilogram}$?
+  \item ¿Cuál sería el periodo de una partícula de $\SI{4}{\kilogram}$ pendiente del mismo resorte?
+\end{enumerate}
+
+\paso{1}{Definición del sistema en estudio}
+Primero se estudia la masa de $\SI{2}{\kilogram}$ en su posición de equilibrio estático para determinar $k$. Luego se analiza la oscilación vertical alrededor de esa posición de equilibrio.
+
+\paso{2}{Hipótesis simplificativas}
+\begin{itemize}[itemsep=2pt]
+  \item Modelo de partícula para la masa.
+  \item Resorte ideal, de masa despreciable y que cumple la ley de Hooke.
+  \item Tierra plana y $g=\SI{9.8}{\meter\per\second\squared}$.
+  \item Oscilaciones dentro del régimen elástico y sin amortiguamiento.
+  \item Se desprecia el efecto del aire.
+\end{itemize}
+
+\paso{3}{Interacciones y pares de acción y reacción}
+Sobre la masa actúan la interacción gravitatoria Tierra--masa y la interacción elástica resorte--masa. El resorte ejerce una fuerza hacia arriba en el equilibrio, y la masa ejerce sobre el resorte una fuerza igual y opuesta.
+
+\paso{4}{Modelo de partícula y diagrama de cuerpo libre}
+\begin{center}
+\begin{tikzpicture}[>=Latex,scale=1.0]
+  \draw[very thick] (-1.6,2.8)--(1.6,2.8);
+  \draw[thick,decorate,decoration={zigzag,segment length=5pt,amplitude=3pt}] (0,2.8)--(0,0.45);
+  \fill (0,0) circle (2.5pt);
+  \node[right] at (0.15,0) {$m$};
+  \draw[->,very thick,AzulFisica] (0,0)--(0,1.45) node[right] {$\vec F_e$};
+  \draw[->,very thick,RojoFuerza] (0,0)--(0,-1.45) node[right] {$\vec P$};
+  \draw[<->,gray] (1.25,2.25)--(1.25,0.45) node[midway,right] {$\Delta L$};
+\end{tikzpicture}
+\end{center}
+
+\paso{5}{Planteo de la segunda ley de Newton}
+En equilibrio estático,
+\[
+\sum F_y=0\qquad\Rightarrow\qquad k\Delta L-mg=0.
+\]
+Así,
+\[
+k=\frac{mg}{\Delta L}.
+\]
+Para pequeñas oscilaciones verticales alrededor del equilibrio,
+\[
+T=2\pi\sqrt{\frac{m}{k}}.
+\]
+
+\paso{6}{Resolución matemática e interpretación}
+\[
+k=\frac{(2)(9,8)}{0,20}=\boxed{\SI{98}{\newton\per\meter}}.
+\]
+Para $m=\SI{2}{\kilogram}$:
+\[
+T_2=2\pi\sqrt{\frac{2}{98}}=\boxed{\SI{0.898}{\second}}.
+\]
+Para $m=\SI{4}{\kilogram}$:
+\[
+T_4=2\pi\sqrt{\frac{4}{98}}=\boxed{\SI{1.27}{\second}}.
+\]
+
+\textbf{Interpretación física.} Al utilizar el mismo resorte, duplicar la masa no duplica el periodo: éste aumenta en un factor $\sqrt{2}$.
+
+% ============================================================
+% EJERCICIO 18
+% ============================================================
+\ejercicio{Cambio del periodo de un péndulo al modificar su longitud}
+
+\subsection*{Enunciado}
+El periodo de un péndulo es $T_0=\SI{3}{\second}$. Calcular su nuevo periodo si:
+\begin{enumerate}[label=\alph*)]
+  \item su longitud aumenta un $60\%$;
+  \item su longitud disminuye un $60\%$.
+\end{enumerate}
+
+\paso{1}{Definición del sistema en estudio}
+El sistema es un péndulo simple que oscila con pequeña amplitud bajo el mismo campo gravitatorio antes y después de modificar su longitud.
+
+\paso{2}{Hipótesis simplificativas}
+\begin{itemize}[itemsep=2pt]
+  \item Masa puntual suspendida de una cuerda ideal.
+  \item Oscilaciones de pequeña amplitud: $\sen\theta\approx\theta$.
+  \item La aceleración gravitatoria permanece constante.
+  \item Se desprecia la resistencia del aire.
+\end{itemize}
+
+\paso{3}{Interacciones y pares de acción y reacción}
+Sobre la masa actúan el peso y la tensión de la cuerda. La componente tangencial del peso es la responsable del movimiento restaurador. Las reacciones correspondientes actúan sobre la Tierra y sobre la cuerda, respectivamente.
+
+\paso{4}{Modelo de partícula y diagrama vectorial}
+\begin{center}
+\begin{tikzpicture}[>=Latex,scale=1.05]
+  \coordinate (O) at (0,2.5);
+  \coordinate (P) at (1.35,0.25);
+  \fill (O) circle (2.2pt);
+  \draw[thick] (O)--(P);
+  \fill (P) circle (2.7pt);
+  \draw[dashed,gray] (O)--(0,-0.15);
+  \draw[->,very thick,RojoFuerza] (P)--++(-90:1.65) node[right] {$\vec P$};
+  \draw[->,very thick,AzulFisica] (P)--($(P)!0.64!(O)$) node[midway,right] {$\vec T$};
+  \node at (0.34,1.75) {$\theta$};
+  \node[right] at (0.72,1.35) {$L$};
+\end{tikzpicture}
+\end{center}
+
+\paso{5}{Planteo del modelo del péndulo simple}
+Para pequeñas oscilaciones,
+\[
+T=2\pi\sqrt{\frac{L}{g}}.
+\]
+Si $g$ no cambia, entre dos configuraciones se cumple
+\[
+\frac{T'}{T_0}=\sqrt{\frac{L'}{L_0}}.
+\]
+
+\paso{6}{Resolución matemática e interpretación}
+Si la longitud aumenta un $60\%$,
+\[
+L'=1,60L_0,
+\]
+\[
+T'=3\sqrt{1,60}=\boxed{\SI{3.79}{\second}}.
+\]
+Si la longitud disminuye un $60\%$,
+\[
+L'=0,40L_0,
+\]
+\[
+T'=3\sqrt{0,40}=\boxed{\SI{1.90}{\second}}.
+\]
+
+\textbf{Interpretación física.} El periodo depende de la raíz cuadrada de la longitud; por eso cambios porcentuales grandes de $L$ producen cambios más moderados en $T$.
+
+% ============================================================
+% EJERCICIO 19
+% ============================================================
+\ejercicio{Péndulo simple en sistemas acelerados}
+
+\subsection*{Enunciado}
+Un péndulo simple mide $L=\SI{5}{\meter}$ de largo.
+\begin{enumerate}[label=\alph*)]
+  \item ¿Cuál es el periodo de pequeñas oscilaciones si se ubica en un elevador que acelera hacia arriba a $\SI{5.0}{\meter\per\second\squared}$?
+  \item ¿Cuál es el periodo si el elevador acelera hacia abajo a $\SI{5.0}{\meter\per\second\squared}$?
+  \item ¿Cuál es el periodo si el péndulo se coloca en un vehículo que acelera horizontalmente a $\SI{5.0}{\meter\per\second\squared}$?
+\end{enumerate}
+
+\textbf{Nota de edición.} En el archivo adjunto el inciso c) aparece truncado. Se completa con la formulación del mismo problema: vehículo con aceleración horizontal de $\SI{5.0}{\meter\per\second\squared}$. Asimismo, en el inciso a) se interpreta la unidad de la aceleración como $\si{\meter\per\second\squared}$.
+
+\paso{1}{Definición del sistema en estudio}
+El sistema es la masa del péndulo observada desde el marco solidario con el elevador o con el vehículo. Se estudian pequeñas oscilaciones alrededor de la nueva posición de equilibrio.
+
+\paso{2}{Hipótesis simplificativas}
+\begin{itemize}[itemsep=2pt]
+  \item Péndulo simple: masa puntual y cuerda ideal inextensible.
+  \item Oscilaciones pequeñas.
+  \item Aceleración del elevador o del vehículo constante.
+  \item $g=\SI{9.8}{\meter\per\second\squared}$.
+  \item Se desprecia el aire.
+\end{itemize}
+
+\paso{3}{Interacciones y pares de acción y reacción}
+Las fuerzas reales sobre la masa son el peso y la tensión. Al describir el problema desde un marco acelerado puede introducirse una fuerza inercial $-m\vec a_0$; ésta no es una interacción adicional, sino un recurso del marco no inercial. El efecto conjunto se expresa mediante una gravedad efectiva $\vec g_{\rm ef}=\vec g-\vec a_0$.
+
+\paso{4}{Modelo de partícula y gravedad efectiva}
+\begin{center}
+\begin{tikzpicture}[>=Latex,scale=0.92]
+  \begin{scope}[xshift=-5.0cm]
+    \node[font=\bfseries] at (0,2.5) {Elevador: $\vec a_0\uparrow$};
+    \fill (0,0.4) circle (2.5pt);
+    \draw[->,very thick,RojoFuerza] (0,0.4)--(0,-1.45) node[right] {$m\vec g$};
+    \draw[->,very thick,AzulFisica] (0,0.4)--(0,2.0) node[right] {$\vec T$};
+    \draw[->,thick,VerdeRoz] (1.25,0.5)--(1.25,1.75) node[right] {$\vec a_0$};
+    \node at (0,-2.0) {$g_{\rm ef}=g+a_0$};
+  \end{scope}
+  \begin{scope}
+    \node[font=\bfseries] at (0,2.5) {Elevador: $\vec a_0\downarrow$};
+    \fill (0,0.4) circle (2.5pt);
+    \draw[->,very thick,RojoFuerza] (0,0.4)--(0,-1.45) node[right] {$m\vec g$};
+    \draw[->,very thick,AzulFisica] (0,0.4)--(0,2.0) node[right] {$\vec T$};
+    \draw[->,thick,VerdeRoz] (1.25,1.7)--(1.25,0.55) node[right] {$\vec a_0$};
+    \node at (0,-2.0) {$g_{\rm ef}=g-a_0$};
+  \end{scope}
+  \begin{scope}[xshift=5.0cm]
+    \node[font=\bfseries] at (0,2.5) {Vehículo: $\vec a_0\rightarrow$};
+    \coordinate (B) at (0,0.4);
+    \fill (B) circle (2.5pt);
+    \draw[->,very thick,RojoFuerza] (B)--++(-90:1.55) node[right] {$m\vec g$};
+    \draw[->,thick,VerdeRoz] (B)--++(180:1.25) node[above] {$-m\vec a_0$};
+    \draw[->,very thick,AzulFisica] (B)--++(63:1.75) node[above] {$\vec T$};
+    \draw[->,very thick,gray] (B)--++(244:1.95) node[below left] {$\vec g_{\rm ef}$};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\paso{5}{Planteo del modelo dinámico}
+Para pequeñas oscilaciones en un campo efectivo uniforme,
+\[
+T=2\pi\sqrt{\frac{L}{g_{\rm ef}}}.
+\]
+En los casos verticales:
+\[
+g_{\rm ef}=g+a_0\quad\text{(aceleración hacia arriba)},
+\]
+\[
+g_{\rm ef}=g-a_0\quad\text{(aceleración hacia abajo)}.
+\]
+Para aceleración horizontal,
+\[
+g_{\rm ef}=\sqrt{g^2+a_0^2}.
+\]
+
+\paso{6}{Resolución matemática e interpretación}
+\textbf{a) Elevador acelerando hacia arriba}
+\[
+g_{\rm ef}=9,8+5,0=\SI{14.8}{\meter\per\second\squared},
+\]
+\[
+\boxed{T_{\uparrow}=2\pi\sqrt{\frac{5}{14,8}}=\SI{3.65}{\second}}.
+\]
+
+\textbf{b) Elevador acelerando hacia abajo}
+\[
+g_{\rm ef}=9,8-5,0=\SI{4.8}{\meter\per\second\squared},
+\]
+\[
+\boxed{T_{\downarrow}=2\pi\sqrt{\frac{5}{4,8}}=\SI{6.41}{\second}}.
+\]
+
+\textbf{c) Vehículo acelerando horizontalmente}
+\[
+g_{\rm ef}=\sqrt{(9,8)^2+(5,0)^2}=\SI{11.00}{\meter\per\second\squared},
+\]
+\[
+\boxed{T_h=2\pi\sqrt{\frac{5}{11,00}}=\SI{4.24}{\second}}.
+\]
+La nueva vertical efectiva se inclina un ángulo
+\[
+\theta=\tan^{-1}\!\left(\frac{5,0}{9,8}\right)\approx27,0^\circ
+\]
+respecto de la vertical gravitatoria.
+
+% ============================================================
+% NUEVO BLOQUE TEMATICO: CANTIDAD DE MOVIMIENTO
+% ============================================================
+\clearpage
+\section*{\color{AzulFisica}Ejercicios de sistemas de partículas y cantidad de movimiento}
+\addcontentsline{toc}{section}{Ejercicios de sistemas de partículas y cantidad de movimiento}
+
+En estos problemas se mantiene el análisis de sistema e interacciones, pero el paso 5 se expresa mediante el teorema impulso--cantidad de movimiento o la conservación de la cantidad de movimiento del sistema cuando la resultante de impulsos externos es nula o despreciable.
+
+\[
+\vec J=\Delta\vec p,\qquad
+\vec p=m\vec v,\qquad
+\vec p_{\rm inicial}=\vec p_{\rm final}\quad(\vec J_{\rm ext}=0).
+\]
+
+% ============================================================
+% EJERCICIO 20
+% ============================================================
+\ejercicio{Impulso sobre una pelota de béisbol}
+
+\subsection*{Enunciado}
+Una pelota de béisbol tiene una masa de $\SI{150}{\gram}$. Su velocidad antes del golpe es $\SI{24}{\meter\per\second}$ y, después de ser bateada, pasa a $\SI{36}{\meter\per\second}$ en sentido opuesto.
+\begin{enumerate}[label=\alph*)]
+  \item Calcular el incremento de su cantidad de movimiento y el impulso del golpe.
+  \item Si permanece en contacto con el bate durante $\SI{0.002}{\second}$, hallar la fuerza media del golpe.
+\end{enumerate}
+
+\textbf{Nota de interpretación.} El archivo adjunto dice que la pelota ``pesa $150\ \mathrm{g}$''. Como el gramo es unidad de masa, se utiliza $m=\SI{150}{\gram}=\SI{0.150}{\kilogram}$.
+
+\paso{1}{Definición del sistema en estudio}
+El sistema es la \textbf{pelota} durante el intervalo de impacto con el bate. Elegimos como $+x$ el sentido de la velocidad inicial.
+
+\paso{2}{Hipótesis simplificativas}
+\begin{itemize}[itemsep=2pt]
+  \item Modelo de partícula para la pelota.
+  \item El intervalo de contacto es muy breve.
+  \item Durante el choque, el impulso del peso y del aire es despreciable frente al impulso del bate.
+  \item Movimiento analizado sobre el eje de la velocidad antes y después del impacto.
+\end{itemize}
+
+\paso{3}{Interacciones y pares de acción y reacción}
+Durante el impacto la interacción dominante es bate--pelota. El bate ejerce una fuerza sobre la pelota y la pelota ejerce simultáneamente sobre el bate una fuerza igual y opuesta. Ambas actúan sobre cuerpos diferentes.
+
+\paso{4}{Modelo de partícula y diagrama vectorial}
+\begin{center}
+\begin{tikzpicture}[>=Latex,scale=1.0]
+  \node[font=\bfseries] at (-3.8,1.4) {Antes};
+  \fill (-3.8,0) circle (3pt);
+  \draw[->,very thick,AzulFisica] (-3.8,0)--(-0.9,0) node[midway,above] {$\vec v_i=+24$};
+  \node[font=\bfseries] at (3.5,1.4) {Después};
+  \fill (3.5,0) circle (3pt);
+  \draw[->,very thick,RojoFuerza] (3.5,0)--(-0.3,0) node[midway,below] {$\vec v_f=-36$};
+  \draw[->,gray] (-5.0,-1.15)--(5.0,-1.15) node[right] {$+x$};
+\end{tikzpicture}
+\end{center}
+
+\paso{5}{Planteo del teorema impulso--cantidad de movimiento}
+\[
+\Delta p_x=m(v_f-v_i),
+\]
+\[
+J_x=\Delta p_x.
+\]
+Si se usa una fuerza media durante el impacto,
+\[
+F_{\rm med}\,\Delta t=\Delta p_x.
+\]
+
+\paso{6}{Resolución matemática e interpretación}
+Tomando $v_i=+\SI{24}{\meter\per\second}$ y $v_f=-\SI{36}{\meter\per\second}$:
+\[
+\Delta p_x=(0,150)(-36-24)=-\SI{9.0}{\kilogram\meter\per\second}.
+\]
+Por lo tanto,
+\[
+\boxed{\vec J=-9,0\,\hat\imath\ \si{\newton\second}}.
+\]
+El módulo del cambio de cantidad de movimiento y del impulso es $\SI{9.0}{\newton\second}$, dirigido en sentido opuesto a la velocidad inicial.
+
+La fuerza media resulta
+\[
+F_{\rm med}=\frac{-9,0}{0,002}=-\SI{4.50e3}{\newton}.
+\]
+\[
+\boxed{|F_{\rm med}|=\SI{4.50}{\kilo\newton}}.
+\]
+
+% ============================================================
+% EJERCICIO 21
+% ============================================================
+\ejercicio{Muchacha caminando sobre un tablón sin rozamiento con el hielo}
+
+\subsection*{Enunciado}
+Una muchacha de $\SI{45}{\kilogram}$ está parada sobre un tablón de $\SI{150}{\kilogram}$. El tablón, inicialmente en reposo, puede deslizarse libremente sobre un lago congelado sin fricción. La muchacha camina a $\SI{1.5}{\meter\per\second}$ \textbf{respecto del tablón}. Determinar:
+\begin{enumerate}[label=\alph*)]
+  \item su velocidad respecto del hielo;
+  \item la velocidad del tablón respecto del hielo.
+\end{enumerate}
+
+\paso{1}{Definición del sistema en estudio}
+El sistema elegido para aplicar conservación de la cantidad de movimiento es \textbf{muchacha + tablón}. Para relacionar velocidades se distinguen el marco del hielo y el marco del tablón.
+
+\paso{2}{Hipótesis simplificativas}
+\begin{itemize}[itemsep=2pt]
+  \item Tierra plana.
+  \item El hielo es horizontal y sin fricción.
+  \item Se desprecia el aire.
+  \item El sistema parte del reposo.
+  \item Las velocidades son horizontales.
+\end{itemize}
+
+\paso{3}{Interacciones y pares de acción y reacción}
+La muchacha y el tablón se ejercen fuerzas de rozamiento estático internas, iguales y opuestas. Sobre el sistema completo no existe fuerza externa horizontal apreciable; peso y normales son verticales.
+
+\paso{4}{Modelo del sistema y diagrama vectorial}
+\begin{center}
+\begin{tikzpicture}[>=Latex,scale=1.0]
+  \draw[very thick] (-3.8,0)--(3.8,0);
+  \draw[fill=AzulClaro,thick] (-2.5,0.05) rectangle (2.5,0.45);
+  \fill (0,1.15) circle (2.8pt);
+  \draw[thick] (0,1.1)--(0,0.55);
+  \draw[thick] (0,0.85)--(-0.35,0.55);
+  \draw[thick] (0,0.85)--(0.35,0.55);
+  \node[above] at (0,1.25) {$m=45\ \mathrm{kg}$};
+  \node[below] at (0,0.05) {$M=150\ \mathrm{kg}$};
+  \draw[->,very thick,AzulFisica] (0.5,1.1)--(2.7,1.1) node[midway,above] {$v_m$};
+  \draw[->,very thick,RojoFuerza] (-0.4,-0.4)--(-2.5,-0.4) node[midway,below] {$v_T$};
+  \node at (0,-1.1) {$v_{m/T}=v_m-v_T=\SI{1.5}{\meter\per\second}$};
+\end{tikzpicture}
+\end{center}
+
+\paso{5}{Planteo de conservación de cantidad de movimiento}
+Como $p_{x,0}=0$ y $J_{x,\rm ext}=0$,
+\[
+m v_m+M v_T=0.
+\]
+La velocidad relativa dada es
+\[
+v_{m/T}=v_m-v_T=1,5.
+\]
+
+\paso{6}{Resolución matemática e interpretación}
+De la conservación:
+\[
+v_T=-\frac{m}{M}v_m=-\frac{45}{150}v_m=-0,3v_m.
+\]
+Sustituyendo en la relación de velocidades:
+\[
+v_m-(-0,3v_m)=1,5,
+\]
+\[
+1,3v_m=1,5.
+\]
+Por lo tanto,
+\[
+\boxed{v_m=\SI{1.15}{\meter\per\second}}
+\]
+respecto del hielo, en el sentido en que camina la muchacha, y
+\[
+\boxed{v_T=-\SI{0.346}{\meter\per\second}}
+\]
+respecto del hielo, es decir, en sentido contrario.
+
+\textbf{Interpretación física.} El centro de masa del sistema permanece en reposo horizontalmente. El tablón retrocede para compensar la cantidad de movimiento adquirida por la muchacha.
+
+% ============================================================
+% NUEVO BLOQUE TEMATICO: CUERPO RIGIDO
+% ============================================================
+\clearpage
+\section*{\color{AzulFisica}Ejercicios de cuerpo rígido}
+\addcontentsline{toc}{section}{Ejercicios de cuerpo rígido}
+
+Para un cuerpo rígido aparecen dos extensiones fundamentales del marco de resolución:
+\[
+I=\sum_i m_i r_i^2,\qquad
+\sum\tau=I\alpha,
+\]
+y, cuando el cuerpo está en equilibrio,
+\[
+\sum\vec F=\vec 0,\qquad \sum\tau=0.
+\]
+
+% ============================================================
+% EJERCICIO 22
+% ============================================================
+\ejercicio{Cuatro masas puntuales en los vértices de un rectángulo}
+
+\subsection*{Enunciado}
+Cuatro masas puntuales de $\SI{2}{\kilogram}$ están situadas en las esquinas de un rectángulo de $\SI{3}{\meter}\times\SI{2}{\meter}$.
+\begin{enumerate}[label=\alph*)]
+  \item Hallar el momento de inercia alrededor de un eje perpendicular al plano y que pasa por una de las masas.
+  \item Si el sistema gira alrededor de ese eje con energía cinética rotacional de $\SI{184}{\joule}$, hallar el número de revoluciones por minuto.
+\end{enumerate}
+
+\paso{1}{Definición del sistema en estudio}
+El sistema está constituido por las cuatro masas puntuales. El eje de rotación es perpendicular al plano del rectángulo y pasa por uno de los vértices.
+
+\paso{2}{Hipótesis simplificativas}
+\begin{itemize}[itemsep=2pt]
+  \item Masas puntuales de $\SI{2}{\kilogram}$.
+  \item Las uniones que mantienen la geometría del rectángulo se consideran rígidas y de masa despreciable.
+  \item El eje es fijo y no tiene rozamiento apreciable.
+\end{itemize}
+
+\paso{3}{Interacciones y pares de acción y reacción}
+Las fuerzas internas mantienen las separaciones entre las masas, pero no intervienen en el cálculo de $I$ respecto del eje especificado. Las reacciones del eje sostienen el sistema y, al ser un eje fijo ideal, no realizan trabajo rotacional neto.
+
+\paso{4}{Modelo de sistema de partículas}
+\begin{center}
+\begin{tikzpicture}[>=Latex,scale=1.05]
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (4.5,0);
+  \coordinate (C) at (4.5,3.0);
+  \coordinate (D) at (0,3.0);
+  \draw[thick] (A)--(B)--(C)--(D)--cycle;
+  \foreach \P in {A,B,C,D} \fill (\P) circle (3.3pt);
+  \node[below left] at (A) {$m$};
+  \node[below right] at (B) {$m$};
+  \node[above right] at (C) {$m$};
+  \node[above left] at (D) {$m$};
+  \draw[<->,gray] (0,-0.65)--(4.5,-0.65) node[midway,below] {$\SI{3}{\meter}$};
+  \draw[<->,gray] (-0.65,0)--(-0.65,3.0) node[midway,left] {$\SI{2}{\meter}$};
+  \draw[very thick,AzulFisica] (A) circle (0.18);
+  \draw[AzulFisica,very thick] (-0.22,-0.22)--(0.22,0.22);
+  \draw[AzulFisica,very thick] (-0.22,0.22)--(0.22,-0.22);
+  \node[below=13pt,AzulFisica] at (A) {eje $z$};
+  \draw[dashed,RojoFuerza] (A)--(C) node[midway,above,sloped] {$\sqrt{13}\ \mathrm{m}$};
+\end{tikzpicture}
+\end{center}
+
+\paso{5}{Planteo del momento de inercia y energía rotacional}
+Para masas puntuales,
+\[
+I=\sum_i m_i r_i^2.
+\]
+Las distancias al eje son
+\[
+r_1=0,\qquad r_2=3,\qquad r_3=2,\qquad r_4=\sqrt{3^2+2^2}=\sqrt{13}\ \si{\meter}.
+\]
+La energía cinética rotacional es
+\[
+K_{\rm rot}=\frac12I\omega^2.
+\]
+
+\paso{6}{Resolución matemática e interpretación}
+\[
+I=2\left(0^2+3^2+2^2+(\sqrt{13})^2\right),
+\]
+\[
+\boxed{I=\SI{52}{\kilogram\meter\squared}}.
+\]
+De $K_{\rm rot}=\SI{184}{\joule}$:
+\[
+\omega=\sqrt{\frac{2K}{I}}=\sqrt{\frac{368}{52}}=\SI{2.66}{\radian\per\second}.
+\]
+Convirtiendo a rpm:
+\[
+n=\frac{\omega}{2\pi}(60)=\boxed{25,4\ \text{rpm}}.
+\]
+
+\textbf{Interpretación física.} La masa situada sobre el eje no aporta momento de inercia; la masa de la esquina opuesta es la que más contribuye porque $I$ pondera cada masa con $r^2$.
+
+% ============================================================
+% EJERCICIO 23
+% ============================================================
+\ejercicio{Volante de motor con par constante}
+
+\subsection*{Enunciado}
+El volante de un motor tiene una masa de $\SI{320}{\kilogram}$ y un radio de giro $k_g=\SI{1.20}{\meter}$. El motor desarrolla un par constante de $\SI{1880}{\newton\meter}$ y el volante parte del reposo.
+\begin{enumerate}[label=\alph*)]
+  \item ¿Cuál es la aceleración angular?
+  \item ¿Cuál será su velocidad angular después de cuatro revoluciones?
+  \item ¿Qué trabajo ha realizado el motor durante las cuatro primeras vueltas?
+\end{enumerate}
+
+\paso{1}{Definición del sistema en estudio}
+El sistema es el volante que rota alrededor de un eje fijo. Su distribución de masa está caracterizada mediante el radio de giro $k_g$.
+
+\paso{2}{Hipótesis simplificativas}
+\begin{itemize}[itemsep=2pt]
+  \item Cuerpo rígido.
+  \item Eje fijo.
+  \item Par motor constante.
+  \item Rozamientos resistentes despreciables frente al par motor dado.
+  \item El volante parte del reposo: $\omega_0=0$.
+\end{itemize}
+
+\paso{3}{Interacciones y pares de acción y reacción}
+El motor ejerce un par sobre el volante y el volante ejerce sobre el eje motor un par opuesto. Las reacciones del soporte mantienen fijo el eje.
+
+\paso{4}{Modelo de cuerpo rígido}
+\begin{center}
+\begin{tikzpicture}[>=Latex,scale=1.0]
+  \draw[very thick,fill=AzulClaro] (0,0) circle (2.0);
+  \fill (0,0) circle (3pt);
+  \draw[->,very thick,RojoFuerza] (1.35,-1.45) arc[start angle=-47,end angle=225,radius=2.0];
+  \node[RojoFuerza,font=\bfseries] at (2.8,1.25) {$\tau=1880\ \mathrm{N\,m}$};
+  \draw[dashed,gray] (0,0)--(1.35,1.47) node[midway,above,sloped] {$k_g=\SI{1.20}{\meter}$};
+  \node at (0,-2.65) {$I=Mk_g^2$};
+\end{tikzpicture}
+\end{center}
+
+\paso{5}{Planteo de la segunda ley para la rotación}
+El radio de giro se define por
+\[
+I=Mk_g^2.
+\]
+La dinámica rotacional es
+\[
+\sum\tau=I\alpha.
+\]
+Como $\alpha$ es constante,
+\[
+\omega^2=\omega_0^2+2\alpha\Delta\theta.
+\]
+El trabajo de un par constante es
+\[
+W=\tau\Delta\theta.
+\]
+
+\paso{6}{Resolución matemática e interpretación}
+\[
+I=(320)(1,20)^2=\SI{460.8}{\kilogram\meter\squared}.
+\]
+Entonces,
+\[
+\boxed{\alpha=\frac{1880}{460,8}=\SI{4.08}{\radian\per\second\squared}}.
+\]
+Cuatro revoluciones corresponden a
+\[
+\Delta\theta=4(2\pi)=8\pi\ \si{\radian}.
+\]
+Por lo tanto,
+\[
+\omega=\sqrt{2(4,0799)(8\pi)}=\boxed{\SI{14.3}{\radian\per\second}}.
+\]
+El trabajo realizado es
+\[
+W=(1880)(8\pi)=\boxed{\SI{4.72e4}{\joule}}\approx\boxed{\SI{47.2}{\kilo\joule}}.
+\]
+Como no se consideran pérdidas, este trabajo coincide con el incremento de energía cinética rotacional.
+
+% ============================================================
+% EJERCICIO 24
+% ============================================================
+\ejercicio{Escalera con rozamiento y una persona que asciende}
+
+\subsection*{Enunciado}
+Una escalera uniforme de $\SI{6}{\meter}$ de longitud se apoya en una pared vertical lisa. Su extremo inferior está a $\SI{3.6}{\meter}$ de la pared. El peso de la escalera es $\SI{392}{\newton}$ y el coeficiente de rozamiento estático entre el pie y el suelo es $\mu_s=0,40$. Un hombre de peso $\SI{784}{\newton}$ sube lentamente por la escalera.
+\begin{enumerate}[label=\alph*)]
+  \item ¿Cuál es la máxima fuerza de rozamiento que el suelo puede ejercer?
+  \item ¿Cuál es la fuerza de rozamiento real cuando el hombre ha subido $\SI{3}{\meter}$ a lo largo de la escalera?
+  \item ¿Qué longitud podrá subir antes de que la escalera comience a deslizar?
+\end{enumerate}
+
+\paso{1}{Definición del sistema en estudio}
+El sistema es \textbf{escalera + hombre}. Como el ascenso es lento, se analiza cada posición como un estado de equilibrio estático.
+
+\paso{2}{Hipótesis simplificativas}
+\begin{itemize}[itemsep=2pt]
+  \item Escalera uniforme y rígida.
+  \item Pared vertical lisa: no ejerce rozamiento.
+  \item Suelo horizontal con rozamiento estático $\mu_s=0,40$.
+  \item Movimiento cuasiestático: $\vec a=0$ y $\alpha=0$.
+  \item Tierra plana; se desprecia el aire.
+\end{itemize}
+
+\paso{3}{Interacciones y pares de acción y reacción}
+La escalera interactúa con la Tierra, el suelo y la pared; además, el hombre interactúa con la escalera y con la Tierra. Al tomar escalera + hombre como sistema, la interacción hombre--escalera es interna. Las fuerzas externas relevantes son los dos pesos, la normal del suelo, el rozamiento del suelo y la normal de la pared.
+
+\paso{4}{Modelo de cuerpo rígido y diagrama de cuerpo libre}
+La altura del extremo superior es
+\[
+y=\sqrt{6^2-3,6^2}=\SI{4.8}{\meter},
+\]
+por lo que
+\[
+\cos\theta=\frac{3,6}{6}=0,6,\qquad \sin\theta=0,8.
+\]
+
+\begin{center}
+\begin{tikzpicture}[>=Latex,scale=0.95]
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (4.5,6.0);
+  \draw[very thick] (-1,0)--(5.1,0);
+  \draw[very thick] (4.5,0)--(4.5,6.5);
+  \draw[line width=3pt] (A)--(B);
+  \draw[->,very thick,AzulFisica] (A)--++(90:1.45) node[left] {$N_s$};
+  \draw[->,very thick,VerdeRoz] (A)--++(0:1.45) node[below] {$f_s$};
+  \draw[->,very thick,AzulFisica] (B)--++(180:1.45) node[above] {$N_p$};
+  \coordinate (C) at ($(A)!0.5!(B)$);
+  \draw[->,very thick,RojoFuerza] (C)--++(-90:1.55) node[right] {$392\ \mathrm{N}$};
+  \coordinate (H) at ($(A)!0.55!(B)$);
+  \fill (H) circle (2.5pt);
+  \draw[->,very thick,RojoFuerza] (H)--++(-90:1.75) node[right] {$784\ \mathrm{N}$};
+  \node at (0.75,0.35) {$\theta$};
+  \draw[<->,gray] (0,-0.55)--(4.5,-0.55) node[midway,below] {$\SI{3.6}{\meter}$};
+  \draw[<->,gray] (5.0,0)--(5.0,6.0) node[midway,right] {$\SI{4.8}{\meter}$};
+\end{tikzpicture}
+\end{center}
+
+\paso{5}{Planteo de las condiciones de equilibrio}
+En vertical,
+\[
+N_s-392-784=0\quad\Rightarrow\quad N_s=\SI{1176}{\newton}.
+\]
+En horizontal,
+\[
+f_s-N_p=0\quad\Rightarrow\quad f_s=N_p.
+\]
+Tomando momentos respecto del pie $A$, para un hombre situado a una distancia $s$ medida a lo largo de la escalera:
+\[
+N_p(4,8)-392(1,8)-784(0,6s)=0.
+\]
+
+\paso{6}{Resolución matemática e interpretación}
+\textbf{a) Rozamiento estático máximo}
+\[
+f_{s,\max}=\mu_sN_s=(0,40)(1176)=\boxed{\SI{470.4}{\newton}}.
+\]
+
+\textbf{b) Hombre a $s=\SI{3}{\meter}$}
+\[
+N_p(4,8)=392(1,8)+784(0,6)(3),
+\]
+\[
+N_p=\SI{441}{\newton}.
+\]
+Como $f_s=N_p$,
+\[
+\boxed{f_s=\SI{441}{\newton}}.
+\]
+Este valor es menor que $f_{s,\max}$, por lo que todavía no desliza.
+
+\textbf{c) Posición límite}
+Al iniciarse el deslizamiento,
+\[
+N_p=f_s=f_{s,\max}=\SI{470.4}{\newton}.
+\]
+Entonces,
+\[
+(470,4)(4,8)=392(1,8)+784(0,6)s,
+\]
+\[
+\boxed{s=\SI{3.30}{\meter}}.
+\]
+La distancia se mide a lo largo de la escalera desde su extremo inferior.
+
+% ============================================================
+% EJERCICIO 25
+% ============================================================
+\ejercicio{Fuerzas horizontales en los goznes de una puerta}
+
+\subsection*{Enunciado}
+Una puerta de $\SI{2.1}{\meter}$ de altura y $\SI{0.9}{\meter}$ de anchura está colgada de goznes separados $\SI{1.80}{\meter}$ entre sí. La puerta pesa $\SI{300}{\newton}$, su centro de gravedad coincide con su centro geométrico y cada gozne soporta la mitad del peso. Calcular la componente horizontal de la fuerza ejercida sobre la puerta en cada gozne.
+
+\paso{1}{Definición del sistema en estudio}
+El sistema es la \textbf{puerta completa}, modelada como cuerpo rígido en equilibrio estático.
+
+\paso{2}{Hipótesis simplificativas}
+\begin{itemize}[itemsep=2pt]
+  \item Puerta rígida y uniforme a efectos de localizar su centro de gravedad.
+  \item Goznes separados verticalmente $d=\SI{1.80}{\meter}$.
+  \item Cada gozne aporta una componente vertical de $\SI{150}{\newton}$, según el dato del enunciado.
+  \item Sistema en reposo: $\sum\vec F=0$ y $\sum\tau=0$.
+\end{itemize}
+
+\paso{3}{Interacciones y pares de acción y reacción}
+La Tierra ejerce el peso sobre la puerta. Los goznes ejercen fuerzas de soporte sobre la puerta y ésta ejerce fuerzas iguales y opuestas sobre los goznes. Las componentes horizontales de los dos goznes deben ser opuestas para que la resultante horizontal sea nula.
+
+\paso{4}{Modelo de cuerpo rígido y diagrama de fuerzas}
+\begin{center}
+\begin{tikzpicture}[>=Latex,scale=1.05]
+  \draw[fill=AzulClaro,thick] (0,0) rectangle (3.6,5.6);
+  \draw[very thick] (0,-0.2)--(0,5.8);
+  \fill (0,5.0) circle (3pt) node[left=5pt] {gozne sup.};
+  \fill (0,0.6) circle (3pt) node[left=5pt] {gozne inf.};
+  \fill (1.8,2.8) circle (2.5pt);
+  \draw[->,very thick,RojoFuerza] (1.8,2.8)--++(-90:1.5) node[right] {$P=300\ \mathrm{N}$};
+  \draw[->,very thick,AzulFisica] (0,5.0)--++(180:1.4) node[above] {$H$};
+  \draw[->,very thick,AzulFisica] (0,0.6)--++(0:1.4) node[below] {$H$};
+  \draw[<->,gray] (0,6.15)--(3.6,6.15) node[midway,above] {$\SI{0.9}{\meter}$};
+  \draw[<->,gray] (-1.9,0.6)--(-1.9,5.0) node[midway,left] {$\SI{1.80}{\meter}$};
+  \draw[<->,gray] (0,2.2)--(1.8,2.2) node[midway,below] {$\SI{0.45}{\meter}$};
+\end{tikzpicture}
+\end{center}
+
+\paso{5}{Planteo de las condiciones de equilibrio}
+El peso, aplicado a $\SI{0.45}{\meter}$ del eje de goznes, produce un momento
+\[
+\tau_P=P\left(\frac{0,9}{2}\right).
+\]
+Las dos componentes horizontales $H$, iguales y opuestas, forman un par cuyo momento es
+\[
+\tau_H=H(1,80).
+\]
+El equilibrio rotacional exige
+\[
+H(1,80)=300(0,45).
+\]
+
+\paso{6}{Resolución matemática e interpretación}
+\[
+H=\frac{300(0,45)}{1,80}=\boxed{\SI{75}{\newton}}.
+\]
+Por lo tanto, cada gozne ejerce una componente horizontal de módulo
+\[
+\boxed{H=\SI{75}{\newton}},
+\]
+pero en sentidos opuestos. Juntas forman el par necesario para equilibrar el momento del peso respecto de la línea de goznes.
+
+% ============================================================
+% EJERCICIO 26
+% ============================================================
+\ejercicio{Bloque arrastrado con rozamiento: línea de acción de la normal y vuelco}
+
+\subsection*{Enunciado}
+Un bloque rectangular de $\SI{30}{\centi\meter}$ de anchura y $\SI{60}{\centi\meter}$ de altura es arrastrado hacia la derecha a velocidad constante sobre una superficie horizontal mediante una fuerza horizontal $F$ aplicada a una altura $h$. El coeficiente de rozamiento cinético es $\mu_k=0,4$, el bloque pesa $\SI{245}{\newton}$ y su centro de gravedad coincide con el centro de simetría.
+\begin{enumerate}[label=\alph*)]
+  \item Calcular la fuerza $F$ requerida.
+  \item Hallar la línea de acción de la normal $N$ si $h=\SI{15}{\centi\meter}$.
+  \item Calcular $h$ para el cual el bloque comienza justamente a voltear.
+\end{enumerate}
+
+\textbf{Nota de edición.} El archivo de texto hace referencia a una figura que no fue incluida en el adjunto. El esquema siguiente reconstruye únicamente la información explicitada: fuerza horizontal aplicada a altura $h$, bloque de base $b=\SI{0.30}{\meter}$ y altura $\SI{0.60}{\meter}$.
+
+\paso{1}{Definición del sistema en estudio}
+El sistema es el \textbf{bloque rígido}. Como se traslada a velocidad constante y, antes del vuelco, no rota,
+\[
+\vec a=0,\qquad \alpha=0.
+\]
+
+\paso{2}{Hipótesis simplificativas}
+\begin{itemize}[itemsep=2pt]
+  \item Cuerpo rígido rectangular.
+  \item Tierra plana y superficie horizontal.
+  \item Rozamiento cinético con $\mu_k=0,4$.
+  \item Fuerza $F$ horizontal aplicada a altura $h$ sobre el piso.
+  \item La reacción de contacto se representa mediante una normal resultante $N$ cuya línea de acción puede desplazarse dentro de la base.
+  \item Movimiento a velocidad constante; se desprecia el aire.
+\end{itemize}
+
+\paso{3}{Interacciones y pares de acción y reacción}
+Actúan sobre el bloque: el peso de la Tierra, la fuerza aplicada por el agente externo y la interacción del piso, representada por la normal $N$ y el rozamiento cinético $f_k$. Las fuerzas que el bloque ejerce sobre el piso constituyen las reacciones correspondientes y no se dibujan en el DCL del bloque.
+
+\paso{4}{Modelo de cuerpo rígido y diagrama de cuerpo libre}
+\begin{center}
+\begin{tikzpicture}[>=Latex,scale=1.05]
+  \coordinate (A) at (0,0);
+  \draw[very thick] (-0.8,0)--(5.5,0);
+  \draw[fill=AzulClaro,thick] (0,0) rectangle (3.0,6.0);
+  \coordinate (G) at (1.5,3.0);
+  \fill (G) circle (2.5pt);
+  \draw[->,very thick,RojoFuerza] (G)--++(-90:1.75) node[right] {$P=245\ \mathrm{N}$};
+  \coordinate (Fpt) at (0,2.1);
+  \draw[->,very thick,AzulFisica] (Fpt)--++(0:2.2) node[above] {$F$};
+  \draw[<->,gray] (-0.45,0)--(-0.45,2.1) node[midway,left] {$h$};
+  \coordinate (R) at (2.1,0);
+  \draw[->,very thick,AzulFisica] (R)--++(90:1.65) node[right] {$N$};
+  \draw[->,very thick,VerdeRoz] (R)--++(180:1.55) node[below] {$f_k$};
+  \draw[<->,gray] (0,-0.65)--(3.0,-0.65) node[midway,below] {$b=\SI{0.30}{\meter}$};
+  \draw[<->,gray] (0,-1.25)--(2.1,-1.25) node[midway,below] {$x_N$};
+  \node[gray] at (1.5,6.45) {altura $=\SI{0.60}{\meter}$};
+\end{tikzpicture}
+\end{center}
+
+\paso{5}{Planteo de la segunda ley y del equilibrio rotacional}
+En la dirección vertical,
+\[
+N-P=0\quad\Rightarrow\quad N=P.
+\]
+En la dirección horizontal,
+\[
+F-f_k=0,
+\]
+con
+\[
+f_k=\mu_kN.
+\]
+Para ubicar la normal, tomamos momentos respecto del borde inferior izquierdo. El rozamiento no produce momento respecto de ese punto porque actúa sobre la línea del piso:
+\[
+Nx_N-P\frac{b}{2}-Fh=0.
+\]
+
+\paso{6}{Resolución matemática e interpretación}
+\textbf{a) Fuerza necesaria}
+\[
+N=P=\SI{245}{\newton},
+\]
+\[
+f_k=(0,4)(245)=\SI{98}{\newton}.
+\]
+Como la velocidad es constante,
+\[
+\boxed{F=\SI{98}{\newton}}.
+\]
+
+\textbf{b) Línea de acción de la normal para $h=\SI{0.15}{\meter}$}
+\[
+x_N=\frac{P(b/2)+Fh}{N}.
+\]
+Como $N=P$ y $F/P=\mu_k$,
+\[
+x_N=\frac{b}{2}+\mu_kh
+=0,15+(0,4)(0,15),
+\]
+\[
+\boxed{x_N=\SI{0.210}{\meter}}.
+\]
+La normal actúa entonces a $\SI{21}{\centi\meter}$ del borde izquierdo, o a $\SI{9}{\centi\meter}$ del borde derecho.
+
+\textbf{c) Inicio del vuelco}
+El vuelco comienza cuando la resultante normal llega al borde derecho:
+\[
+x_N=b=0,30.
+\]
+Entonces,
+\[
+0,30=0,15+0,4h,
+\]
+\[
+\boxed{h=\SI{0.375}{\meter}=\SI{37.5}{\centi\meter}}.
+\]
+
+\textbf{Interpretación física.} Elevar el punto de aplicación de la fuerza aumenta el momento que tiende a volcar el bloque. El piso responde desplazando la línea de acción de la normal hacia el borde delantero hasta que ya no puede hacerlo; en ese instante comienza el vuelco.
+
 
 
 % ============================================================
