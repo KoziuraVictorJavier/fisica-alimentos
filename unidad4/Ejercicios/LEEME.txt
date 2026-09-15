@@ -1,0 +1,17 @@
+Guía resuelta - Unidad 4: Trabajo y Energía
+
+Ejercicios desarrollados: 3, 4, 6, 8, 10, 17, 19, 22-23 (integrados), 27 y 29.
+
+Criterio general: g = 9,8 m/s^2.
+
+Figuras originales conservadas del TP:
+- ex04_grafico_original.png
+- ex17_original.png
+- ex19_original.png
+
+Esquemas redibujados para la resolución:
+- ex10_plano_inclinado.png
+- ex22_23_loop_vertical.png
+- ex29_bomba.png
+
+La resolución incluye controles y observaciones sobre inconsistencias detectadas en la clave del TP para los ejercicios 4, 8, 23 y 29.

@@ -186,12 +186,30 @@ header.unit-hero{
 }
 @media print{.hero-logo,.institutional-logos,.hero-meta{display:none}.unit-hero{text-align:center;border-bottom:0}}
 
+
+/* Guía resuelta - punto 21 */
+.exercise-guide{background:linear-gradient(180deg,#f8fbff,#fff);border:1px solid #cfe0f3;border-radius:18px;padding:18px;margin-top:16px}
+.guide-actions{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 18px}
+.guide-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:800;border-radius:12px;padding:10px 15px;border:1px solid #1d4ed8;background:#2563eb;color:#fff;box-shadow:0 5px 14px rgba(37,99,235,.18)}
+.guide-btn:hover{background:#1d4ed8;color:#fff}
+.guide-btn.secondary{background:#fff;color:#1d4ed8;border-color:#93b4ee;box-shadow:none}
+.guide-btn.secondary:hover{background:#eff6ff;color:#1e40af}
+.exercise-index{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border:1px solid #d8e2ef;border-radius:14px;margin:14px 0;background:#fff}
+.exercise-index th,.exercise-index td{padding:10px 12px;border-right:0;border-left:0}
+.exercise-index th{background:#eaf3ff;color:#17375e;text-align:left}
+.exercise-index td:first-child{font-weight:800;color:#17375e;white-space:nowrap;width:105px}
+.exercise-index td:last-child{width:140px;text-align:center}
+.exercise-link{display:inline-block;text-decoration:none;font-weight:800;color:#1d4ed8;background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:6px 10px;white-space:nowrap}
+.exercise-link:hover{background:#dbeafe;color:#1e3a8a}
+.guide-note{margin:12px 0 0;color:#475569;font-size:.95rem}
+@media(max-width:680px){.exercise-index,.exercise-index tbody,.exercise-index tr,.exercise-index td{display:block;width:100%}.exercise-index thead{display:none}.exercise-index tr{padding:10px;border-bottom:1px solid #d8e2ef}.exercise-index td{border:0;padding:5px 7px}.exercise-index td:last-child{text-align:left;width:100%}.guide-btn{width:100%}}
+
 </style></head><body>
 <header class="unit-hero" id="inicio">
   <div class="unit-hero-inner">
     <div class="institutional-logos" aria-label="Instituciones">
-      <img class="hero-logo" src="../assets/images/logo_utn.png" alt="Logo UTN">
-      <img class="hero-logo logo-ciab" src="../assets/images/logo-ciab.jpg" alt="Logo CIAB">
+      <img class="hero-logo" src="assets/images/logo_utn.png" alt="Logo UTN">
+      <img class="hero-logo logo-ciab" src="assets/images/logo-ciab.jpg" alt="Logo CIAB">
     </div>
     <div>
       <div class="header-badges">
@@ -199,7 +217,7 @@ header.unit-hero{
         <span class="badge">Unidad 4</span>
       </div>
       <h1>Trabajo y energía</h1>
-      <p>Apunte didáctico universitario complementario para estudiar trabajo mecánico, energía cinética, energía potencial, fuerzas conservativas y no conservativas. Las situaciones de procesos alimentarios se utilizan como contexto de aplicación, sin desplazar el carácter general de un curso de física.</p>
+      <p>Apunte didáctico universitario complementario para estudiar trabajo mecánico, energía cinética traslacional y rotacional, energía potencial, fuerzas conservativas y no conservativas. Se incorporan el trabajo en movimiento circular, el trabajo de un torque y el análisis energético de cuerpos que combinan traslación y rotación, con situaciones de procesos alimentarios como contexto de aplicación.</p>
       <div class="hero-meta" aria-label="Datos de la asignatura">
         <span class="hero-badge">Docente: Ing. Koziura Víctor Javier</span>
         <span class="hero-badge">Cohorte 2026</span>
@@ -215,8 +233,11 @@ header.unit-hero{
 <a href="#importancia">3. Importancia técnica</a>
 <a href="#mapa">4. Mapa conceptual</a>
 <a href="#trabajo">5. Trabajo mecánico</a>
+<a href="#trabajo-rotacion">5.3 Trabajo circular y rotacional</a>
 <a href="#ecinetica">6. Energía cinética</a>
+<a href="#ecinetica-rot">6.1 Energía cinética rotacional</a>
 <a href="#teorema">7. Teorema trabajo–energía</a>
+<a href="#energia-combinada">7.3 Rotación y traslación</a>
 <a href="#peso">8. Trabajo de la fuerza peso</a>
 <a href="#resorte">9. Trabajo de un resorte</a>
 <a href="#roce-aplicada">10. Fuerza aplicada y roce</a>
@@ -230,22 +251,36 @@ header.unit-hero{
 <a href="#simuladores">18. Simuladores</a>
 <a href="#errores">19. Errores frecuentes</a>
 <a href="#preguntas">20. Preguntas conceptuales</a>
-<a href="#ejercicios">21. Ejercicios</a>
+<a href="#ejercicios">21. Guía de ejercicios resueltos</a>
 <a href="#practica">22. Actividad práctica</a>
 <a href="#resumen">23. Resumen</a>
 <a href="#glosario">24. Glosario</a>
 <a href="#creditos">25. Créditos</a>
 </nav><main>
-<section class="paper" id="intro"><h2>1. Introducción contextualizada</h2><div class="note"><strong>Versión corregida.</strong> Se revisó la sintaxis LaTeX de las ecuaciones vectoriales e integrales para evitar errores de MathJax.</div><div class="version-note"><strong>Versión revisada y ampliada.</strong> Se amplió el marco teórico de trabajo, energía cinética, teorema trabajo–energía, trabajo del peso, resorte, roce, fuerzas conservativas y energía potencial. También se revisó la carga de MathJax y se normalizaron subíndices con \(\mathrm{}\) para mejorar el renderizado LaTeX.</div><p>En la unidad anterior se estudió cómo las fuerzas modifican el movimiento. En esta unidad se introduce una herramienta complementaria: el análisis energético. En lugar de seguir instante a instante la aceleración, se estudia cómo el trabajo realizado por las fuerzas modifica la energía del sistema.</p><p>El trabajo mecánico permite conectar fuerza y desplazamiento; la energía cinética describe el estado de movimiento; la energía potencial describe energía asociada con posición o configuración. En conjunto, estos conceptos permiten analizar cintas transportadoras, elevadores, caída de producto, compresión de resortes, rozamiento, frenado, motores y eficiencia energética.</p><div class="box key"><strong>Idea conductora.</strong> El trabajo es un mecanismo de transferencia de energía. Cuando el trabajo neto sobre un cuerpo no es nulo, cambia su energía cinética.</div></section>
-<section class="paper" id="objetivos"><h2>2. Objetivos de aprendizaje</h2><div class="grid"><div class="card"><h4>Definir trabajo</h4><p>Interpretar \(W=\vec F\cdot \Delta\vec r\) y reconocer trabajo positivo, negativo y nulo.</p></div><div class="card"><h4>Relacionar trabajo y movimiento</h4><p>Aplicar \(W_{\mathrm{neto}}=\Delta K\) para estudiar cambios de rapidez.</p></div><div class="card"><h4>Analizar fuerzas específicas</h4><p>Calcular el trabajo de peso, resorte, fuerza aplicada y rozamiento.</p></div><div class="card"><h4>Distinguir fuerzas</h4><p>Clasificar fuerzas conservativas y no conservativas según dependencia con la trayectoria.</p></div><div class="card"><h4>Usar energía potencial</h4><p>Aplicar \(U_g=mgy\) y \(U_e=\frac12kx^2\) en situaciones físicas e industriales.</p></div></div></section>
+<section class="paper" id="intro"><h2>1. Introducción contextualizada</h2><p>En la unidad anterior se estudió cómo las fuerzas modifican el movimiento. En esta unidad se introduce una herramienta complementaria: el análisis energético. En lugar de seguir instante a instante la aceleración, se estudia cómo el trabajo realizado por las fuerzas modifica la energía del sistema.</p><p>El trabajo mecánico permite conectar fuerza y desplazamiento; la energía cinética describe el estado de movimiento; la energía potencial describe energía asociada con posición o configuración. Para cuerpos rígidos, el análisis se amplía naturalmente desde la traslación hacia la rotación: el torque realiza trabajo durante un desplazamiento angular y ese trabajo puede modificar la energía cinética rotacional. En conjunto, estos conceptos permiten analizar cintas transportadoras, elevadores, caída de producto, compresión de resortes, rodillos, poleas, tambores, mezcladores, rozamiento, frenado, motores y eficiencia energética.</p><div class="box key"><strong>Idea conductora.</strong> El trabajo es un mecanismo de transferencia de energía. En traslación, una fuerza que actúa durante un desplazamiento modifica la energía cinética traslacional; en rotación, un torque que actúa durante un desplazamiento angular modifica la energía cinética rotacional.</div></section>
+<section class="paper" id="objetivos"><h2>2. Objetivos de aprendizaje</h2><div class="grid"><div class="card"><h4>Definir trabajo</h4><p>Interpretar \(W=\vec F\cdot \Delta\vec r\) y reconocer trabajo positivo, negativo y nulo.</p></div><div class="card"><h4>Relacionar trabajo y movimiento</h4><p>Aplicar \(W_{\mathrm{neto}}=\Delta K\) para estudiar cambios de rapidez.</p></div><div class="card"><h4>Analizar fuerzas específicas</h4><p>Calcular el trabajo de peso, resorte, fuerza aplicada y rozamiento.</p></div><div class="card"><h4>Distinguir fuerzas</h4><p>Clasificar fuerzas conservativas y no conservativas según dependencia con la trayectoria.</p></div><div class="card"><h4>Usar energía potencial</h4><p>Aplicar \(U_g=mgy\) y \(U_e=\frac12kx^2\) en situaciones físicas e industriales.</p></div><div class="card"><h4>Extender el trabajo a la rotación</h4><p>Relacionar torque y desplazamiento angular mediante \(W=\int \tau\,d\theta\).</p></div><div class="card"><h4>Analizar energía rotacional</h4><p>Aplicar \(K_{\mathrm{rot}}=\frac12 I\omega^2\) y combinarla con la energía cinética traslacional cuando un cuerpo rueda o se desplaza mientras gira.</p></div></div></section>
 <section class="paper" id="importancia"><h2>3. Importancia técnica</h2><p>El técnico en alimentos necesita estimar energía requerida para elevar cargas, mover productos, vencer rozamientos, comprimir resortes o frenar mecanismos. El análisis energético permite comparar alternativas de diseño y operación sin resolver todo el movimiento en detalle.</p><div class="box app"><strong>Aplicación industrial.</strong> En una línea de producción, el trabajo realizado por motores, actuadores neumáticos, cintas y elevadores se transforma en cambios de energía cinética, energía potencial, deformaciones elásticas o energía disipada por rozamiento.</div></section>
-<section class="paper" id="mapa"><h2>4. Mapa conceptual</h2><div class="flow"><div class="node"><strong>Fuerza</strong>Interacción mecánica</div><div class="node"><strong>Desplazamiento</strong>Cambio de posición</div><div class="node"><strong>Trabajo</strong>Transferencia de energía</div><div class="node"><strong>Energía cinética</strong>Movimiento</div><div class="node"><strong>Energía potencial</strong>Posición o configuración</div><div class="node"><strong>Rozamiento</strong>Disipación</div></div></section>
+<section class="paper" id="mapa"><h2>4. Mapa conceptual</h2><div class="flow"><div class="node"><strong>Fuerza</strong>Interacción mecánica</div><div class="node"><strong>Desplazamiento</strong>Cambio de posición</div><div class="node"><strong>Trabajo</strong>Transferencia de energía</div><div class="node"><strong>Energía cinética</strong>Movimiento</div><div class="node"><strong>Energía potencial</strong>Posición o configuración</div><div class="node"><strong>Rozamiento</strong>Disipación</div><div class="node"><strong>Torque</strong>Trabajo angular</div><div class="node"><strong>Energía rotacional</strong>\(\tfrac12 I\omega^2\)</div></div></section>
 
 <section class="paper" id="trabajo"><h2>5. Trabajo mecánico</h2>
 <p class="section-lead">En dinámica, el concepto de <strong>trabajo mecánico</strong> permite cuantificar cuánto contribuye una fuerza a modificar el estado energético de un cuerpo o sistema. No basta con que exista una fuerza: debe existir desplazamiento y, además, una componente de la fuerza debe estar alineada con ese desplazamiento.</p>
 <div class="theory-block"><h3>5.1 Condiciones físicas para que exista trabajo</h3><p>No alcanza con que una fuerza actúe sobre un cuerpo. Para que exista trabajo mecánico deben cumplirse simultáneamente tres condiciones: debe existir una fuerza, debe producirse desplazamiento y la fuerza debe tener una componente paralela a ese desplazamiento.</p><ul class="concept-list"><li>Si hay fuerza pero no hay desplazamiento, el trabajo mecánico sobre el cuerpo es cero.</li><li>Si hay desplazamiento pero la fuerza es perpendicular, el trabajo de esa fuerza es cero.</li><li>Si la componente paralela de la fuerza acompaña el movimiento, el trabajo es positivo; si se opone, es negativo.</li></ul><p>Esta distinción es importante en física aplicada: una persona puede fatigarse empujando una estructura inmóvil, pero desde el punto de vista mecánico no transfiere energía a esa estructura mediante trabajo.</p></div>
 <div class="theory-block"><h3>5.2 Trabajo de una fuerza variable</h3><p>Cuando la fuerza cambia con la posición, como ocurre en un resorte, no se usa un único valor de fuerza. El trabajo se calcula sumando trabajos elementales:</p><div class="eq math-safe">\[ dW=\vec{F}\cdot d\vec{r} \]</div><div class="eq math-safe">\[ W=\int_i^f \vec{F}\cdot d\vec{r} \]</div><p>En una gráfica \(F_x\) versus \(x\), el trabajo corresponde al área algebraica bajo la curva. Las áreas sobre el eje se toman como trabajo positivo y las áreas bajo el eje como trabajo negativo.</p></div>
 
+
+<div class="theory-block" id="trabajo-rotacion"><h3>5.3 Trabajo en movimiento circular y en rotación</h3>
+<p>La definición general de trabajo sigue siendo válida cuando la trayectoria es curva. En un movimiento circular, el desplazamiento elemental <em>no</em> apunta radialmente: es tangente a la trayectoria. Por eso, sólo la componente tangencial de la fuerza puede realizar trabajo en cada instante.</p>
+<div class="eq math-safe">\[ dW=\vec F\cdot d\vec r=F_t\,ds \]</div>
+<p>Para una partícula que se desplaza sobre una circunferencia de radio \(r\), el arco elemental vale \(ds=r\,d\theta\). Entonces:</p>
+<div class="eq math-safe">\[ dW=F_t\,r\,d\theta \]</div>
+<p>Como el torque de la componente tangencial respecto del eje es \(\tau=F_t r\), se obtiene una forma especialmente útil para la rotación:</p>
+<div class="eq math-safe">\[ \boxed{dW=\tau\,d\theta} \qquad \Longrightarrow \qquad W=\int_{\theta_i}^{\theta_f}\tau\,d\theta \]</div>
+<p>Si el torque es constante:</p>
+<div class="eq">\[ \boxed{W=\tau\,\Delta\theta} \]<small>El ángulo \(\Delta\theta\) debe expresarse en radianes. La unidad de trabajo continúa siendo el joule.</small></div>
+<div class="theory-grid"><div class="card"><h4>Fuerza tangencial</h4><p>Puede realizar trabajo porque tiene componente en la dirección instantánea del movimiento. En un eje, polea o tambor, esta fuerza produce torque.</p></div><div class="card"><h4>Fuerza radial</h4><p>En movimiento circular, la fuerza radial es perpendicular al desplazamiento instantáneo. Por sí sola no realiza trabajo y puede cambiar la dirección de la velocidad sin cambiar su rapidez.</p></div><div class="card"><h4>Torque y giro</h4><p>Un motor realiza trabajo rotacional cuando entrega torque mientras el eje gira. Si no hay giro, puede existir torque pero el trabajo mecánico rotacional es cero.</p></div></div>
+<div class="box key"><strong>Puente traslación–rotación.</strong> En traslación, \(dW=F_{\parallel}\,ds\). En rotación alrededor de un eje fijo, la expresión análoga es \(dW=\tau\,d\theta\).</div>
+<div class="box app"><strong>Aplicación industrial.</strong> Motores de mezcladores, rodillos de laminación, poleas, tambores y tornillos transportadores entregan energía principalmente mediante trabajo rotacional. El producto \(\tau\,\Delta\theta\) permite cuantificar la energía mecánica transferida durante un giro.</div>
+</div>
 <div class="eq">\[ W=\vec F\cdot\Delta\vec r=F\,\Delta r\,\cos\theta \]<small>Trabajo realizado por una fuerza constante. \(\theta\) es el ángulo entre la fuerza aplicada y el desplazamiento. La unidad SI es el joule: \(1\,\mathrm{J}=1\,\mathrm{N\,m}\).</small></div>
 <div class="derivation"><h4>Lectura vectorial</h4><p>El producto escalar selecciona sólo la componente de la fuerza que actúa en la dirección del desplazamiento:</p><div class="eq">\[ W=F_{\parallel}\,\Delta r \qquad \mathrm{con} \qquad F_{\parallel}=F\cos\theta \]</div><p>Por eso, una fuerza perpendicular al desplazamiento no realiza trabajo mecánico, aunque pueda cambiar la dirección del movimiento.</p></div>
 <table class="table-compact"><tr><th>Tipo de trabajo</th><th>Condición angular</th><th>Interpretación física</th><th>Ejemplo técnico</th></tr>
@@ -255,12 +290,31 @@ header.unit-hero{
 <div class="box key"><strong>Idea clave.</strong> El trabajo no es una fuerza ni una energía almacenada: es una forma de <strong>transferencia de energía</strong> asociada a una fuerza que actúa durante un desplazamiento.</div>
 <div class="box warn"><strong>Error frecuente.</strong> “Hice mucha fuerza, entonces hice mucho trabajo”. En física, si la fuerza no produce desplazamiento en su dirección, el trabajo mecánico puede ser cero.</div>
 <div class="sim-box"><h4>Simulación 1: trabajo de una fuerza constante</h4><p>Modificá fuerza, desplazamiento y ángulo para ver cómo cambia \(W=Fd\cos\theta\).</p><div class="sim-grid three"><div><label>Fuerza \(F\): <span id="sw_F_val">20 N</span></label><input id="sw_F" max="80" min="0" step="1" type="range" value="20"/></div><div><label>Desplazamiento \(d\): <span id="sw_d_val">4.0 m</span></label><input id="sw_d" max="10" min="0" step="0.1" type="range" value="4"/></div><div><label>Ángulo \(\theta\): <span id="sw_th_val">0°</span></label><input id="sw_th" max="180" min="0" step="1" type="range" value="0"/></div></div><div class="readout">Trabajo realizado: <strong id="sw_W">80.0 J</strong> · Interpretación: <strong id="sw_sign">positivo</strong></div><canvas class="sim-canvas" height="340" id="work_canvas" width="760"></canvas><pre class="formula-readout" id="sw_text"></pre></div>
+
+<figure class="infographic-figure">
+  <img src="assets/images/trabajo_mecanico_en_alimentos.png" alt="Infografía sobre trabajo mecánico" loading="lazy"/>
+  <figcaption><strong>Infografía de síntesis: trabajo mecánico.</strong> Resume la definición de trabajo \(W=ec F\cdot\Deltaec r=F\,d\cos	heta\), la interpretación del signo según el ángulo entre fuerza y desplazamiento, el trabajo de una fuerza constante, el trabajo del peso, del rozamiento y el caso de fuerza variable como área bajo la curva \(F(x)\).</figcaption>
+  <p class="mini-note"><strong>Sugerencia de uso didáctico:</strong> utilizar esta imagen como cierre visual del punto 5 y como nexo con los puntos 6 a 9, donde el trabajo se relaciona con energía cinética, peso, resorte y transferencia de energía en equipos de la industria alimentaria.</p>
+</figure>
+
 </section>
 
 <section class="paper" id="ecinetica"><h2>6. Energía cinética</h2>
 <p class="section-lead">La <strong>energía cinética</strong> es la energía asociada al movimiento. Para un cuerpo que puede modelarse como partícula, depende de su masa y de su rapidez, no de la dirección de su velocidad.</p>
 <div class="eq">\[ K=\frac{1}{2}mv^2 \]<small>\(K\): energía cinética; \(m\): masa; \(v\): rapidez. Es una magnitud escalar y se mide en joule.</small></div>
 <div class="theory-grid"><div class="card"><h4>Depende de \(m\)</h4><p>A igual rapidez, un cuerpo con mayor masa posee mayor energía cinética. Esto importa en carros, tolvas móviles, rodillos y cargas transportadas.</p></div><div class="card"><h4>Depende de \(v^2\)</h4><p>Si la rapidez se duplica, la energía cinética se cuadruplica. Por eso los impactos y frenados son muy sensibles a la velocidad.</p></div><div class="card"><h4>No depende del sentido</h4><p>Un cuerpo que se mueve hacia la derecha o hacia la izquierda con la misma rapidez tiene la misma energía cinética.</p></div></div>
+
+<div class="theory-block" id="ecinetica-rot"><h3>6.1 Energía cinética rotacional</h3>
+<p>Un cuerpo rígido que gira no puede modelarse como una única partícula: cada porción del cuerpo tiene una rapidez diferente según su distancia al eje. Si el cuerpo gira con velocidad angular \(\omega\), una partícula de masa \(m_i\) situada a distancia \(r_i\) posee rapidez \(v_i=\omega r_i\).</p>
+<div class="eq math-safe">\[ K_{\mathrm{rot}}=\sum_i \frac12 m_i v_i^2=\sum_i \frac12 m_i(\omega r_i)^2 \]</div>
+<p>Como todos los puntos del cuerpo rígido tienen la misma \(\omega\), puede factorizarse:</p>
+<div class="eq math-safe">\[ K_{\mathrm{rot}}=\frac12\left(\sum_i m_i r_i^2\right)\omega^2 \]</div>
+<p>La cantidad entre paréntesis es el <strong>momento de inercia</strong> respecto del eje elegido:</p>
+<div class="eq">\[ \boxed{I=\sum_i m_i r_i^2} \qquad \boxed{K_{\mathrm{rot}}=\frac12 I\omega^2} \]</div>
+<p>El momento de inercia cumple en rotación un papel análogo al de la masa en traslación: mide qué tan distribuida está la masa respecto del eje y, por lo tanto, cuánto cuesta modificar el estado de rotación.</p>
+<table class="table-compact"><tr><th>Traslación</th><th>Rotación alrededor de un eje</th><th>Lectura física</th></tr><tr><td>Masa \(m\)</td><td>Momento de inercia \(I\)</td><td>Medida de inercia frente al cambio de movimiento.</td></tr><tr><td>Rapidez \(v\)</td><td>Velocidad angular \(\omega\)</td><td>Variable cinemática asociada al movimiento.</td></tr><tr><td>\(K_{\mathrm{tras}}=\frac12mv^2\)</td><td>\(K_{\mathrm{rot}}=\frac12I\omega^2\)</td><td>Energía asociada al estado de movimiento.</td></tr></table>
+<div class="box warn"><strong>Error frecuente.</strong> No debe usarse \(K=\frac12mv^2\) con la rapidez de un punto del borde para representar toda la energía de un cuerpo rígido que gira. La distribución de masa respecto del eje se incorpora mediante \(I\).</div>
+</div>
 <div class="derivation"><h4>Relación con unidades</h4><div class="eq">\[ [K]=\mathrm{kg}\,\frac{\mathrm{m}^2}{\mathrm{s}^2}=\mathrm{N\,m}=\mathrm{J} \]</div><p>Esta equivalencia muestra que trabajo y energía tienen la misma unidad porque el trabajo es una transferencia de energía.</p></div>
 <div class="box key"><strong>Lectura física.</strong> La energía cinética permite traducir el movimiento en capacidad de producir efectos: deformar, calentar por fricción, vencer resistencias o dañar un elemento en un choque.</div>
 </section>
@@ -273,6 +327,25 @@ header.unit-hero{
 <div class="theory-block"><h3>7.2 Forma general con fuerza variable</h3><p>La forma general del teorema se escribe mediante el trabajo integral de la fuerza neta:</p><div class="eq math-safe">\[ W_{\mathrm{neto}}=\int_i^f \sum\vec{F}\cdot d\vec{r}=\Delta K \]</div><p>Esto permite analizar resortes, rampas con rozamiento, actuadores y mecanismos en los que la fuerza resultante no permanece constante.</p></div>
 
 <div class="derivation"><h4>Interpretación desde Newton</h4><p>Para movimiento rectilíneo con fuerza neta constante:</p><div class="eq">\[ \sum F=ma \]</div><p>Si el cuerpo se desplaza una distancia \(d\), entonces:</p><div class="eq">\[ W_{\mathrm{neto}}=(\sum F)d=mad \]</div><p>Usando la relación cinemática \(v_f^2-v_i^2=2ad\), se obtiene:</p><div class="eq">\[ W_{\mathrm{neto}}=m\left(\frac{v_f^2-v_i^2}{2}\right)=\frac{1}{2}mv_f^2-\frac{1}{2}mv_i^2 \]</div></div>
+
+<div class="theory-block" id="energia-combinada"><h3>7.3 Teorema trabajo–energía para la rotación</h3>
+<p>Para un cuerpo rígido que rota alrededor de un eje fijo, el trabajo neto de los torques externos modifica la energía cinética rotacional:</p>
+<div class="eq">\[ \boxed{W_{\mathrm{neto,rot}}=\Delta K_{\mathrm{rot}}=\frac12 I\omega_f^2-\frac12 I\omega_i^2} \]</div>
+<p>Esta expresión es la versión rotacional del teorema trabajo–energía. Un torque neto positivo que actúa a lo largo del giro aumenta \(K_{\mathrm{rot}}\); un torque resistente, como el debido a un freno o a pérdidas mecánicas, realiza trabajo negativo y la reduce.</p>
+<h3>7.4 Movimiento combinado: traslación + rotación</h3>
+<p>Muchos cuerpos reales no sólo giran: su centro de masa también se desplaza. En esos casos la energía cinética total se separa en una parte traslacional del centro de masa y una parte rotacional alrededor del centro de masa:</p>
+<div class="eq">\[ \boxed{K_{\mathrm{total}}=\frac12 Mv_{\mathrm{CM}}^2+\frac12 I_{\mathrm{CM}}\omega^2} \]</div>
+<p>Esta descomposición es especialmente importante para ruedas, rodillos, tambores, cilindros y cuerpos que ruedan sobre una superficie.</p>
+<h3>7.5 Rodadura sin deslizamiento</h3>
+<p>Cuando un cuerpo rueda sin deslizar, la velocidad de su centro de masa y la velocidad angular no son independientes:</p>
+<div class="eq">\[ \boxed{v_{\mathrm{CM}}=\omega R} \]</div>
+<p>Si escribimos \(I_{\mathrm{CM}}=\beta MR^2\), donde \(\beta\) depende de cómo está distribuida la masa, la energía cinética total puede expresarse como:</p>
+<div class="eq math-safe">\[ K_{\mathrm{total}}=\frac12 Mv_{\mathrm{CM}}^2+\frac12(\beta MR^2)\left(\frac{v_{\mathrm{CM}}}{R}\right)^2=\frac12 Mv_{\mathrm{CM}}^2(1+\beta) \]</div>
+<table class="table-compact"><tr><th>Cuerpo ideal</th><th>Momento de inercia respecto del CM</th><th>\(\beta\)</th><th>Fracción rotacional de \(K_{\mathrm{total}}\)</th></tr><tr><td>Aro delgado</td><td>\(I=MR^2\)</td><td>1</td><td>\(1/2\)</td></tr><tr><td>Cilindro o disco macizo</td><td>\(I=\frac12MR^2\)</td><td>\(1/2\)</td><td>\(1/3\)</td></tr><tr><td>Esfera maciza</td><td>\(I=\frac25MR^2\)</td><td>\(2/5\)</td><td>\(2/7\)</td></tr><tr><td>Esfera hueca delgada</td><td>\(I=\frac23MR^2\)</td><td>\(2/3\)</td><td>\(2/5\)</td></tr></table>
+<div class="box key"><strong>Interpretación.</strong> A igual masa y rapidez del centro de masa, dos cuerpos pueden tener distinta energía cinética total porque una parte diferente de la energía está asociada a la rotación. Cuanto mayor es \(I/(MR^2)\), mayor es la fracción rotacional.</div>
+<div class="box warn"><strong>Rodadura ideal y rozamiento estático.</strong> Sobre una superficie fija y sin deslizamiento, el punto instantáneo de contacto está momentáneamente en reposo. Por eso, el rozamiento estático puede proporcionar el torque necesario para la rodadura sin disipar energía mecánica como lo hace el rozamiento cinético.</div>
+<div class="sim-box"><h4>Simulación 7: distribución de energía en rodadura</h4><p>Elegí la geometría y modificá masa, radio y rapidez del centro de masa. Para rodadura sin deslizamiento se usa \(\omega=v_{\mathrm{CM}}/R\).</p><div class="sim-grid three"><div><label>Geometría:</label><select id="rr_shape" style="width:100%;padding:9px;border:1px solid #cbd5e1;border-radius:10px;background:#fff"><option value="1">Aro delgado</option><option value="0.5" selected>Cilindro / disco macizo</option><option value="0.4">Esfera maciza</option><option value="0.6666667">Esfera hueca</option></select></div><div><label>Masa \(M\): <span id="rr_m_val">10.0 kg</span></label><input id="rr_m" max="40" min="1" step="0.5" type="range" value="10"/></div><div><label>Radio \(R\): <span id="rr_R_val">0.20 m</span></label><input id="rr_R" max="0.6" min="0.05" step="0.01" type="range" value="0.2"/></div><div><label>Rapidez \(v_{\mathrm{CM}}\): <span id="rr_v_val">2.0 m/s</span></label><input id="rr_v" max="6" min="0" step="0.1" type="range" value="2"/></div></div><div class="readout">\(\omega\): <strong id="rr_omega">10.00 rad/s</strong> · \(K_{\mathrm{tras}}\): <strong id="rr_Kt">20.0 J</strong> · \(K_{\mathrm{rot}}\): <strong id="rr_Kr">10.0 J</strong> · \(K_{\mathrm{total}}\): <strong id="rr_K">30.0 J</strong></div><canvas class="sim-canvas" height="360" id="rolling_canvas" width="760"></canvas><pre class="formula-readout" id="rr_text"></pre></div>
+</div>
 <div class="box key"><strong>Idea didáctica central.</strong> El trabajo es el medio por el cual una fuerza produce una variación de energía cinética. Si \(W_{\mathrm{neto}}>0\), la rapidez aumenta; si \(W_{\mathrm{neto}}<0\), disminuye; si \(W_{\mathrm{neto}}=0\), la energía cinética no cambia.</div>
 <div class="box warn"><strong>Alcance del teorema.</strong> El teorema trabajo–energía describe cambios de rapidez. Si además hay deformaciones, calentamiento, sonido o cambios internos, conviene ampliar el análisis usando energía mecánica, energía interna y conservación de la energía.</div>
 <div class="sim-box"><h4>Simulación 2: trabajo neto y cambio de energía cinética</h4><p>Elegí masa, rapidez inicial y trabajo neto. El simulador calcula energía cinética final y rapidez final.</p><div class="sim-grid three"><div><label>Masa \(m\): <span id="we_m_val">2.0 kg</span></label><input id="we_m" max="10" min="0.2" step="0.1" type="range" value="2"/></div><div><label>Rapidez inicial \(v_i\): <span id="we_vi_val">3.0 m/s</span></label><input id="we_vi" max="12" min="0" step="0.1" type="range" value="3"/></div><div><label>Trabajo neto \(W_{\mathrm{neto}}\): <span id="we_W_val">20 J</span></label><input id="we_W" max="200" min="-100" step="1" type="range" value="20"/></div></div><div class="readout">\(K_i\): <strong id="we_Ki">9.0 J</strong> · \(K_f\): <strong id="we_Kf">29.0 J</strong> · \(v_f\): <strong id="we_vf">5.39 m/s</strong></div><canvas class="sim-canvas" height="320" id="workenergy_canvas" width="760"></canvas><pre class="formula-readout" id="we_text"></pre></div>
@@ -364,6 +437,13 @@ header.unit-hero{
 <div class="eq">\[ W_e=-\Delta U_e=\frac{1}{2}kx_i^2-\frac{1}{2}kx_f^2 \]</div>
 <table class="table-compact"><tr><th>Tipo de energía potencial</th><th>Expresión</th><th>Variable relevante</th><th>Observación</th></tr><tr><td>Gravitatoria</td><td>\(U_g=mgy\)</td><td>Altura \(y\)</td><td>Depende del nivel de referencia elegido.</td></tr><tr><td>Elástica</td><td>\(U_e=\frac{1}{2}kx^2\)</td><td>Deformación \(x\)</td><td>Es positiva tanto en compresión como en estiramiento.</td></tr></table>
 <div class="box key"><strong>Comparación.</strong> El trabajo de una fuerza conservativa reduce o aumenta la energía potencial según el sentido del movimiento. En caída, \(U_g\) disminuye y el peso realiza trabajo positivo; al comprimir un resorte, \(U_e\) aumenta y el resorte realiza trabajo negativo.</div>
+
+<figure class="infographic-figure">
+  <img src="assets/images/energia_potencial_y_energia_mecanica.png" alt="Infografía sobre energía potencial, energía cinética y energía mecánica" loading="lazy"/>
+  <figcaption><strong>Infografía de síntesis: energía potencial y energía mecánica.</strong> Resume las expresiones de energía potencial gravitatoria \(U_g=mgh\), energía potencial elástica \(U_e=	frac12 kx^2\), energía cinética \(K=	frac12 mv^2\), energía mecánica \(E_m=K+U\) y el criterio de conservación de la energía mecánica cuando sólo actúan fuerzas conservativas.</figcaption>
+  <p class="mini-note"><strong>Sugerencia de uso didáctico:</strong> emplear esta imagen como cierre visual del punto 12 y como introducción al punto 13, destacando la transformación entre energía potencial y cinética en sistemas mecánicos.</p>
+</figure>
+
 </section>
 
 <section class="paper" id="mecanica"><h2>13. Energía mecánica y trabajo de fuerzas no conservativas</h2>
@@ -371,6 +451,8 @@ header.unit-hero{
 <p class="section-lead">Esta sección reúne los conceptos previos para resolver problemas donde se transforman energía cinética, energía potencial gravitatoria y energía potencial elástica.</p>
 
 <div class="eq">\[ E_m=K+U \]</div>
+<p>Si el sistema contiene un cuerpo rígido que además rota, la energía cinética puede incluir ambas contribuciones:</p>
+<div class="eq">\[ E_m=\frac12 Mv_{\mathrm{CM}}^2+\frac12 I_{\mathrm{CM}}\omega^2+U \]</div>
 <p>Si sólo realizan trabajo fuerzas conservativas, la energía mecánica se conserva:</p>
 <div class="eq">\[ K_i+U_i=K_f+U_f \]</div>
 <p>Si actúan fuerzas no conservativas, su trabajo modifica la energía mecánica:</p>
@@ -379,6 +461,8 @@ header.unit-hero{
 <div class="eq">\[ W_{\mathrm{nc}}=\Delta E_m=\Delta K+\Delta U \]</div>
 <p>En muchos sistemas reales, \(W_{\mathrm{nc}}<0\) porque el roce, la resistencia del aire o las pérdidas internas convierten energía mecánica en energía interna. En cambio, un motor o actuador puede aportar trabajo externo positivo al sistema.</p>
 <div class="box key"><strong>Modelo de análisis.</strong> Para resolver problemas, conviene identificar primero el sistema, luego separar fuerzas conservativas de no conservativas y finalmente decidir si usar \(K_i+U_i=K_f+U_f\) o \(K_i+U_i+W_{\mathrm{nc}}=K_f+U_f\).</div>
+
+<div class="sim-box"><h4>Simulación 8: caída libre y conservación de la energía mecánica</h4><p>Suponiendo que el cuerpo parte del reposo y que no hay resistencia del aire, la energía potencial gravitatoria se transforma en energía cinética mientras la energía mecánica total permanece constante.</p><div class="sim-grid three"><div><label>Masa \(m\): <span id="ff_m_val">2.0 kg</span></label><input id="ff_m" max="10" min="0.2" step="0.1" type="range" value="2"/></div><div><label>Altura inicial \(h_0\): <span id="ff_h0_val">5.0 m</span></label><input id="ff_h0" max="20" min="1" step="0.1" type="range" value="5"/></div><div><label>Progreso de la caída: <span id="ff_p_val">0 %</span></label><input id="ff_p" max="100" min="0" step="1" type="range" value="0"/></div></div><div class="readout">Instante: <strong id="ff_t">0.00 s</strong> · Altura: <strong id="ff_y">5.00 m</strong> · Rapidez: <strong id="ff_v">0.00 m/s</strong><br/>\(U_g\): <strong id="ff_U">98.1 J</strong> · \(K\): <strong id="ff_K">0.0 J</strong> · \(E_m\): <strong id="ff_Em">98.1 J</strong></div><canvas class="sim-canvas" height="390" id="fallenergy_canvas" width="760"></canvas><pre class="formula-readout" id="ff_text"></pre></div>
 </section>
 
 <section class="paper" id="potencia"><h2>14. Potencia, rendimiento y eficiencia energética</h2>
@@ -387,12 +471,22 @@ header.unit-hero{
 <div class="eq">\[ P=\frac{dW}{dt} \]</div>
 <p>Si una fuerza constante actúa en la dirección del movimiento, la potencia instantánea puede escribirse como:</p>
 <div class="eq">\[ P=Fv \]</div>
+<p>En un eje rotativo, la expresión equivalente se obtiene a partir de \(dW=\tau\,d\theta\):</p>
+<div class="eq math-safe">\[ \boxed{P=\tau\omega} \]</div>
+<p>Esta relación es fundamental para motores, mezcladores, molinos, poleas y transmisiones: a una velocidad angular dada, un mayor torque implica mayor potencia mecánica transferida.</p>
 <h3>14.1 Rendimiento</h3><p>En máquinas reales, no toda la energía entregada se convierte en energía útil. Una parte se disipa por rozamiento, calentamiento, vibración, ruido o pérdidas eléctricas.</p>
 <div class="theory-block"><h3>14.1.1 Lectura técnica del rendimiento</h3><p>Una potencia elevada no garantiza eficiencia. Un sistema puede consumir mucha potencia y entregar poca energía útil si existen pérdidas por desalineación, roce excesivo, mala lubricación, transmisión inadecuada o operación fuera del punto de diseño.</p></div>
 
 <div class="eq">\[ \eta=\frac{E_{\mathrm{útil}}}{E_{\mathrm{entrante}}}\times100\% \]</div>
 <div class="eq">\[ \eta=\frac{P_{\mathrm{útil}}}{P_{\mathrm{entrante}}}\times100\% \]</div>
 <div class="box app"><strong>Aplicación industrial.</strong> En cintas, elevadores, bombas, mezcladores y sistemas de transporte, el análisis de potencia y rendimiento permite estimar consumo energético, seleccionar motores y detectar pérdidas por mantenimiento deficiente.</div>
+
+<figure class="infographic-figure">
+  <img src="assets/images/potencia_y_rendimiento_en_alimentos.png" alt="Infografía sobre potencia y rendimiento en equipos de tecnología de alimentos" loading="lazy"/>
+  <figcaption><strong>Infografía de síntesis: potencia y rendimiento.</strong> Resume las definiciones de potencia \(P=W/\Delta t\), \(P=\Delta E/\Delta t\), potencia mecánica \(P=ec F\cdotec v\), potencia rotacional \(P=	au\omega\) y el rendimiento \(\eta=E_{\mathrm{útil}}/E_{\mathrm{entregada}}\) o \(\eta=P_{\mathrm{útil}}/P_{\mathrm{entrada}}\).</figcaption>
+  <p class="mini-note"><strong>Sugerencia de uso didáctico:</strong> utilizar esta imagen como apoyo visual del punto 14 para comparar rapidez de trabajo, pérdidas energéticas y aplicaciones en motores, bombas, cintas transportadoras y equipos de proceso de la industria alimentaria.</p>
+</figure>
+
 </section>
 
 <section class="paper" id="choques-centro-masa"><h2>15. Centro de masa, energía cinética y choques</h2>
@@ -435,7 +529,7 @@ header.unit-hero{
 </section>
 
 <section class="paper" id="aplicaciones"><h2>16. Aplicaciones industriales alimentarias</h2>
-<div class="grid"><div class="card"><h4>Cintas transportadoras</h4><p>El trabajo de motores, peso y rozamiento permite estimar aceleración, consumo y energía necesaria para mover cargas.</p></div><div class="card"><h4>Elevadores y tornillos</h4><p>El aumento de altura implica incremento de energía potencial gravitatoria y demanda de potencia.</p></div><div class="card"><h4>Resortes y soportes</h4><p>La energía potencial elástica aparece en apoyos, tensores, mecanismos de retorno y elementos de absorción de impacto.</p></div><div class="card"><h4>Frenado y desgaste</h4><p>El trabajo negativo del roce se traduce en calentamiento, desgaste de superficies y reducción de energía mecánica.</p></div><div class="card"><h4>Molinos y mezcladores</h4><p>Aunque aquí se enfatiza el movimiento traslacional, el concepto de trabajo se extiende a rotación mediante torque y desplazamiento angular.</p></div><div class="card"><h4>Eficiencia energética</h4><p>El control de pérdidas mecánicas permite mejorar rendimiento, seguridad, costos y estabilidad del proceso.</p></div></div>
+<div class="grid"><div class="card"><h4>Cintas transportadoras</h4><p>El trabajo de motores, peso y rozamiento permite estimar aceleración, consumo y energía necesaria para mover cargas.</p></div><div class="card"><h4>Elevadores y tornillos</h4><p>El aumento de altura implica incremento de energía potencial gravitatoria y demanda de potencia.</p></div><div class="card"><h4>Resortes y soportes</h4><p>La energía potencial elástica aparece en apoyos, tensores, mecanismos de retorno y elementos de absorción de impacto.</p></div><div class="card"><h4>Frenado y desgaste</h4><p>El trabajo negativo del roce se traduce en calentamiento, desgaste de superficies y reducción de energía mecánica.</p></div><div class="card"><h4>Molinos y mezcladores</h4><p>El motor entrega trabajo rotacional mediante torque. La energía cinética asociada al giro depende de \(I\) y \(\omega\), y la potencia mecánica del eje puede estimarse con \(P=\tau\omega\).</p></div><div class="card"><h4>Rodillos y tambores</h4><p>Cuando un elemento rueda o se desplaza mientras gira, su energía cinética incluye simultáneamente traslación del centro de masa y rotación alrededor de él.</p></div><div class="card"><h4>Eficiencia energética</h4><p>El control de pérdidas mecánicas permite mejorar rendimiento, seguridad, costos y estabilidad del proceso.</p></div></div>
 </section>
 
 <section class="paper" id="ejemplos"><h2>17. Ejemplos resueltos paso a paso</h2>
@@ -443,29 +537,57 @@ header.unit-hero{
 <div class="example"><h3>Ejemplo 2: trabajo del peso en una elevación</h3><p>Un envase de \(2{,}0\,\mathrm{kg}\) se eleva \(1{,}5\,\mathrm{m}\).</p><div class="step"><strong>1. Dato clave.</strong> \(\Delta y=+1{,}5\,\mathrm{m}\).</div><div class="step"><strong>2. Trabajo del peso.</strong> \(W_g=-mg\Delta y=-(2{,}0)(9{,}8)(1{,}5)=-29{,}4\,\mathrm{J}\).</div><div class="step"><strong>3. Energía potencial.</strong> \(\Delta U_g=+29{,}4\,\mathrm{J}\).</div><div class="step"><strong>4. Interpretación.</strong> El sistema cuerpo–Tierra almacena más energía potencial; el peso realiza trabajo negativo.</div></div>
 <div class="example"><h3>Ejemplo 3: resorte comprimido</h3><p>Un resorte de \(k=200\,\mathrm{N/m}\) se comprime desde \(x_i=0\) hasta \(x_f=-0{,}10\,\mathrm{m}\).</p><div class="step"><strong>1. Energía elástica final.</strong> \(U_f=\frac12kx_f^2=\frac12(200)(0{,}10)^2=1{,}0\,\mathrm{J}\).</div><div class="step"><strong>2. Trabajo del resorte.</strong> \(W_e=U_i-U_f=0-1{,}0=-1{,}0\,\mathrm{J}\).</div><div class="step"><strong>3. Interpretación.</strong> Mientras se comprime, el resorte se opone al movimiento y almacena energía.</div></div>
 <div class="example"><h3>Ejemplo 4: roce en una mesa horizontal</h3><p>Una caja se desplaza \(4{,}0\,\mathrm{m}\) sobre una mesa con \(\mu_k=0{,}25\), \(m=10\,\mathrm{kg}\).</p><div class="step"><strong>1. Normal.</strong> \(N=mg=98\,\mathrm{N}\).</div><div class="step"><strong>2. Roce.</strong> \(f_k=\mu_kN=24{,}5\,\mathrm{N}\).</div><div class="step"><strong>3. Trabajo.</strong> \(W_r=-f_kd=-(24{,}5)(4{,}0)=-98\,\mathrm{J}\).</div><div class="step"><strong>4. Interpretación.</strong> La energía mecánica disminuye y se transforma principalmente en energía interna.</div></div>
+
+<div class="example"><h3>Ejemplo 5: rodillo macizo con traslación y rotación</h3><p>Un rodillo cilíndrico macizo de \(M=20\,\mathrm{kg}\) y \(R=0{,}15\,\mathrm{m}\) rueda sin deslizar con \(v_{\mathrm{CM}}=1{,}5\,\mathrm{m/s}\). Calcular su energía cinética total.</p><div class="step"><strong>1. Relación de rodadura.</strong> \(\omega=v_{\mathrm{CM}}/R=1{,}5/0{,}15=10\,\mathrm{rad/s}\).</div><div class="step"><strong>2. Momento de inercia.</strong> Para un cilindro macizo, \(I_{\mathrm{CM}}=\frac12MR^2=0{,}225\,\mathrm{kg\,m^2}\).</div><div class="step"><strong>3. Energía traslacional.</strong> \(K_{\mathrm{tras}}=\frac12Mv_{\mathrm{CM}}^2=22{,}5\,\mathrm{J}\).</div><div class="step"><strong>4. Energía rotacional.</strong> \(K_{\mathrm{rot}}=\frac12I_{\mathrm{CM}}\omega^2=11{,}25\,\mathrm{J}\).</div><div class="step"><strong>5. Energía total.</strong> \(K_{\mathrm{total}}=22{,}5+11{,}25=33{,}75\,\mathrm{J}\).</div><div class="step"><strong>6. Interpretación.</strong> Dos tercios de la energía cinética corresponden a la traslación del centro de masa y un tercio a la rotación, como corresponde a un cilindro macizo que rueda sin deslizar.</div></div>
 </section>
 
 <section class="paper" id="simuladores"><h2>18. Simuladores incluidos</h2>
-<ol><li>Trabajo de una fuerza constante.</li><li>Trabajo neto y energía cinética.</li><li>Trabajo realizado por la fuerza peso.</li><li>Trabajo de un resorte y energía potencial elástica.</li><li>Fuerza aplicada, roce y trabajo neto.</li><li>Comparación entre fuerza conservativa y fuerza no conservativa.</li></ol>
-<p>Los simuladores permiten modificar parámetros y observar de manera gráfica cómo cambian el trabajo, la energía cinética, la energía potencial y la energía mecánica.</p></section>
+<ol><li>Trabajo de una fuerza constante.</li><li>Trabajo neto y energía cinética.</li><li>Trabajo realizado por la fuerza peso.</li><li>Trabajo de un resorte y energía potencial elástica.</li><li>Fuerza aplicada, roce y trabajo neto.</li><li>Comparación entre fuerza conservativa y fuerza no conservativa.</li><li>Distribución de energía cinética entre traslación y rotación durante rodadura sin deslizamiento.</li></ol>
+<p>Los simuladores permiten modificar parámetros y observar de manera gráfica cómo cambian el trabajo, la energía cinética traslacional y rotacional, la energía potencial y la energía mecánica.</p></section>
 
 <section class="paper" id="errores"><h2>19. Errores frecuentes</h2>
-<div class="grid"><div class="card"><h4>Confundir fuerza con trabajo</h4><p>Puede existir fuerza sin trabajo si no hay desplazamiento o si la fuerza es perpendicular al desplazamiento.</p></div><div class="card"><h4>Olvidar el signo</h4><p>El signo del trabajo indica si una fuerza aporta o extrae energía mecánica.</p></div><div class="card"><h4>Usar distancia en vez de desplazamiento</h4><p>Para una fuerza constante se usa el desplazamiento y el ángulo con la fuerza; para rozamiento interesa el recorrido.</p></div><div class="card"><h4>Creer que toda fuerza tiene energía potencial</h4><p>Sólo las fuerzas conservativas admiten una función de energía potencial asociada.</p></div><div class="card"><h4>Asignar \(U_g\) al cuerpo solo</h4><p>La energía potencial gravitatoria pertenece al sistema cuerpo–Tierra.</p></div><div class="card"><h4>Ignorar pérdidas</h4><p>En equipos reales, parte de la energía se disipa por roce, vibración, calor y sonido.</p></div></div></section>
+<div class="grid"><div class="card"><h4>Confundir fuerza con trabajo</h4><p>Puede existir fuerza sin trabajo si no hay desplazamiento o si la fuerza es perpendicular al desplazamiento.</p></div><div class="card"><h4>Olvidar el signo</h4><p>El signo del trabajo indica si una fuerza aporta o extrae energía mecánica.</p></div><div class="card"><h4>Usar distancia en vez de desplazamiento</h4><p>Para una fuerza constante se usa el desplazamiento y el ángulo con la fuerza; para rozamiento interesa el recorrido.</p></div><div class="card"><h4>Creer que toda fuerza tiene energía potencial</h4><p>Sólo las fuerzas conservativas admiten una función de energía potencial asociada.</p></div><div class="card"><h4>Asignar \(U_g\) al cuerpo solo</h4><p>La energía potencial gravitatoria pertenece al sistema cuerpo–Tierra.</p></div><div class="card"><h4>Ignorar pérdidas</h4><p>En equipos reales, parte de la energía se disipa por roce, vibración, calor y sonido.</p></div><div class="card"><h4>Confundir fuerza centrípeta con trabajo</h4><p>Una fuerza radial puede ser grande y producir aceleración centrípeta, pero si es perpendicular al desplazamiento instantáneo su trabajo es nulo.</p></div><div class="card"><h4>Olvidar la energía de rotación</h4><p>En un cuerpo que rueda o gira, usar sólo \(\frac12Mv^2\) subestima la energía cinética total. Debe agregarse \(\frac12I\omega^2\).</p></div><div class="card"><h4>Usar grados en \(W=\tau\Delta\theta\)</h4><p>El desplazamiento angular debe expresarse en radianes para que la relación trabajo–torque conserve coherencia dimensional.</p></div></div></section>
 
 <section class="paper" id="preguntas"><h2>20. Preguntas conceptuales</h2>
-<ol><li>¿Puede una fuerza muy grande realizar trabajo nulo? Dar un ejemplo.</li><li>¿Por qué el peso no realiza trabajo cuando un producto se mueve horizontalmente?</li><li>¿Qué significa físicamente que el trabajo neto sea negativo?</li><li>¿Por qué la energía cinética depende de \(v^2\) y no de \(v\)?</li><li>¿Qué diferencia hay entre trabajo del resorte y trabajo externo para comprimirlo?</li><li>¿Por qué el rozamiento cinético es una fuerza no conservativa?</li><li>¿Qué nivel de referencia conviene elegir para \(U_g\) en un problema de elevación?</li><li>¿Qué información técnica aporta la potencia además del trabajo total?</li></ol></section>
+<ol><li>¿Puede una fuerza muy grande realizar trabajo nulo? Dar un ejemplo.</li><li>¿Por qué el peso no realiza trabajo cuando un producto se mueve horizontalmente?</li><li>¿Qué significa físicamente que el trabajo neto sea negativo?</li><li>¿Por qué la energía cinética depende de \(v^2\) y no de \(v\)?</li><li>¿Qué diferencia hay entre trabajo del resorte y trabajo externo para comprimirlo?</li><li>¿Por qué el rozamiento cinético es una fuerza no conservativa?</li><li>¿Qué nivel de referencia conviene elegir para \(U_g\) en un problema de elevación?</li><li>¿Qué información técnica aporta la potencia además del trabajo total?</li><li>En un movimiento circular uniforme, ¿por qué la fuerza centrípeta puede cambiar la velocidad pero realizar trabajo nulo?</li><li>¿Cuál es la analogía entre \(F\,ds\) y \(\tau\,d\theta\)?</li><li>¿Qué representa físicamente el momento de inercia en la expresión \(K_{\mathrm{rot}}=\frac12I\omega^2\)?</li><li>¿Por qué un aro y una esfera maciza que ruedan a la misma rapidez pueden tener distinta energía cinética total aun si poseen la misma masa y radio?</li><li>¿Qué dos contribuciones deben sumarse para calcular la energía cinética de un cuerpo que rueda sin deslizar?</li></ol></section>
 
-<section class="paper" id="ejercicios"><h2>21. Ejercicios numéricos propuestos</h2>
-<ol><li>Una fuerza de \(30\,\mathrm{N}\) actúa durante \(6\,\mathrm{m}\) con \(\theta=20^\circ\). Calcular el trabajo.</li><li>Un cuerpo de \(4\,\mathrm{kg}\) aumenta su rapidez de \(2\,\mathrm{m/s}\) a \(7\,\mathrm{m/s}\). Calcular el trabajo neto.</li><li>Un envase de \(1{,}5\,\mathrm{kg}\) se eleva \(2{,}2\,\mathrm{m}\). Calcular \(W_g\) y \(\Delta U_g\).</li><li>Un resorte de \(k=150\,\mathrm{N/m}\) pasa de \(x_i=0{,}12\,\mathrm{m}\) a \(x_f=0{,}04\,\mathrm{m}\). Calcular el trabajo del resorte.</li><li>Una caja de \(8\,\mathrm{kg}\) se desplaza \(5\,\mathrm{m}\) con \(\mu_k=0{,}30\). Calcular el trabajo del roce.</li><li>Un motor entrega \(1200\,\mathrm{J}\) en \(4\,\mathrm{s}\). Calcular la potencia promedio.</li><li>Un equipo recibe \(2{,}0\,\mathrm{kW}\) y entrega \(1{,}5\,\mathrm{kW}\) útiles. Calcular el rendimiento.</li></ol></section>
+<section class="paper" id="ejercicios"><h2>21. Guía de ejercicios resueltos</h2>
+<p class="section-lead">En lugar de una lista de ejercicios propuestos, este punto reúne el acceso a la <strong>Guía de ejercicios resueltos de la Unidad 4</strong>. La guía desarrolla de manera justificada y validada una selección del Trabajo Práctico N.º 06 e incluye los esquemas y figuras necesarios para acompañar cada resolución.</p>
+<div class="exercise-guide">
+  <div class="box key"><strong>Contenido de la guía.</strong> Se resuelven los ejercicios 3, 4, 6, 8, 10, 17, 19, 22–23 integrados, 27 y 29. Cada desarrollo explicita el modelo físico, las hipótesis, las ecuaciones empleadas, la resolución numérica y la validación del resultado.</div>
+  <div class="guide-actions">
+    <a class="guide-btn" href="Ejercicios/Guia_Resuelta_Trabajo_Energia.pdf" target="_blank" rel="noopener">📘 Abrir guía completa en PDF</a>
+    <a class="guide-btn secondary" href="Ejercicios/Guia_Resuelta_Trabajo_Energia.pdf" download>⬇ Descargar guía PDF</a>
+  </div>
+
+  <h3>Índice de ejercicios resueltos</h3>
+  <table class="exercise-index">
+    <thead><tr><th>Ejercicio</th><th>Tema principal</th><th>Acceso</th></tr></thead>
+    <tbody>
+      <tr><td>3</td><td>Trabajo de fuerzas sobre un desplazamiento horizontal.</td><td><a class="exercise-link" href="Ejercicios/Guia_Resuelta_Trabajo_Energia.pdf#page=3" target="_blank" rel="noopener">Ir al ejercicio</a></td></tr>
+      <tr><td>4</td><td>Trabajo de una fuerza variable y teorema trabajo–energía.</td><td><a class="exercise-link" href="Ejercicios/Guia_Resuelta_Trabajo_Energia.pdf#page=4" target="_blank" rel="noopener">Ir al ejercicio</a></td></tr>
+      <tr><td>6</td><td>Lanzamiento vertical y conservación de la energía mecánica.</td><td><a class="exercise-link" href="Ejercicios/Guia_Resuelta_Trabajo_Energia.pdf#page=6" target="_blank" rel="noopener">Ir al ejercicio</a></td></tr>
+      <tr><td>8</td><td>Trabajo neto y trabajo de la fuerza de rozamiento.</td><td><a class="exercise-link" href="Ejercicios/Guia_Resuelta_Trabajo_Energia.pdf#page=7" target="_blank" rel="noopener">Ir al ejercicio</a></td></tr>
+      <tr><td>10</td><td>Trabajo de varias fuerzas en un plano inclinado.</td><td><a class="exercise-link" href="Ejercicios/Guia_Resuelta_Trabajo_Energia.pdf#page=7" target="_blank" rel="noopener">Ir al ejercicio</a></td></tr>
+      <tr><td>17</td><td>Resorte y disipación por rozamiento.</td><td><a class="exercise-link" href="Ejercicios/Guia_Resuelta_Trabajo_Energia.pdf#page=8" target="_blank" rel="noopener">Ir al ejercicio</a></td></tr>
+      <tr><td>19</td><td>Pista, rozamiento localizado y resorte.</td><td><a class="exercise-link" href="Ejercicios/Guia_Resuelta_Trabajo_Energia.pdf#page=9" target="_blank" rel="noopener">Ir al ejercicio</a></td></tr>
+      <tr><td>22–23</td><td>Resorte y rulo vertical: condición crítica, rozamiento, velocidad y fuerza normal.</td><td><a class="exercise-link" href="Ejercicios/Guia_Resuelta_Trabajo_Energia.pdf#page=10" target="_blank" rel="noopener">Ir al ejercicio</a></td></tr>
+      <tr><td>27</td><td>Trabajo y potencia en un movimiento con aceleración uniforme.</td><td><a class="exercise-link" href="Ejercicios/Guia_Resuelta_Trabajo_Energia.pdf#page=11" target="_blank" rel="noopener">Ir al ejercicio</a></td></tr>
+      <tr><td>29</td><td>Trabajo, energía cinética y potencia necesaria para una bomba.</td><td><a class="exercise-link" href="Ejercicios/Guia_Resuelta_Trabajo_Energia.pdf#page=12" target="_blank" rel="noopener">Ir al ejercicio</a></td></tr>
+    </tbody>
+  </table>
+  <p class="guide-note"><strong>Nota:</strong> los accesos individuales abren el PDF aproximadamente en la página donde comienza cada resolución. El comportamiento del parámetro <code>#page=</code> puede variar según el visor PDF del navegador; el botón principal siempre abre la guía completa.</p>
+</div>
+</section>
 
 <section class="paper" id="practica"><h2>22. Actividad práctica o simulada</h2>
-<p><strong>Consigna.</strong> Modelar una cinta o elevador simple que transporta un producto entre dos puntos. El estudiante debe estimar trabajo de fuerza aplicada, trabajo del peso, trabajo del roce, variación de energía cinética y potencia requerida.</p><ol><li>Definir sistema, datos y supuestos.</li><li>Indicar fuerzas conservativas y no conservativas.</li><li>Calcular \(W_g\), \(W_{\mathrm{roce}}\), \(W_{\mathrm{aplicada}}\) y \(W_{\mathrm{neto}}\).</li><li>Comparar \(W_{\mathrm{neto}}\) con \(\Delta K\).</li><li>Estimar potencia media para un tiempo de operación dado.</li><li>Interpretar qué pérdidas podrían reducir el rendimiento real.</li></ol></section>
+<p><strong>Consigna.</strong> Modelar una cinta o elevador simple que transporta un producto entre dos puntos. El estudiante debe estimar trabajo de fuerza aplicada, trabajo del peso, trabajo del roce, variación de energía cinética y potencia requerida.</p><ol><li>Definir sistema, datos y supuestos.</li><li>Indicar fuerzas conservativas y no conservativas.</li><li>Calcular \(W_g\), \(W_{\mathrm{roce}}\), \(W_{\mathrm{aplicada}}\) y \(W_{\mathrm{neto}}\).</li><li>Comparar \(W_{\mathrm{neto}}\) con \(\Delta K\).</li><li>Estimar potencia media para un tiempo de operación dado.</li><li>Interpretar qué pérdidas podrían reducir el rendimiento real.</li><li><strong>Extensión rotacional:</strong> incorporar un rodillo, polea o tambor; estimar el trabajo del torque, la energía cinética rotacional y, si el elemento rueda o se traslada, separar \(K_{\mathrm{tras}}\) y \(K_{\mathrm{rot}}\).</li></ol></section>
 
 <section class="paper" id="resumen"><h2>23. Resumen final</h2>
-<ul><li>El trabajo mide transferencia de energía por una fuerza durante un desplazamiento.</li><li>La energía cinética depende de \(m\) y de \(v^2\).</li><li>El trabajo neto es igual a la variación de energía cinética.</li><li>El peso sólo realiza trabajo si cambia la altura.</li><li>El resorte almacena energía potencial elástica cuando se deforma.</li><li>El roce realiza trabajo negativo y disipa energía mecánica.</li><li>Las fuerzas conservativas permiten definir energía potencial.</li><li>La potencia mide la rapidez con que se realiza trabajo o se transfiere energía.</li></ul></section>
+<ul><li>El trabajo mide transferencia de energía por una fuerza durante un desplazamiento.</li><li>En una trayectoria circular, la componente radial no realiza trabajo si es perpendicular al desplazamiento instantáneo.</li><li>En rotación, el trabajo elemental se expresa como \(dW=\tau\,d\theta\); para torque constante, \(W=\tau\Delta\theta\).</li><li>La energía cinética traslacional depende de \(m\) y de \(v^2\).</li><li>La energía cinética rotacional es \(K_{\mathrm{rot}}=\frac12I\omega^2\).</li><li>El trabajo neto es igual a la variación de energía cinética, tanto en traslación como en rotación.</li><li>En traslación + rotación, \(K_{\mathrm{total}}=\frac12Mv_{\mathrm{CM}}^2+\frac12I_{\mathrm{CM}}\omega^2\).</li><li>En rodadura sin deslizamiento se cumple \(v_{\mathrm{CM}}=\omega R\).</li><li>El peso sólo realiza trabajo si cambia la altura.</li><li>El resorte almacena energía potencial elástica cuando se deforma.</li><li>El roce cinético realiza trabajo negativo y disipa energía mecánica.</li><li>Las fuerzas conservativas permiten definir energía potencial.</li><li>La potencia mide la rapidez con que se realiza trabajo o se transfiere energía; en rotación, \(P=\tau\omega\).</li></ul></section>
 
 <section class="paper" id="glosario"><h2>24. Glosario breve</h2>
-<table><tr><th>Término</th><th>Significado</th></tr><tr><td>Trabajo</td><td>Transferencia de energía asociada a una fuerza que actúa durante un desplazamiento.</td></tr><tr><td>Joule</td><td>Unidad SI de trabajo y energía: \(1\,\mathrm{J}=1\,\mathrm{N\,m}\).</td></tr><tr><td>Energía cinética</td><td>Energía asociada al movimiento.</td></tr><tr><td>Trabajo neto</td><td>Suma de los trabajos realizados por todas las fuerzas que actúan sobre el cuerpo.</td></tr><tr><td>Fuerza conservativa</td><td>Fuerza cuyo trabajo no depende de la trayectoria.</td></tr><tr><td>Fuerza no conservativa</td><td>Fuerza cuyo trabajo depende del recorrido o del proceso.</td></tr><tr><td>Energía potencial</td><td>Energía asociada a la posición o configuración de un sistema.</td></tr><tr><td>Energía mecánica</td><td>Suma \(E_m=K+U\).</td></tr><tr><td>Potencia</td><td>Rapidez de transferencia de energía o realización de trabajo.</td></tr><tr><td>Rendimiento</td><td>Relación entre energía útil y energía entrante.</td></tr></table></section>
+<table><tr><th>Término</th><th>Significado</th></tr><tr><td>Trabajo</td><td>Transferencia de energía asociada a una fuerza que actúa durante un desplazamiento.</td></tr><tr><td>Joule</td><td>Unidad SI de trabajo y energía: \(1\,\mathrm{J}=1\,\mathrm{N\,m}\).</td></tr><tr><td>Energía cinética</td><td>Energía asociada al movimiento.</td></tr><tr><td>Trabajo neto</td><td>Suma de los trabajos realizados por todas las fuerzas que actúan sobre el cuerpo.</td></tr><tr><td>Fuerza conservativa</td><td>Fuerza cuyo trabajo no depende de la trayectoria.</td></tr><tr><td>Fuerza no conservativa</td><td>Fuerza cuyo trabajo depende del recorrido o del proceso.</td></tr><tr><td>Energía potencial</td><td>Energía asociada a la posición o configuración de un sistema.</td></tr><tr><td>Energía mecánica</td><td>Suma \(E_m=K+U\).</td></tr><tr><td>Potencia</td><td>Rapidez de transferencia de energía o realización de trabajo.</td></tr><tr><td>Rendimiento</td><td>Relación entre energía útil y energía entrante.</td></tr><tr><td>Torque</td><td>Medida del efecto rotacional de una fuerza respecto de un eje. Permite expresar trabajo rotacional mediante \(dW=\tau\,d\theta\).</td></tr><tr><td>Momento de inercia</td><td>Magnitud que describe cómo está distribuida la masa respecto de un eje de rotación.</td></tr><tr><td>Energía cinética rotacional</td><td>Energía asociada al giro de un cuerpo rígido: \(K_{\mathrm{rot}}=\frac12I\omega^2\).</td></tr><tr><td>Rodadura sin deslizamiento</td><td>Movimiento combinado en el que el centro de masa se traslada mientras el cuerpo gira, cumpliéndose \(v_{\mathrm{CM}}=\omega R\).</td></tr></table></section>
 
 <section class="paper" id="creditos"><h2>25. Créditos y uso del material</h2>
 <p>Este apunte fue elaborado por el <strong>Prof. Víctor Javier Koziura</strong> como material didáctico complementario para la asignatura <strong>Física Aplicada a la Tecnología de Alimentos</strong>.</p>
@@ -481,5 +603,96 @@ function simWeight(){let m=+$('wg_m').value,dx=+$('wg_dx').value,dy=+$('wg_dy').
 function simSpring(){let k=+$('sp_k').value,xi=+$('sp_xi').value,xf=+$('sp_xf').value,Ui=.5*k*xi*xi,Uf=.5*k*xf*xf,W=Ui-Uf,dU=Uf-Ui;$('sp_k_val').textContent=k+' N/m';$('sp_xi_val').textContent=xi.toFixed(2)+' m';$('sp_xf_val').textContent=xf.toFixed(2)+' m';$('sp_W').textContent=W.toFixed(3)+' J';$('sp_dU').textContent=dU.toFixed(3)+' J';$('sp_text').textContent=`Ui = ${Ui.toFixed(3)} J\nUf = ${Uf.toFixed(3)} J\nWe = Ui - Uf = ${W.toFixed(3)} J\nΔUe = ${dU.toFixed(3)} J`;let ca=$('spring_canvas'),c=ca.getContext('2d'),ax=axes(c,ca.width,ca.height,'deformación x (m)','Ue (J)'),xMin=-.25,xMax=.25,Umax=.5*k*xMax*xMax,X=x=>ax.m.l+(x-xMin)/(xMax-xMin)*ax.iw,Y=u=>ax.m.t+ax.ih-u/Umax*ax.ih;c.strokeStyle='#2563eb';c.lineWidth=2.7;c.beginPath();for(let i=0;i<=240;i++){let x=xMin+(xMax-xMin)*i/240,u=.5*k*x*x,xx=X(x),yy=Y(u);if(i===0)c.moveTo(xx,yy);else c.lineTo(xx,yy)}c.stroke();dot(c,X(xi),Y(Ui),'#dc2626');dot(c,X(xf),Y(Uf),'#16a34a');txt(c,`We = ${W.toFixed(3)} J`,570,58,W>=0?'#166534':'#991b1b','bold 16px system-ui')}bind(['sp_k','sp_xi','sp_xf'],simSpring);
 function simFriction(){let m=+$('fr_m').value,mu=+$('fr_mu').value,d=+$('fr_d').value,F=+$('fr_F').value,th=+$('fr_th').value,rad=th*Math.PI/180,Fy=F*Math.sin(rad),N=Math.max(0,m*g-Fy),fk=mu*N,Wapp=F*d*Math.cos(rad),Wfr=-fk*d,Wnet=Wapp+Wfr;$('fr_m_val').textContent=m.toFixed(1)+' kg';$('fr_mu_val').textContent=mu.toFixed(2);$('fr_d_val').textContent=d.toFixed(1)+' m';$('fr_F_val').textContent=F.toFixed(0)+' N';$('fr_th_val').textContent=th+'°';$('fr_Wnet').textContent=Wnet.toFixed(1)+' J';$('fr_estado').textContent=Math.abs(Wnet)<1e-9?'K constante':Wnet>0?'aumenta K':'disminuye K';$('fr_text').textContent=`N = ${N.toFixed(2)} N\nfk = ${fk.toFixed(2)} N\nWaplicada = ${Wapp.toFixed(2)} J\nWroce = ${Wfr.toFixed(2)} J\nWneto = ${Wnet.toFixed(2)} J`;let ca=$('friction_canvas'),c=ca.getContext('2d');c.clearRect(0,0,ca.width,ca.height);c.fillStyle='#fff';c.fillRect(0,0,ca.width,ca.height);txt(c,'Trabajo de fuerza aplicada y roce',28,32,'#1e3a8a','bold 22px system-ui');c.strokeStyle='#94a3b8';c.lineWidth=2;c.beginPath();c.moveTo(70,245);c.lineTo(690,245);c.stroke();rr(c,310,185,110,60,10);c.fillStyle='#eaf1ff';c.fill();c.strokeStyle='#1e3a8a';c.lineWidth=2;c.stroke();txt(c,'bloque',343,221,'#1e3a8a','bold 14px system-ui');ar(c,420,215,420+120*Math.cos(-rad),215+120*Math.sin(-rad),'#2563eb','F');ar(c,310,235,220,235,'#dc2626','f_k');ar(c,365,245,365,155,'#16a34a','N');ar(c,365,185,365,285,'#991b1b','P');ar(c,180,285,520,285,'#64748b','d');txt(c,`Wneto = ${Wnet.toFixed(1)} J`,555,176,Wnet>=0?'#166534':'#991b1b','bold 16px system-ui')}bind(['fr_m','fr_mu','fr_d','fr_F','fr_th'],simFriction);
 function simCons(){let m=+$('cv_m').value,h=+$('cv_h').value,extra=+$('cv_extra').value,mu=+$('cv_mu').value,dx=4,L1=Math.sqrt(dx*dx+h*h),L2=L1+extra,Wg=-m*g*h,N=m*g,Wf1=-mu*N*L1,Wf2=-mu*N*L2;$('cv_m_val').textContent=m.toFixed(1)+' kg';$('cv_h_val').textContent=h.toFixed(1)+' m';$('cv_extra_val').textContent=extra.toFixed(1)+' m';$('cv_mu_val').textContent=mu.toFixed(2);$('cv_Wg').textContent=Wg.toFixed(1)+' J';$('cv_Wf1').textContent=Wf1.toFixed(1)+' J';$('cv_Wf2').textContent=Wf2.toFixed(1)+' J';$('cv_text').textContent=`Peso: Wg = -m g Δy = ${Wg.toFixed(2)} J en ambas trayectorias.\nRozamiento: Wf = -μk N L.\nDirecta: L = ${L1.toFixed(2)} m → Wf = ${Wf1.toFixed(2)} J.\nCon desvío: L = ${L2.toFixed(2)} m → Wf = ${Wf2.toFixed(2)} J.`;let ca=$('conservative_canvas'),c=ca.getContext('2d');c.clearRect(0,0,ca.width,ca.height);c.fillStyle='#fff';c.fillRect(0,0,ca.width,ca.height);txt(c,'Trabajo y dependencia con la trayectoria',28,32,'#1e3a8a','bold 22px system-ui');let x0=120,y0=240,x1=560,y1=240-h*45;c.strokeStyle='#2563eb';c.lineWidth=4;c.beginPath();c.moveTo(x0,y0);c.lineTo(x1,y1);c.stroke();c.strokeStyle='#f97316';c.setLineDash([8,5]);c.beginPath();c.moveTo(x0,y0);c.bezierCurveTo(260,y0-120-extra*10,420,y1+120+extra*5,x1,y1);c.stroke();c.setLineDash([]);dot(c,x0,y0);dot(c,x1,y1);txt(c,`Peso: ${Wg.toFixed(1)} J en ambas`,90,304,'#166534','bold 14px system-ui');txt(c,`Roce directa: ${Wf1.toFixed(1)} J`,360,304,'#2563eb','bold 14px system-ui');txt(c,`Roce desvío: ${Wf2.toFixed(1)} J`,530,304,'#c2410c','bold 14px system-ui')}bind(['cv_m','cv_h','cv_extra','cv_mu'],simCons);
+
+function simRolling(){
+  let beta=+$('rr_shape').value,m=+$('rr_m').value,R=+$('rr_R').value,v=+$('rr_v').value;
+  let omega=R>0?v/R:0,I=beta*m*R*R,Kt=.5*m*v*v,Kr=.5*I*omega*omega,K=Kt+Kr;
+  let shape=$('rr_shape').options[$('rr_shape').selectedIndex].text;
+  $('rr_m_val').textContent=m.toFixed(1)+' kg'; $('rr_R_val').textContent=R.toFixed(2)+' m'; $('rr_v_val').textContent=v.toFixed(1)+' m/s';
+  $('rr_omega').textContent=omega.toFixed(2)+' rad/s'; $('rr_Kt').textContent=Kt.toFixed(1)+' J'; $('rr_Kr').textContent=Kr.toFixed(1)+' J'; $('rr_K').textContent=K.toFixed(1)+' J';
+  $('rr_text').textContent=`${shape}\nI = βMR² = ${beta.toFixed(3)}·${m.toFixed(1)}·${R.toFixed(2)}² = ${I.toFixed(4)} kg·m²\nω = v/R = ${omega.toFixed(3)} rad/s\nKtras = ${Kt.toFixed(2)} J\nKrot = ${Kr.toFixed(2)} J\nKtotal = ${K.toFixed(2)} J`;
+  let ca=$('rolling_canvas'),c=ca.getContext('2d'); c.clearRect(0,0,ca.width,ca.height); c.fillStyle='#fff'; c.fillRect(0,0,ca.width,ca.height);
+  txt(c,'Traslación + rotación en rodadura',28,32,'#1e3a8a','bold 22px system-ui');
+  c.strokeStyle='#94a3b8'; c.lineWidth=2; c.beginPath(); c.moveTo(55,215); c.lineTo(360,215); c.stroke();
+  let cx=205,cy=165,rad=50; c.strokeStyle='#2563eb'; c.lineWidth=4; c.beginPath(); c.arc(cx,cy,rad,0,Math.PI*2); c.stroke(); dot(c,cx,cy,'#1e3a8a');
+  let a=-Math.PI/4; c.strokeStyle='#60a5fa'; c.lineWidth=3; c.beginPath(); c.moveTo(cx,cy); c.lineTo(cx+rad*Math.cos(a),cy+rad*Math.sin(a)); c.stroke();
+  ar(c,cx,100,cx+105,100,'#16a34a','vCM');
+  c.strokeStyle='#7c3aed'; c.lineWidth=3; c.beginPath(); c.arc(cx,cy,70,-2.4,-.25); c.stroke(); let aa=-.25; c.fillStyle='#7c3aed'; c.beginPath(); c.moveTo(cx+70*Math.cos(aa),cy+70*Math.sin(aa)); c.lineTo(cx+58*Math.cos(aa-.16),cy+58*Math.sin(aa-.16)); c.lineTo(cx+58*Math.cos(aa+.16),cy+58*Math.sin(aa+.16)); c.closePath(); c.fill(); txt(c,'ω',290,138,'#7c3aed','bold 16px system-ui');
+  txt(c,shape,205,247,'#334155','bold 14px system-ui','center');
+  let max=Math.max(K,1); bar(c,440,92,205,28,Kt,max,'#2563eb','K traslacional'); bar(c,440,166,205,28,Kr,max,'#7c3aed','K rotacional');
+  c.fillStyle='#eef2f7'; c.fillRect(440,252,205,31); c.strokeStyle='#cbd5e1'; c.strokeRect(440,252,205,31); c.fillStyle='#16a34a'; c.fillRect(440,252,205,31); txt(c,'K total',440,242,'#334155','13px system-ui'); txt(c,K.toFixed(1)+' J',655,273,'#111827','bold 12px system-ui');
+  txt(c,`Fracción rotacional: ${K>0?(100*Kr/K).toFixed(1):'0.0'} %`,440,325,'#334155','bold 14px system-ui');
+}
+
+function simFallEnergy(){
+  let m=+$('ff_m').value,h0=+$('ff_h0').value,p=+$('ff_p').value;
+  let tf=Math.sqrt(2*h0/g), t=tf*(p/100), y=Math.max(0,h0-0.5*g*t*t), v=g*t;
+  if(t>tf){t=tf; y=0; v=g*tf;}
+  let Ug=m*g*y, K=0.5*m*v*v, Em=m*g*h0;
+  $('ff_m_val').textContent=m.toFixed(1)+' kg';
+  $('ff_h0_val').textContent=h0.toFixed(1)+' m';
+  $('ff_p_val').textContent=p.toFixed(0)+' %';
+  $('ff_t').textContent=t.toFixed(2)+' s';
+  $('ff_y').textContent=y.toFixed(2)+' m';
+  $('ff_v').textContent=v.toFixed(2)+' m/s';
+  $('ff_U').textContent=Ug.toFixed(1)+' J';
+  $('ff_K').textContent=K.toFixed(1)+' J';
+  $('ff_Em').textContent=Em.toFixed(1)+' J';
+  $('ff_text').textContent=`Caída libre desde el reposo (sin rozamiento)
+Tiempo total de caída: tf = √(2h0/g) = ${tf.toFixed(3)} s
+Altura instantánea: y = h0 - 1/2 g t² = ${y.toFixed(3)} m
+Rapidez: v = g t = ${v.toFixed(3)} m/s
+Ug = m g y = ${Ug.toFixed(3)} J
+K = 1/2 m v² = ${K.toFixed(3)} J
+Em = Ug + K = ${Ug.toFixed(3)} + ${K.toFixed(3)} = ${(Ug+K).toFixed(3)} J ≈ ${Em.toFixed(3)} J`;
+  let ca=$('fallenergy_canvas'), c=ca.getContext('2d');
+  c.clearRect(0,0,ca.width,ca.height); c.fillStyle='#fff'; c.fillRect(0,0,ca.width,ca.height);
+  txt(c,'Transformación entre energía potencial y cinética',28,30,'#1e3a8a','bold 22px system-ui');
+  // Scene at left
+  let sx=58, syTop=72, syBottom=336, sceneW=165;
+  c.strokeStyle='#94a3b8'; c.lineWidth=2; c.beginPath(); c.moveTo(sx+15,syBottom); c.lineTo(sx+sceneW-8,syBottom); c.stroke();
+  c.strokeStyle='#cbd5e1'; c.lineWidth=1.2; c.beginPath(); c.moveTo(sx+40,syTop); c.lineTo(sx+40,syBottom); c.stroke();
+  let py = syBottom - (y/h0)*(syBottom-syTop);
+  rr(c,sx+74,py-16,34,34,7); c.fillStyle='#eab308'; c.fill(); c.strokeStyle='#a16207'; c.lineWidth=2; c.stroke();
+  ar(c,sx+130,py+2,sx+130,py+40,'#dc2626','P');
+  txt(c,'cuerpo',sx+91,py+56,'#334155','bold 12px system-ui','center');
+  txt(c,'h0',sx+10,syTop+6,'#334155','bold 12px system-ui');
+  txt(c,'0',sx+10,syBottom-4,'#334155','bold 12px system-ui');
+  // height bracket
+  c.strokeStyle='#64748b'; c.beginPath(); c.moveTo(sx+22,syTop); c.lineTo(sx+22,py); c.stroke();
+  c.beginPath(); c.moveTo(sx+16,syTop); c.lineTo(sx+28,syTop); c.moveTo(sx+16,py); c.lineTo(sx+28,py); c.stroke();
+  txt(c,`y = ${y.toFixed(2)} m`,sx+2,(syTop+py)/2,'#334155','bold 12px system-ui');
+  txt(c,`t = ${t.toFixed(2)} s`,sx+10,syBottom+24,'#334155','bold 12px system-ui');
+  // Graph at right
+  let gx=255, gy=58, gw=470, gh=285, mrg={l:52,r:12,t:12,b:36};
+  let plotX=tval=>gx+mrg.l+(tval/tf)*(gw-mrg.l-mrg.r);
+  let plotY=Eval=>gy+mrg.t+(1-Eval/Em)*(gh-mrg.t-mrg.b);
+  c.strokeStyle='#e9eef5'; c.lineWidth=1;
+  for(let i=0;i<=5;i++){let yy=gy+mrg.t+i*(gh-mrg.t-mrg.b)/5;c.beginPath();c.moveTo(gx+mrg.l,yy);c.lineTo(gx+gw-mrg.r,yy);c.stroke();}
+  for(let i=0;i<=6;i++){let xx=gx+mrg.l+i*(gw-mrg.l-mrg.r)/6;c.beginPath();c.moveTo(xx,gy+mrg.t);c.lineTo(xx,gy+gh-mrg.b);c.stroke();}
+  c.strokeStyle='#0f172a'; c.lineWidth=1.5;
+  c.beginPath(); c.moveTo(gx+mrg.l,gy+gh-mrg.b); c.lineTo(gx+gw-mrg.r,gy+gh-mrg.b); c.stroke();
+  c.beginPath(); c.moveTo(gx+mrg.l,gy+mrg.t); c.lineTo(gx+mrg.l,gy+gh-mrg.b); c.stroke();
+  txt(c,'Energía (J)',gx+4,gy+10,'#0f172a','bold 13px system-ui');
+  txt(c,'tiempo t (s)',gx+gw/2,gy+gh-4,'#0f172a','13px system-ui','center');
+  // y-axis labels
+  for(let i=0;i<=5;i++){let E=Em*(1-i/5), yy=plotY(E); txt(c,E.toFixed(0),gx+mrg.l-8,yy+4,'#475569','11px system-ui','right');}
+  for(let i=0;i<=5;i++){let tt=tf*i/5, xx=plotX(tt); txt(c,tt.toFixed(1),xx,gy+gh-mrg.b+16,'#475569','11px system-ui','center');}
+  // curves
+  function curve(f,col){c.strokeStyle=col; c.lineWidth=3; c.beginPath(); for(let i=0;i<=220;i++){let tt=tf*i/220, yyv=h0-0.5*g*tt*tt; if(yyv<0) yyv=0; let Ugv=m*g*yyv, Kv=Em-Ugv, Ev=f(Ugv,Kv,Em), xx=plotX(tt), yy=plotY(Ev); if(i===0)c.moveTo(xx,yy); else c.lineTo(xx,yy);} c.stroke();}
+  curve((Ugv,Kv,Em)=>Ugv,'#2563eb'); curve((Ugv,Kv,Em)=>Kv,'#dc2626'); curve((Ugv,Kv,Em)=>Em,'#16a34a');
+  // point markers
+  dot(c,plotX(t),plotY(Ug),'#2563eb'); dot(c,plotX(t),plotY(K),'#dc2626'); dot(c,plotX(t),plotY(Em),'#16a34a');
+  // legend
+  let lx=gx+gw-170, ly=70; c.fillStyle='rgba(255,255,255,.92)'; c.fillRect(lx-14,ly-16,160,66); c.strokeStyle='#dbe3ef'; c.strokeRect(lx-14,ly-16,160,66);
+  [['Ug','#2563eb'],['K','#dc2626'],['Em','#16a34a']].forEach((it,i)=>{c.strokeStyle=it[1]; c.lineWidth=3; c.beginPath(); c.moveTo(lx,ly+i*20); c.lineTo(lx+26,ly+i*20); c.stroke(); txt(c,it[0],lx+36,ly+4+i*20,it[1],'bold 13px system-ui');});
+  // values boxes
+  txt(c,`Ug = ${Ug.toFixed(1)} J`,265,362,'#2563eb','bold 14px system-ui');
+  txt(c,`K = ${K.toFixed(1)} J`,420,362,'#dc2626','bold 14px system-ui');
+  txt(c,`Em = ${Em.toFixed(1)} J`,555,362,'#16a34a','bold 14px system-ui');
+}
+bind(['ff_m','ff_h0','ff_p'],simFallEnergy);
+
+['rr_shape','rr_m','rr_R','rr_v'].forEach(id=>$(id)&&$(id).addEventListener('input',simRolling)); simRolling();
 })();
 </script></body></html>

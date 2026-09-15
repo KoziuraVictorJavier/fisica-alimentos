@@ -1,0 +1,14 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Criterios de resolución y validación}{2}{section.1}%
+\contentsline {section}{\numberline {2}Ejercicio 3 - Trabajo de fuerzas sobre un desplazamiento horizontal}{2}{section.2}%
+\contentsline {section}{\numberline {3}Ejercicio 4 - Trabajo de una fuerza variable y teorema trabajo--energía}{3}{section.3}%
+\contentsline {section}{\numberline {4}Ejercicio 6 - Lanzamiento vertical y conservación de la energía}{5}{section.4}%
+\contentsline {section}{\numberline {5}Ejercicio 8 - Trabajo neto y trabajo del rozamiento}{6}{section.5}%
+\contentsline {section}{\numberline {6}Ejercicio 10 - Trabajo de varias fuerzas en un plano inclinado}{6}{section.6}%
+\contentsline {section}{\numberline {7}Ejercicio 17 - Resorte y disipación por rozamiento}{7}{section.7}%
+\contentsline {section}{\numberline {8}Ejercicio 19 - Pista, rozamiento localizado y resorte}{8}{section.8}%
+\contentsline {section}{\numberline {9}Ejercicios 22 y 23 integrados - Resorte y rulo vertical}{8}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Parte A - Compresión crítica del resorte (ejercicio 22)}{9}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Parte B - Superficie rugosa y compresión doble (ejercicio 23)}{9}{subsection.9.2}%
+\contentsline {section}{\numberline {10}Ejercicio 27 - Trabajo y potencia en aceleración uniforme}{10}{section.10}%
+\contentsline {section}{\numberline {11}Ejercicio 29 - Potencia necesaria para una bomba}{11}{section.11}%
