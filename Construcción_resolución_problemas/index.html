@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DIN-001 · Laboratorio de Modelización Física</title>
+<style>
+  :root{
+    --bg:#f3f5f7; --panel:#ffffff; --ink:#17212b; --muted:#657382;
+    --line:#d7dde3; --accent:#145da0; --accent2:#0b7a75; --warn:#a65f00;
+    --danger:#a12b2b; --ok:#2f7d32; --shadow:0 6px 24px rgba(0,0,0,.08);
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.45}
+  button,input,select,textarea{font:inherit}
+  button{cursor:pointer}
+  .app{max-width:1500px;margin:auto;padding:18px}
+  .topbar{
+    display:flex;gap:16px;justify-content:space-between;align-items:center;
+    background:#0f2438;color:white;padding:16px 18px;border-radius:18px;box-shadow:var(--shadow);
+    position:sticky;top:0;z-index:20
+  }
+  .title h1{font-size:1.25rem;margin:0 0 3px}
+  .title small{opacity:.8}
+  .top-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+  .btn{border:1px solid transparent;border-radius:10px;padding:9px 12px;background:white;color:#12263a;font-weight:650}
+  .btn.primary{background:#1976d2;color:white}
+  .btn.dark{background:#1b344c;color:white;border-color:#38546f}
+  .btn.ghost{background:transparent;color:white;border-color:#607991}
+  .btn.soft{background:#eef4fb;color:#114d7a;border-color:#c8dbef}
+  .btn.warn{background:#fff3df;color:#784900;border-color:#efd09b}
+  .btn.danger{background:#fff0f0;color:#8c2222;border-color:#e9bcbc}
+  .btn.ok{background:#eaf7ea;color:#285f2b;border-color:#b8dfba}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .grid{display:grid;grid-template-columns:1fr 1.25fr .85fr;gap:16px;margin-top:16px}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .panel h2,.panel h3{margin:0}
+  .panel-head{padding:14px 16px;border-bottom:1px solid var(--line);background:#fbfcfd}
+  .panel-body{padding:16px}
+  .scenario{grid-column:1/-1}
+  .scenario-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:18px}
+  .scenario-card{padding:16px;border:1px solid var(--line);border-radius:14px;background:#fbfcfd}
+  .goal{border-left:5px solid var(--accent);background:#eef6ff;padding:14px 16px;border-radius:10px;margin:14px 0}
+  .data-row{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{padding:7px 10px;border-radius:999px;background:#edf1f4;border:1px solid #d6dde3;font-weight:650}
+  .families{display:flex;flex-direction:column;gap:10px}
+  details{border:1px solid var(--line);border-radius:12px;background:white;overflow:hidden}
+  summary{padding:11px 12px;font-weight:750;background:#f7f9fb;cursor:pointer}
+  .family-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px}
+  .action-btn{border:1px solid #cbd5df;background:#fff;border-radius:10px;padding:10px;text-align:left;min-height:48px}
+  .action-btn:hover{border-color:#79a8d8;background:#f5faff}
+  .workspace{min-height:520px}
+  .workspace-empty{padding:28px;border:2px dashed #cfd8e1;border-radius:14px;text-align:center;color:var(--muted)}
+  .cards{display:flex;flex-direction:column;gap:10px}
+  .card{
+    border:1px solid var(--line);border-left:5px solid #7393b3;border-radius:12px;padding:12px 13px;background:white;
+  }
+  .card-top{
+    display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap
+  }
+  .card-title-wrap{flex:1 1 320px;min-width:0}
+  .card-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;align-items:flex-start}
+  .card-main{margin-top:10px}
+  .card strong{display:block;margin-bottom:3px}
+  .card small{color:var(--muted)}
+  .card .mini{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .tag{font-size:.78rem;padding:3px 7px;border-radius:999px;background:#f0f3f5;color:#4b5a68;border:1px solid #dde3e8}
+  .teacher-tag{display:none;background:#fff2cc;border-color:#eed582;color:#6a5100}
+  body.teacher .teacher-tag{display:inline-flex}
+  .timeline{max-height:730px;overflow:auto}
+  .event{padding:10px 0;border-bottom:1px solid #edf0f2}
+  .event:last-child{border-bottom:0}
+  .event .meta{font-size:.76rem;color:var(--muted);margin-bottom:3px}
+  .event .name{font-weight:700}
+  .event .detail{font-size:.9rem;color:#42515f}
+  .dcl-wrap{margin-top:12px;border:1px solid var(--line);border-radius:12px;padding:10px;background:#fcfdfe}
+  svg{max-width:100%;height:auto}
+  .sim-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .control{margin-bottom:12px}
+  .control label{display:flex;justify-content:space-between;font-weight:650;margin-bottom:5px}
+  input[type=range]{width:100%}
+  .sim-result{padding:12px;border-radius:12px;background:#f5f7f9;border:1px solid var(--line)}
+  .status{font-weight:800}
+  .status.ok{color:var(--ok)}
+  .status.bad{color:var(--danger)}
+  .modal{
+    position:fixed;inset:0;background:rgba(14,24,34,.56);display:none;align-items:center;justify-content:center;padding:18px;z-index:100
+  }
+  .modal.open{display:flex}
+  .modal-box{width:min(680px,100%);max-height:92vh;overflow:auto;background:white;border-radius:16px;box-shadow:0 20px 80px rgba(0,0,0,.28)}
+  .modal-head{padding:15px 17px;border-bottom:1px solid var(--line);font-weight:800}
+  .modal-body{padding:17px}
+  .modal-foot{padding:13px 17px;border-top:1px solid var(--line);display:flex;gap:8px;justify-content:flex-end}
+  textarea{width:100%;min-height:84px;border:1px solid #c7d0d9;border-radius:10px;padding:10px;resize:vertical}
+  select,input[type=text]{width:100%;border:1px solid #c7d0d9;border-radius:9px;padding:9px}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-weight:700;margin-bottom:5px}
+  .report{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .metric{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fafcfd}
+  .metric b{font-size:1.25rem;display:block}
+  .hidden{display:none!important}
+  .footer-note{font-size:.84rem;color:var(--muted);margin-top:10px}
+
+  .formula-bank{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .formula-option{
+    border:1px solid #ccd6df;border-radius:11px;padding:11px;background:#fff;text-align:left;
+    min-height:72px
+  }
+  .formula-option:hover{background:#f5faff;border-color:#82acd5}
+  .formula-option.selected{background:#eef6ff;border-color:#5d99d2}
+  .formula-option .formula-title{font-weight:750;margin-bottom:3px}
+  .formula-option .formula-expr{font-family:Cambria Math,Times New Roman,serif;font-size:1.08rem}
+
+  .response-bank{display:flex;flex-direction:column;gap:8px;margin-top:7px}
+  .response-option{display:grid;grid-template-columns:auto 1fr;gap:9px;align-items:start;border:1px solid #d3dbe3;border-radius:10px;padding:9px 10px;background:#fff}
+  .response-option:hover{background:#f7fbff;border-color:#8eb4d9}
+  .response-option input{margin-top:3px}
+  .response-option.selected{background:#eef6ff;border-color:#649dd2}
+  .bank-note{font-size:.82rem;color:#667482;margin-top:6px}
+  .foundation-summary{margin-top:9px;padding:12px;border:1px solid #e1e6eb;border-radius:9px;background:#fafcfd;width:100%}
+  .foundation-grid{display:flex;flex-direction:column;gap:14px;align-items:stretch}
+  .foundation-block{min-width:0}
+  .foundation-block ul{margin:5px 0 0 18px;padding:0}
+  .foundation-block li{margin-bottom:4px}
+  .foundation-note{margin-top:8px;padding-top:8px;border-top:1px dashed #d7dde3}
+
+  @media(max-width:720px){.formula-bank{grid-template-columns:1fr}}
+
+  .formula{font-family:Cambria Math,Times New Roman,serif;font-size:1.08rem}
+  @media(max-width:1100px){
+    .grid{grid-template-columns:1fr 1fr}
+    .timeline-panel{grid-column:1/-1}
+    .scenario-grid,.sim-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:720px){
+    .app{padding:8px}
+    .topbar{position:static;align-items:flex-start;flex-direction:column}
+    .top-actions{justify-content:flex-start}
+    .grid{grid-template-columns:1fr}
+    .scenario{grid-column:auto}
+    .timeline-panel{grid-column:auto}
+    .family-actions{grid-template-columns:1fr}
+    .report{grid-template-columns:1fr}
+    .card-top{flex-direction:column;align-items:stretch}
+    .card-actions{justify-content:flex-start}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="title">
+      <h1>DIN-001 · Laboratorio de Modelización Física <span style="font-size:.72em;opacity:.75">v1.7</span></h1>
+      <small>Cinta transportadora inclinada · dinámica y rozamiento</small>
+    </div>
+    <div class="top-actions">
+      <button class="btn ghost" id="modeBtn">Modo: Formativo</button>
+      <button class="btn dark" id="simBtn">Simulador</button>
+      <button class="btn dark" id="historyBtn">Historial / Cómo usar</button>
+      <button class="btn dark" id="helpBtn">Ayuda física</button>
+      <button class="btn ok" id="testModelBtn">Probar modelo</button>
+      <button class="btn primary" id="finishBtn">Finalizar</button>
+      <button class="btn soft hidden" id="exportBtn">Exportar JSON</button>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="panel scenario">
+      <div class="panel-head"><h2>Situación problemática</h2></div>
+      <div class="panel-body scenario-grid">
+        <div class="scenario-card">
+          <p>Una cinta transportadora eleva un producto envasado hacia una etapa superior del proceso. La cinta se mueve con <strong>velocidad constante</strong>. El producto se apoya directamente sobre la superficie y no posee topes ni paletas.</p>
+          <div class="goal"><strong>Objetivo:</strong> determinar el <strong>ángulo máximo de inclinación</strong> que puede tener la cinta para transportar el producto sin que deslice respecto de ella.</div>
+          <div class="data-row">
+            <span class="chip">m = 10 kg</span>
+            <span class="chip">μs = 0,40</span>
+            <span class="chip">μk = 0,30</span>
+            <span class="chip">v = constante</span>
+          </div>
+          <p class="footer-note">Comprobación posterior: analizar qué ocurriría si la cinta se instalara con θ = 25°.</p>
+        </div>
+        <div class="scenario-card">
+          <svg viewBox="0 0 480 280" aria-label="Esquema de cinta inclinada">
+            <defs>
+              <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L7,3 z" fill="#294e70"></path>
+              </marker>
+            </defs>
+            <line x1="45" y1="230" x2="420" y2="90" stroke="#6c7d8c" stroke-width="18" stroke-linecap="round"/>
+            <line x1="60" y1="238" x2="435" y2="98" stroke="#b8c4cf" stroke-width="4"/>
+            <g transform="translate(230 155) rotate(-20)">
+              <rect x="-45" y="-34" width="90" height="68" rx="5" fill="#d8b36a" stroke="#71572b" stroke-width="3"/>
+              <line x1="-28" y1="-12" x2="28" y2="-12" stroke="#9d7b3f" stroke-width="2"/>
+            </g>
+            <line x1="70" y1="210" x2="145" y2="182" stroke="#294e70" stroke-width="4" marker-end="url(#arrow)"/>
+            <text x="72" y="180" font-size="18" fill="#294e70">movimiento de la cinta</text>
+            <path d="M70 230 A65 65 0 0 0 132 208" fill="none" stroke="#7a8792" stroke-width="2"/>
+            <text x="105" y="224" font-size="18">θ</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head"><h2>¿Qué desea hacer ahora?</h2></div>
+      <div class="panel-body families" id="families"></div>
+    </section>
+
+    <section class="panel workspace">
+      <div class="panel-head"><h2>Modelo en construcción</h2></div>
+      <div class="panel-body">
+        <div class="workspace-empty" id="emptyWorkspace">
+          No hay decisiones registradas todavía.<br>
+          Puede comenzar por cualquier familia de acciones.
+        </div>
+        <div class="cards" id="cards"></div>
+        <div class="dcl-wrap hidden" id="dclWrap">
+          <strong>Vista del diagrama de cuerpo libre</strong>
+          <svg id="dclSvg" viewBox="0 0 520 320">
+            <line x1="65" y1="250" x2="450" y2="105" stroke="#83909c" stroke-width="10" stroke-linecap="round"/>
+            <g transform="translate(260 177) rotate(-20)">
+              <rect x="-42" y="-30" width="84" height="60" rx="4" fill="#d7b269" stroke="#70572a" stroke-width="3"/>
+            </g>
+            <g id="dclVectors"></g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel scenario hidden" id="reportPanel">
+      <div class="panel-head"><h2>Síntesis de la sesión</h2></div>
+      <div class="panel-body">
+        <div class="report" id="report"></div>
+        <div id="resultNarrative" style="margin-top:16px"></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+
+<!-- Historial y ayuda operativa -->
+<div class="modal" id="historyModal">
+  <div class="modal-box" style="width:min(920px,100%)">
+    <div class="modal-head">
+      <div style="display:flex;justify-content:space-between;gap:12px;align-items:center">
+        <span>Historial y ayuda de uso</span>
+        <button class="btn soft" id="closeHistoryBtn">Cerrar</button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+        <button class="btn primary" id="historyTabBtn">Historial de decisiones</button>
+        <button class="btn soft" id="usageTabBtn">Cómo usar el programa</button>
+      </div>
+
+      <div id="historyTab">
+        <p class="footer-note" style="margin-top:0">
+          Aquí se reconstruye la secuencia completa de trabajo. Abrir este panel no modifica el modelo.
+        </p>
+        <div class="timeline" id="timeline" style="max-height:62vh"></div>
+      </div>
+
+      <div id="usageTab" class="hidden">
+        <div style="border:1px solid #d7dde3;border-radius:12px;padding:14px;background:#fbfcfd">
+          <h3 style="margin-bottom:10px">Cómo trabajar en DIN-001</h3>
+          <ol style="padding-left:22px;margin-top:0">
+            <li><strong>No hay un orden obligatorio.</strong> Elija la herramienta que considere necesaria.</li>
+            <li>Las familias de opciones y sus elementos pueden aparecer en distinto orden en cada sesión.</li>
+            <li>Algunas decisiones importantes permiten escribir y luego editar <strong>por qué</strong> se toman y <strong>para qué</strong> se usan.</li>
+            <li><strong>Probar modelo</strong> revisa la coherencia de lo construido sin obligarlo a seguir una secuencia ideal.</li>
+            <li><strong>Simulador</strong> permite explorar parámetros. Cuando corresponda, conviene anticipar primero qué espera observar.</li>
+            <li><strong>Ayuda física</strong> brinda orientación conceptual graduada. Esta pestaña sólo explica el funcionamiento del programa.</li>
+            <li>Puede retirar decisiones y reformular fundamentos. Las revisiones forman parte del proceso de aprendizaje.</li>
+            <li>Al finalizar se genera una síntesis y puede exportarse la traza completa en JSON.</li>
+          </ol>
+          <div class="goal" style="margin-bottom:0">
+            <strong>Importante:</strong> el objetivo no es adivinar una secuencia de botones, sino construir y revisar un modelo físico justificable.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal genérico -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <div class="modal-head" id="modalTitle">Decisión</div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-foot" id="modalFoot"></div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const ACTIVITY = {
+    id:"DIN_001",
+    version:"1.7.0",
+    instrument:"modelizacion",
+    title:"Ángulo máximo de una cinta transportadora",
+    constants:{m:10, muS:0.40, muK:0.30, testAngle:25},
+    expectedTheta: Math.atan(0.40)*180/Math.PI
+  };
+
+  const FAMILY_DEFS = [
+    {name:"Sistema", open:true, actions:[
+      ["system_product","Definir sistema: producto","system","pertinente",true],
+      ["system_belt","Definir sistema: cinta","system","alternativa",true],
+      ["system_product_belt","Definir sistema: producto + cinta","system","alternativa",true],
+      ["system_earth_product","Definir sistema: Tierra + producto","system","alternativa",true],
+      ["system_motor","Definir sistema: motor","system","no_pertinente",true],
+      ["system_pulley","Definir sistema: polea","system","no_pertinente",true],
+      ["system_structure","Definir sistema: estructura de soporte","system","no_pertinente",true],
+      ["system_environment","Definir sistema: producto + entorno inmediato","system","alternativa",true],
+    ]},
+    {name:"Interacciones", open:true, actions:[
+      ["int_earth","Producto ↔ Tierra","interaction","pertinente",true],
+      ["int_belt","Producto ↔ cinta","interaction","pertinente",true],
+      ["int_air","Producto ↔ aire","interaction","posible_despreciable",false],
+      ["int_motor","Producto ↔ motor","interaction","no_directa",false],
+      ["int_structure","Producto ↔ estructura","interaction","no_directa",false],
+      ["int_sensor","Producto ↔ sensor","interaction","posible_otro_caso",false],
+      ["int_fluid","Producto ↔ fluido","interaction","posible_otro_caso",false],
+      ["int_spring","Producto ↔ resorte","interaction","posible_otro_caso",false],
+      ["int_rope","Producto ↔ cuerda","interaction","posible_otro_caso",false],
+      ["int_wall","Producto ↔ guía lateral","interaction","posible_otro_caso",false],
+    ]},
+    {name:"Hipótesis / modelo", actions:[
+      ["hyp_particle","Modelo de partícula","hypothesis","pertinente",true],
+      ["hyp_const_v","Velocidad constante ⇒ a = 0","hypothesis","pertinente",true],
+      ["hyp_no_air","Despreciar resistencia del aire","hypothesis","pertinente",false],
+      ["hyp_rigid_belt","Cinta rígida a efectos del análisis","hypothesis","aceptable",false],
+      ["hyp_flat_earth","Tierra plana / g uniforme","hypothesis","aceptable",false],
+      ["hyp_pulley","Polea ideal","hypothesis","posible_otro_caso",false],
+      ["hyp_rope","Cuerda ideal","hypothesis","posible_otro_caso",false],
+      ["hyp_rigid_body","Modelo de cuerpo rígido","hypothesis","posible_otro_caso",true],
+      ["hyp_no_slip","Rodadura sin deslizamiento","hypothesis","posible_otro_caso",true],
+      ["hyp_circular","Movimiento circular","hypothesis","no_pertinente",false],
+      ["hyp_steady_flow","Flujo estacionario","hypothesis","posible_otro_caso",false],
+      ["hyp_incompressible","Fluido incompresible","hypothesis","posible_otro_caso",false],
+    ]},
+    {name:"Representaciones", actions:[
+      ["rep_interactions","Diagrama de interacciones","representation","pertinente",true],
+      ["rep_dcl","Construir DCL","representation","pertinente",true],
+      ["rep_axes_incline","Ejes paralelo / normal al plano","representation","pertinente",true],
+      ["rep_axes_xy","Ejes horizontal / vertical","representation","alternativa",true],
+      ["rep_energy","Diagrama de energía","representation","posible_otro_caso",true],
+      ["rep_motion","Diagrama de movimiento","representation","posible_otro_caso",true],
+      ["rep_xt","Gráfico posición–tiempo","representation","posible_otro_caso",false],
+      ["rep_vt","Gráfico velocidad–tiempo","representation","posible_otro_caso",false],
+      ["rep_freebody_rotation","Diagrama para rotación / torque","representation","posible_otro_caso",false],
+      ["force_weight","Agregar peso","force","pertinente",false],
+      ["force_normal","Agregar normal","force","pertinente",false],
+      ["force_friction_up","Agregar roce hacia arriba","force","pertinente",true],
+      ["force_friction_down","Agregar roce hacia abajo","force","contradictoria",true],
+      ["force_motor","Agregar fuerza del motor","force","no_directa",false],
+      ["force_centripetal","Agregar fuerza centrípeta","force","conceptual_error",false],
+      ["force_tension","Agregar tensión","force","posible_otro_caso",false],
+      ["force_spring","Agregar fuerza elástica","force","posible_otro_caso",false],
+      ["force_drag","Agregar resistencia del aire","force","posible_despreciable",false],
+    ]},
+    {name:"Principios físicos", actions:[
+      ["law_newton","ΣF = ma","principle","pertinente",true],
+      ["law_fs_limit","fs ≤ μs N","principle","pertinente",true],
+      ["law_fs_equal","fs = μs N","principle","prematura",true],
+      ["law_fk","fk = μk N","principle","prematura",true],
+      ["law_energy","Conservación de energía","principle","posible_otro_caso",true],
+      ["law_work_energy","Teorema trabajo–energía","principle","posible_otro_caso",true],
+      ["law_kinematics","Ecuaciones cinemáticas","principle","posible_otro_caso",true],
+      ["law_momentum","Cantidad de movimiento / impulso","principle","posible_otro_caso",true],
+      ["law_torque","Στ = Iα","principle","posible_otro_caso",false],
+      ["law_equilibrium_rot","Στ = 0","principle","posible_otro_caso",false],
+      ["law_hooke","F = -kx","principle","posible_otro_caso",false],
+      ["law_continuity","Continuidad A₁v₁ = A₂v₂","principle","posible_otro_caso",false],
+      ["law_bernoulli","Ecuación de Bernoulli","principle","posible_otro_caso",false],
+    ]},
+    {name:"Cálculos", actions:[
+      ["eq_parallel","Plantear eje paralelo","calculation","pertinente",true],
+      ["eq_normal","Plantear eje normal","calculation","pertinente",true],
+      ["eq_condition","Aplicar condición límite","calculation","pertinente",true],
+      ["calc_theta","Calcular θ máximo","calculation","pertinente",true],
+      ["check_25","Analizar θ = 25°","calculation","pertinente",true],
+      ["calc_acceleration","Calcular aceleración","calculation","posible_extension",true],
+      ["calc_energy","Calcular variación de energía","calculation","posible_otro_caso",false],
+      ["calc_power","Calcular potencia","calculation","posible_otro_caso",false],
+      ["calc_torque","Calcular torque","calculation","posible_otro_caso",false],
+    ]},
+    {name:"Validación", actions:[
+      ["val_units","Verificar dimensiones / unidades","validation","pertinente",true],
+      ["val_mass","Verificar efecto de la masa","validation","pertinente",true],
+      ["val_mu_zero","Comprobar límite μs → 0","validation","pertinente",true],
+      ["val_mu_growth","Analizar efecto de aumentar μs","validation","pertinente",true],
+      ["val_signs","Verificar signos y sentidos","validation","pertinente",true],
+      ["val_order","Verificar orden de magnitud","validation","pertinente",true],
+      ["val_alt_model","Comparar con otro modelo","validation","aceptable",true],
+    ]},
+    {name:"Experimentación", actions:[
+      ["open_sim","Abrir simulador","experiment","pertinente",true],
+      ["predict_angle","Predecir efecto de aumentar θ","prediction","pertinente",true],
+      ["predict_mass","Predecir efecto de duplicar m","prediction","pertinente",true],
+      ["predict_mu","Predecir efecto de aumentar μs","prediction","pertinente",true],
+    ]},
+  ];
+
+
+  const FORMULA_BANKS = {
+    calc_acceleration:{
+      title:"Elegir relaciones para calcular aceleración",
+      prompt:"Seleccione una o más relaciones que considere útiles. No todas pertenecen necesariamente a este problema.",
+      options:[
+        ["f_acc_newton","Segunda ley de Newton","ΣF∥ = ma","pertinente"],
+        ["f_acc_net","Aceleración desde fuerza neta","a = ΣF∥ / m","pertinente"],
+        ["f_acc_slide","Deslizamiento sobre plano con roce cinético","a = g(senθ - μk cosθ)","posible_extension"],
+        ["f_acc_dvdt","Definición cinemática","a = Δv / Δt","posible_otro_caso"],
+        ["f_acc_v2r","Aceleración centrípeta","a = v² / r","posible_otro_caso"],
+        ["f_acc_uniform","Velocidad con aceleración constante","vf = vi + at","posible_otro_caso"]
+      ]
+    },
+    calc_theta:{
+      title:"Elegir relaciones para determinar el ángulo límite",
+      prompt:"Seleccione las relaciones que usaría para obtener θmáx.",
+      options:[
+        ["f_theta_parallel","Equilibrio paralelo","fs - mg senθ = 0","pertinente"],
+        ["f_theta_normal","Equilibrio normal","N - mg cosθ = 0","pertinente"],
+        ["f_theta_static","Límite de rozamiento estático","fs,max = μs N","pertinente"],
+        ["f_theta_tan","Relación límite resultante","tanθmáx = μs","pertinente"],
+        ["f_theta_energy","Conservación de energía","Ei = Ef","posible_otro_caso"],
+        ["f_theta_kin","Cinemática","v² = v0² + 2aΔx","posible_otro_caso"]
+      ]
+    },
+    calc_energy:{
+      title:"Elegir relaciones para calcular energía",
+      prompt:"Seleccione relaciones que serían útiles si el objetivo fuera energético.",
+      options:[
+        ["f_energy_k","Energía cinética","K = ½mv²","posible_otro_caso"],
+        ["f_energy_u","Energía potencial gravitatoria","Ug = mgh","posible_otro_caso"],
+        ["f_energy_work","Teorema trabajo–energía","Wnet = ΔK","posible_otro_caso"],
+        ["f_energy_newton","Segunda ley de Newton","ΣF = ma","alternativa"]
+      ]
+    },
+    calc_power:{
+      title:"Elegir relaciones para calcular potencia",
+      prompt:"Seleccione relaciones que serían útiles si el objetivo fuera determinar potencia.",
+      options:[
+        ["f_power_wt","Potencia media","P = W / Δt","posible_otro_caso"],
+        ["f_power_fv","Potencia mecánica","P = F · v","posible_otro_caso"],
+        ["f_power_energy","Potencia como transferencia de energía","P = ΔE / Δt","posible_otro_caso"]
+      ]
+    },
+    calc_torque:{
+      title:"Elegir relaciones para calcular torque",
+      prompt:"Seleccione relaciones que serían útiles en un problema rotacional.",
+      options:[
+        ["f_torque_cross","Momento de una fuerza","τ = r × F","posible_otro_caso"],
+        ["f_torque_mag","Módulo del torque","τ = rF senφ","posible_otro_caso"],
+        ["f_torque_dyn","Dinámica rotacional","Στ = Iα","posible_otro_caso"]
+      ]
+    }
+  };
+
+
+  const FOUNDATION_OPTIONS = {
+    why:[
+      ["W_SYSTEM_TARGET","Porque es el objeto cuyo movimiento o equilibrio se desea analizar.","modelo"],
+      ["W_EXTERNAL_FORCES","Porque sobre ese sistema pueden identificarse las fuerzas externas relevantes.","modelo"],
+      ["W_DIRECT_INTERACTION","Porque existe una interacción directa entre los cuerpos involucrados.","modelo"],
+      ["W_CONTACT","Porque existe contacto entre las superficies.","modelo"],
+      ["W_GRAVITY","Porque la Tierra ejerce una interacción gravitatoria sobre el producto.","modelo"],
+      ["W_NO_REL_MOTION","Porque inicialmente no existe movimiento relativo entre producto y cinta.","modelo"],
+      ["W_TENDENCY_SLIDE_DOWN","Porque sin rozamiento el producto tendería a deslizar hacia abajo del plano.","modelo"],
+      ["W_ZERO_ACCEL","Porque la cinta se mueve con velocidad constante y el producto se analiza sin deslizamiento.","modelo"],
+      ["W_SIMPLIFY_TRANSLATION","Porque el tamaño y la rotación del producto no son necesarios para responder el objetivo.","modelo"],
+      ["W_AXES_CONVENIENT","Porque elegir ejes paralelo y normal al plano simplifica la descomposición de fuerzas.","modelo"],
+      ["W_NEWTON_LINK","Porque la segunda ley relaciona la fuerza neta con la aceleración del sistema.","modelo"],
+      ["W_STATIC_LIMIT","Porque el rozamiento estático tiene un valor máximo antes de iniciarse el deslizamiento.","modelo"],
+      ["W_LIMIT_STATE","Porque el ángulo máximo corresponde al estado límite inmediatamente anterior al deslizamiento.","modelo"],
+      ["W_VERIFY_CONDITION","Porque el resultado debe comprobarse contra la condición física de adherencia.","modelo"],
+      ["W_ALWAYS_FRICTION_MUN","Porque toda fuerza de rozamiento vale siempre μN.","error_conceptual"],
+      ["W_MOTION_NEEDS_FORCE","Porque todo cuerpo que se mueve necesita una fuerza neta en el sentido del movimiento.","error_conceptual"],
+      ["W_NORMAL_VERTICAL","Porque la fuerza normal siempre es vertical.","error_conceptual"],
+      ["W_MOTOR_DIRECT","Porque el motor empuja directamente al producto aunque no esté en contacto con él.","error_conceptual"],
+      ["W_CENTRIPETAL_ANY_CURVE","Porque al haber una cinta siempre existe una fuerza centrípeta.","error_conceptual"],
+      ["W_MASS_INCREASES_FRICTION_ONLY","Porque al aumentar la masa aumenta el rozamiento pero no el peso paralelo.","error_conceptual"],
+      ["W_USE_GIVEN_DATA","Porque todos los datos numéricos dados deben usarse necesariamente.","error_procedimental"],
+      ["W_FORMULA_LOOKS_RIGHT","Porque es la fórmula que normalmente se usa en ejercicios de plano inclinado.","superficial"],
+      ["W_TEACHER_EXPECTS","Porque es el procedimiento esperado por el docente.","superficial"],
+      ["W_UNKNOWN","No estoy seguro; la elijo para probar si funciona.","exploratoria"]
+    ],
+    purpose:[
+      ["P_DEFINE_BOUNDARY","Para delimitar qué cuerpos pertenecen al sistema y cuáles forman parte del entorno.","modelo"],
+      ["P_IDENTIFY_FORCES","Para identificar las fuerzas externas que actúan sobre el producto.","modelo"],
+      ["P_BUILD_DCL","Para construir un diagrama de cuerpo libre coherente.","modelo"],
+      ["P_FIND_NORMAL","Para determinar la fuerza normal entre producto y cinta.","modelo"],
+      ["P_FIND_FRICTION_REQUIRED","Para determinar cuánto rozamiento se requiere para evitar el deslizamiento.","modelo"],
+      ["P_COMPARE_STATIC_MAX","Para comparar el rozamiento requerido con el máximo rozamiento estático disponible.","modelo"],
+      ["P_FIND_MAX_ANGLE","Para determinar el ángulo máximo compatible con la condición de no deslizamiento.","modelo"],
+      ["P_RESOLVE_COMPONENTS","Para proyectar las fuerzas en direcciones convenientes.","modelo"],
+      ["P_RELATE_FORCE_ACCEL","Para relacionar las fuerzas con la aceleración mediante la segunda ley.","modelo"],
+      ["P_CHECK_25","Para decidir si a 25° el producto permanece adherido o desliza.","modelo"],
+      ["P_VALIDATE_RESULT","Para comprobar que el resultado sea físicamente consistente.","modelo"],
+      ["P_SIMPLIFY","Para eliminar variables o efectos que no influyen significativamente en el objetivo.","modelo"],
+      ["P_CALCULATE_SPEED","Para calcular la velocidad final del producto.","posible_otro_objetivo"],
+      ["P_CALCULATE_ENERGY","Para calcular directamente la energía mecánica total.","posible_otro_objetivo"],
+      ["P_CALCULATE_TORQUE","Para calcular el momento de torsión del producto.","posible_otro_objetivo"],
+      ["P_FIND_CENTRIPETAL","Para calcular una fuerza centrípeta que mantiene al producto sobre la cinta.","error_conceptual"],
+      ["P_FORCE_FORWARD","Para justificar una fuerza adicional en el sentido en que avanza la cinta.","error_conceptual"],
+      ["P_USE_ALL_DATA","Para asegurar que todos los datos del enunciado aparezcan en alguna ecuación.","error_procedimental"],
+      ["P_GET_NUMBER_FAST","Para llegar más rápido a un resultado numérico aunque no se haya validado el modelo.","superficial"],
+      ["P_CONFIRM_FORMULA","Para verificar si la fórmula que recuerdo produce un valor razonable.","exploratoria"],
+      ["P_NONE","No tengo claro para qué la utilizaría todavía.","exploratoria"]
+    ]
+  };
+
+  const FOUNDATION_RULES = {
+    system_product:{why:{strong:["W_SYSTEM_TARGET","W_EXTERNAL_FORCES"],acceptable:["W_SIMPLIFY_TRANSLATION"]},purpose:{strong:["P_DEFINE_BOUNDARY","P_IDENTIFY_FORCES"],acceptable:["P_BUILD_DCL"]}},
+    int_earth:{why:{strong:["W_GRAVITY","W_DIRECT_INTERACTION"],acceptable:[]},purpose:{strong:["P_IDENTIFY_FORCES","P_BUILD_DCL"],acceptable:[]}},
+    int_belt:{why:{strong:["W_CONTACT","W_DIRECT_INTERACTION"],acceptable:["W_NO_REL_MOTION"]},purpose:{strong:["P_IDENTIFY_FORCES","P_BUILD_DCL","P_FIND_NORMAL"],acceptable:["P_FIND_FRICTION_REQUIRED"]}},
+    hyp_particle:{why:{strong:["W_SIMPLIFY_TRANSLATION"],acceptable:["W_SYSTEM_TARGET"]},purpose:{strong:["P_SIMPLIFY"],acceptable:["P_IDENTIFY_FORCES","P_BUILD_DCL"]}},
+    hyp_const_v:{why:{strong:["W_ZERO_ACCEL"],acceptable:["W_NO_REL_MOTION"]},purpose:{strong:["P_RELATE_FORCE_ACCEL"],acceptable:["P_FIND_FRICTION_REQUIRED"]}},
+    rep_dcl:{why:{strong:["W_EXTERNAL_FORCES"],acceptable:["W_SYSTEM_TARGET"]},purpose:{strong:["P_BUILD_DCL","P_IDENTIFY_FORCES"],acceptable:["P_RESOLVE_COMPONENTS"]}},
+    rep_axes_incline:{why:{strong:["W_AXES_CONVENIENT"],acceptable:[]},purpose:{strong:["P_RESOLVE_COMPONENTS"],acceptable:["P_FIND_NORMAL","P_FIND_FRICTION_REQUIRED"]}},
+    force_friction_up:{why:{strong:["W_TENDENCY_SLIDE_DOWN","W_NO_REL_MOTION"],acceptable:["W_CONTACT"]},purpose:{strong:["P_FIND_FRICTION_REQUIRED","P_COMPARE_STATIC_MAX"],acceptable:["P_BUILD_DCL"]}},
+    law_newton:{why:{strong:["W_NEWTON_LINK","W_ZERO_ACCEL"],acceptable:[]},purpose:{strong:["P_RELATE_FORCE_ACCEL","P_FIND_FRICTION_REQUIRED"],acceptable:["P_FIND_NORMAL"]}},
+    law_fs_limit:{why:{strong:["W_STATIC_LIMIT","W_LIMIT_STATE"],acceptable:["W_NO_REL_MOTION"]},purpose:{strong:["P_COMPARE_STATIC_MAX","P_FIND_MAX_ANGLE"],acceptable:["P_VALIDATE_RESULT"]}},
+    law_fs_equal:{why:{strong:["W_LIMIT_STATE"],acceptable:["W_STATIC_LIMIT"]},purpose:{strong:["P_FIND_MAX_ANGLE"],acceptable:["P_COMPARE_STATIC_MAX"]}},
+    eq_parallel:{why:{strong:["W_AXES_CONVENIENT","W_NEWTON_LINK"],acceptable:["W_ZERO_ACCEL"]},purpose:{strong:["P_FIND_FRICTION_REQUIRED","P_RELATE_FORCE_ACCEL"],acceptable:["P_FIND_MAX_ANGLE"]}},
+    eq_normal:{why:{strong:["W_AXES_CONVENIENT"],acceptable:["W_NEWTON_LINK"]},purpose:{strong:["P_FIND_NORMAL"],acceptable:["P_COMPARE_STATIC_MAX"]}},
+    eq_condition:{why:{strong:["W_STATIC_LIMIT","W_LIMIT_STATE"],acceptable:[]},purpose:{strong:["P_COMPARE_STATIC_MAX","P_FIND_MAX_ANGLE"],acceptable:["P_VALIDATE_RESULT"]}},
+    calc_theta:{why:{strong:["W_LIMIT_STATE","W_VERIFY_CONDITION"],acceptable:["W_STATIC_LIMIT"]},purpose:{strong:["P_FIND_MAX_ANGLE"],acceptable:["P_VALIDATE_RESULT","P_CHECK_25"]}},
+    check_25:{why:{strong:["W_VERIFY_CONDITION"],acceptable:["W_LIMIT_STATE"]},purpose:{strong:["P_CHECK_25","P_VALIDATE_RESULT"],acceptable:[]}},
+    val_units:{why:{strong:["W_VERIFY_CONDITION"],acceptable:[]},purpose:{strong:["P_VALIDATE_RESULT"],acceptable:[]}},
+    val_mass:{why:{strong:["W_VERIFY_CONDITION"],acceptable:[]},purpose:{strong:["P_VALIDATE_RESULT"],acceptable:["P_SIMPLIFY"]}},
+    val_mu_zero:{why:{strong:["W_VERIFY_CONDITION"],acceptable:[]},purpose:{strong:["P_VALIDATE_RESULT"],acceptable:[]}},
+    val_mu_growth:{why:{strong:["W_VERIFY_CONDITION"],acceptable:[]},purpose:{strong:["P_VALIDATE_RESULT"],acceptable:[]}},
+    val_signs:{why:{strong:["W_VERIFY_CONDITION"],acceptable:["W_AXES_CONVENIENT"]},purpose:{strong:["P_VALIDATE_RESULT"],acceptable:["P_RESOLVE_COMPONENTS"]}},
+    val_order:{why:{strong:["W_VERIFY_CONDITION"],acceptable:[]},purpose:{strong:["P_VALIDATE_RESULT"],acceptable:[]}}
+  };
+
+  function foundationClass(actionId, dimension, optionId){
+    const rules=FOUNDATION_RULES[actionId] && FOUNDATION_RULES[actionId][dimension];
+    const option=(FOUNDATION_OPTIONS[dimension]||[]).find(o=>o[0]===optionId);
+    const baseClass=option ? option[2] : "desconocida";
+    if(!rules) return baseClass;
+    if((rules.strong||[]).includes(optionId)) return "pertinente_fuerte";
+    if((rules.acceptable||[]).includes(optionId)) return "pertinente_aceptable";
+    return baseClass;
+  }
+
+  function analyzeFoundation(actionId, dimension, selectedIds){
+    const classes=selectedIds.map(id=>foundationClass(actionId,dimension,id));
+    const counts={
+      strong:classes.filter(c=>c==="pertinente_fuerte").length,
+      acceptable:classes.filter(c=>c==="pertinente_aceptable").length,
+      conceptual:classes.filter(c=>c==="error_conceptual").length,
+      procedural:classes.filter(c=>c==="error_procedimental").length,
+      superficial:classes.filter(c=>c==="superficial").length,
+      exploratory:classes.filter(c=>c==="exploratoria").length
+    };
+    let status="sin_respuesta";
+    if(selectedIds.length){
+      if(counts.conceptual>0) status="contiene_error_conceptual";
+      else if(counts.procedural>0) status="contiene_error_procedimental";
+      else if(counts.strong>0) status="fundamentacion_solida";
+      else if(counts.acceptable>0) status="fundamentacion_parcial";
+      else if(counts.superficial>0) status="fundamentacion_superficial";
+      else if(counts.exploratory>0) status="fundamentacion_exploratoria";
+      else status="respuesta_no_clasificada";
+    }
+    return {status,...counts,classes};
+  }
+
+
+  const TRACE_PROTOCOL = {
+    schema:"FISICA_UTN_EVIDENCE",
+    schemaVersion:"3.0",
+    protocolVersion:"UTN_FISICA_TRACE_1.0",
+    eventSchema:"FISICA_UTN_EVENT",
+    eventSchemaVersion:"1.0"
+  };
+
+  const INTERACTION_TRACE_EVENTS = new Set([
+    "session_start","session_finished","presentation_order",
+    "focus_lost","focus_restored",
+    "history_opened","usage_help_opened",
+    "mode_changed","teacher_mode_changed",
+    "simulation_opened","simulation_changed",
+    "response_started","response_cancelled"
+  ]);
+
+  function eventStream(eventType){
+    return INTERACTION_TRACE_EVENTS.has(eventType) ? "interactionTraces" : "learningEvidence";
+  }
+
+  function eventCategory(eventType){
+    if(eventType.startsWith("focus_")) return "focus";
+    if(eventType.startsWith("response_")) return "response_timing";
+    if(["history_opened","usage_help_opened","mode_changed","teacher_mode_changed","presentation_order"].includes(eventType)) return "navigation";
+    if(["simulation_opened","simulation_changed"].includes(eventType)) return "simulation";
+    if(["help_requested"].includes(eventType)) return "help";
+    if(["decision_justified","decision_justification_edited","foundation_option_selected","prediction_recorded","final_answer"].includes(eventType)) return "response";
+    if(["action_selected","card_removed","dcl_changed","formula_selected","model_tested"].includes(eventType)) return "modeling";
+    if(["session_start","session_finished"].includes(eventType)) return "session";
+    return "academic_action";
+  }
+
+  const state = {
+    sessionId: "S_"+Date.now().toString(36),
+    studentId: "anon_"+Math.random().toString(36).slice(2,8),
+    startedAt: new Date().toISOString(),
+    startedPerf: performance.now(),
+    mode:"formative",
+    teacher:false,
+    cards:[],
+    events:[],
+    helpLevel:0,
+    simulationUses:0,
+    modelTests:0,
+    finished:false,
+    answerTheta:null,
+    finalSlip:null,
+    currentDCL: new Set(),
+    presentationSeed: (Date.now() >>> 0),
+    presentedFamilyOrder:[],
+    presentedActionOrder:{},
+
+    // Protocolo común de trazas / tiempos
+    eventCounter:0,
+    focusEpisodeCounter:0,
+    focusEpisodes:[],
+    isFocused: document.visibilityState !== "hidden" && document.hasFocus(),
+    awayStartedPerf:null,
+    awayContextAtLoss:null,
+    awaySourceAtLoss:null,
+    currentAwayEpisodeId:null,
+    totalAwayMs:0,
+    awaySinceLastAcademicMs:0,
+    awaySinceLastResponseMs:0,
+    lastEventPerf:null,
+    lastAcademicPerf:null,
+    lastResponseEndPerf:null,
+    activeResponse:null,
+    currentContext:{
+      phase:"workspace",
+      taskType:null,
+      taskId:null,
+      itemId:null,
+      conceptId:"DIN_ROZAMIENTO_PLANO_01",
+      questionExposure:null,
+      videoTimeSec:null
+    }
+  };
+
+  const el = id => document.getElementById(id);
+  const families = el("families"), cards = el("cards"), timeline = el("timeline");
+
+  function nowMs(){ return performance.now()-state.startedPerf; }
+  function nowSec(){ return +(nowMs()/1000).toFixed(2); }
+  function roundMs(v){ return v==null ? null : Math.max(0,Math.round(v)); }
+  function cloneContext(){ return JSON.parse(JSON.stringify(state.currentContext)); }
+
+  function setContext(phase, taskType=null, taskId=null, extra={}){
+    state.currentContext={
+      phase,
+      taskType,
+      taskId,
+      itemId:extra.itemId ?? null,
+      conceptId:extra.conceptId ?? "DIN_ROZAMIENTO_PLANO_01",
+      questionExposure:extra.questionExposure ?? null,
+      videoTimeSec:extra.videoTimeSec ?? null,
+      ...extra
+    };
+  }
+
+  function resetContext(){
+    setContext("workspace",null,null,{conceptId:"DIN_ROZAMIENTO_PLANO_01"});
+  }
+
+  function emit(eventType, payload={}, meta={}){
+    const perfNow=performance.now();
+    const elapsedMs=perfNow-state.startedPerf;
+    const deltaEvent=state.lastEventPerf==null ? null : perfNow-state.lastEventPerf;
+    const stream=meta.stream || eventStream(eventType);
+    const category=meta.category || eventCategory(eventType);
+    const isAcademic=stream==="learningEvidence";
+
+    const sinceAcademic = state.lastAcademicPerf==null ? null : perfNow-state.lastAcademicPerf;
+    const awaySinceAcademic = state.lastAcademicPerf==null ? null : state.awaySinceLastAcademicMs;
+
+    state.eventCounter++;
+    const ev={
+      schema:TRACE_PROTOCOL.eventSchema,
+      schemaVersion:TRACE_PROTOCOL.eventSchemaVersion,
+      protocolVersion:TRACE_PROTOCOL.protocolVersion,
+      eventId:`E${String(state.eventCounter).padStart(6,"0")}`,
+      eventIndex:state.eventCounter,
+      eventType,
+      event:eventType, // alias de compatibilidad con versiones anteriores
+      stream,
+      eventCategory:category,
+
+      instrument:ACTIVITY.instrument,
+      activityId:ACTIVITY.id,
+      activityVersion:ACTIVITY.version,
+      sessionId:state.sessionId,
+      participantId:state.studentId,
+
+      timestamp:{
+        isoUtc:new Date().toISOString(),
+        epochMs:Date.now(),
+        sessionElapsedMs:roundMs(elapsedMs),
+        deltaPreviousEventMs:roundMs(deltaEvent)
+      },
+
+      // Alias para el historial visual existente
+      timestamp_s:+(elapsedMs/1000).toFixed(2),
+
+      context:cloneContext(),
+
+      timing:{
+        timeSincePreviousAcademicActionMs:roundMs(sinceAcademic),
+        awaySincePreviousAcademicActionMs:roundMs(awaySinceAcademic),
+        focusedTimeSincePreviousAcademicActionMs:
+          sinceAcademic==null ? null : roundMs(sinceAcademic-(awaySinceAcademic||0))
+      },
+
+      payload
+    };
+
+    // Mantener campos de payload a nivel raíz para compatibilidad interna de DIN-001.
+    Object.assign(ev,payload);
+
+    state.events.push(ev);
+    state.lastEventPerf=perfNow;
+
+    if(isAcademic){
+      state.lastAcademicPerf=perfNow;
+      state.awaySinceLastAcademicMs=0;
+    }
+
+    renderEvent(ev);
+    return ev;
+  }
+
+  function renderEvent(ev){
+    const d=document.createElement("div");
+    d.className="event";
+    const payload=ev.payload||{};
+    const detail=Object.entries(payload)
+      .map(([k,v])=>`${k}: ${typeof v==="object"?JSON.stringify(v):v}`).join(" · ");
+    d.innerHTML=`<div class="meta">${ev.timestamp_s.toFixed(2)} s · ${escapeHtml(ev.context?.phase||"")}</div>
+      <div class="name">${prettyEvent(ev.eventType||ev.event)}</div>
+      ${detail?`<div class="detail">${escapeHtml(detail)}</div>`:""}`;
+    timeline.appendChild(d);
+    timeline.scrollTop=timeline.scrollHeight;
+  }
+
+  function prettyEvent(v){
+    const map={
+      session_start:"Inicio de sesión",action_selected:"Acción seleccionada",decision_justified:"Decisión justificada",
+      card_removed:"Decisión retirada",help_requested:"Ayuda física solicitada",simulation_opened:"Simulador abierto",
+      simulation_changed:"Parámetro de simulación modificado",prediction_recorded:"Predicción registrada",
+      final_answer:"Respuesta final",session_finished:"Sesión finalizada",mode_changed:"Modo modificado",
+      teacher_mode_changed:"Modo docente",dcl_changed:"DCL modificado",model_tested:"Modelo probado",
+      decision_justification_edited:"Fundamentación editada",formula_selected:"Fórmula seleccionada",
+      usage_help_opened:"Ayuda de uso abierta",history_opened:"Historial abierto",
+      presentation_order:"Orden de presentación",foundation_option_selected:"Opción de fundamentación seleccionada",
+      focus_lost:"Pérdida de foco",focus_restored:"Recuperación de foco",
+      response_started:"Inicio de respuesta",response_cancelled:"Respuesta cancelada"
+    };
+    return map[v]||v;
+  }
+
+  function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));}
+
+  function startTimedResponse(taskType,taskId,extra={}){
+    // Si existía una tarea abierta, se cierra como cancelada para no mezclar tiempos.
+    if(state.activeResponse){
+      cancelTimedResponse("replaced_by_new_response");
+    }
+    const startPerf=performance.now();
+    state.activeResponse={
+      responseId:`R${String(state.eventCounter+1).padStart(6,"0")}_${Math.random().toString(36).slice(2,6)}`,
+      taskType,
+      taskId,
+      startPerf,
+      startedIso:new Date().toISOString(),
+      awayMs:0,
+      awayEpisodes:0,
+      context:{...extra}
+    };
+    setContext("responding",taskType,taskId,extra);
+    emit("response_started",{
+      responseId:state.activeResponse.responseId,
+      taskType,
+      taskId
+    },{stream:"interactionTraces",category:"response_timing"});
+    return state.activeResponse.responseId;
+  }
+
+  function finishTimedResponse(outcome="submitted"){
+    if(!state.activeResponse) return null;
+    const endPerf=performance.now();
+    const r=state.activeResponse;
+    const wall=endPerf-r.startPerf;
+    const away=r.awayMs||0;
+    const sincePrevious=state.lastResponseEndPerf==null ? null : endPerf-state.lastResponseEndPerf;
+    const awaySincePrevious=state.lastResponseEndPerf==null ? null : state.awaySinceLastResponseMs;
+
+    const timing={
+      responseId:r.responseId,
+      taskType:r.taskType,
+      taskId:r.taskId,
+      outcome,
+      responseWallMs:roundMs(wall),
+      responseFocusedMs:roundMs(wall-away),
+      awayDuringResponseMs:roundMs(away),
+      awayEpisodesDuringResponse:r.awayEpisodes||0,
+      timeSincePreviousResponseMs:roundMs(sincePrevious),
+      awaySincePreviousResponseMs:roundMs(awaySincePrevious),
+      focusedTimeSincePreviousResponseMs:
+        sincePrevious==null ? null : roundMs(sincePrevious-(awaySincePrevious||0))
+    };
+
+    state.lastResponseEndPerf=endPerf;
+    state.awaySinceLastResponseMs=0;
+    state.activeResponse=null;
+    resetContext();
+    return timing;
+  }
+
+  function cancelTimedResponse(reason="cancelled"){
+    if(!state.activeResponse) return null;
+    const timing=finishTimedResponse("cancelled");
+    emit("response_cancelled",{reason,responseTiming:timing},{stream:"interactionTraces",category:"response_timing"});
+    return timing;
+  }
+
+  function changeFocusState(focused, source){
+    // Dedupe visibilitychange + blur/focus
+    if(state.isFocused===focused) return;
+    const perfNow=performance.now();
+
+    if(!focused){
+      state.isFocused=false;
+      state.focusEpisodeCounter++;
+      state.currentAwayEpisodeId=`A${String(state.focusEpisodeCounter).padStart(5,"0")}`;
+      state.awayStartedPerf=perfNow;
+      state.awayContextAtLoss=cloneContext();
+      state.awaySourceAtLoss=source;
+
+      emit("focus_lost",{
+        awayEpisodeId:state.currentAwayEpisodeId,
+        source,
+        focusState:"unfocused",
+        contextAtLoss:state.awayContextAtLoss,
+        interpretation:"interaction_trace_only"
+      },{stream:"interactionTraces",category:"focus"});
+      return;
+    }
+
+    state.isFocused=true;
+    if(state.awayStartedPerf==null){
+      emit("focus_restored",{
+        awayEpisodeId:null,
+        source,
+        focusState:"focused",
+        awayDurationMs:0,
+        interpretation:"interaction_trace_only"
+      },{stream:"interactionTraces",category:"focus"});
+      return;
+    }
+
+    const duration=perfNow-state.awayStartedPerf;
+    state.totalAwayMs += duration;
+    state.awaySinceLastAcademicMs += duration;
+    state.awaySinceLastResponseMs += duration;
+
+    if(state.activeResponse){
+      state.activeResponse.awayMs += duration;
+      state.activeResponse.awayEpisodes += 1;
+    }
+
+    const episode={
+      awayEpisodeId:state.currentAwayEpisodeId,
+      startContext:state.awayContextAtLoss,
+      restoreContext:cloneContext(),
+      awayDurationMs:roundMs(duration),
+      sourceLost:state.awaySourceAtLoss,
+      sourceRestored:source
+    };
+    state.focusEpisodes.push(episode);
+
+    emit("focus_restored",{
+      awayEpisodeId:state.currentAwayEpisodeId,
+      source,
+      focusState:"focused",
+      awayDurationMs:roundMs(duration),
+      contextAtLoss:state.awayContextAtLoss,
+      contextAtRestore:cloneContext(),
+      duringActiveResponse:!!state.activeResponse,
+      interpretation:"interaction_trace_only"
+    },{stream:"interactionTraces",category:"focus"});
+
+    state.awayStartedPerf=null;
+    state.awayContextAtLoss=null;
+    state.awaySourceAtLoss=null;
+    state.currentAwayEpisodeId=null;
+  }
+
+
+  function createSeededRng(seed){
+    let a=seed>>>0;
+    return function(){
+      a |= 0;
+      a = a + 0x6D2B79F5 | 0;
+      let t = Math.imul(a ^ a >>> 15, 1 | a);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+
+  const presentationRng = createSeededRng(state.presentationSeed);
+
+  function shuffledCopy(arr){
+    const copy=[...arr];
+    for(let i=copy.length-1;i>0;i--){
+      const j=Math.floor(presentationRng()*(i+1));
+      [copy[i],copy[j]]=[copy[j],copy[i]];
+    }
+    return copy;
+  }
+
+  function buildFamilies(){
+    families.innerHTML="";
+    const randomizedFamilies = shuffledCopy(FAMILY_DEFS);
+    state.presentedFamilyOrder = randomizedFamilies.map(f=>f.name);
+
+    randomizedFamilies.forEach((f,idx)=>{
+      const det=document.createElement("details");
+      if(idx<2) det.open=true;
+      det.innerHTML=`<summary>${f.name}</summary>`;
+      const box=document.createElement("div"); box.className="family-actions";
+
+      const randomizedActions=shuffledCopy(f.actions);
+      state.presentedActionOrder[f.name]=randomizedActions.map(a=>a[0]);
+
+      randomizedActions.forEach(a=>{
+        const [id,label,type,teacherClass,critical]=a;
+        const b=document.createElement("button");
+        b.className="action-btn";
+        b.dataset.id=id;
+        b.innerHTML=`${label}<br><span class="tag teacher-tag">${teacherClass}</span>`;
+        b.addEventListener("click",()=>selectAction({id,label,type,teacherClass,critical}));
+        box.appendChild(b);
+      });
+      det.appendChild(box);
+      families.appendChild(det);
+    });
+  }
+
+  function selectAction(action){
+    emit("action_selected",{action_id:action.id,action_type:action.type,internal_class:action.teacherClass});
+    if(action.id==="open_sim"){ openSimulation(); return; }
+    if(action.id.startsWith("predict_")){ openPrediction(action); return; }
+    if(FORMULA_BANKS[action.id]){
+      openFormulaChooser(action);
+      return;
+    }
+    if(action.id==="check_25"){ openCheck25(action); return; }
+    if(action.id==="rep_dcl"){ el("dclWrap").classList.remove("hidden"); addCard(action,"Diagrama habilitado"); return; }
+
+    if(action.type==="force"){
+      updateForce(action);
+    } else {
+      addCard(action);
+    }
+
+    if(action.critical) openJustification(action);
+    maybeAdaptivePrompt(action);
+  }
+
+  function addCard(action, extra=""){
+    el("emptyWorkspace").classList.add("hidden");
+    const card={...action,uid:"C_"+Math.random().toString(36).slice(2,9),extra,justification:null};
+    state.cards.push(card); renderCards();
+    return card;
+  }
+
+  function renderCards(){
+    cards.innerHTML="";
+    state.cards.forEach(c=>{
+      const d=document.createElement("div");
+      d.className="card";
+
+      const canEditJustification = !!c.critical;
+      const foundationLabel = c.justification && ((c.justification.why_ids&&c.justification.why_ids.length)||(c.justification.purpose_ids&&c.justification.purpose_ids.length)||c.justification.note)
+        ? "Editar fundamento"
+        : "Fundamentar";
+
+      const whyHtml = c.justification && c.justification.why_ids && c.justification.why_ids.length ? `
+        <div class="foundation-block">
+          <b>Por qué:</b>
+          <ul>${c.justification.why_ids.map(id=>{
+            const o=FOUNDATION_OPTIONS.why.find(x=>x[0]===id);
+            return `<li>${o?escapeHtml(o[1]):escapeHtml(id)}</li>`;
+          }).join("")}</ul>
+        </div>` : '';
+
+      const purposeHtml = c.justification && c.justification.purpose_ids && c.justification.purpose_ids.length ? `
+        <div class="foundation-block">
+          <b>Para qué:</b>
+          <ul>${c.justification.purpose_ids.map(id=>{
+            const o=FOUNDATION_OPTIONS.purpose.find(x=>x[0]===id);
+            return `<li>${o?escapeHtml(o[1]):escapeHtml(id)}</li>`;
+          }).join("")}</ul>
+        </div>` : '';
+
+      const noteHtml = c.justification && c.justification.note ? `
+        <div class="foundation-note"><b>Ampliación:</b> ${escapeHtml(c.justification.note)}</div>` : '';
+
+      d.innerHTML=`<div class="card-top">
+          <div class="card-title-wrap">
+            <strong>${escapeHtml(c.label)}</strong>
+            <small>${escapeHtml(c.extra||c.type)}</small>
+            <div class="mini">
+              <span class="tag">${escapeHtml(c.type)}</span>
+              <span class="tag teacher-tag">${escapeHtml(c.teacherClass)}</span>
+              ${c.justification && ((c.justification.why_ids&&c.justification.why_ids.length)||(c.justification.purpose_ids&&c.justification.purpose_ids.length)||c.justification.note) ? '<span class="tag">fundamentada</span>' : ''}
+            </div>
+          </div>
+          <div class="card-actions">
+            ${canEditJustification ? `<button class="btn soft" data-edit-just="${c.uid}">${foundationLabel}</button>` : ''}
+            <button class="btn danger" data-remove="${c.uid}">Retirar</button>
+          </div>
+        </div>
+        <div class="card-main">
+          ${c.justification && (
+            (c.justification.why_ids && c.justification.why_ids.length) ||
+            (c.justification.purpose_ids && c.justification.purpose_ids.length) ||
+            c.justification.note
+          ) ? `
+            <div class="foundation-summary">
+              <div class="foundation-grid">
+                ${whyHtml || '<div class="foundation-block"><b>Por qué:</b><div class="footer-note" style="margin-top:4px">Sin selección.</div></div>'}
+                ${purposeHtml || '<div class="foundation-block"><b>Para qué:</b><div class="footer-note" style="margin-top:4px">Sin selección.</div></div>'}
+              </div>
+              ${noteHtml}
+            </div>` : ''}
+        </div>`;
+
+      cards.appendChild(d);
+    });
+
+    cards.querySelectorAll("[data-edit-just]").forEach(b=>b.onclick=()=>{
+      const uid=b.dataset.editJust;
+      const card=state.cards.find(c=>c.uid===uid);
+      if(card) editJustification(card);
+    });
+
+    cards.querySelectorAll("[data-remove]").forEach(b=>b.onclick=()=>{
+      const uid=b.dataset.remove;
+      const idx=state.cards.findIndex(c=>c.uid===uid);
+      if(idx>=0){
+        const [c]=state.cards.splice(idx,1);
+        if(c.type==="force") state.currentDCL.delete(c.id);
+        emit("card_removed",{action_id:c.id,internal_class:c.teacherClass});
+        renderCards(); renderDCL();
+      }
+    });
+    if(!state.cards.length) el("emptyWorkspace").classList.remove("hidden");
+  }
+
+  function updateForce(action){
+    state.currentDCL.add(action.id);
+    addCard(action);
+    emit("dcl_changed",{force:action.id,operation:"add"});
+    renderDCL();
+  }
+
+  function renderDCL(){
+    const g=el("dclVectors"); g.innerHTML="";
+    const add=(x1,y1,x2,y2,label,color)=>{
+      const ns="http://www.w3.org/2000/svg";
+      const line=document.createElementNS(ns,"line");
+      line.setAttribute("x1",x1);line.setAttribute("y1",y1);line.setAttribute("x2",x2);line.setAttribute("y2",y2);
+      line.setAttribute("stroke",color);line.setAttribute("stroke-width","5");line.setAttribute("marker-end","url(#dclArrow)");
+      g.appendChild(line);
+      const t=document.createElementNS(ns,"text");t.setAttribute("x",x2+6);t.setAttribute("y",y2);t.setAttribute("font-size","18");t.setAttribute("fill",color);t.textContent=label;g.appendChild(t);
+    };
+    // marker local
+    g.innerHTML=`<defs><marker id="dclArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="context-stroke"></path></marker></defs>`;
+    if(state.currentDCL.has("force_weight")) add(260,177,260,285,"P","#a12b2b");
+    if(state.currentDCL.has("force_normal")) add(260,177,205,25,"N","#2f7d32");
+    if(state.currentDCL.has("force_friction_up")) add(260,177,395,125,"f","#145da0");
+    if(state.currentDCL.has("force_friction_down")) add(260,177,125,228,"f","#a65f00");
+    if(state.currentDCL.has("force_motor")) add(260,177,390,170,"Fmotor","#7b3f8c");
+    if(state.currentDCL.has("force_centripetal")) add(260,177,350,255,"Fc","#7b3f8c");
+  }
+
+  function openJustification(action){
+    const card=[...state.cards].reverse().find(c=>c.id===action.id && !c.justification);
+    if(!card) return;
+
+    openFoundationEditor(card, false);
+  }
+
+  function editJustification(card){
+    openFoundationEditor(card, true);
+  }
+
+  function openFoundationEditor(card, isEdit){
+    startTimedResponse("foundation",card.id,{phase:"responding",actionId:card.id,mode:isEdit?"edit":"initial"});
+    const previous = card.justification
+      ? {why_ids:[...(card.justification.why_ids||[])],purpose_ids:[...(card.justification.purpose_ids||[])],note:card.justification.note||"",analysis:card.justification.analysis||null}
+      : {why_ids:[],purpose_ids:[],note:"",analysis:null};
+
+    const whyOptions=shuffledCopy(FOUNDATION_OPTIONS.why);
+    const purposeOptions=shuffledCopy(FOUNDATION_OPTIONS.purpose);
+
+    const renderBank=(dimension,opts,selectedIds)=>opts.map(([id,text,baseClass])=>{
+      const checked=selectedIds.includes(id) ? "checked" : "";
+      const cls=foundationClass(card.id,dimension,id);
+      return `<label class="response-option ${checked?"selected":""}">
+        <input type="checkbox" data-foundation-dim="${dimension}" value="${id}" ${checked}>
+        <span>${escapeHtml(text)}<span class="tag teacher-tag">${escapeHtml(cls)}</span></span>
+      </label>`;
+    }).join("");
+
+    modal(
+      isEdit ? "Editar fundamento" : "Fundamentar decisión",
+      `<p><strong>${escapeHtml(card.label)}</strong></p>
+       <div class="field"><label>¿Por qué toma esta decisión?</label>
+         <div class="response-bank" id="whyBank">${renderBank("why",whyOptions,previous.why_ids)}</div>
+         <div class="bank-note">Puede seleccionar más de una opción si considera que se complementan.</div>
+       </div>
+       <div class="field"><label>¿Para qué la utiliza en este problema?</label>
+         <div class="response-bank" id="purposeBank">${renderBank("purpose",purposeOptions,previous.purpose_ids)}</div>
+         <div class="bank-note">Las opciones aparecen desordenadas e incluyen razones válidas para distintos modelos y algunas concepciones erróneas.</div>
+       </div>
+       <div class="field"><label>Ampliación opcional</label>
+         <textarea id="foundationNote" placeholder="Puede aclarar o ampliar su elección con sus propias palabras...">${escapeHtml(previous.note)}</textarea>
+       </div>
+       <p class="footer-note">Puede volver a editar esta fundamentación en cualquier momento desde la tarjeta del modelo.</p>`,
+      [
+        ["Cancelar","soft",()=>{cancelTimedResponse("foundation_cancelled");closeModal();}],
+        ["Guardar","primary",()=>{
+          const whyIds=[...document.querySelectorAll('input[data-foundation-dim="why"]:checked')].map(x=>x.value);
+          const purposeIds=[...document.querySelectorAll('input[data-foundation-dim="purpose"]:checked')].map(x=>x.value);
+          const note=el("foundationNote").value.trim();
+          const current={why_ids:whyIds,purpose_ids:purposeIds,note,analysis:{why:analyzeFoundation(card.id,"why",whyIds),purpose:analyzeFoundation(card.id,"purpose",purposeIds)}};
+          const responseTiming=finishTimedResponse("submitted");
+          card.justification=current;
+          renderCards();
+
+          whyIds.forEach(id=>emit("foundation_option_selected",{action_id:card.id,dimension:"why",option_id:id,classification:foundationClass(card.id,"why",id)}));
+          purposeIds.forEach(id=>emit("foundation_option_selected",{action_id:card.id,dimension:"purpose",option_id:id,classification:foundationClass(card.id,"purpose",id)}));
+
+          if(isEdit){
+            emit("decision_justification_edited",{action_id:card.id,previous,current,responseTiming});
+          }else{
+            emit("decision_justified",{action_id:card.id,why_ids:whyIds,purpose_ids:purposeIds,note,analysis:current.analysis,omitted:whyIds.length===0&&purposeIds.length===0&&!note,responseTiming});
+          }
+          closeModal();
+        }]
+      ]
+    );
+
+    document.querySelectorAll('.response-option input[type="checkbox"]').forEach(ch=>{
+      ch.addEventListener("change",()=>ch.closest(".response-option").classList.toggle("selected",ch.checked));
+    });
+  }
+
+  function maybeAdaptivePrompt(action){
+    if(state.mode==="evaluation") return;
+    const map={
+      law_fk:["Pregunta conceptual","¿Existe movimiento relativo entre el producto y la cinta en la situación inicial? Si todavía no lo sabe, ¿conviene asumir rozamiento cinético?"],
+      law_fs_equal:["Pregunta conceptual","¿El rozamiento estático adopta siempre el valor μsN o ese valor representa un límite?"],
+      force_friction_down:["Pregunta conceptual","Si desapareciera el rozamiento, ¿hacia dónde tendería a deslizar el producto respecto de la cinta?"],
+      int_motor:["Revisión de interacción","¿El motor interactúa directamente con el producto o lo hace con la cinta?"],
+      force_motor:["Revisión de fuerza","¿Qué cuerpo ejerce directamente esta fuerza sobre el producto?"],
+      law_energy:["Revisión de estrategia","¿Esta relación permite establecer directamente la condición límite de adherencia entre producto y cinta?"],
+    };
+    if(map[action.id]){
+      const [t,msg]=map[action.id];
+      setTimeout(()=>modal(t,`<p>${msg}</p>`,[["Continuar","primary",closeModal]]),80);
+    }
+  }
+
+  function openPrediction(action){
+    startTimedResponse("prediction",action.id,{actionId:action.id});
+    let prompt;
+    if(action.id==="predict_angle"){
+      prompt="¿Qué espera que ocurra con la posibilidad de deslizamiento si aumenta el ángulo de la cinta?";
+    }else if(action.id==="predict_mass"){
+      prompt="¿Qué espera que ocurra con el ángulo máximo admisible si se duplica la masa del producto?";
+    }else{
+      prompt="¿Qué espera que ocurra con el ángulo máximo admisible si aumenta el coeficiente de rozamiento estático μs?";
+    }
+    modal("Predicción",`<p>${prompt}</p><textarea id="predText" placeholder="Escriba su predicción antes de experimentar..."></textarea>`,
+      [["Guardar","primary",()=>{const txt=el("predText").value.trim();const responseTiming=finishTimedResponse("submitted");emit("prediction_recorded",{action_id:action.id,text:txt,responseTiming});addCard(action,txt||"Predicción sin texto");closeModal();}]]
+    );
+  }
+
+
+  function openFormulaChooser(action){
+    startTimedResponse("formula_selection",action.id,{actionId:action.id});
+    const bank=FORMULA_BANKS[action.id];
+    if(!bank){ addCard(action); return; }
+
+    const shuffledOptions=shuffledCopy(bank.options);
+
+    const optionHTML=shuffledOptions.map(([id,label,expr,teacherClass])=>`
+      <button class="formula-option" type="button" data-formula-id="${id}">
+        <div class="formula-title">${label}</div>
+        <div class="formula-expr">${expr}</div>
+        <span class="tag teacher-tag">${teacherClass}</span>
+      </button>`).join("");
+
+    modal(bank.title,
+      `<p>${bank.prompt}</p>
+       <div class="formula-bank" id="formulaBank">${optionHTML}</div>
+       <p class="footer-note">Puede seleccionar más de una relación. La elección se incorporará al modelo y podrá retirarse después.</p>`,
+      [
+        ["Cancelar","soft",()=>{cancelTimedResponse("formula_selection_cancelled");closeModal();}],
+        ["Incorporar selección","primary",()=>{
+          const selected=[...document.querySelectorAll(".formula-option.selected")];
+          const ids=selected.map(x=>x.dataset.formulaId);
+          const chosen=bank.options.filter(o=>ids.includes(o[0]));
+          const responseTiming=finishTimedResponse("submitted");
+
+          const parent=addCard(action, chosen.length ? `${chosen.length} relación(es) seleccionada(s)` : "Sin relación seleccionada");
+          parent.formulas=chosen.map(([id,label,expr,teacherClass])=>({id,label,expr,teacherClass}));
+
+          chosen.forEach(([id,label,expr,teacherClass])=>{
+            const formulaAction={
+              id,
+              label:`${label}: ${expr}`,
+              type:"formula",
+              teacherClass,
+              critical:false
+            };
+            addCard(formulaAction,`Fórmula asociada a: ${action.label}`);
+            emit("formula_selected",{
+              calculation_id:action.id,
+              formula_id:id,
+              expression:expr,
+              internal_class:teacherClass,
+              responseTiming
+            });
+          });
+
+          closeModal();
+
+          if(action.id==="calc_theta"){
+            setTimeout(()=>openThetaCalc(action),80);
+          }
+        }]
+      ]
+    );
+
+    document.querySelectorAll(".formula-option").forEach(b=>{
+      b.onclick=()=>b.classList.toggle("selected");
+    });
+  }
+
+  function openThetaCalc(action){
+    startTimedResponse("numeric_answer","theta_max_deg",{actionId:action.id});
+    modal("Calcular ángulo máximo",
+      `<p>Ingrese el valor que obtiene para el ángulo máximo.</p>
+       <div class="field"><label>θmáx [°]</label><input type="text" id="thetaInput" inputmode="decimal" placeholder="Ej.: 21,8"></div>
+       <div class="footer-note">En modo formativo puede verificar el resultado; en evaluación se registra sin feedback inmediato.</div>`,
+      [["Registrar","primary",()=>{
+        let raw=el("thetaInput").value.replace(",",".").trim();
+        const val=parseFloat(raw);
+        state.answerTheta=Number.isFinite(val)?val:null;
+        const responseTiming=finishTimedResponse("submitted");
+        emit("final_answer",{quantity:"theta_max_deg",value:state.answerTheta,responseTiming});
+        const extra=state.answerTheta===null?"Valor no numérico":`θmáx = ${state.answerTheta}°`;
+        addCard(action,extra); closeModal();
+        if(state.mode!=="evaluation" && state.answerTheta!==null){
+          const ok=Math.abs(state.answerTheta-ACTIVITY.expectedTheta)<=0.5;
+          setTimeout(()=>modal(ok?"Comprobación":"Revise el planteo",
+            ok?`<p>El valor es compatible con la condición límite de adherencia.</p>`:`<p>El valor registrado no coincide con el que se obtiene de la condición límite. Puede revisar fuerzas, ejes y relación de rozamiento estático.</p>`,
+            [["Continuar","primary",closeModal]]),80);
+        }
+      }]]
+    );
+  }
+
+  function openCheck25(action){
+    startTimedResponse("conceptual_answer","behavior_25deg",{actionId:action.id});
+    modal("Comprobación para θ = 25°",
+      `<p>¿Qué ocurrirá con el producto si la cinta se instala con <strong>θ = 25°</strong>?</p>
+       <select id="slipSelect">
+         <option value="">Seleccione...</option>
+         <option value="no_slip">No desliza respecto de la cinta</option>
+         <option value="slip_down">Tiende a deslizar hacia abajo respecto de la cinta</option>
+         <option value="slip_up">Tiende a deslizar hacia arriba respecto de la cinta</option>
+       </select>`,
+      [["Registrar","primary",()=>{state.finalSlip=el("slipSelect").value;const responseTiming=finishTimedResponse("submitted");emit("final_answer",{quantity:"behavior_25deg",value:state.finalSlip,responseTiming});addCard(action,state.finalSlip||"Sin selección");closeModal();}]]
+    );
+  }
+
+  function openSimulation(){
+    setContext("simulation","parameter_exploration","DIN001_SIM");
+    state.simulationUses++; emit("simulation_opened",{count:state.simulationUses});
+    modal("Simulador · adherencia producto–cinta",
+      `<div class="sim-grid">
+        <div>
+          <div class="control"><label>Ángulo θ <span id="vTheta">20°</span></label><input id="sTheta" type="range" min="0" max="40" step="0.5" value="20"></div>
+          <div class="control"><label>μs <span id="vMus">0.40</span></label><input id="sMus" type="range" min="0" max="0.8" step="0.01" value="0.40"></div>
+          <div class="control"><label>μk <span id="vMuk">0.30</span></label><input id="sMuk" type="range" min="0" max="0.8" step="0.01" value="0.30"></div>
+          <div class="control"><label>Masa <span id="vMass">10 kg</span></label><input id="sMass" type="range" min="1" max="30" step="1" value="10"></div>
+        </div>
+        <div>
+          <svg viewBox="0 0 480 280">
+            <g id="simPlane" transform="rotate(-20 250 180)">
+              <line x1="55" y1="215" x2="430" y2="215" stroke="#788793" stroke-width="18" stroke-linecap="round"/>
+              <rect x="230" y="145" width="90" height="65" rx="5" fill="#d8b36a" stroke="#71572b" stroke-width="3"/>
+            </g>
+          </svg>
+          <div class="sim-result">
+            <div>θ límite = <strong id="thetaLim">21.80°</strong></div>
+            <div>Estado: <span id="simStatus" class="status ok">sin deslizamiento</span></div>
+            <div class="footer-note">El criterio mostrado es tan(θ) ≤ μs.</div>
+          </div>
+        </div>
+      </div>`,
+      [["Cerrar","primary",closeModal]]
+    );
+    const ids=["sTheta","sMus","sMuk","sMass"];
+    const update=()=>{
+      const th=+el("sTheta").value, mus=+el("sMus").value, muk=+el("sMuk").value, mass=+el("sMass").value;
+      el("vTheta").textContent=th.toFixed(1)+"°"; el("vMus").textContent=mus.toFixed(2); el("vMuk").textContent=muk.toFixed(2); el("vMass").textContent=mass+" kg";
+      const lim=Math.atan(mus)*180/Math.PI;
+      el("thetaLim").textContent=lim.toFixed(2)+"°";
+      const slip=Math.tan(th*Math.PI/180)>mus+1e-12;
+      el("simStatus").textContent=slip?"deslizamiento posible":"sin deslizamiento";
+      el("simStatus").className="status "+(slip?"bad":"ok");
+      el("simPlane").setAttribute("transform",`rotate(${-th} 250 180)`);
+    };
+    ids.forEach(id=>el(id).addEventListener("input",()=>{
+      update();
+      emit("simulation_changed",{theta:+el("sTheta").value,mu_s:+el("sMus").value,mu_k:+el("sMuk").value,mass:+el("sMass").value});
+    }));
+    update();
+  }
+
+  function testModel(){
+    setContext("model_test","coherence_check",`test_${state.modelTests+1}`);
+    state.modelTests++;
+    const active = new Set(state.cards.map(c=>c.id));
+    const checks = [];
+    const hasProductSystem = active.has("system_product");
+    const hasOtherSystem = [...active].some(x=>x.startsWith("system_") && x!=="system_product");
+    checks.push({key:"system",label:"Sistema en estudio",status:hasProductSystem?"ok":(hasOtherSystem?"review":"missing"),msg:hasProductSystem?"El producto está definido como sistema de estudio.":hasOtherSystem?"Hay un sistema definido, pero conviene revisar si permite responder directamente la pregunta sobre el deslizamiento del producto.":"Todavía no se identificó un sistema de estudio."});
+    const essentialInts=["int_earth","int_belt"].filter(x=>active.has(x)).length;
+    const badDirect=active.has("int_motor")||active.has("int_structure");
+    checks.push({key:"interactions",label:"Interacciones relevantes",status:essentialInts===2&&!badDirect?"ok":(essentialInts>0?"review":"missing"),msg:essentialInts===2&&!badDirect?"Están presentes las interacciones producto–Tierra y producto–cinta.":essentialInts===2?"Las interacciones principales están, pero hay alguna interacción directa que conviene revisar.":"Faltan interacciones necesarias para justificar todas las fuerzas del producto."});
+    const dclCore=["force_weight","force_normal","force_friction_up"].filter(x=>active.has(x)).length;
+    const dclWrong=active.has("force_friction_down")||active.has("force_motor")||active.has("force_centripetal");
+    checks.push({key:"dcl",label:"Diagrama / fuerzas",status:dclCore===3&&!dclWrong?"ok":(dclCore>0?"review":"missing"),msg:dclCore===3&&!dclWrong?"El conjunto de fuerzas es coherente con el producto que asciende sin deslizar.":dclWrong?"Hay fuerzas o sentidos que no son coherentes con la situación modelizada.":"El modelo de fuerzas está incompleto."});
+    const hasNewton=active.has("law_newton"),hasStaticLimit=active.has("law_fs_limit"),kineticOnly=active.has("law_fk")&&!hasStaticLimit,equalOnly=active.has("law_fs_equal")&&!hasStaticLimit;
+    const pStatus=(hasNewton&&hasStaticLimit)?"ok":((hasNewton||hasStaticLimit||kineticOnly||equalOnly)?"review":"missing");
+    const pMsg=(hasNewton&&hasStaticLimit)?"La segunda ley y la condición de rozamiento estático permiten establecer el ángulo límite.":kineticOnly?"Se está utilizando rozamiento cinético antes de haber establecido que existe deslizamiento.":equalOnly?"Se está usando fs = μsN. Revise cuándo esa igualdad es válida y cuándo debe escribirse como límite.":"Falta relacionar el equilibrio traslacional con la condición de adherencia.";
+    checks.push({key:"principles",label:"Relaciones físicas",status:pStatus,msg:pMsg});
+    const hasParallel=active.has("eq_parallel"),hasNormal=active.has("eq_normal"),hasCondition=active.has("eq_condition");
+    checks.push({key:"equations",label:"Estructura matemática",status:(hasParallel&&hasNormal&&hasCondition)?"ok":((hasParallel||hasNormal||hasCondition)?"review":"missing"),msg:(hasParallel&&hasNormal&&hasCondition)?"El planteo contempla las direcciones paralela y normal y la condición límite.":"El desarrollo matemático todavía no conecta completamente fuerzas, normal y condición de adherencia."});
+    const extra=state.cards.filter(c=>["posible_otro_caso","no_pertinente","conceptual_error","no_directa"].includes(c.teacherClass));
+    checks.push({key:"extras",label:"Herramientas adicionales",status:extra.length?"review":"ok",msg:extra.length?`Hay ${extra.length} elemento(s) que pueden ser útiles en otros problemas, pero conviene justificar si aportan a este modelo.`:"No hay elementos claramente ajenos al modelo actual."});
+    emit("model_tested",{test_number:state.modelTests,checks:checks.map(c=>({key:c.key,status:c.status})),active_actions:[...active]});
+    if(state.mode==="evaluation"){
+      const unresolved=checks.some(c=>c.status!=="ok");
+      modal("Prueba del modelo",`<p><strong>Comprobación registrada.</strong></p><p>${unresolved?"El modelo todavía presenta aspectos que conviene revisar.":"El modelo es internamente consistente con los criterios de esta actividad."}</p><p class="footer-note">En modo evaluación no se muestran los criterios detallados.</p>`,[["Continuar","primary",closeModal]]);
+      return;
+    }
+    const icon=s=>s==="ok"?"✓":(s==="review"?"△":"○");
+    const rows=checks.map(c=>`<div style="border:1px solid #d7dde3;border-radius:12px;padding:11px 12px;margin-bottom:9px"><div style="display:flex;justify-content:space-between;gap:12px;align-items:center"><strong>${icon(c.status)} ${c.label}</strong><span class="tag">${c.status==="ok"?"coherente":c.status==="review"?"revisar":"incompleto"}</span></div><div style="margin-top:5px;color:#42515f">${c.msg}</div></div>`).join("");
+    const overall=checks.every(c=>c.status==="ok")?"El modelo es coherente para avanzar hacia la resolución y validación.":"La prueba no busca una secuencia ideal: marca únicamente aspectos estructurales que conviene revisar.";
+    modal(`Prueba del modelo · intento ${state.modelTests}`,`<p>${overall}</p>${rows}<p class="footer-note">Probar el modelo no modifica ni borra ninguna decisión. También queda registrado cuándo se realizó la prueba y con qué estado del modelo.</p>`,[["Continuar trabajando","primary",closeModal]]);
+  }
+
+
+  function openHistory(tab="history"){
+    setContext("navigation","history",tab);
+    el("historyModal").classList.add("open");
+    if(tab==="usage"){
+      showUsageTab();
+      emit("usage_help_opened",{});
+    }else{
+      showHistoryTab();
+      emit("history_opened",{event_count:state.events.length});
+    }
+  }
+
+  function closeHistory(){ el("historyModal").classList.remove("open"); resetContext(); }
+
+  function showHistoryTab(){
+    el("historyTab").classList.remove("hidden");
+    el("usageTab").classList.add("hidden");
+    el("historyTabBtn").className="btn primary";
+    el("usageTabBtn").className="btn soft";
+  }
+
+  function showUsageTab(){
+    el("usageTab").classList.remove("hidden");
+    el("historyTab").classList.add("hidden");
+    el("usageTabBtn").className="btn primary";
+    el("historyTabBtn").className="btn soft";
+  }
+
+  function requestHelp(){
+    setContext("help","physics_help",`level_${Math.min(4,state.helpLevel+1)}`);
+    state.helpLevel=Math.min(4,state.helpLevel+1);
+    emit("help_requested",{level:state.helpLevel});
+    const text=[
+      "",
+      "¿Cuál es exactamente el sistema que está analizando?",
+      "Analice qué cuerpos interactúan directamente con el producto.",
+      "Si el producto no desliza respecto de la cinta, ¿el rozamiento es estático o cinético?",
+      "Construya el DCL del producto. Use ejes paralelo y normal a la cinta, y relacione la fuerza necesaria para evitar el deslizamiento con el máximo rozamiento estático disponible."
+    ][state.helpLevel];
+    modal(`Ayuda · nivel ${state.helpLevel}`,`<p>${text}</p>`,[["Continuar","primary",closeModal]]);
+  }
+
+  function finish(){
+    if(state.finished){ el("reportPanel").classList.remove("hidden"); return; }
+    state.finished=true;
+    emit("session_finished",{duration_s:nowSec(),cards_final:state.cards.length,help_level:state.helpLevel,simulation_uses:state.simulationUses,totalAwayMs:roundMs(state.totalAwayMs),focusEpisodes:state.focusEpisodes.length});
+    buildReport();
+    el("reportPanel").classList.remove("hidden");
+    el("exportBtn").classList.remove("hidden");
+    el("reportPanel").scrollIntoView({behavior:"smooth"});
+  }
+
+  function buildReport(){
+    const unique=new Set(state.cards.map(c=>c.id));
+    const ints=["int_earth","int_belt"].filter(x=>unique.has(x)).length;
+    const forces=["force_weight","force_normal","force_friction_up"].filter(x=>unique.has(x)).length;
+    const validations=state.cards.filter(c=>c.type==="validation").length;
+    const revised=state.events.filter(e=>e.event==="card_removed").length;
+    const thetaOK=state.answerTheta!==null && Math.abs(state.answerTheta-ACTIVITY.expectedTheta)<=0.5;
+    const slipOK=state.finalSlip==="slip_down";
+    el("report").innerHTML=`
+      <div class="metric"><span>Interacciones clave</span><b>${ints}/2</b></div>
+      <div class="metric"><span>Fuerzas clave en DCL</span><b>${forces}/3</b></div>
+      <div class="metric"><span>Ayuda máxima</span><b>${state.helpLevel}</b></div>
+      <div class="metric"><span>Decisiones retiradas</span><b>${revised}</b></div>
+      <div class="metric"><span>Validaciones realizadas</span><b>${validations}</b></div>
+      <div class="metric"><span>Simulador abierto</span><b>${state.simulationUses}</b></div>
+      <div class="metric"><span>Pruebas del modelo</span><b>${state.modelTests}</b></div>
+      <div class="metric"><span>Fundamentaciones registradas</span><b>${state.cards.filter(c=>c.justification && ((c.justification.why_ids&&c.justification.why_ids.length)||(c.justification.purpose_ids&&c.justification.purpose_ids.length)||c.justification.note)).length}</b></div>
+      <div class="metric"><span>Episodios fuera de foco</span><b>${state.focusEpisodes.length}</b></div>
+      <div class="metric"><span>Tiempo fuera de foco</span><b>${(state.totalAwayMs/1000).toFixed(1)} s</b></div>`;
+    const feedback = state.mode==="evaluation"
+      ? `<p><strong>Modo evaluación:</strong> la sesión quedó registrada. El feedback conceptual queda diferido.</p>`
+      : `<p><strong>Resultado registrado:</strong> ${state.answerTheta===null?"sin valor para θmáx":state.answerTheta+"°"} ${thetaOK?"✓":""}<br>
+         <strong>Comprobación a 25°:</strong> ${state.finalSlip||"sin responder"} ${slipOK?"✓":""}</p>
+         <p>Valor de referencia del caso: <span class="formula">θmáx = arctan(0,40) ≈ ${ACTIVITY.expectedTheta.toFixed(1)}°</span>. Para 25°, el producto tiende a deslizar hacia abajo respecto de la cinta.</p>`;
+    el("resultNarrative").innerHTML=feedback+`<p class="footer-note">Esta síntesis no es una calificación. La traza completa se conserva en el JSON para análisis posterior.</p>`;
+  }
+
+  function exportJSON(){
+    const learningEvents=state.events.filter(e=>e.stream==="learningEvidence");
+    const interactionEvents=state.events.filter(e=>e.stream==="interactionTraces");
+
+    const responseEvents=state.events.filter(e=>
+      ["decision_justified","decision_justification_edited","prediction_recorded","final_answer","formula_selected"].includes(e.eventType)
+      && e.payload && e.payload.responseTiming
+    );
+
+    const payload={
+      schema:TRACE_PROTOCOL.schema,
+      schemaVersion:TRACE_PROTOCOL.schemaVersion,
+      protocolVersion:TRACE_PROTOCOL.protocolVersion,
+      generatedAt:new Date().toISOString(),
+
+      participant:{
+        participantId:state.studentId,
+        anonymized:true
+      },
+
+      academicContext:{
+        institution:"UTN FRLP",
+        course:"Física Aplicada a la Tecnología de Alimentos",
+        academicYear:2026
+      },
+
+      instrument:{
+        instrumentId:"MODELIZACION",
+        instrumentType:"modelizacion",
+        activityId:ACTIVITY.id,
+        activityVersion:ACTIVITY.version,
+        title:ACTIVITY.title
+      },
+
+      session:{
+        sessionId:state.sessionId,
+        startedAt:state.startedAt,
+        durationMs:roundMs(performance.now()-state.startedPerf),
+        mode:state.mode,
+        teacherModeUsed:state.teacher,
+        helpLevelMax:state.helpLevel,
+        simulationUses:state.simulationUses,
+        modelTests:state.modelTests,
+        presentationSeed:state.presentationSeed,
+        presentedFamilyOrder:state.presentedFamilyOrder,
+        presentedActionOrder:state.presentedActionOrder
+      },
+
+      learningEvidence:{
+        events:learningEvents,
+        conceptPerformance:[],
+        cognitivePerformance:[],
+        competencyEvidence:[],
+        confidenceCalibration:{}
+      },
+
+      interactionTraces:{
+        events:interactionEvents,
+        focusEpisodes:state.focusEpisodes,
+        timingSummary:(()=>{
+          const unique=new Map();
+          responseEvents.forEach(e=>{
+            const rt=e.payload?.responseTiming;
+            if(rt?.responseId && !unique.has(rt.responseId)){
+              unique.set(rt.responseId,{
+                eventId:e.eventId,
+                eventType:e.eventType,
+                taskId:rt.taskId ?? e.context?.taskId ?? null,
+                ...rt
+              });
+            }
+          });
+          return {
+            totalAwayMs:roundMs(state.totalAwayMs),
+            focusEpisodeCount:state.focusEpisodes.length,
+            recordedResponseCount:unique.size,
+            responseTimings:[...unique.values()]
+          };
+        })(),
+        interpretationNote:"Los episodios de pérdida de foco son trazas de interacción. No constituyen por sí mismos evidencia de consulta externa, fraude, aprendizaje o falta de aprendizaje."
+      },
+
+      instrumentSpecific:{
+        modeling:{
+          finalState:{
+            cards:state.cards.map(c=>({
+              id:c.id,
+              label:c.label,
+              type:c.type,
+              teacherClass:c.teacherClass,
+              justification:c.justification||null
+            })),
+            dcl:[...state.currentDCL],
+            answerThetaDeg:state.answerTheta,
+            behavior25deg:state.finalSlip
+          }
+        }
+      },
+
+      validation:{
+        rawEventsPreserved:true,
+        focusInterpretationRestricted:true,
+        protocolCompatibleInstruments:["game","video","modelizacion"]
+      },
+
+      // Bloque mínimo de compatibilidad para lectores DIN-001 previos.
+      legacyCompatibility:{
+        session_id:state.sessionId,
+        student_id:state.studentId,
+        events:state.events
+      }
+    };
+
+    const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"});
+    const a=document.createElement("a");
+    a.href=URL.createObjectURL(blob);
+    a.download=`${ACTIVITY.id}_${state.sessionId}_V3.json`;
+    a.click();
+    setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  }
+
+  function cycleMode(){
+    const modes=["exploration","formative","evaluation"];
+    state.mode=modes[(modes.indexOf(state.mode)+1)%modes.length];
+    const names={exploration:"Exploración",formative:"Formativo",evaluation:"Evaluación"};
+    el("modeBtn").textContent="Modo: "+names[state.mode];
+    emit("mode_changed",{mode:state.mode});
+  }
+
+  function modal(title,body,buttons){
+    el("modalTitle").textContent=title; el("modalBody").innerHTML=body;
+    const foot=el("modalFoot"); foot.innerHTML="";
+    buttons.forEach(([label,kind,fn])=>{
+      const b=document.createElement("button"); b.className="btn "+kind;b.textContent=label;b.onclick=fn;foot.appendChild(b);
+    });
+    el("modal").classList.add("open");
+  }
+  function closeModal(){
+    el("modal").classList.remove("open");
+    if(!state.activeResponse) resetContext();
+  }
+
+  // Ctrl+I: modo docente, igual filosofía que el juego
+  document.addEventListener("keydown",e=>{
+    if(e.ctrlKey && e.key.toLowerCase()==="i"){
+      e.preventDefault();
+      state.teacher=!state.teacher;
+      document.body.classList.toggle("teacher",state.teacher);
+      emit("teacher_mode_changed",{enabled:state.teacher});
+    }
+  });
+
+  el("modeBtn").onclick=cycleMode;
+  el("simBtn").onclick=openSimulation;
+  el("historyBtn").onclick=()=>openHistory("history");
+  el("helpBtn").onclick=requestHelp;
+  el("testModelBtn").onclick=testModel;
+  el("finishBtn").onclick=finish;
+  el("exportBtn").onclick=exportJSON;
+  el("modal").addEventListener("click",e=>{
+    if(e.target===el("modal")){
+      if(state.activeResponse) cancelTimedResponse("backdrop_close");
+      closeModal();
+    }
+  });
+
+  el("closeHistoryBtn").onclick=closeHistory;
+  el("historyTabBtn").onclick=showHistoryTab;
+  el("usageTabBtn").onclick=()=>{showUsageTab();emit("usage_help_opened",{});};
+  el("historyModal").addEventListener("click",e=>{if(e.target===el("historyModal")) closeHistory();});
+
+
+
+  // Protocolo común Juego + Video + Modelización:
+  // visibilitychange es la fuente principal; blur/focus actúan como respaldo.
+  document.addEventListener("visibilitychange",()=>{
+    changeFocusState(!document.hidden,"visibilitychange");
+  });
+  window.addEventListener("blur",()=>{
+    changeFocusState(false,"window_blur");
+  });
+  window.addEventListener("focus",()=>{
+    if(!document.hidden) changeFocusState(true,"window_focus");
+  });
+
+  buildFamilies();
+  emit("session_start",{
+    mode:state.mode,
+    userAgent:navigator.userAgent,
+    protocolVersion:TRACE_PROTOCOL.protocolVersion,
+    initialFocusState:state.isFocused?"focused":"unfocused"
+  },{stream:"interactionTraces",category:"session"});
+  emit("presentation_order",{seed:state.presentationSeed,family_order:state.presentedFamilyOrder,action_order:state.presentedActionOrder});
+})();
+</script>
+</body>
+</html>

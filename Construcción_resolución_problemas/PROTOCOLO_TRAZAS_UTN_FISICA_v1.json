@@ -1,0 +1,173 @@
+{
+  "schema": "FISICA_UTN_EVIDENCE",
+  "schemaVersion": "3.0",
+  "protocolVersion": "UTN_FISICA_TRACE_1.0",
+  "status": "frozen-common-core",
+  "scope": [
+    "game",
+    "video",
+    "modelizacion"
+  ],
+  "principles": [
+    "Preserve raw events.",
+    "Use stable event names across instruments.",
+    "Separate learningEvidence from interactionTraces.",
+    "Record focus loss as an interaction trace only; never infer fraud or external consultation automatically.",
+    "Record wall-clock response time and focused response time separately.",
+    "Keep instrument-specific context without changing common field names."
+  ],
+  "commonEventEnvelope": {
+    "schema": "FISICA_UTN_EVENT",
+    "schemaVersion": "1.0",
+    "protocolVersion": "UTN_FISICA_TRACE_1.0",
+    "eventId": "E000001",
+    "eventIndex": 1,
+    "eventType": "focus_lost",
+    "stream": "interactionTraces | learningEvidence",
+    "eventCategory": "focus | response_timing | navigation | help | simulation | response | modeling | session | academic_action",
+    "instrument": "game | video | modelizacion",
+    "activityId": "stable activity identifier",
+    "activityVersion": "semantic version",
+    "sessionId": "stable per run",
+    "participantId": "anonymizable participant id",
+    "timestamp": {
+      "isoUtc": "ISO-8601 UTC",
+      "epochMs": 0,
+      "sessionElapsedMs": 0,
+      "deltaPreviousEventMs": 0
+    },
+    "context": {
+      "phase": "instrument-specific phase using common field",
+      "taskType": "question | foundation | formula_selection | video_detection | guided_question | ...",
+      "taskId": "stable task id",
+      "itemId": "question/event/item id when applicable",
+      "conceptId": "stable transversal concept id",
+      "questionExposure": "integer or null",
+      "videoTimeSec": "number or null"
+    },
+    "timing": {
+      "timeSincePreviousAcademicActionMs": 0,
+      "awaySincePreviousAcademicActionMs": 0,
+      "focusedTimeSincePreviousAcademicActionMs": 0
+    },
+    "payload": {}
+  },
+  "focusEvents": {
+    "focus_lost": {
+      "requiredPayload": [
+        "awayEpisodeId",
+        "source",
+        "focusState",
+        "contextAtLoss",
+        "interpretation"
+      ]
+    },
+    "focus_restored": {
+      "requiredPayload": [
+        "awayEpisodeId",
+        "source",
+        "focusState",
+        "awayDurationMs",
+        "contextAtLoss",
+        "contextAtRestore",
+        "duringActiveResponse",
+        "interpretation"
+      ]
+    }
+  },
+  "responseTiming": {
+    "fields": [
+      "responseId",
+      "taskType",
+      "taskId",
+      "outcome",
+      "responseWallMs",
+      "responseFocusedMs",
+      "awayDuringResponseMs",
+      "awayEpisodesDuringResponse",
+      "timeSincePreviousResponseMs",
+      "awaySincePreviousResponseMs",
+      "focusedTimeSincePreviousResponseMs"
+    ]
+  },
+  "instrumentContexts": {
+    "game": {
+      "phaseExamples": [
+        "board",
+        "question",
+        "confidence",
+        "feedback",
+        "checkpoint"
+      ],
+      "taskTypes": [
+        "question",
+        "confidence"
+      ],
+      "extraFields": [
+        "itemId",
+        "questionExposure"
+      ],
+      "focusPolicy": "Record always. Energy penalty may be applied only while a question is actively being answered, according to game rules; penalty is not part of the common protocol."
+    },
+    "video": {
+      "phaseExamples": [
+        "playback",
+        "free_detection",
+        "guided_question",
+        "classification",
+        "comment"
+      ],
+      "taskTypes": [
+        "video_detection",
+        "guided_question",
+        "classification",
+        "comment"
+      ],
+      "extraFields": [
+        "videoTimeSec",
+        "itemId"
+      ],
+      "focusPolicy": "Record always. No automatic inference of external consultation."
+    },
+    "modelizacion": {
+      "phaseExamples": [
+        "workspace",
+        "responding",
+        "simulation",
+        "help",
+        "model_test",
+        "navigation"
+      ],
+      "taskTypes": [
+        "foundation",
+        "formula_selection",
+        "prediction",
+        "numeric_answer",
+        "conceptual_answer"
+      ],
+      "extraFields": [
+        "actionId"
+      ],
+      "focusPolicy": "Record only; no penalty."
+    }
+  },
+  "standardEvents": [
+    "session_start",
+    "session_finished",
+    "focus_lost",
+    "focus_restored",
+    "response_started",
+    "response_cancelled",
+    "help_requested",
+    "feedback_shown",
+    "action_selected",
+    "final_answer"
+  ],
+  "interpretationRestrictions": [
+    "focus_lost is not equivalent to external research",
+    "focus_lost is not evidence of cheating",
+    "short response time is not evidence of mastery",
+    "long response time is not evidence of difficulty by itself",
+    "use multiple evidences before inferring a competence or strategy"
+  ]
+}

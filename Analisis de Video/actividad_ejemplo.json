@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "2.0",
+  "activityId": "FIS_VIDEO_DEMO",
+  "title": "Demo — identificación de fenómenos en video",
+  "description": "Observe el video, identifique los fenómenos físicos relevantes y responda las preguntas que aparecerán durante la reproducción.",
+  "video": {
+    "src": "videos/video01.mp4",
+    "id": "video01"
+  },
+  "concepts": [
+    "MRU",
+    "MRUV / aceleración",
+    "Fuerza / interacción",
+    "Rozamiento",
+    "Movimiento circular",
+    "Otro"
+  ],
+  "events": [
+    {
+      "id": "E01",
+      "start": 8,
+      "end": 14,
+      "tolerance": 2,
+      "concept": "MRU",
+      "description": "Movimiento aproximadamente rectilíneo con velocidad constante.",
+      "weight": 1,
+      "unit": null,
+      "competency": "identifica_fenomeno"
+    },
+    {
+      "id": "E02",
+      "start": 20,
+      "end": 27,
+      "tolerance": 2,
+      "concept": "MRUV / aceleración",
+      "description": "Cambio apreciable de la velocidad del móvil.",
+      "weight": 1,
+      "unit": null,
+      "competency": "identifica_fenomeno"
+    },
+    {
+      "id": "E03",
+      "start": 34,
+      "end": 41,
+      "tolerance": 3,
+      "concept": "Fuerza / interacción",
+      "description": "Interacción de contacto asociada a un cambio del movimiento.",
+      "weight": 1,
+      "unit": null,
+      "competency": "identifica_fenomeno"
+    }
+  ],
+  "questions": [
+    {
+      "id": "P01",
+      "time": 18,
+      "text": "Si la velocidad de un móvil permanece constante en línea recta, ¿qué puede afirmarse sobre su aceleración?",
+      "options": [
+        "Es positiva",
+        "Es negativa",
+        "Es nula",
+        "Depende de la masa"
+      ],
+      "correct": 2,
+      "weight": 1,
+      "explanation": "En MRU la velocidad vectorial es constante, por lo que la aceleración es nula.",
+      "difficulty": 1,
+      "topic": null,
+      "unit": null,
+      "competency": "concepto"
+    },
+    {
+      "id": "P02",
+      "time": 31,
+      "text": "Si cambia la velocidad de un cuerpo, ¿qué magnitud cinemática es necesariamente distinta de cero durante ese cambio?",
+      "options": [
+        "Desplazamiento",
+        "Aceleración",
+        "Masa",
+        "Peso"
+      ],
+      "correct": 1,
+      "weight": 1,
+      "explanation": "La aceleración mide la variación temporal de la velocidad.",
+      "difficulty": 1,
+      "topic": null,
+      "unit": null,
+      "competency": "concepto"
+    }
+  ],
+  "settings": {
+    "pauseOnQuestion": true,
+    "logFocus": true,
+    "autosaveSeconds": 2,
+    "shuffleOptions": false
+  },
+  "activityVersion": "2.0.0",
+  "truthSetVersion": "demo-v1"
+}

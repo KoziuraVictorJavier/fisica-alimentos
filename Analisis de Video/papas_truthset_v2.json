@@ -1,0 +1,353 @@
+{
+  "schemaVersion": "2.0",
+  "activityId": "FIS_PAPAS_V1",
+  "title": "Análisis físico de un proceso industrial de papas fritas",
+  "description": "Observe el video e identifique fenómenos físicos asociados al transporte, caída, rotación, contacto, corte, flujo y transferencia de calor. Los intervalos fueron propuestos mediante análisis visual del video y deben considerarse un truth set docente V1 sujeto a validación.",
+  "video": {
+    "src": "papas.mp4",
+    "id": "papas"
+  },
+  "concepts": [
+    "MRU aproximado / transporte por cinta",
+    "Fuerza de tracción / movimiento traslacional",
+    "Caída, rodadura y colisiones",
+    "Rozamiento / interacción de contacto",
+    "Movimiento de rotación / rodadura",
+    "Movimiento circular / rotación",
+    "Fuerza de corte / trabajo mecánico",
+    "Presión / corte",
+    "Transferencia de calor / fritura",
+    "Flujo granular / gravedad",
+    "Otro"
+  ],
+  "events": [
+    {
+      "id": "E01",
+      "start": 2.0,
+      "end": 7.0,
+      "tolerance": 1.5,
+      "concept": "MRU aproximado / transporte por cinta",
+      "description": "Papas transportadas sobre una cinta o sistema de arrastre; en un tramo recto puede modelarse localmente como movimiento aproximadamente uniforme.",
+      "weight": 1,
+      "confidence": "alta",
+      "evidence": "observable",
+      "unit": null,
+      "competency": "identifica_fenomeno"
+    },
+    {
+      "id": "E02",
+      "start": 8.0,
+      "end": 11.5,
+      "tolerance": 1.5,
+      "concept": "Fuerza de tracción / movimiento traslacional",
+      "description": "Autoelevador desplazando una carga. La tracción y las fuerzas de contacto con el piso permiten discutir el movimiento traslacional del conjunto.",
+      "weight": 1,
+      "confidence": "media",
+      "evidence": "observable + inferencia física",
+      "unit": null,
+      "competency": "identifica_fenomeno"
+    },
+    {
+      "id": "E03",
+      "start": 34.0,
+      "end": 43.5,
+      "tolerance": 2.0,
+      "concept": "Caída, rodadura y colisiones",
+      "description": "Las papas son volcadas y descienden hacia el sistema de alimentación; se observan caída por gravedad, rodadura y múltiples colisiones/contactos.",
+      "weight": 2,
+      "confidence": "alta",
+      "evidence": "observable",
+      "unit": null,
+      "competency": "identifica_fenomeno"
+    },
+    {
+      "id": "E04",
+      "start": 56.0,
+      "end": 61.0,
+      "tolerance": 1.5,
+      "concept": "Rozamiento / interacción de contacto",
+      "description": "Transporte de papas sobre una cinta. Si no deslizan respecto de ella, la interacción de contacto permite que acompañen el movimiento de la cinta.",
+      "weight": 2,
+      "confidence": "alta",
+      "evidence": "observable + modelo físico",
+      "unit": null,
+      "competency": "identifica_fenomeno"
+    },
+    {
+      "id": "E05",
+      "start": 63.0,
+      "end": 67.5,
+      "tolerance": 1.5,
+      "concept": "Movimiento de rotación / rodadura",
+      "description": "Paso de las papas sobre rodillos: los rodillos rotan y las papas presentan traslación combinada con rodadura/contacto.",
+      "weight": 2,
+      "confidence": "alta",
+      "evidence": "observable",
+      "unit": null,
+      "competency": "identifica_fenomeno"
+    },
+    {
+      "id": "E06",
+      "start": 90.0,
+      "end": 98.0,
+      "tolerance": 2.0,
+      "concept": "Movimiento circular / rotación",
+      "description": "Equipo rotativo de procesamiento de las papas. Permite identificar rotación, cambio continuo de dirección y fuerzas de contacto/rozamiento con las superficies del equipo.",
+      "weight": 2,
+      "confidence": "alta",
+      "evidence": "observable",
+      "unit": null,
+      "competency": "identifica_fenomeno"
+    },
+    {
+      "id": "E07",
+      "start": 116.0,
+      "end": 123.0,
+      "tolerance": 2.0,
+      "concept": "Fuerza de corte / trabajo mecánico",
+      "description": "Alimentación de las papas hacia el sistema de corte y salida de láminas. El proceso requiere fuerzas de contacto y trabajo mecánico para producir la deformación/corte.",
+      "weight": 2,
+      "confidence": "alta",
+      "evidence": "observable + inferencia física",
+      "unit": null,
+      "competency": "identifica_fenomeno"
+    },
+    {
+      "id": "E08",
+      "start": 132.4,
+      "end": 141.8,
+      "tolerance": 1.5,
+      "concept": "Presión / corte",
+      "description": "Se muestra en detalle el elemento de corte y la geometría ondulada de la lámina. Es adecuado para relacionar fuerza, área de contacto, presión y acción de corte.",
+      "weight": 2,
+      "confidence": "alta",
+      "evidence": "observable + modelo físico",
+      "unit": null,
+      "competency": "identifica_fenomeno"
+    },
+    {
+      "id": "E09",
+      "start": 142.0,
+      "end": 152.5,
+      "tolerance": 2.0,
+      "concept": "Transferencia de calor / fritura",
+      "description": "Las láminas atraviesan la etapa de cocción/fritura y luego salen como chips. Permite analizar transferencia de energía térmica, convección con el fluido caliente y cambio de propiedades del alimento.",
+      "weight": 3,
+      "confidence": "media-alta",
+      "evidence": "proceso observable + inferencia de la etapa industrial",
+      "unit": null,
+      "competency": "identifica_fenomeno"
+    },
+    {
+      "id": "E10",
+      "start": 190.9,
+      "end": 193.3,
+      "tolerance": 1.0,
+      "concept": "Flujo granular / gravedad",
+      "description": "Aplicación o caída de material particulado sobre el producto. Puede analizarse como flujo granular impulsado principalmente por gravedad y contacto con las papas.",
+      "weight": 1,
+      "confidence": "media",
+      "evidence": "observable",
+      "unit": null,
+      "competency": "identifica_fenomeno"
+    },
+    {
+      "id": "E11",
+      "start": 193.3,
+      "end": 199.8,
+      "tolerance": 1.5,
+      "concept": "Caída, rodadura y colisiones",
+      "description": "Distribución del producto en el sistema de pesaje/envasado: hay caídas sucesivas, cambios de dirección y contactos entre chips y superficies.",
+      "weight": 1,
+      "confidence": "alta",
+      "evidence": "observable",
+      "unit": null,
+      "competency": "identifica_fenomeno"
+    },
+    {
+      "id": "E12",
+      "start": 200.0,
+      "end": 203.2,
+      "tolerance": 1.5,
+      "concept": "MRU aproximado / transporte por cinta",
+      "description": "Bolsas terminadas desplazándose sobre una cinta transportadora; en el tramo visible puede adoptarse un modelo de velocidad aproximadamente constante.",
+      "weight": 1,
+      "confidence": "alta",
+      "evidence": "observable",
+      "unit": null,
+      "competency": "identifica_fenomeno"
+    }
+  ],
+  "questions": [
+    {
+      "id": "P01",
+      "time": 6.0,
+      "text": "Si una papa acompaña a la cinta en un tramo recto con velocidad constante, ¿cuál es su aceleración en ese tramo idealizado?",
+      "options": [
+        "Es constante y positiva",
+        "Es nula",
+        "Depende de la masa",
+        "Es igual a g"
+      ],
+      "correct": 1,
+      "weight": 1,
+      "explanation": "En un tramo rectilíneo con velocidad vectorial constante, la aceleración es nula.",
+      "difficulty": 1,
+      "topic": null,
+      "unit": null,
+      "competency": "concepto"
+    },
+    {
+      "id": "P02",
+      "time": 40.0,
+      "text": "Durante la descarga de las papas, ¿qué interacción explica principalmente su aceleración hacia abajo una vez que pierden el apoyo?",
+      "options": [
+        "Rozamiento estático",
+        "Fuerza gravitatoria",
+        "Fuerza centrípeta",
+        "Empuje hidrostático"
+      ],
+      "correct": 1,
+      "weight": 1,
+      "explanation": "Al perder el apoyo, la gravedad es la interacción dominante que produce la aceleración descendente.",
+      "difficulty": 1,
+      "topic": null,
+      "unit": null,
+      "competency": "concepto"
+    },
+    {
+      "id": "P03",
+      "time": 59.0,
+      "text": "Si una papa se mueve junto con una cinta sin deslizar respecto de ella, ¿qué interacción de contacto puede transmitirle la fuerza horizontal necesaria?",
+      "options": [
+        "Rozamiento estático",
+        "Peso",
+        "Empuje",
+        "Fuerza magnética"
+      ],
+      "correct": 0,
+      "weight": 1,
+      "explanation": "Cuando no existe deslizamiento relativo, la interacción tangencial se modela mediante rozamiento estático.",
+      "difficulty": 1,
+      "topic": null,
+      "unit": null,
+      "competency": "concepto"
+    },
+    {
+      "id": "P04",
+      "time": 66.0,
+      "text": "En el transportador de rodillos, ¿qué combinación de movimientos se observa?",
+      "options": [
+        "Sólo traslación",
+        "Sólo rotación",
+        "Rotación de rodillos y traslación del producto",
+        "Movimiento armónico simple"
+      ],
+      "correct": 2,
+      "weight": 1,
+      "explanation": "Los rodillos giran mientras el producto avanza globalmente a lo largo del transportador.",
+      "difficulty": 1,
+      "topic": null,
+      "unit": null,
+      "competency": "concepto"
+    },
+    {
+      "id": "P05",
+      "time": 95.0,
+      "text": "En el equipo rotativo, aunque la rapidez de una partícula pudiera ser aproximadamente constante, ¿por qué puede existir aceleración?",
+      "options": [
+        "Porque cambia la dirección de la velocidad",
+        "Porque cambia necesariamente la masa",
+        "Porque el peso se anula",
+        "Porque no hay fuerzas de contacto"
+      ],
+      "correct": 0,
+      "weight": 1,
+      "explanation": "En un movimiento curvilíneo la velocidad cambia de dirección y, por tanto, existe aceleración.",
+      "difficulty": 1,
+      "topic": null,
+      "unit": null,
+      "competency": "concepto"
+    },
+    {
+      "id": "P06",
+      "time": 137.0,
+      "text": "En una cuchilla, mantener la misma fuerza pero disminuir el área efectiva de contacto produce, idealmente:",
+      "options": [
+        "Menor presión",
+        "Mayor presión",
+        "La misma presión",
+        "Presión nula"
+      ],
+      "correct": 1,
+      "weight": 1,
+      "explanation": "La presión se define como fuerza normal por unidad de área; para la misma fuerza, menor área implica mayor presión.",
+      "difficulty": 1,
+      "topic": null,
+      "unit": null,
+      "competency": "concepto"
+    },
+    {
+      "id": "P07",
+      "time": 148.0,
+      "text": "En una etapa de fritura, ¿qué mecanismo describe mejor la transferencia de calor desde el aceite caliente hacia la superficie de la papa?",
+      "options": [
+        "Convección",
+        "Conducción eléctrica",
+        "Inducción magnética",
+        "Reflexión"
+      ],
+      "correct": 0,
+      "weight": 1,
+      "explanation": "Entre un fluido caliente en movimiento y la superficie del alimento predomina la transferencia convectiva; luego el calor se conduce hacia el interior.",
+      "difficulty": 1,
+      "topic": null,
+      "unit": null,
+      "competency": "concepto"
+    },
+    {
+      "id": "P08",
+      "time": 192.0,
+      "text": "En la caída de partículas de condimento, ¿qué fuerza de campo actúa permanentemente sobre cada partícula?",
+      "options": [
+        "Peso",
+        "Normal",
+        "Rozamiento estático",
+        "Tensión"
+      ],
+      "correct": 0,
+      "weight": 1,
+      "explanation": "El peso es la fuerza gravitatoria y actúa aun cuando la partícula no esté en contacto con otra superficie.",
+      "difficulty": 1,
+      "topic": null,
+      "unit": null,
+      "competency": "concepto"
+    },
+    {
+      "id": "P09",
+      "time": 201.0,
+      "text": "Si las bolsas avanzan por un tramo recto de cinta a velocidad constante, la fuerza resultante sobre cada bolsa es, idealmente:",
+      "options": [
+        "Distinta de cero y hacia adelante",
+        "Nula",
+        "Igual al peso",
+        "Igual a la normal"
+      ],
+      "correct": 1,
+      "weight": 1,
+      "explanation": "Con velocidad constante la aceleración es cero y, por la segunda ley de Newton, la fuerza resultante es nula.",
+      "difficulty": 1,
+      "topic": null,
+      "unit": null,
+      "competency": "concepto"
+    }
+  ],
+  "settings": {
+    "pauseOnQuestion": true,
+    "logFocus": true,
+    "autosaveSeconds": 2,
+    "shuffleOptions": false
+  },
+  "activityVersion": "2.0.0",
+  "truthSetVersion": "papas-truth-v1"
+}

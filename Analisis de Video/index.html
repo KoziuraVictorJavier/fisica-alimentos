@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Actividad interactiva de análisis de video — Física</title>
+<style>
+:root{
+  --bg:#f4f6f8; --card:#ffffff; --ink:#17212b; --muted:#5f6b76;
+  --primary:#183f72; --primary2:#275d96; --accent:#e9eef5; --ok:#237a4b;
+  --warn:#a55c00; --bad:#a12e2e; --line:#d7dde4; --shadow:0 8px 28px rgba(20,35,50,.08);
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
+header{background:linear-gradient(135deg,var(--primary),#102d52);color:white;padding:18px 16px;box-shadow:var(--shadow)}
+.header-inner{max-width:1100px;margin:auto;display:flex;gap:18px;align-items:center;justify-content:space-between}
+.brand h1{font-size:clamp(1.3rem,3vw,2rem);margin:0 0 4px}.brand p{margin:0;opacity:.9}
+.utn{display:flex;align-items:center;gap:10px;font-weight:700;white-space:nowrap}.utn img{width:58px;max-height:58px;object-fit:contain;background:white;border-radius:8px;padding:4px}
+main{max-width:1100px;margin:20px auto;padding:0 14px 60px}
+.tabs{display:flex;gap:8px;position:sticky;top:0;z-index:5;background:rgba(244,246,248,.96);backdrop-filter:blur(8px);padding:8px 0}
+.tabbtn{flex:1;border:1px solid var(--line);background:white;color:var(--ink);padding:12px 14px;border-radius:12px;font-weight:700;cursor:pointer}
+.tabbtn.active{background:var(--primary);color:white;border-color:var(--primary)}
+.panel{display:none}.panel.active{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:14px 0;box-shadow:var(--shadow)}
+.card h2,.card h3{margin-top:0}.subtle{color:var(--muted);font-size:.94rem}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+label{font-weight:650;font-size:.93rem;display:block;margin-bottom:5px}input,select,textarea,button{font:inherit}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px;background:white;color:var(--ink)}textarea{min-height:88px;resize:vertical}
+button{border:0;border-radius:10px;padding:10px 14px;cursor:pointer;font-weight:700}.primary{background:var(--primary);color:white}.secondary{background:var(--accent);color:var(--primary)}.danger{background:#fae7e7;color:var(--bad)}.success{background:#e2f4e9;color:var(--ok)}.ghost{background:white;border:1px solid var(--line);color:var(--ink)}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.actions > *{min-width:140px}.inline{display:flex;gap:8px;align-items:end}.inline > *{flex:1}
+video{width:100%;max-height:62vh;background:#111;border-radius:12px;display:block}.video-shell{position:relative}.timebadge{position:absolute;right:10px;top:10px;background:rgba(0,0,0,.75);color:white;padding:5px 9px;border-radius:999px;font-variant-numeric:tabular-nums}
+.status{padding:10px 12px;border-radius:10px;background:#eef3f8;margin:10px 0}.status.ok{background:#e7f5ec;color:#165c39}.status.warn{background:#fff3df;color:#7b4500}.status.bad{background:#fdeaea;color:#7f2525}
+.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:12px}table{width:100%;border-collapse:collapse;min-width:680px}th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f2f5f8;position:sticky;top:0}tr:last-child td{border-bottom:0}
+.pill{display:inline-block;border-radius:999px;padding:3px 8px;font-size:.82rem;font-weight:700;background:#eef2f6}.pill.ok{background:#dff3e7;color:#19623c}.pill.bad{background:#f8dede;color:#8d2929}.pill.warn{background:#fff0d8;color:#825000}
+.metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.metric{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fafbfc}.metric b{display:block;font-size:1.45rem}.metric span{color:var(--muted);font-size:.88rem}
+dialog{border:0;border-radius:16px;padding:0;max-width:620px;width:calc(100% - 24px);box-shadow:0 24px 70px rgba(0,0,0,.28)}dialog::backdrop{background:rgba(0,0,0,.55)}.dialog-body{padding:18px}.dialog-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:10px}.dialog-head h3{margin:0}.xbtn{background:#edf1f5;color:#333;min-width:auto;padding:8px 10px}
+.option{display:flex;gap:9px;align-items:flex-start;padding:9px;border:1px solid var(--line);border-radius:10px;margin:8px 0}.option input{width:auto;margin-top:4px}
+hr{border:0;border-top:1px solid var(--line);margin:16px 0}.hidden{display:none!important}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9rem}.notice{border-left:4px solid var(--primary2);background:#edf4fb;padding:12px 14px;border-radius:8px}
+footer{max-width:1100px;margin:auto;padding:20px 14px 38px;color:var(--muted);font-size:.9rem}
+@media(max-width:760px){.grid,.grid3,.metric-grid{grid-template-columns:1fr}.header-inner{align-items:flex-start}.utn{font-size:.85rem}.utn img{width:45px}.actions>*{width:100%}.inline{flex-direction:column;align-items:stretch}.tabs{top:0}.card{border-radius:12px;padding:13px}.timebadge{font-size:.8rem}}
+@media print{header,.tabs,.no-print,#studentSetup,#studentVideoCard,#teacherPanel{display:none!important}body{background:white}.panel{display:block!important}.card{box-shadow:none;border:1px solid #aaa}.report-only{display:block!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <h1>Física — Análisis interactivo de video</h1>
+      <p>Identificación de fenómenos, preguntas temporizadas e informe formativo</p>
+    </div>
+    <div class="utn">
+      <img src="assets/logo_utn.png" alt="Logo UTN" onerror="this.style.display='none'">
+      <span>UTN · FRLP</span>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="tabs no-print">
+    <button class="tabbtn active" data-tab="studentPanel">Modo alumno</button>
+    <button class="tabbtn" data-tab="teacherPanel">Modo docente / autor</button>
+  </div>
+
+  <section id="studentPanel" class="panel active">
+    <div id="studentSetup" class="card">
+      <h2>1. Preparar actividad</h2>
+      <p class="subtle">Cargá el archivo de actividad JSON y el MP4. Si el JSON define una ruta relativa de video y está publicado en GitHub Pages, el video puede cargarse automáticamente.</p>
+      <div class="grid">
+        <div><label>Nombre y apellido</label><input id="studentName" placeholder="Alumno/a"></div>
+        <div><label>Identificador / legajo</label><input id="studentId" placeholder="Opcional"></div>
+        <div><label>Grupo / comisión</label><input id="studentGroup" placeholder="Opcional"></div>
+        <div><label>Código de participante</label><input id="participantCode" placeholder="Provisto por docente; si queda vacío se genera localmente"></div>
+        <div><label>Actividad JSON</label><input id="studentConfigFile" type="file" accept="application/json,.json"></div>
+        <div><label>Video MP4 local (opcional si el JSON tiene ruta)</label><input id="studentVideoFile" type="file" accept="video/mp4,video/*"></div>
+      </div>
+      <div class="actions">
+        <button id="loadDemo" class="secondary">Cargar actividad de ejemplo</button>
+        <button id="startActivity" class="primary">Iniciar / recuperar actividad</button>
+        <button id="newRun" class="secondary">Nueva corrida</button>
+        <button id="clearSession" class="danger">Borrar sesión local</button>
+      </div>
+      <div id="studentSetupStatus" class="status">Todavía no hay una actividad cargada.</div>
+    </div>
+
+    <div id="studentVideoCard" class="card hidden">
+      <h2 id="activityTitle">Actividad</h2>
+      <p id="activityDescription" class="subtle"></p>
+      <div class="video-shell">
+        <video id="studentVideo" controls preload="metadata"></video>
+        <div id="studentTime" class="timebadge">00:00.0</div>
+      </div>
+      <div class="actions no-print">
+        <button id="addObservation" class="primary">Registrar observación en este instante</button>
+        <button id="finishActivity" class="success">Finalizar y generar informe</button>
+      </div>
+      <div class="notice"><b>Consigna:</b> observá el video y registrá los fenómenos físicos que consideres relevantes. Las preguntas programadas aparecerán automáticamente en momentos determinados.</div>
+      <h3 style="margin-top:18px">Observaciones registradas</h3>
+      <div class="tablewrap"><table><thead><tr><th>Tiempo</th><th>Concepto</th><th>Comentario</th><th class="no-print">Acción</th></tr></thead><tbody id="obsTable"></tbody></table></div>
+    </div>
+
+    <div id="reportCard" class="card hidden report-only">
+      <h2>Informe final</h2>
+      <div id="reportHeader"></div>
+      <div class="metric-grid" id="reportMetrics"></div>
+      <h3>Eventos esperados</h3>
+      <div class="tablewrap"><table><thead><tr><th>Evento</th><th>Intervalo</th><th>Resultado</th><th>Observación asociada</th></tr></thead><tbody id="eventReportTable"></tbody></table></div>
+      <h3 style="margin-top:18px">Preguntas</h3>
+      <div class="tablewrap"><table><thead><tr><th>Pregunta</th><th>Respuesta</th><th>Resultado</th></tr></thead><tbody id="questionReportTable"></tbody></table></div>
+      <h3 style="margin-top:18px">Síntesis formativa</h3>
+      <div id="formativeSummary" class="notice"></div>
+      <div class="actions no-print">
+        <button id="downloadResult" class="primary">Descargar resultado JSON</button>
+        <button id="printReport" class="secondary">Imprimir / guardar informe</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="teacherPanel" class="panel">
+    <div class="card">
+      <h2>Modo docente / autor</h2>
+      <p class="subtle">Permite construir el “mapa de eventos” y las preguntas sin editar código. El archivo exportado puede reutilizarse con cualquier MP4.</p>
+      <div class="grid">
+        <div><label>ID de actividad</label><input id="tActivityId" value="FIS_VIDEO_01"></div>
+        <div><label>Versión de actividad</label><input id="tActivityVersion" value="2.0.0"></div>
+        <div><label>Versión del truth set</label><input id="tTruthSetVersion" value="truth-v1"></div>
+        <div><label>Título</label><input id="tTitle" value="Análisis de movimiento en video"></div>
+        <div><label>Descripción / consigna</label><textarea id="tDescription">Identifique y describa los fenómenos físicos relevantes observados en el video.</textarea></div>
+        <div>
+          <label>Ruta del video al publicar</label>
+          <input id="tVideoPath" value="videos/video01.mp4" placeholder="videos/video01.mp4">
+          <label style="margin-top:10px">Cargar MP4 para autoría</label><input id="teacherVideoFile" type="file" accept="video/mp4,video/*">
+        </div>
+      </div>
+      <div class="actions">
+        <button id="importTeacherConfigBtn" class="secondary">Importar JSON existente</button>
+        <input id="teacherConfigFile" class="hidden" type="file" accept="application/json,.json">
+        <button id="exportConfig" class="primary">Exportar actividad JSON</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Video de autoría</h2>
+      <div class="video-shell"><video id="teacherVideo" controls preload="metadata"></video><div id="teacherTime" class="timebadge">00:00.0</div></div>
+    </div>
+
+    <div class="card">
+      <h2>2. Crear eventos esperados</h2>
+      <div class="grid3">
+        <div><label>Inicio (s)</label><input id="evStart" type="number" step="0.1" min="0"></div>
+        <div><label>Fin (s)</label><input id="evEnd" type="number" step="0.1" min="0"></div>
+        <div><label>Tolerancia adicional (s)</label><input id="evTol" type="number" step="0.5" min="0" value="3"></div>
+      </div>
+      <div class="actions">
+        <button id="markStart" class="secondary">Marcar inicio con tiempo actual</button>
+        <button id="markEnd" class="secondary">Marcar fin con tiempo actual</button>
+      </div>
+      <div class="grid" style="margin-top:12px">
+        <div><label>Concepto / categoría</label><input id="evConcept" placeholder="Ej.: MRU, aceleración, rozamiento"></div>
+        <div><label>Peso</label><input id="evWeight" type="number" min="0.1" step="0.1" value="1"></div>
+      </div>
+      <label style="margin-top:12px">Descripción esperada</label><textarea id="evDescription" placeholder="Qué debería reconocer el alumno en este intervalo"></textarea>
+      <div class="actions"><button id="addEvent" class="primary">Agregar evento</button></div>
+      <div class="tablewrap" style="margin-top:14px"><table><thead><tr><th>ID</th><th>Intervalo</th><th>Concepto</th><th>Descripción</th><th>Peso</th><th>Acción</th></tr></thead><tbody id="eventAuthorTable"></tbody></table></div>
+    </div>
+
+    <div class="card">
+      <h2>3. Crear preguntas temporizadas</h2>
+      <div class="grid3">
+        <div><label>Mostrar en (s)</label><input id="qTime" type="number" step="0.1" min="0"></div>
+        <div><label>Peso</label><input id="qWeight" type="number" min="0.1" step="0.1" value="1"></div>
+        <div style="display:flex;align-items:end"><button id="qUseTime" class="secondary" style="width:100%">Usar tiempo actual</button></div>
+      </div>
+      <label style="margin-top:12px">Pregunta</label><textarea id="qText" placeholder="¿Qué puede afirmarse sobre el movimiento observado?"></textarea>
+      <div class="grid">
+        <div><label>Opción A</label><input id="qA"></div><div><label>Opción B</label><input id="qB"></div>
+        <div><label>Opción C</label><input id="qC"></div><div><label>Opción D</label><input id="qD"></div>
+      </div>
+      <div class="grid" style="margin-top:12px">
+        <div><label>Respuesta correcta</label><select id="qCorrect"><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option></select></div>
+        <div><label>Explicación para informe final (opcional)</label><input id="qExplanation"></div>
+      </div>
+      <div class="actions"><button id="addQuestion" class="primary">Agregar pregunta</button></div>
+      <div class="tablewrap" style="margin-top:14px"><table><thead><tr><th>ID</th><th>Tiempo</th><th>Pregunta</th><th>Correcta</th><th>Peso</th><th>Acción</th></tr></thead><tbody id="questionAuthorTable"></tbody></table></div>
+    </div>
+
+    <div class="card">
+      <h2>4. Vista previa del JSON</h2>
+      <textarea id="jsonPreview" class="mono" style="min-height:320px" readonly></textarea>
+    </div>
+  </section>
+</main>
+<footer>Prototipo V0.2 · JSON V2 + autosalvado + SHA-256 · Física Aplicada a la Tecnología de Alimentos · UTN FRLP</footer>
+
+<dialog id="observationDialog">
+  <div class="dialog-body">
+    <div class="dialog-head"><h3>Registrar observación</h3><button class="xbtn" data-close="observationDialog">✕</button></div>
+    <p class="subtle">Tiempo del video: <b id="obsTimeLabel">00:00.0</b></p>
+    <label>Concepto / fenómeno</label><select id="obsConcept"></select>
+    <label style="margin-top:10px">Comentario</label><textarea id="obsComment" placeholder="Describa qué observa y qué característica física considera relevante."></textarea>
+    <label style="margin-top:10px">Confianza en la identificación</label><select id="obsConfidence"><option value="1">1 · Muy inseguro/a</option><option value="2">2 · Algo inseguro/a</option><option value="3" selected>3 · Bastante seguro/a</option><option value="4">4 · Muy seguro/a</option></select>
+    <div class="actions"><button id="saveObservation" class="primary">Guardar observación</button><button class="ghost" data-close="observationDialog">Cancelar</button></div>
+  </div>
+</dialog>
+
+<dialog id="questionDialog">
+  <div class="dialog-body">
+    <div class="dialog-head"><h3>Pregunta sobre el video</h3></div>
+    <p id="questionPrompt"></p>
+    <div id="questionOptions"></div>
+    <label style="margin-top:10px">Confianza en la respuesta</label><select id="qConfidence"><option value="1">1 · Muy inseguro/a</option><option value="2">2 · Algo inseguro/a</option><option value="3" selected>3 · Bastante seguro/a</option><option value="4">4 · Muy seguro/a</option></select>
+    <div id="questionError" class="status bad hidden">Seleccione una opción antes de continuar.</div>
+    <div class="actions"><button id="answerQuestion" class="primary">Responder y continuar</button></div>
+  </div>
+</dialog>
+
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const fmt = s => { s=Math.max(0,Number(s)||0); const m=Math.floor(s/60), r=s-m*60; return `${String(m).padStart(2,'0')}:${r.toFixed(1).padStart(4,'0')}`; };
+const nowISO = () => new Date().toISOString();
+const safe = v => String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const deepClone = obj => JSON.parse(JSON.stringify(obj));
+const round3 = n => Math.round((Number(n)||0)*1000)/1000;
+const downloadJSON=(obj,name)=>{const blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+
+function sortedValue(v){
+  if(Array.isArray(v)) return v.map(sortedValue);
+  if(v && typeof v==='object'){
+    const out={}; Object.keys(v).sort().forEach(k=>out[k]=sortedValue(v[k])); return out;
+  }
+  return v;
+}
+function canonicalJSONStringify(obj){ return JSON.stringify(sortedValue(obj)); }
+async function sha256Hex(text){
+  const bytes=new TextEncoder().encode(text); const hash=await crypto.subtle.digest('SHA-256',bytes);
+  return [...new Uint8Array(hash)].map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+function randomCode(prefix='VID'){
+  const a=new Uint8Array(6); crypto.getRandomValues(a);
+  return `${prefix}-${[...a].map(x=>x.toString(16).padStart(2,'0')).join('').toUpperCase()}`;
+}
+function randomRunId(){ return `RUN-${Date.now()}-${randomCode('R').slice(2)}`; }
+
+const demoConfig={
+  schemaVersion:"2.0", activityId:"FIS_VIDEO_DEMO", activityVersion:"2.0.0", truthSetVersion:"demo-v1",
+  title:"Demo — identificación de fenómenos en video",
+  description:"Actividad de demostración. Reemplace los intervalos y preguntas por los del video seleccionado.",
+  video:{src:"videos/video01.mp4",id:"video01"},
+  concepts:["MRU","MRUV / aceleración","Fuerza / interacción","Rozamiento","Movimiento circular","Otro"],
+  events:[
+    {id:"E01",start:8,end:14,tolerance:2,concept:"MRU",description:"Movimiento aproximadamente rectilíneo con velocidad constante.",weight:1,unit:2,competency:"identifica_fenomeno"},
+    {id:"E02",start:20,end:27,tolerance:2,concept:"MRUV / aceleración",description:"Cambio apreciable de la velocidad del móvil.",weight:1,unit:2,competency:"interpreta_variable"},
+    {id:"E03",start:34,end:41,tolerance:3,concept:"Fuerza / interacción",description:"Interacción de contacto asociada a un cambio del movimiento.",weight:1,unit:3,competency:"relaciona_causa_efecto"}
+  ],
+  questions:[
+    {id:"P01",time:18,text:"Si la velocidad de un móvil permanece constante en línea recta, ¿qué puede afirmarse sobre su aceleración?",options:["Es positiva","Es negativa","Es nula","Depende de la masa"],correct:2,weight:1,explanation:"En MRU la velocidad vectorial es constante, por lo que la aceleración es nula.",topic:"MRU",unit:2,competency:"concepto",difficulty:1},
+    {id:"P02",time:31,text:"Si cambia la velocidad de un cuerpo, ¿qué magnitud cinemática es necesariamente distinta de cero durante ese cambio?",options:["Desplazamiento","Aceleración","Masa","Peso"],correct:1,weight:1,explanation:"La aceleración mide la variación temporal de la velocidad.",topic:"Aceleración",unit:2,competency:"concepto",difficulty:1}
+  ],
+  settings:{pauseOnQuestion:true,logFocus:true,autosaveSeconds:2,shuffleOptions:false}
+};
+
+let sConfig=null, sState=null, sEnvelope=null, activeQuestion=null, activeQuestionShownAt=null, obsTime=0, lastVideoTime=0;
+let author={events:[],questions:[]};
+let autosaveTimer=null, seekFrom=null, playStartedAt=null, pauseStartedAt=null;
+
+function switchTab(id){document.querySelectorAll('.panel').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.tabbtn').forEach(x=>x.classList.toggle('active',x.dataset.tab===id));}
+document.querySelectorAll('.tabbtn').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
+document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>$(b.dataset.close).close()));
+
+function normalizeConfig(c){
+  c.schemaVersion=c.schemaVersion||"2.0"; c.activityId=c.activityId||"FIS_VIDEO"; c.activityVersion=c.activityVersion||"1.0.0"; c.truthSetVersion=c.truthSetVersion||"truth-v1";
+  c.title=c.title||"Actividad de video"; c.description=c.description||""; c.video=c.video||{src:""};
+  c.events=Array.isArray(c.events)?c.events:[]; c.questions=Array.isArray(c.questions)?c.questions:[];
+  c.concepts=Array.isArray(c.concepts)&&c.concepts.length?c.concepts:[...new Set(c.events.map(e=>e.concept).filter(Boolean)),"Otro"];
+  if(!c.concepts.includes('Otro')) c.concepts.push('Otro');
+  c.settings=Object.assign({pauseOnQuestion:true,logFocus:true,autosaveSeconds:2,shuffleOptions:false},c.settings||{});
+  c.events.forEach((e,i)=>{e.id=e.id||`E${String(i+1).padStart(2,'0')}`;e.weight=Number(e.weight||1);e.tolerance=Number(e.tolerance||0)});
+  c.questions.forEach((q,i)=>{q.id=q.id||`P${String(i+1).padStart(2,'0')}`;q.weight=Number(q.weight||1);q.difficulty=Number(q.difficulty||1)});
+  return c;
+}
+function identityKey(){
+  const raw=$('studentId').value.trim()||$('studentName').value.trim()||'anon';
+  return raw.toLowerCase().replace(/[^a-z0-9_-]+/gi,'_').slice(0,80)||'anon';
+}
+function storageKey(){return `fisVideoV2:${sConfig?.activityId||'none'}:${identityKey()}`;}
+function blankAttention(){return {focusLossCount:0,totalAwaySeconds:0,activeAwayStartedAt:null,activeAwayContext:null};}
+function blankMetrics(){return {playCount:0,pauseCount:0,seekCount:0,rewindCount:0,forwardSeekCount:0,totalPlaySeconds:0,totalPausedSeconds:0};}
+function newState(existingParticipantCode=null){
+  const entered=$('participantCode').value.trim();
+  const participantCode=entered||existingParticipantCode||randomCode('P');
+  return {
+    format:"FISICA_UTN_VIDEO_LOCAL_RUN_V2", runId:randomRunId(), activityId:sConfig.activityId, activityVersion:sConfig.activityVersion, truthSetVersion:sConfig.truthSetVersion,
+    student:{name:$('studentName').value.trim(),id:$('studentId').value.trim(),group:$('studentGroup').value.trim()},
+    study:{participantCode,participantCodeSource:entered?'entered':'generated_local',instrumentType:'interactive_video'},
+    run:{startedAt:nowISO(),finishedAt:null,generatedAt:null,timezone:Intl.DateTimeFormat().resolvedOptions().timeZone||'America/Argentina/Buenos_Aires',completed:false,endReason:null,durationSeconds:0},
+    observations:[],answers:[],playbackTrace:[],shownQuestions:[],lastVideoTime:0,attention:blankAttention(),metrics:blankMetrics()
+  };
+}
+function compactPreviousRun(run){
+  const correct=(run.answers||[]).filter(a=>a.correct===true).length;
+  return {runId:run.runId,startedAt:run.run?.startedAt||null,finishedAt:run.run?.finishedAt||null,durationSeconds:run.run?.durationSeconds||0,completed:!!run.run?.completed,endReason:run.run?.endReason||null,observations:(run.observations||[]).length,questionsAnswered:(run.answers||[]).length,questionsCorrect:correct,participantCode:run.study?.participantCode||null};
+}
+function blankEnvelope(){return {format:'FISICA_UTN_VIDEO_AUTOSAVE_V2',schemaVersion:2,activityId:sConfig.activityId,activityVersion:sConfig.activityVersion,identityKey:identityKey(),currentRun:null,previousRuns:[],savedAt:nowISO()};}
+function loadEnvelope(){const raw=localStorage.getItem(storageKey());if(!raw)return blankEnvelope();try{const e=JSON.parse(raw);e.previousRuns=Array.isArray(e.previousRuns)?e.previousRuns:[];return e}catch{return blankEnvelope()}}
+function saveEnvelope(){if(!sConfig||!sState)return; updateActiveDurations(); sState.lastVideoTime=$('studentVideo').currentTime||0;sEnvelope=sEnvelope||blankEnvelope();sEnvelope.currentRun=sState;sEnvelope.savedAt=nowISO();localStorage.setItem(storageKey(),JSON.stringify(sEnvelope));}
+function startAutosave(){clearInterval(autosaveTimer);const sec=Math.max(1,Number(sConfig?.settings?.autosaveSeconds||2));autosaveTimer=setInterval(()=>{if(sState&&!sState.run.completed)saveEnvelope()},sec*1000);}
+function updateActiveDurations(){
+  const now=Date.now();
+  if(playStartedAt){sState.metrics.totalPlaySeconds=round3((sState.metrics.totalPlaySeconds||0)+(now-playStartedAt)/1000);playStartedAt=now;}
+  if(pauseStartedAt){sState.metrics.totalPausedSeconds=round3((sState.metrics.totalPausedSeconds||0)+(now-pauseStartedAt)/1000);pauseStartedAt=now;}
+  if(sState?.attention?.activeAwayStartedAt){/* se cierra sólo al recuperar foco */}
+}
+function logAction(type,data={}){
+  if(!sState)return; const startMs=new Date(sState.run.startedAt).getTime();
+  sState.playbackTrace.push({at:nowISO(),activitySeconds:round3((Date.now()-startMs)/1000),videoTime:round3($('studentVideo').currentTime||0),type,...data});saveEnvelope();
+}
+function startAway(source){
+  if(!sState||!sConfig?.settings?.logFocus||sState.attention.activeAwayStartedAt)return;
+  sState.attention.focusLossCount++;sState.attention.activeAwayStartedAt=nowISO();sState.attention.activeAwayContext=activeQuestion?'answering_question':($('observationDialog').open?'writing_observation':($('studentVideo').paused?'paused':'watching'));
+  logAction('focus_lost',{source,context:sState.attention.activeAwayContext});
+}
+function endAway(source){
+  if(!sState||!sState.attention.activeAwayStartedAt)return;
+  const sec=Math.max(0,(Date.now()-new Date(sState.attention.activeAwayStartedAt).getTime())/1000);sState.attention.totalAwaySeconds=round3((sState.attention.totalAwaySeconds||0)+sec);
+  logAction('focus_restored',{source,awaySeconds:round3(sec),context:sState.attention.activeAwayContext});sState.attention.activeAwayStartedAt=null;sState.attention.activeAwayContext=null;saveEnvelope();
+}
+function renderConcepts(){const sel=$('obsConcept');sel.innerHTML='';(sConfig.concepts||[]).forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;sel.appendChild(o)})}
+function renderObs(){
+  const tb=$('obsTable');tb.innerHTML='';(sState?.observations||[]).forEach((o,i)=>{const tr=document.createElement('tr');tr.innerHTML=`<td>${fmt(o.videoTime)}</td><td>${safe(o.concept)}</td><td>${safe(o.comment)}<br><span class="subtle">Confianza: ${o.confidence}/4</span></td><td class="no-print"><button class="danger" data-delobs="${i}">Eliminar</button></td>`;tb.appendChild(tr)});
+  tb.querySelectorAll('[data-delobs]').forEach(b=>b.onclick=()=>{const i=+b.dataset.delobs;const deleted=sState.observations[i];sState.observations.splice(i,1);logAction('observation_deleted',{observationId:deleted?.observationId||null,index:i});renderObs();saveEnvelope();});
+}
+function applyStudentConfig(){
+  $('activityTitle').textContent=sConfig.title;$('activityDescription').textContent=sConfig.description;renderConcepts();
+  if(sConfig.video?.src){$('studentVideo').src=sConfig.video.src}
+  $('studentSetupStatus').className='status ok';$('studentSetupStatus').textContent=`Actividad cargada: ${sConfig.title} · versión ${sConfig.activityVersion} · truth set ${sConfig.truthSetVersion} · ${sConfig.events.length} eventos · ${sConfig.questions.length} preguntas.`;
+}
+$('loadDemo').onclick=()=>{sConfig=normalizeConfig(deepClone(demoConfig));applyStudentConfig();};
+$('studentConfigFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{sConfig=normalizeConfig(JSON.parse(await f.text()));applyStudentConfig()}catch(err){$('studentSetupStatus').className='status bad';$('studentSetupStatus').textContent='No se pudo leer el JSON: '+err.message}};
+$('studentVideoFile').onchange=e=>{const f=e.target.files[0];if(f){$('studentVideo').src=URL.createObjectURL(f);$('studentVideo').dataset.localName=f.name;$('studentVideo').dataset.localSize=String(f.size);$('studentSetupStatus').className='status ok';$('studentSetupStatus').textContent='Video local seleccionado. Cargue o conserve también la actividad JSON.'}};
+
+function resumeOrCreate(){
+  sEnvelope=loadEnvelope(); const existing=sEnvelope.currentRun;
+  if(existing){
+    sState=existing; $('studentName').value=sState.student?.name||$('studentName').value;$('studentId').value=sState.student?.id||$('studentId').value;$('studentGroup').value=sState.student?.group||$('studentGroup').value;$('participantCode').value=sState.study?.participantCode||$('participantCode').value;
+    return sState.run?.completed?'completed':'recovered';
+  }
+  sState=newState();sEnvelope.currentRun=sState;saveEnvelope();return 'new';
+}
+$('startActivity').onclick=()=>{
+  if(!sConfig){$('studentSetupStatus').className='status bad';$('studentSetupStatus').textContent='Primero cargue una actividad JSON o la actividad de ejemplo.';return}
+  if(!$('studentName').value.trim()){$('studentSetupStatus').className='status warn';$('studentSetupStatus').textContent='Ingrese al menos el nombre y apellido del alumno.';return}
+  const mode=resumeOrCreate(); sState.student={name:$('studentName').value.trim(),id:$('studentId').value.trim(),group:$('studentGroup').value.trim()};
+  if($('participantCode').value.trim()){sState.study.participantCode=$('participantCode').value.trim();sState.study.participantCodeSource='entered'}else $('participantCode').value=sState.study.participantCode;
+  $('studentVideoCard').classList.remove('hidden');renderObs();$('studentVideo').currentTime=sState.lastVideoTime||0;lastVideoTime=$('studentVideo').currentTime||0;startAutosave();
+  if(mode==='completed'){
+    $('reportCard').classList.remove('hidden');buildReport();$('studentSetupStatus').className='status ok';$('studentSetupStatus').textContent=`Corrida finalizada recuperada. Código participante: ${sState.study.participantCode}. Puede descargar nuevamente el resultado o iniciar una nueva corrida.`;
+  }else{
+    $('reportCard').classList.add('hidden');logAction(mode==='recovered'?'session_recovered':'session_started',{runId:sState.runId});$('studentSetupStatus').className='status ok';$('studentSetupStatus').textContent=mode==='recovered'?`Sesión recuperada automáticamente en ${fmt(sState.lastVideoTime)}. Código participante: ${sState.study.participantCode}.`:`Nueva sesión iniciada. Código participante: ${sState.study.participantCode}.`;
+  }
+  $('studentVideoCard').scrollIntoView({behavior:'smooth'});
+};
+$('newRun').onclick=()=>{
+  if(!sConfig){$('studentSetupStatus').className='status warn';$('studentSetupStatus').textContent='Primero cargue una actividad.';return}
+  sEnvelope=loadEnvelope();if(sEnvelope.currentRun){sEnvelope.previousRuns.push(compactPreviousRun(sEnvelope.currentRun));}
+  const priorCode=sEnvelope.currentRun?.study?.participantCode||$('participantCode').value.trim()||null;sState=newState(priorCode);sEnvelope.currentRun=sState;localStorage.setItem(storageKey(),JSON.stringify(sEnvelope));
+  $('studentVideoCard').classList.remove('hidden');$('reportCard').classList.add('hidden');$('studentVideo').currentTime=0;renderObs();startAutosave();logAction('new_run_started',{previousRuns:sEnvelope.previousRuns.length});$('studentSetupStatus').className='status ok';$('studentSetupStatus').textContent=`Nueva corrida iniciada. Se conservaron ${sEnvelope.previousRuns.length} corrida(s) previa(s).`;
+};
+$('clearSession').onclick=()=>{if(!sConfig)return;localStorage.removeItem(storageKey());sState=null;sEnvelope=null;clearInterval(autosaveTimer);$('studentVideoCard').classList.add('hidden');$('reportCard').classList.add('hidden');$('studentSetupStatus').className='status';$('studentSetupStatus').textContent='Sesión local y corridas previas borradas para esta actividad e identidad.'};
+
+$('studentVideo').addEventListener('timeupdate',()=>{
+  const t=$('studentVideo').currentTime;$('studentTime').textContent=fmt(t); if(!sState||!sConfig||sState.run.completed)return;
+  const crossed=q=>!sState.shownQuestions.includes(q.id)&&((lastVideoTime<q.time&&t>=q.time)||Math.abs(t-q.time)<0.18);
+  const q=sConfig.questions.find(crossed);lastVideoTime=t;if(q)showQuestion(q);
+});
+$('studentVideo').addEventListener('play',()=>{
+  if(!sState||sState.run.completed)return; if(pauseStartedAt){sState.metrics.totalPausedSeconds=round3(sState.metrics.totalPausedSeconds+(Date.now()-pauseStartedAt)/1000);pauseStartedAt=null}
+  playStartedAt=Date.now();sState.metrics.playCount++;logAction('video_play');
+});
+$('studentVideo').addEventListener('pause',()=>{
+  if(!sState||sState.run.completed)return;if(playStartedAt){sState.metrics.totalPlaySeconds=round3(sState.metrics.totalPlaySeconds+(Date.now()-playStartedAt)/1000);playStartedAt=null}pauseStartedAt=Date.now();sState.metrics.pauseCount++;if(!activeQuestion)logAction('video_pause');
+});
+$('studentVideo').addEventListener('seeking',()=>{if(sState&&!sState.run.completed)seekFrom=Number(lastVideoTime)||$('studentVideo').currentTime});
+$('studentVideo').addEventListener('seeked',()=>{
+  if(!sState||sState.run.completed)return;const to=$('studentVideo').currentTime,from=Number.isFinite(seekFrom)?seekFrom:lastVideoTime,delta=to-from;sState.metrics.seekCount++;if(delta<-.25)sState.metrics.rewindCount++;if(delta>.25)sState.metrics.forwardSeekCount++;logAction(delta<-.25?'seek_backward':delta>.25?'seek_forward':'video_seek',{from:round3(from),to:round3(to),deltaSeconds:round3(delta)});seekFrom=null;lastVideoTime=to;
+});
+$('addObservation').onclick=()=>{if(!sState||sState.run.completed)return;$('studentVideo').pause();obsTime=$('studentVideo').currentTime;$('obsTimeLabel').textContent=fmt(obsTime);$('obsComment').value='';$('obsConfidence').value='3';$('observationDialog').showModal();logAction('observation_opened',{atVideo:round3(obsTime)});};
+$('saveObservation').onclick=()=>{
+  const comment=$('obsComment').value.trim();if(!comment){$('obsComment').focus();return}
+  const o={observationId:`OBS_${String(sState.observations.length+1).padStart(3,'0')}`,createdAt:nowISO(),videoTime:round3(obsTime),concept:$('obsConcept').value,comment,confidence:+$('obsConfidence').value};sState.observations.push(o);logAction('observation_saved',{observationId:o.observationId,concept:o.concept,confidence:o.confidence,atVideo:o.videoTime});$('observationDialog').close();renderObs();saveEnvelope();
+};
+function shownOptions(q){return q.options.map((text,originalIndex)=>({text,originalIndex}));}
+function showQuestion(q){
+  activeQuestion=q;activeQuestionShownAt=Date.now();sState.shownQuestions.push(q.id);if(sConfig.settings.pauseOnQuestion)$('studentVideo').pause();$('questionPrompt').textContent=q.text;$('qConfidence').value='3';const box=$('questionOptions');box.innerHTML='';
+  const options=shownOptions(q);options.forEach((op,displayIndex)=>{const lab=document.createElement('label');lab.className='option';lab.innerHTML=`<input type="radio" name="qopt" value="${displayIndex}" data-original="${op.originalIndex}"><span><b>${String.fromCharCode(65+displayIndex)}.</b> ${safe(op.text)}</span>`;box.appendChild(lab)});
+  $('questionError').classList.add('hidden');$('questionDialog').showModal();logAction('question_shown',{questionId:q.id});
+}
+$('answerQuestion').onclick=()=>{
+  const selected=document.querySelector('input[name="qopt"]:checked');if(!selected){$('questionError').classList.remove('hidden');return}
+  const displayIndex=+selected.value,originalIndex=+selected.dataset.original,correct=originalIndex===Number(activeQuestion.correct),elapsed=round3((Date.now()-activeQuestionShownAt)/1000);
+  const rec={at:nowISO(),questionId:activeQuestion.id,type:'mcq',topic:activeQuestion.topic||null,unit:activeQuestion.unit??null,competency:activeQuestion.competency||null,difficulty:Number(activeQuestion.difficulty||1),videoTriggerTime:Number(activeQuestion.time),videoTime:round3($('studentVideo').currentTime),selectedOriginalIndex:originalIndex,selectedDisplayIndex:displayIndex,displayedLetter:String.fromCharCode(65+displayIndex),correctOriginalIndex:Number(activeQuestion.correct),correct,attemptNumber:1,elapsedSeconds:elapsed,confidence:+$('qConfidence').value,selectedAnswer:activeQuestion.options[originalIndex],correctAnswer:activeQuestion.options[activeQuestion.correct]};
+  sState.answers=sState.answers.filter(a=>a.questionId!==activeQuestion.id);sState.answers.push(rec);logAction('question_answered',{questionId:activeQuestion.id,selectedOriginalIndex:originalIndex,selectedDisplayIndex:displayIndex,correct,elapsedSeconds:elapsed,confidence:rec.confidence});$('questionDialog').close();activeQuestion=null;activeQuestionShownAt=null;saveEnvelope();$('studentVideo').play().catch(()=>{});
+};
+
+function temporalError(ev,t){if(t<ev.start)return round3(ev.start-t);if(t>ev.end)return round3(t-ev.end);return 0;}
+function matchEvents(){
+  const obs=sState.observations.map((o,i)=>({...o,_i:i,_used:false}));
+  return sConfig.events.map(ev=>{
+    const lo=Number(ev.start)-Number(ev.tolerance||0),hi=Number(ev.end)+Number(ev.tolerance||0);let candidates=obs.filter(o=>!o._used&&o.videoTime>=lo&&o.videoTime<=hi);
+    candidates.sort((a,b)=>{const ac=a.concept===ev.concept?0:1,bc=b.concept===ev.concept?0:1;if(ac!==bc)return ac-bc;return temporalError(ev,a.videoTime)-temporalError(ev,b.videoTime)});
+    const hit=candidates[0]||null;if(hit)hit._used=true;
+    return {event:ev,observation:hit,detected:!!hit,conceptCorrect:!!hit&&hit.concept===ev.concept,temporalErrorSeconds:hit?temporalError(ev,hit.videoTime):null};
+  });
+}
+function buildDerived(){
+  const matches=matchEvents();const qrows=sConfig.questions.map(q=>{const a=sState.answers.find(x=>x.questionId===q.id);return {q,a,correct:!!a&&a.correct===true}});
+  const evMax=sConfig.events.reduce((s,e)=>s+Number(e.weight||1),0),evScore=matches.reduce((s,m)=>s+(m.detected?(m.conceptCorrect?Number(m.event.weight||1):Number(m.event.weight||1)*0.5):0),0);
+  const qMax=sConfig.questions.reduce((s,q)=>s+Number(q.weight||1),0),qScore=qrows.reduce((s,r)=>s+(r.correct?Number(r.q.weight||1):0),0);const totalMax=evMax+qMax,total=evScore+qScore,pct=totalMax?100*total/totalMax:0;
+  const usedIds=new Set(matches.filter(m=>m.observation).map(m=>m.observation.observationId));
+  const enrichedObs=sState.observations.map(o=>{const m=matches.find(x=>x.observation?.observationId===o.observationId);return {...o,matchedEventId:m?.event?.id||null,insideExpectedWindow:!!m,eventDetected:!!m,classificationCorrect:m?m.conceptCorrect:null,temporalErrorSeconds:m?m.temporalErrorSeconds:null,unexpectedObservation:!usedIds.has(o.observationId)};});
+  const eventMatches=matches.map(m=>({eventId:m.event.id,expectedConcept:m.event.concept,windowStart:Number(m.event.start),windowEnd:Number(m.event.end),tolerance:Number(m.event.tolerance||0),unit:m.event.unit??null,competency:m.event.competency||null,detected:m.detected,classificationCorrect:m.conceptCorrect,studentObservationId:m.observation?.observationId||null,studentVideoTime:m.observation?.videoTime??null,temporalErrorSeconds:m.temporalErrorSeconds,studentConcept:m.observation?.concept||null,confidence:m.observation?.confidence??null}));
+  const byConcept={};eventMatches.forEach(x=>{const k=x.expectedConcept||'Sin concepto';byConcept[k]=byConcept[k]||{concept:k,expected:0,detected:0,classifiedCorrectly:0};byConcept[k].expected++;if(x.detected)byConcept[k].detected++;if(x.classificationCorrect)byConcept[k].classifiedCorrectly++;});
+  return {matches,qrows,enrichedObs,eventMatches,conceptSummary:Object.values(byConcept),scores:{eventScore:round3(evScore),eventMax:round3(evMax),questionScore:round3(qScore),questionMax:round3(qMax),total:round3(total),totalMax:round3(totalMax),percent:round3(pct)}};
+}
+function buildReport(){
+  const d=buildDerived(),matches=d.matches,qrows=d.qrows;const found=matches.filter(m=>m.detected).length,missing=matches.length-found,qc=qrows.filter(r=>r.correct).length;
+  $('reportHeader').innerHTML=`<p><b>Actividad:</b> ${safe(sConfig.title)}<br><b>Alumno/a:</b> ${safe(sState.student.name)} ${sState.student.id?`· <b>ID:</b> ${safe(sState.student.id)}`:''}${sState.student.group?` · <b>Grupo:</b> ${safe(sState.student.group)}`:''}<br><b>Código participante:</b> <span class="mono">${safe(sState.study.participantCode)}</span><br><b>Corrida:</b> <span class="mono">${safe(sState.runId)}</span><br><b>Finalización:</b> ${sState.run.finishedAt?new Date(sState.run.finishedAt).toLocaleString():'—'}</p>`;
+  $('reportMetrics').innerHTML=`<div class="metric"><b>${found}/${matches.length}</b><span>Eventos encontrados</span></div><div class="metric"><b>${missing}</b><span>Eventos no encontrados</span></div><div class="metric"><b>${qc}/${qrows.length}</b><span>Preguntas correctas</span></div><div class="metric"><b>${d.scores.percent.toFixed(0)}%</b><span>Puntaje orientativo</span></div>`;
+  const et=$('eventReportTable');et.innerHTML='';matches.forEach(m=>{const status=!m.detected?'<span class="pill bad">No detectado</span>':m.conceptCorrect?'<span class="pill ok">Detectado y clasificado</span>':'<span class="pill warn">Detectado, revisar clasificación</span>';const assoc=m.observation?`${fmt(m.observation.videoTime)} · ${safe(m.observation.concept)}<br><span class="subtle">${safe(m.observation.comment)} · confianza ${m.observation.confidence}/4</span>`:'—';const tr=document.createElement('tr');tr.innerHTML=`<td><b>${safe(m.event.concept)}</b><br><span class="subtle">${safe(m.event.description||'')}</span></td><td>${fmt(m.event.start)}–${fmt(m.event.end)}<br><span class="subtle">tol. ±${Number(m.event.tolerance||0)} s</span></td><td>${status}</td><td>${assoc}</td>`;et.appendChild(tr)});
+  const qt=$('questionReportTable');qt.innerHTML='';qrows.forEach(r=>{const selected=r.a?r.a.selectedAnswer:'Sin respuesta';const corr=r.correct?'<span class="pill ok">Correcta</span>':'<span class="pill bad">Incorrecta / sin respuesta</span>';const tr=document.createElement('tr');tr.innerHTML=`<td>${safe(r.q.text)}${r.q.explanation?`<br><span class="subtle">${safe(r.q.explanation)}</span>`:''}</td><td>${safe(selected)}${r.a?`<br><span class="subtle">Confianza ${r.a.confidence}/4 · ${r.a.elapsedSeconds}s</span>`:''}</td><td>${corr}</td>`;qt.appendChild(tr)});
+  const missingNames=matches.filter(m=>!m.detected).map(m=>m.event.concept),review=matches.filter(m=>m.detected&&!m.conceptCorrect).map(m=>m.event.concept);let text=`Se identificaron ${found} de ${matches.length} eventos previstos y se respondieron correctamente ${qc} de ${qrows.length} preguntas.`;if(missingNames.length)text+=` Conviene revisar: ${missingNames.join(', ')}.`;if(review.length)text+=` También revisar la clasificación de: ${review.join(', ')}.`;$('formativeSummary').textContent=text;return d;
+}
+function finishRun(reason='student_finished'){
+  if(!sState)return;$('studentVideo').pause();endAway('finish');updateActiveDurations();const end=Date.now();sState.run.finishedAt=nowISO();sState.run.generatedAt=nowISO();sState.run.durationSeconds=Math.max(0,Math.round((end-new Date(sState.run.startedAt).getTime())/1000));sState.run.completed=true;sState.run.endReason=reason;logAction('activity_finished',{endReason:reason});buildReport();$('reportCard').classList.remove('hidden');saveEnvelope();$('reportCard').scrollIntoView({behavior:'smooth'});
+}
+$('finishActivity').onclick=()=>finishRun();
+
+function confidenceSummary(d){
+  const oc=d.enrichedObs.map(o=>Number(o.confidence)).filter(Number.isFinite),qc=sState.answers.map(a=>Number(a.confidence)).filter(Number.isFinite);const avg=a=>a.length?round3(a.reduce((x,y)=>x+y,0)/a.length):null;
+  return {observationAverage:avg(oc),questionAverage:avg(qc),observationCount:oc.length,questionCount:qc.length};
+}
+function resultSummary(d){
+  return {eventsExpected:d.eventMatches.length,eventsDetected:d.eventMatches.filter(x=>x.detected).length,eventsClassifiedCorrectly:d.eventMatches.filter(x=>x.classificationCorrect).length,eventsMissed:d.eventMatches.filter(x=>!x.detected).length,unexpectedObservations:d.enrichedObs.filter(x=>x.unexpectedObservation).length,questionsTotal:sConfig.questions.length,questionsAnswered:sState.answers.length,questionsCorrect:sState.answers.filter(a=>a.correct).length,observationsTotal:sState.observations.length,playCount:sState.metrics.playCount,pauseCount:sState.metrics.pauseCount,seekCount:sState.metrics.seekCount,rewindCount:sState.metrics.rewindCount,forwardSeekCount:sState.metrics.forwardSeekCount,totalPlaySeconds:round3(sState.metrics.totalPlaySeconds),totalPausedSeconds:round3(sState.metrics.totalPausedSeconds),focusLossCount:sState.attention.focusLossCount,totalAwaySeconds:round3(sState.attention.totalAwaySeconds),scores:d.scores};
+}
+async function buildExportObject(){
+  const d=buildDerived();const previousRuns=sEnvelope?.previousRuns||[];const videoEl=$('studentVideo');const base={
+    format:'FISICA_UTN_VIDEO_RESULT_V2',schemaVersion:2,
+    activity:{activityId:sConfig.activityId,activityVersion:sConfig.activityVersion,truthSetVersion:sConfig.truthSetVersion,title:sConfig.title,instrumentType:'interactive_video',video:{id:sConfig.video?.id||null,src:sConfig.video?.src||null,durationSeconds:Number.isFinite(videoEl.duration)?round3(videoEl.duration):null,localFileName:videoEl.dataset.localName||null,localFileSize:videoEl.dataset.localSize?Number(videoEl.dataset.localSize):null}},
+    student:deepClone(sState.student),
+    study:{participantCode:sState.study.participantCode,participantCodeSource:sState.study.participantCodeSource,researchCompatible:true},
+    run:{runId:sState.runId,startedAt:sState.run.startedAt,finishedAt:sState.run.finishedAt,generatedAt:nowISO(),timezone:sState.run.timezone,durationSeconds:sState.run.durationSeconds,completed:sState.run.completed,endReason:sState.run.endReason,recoveredSession:sState.playbackTrace.some(e=>e.type==='session_recovered')},
+    result:resultSummary(d),
+    researchData:{observations:d.enrichedObs,questionAnswers:deepClone(sState.answers),eventMatches:d.eventMatches,playbackTrace:deepClone(sState.playbackTrace),attention:{...deepClone(sState.attention),activeAwayStartedAt:null,activeAwayContext:null},playbackMetrics:deepClone(sState.metrics),confidence:confidenceSummary(d),conceptSummary:d.conceptSummary,previousRuns:deepClone(previousRuns)}
+  };
+  const digest=await sha256Hex(canonicalJSONStringify(base));return {...base,validation:{algorithm:'SHA-256',canonicalization:'recursive-key-sort-json',scope:'all top-level fields except validation',digest,shortCode:digest.slice(0,12).toUpperCase()}};
+}
+$('downloadResult').onclick=async()=>{
+  if(!sState.run.completed)finishRun('export_before_explicit_finish');const out=await buildExportObject();const who=(sState.study.participantCode||sState.student.id||sState.student.name||'alumno').replace(/[^a-z0-9_-]+/gi,'_');downloadJSON(out,`${sConfig.activityId}_${who}_${new Date().toISOString().replace(/[:.]/g,'-')}.json`);$('studentSetupStatus').className='status ok';$('studentSetupStatus').textContent=`Resultado V2 generado y sellado. Código SHA-256 corto: ${out.validation.shortCode}.`;
+};
+$('printReport').onclick=()=>window.print();
+
+window.addEventListener('blur',()=>startAway('window_blur'));
+window.addEventListener('focus',()=>endAway('window_focus'));
+document.addEventListener('visibilitychange',()=>document.hidden?startAway('page_hidden'):endAway('page_visible'));
+window.addEventListener('beforeunload',()=>{if(sState&&!sState.run.completed)saveEnvelope()});
+
+// AUTHOR
+$('teacherVideoFile').onchange=e=>{const f=e.target.files[0];if(f)$('teacherVideo').src=URL.createObjectURL(f)};
+$('teacherVideo').addEventListener('timeupdate',()=>{$('teacherTime').textContent=fmt($('teacherVideo').currentTime)});
+$('markStart').onclick=()=>{$('evStart').value=($('teacherVideo').currentTime||0).toFixed(1)};
+$('markEnd').onclick=()=>{$('evEnd').value=($('teacherVideo').currentTime||0).toFixed(1)};
+$('qUseTime').onclick=()=>{$('qTime').value=($('teacherVideo').currentTime||0).toFixed(1)};
+function renderAuthor(){
+ const e=$('eventAuthorTable');e.innerHTML='';author.events.forEach((x,i)=>{const tr=document.createElement('tr');tr.innerHTML=`<td>${safe(x.id)}</td><td>${fmt(x.start)}–${fmt(x.end)}</td><td>${safe(x.concept)}</td><td>${safe(x.description)}</td><td>${x.weight}</td><td><button class="danger" data-de="${i}">Eliminar</button></td>`;e.appendChild(tr)});e.querySelectorAll('[data-de]').forEach(b=>b.onclick=()=>{author.events.splice(+b.dataset.de,1);renumber();renderAuthor()});
+ const q=$('questionAuthorTable');q.innerHTML='';author.questions.forEach((x,i)=>{const tr=document.createElement('tr');tr.innerHTML=`<td>${safe(x.id)}</td><td>${fmt(x.time)}</td><td>${safe(x.text)}</td><td>${String.fromCharCode(65+Number(x.correct))}</td><td>${x.weight}</td><td><button class="danger" data-dq="${i}">Eliminar</button></td>`;q.appendChild(tr)});q.querySelectorAll('[data-dq]').forEach(b=>b.onclick=()=>{author.questions.splice(+b.dataset.dq,1);renumber();renderAuthor()});
+ $('jsonPreview').value=JSON.stringify(makeAuthorConfig(),null,2);
+}
+function renumber(){author.events.forEach((x,i)=>x.id=`E${String(i+1).padStart(2,'0')}`);author.questions.forEach((x,i)=>x.id=`P${String(i+1).padStart(2,'0')}`)}
+function makeAuthorConfig(){const concepts=[...new Set(author.events.map(e=>e.concept).filter(Boolean))];if(!concepts.includes('Otro'))concepts.push('Otro');return {schemaVersion:'2.0',activityId:$('tActivityId').value.trim()||'FIS_VIDEO_01',activityVersion:$('tActivityVersion').value.trim()||'1.0.0',truthSetVersion:$('tTruthSetVersion').value.trim()||'truth-v1',title:$('tTitle').value.trim()||'Actividad de video',description:$('tDescription').value.trim(),video:{src:$('tVideoPath').value.trim()},concepts,events:author.events,questions:author.questions,settings:{pauseOnQuestion:true,logFocus:true,autosaveSeconds:2,shuffleOptions:false}}}
+['tActivityId','tActivityVersion','tTruthSetVersion','tTitle','tDescription','tVideoPath'].forEach(id=>$(id).addEventListener('input',renderAuthor));
+$('addEvent').onclick=()=>{const start=+$('evStart').value,end=+$('evEnd').value,concept=$('evConcept').value.trim();if(!Number.isFinite(start)||!Number.isFinite(end)||end<start||!concept){alert('Complete un inicio, fin y concepto válidos.');return}author.events.push({id:'',start,end,tolerance:+$('evTol').value||0,concept,description:$('evDescription').value.trim(),weight:+$('evWeight').value||1});renumber();renderAuthor();$('evConcept').value='';$('evDescription').value='';};
+$('addQuestion').onclick=()=>{const time=+$('qTime').value,text=$('qText').value.trim(),ops=[$('qA').value.trim(),$('qB').value.trim(),$('qC').value.trim(),$('qD').value.trim()];if(!Number.isFinite(time)||!text||ops.some(x=>!x)){alert('Complete el tiempo, la pregunta y las cuatro opciones.');return}author.questions.push({id:'',time,text,options:ops,correct:+$('qCorrect').value,weight:+$('qWeight').value||1,explanation:$('qExplanation').value.trim(),difficulty:1});renumber();renderAuthor();$('qText').value='';['qA','qB','qC','qD','qExplanation'].forEach(id=>$(id).value='');};
+$('exportConfig').onclick=()=>{const c=makeAuthorConfig();downloadJSON(c,`${c.activityId}.json`)};
+$('importTeacherConfigBtn').onclick=()=>$('teacherConfigFile').click();
+$('teacherConfigFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const c=normalizeConfig(JSON.parse(await f.text()));$('tActivityId').value=c.activityId;$('tActivityVersion').value=c.activityVersion;$('tTruthSetVersion').value=c.truthSetVersion;$('tTitle').value=c.title;$('tDescription').value=c.description;$('tVideoPath').value=c.video?.src||'';author.events=c.events;author.questions=c.questions;renderAuthor()}catch(err){alert('No se pudo importar el JSON: '+err.message)}};
+renderAuthor();
+
+</script>
+</body>
+</html>
