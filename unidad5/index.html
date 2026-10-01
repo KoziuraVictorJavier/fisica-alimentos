@@ -81,6 +81,31 @@ main{min-width:0}.paper{background:var(--paper);border:1px solid var(--line);bor
 .video-card.single-column .video-frame video{display:block;width:100%;height:auto;max-height:72vh;border-radius:12px;background:#000}
 .video-card.single-column .essay-list{display:grid;grid-template-columns:1fr;gap:12px;margin-top:14px}
 @media(max-width:560px){.video-card.single-column .video-frame video{max-height:none}}
+
+.stevin-block{margin-top:24px}
+.stevin-sim{border:1px solid #bfdbfe;border-radius:20px;background:linear-gradient(180deg,#fff 0%,#f8fbff 100%);padding:16px;margin:18px 0;box-shadow:0 8px 22px rgba(15,23,42,.06)}
+.stevin-controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}.stevin-controls button{border:1px solid #93c5fd;border-radius:999px;background:#eef6ff;color:#1e3a8a;font-weight:800;padding:9px 14px;cursor:pointer}.stevin-controls button:hover{background:#dbeafe}
+.stevin-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:16px;align-items:start}.stevin-vessels{height:360px;display:flex;justify-content:space-around;align-items:flex-end;padding:20px 10px 48px;background:#fff;border:1px solid #dbe3ef;border-radius:16px;position:relative}.stevin-vessels:after{content:"";position:absolute;left:18px;right:18px;bottom:34px;height:4px;background:#64748b;border-radius:999px}
+.stevin-vessel{height:270px;position:relative;border:4px solid #1e4d7b;border-top:none;border-radius:0 0 14px 14px;overflow:hidden;background:#f8fbff}.stevin-vessel.a{width:130px}.stevin-vessel.b{width:72px}.stevin-vessel.c{width:160px}.stevin-water{position:absolute;left:0;right:0;bottom:0;height:0;background:linear-gradient(180deg,#7dd3fc,#3b82f6);transition:height .08s linear}.vlabel{position:absolute;top:7px;left:50%;transform:translateX(-50%);z-index:3;background:#fff;border:1px solid #bfdbfe;color:#1e3a8a;border-radius:999px;padding:2px 8px;font-weight:800}.hlabel{position:absolute;right:5px;bottom:6px;z-index:3;background:rgba(255,255,255,.92);border:1px solid #cbd5e1;border-radius:7px;padding:2px 5px;color:#334155;font-size:.78rem;font-weight:700}
+.stevin-panel{display:grid;gap:12px}.stevin-values{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stevin-values div{background:#fff;border:1px solid #dbe3ef;border-radius:13px;padding:10px;color:#475569}.stevin-values b{display:block;color:#1e3a8a;margin-bottom:4px}.stevin-status{background:#eef6ff;border:1px solid #bfdbfe;border-left:6px solid #2563eb;border-radius:14px;padding:12px;color:#334155;line-height:1.45;font-weight:650}
+.stevin-video{border:1px solid #dbe3ef;border-radius:20px;background:#fff;padding:14px;margin:16px 0}.stevin-video video{display:block;width:100%;height:auto;max-height:68vh;background:#000;border-radius:14px;margin-bottom:14px}.stevin-link{font-size:.92rem;color:#64748b;margin-top:10px}.stevin-link a{color:#1d4ed8;font-weight:700}
+@media(max-width:900px){.stevin-layout{grid-template-columns:1fr}.stevin-values{grid-template-columns:1fr}.stevin-vessels{height:320px}.stevin-vessel{height:235px}.stevin-vessel.a{width:110px}.stevin-vessel.b{width:62px}.stevin-vessel.c{width:135px}}
+@media(max-width:560px){.stevin-vessels{height:280px;padding-left:2px;padding-right:2px}.stevin-vessel{height:205px}.stevin-vessel.a{width:92px}.stevin-vessel.b{width:52px}.stevin-vessel.c{width:112px}.stevin-controls button{flex:1 1 100%;}}
+
+.atm-video-block .video-frame video{max-height:70vh;object-fit:contain}
+.atm-video-block .video-meta .eq-inline{background:#f8fbff;border:1px solid #dbe3ef;border-radius:12px;padding:10px 12px;margin:10px 0;color:#1e3a8a;font-weight:800;text-align:center}
+.atm-synthesis{margin-top:14px}
+
+.altitude-explain{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+.altitude-explain .box{margin:0}
+.altitude-note{margin-top:12px;padding:12px 14px;border:1px solid #c8d6ea;border-radius:12px;background:#f8fbff;color:#243b63}
+.hidden-legacy{display:none !important}
+@media (max-width:900px){.altitude-explain{grid-template-columns:1fr}}
+
+.ocean-explain{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+.ocean-explain .box{margin:0}
+.ocean-note{margin-top:12px;padding:12px 14px;border:1px solid #c8d6ea;border-radius:12px;background:#f8fbff;color:#243b63}
+@media (max-width:900px){.ocean-explain{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -377,6 +402,15 @@ Tu navegador no puede reproducir este video.
 <p>La variación de presión con la profundidad se obtiene aplicando equilibrio a una pequeña columna de fluido. Sobre ella actúan la presión superior, la presión inferior y el peso. Como el fluido está en reposo, la suma de fuerzas verticales debe ser nula. Para densidad constante, el resultado es:</p>
 <div class="theory-eq">\[P_2-P_1=\rho g(h_2-h_1)\]</div>
 <p>Si tomamos como punto de referencia la superficie, donde la presión es \(P_0\), y medimos una profundidad \(h\) hacia abajo, obtenemos \(P=P_0+\rho gh\). El incremento de presión se debe al peso del fluido situado por encima del punto.</p>
+<figure class="infografia">
+<h3>Apoyo visual · Equilibrio de presiones en un elemento de fluido</h3>
+<img alt="Equilibrio de presiones en un elemento de fluido con Fuerza 1, Fuerza 2, fuerzas laterales y deducción de la ecuación hidrostática" class="zoomable-infografia" loading="lazy" src="assets/images/equilibrio_presiones_elemento_fluido_10_1.png" tabindex="0" title="Doble clic para ampliar"/>
+<p class="zoom-hint">Doble clic sobre la imagen para verla ampliada.</p>
+<figcaption>El esquema representa el equilibrio de un pequeño elemento de fluido en reposo entre las profundidades \(h_1\) y \(h_2\). Las fuerzas sobre las caras superior e inferior se relacionan con la presión mediante \(F=P\,A\), mientras que el peso vale \(
+ho gV\). Al aplicar \(\sum F_y=0\) se obtiene \(P_2A-P_1A-
+ho gV=0\), y finalmente \(P_2=P_1+
+ho g(h_2-h_1)\).</figcaption>
+</figure>
 <h3>10.2 Consecuencias de la ecuación hidrostática</h3>
 <ul><li>A mayor profundidad, mayor presión para un mismo fluido.</li><li>A la misma profundidad dentro de un fluido conectado y en equilibrio, la presión es la misma.</li><li>La diferencia de presión depende de la diferencia vertical de altura, no del camino seguido entre los puntos.</li><li>Para un líquido de densidad uniforme, la forma del recipiente no modifica la presión a una profundidad dada.</li></ul>
 <p>Este último resultado suele parecer contraintuitivo: recipientes de formas muy distintas pueden producir la misma presión en el fondo si contienen el mismo líquido hasta la misma altura. La fuerza total sobre el fondo sí dependerá además del área.</p>
@@ -384,20 +418,72 @@ Tu navegador no puede reproducir este video.
 <p>La expresión simple supone densidad aproximadamente constante y un campo gravitatorio uniforme. En gases o en columnas de gran altura la densidad puede variar y el modelo debe modificarse.</p>
 <div class="source-note">Base bibliográfica: Tippens, presión del fluido; Young/Freedman, variación de presión con la profundidad.</div>
 </div><p>Para una columna de líquido de densidad \(\rho\) y profundidad \(h\):</p>
+<div class="eq">\[\boxed{\Delta P=\rho gh}\]</div><p>Si sobre la superficie existe una presión \(P_0\):</p><div class="eq">\[\boxed{P=P_0+\rho gh}\]</div><div class="grid"><div class="card"><h4>10.3.4 Depende de</h4><p>\(\rho\), \(g\), \(h\) y la presión sobre la superficie.</p></div><div class="card"><h4>10.3.5 No depende directamente de</h4><p>La forma del recipiente o el volumen total almacenado.</p></div></div><div class="sim" id="sim4">
+<h3>10.4 Presión hidrostática y densidad del agua de mar según la profundidad</h3>
+<p>En lugar de la simulación anterior, se incorpora la siguiente infografía para analizar cómo cambia la <strong>presión hidrostática</strong> en el océano con la profundidad y cómo, a diferencia del aire, la <strong>densidad del agua de mar</strong> sólo varía levemente.</p>
 <figure class="infografia">
-<h3>Apoyo visual · Equilibrio de presiones en un elemento de fluido</h3>
-<img alt="Equilibrio de presiones en un elemento de fluido con Fuerza 1, Fuerza 2, fuerzas laterales y deducción de la ecuación hidrostática" class="zoomable-infografia" loading="lazy" src="assets/images/equilibrio_presiones_elemento_fluido_10_1.png" tabindex="0" title="Doble clic para ampliar"/>
+<h3>Apoyo visual · Presión hidrostática y densidad del agua de mar</h3>
+<img alt="Infografía sobre presión hidrostática y densidad del agua de mar según la profundidad, desde el nivel del mar hasta las fosas oceánicas" class="zoomable-infografia" loading="lazy" src="assets/images/presion_densidad_oceano_profundidad.png" tabindex="0" title="Doble clic para ampliar"/>
 <p class="zoom-hint">Doble clic sobre la imagen para verla ampliada.</p>
-<figcaption>Esta imagen se incorpora en el <strong>punto 10.1</strong> para representar el equilibrio de un pequeño elemento de fluido en reposo. El esquema muestra la superficie libre a presión \(P_0\), las alturas \(h_1\) y \(h_2\), las fuerzas sobre las caras superior e inferior, el peso del elemento y la relación \(F=P\cdot A\). A partir del equilibrio vertical se obtiene la ecuación \(P_2=P_1+ho g(h_2-h_1)\) y, como caso particular, la expresión \(P=P_0+ho gh\).</figcaption>
+<figcaption>La escala central muestra la <strong>profundidad</strong> desde el nivel del mar hasta las fosas oceánicas más profundas. A la izquierda se indican valores aproximados de <strong>presión hidrostática</strong> y, a la derecha, la <strong>densidad del agua de mar</strong>. La infografía permite comparar el fuerte aumento de la presión con la profundidad con el cambio mucho menor de la densidad.</figcaption>
 </figure>
-
-
-<div class="eq">\[\boxed{\Delta P=\rho gh}\]</div><p>Si sobre la superficie existe una presión \(P_0\):</p><div class="eq">\[\boxed{P=P_0+\rho gh}\]</div><div class="grid"><div class="card"><h4>10.3.4 Depende de</h4><p>\(\rho\), \(g\), \(h\) y la presión sobre la superficie.</p></div><div class="card"><h4>10.3.5 No depende directamente de</h4><p>La forma del recipiente o el volumen total almacenado.</p></div></div><div class="sim" id="sim4"><h3>10.4 Simulación 4 · Presión hidrostática</h3><div class="sim-purpose"><strong>Objetivo:</strong> comprobar de qué variables depende la presión en un fluido en reposo y distinguir presión superficial de incremento hidrostático.</div><div class="sim-guide">
-<div class="sim-guide-card"><h4>10.4.1 ⚙ Cómo funciona</h4><p>El sensor se ubica a una profundidad \(h\) dentro de un líquido de densidad \(\rho\). La presión en la superficie es \(P_0\). La simulación calcula la presión absoluta en el sensor.</p><div class="mini-eq">\(P=P_0+\rho gh\)</div></div>
-<div class="sim-guide-card observe"><h4>10.4.2 👁 Qué debería observar</h4><ul><li>Al bajar el sensor, la presión aumenta linealmente con \(h\).</li><li>Un líquido más denso produce un aumento de presión mayor a igual profundidad.</li><li>Cambiar \(P_0\) desplaza el valor absoluto de presión, pero no cambia el incremento \(\rho gh\).</li><li>Las flechas laterales crecen con la profundidad.</li></ul></div>
-<div class="sim-guide-card why"><h4>10.4.3 💡 Por qué ocurre</h4><p>Un punto más profundo debe soportar el peso de una columna mayor de fluido situada por encima. El peso por unidad de área de esa columna es justamente \(\rho gh\).</p></div>
-<div class="sim-guide-card activity"><span class="prompt">Prueba sugerida</span><h4>10.4.4 🧪 Exploración</h4><p>Compare la presión a 1 m y 2 m con la misma densidad. Luego vuelva a 1 m y aumente la densidad un 20 %. Verifique cuál de las dos modificaciones genera el mismo tipo de proporcionalidad.</p></div>
-</div><div class="controls"><label>Densidad ρ (kg/m³)<input id="hRho" max="1500" min="700" step="10" type="range" value="1000"/><span id="hRhov"></span></label><label>Profundidad h (m)<input id="hDepth" max="5" min="0" step="0.1" type="range" value="2"/><span id="hDepthv"></span></label><label>Presión superficial P₀ (kPa)<input id="hP0" max="200" min="0" step="1" type="range" value="101"/><span id="hP0v"></span></label></div><div class="sim-layout"><canvas class="sim-canvas" id="hCanvas"></canvas><div class="out" id="hOut"></div></div></div></section>
+<div class="ocean-explain">
+<div class="box idea"><strong>Cómo interpretar la imagen.</strong> Cerca de la superficie, la presión del agua de mar es aproximadamente la atmosférica más una pequeña contribución hidrostática. Sin embargo, a medida que aumenta la profundidad, la presión crece de manera muy marcada. En cambio, la densidad del agua de mar apenas cambia: pasa de un valor cercano a <strong>1025 kg/m³</strong> en superficie a valores sólo un poco mayores en grandes profundidades. Esto se debe a que los <strong>líquidos son poco compresibles</strong>.</div>
+<div class="box app"><strong>Relación con la teoría.</strong> Si se desprecia la pequeña variación de densidad, la presión puede estimarse con la ecuación <strong>\(P = P_0 + 
+ho g h\)</strong>. Como \(
+ho\) y \(g\) son casi constantes en el agua de mar, la presión aumenta casi linealmente con la profundidad. Por eso, en las llanuras abisales y en las fosas oceánicas se alcanzan presiones enormes, mientras que la densidad sólo aumenta levemente.</div>
+</div>
+<div class="ocean-note"><strong>Idea clave.</strong> En el océano, la profundidad modifica fuertemente la <strong>presión hidrostática</strong>, pero no produce un cambio comparable en la <strong>densidad</strong> del agua. Esta comparación ayuda a diferenciar el comportamiento de los <strong>líquidos</strong> respecto del <strong>aire</strong>, donde la densidad sí cambia mucho con la altura.</div>
+<div aria-hidden="true" class="controls hidden-legacy"><label>Densidad ρ (kg/m³)<input id="hRho" max="1500" min="700" step="10" type="range" value="1000"/><span id="hRhov"></span></label><label>Profundidad h (m)<input id="hDepth" max="5" min="0" step="0.1" type="range" value="2"/><span id="hDepthv"></span></label><label>Presión superficial P₀ (kPa)<input id="hP0" max="200" min="0" step="1" type="range" value="101"/><span id="hP0v"></span></label></div><div aria-hidden="true" class="sim-layout hidden-legacy"><canvas class="sim-canvas" id="hCanvas"></canvas><div class="out" id="hOut"></div></div></div>
+<div class="stevin-block">
+<h3>10.5 Paradoja de Stevin y vasos comunicantes</h3>
+<p>La denominada <strong>paradoja hidrostática de Stevin</strong> pone en evidencia una consecuencia directa de la ecuación hidrostática: para un mismo líquido, sometido a la misma presión superficial, la presión a una determinada profundidad depende de la altura vertical de líquido situada sobre el punto y <strong>no de la forma ni del volumen total del recipiente</strong>.</p>
+<div class="eq">\[\boxed{P=P_0+\rho gh}\]</div>
+<p>Esto significa que recipientes muy diferentes —uno ancho, otro angosto o uno de forma irregular— pueden presentar la <strong>misma presión en el fondo</strong> si el líquido alcanza la misma altura. Lo que cambia entre ellos es la cantidad total de líquido almacenada y el peso total, pero no el valor de \(\rho gh\) a una misma profundidad.</p>
+<div class="grid">
+<div class="card"><h4>Mismo nivel</h4><p>Si dos recipientes contienen el mismo líquido y sus superficies libres se encuentran a la misma altura, la presión hidrostática a una misma cota de conexión es igual. Por ello no existe una diferencia de presión que produzca un flujo neto entre ellos.</p></div>
+<div class="card"><h4>Diferente nivel</h4><p>Si uno de los recipientes posee una altura de líquido menor, la presión hidrostática en la conexión también es menor. Esa diferencia de presión genera flujo hacia el recipiente de menor nivel.</p></div>
+<div class="card"><h4>Equilibrio final</h4><p>En vasos comunicantes abiertos a la misma presión exterior y con el mismo líquido, el equilibrio se alcanza cuando las superficies libres quedan a una <strong>misma altura</strong>.</p></div>
+</div>
+<div class="box key"><strong>Idea clave.</strong> La forma del recipiente modifica cuánto volumen contiene, pero no modifica la relación fundamental entre presión y profundidad. En equilibrio, a igual profundidad dentro de un mismo líquido conectado, la presión debe ser la misma.</div>
+<h3>10.6 Simulación complementaria · Tres recipientes comunicados</h3>
+<p>La siguiente simulación utiliza tres recipientes conectados mediante válvulas. El recipiente <strong>A</strong> es ancho y alto, el <strong>B</strong> es angosto y el <strong>C</strong> es ancho y parte con un nivel menor. Se muestran simultáneamente el nivel de líquido y la presión hidrostática manométrica \(P_h=\rho gh\) en cada recipiente.</p>
+<div class="stevin-sim">
+<div class="stevin-controls">
+<button id="stevinAB" type="button">Abrir válvula A–B</button>
+<button id="stevinBC" type="button">Abrir válvula B–C</button>
+<button id="stevinReset" type="button">Reiniciar</button>
+</div>
+<div class="stevin-layout">
+<div class="stevin-vessels">
+<div class="stevin-vessel a"><span class="vlabel">A</span><div class="stevin-water" id="stWaterA"></div><span class="hlabel" id="stHA"></span></div>
+<div class="stevin-vessel b"><span class="vlabel">B</span><div class="stevin-water" id="stWaterB"></div><span class="hlabel" id="stHB"></span></div>
+<div class="stevin-vessel c"><span class="vlabel">C</span><div class="stevin-water" id="stWaterC"></div><span class="hlabel" id="stHC"></span></div>
+</div>
+<div class="stevin-panel">
+<div class="stevin-values"><div><b>Presión A</b><span id="stPA"></span></div><div><b>Presión B</b><span id="stPB"></span></div><div><b>Presión C</b><span id="stPC"></span></div></div>
+<div class="stevin-status" id="stStatus">Estado inicial: válvulas cerradas.</div>
+<div class="box app"><strong>Lectura física.</strong> Al abrir A–B, como inicialmente \(h_A=h_B\), resulta \(P_A=P_B\) y no aparece flujo neto. Al abrir B–C, como \(h_C\) es menor, la presión hidrostática en C es menor y comienza la redistribución del líquido hasta alcanzar un mismo nivel.</div>
+</div>
+</div>
+<div class="box warn"><strong>Salvedad.</strong> La animación muestra el proceso de forma dinámica para facilitar la interpretación. Para el análisis hidrostático deben compararse especialmente el <strong>estado inicial</strong> y el <strong>estado final estabilizado</strong>. Durante el movimiento existe una etapa transitoria que ya pertenece a la dinámica de fluidos.</div>
+</div>
+<h3>10.7 Video complementario · Paradoja hidrostática y vasos comunicantes</h3>
+<p>El video permite observar experimentalmente cómo los vasos comunicantes evolucionan hacia una situación de equilibrio. Conviene identificar la altura inicial en cada recipiente, observar qué ocurre al habilitar las conexiones y comparar finalmente las superficies libres cuando el sistema deja de fluir.</p>
+<div class="stevin-video">
+<video controls="" preload="metadata">
+<source src="assets/videos/paradoja_hidrostatica_vasos_comunicantes.mp4" type="video/mp4"/>
+      Tu navegador no puede reproducir este video.
+    </video>
+<div class="grid">
+<div class="card"><h4>Antes de conectar</h4><p>Comparar las alturas de líquido y, mediante \(P_h=\rho gh\), anticipar qué recipientes presentan mayor presión en la cota de conexión.</p></div>
+<div class="card"><h4>Durante la conexión</h4><p>Relacionar la dirección del flujo con la diferencia de presión producida por las distintas alturas de líquido.</p></div>
+<div class="card"><h4>Estado final</h4><p>Verificar que, cuando las superficies se igualan, desaparece la diferencia hidrostática que sostenía el flujo y se alcanza el equilibrio.</p></div>
+</div>
+<p class="stevin-link">Referencia externa: <a href="https://www.youtube.com/watch?v=xa4VHOL37HY" rel="noopener" target="_blank">abrir el video original en YouTube</a>.</p>
+</div>
+</div>
+</section>
 <section class="paper" id="medicion"><h2>11. Presión absoluta, atmosférica y manométrica</h2>
 <div class="theory-expanded" data-theory-v8="1">
 <h3>11.1 Presión absoluta y presión manométrica</h3>
@@ -408,9 +494,68 @@ Tu navegador no puede reproducir este video.
 <p>Un manómetro compara presiones mediante la diferencia de altura entre columnas de líquido. Al recorrer el fluido en reposo, la presión aumenta al descender y disminuye al ascender. Para un manómetro abierto simple, la diferencia entre la presión del sistema y la atmosférica es proporcional a \(\rho gh\).</p>
 <h3>11.3 Barómetro</h3>
 <p>El barómetro utiliza el equilibrio entre la presión atmosférica y una columna de líquido. En el barómetro de mercurio, la altura de la columna permite determinar \(P_{atm}\). El principio físico es el mismo que en hidrostática: una diferencia vertical de nivel corresponde a una diferencia de presión.</p>
+<h3>11.4 Experimento de Torricelli: barómetro de mercurio</h3>
+<p>El experimento de Torricelli mostró que la atmósfera ejerce presión y que esa presión puede medirse mediante el equilibrio de una columna de líquido. En el barómetro de mercurio, un tubo cerrado por un extremo se llena con mercurio, se invierte y se introduce con el extremo abierto dentro de una cubeta que también contiene mercurio. La columna desciende hasta que su presión hidrostática equilibra la presión ejercida por la atmósfera sobre la superficie libre de la cubeta.</p>
+<div class="theory-eq">\[\boxed{P_{atm}=\rho_{Hg}gh}\]</div>
+<p>La zona superior del tubo queda prácticamente vacía, por lo que se denomina <strong>vacío torricelliano</strong>. Si la presión de vapor del mercurio se desprecia, la presión atmosférica se obtiene directamente a partir de la densidad del mercurio, la aceleración de la gravedad y la altura de la columna. En condiciones normales, una atmósfera corresponde aproximadamente a una columna de <strong>760 mm de Hg</strong>.</p>
+<div class="video-card single-column atm-video-block">
+<h3>Video · Barómetro de Torricelli y presión atmosférica</h3>
+<div class="video-grid">
+<div class="video-frame">
+<video controls="" preload="metadata"><source src="assets/videos/barometro_torricelli_presion_atmosferica.mp4" type="video/mp4"/>Tu navegador no puede reproducir este video.</video>
+</div>
+<div class="video-meta">
+<p><strong>Qué muestra.</strong> El video permite observar cómo una columna de mercurio puede quedar sostenida dentro de un tubo invertido por efecto de la presión atmosférica.</p>
+<p><strong>Procedimiento experimental.</strong> Se llena el tubo con mercurio, se invierte manteniendo el extremo abierto sumergido y se deja que el sistema alcance el equilibrio. La altura final de la columna es la magnitud que se interpreta físicamente.</p>
+<div class="eq-inline">\(P_{atm}=\rho_{Hg}gh\)</div>
+<p><strong>Interpretación.</strong> La atmósfera empuja la superficie del mercurio en la cubeta. Esa presión se transmite al líquido y equilibra el peso por unidad de área de la columna. La experiencia permite medir la presión atmosférica como una presión absoluta respecto del vacío superior del tubo.</p>
+</div>
+</div>
+</div>
+<h3>11.5 Hemisferios de Magdeburgo: vacío parcial y fuerza atmosférica</h3>
+<p>Los hemisferios de Magdeburgo muestran de manera macroscópica que la presión atmosférica puede producir fuerzas muy grandes. El procedimiento consiste en unir dos hemisferios metálicos, sellar la unión y extraer parte del aire interior. Al disminuir la presión interna, la presión exterior queda prácticamente sin compensación y empuja las superficies hacia adentro.</p>
+<div class="theory-eq">\[\boxed{F=\Delta P\,A=(P_{ext}-P_{int})A}\]</div>
+<p>La idea física central es que el vacío no “succiona”. Lo que mantiene unidos los hemisferios es la presión atmosférica exterior. Si vuelve a entrar aire, la presión interna aumenta, la diferencia de presión disminuye y los hemisferios pueden separarse con mucha menor fuerza.</p>
+<div class="video-card single-column atm-video-block">
+<h3>Video · Hemisferios de Magdeburgo y presión atmosférica</h3>
+<div class="video-grid">
+<div class="video-frame">
+<video controls="" preload="metadata"><source src="assets/videos/hemisferios_magdeburgo_presion_atmosferica.mp4" type="video/mp4"/>Tu navegador no puede reproducir este video.</video>
+</div>
+<div class="video-meta">
+<p><strong>Qué muestra.</strong> El video reproduce la experiencia de dos hemisferios que se resisten a separarse luego de extraer aire del interior.</p>
+<p><strong>Procedimiento experimental.</strong> Se cierran los hemisferios, se reduce la presión interna con una bomba y luego se intenta separarlos aplicando fuerzas opuestas. Al permitir el ingreso de aire, la fuerza necesaria disminuye drásticamente.</p>
+<div class="eq-inline">\(F=(P_{ext}-P_{int})A\)</div>
+<p><strong>Interpretación.</strong> La presión atmosférica exterior actúa sobre toda el área efectiva. Cuando la presión interna es baja, la diferencia de presión genera una fuerza neta considerable. Esta experiencia complementa a la de Torricelli: Torricelli permite medir la presión atmosférica; Magdeburgo permite visualizar su efecto mecánico.</p>
+</div>
+</div>
+</div>
+<div class="box key atm-synthesis"><strong>Síntesis.</strong> El barómetro de Torricelli muestra cómo medir la presión atmosférica mediante una columna de líquido. Los hemisferios de Magdeburgo muestran que esa presión, aplicada sobre un área, produce una fuerza: \(F=P\,A\). Ambas experiencias justifican la distinción entre presión absoluta, presión atmosférica y presión manométrica.</div>
 <div class="box app"><strong>Aplicación industrial.</strong> Al interpretar una hoja de datos de un sensor o transmisor es indispensable identificar si informa presión absoluta, relativa/manométrica o diferencial.</div>
 <div class="source-note">Base bibliográfica: Tippens, medición de presión; Young/Freedman, manómetros y barómetro.</div>
-</div><div class="eq">\[\boxed{P_{abs}=P_{man}+P_{atm}}\]</div><p>Una presión manométrica nula no significa vacío: significa que la presión absoluta coincide con la atmosférica. En planta se emplean manómetros, transmisores y sensores diferenciales.</p></section>
+</div><div class="eq">\[\boxed{P_{abs}=P_{man}+P_{atm}}\]</div><p>Una presión manométrica nula no significa vacío: significa que la presión absoluta coincide con la atmosférica. En planta se emplean manómetros, transmisores y sensores diferenciales.</p>
+<div class="sim" id="simPresionReferencia">
+<h3>11.4 Presión atmosférica y densidad del aire según la altitud</h3>
+<p>La siguiente infografía reemplaza a la simulación anterior y permite visualizar, en una sola escala, cómo varían dos magnitudes fundamentales de la atmósfera al aumentar la altura: la <strong>presión atmosférica</strong> y la <strong>densidad del aire</strong>.</p>
+<figure class="infografia">
+<h3>Apoyo visual · Presión y densidad del aire según la altitud</h3>
+<img alt="Infografía que relaciona altitud, presión atmosférica y densidad del aire desde el nivel del mar hasta las capas altas de la atmósfera" class="zoomable-infografia" loading="lazy" src="assets/images/presion_densidad_altitud.png" tabindex="0" title="Doble clic para ampliar"/>
+<p class="zoom-hint">Doble clic sobre la imagen para verla ampliada.</p>
+<figcaption>La escala central muestra la <strong>altitud</strong> y, a cada nivel, se indican valores aproximados de <strong>presión atmosférica</strong> y <strong>densidad del aire</strong>. La escala aparece expandida en los primeros kilómetros y comprimida en las mayores altitudes para que el estudiante pueda apreciar simultáneamente el comportamiento cerca de la superficie y en las capas altas de la atmósfera.</figcaption>
+</figure>
+<div class="altitude-explain">
+<div class="box idea"><strong>Cómo interpretar la imagen.</strong> En el <strong>nivel del mar</strong> se toma como referencia una presión atmosférica aproximada de <strong>101,3 kPa</strong> y una densidad del aire cercana a <strong>1,225 kg/m³</strong>. A medida que se asciende, ambas magnitudes disminuyen. Por eso, en ciudades elevadas como <strong>Bogotá</strong> o <strong>La Paz / El Alto</strong>, la presión y la densidad del aire son menores que al nivel del mar.</div>
+<div class="box app"><strong>Relación con la teoría.</strong> La presión atmosférica disminuye con la altitud porque, al subir, queda una <strong>columna de aire menor</strong> sobre el punto considerado. Al mismo tiempo, el aire se vuelve menos denso debido a que está menos comprimido. En consecuencia, tanto la presión como la densidad del aire presentan una caída muy marcada en los primeros kilómetros y luego continúan disminuyendo hasta valores muy pequeños en las capas altas de la atmósfera.</div>
+</div>
+<div class="altitude-note"><strong>Observación didáctica.</strong> La infografía usa <strong>valores aproximados de atmósfera estándar</strong>. En la realidad, la presión atmosférica también depende de la temperatura, del estado del tiempo y de la humedad. Aquí interesa principalmente reconocer la <strong>tendencia general</strong>: a mayor altitud, menor presión atmosférica y menor densidad del aire.</div>
+<div aria-hidden="true" class="controls hidden-legacy">
+<label>Presión atmosférica local \(P_{atm}\) (kPa)<input id="refPatm" max="105" min="80" step="0.5" type="range" value="101.3"/><span id="refPatmv"></span></label>
+<label>Presión absoluta del sistema \(P_{abs}\) (kPa)<input id="refPabs" max="250" min="0" step="1" type="range" value="120"/><span id="refPabsv"></span></label>
+</div><div aria-hidden="true" class="sim-layout hidden-legacy">
+<canvas class="sim-canvas" id="refCanvas"></canvas>
+<div class="out" id="refOut"></div>
+</div></div>
+</section>
 <section class="paper" id="pascal"><h2>12. Principio de Pascal</h2>
 <div class="theory-expanded" data-theory-v8="1">
 <h3>12.1 Transmisión de una variación de presión</h3>
@@ -422,12 +567,25 @@ Tu navegador no puede reproducir este video.
 <p>En una máquina ideal, \(F_1\Delta x_1=F_2\Delta x_2\). Por ello un pistón grande desarrolla más fuerza pero recorre una distancia menor. Tippens remarca esta compensación al analizar la ventaja mecánica de la prensa hidráulica.</p>
 <div class="box app"><strong>Aplicación.</strong> El mismo principio aparece en gatos, frenos y actuadores hidráulicos. En equipos alimentarios puede encontrarse en mecanismos de prensado o accionamientos que utilizan circuitos hidráulicos.</div>
 <div class="source-note">Base bibliográfica: Tippens, prensa hidráulica; Young/Freedman, ley de Pascal.</div>
-</div><p>Una variación de presión aplicada a un fluido confinado se transmite a todos los puntos del fluido.</p><div class="eq">\[\boxed{\frac{F_1}{A_1}=\frac{F_2}{A_2}}\]</div><div class="sim" id="sim5"><h3>12.3 Simulación 5 · Prensa hidráulica</h3><div class="sim-purpose"><strong>Objetivo:</strong> visualizar la transmisión de presión en un fluido confinado y comprender cómo una prensa hidráulica multiplica fuerza.</div><div class="sim-guide">
-<div class="sim-guide-card"><h4>12.3.1 ⚙ Cómo funciona</h4><p>Una fuerza \(F_1\) actúa sobre un pistón de área \(A_1\). El fluido transmite esa presión al pistón de área \(A_2\), donde aparece \(F_2\).</p><div class="mini-eq">\(P=F_1/A_1=F_2/A_2\)</div></div>
-<div class="sim-guide-card observe"><h4>12.3.2 👁 Qué debería observar</h4><ul><li>Si \(A_2&gt;A_1\), la fuerza de salida puede ser mucho mayor que \(F_1\).</li><li>A igual \(F_1\), aumentar \(A_2\) aumenta \(F_2\).</li><li>Aumentar \(A_1\) manteniendo \(F_1\) disminuye la presión y, por tanto, \(F_2\).</li></ul></div>
-<div class="sim-guide-card why"><h4>12.3.3 💡 Por qué ocurre</h4><p>Lo que se transmite idealmente es la <strong>presión</strong>, no la fuerza. Una misma presión actuando sobre un área mayor produce una fuerza mayor. No se crea energía: el pistón grande se desplaza una distancia menor.</p><div class="mini-eq">Idealmente: \(A_1\Delta x_1=A_2\Delta x_2\)</div></div>
-<div class="sim-guide-card activity"><span class="prompt">Prueba sugerida</span><h4>12.3.4 🧪 Exploración</h4><p>Elija \(A_2=10A_1\). Observe la relación entre \(F_2\) y \(F_1\). Luego duplique ambas áreas conservando la misma relación y explique por qué la ventaja mecánica no cambia.</p></div>
-</div><div class="controls"><label>Área A₁ (cm²)<input id="pA1" max="30" min="1" step="1" type="range" value="5"/><span id="pA1v"></span></label><label>Área A₂ (cm²)<input id="pA2" max="200" min="10" step="5" type="range" value="80"/><span id="pA2v"></span></label><label>Fuerza F₁ (N)<input id="pF1" max="500" min="10" step="10" type="range" value="120"/><span id="pF1v"></span></label></div><div class="sim-layout"><canvas class="sim-canvas" id="pCanvas"></canvas><div class="out" id="pOut"></div></div></div></section>
+</div><p>Una variación de presión aplicada a un fluido confinado se transmite a todos los puntos del fluido.</p><div class="eq">\[\boxed{\frac{F_1}{A_1}=\frac{F_2}{A_2}}\]</div>
+
+
+<div class="sim visual-only" id="sim5">
+<h3>12.3 Prensa hidráulica · apoyo visual</h3>
+<div class="sim-purpose"><strong>Objetivo:</strong> interpretar el principio de Pascal aplicado a una prensa hidráulica, reemplazando la simulación interactiva por un esquema conceptual más claro.</div>
+<figure class="infografia">
+<h3>Apoyo visual · Prensa hidráulica</h3>
+<img alt="Esquema de prensa hidráulica con pistones de áreas S1 y S2, fuerzas F1 y F2, presión transmitida y ecuaciones del principio de Pascal" class="zoomable-infografia" loading="lazy" src="assets/images/prensa_hidraulica_principio_pascal.png" tabindex="0" title="Doble clic para ampliar"/>
+<p class="zoom-hint">Doble clic sobre la imagen para verla ampliada.</p>
+<figcaption>El esquema muestra dos pistones comunicados por un fluido confinado. Al aplicar una fuerza \(F_1\) sobre el pistón pequeño de superficie \(S_1\), se genera una presión \(p=F_1/S_1\). Según el principio de Pascal, esa presión se transmite al fluido y actúa sobre el pistón mayor de superficie \(S_2\). Por eso, si \(S_2&gt;S_1\), la fuerza de salida puede ser mayor: \(F_2=F_1\,S_2/S_1\).</figcaption>
+</figure>
+<div class="sim-guide">
+<div class="sim-guide-card"><h4>12.3.1 Lectura física</h4><p>La prensa hidráulica no multiplica la presión: transmite la misma presión idealmente a todos los puntos del fluido. La fuerza aumenta cuando esa presión actúa sobre un área mayor.</p><div class="mini-eq">\(p=rac{F_1}{S_1}=rac{F_2}{S_2}\)</div></div>
+<div class="sim-guide-card observe"><h4>12.3.2 Qué observar</h4><ul><li>El pistón izquierdo tiene menor superficie \(S_1\).</li><li>El pistón derecho tiene mayor superficie \(S_2\).</li><li>La presión \(p\) en el fluido es la magnitud transmitida.</li><li>La fuerza de salida crece en proporción a la relación de áreas \(S_2/S_1\).</li></ul></div>
+<div class="sim-guide-card why"><h4>12.3.3 Conservación de energía</h4><p>La ganancia de fuerza no implica crear energía. En un modelo ideal, el pistón de mayor área se desplaza una distancia menor. Por eso, la ventaja mecánica se obtiene intercambiando fuerza por desplazamiento.</p><div class="mini-eq">\(S_1\Delta x_1=S_2\Delta x_2\)</div></div>
+</div>
+</div>
+</section>
 <section class="paper" id="arquimedes"><h2>13. Principio de Arquímedes</h2>
 <div class="theory-expanded" data-theory-v8="1">
 <h3>13.1 Origen del empuje</h3>
@@ -445,7 +603,12 @@ Tu navegador no puede reproducir este video.
 <div class="sim-guide-card observe"><h4>13.3.2 👁 Qué debería observar</h4><ul><li>Si \(\rho_o&lt;\rho_f\), el objeto flota parcialmente sumergido.</li><li>Si \(\rho_o=\rho_f\), aparece equilibrio neutro.</li><li>Si \(\rho_o&gt;\rho_f\), el objeto se hunde.</li><li>Para un cuerpo homogéneo, cambiar sólo su volumen no cambia el criterio de flotar o hundirse.</li></ul></div>
 <div class="sim-guide-card why"><h4>13.3.3 💡 Por qué ocurre</h4><p>El empuje es igual al peso del fluido desplazado. Un objeto que flota ajusta su volumen sumergido hasta que \(E=W\). Por eso la fracción sumergida depende de la razón de densidades.</p><div class="mini-eq">En flotación: \(V_d/V=\rho_o/\rho_f\)</div></div>
 <div class="sim-guide-card activity"><span class="prompt">Prueba sugerida</span><h4>13.3.4 🧪 Exploración</h4><p>Use \(\rho_o=800\,kg/m^3\) y \(\rho_f=1000\,kg/m^3\). Prediga la fracción sumergida. Luego cambie el volumen del objeto y verifique qué magnitudes cambian y cuál permanece igual.</p></div>
-</div><div class="controls"><label>ρ objeto (kg/m³)<input id="aRhoO" max="1800" min="200" step="20" type="range" value="800"/><span id="aRhoOv"></span></label><label>ρ fluido (kg/m³)<input id="aRhoF" max="1400" min="600" step="20" type="range" value="1000"/><span id="aRhoFv"></span></label><label>Volumen (L)<input id="aV" max="20" min="0.5" step="0.5" type="range" value="5"/><span id="aVv"></span></label></div><div class="sim-layout"><canvas class="sim-canvas" id="aCanvas"></canvas><div class="out" id="aOut"></div></div></div></section>
+</div><div class="controls"><label>ρ objeto (kg/m³)<input id="aRhoO" max="1800" min="200" step="20" type="range" value="800"/><span id="aRhoOv"></span></label><label>ρ fluido (kg/m³)<input id="aRhoF" max="1400" min="600" step="20" type="range" value="1000"/><span id="aRhoFv"></span></label><label>Volumen (L)<input id="aV" max="20" min="0.5" step="0.5" type="range" value="5"/><span id="aVv"></span></label></div><div class="sim-layout"><canvas class="sim-canvas" id="aCanvas"></canvas><div class="out" id="aOut"></div></div></div><figure class="infografia">
+<h3>Apoyo visual · Síntesis de hidrostática</h3>
+<img alt="Infografía de hidrostática con definición, presión en un fluido, equilibrio de un elemento de fluido, ecuación hidrostática, paradoja de Stevin y aplicaciones" class="zoomable-infografia" loading="lazy" src="assets/images/infografia_hidrostatica_resumen.png" tabindex="0" title="Doble clic para ampliar"/>
+<p class="zoom-hint">Doble clic sobre la imagen para verla ampliada.</p>
+<figcaption>Esta infografía se ubica como <strong>cierre integrador del bloque de hidrostática y sus aplicaciones</strong>, al finalizar el punto 13 y antes de iniciar la hidrodinámica. Resume fluidos en reposo, presión, equilibrio de un elemento de fluido, ecuación hidrostática, paradoja de Stevin, vasos comunicantes, barómetro, manómetro, prensa hidráulica y aplicaciones en recipientes.</figcaption>
+</figure></section>
 <section class="paper" id="flujo"><h2>14. De la hidrostática a la hidrodinámica</h2>
 <div class="theory-expanded" data-theory-v8="1">
 <h3>14.1 Describir un fluido en movimiento</h3>
@@ -650,20 +813,56 @@ const $=id=>document.getElementById(id),g=9.81;
 function fitCanvas(c){const r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;c.width=Math.max(300,Math.floor(r.width*d));c.height=Math.max(240,Math.floor(r.height*d));const x=c.getContext('2d');x.setTransform(d,0,0,d,0,0);return{ctx:x,w:r.width,h:r.height}}
 function arrow(ctx,x1,y1,x2,y2,label){ctx.strokeStyle='#1e3a8a';ctx.fillStyle='#1e3a8a';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();const a=Math.atan2(y2-y1,x2-x1);ctx.beginPath();ctx.moveTo(x2,y2);ctx.lineTo(x2-10*Math.cos(a-.45),y2-10*Math.sin(a-.45));ctx.lineTo(x2-10*Math.cos(a+.45),y2-10*Math.sin(a+.45));ctx.closePath();ctx.fill();if(label){ctx.font='14px system-ui';ctx.fillText(label,(x1+x2)/2+5,(y1+y2)/2-8)}}
 function val(id,v,s=''){$(id).textContent=` ${Number(v).toLocaleString('es-AR',{maximumFractionDigits:3})}${s}`}
-function bind(ids,fn){ids.forEach(id=>$(id).addEventListener('input',fn));fn()}
+function bind(ids,fn){const els=ids.map(id=>$(id)).filter(Boolean);els.forEach(el=>el.addEventListener('input',fn));if(els.length)fn()}
 function drawDeform(){const F=+$('dF').value,Acm=+$('dA').value,Ymp=+$('dY').value,type=$('dType').value;val('dFv',F,' N');val('dAv',Acm,' cm²');val('dYv',Ymp,' MPa');const A=Acm*1e-4,stress=F/A,Y=Ymp*1e6,eps=stress/Y,{ctx,w,h}=fitCanvas($('dCanvas'));ctx.clearRect(0,0,w,h);const x=100,y=90,bw=Math.min(300,w-170),bh=130;ctx.fillStyle='#dbeafe';ctx.strokeStyle='#2563eb';ctx.lineWidth=2;if(type==='shear'){const sh=Math.min(85,eps*550);ctx.beginPath();ctx.moveTo(x,y+bh);ctx.lineTo(x+bw,y+bh);ctx.lineTo(x+bw+sh,y);ctx.lineTo(x+sh,y);ctx.closePath();ctx.fill();ctx.stroke();arrow(ctx,x+bw/2,y-25,x+bw/2+70,y-25,'F∥')}else{const sign=type==='compression'?-1:1,dx=Math.min(75,eps*700)*sign;ctx.fillRect(x-dx/2,y,bw+dx,bh);ctx.strokeRect(x-dx/2,y,bw+dx,bh);arrow(ctx,x-10,y+bh/2,x-70*sign,y+bh/2,'F');arrow(ctx,x+bw+10,y+bh/2,x+bw+70*sign,y+bh/2,'F')}$('dOut').textContent=`Esfuerzo = ${(stress/1000).toFixed(1)} kPa\nDeformación estimada = ${eps.toExponential(3)}\n${type==='shear'?'Cambio predominante de forma.':'Cambio predominante de longitud.'}`}
 let sfRunning=false,sfT=0,sfLast=0;function sfFrame(t){if(sfRunning){if(!sfLast)sfLast=t;sfT+=(t-sfLast)/1000;sfLast=t;drawSF();requestAnimationFrame(sfFrame)}}
 function drawSF(){const tau=+$('sfTau').value,G=+$('sfG').value*1000,mu=+$('sfMu').value;val('sfTauv',tau,' Pa');val('sfGv',G/1000,' kPa');val('sfMuv',mu,' Pa·s');const gs=tau/G,rate=tau/mu,gf=rate*sfT,{ctx,w,h}=fitCanvas($('sfCanvas'));ctx.clearRect(0,0,w,h);const mid=w/2;ctx.font='bold 16px system-ui';ctx.fillStyle='#1e3a8a';ctx.fillText('Sólido',mid*.35,30);ctx.fillText('Fluido',mid+mid*.35,30);function block(cx,sh){const y=90,bw=Math.min(150,mid-70),bh=140,x=cx-bw/2,s=Math.max(-85,Math.min(85,sh));ctx.fillStyle='#dbeafe';ctx.strokeStyle='#2563eb';ctx.beginPath();ctx.moveTo(x,y+bh);ctx.lineTo(x+bw,y+bh);ctx.lineTo(x+bw+s,y);ctx.lineTo(x+s,y);ctx.closePath();ctx.fill();ctx.stroke();arrow(ctx,cx,y-25,cx+55,y-25,'τ')}block(mid/2,gs*1200);block(mid+mid/2,gf*18);$('sfOut').textContent=`t = ${sfT.toFixed(1)} s\nSólido: γ = ${gs.toExponential(3)}\nFluido: γ̇ = ${rate.toFixed(2)} s⁻¹\nFluido: γ(t) = ${gf.toFixed(2)}`}
 function drawVisc(){const mu=+$('vFluid').value,U=+$('vU').value,hmm=+$('vH').value,h=hmm/1000,grad=U/h,tau=mu*grad;val('vUv',U,' m/s');val('vHv',hmm,' mm');const {ctx,w,H}=fitCanvas($('vCanvas'));ctx.clearRect(0,0,w,H);const l=70,r=w-50,top=70,bot=H-70;ctx.strokeStyle='#334155';ctx.lineWidth=6;ctx.beginPath();ctx.moveTo(l,top);ctx.lineTo(r,top);ctx.stroke();ctx.beginPath();ctx.moveTo(l,bot);ctx.lineTo(r,bot);ctx.stroke();arrow(ctx,l+50,top-22,l+140,top-22,'U');for(let i=0;i<=6;i++){const yy=bot-(bot-top)*i/6,frac=i/6;ctx.strokeStyle='#60a5fa';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(l,yy);ctx.lineTo(l+frac*(r-l)*.8,yy);ctx.stroke()}$('vOut').textContent=`μ = ${mu} Pa·s\ndv/dy ≈ ${grad.toFixed(1)} s⁻¹\nτ = ${tau.toFixed(3)} Pa\nMayor μ ⇒ mayor esfuerzo para el mismo gradiente.`}
 function drawHydro(){const rho=+$('hRho').value,dep=+$('hDepth').value,p0=+$('hP0').value*1000,P=p0+rho*g*dep;val('hRhov',rho,' kg/m³');val('hDepthv',dep,' m');val('hP0v',p0/1000,' kPa');const {ctx,w,h}=fitCanvas($('hCanvas'));ctx.clearRect(0,0,w,h);const x=100,y=45,tw=Math.min(300,w-190),th=h-90;ctx.strokeStyle='#1e3a8a';ctx.lineWidth=3;ctx.strokeRect(x,y,tw,th);ctx.fillStyle='rgba(96,165,250,.28)';ctx.fillRect(x,y,tw,th);const sy=y+th*(dep/5);ctx.fillStyle='#dc2626';ctx.beginPath();ctx.arc(x+tw*.65,sy,8,0,Math.PI*2);ctx.fill();for(let i=1;i<=5;i++){const yy=y+th*i/6,len=20+45*i/5;arrow(ctx,x+tw,yy,x+tw+len,yy,'')}$('hOut').textContent=`ΔP = ${(rho*g*dep/1000).toFixed(2)} kPa\nP absoluta = ${(P/1000).toFixed(2)} kPa`}
-function drawPascal(){const A1=+$('pA1').value,A2=+$('pA2').value,F1=+$('pF1').value,P=F1/(A1*1e-4),F2=P*A2*1e-4;val('pA1v',A1,' cm²');val('pA2v',A2,' cm²');val('pF1v',F1,' N');const {ctx,w,h}=fitCanvas($('pCanvas'));ctx.clearRect(0,0,w,h);const base=h-70;ctx.fillStyle='rgba(96,165,250,.30)';ctx.fillRect(90,base-90,w-180,90);ctx.strokeStyle='#1e3a8a';ctx.strokeRect(90,base-90,w-180,90);arrow(ctx,130,base-175,130,base-120,'F₁');arrow(ctx,w-150,base-145,w-150,base-215,'F₂');$('pOut').textContent=`P = ${(P/1000).toFixed(1)} kPa\nF₂ = ${F2.toFixed(1)} N\nVentaja ideal = ${(A2/A1).toFixed(1)}`}
+
+function drawPressureReference(){const Patm=+$('refPatm').value,Pabs=+$('refPabs').value,Pman=Pabs-Patm;val('refPatmv',Patm.toFixed(1),' kPa');val('refPabsv',Pabs.toFixed(0),' kPa');const {ctx,w,h}=fitCanvas($('refCanvas'));ctx.clearRect(0,0,w,h);const margin=62,top=30,bottom=h-45,x=w/2,scaleMax=250;ctx.strokeStyle='#0b1f4d';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(x,top);ctx.lineTo(x,bottom);ctx.stroke();function y(p){return bottom-(p/scaleMax)*(bottom-top)}function tick(p,label,color){const yy=y(p);ctx.strokeStyle=color;ctx.fillStyle=color;ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(x-18,yy);ctx.lineTo(x+18,yy);ctx.stroke();ctx.font='bold 14px system-ui';ctx.textAlign='left';ctx.fillText(label,x+26,yy+5)}tick(0,'0 kPa absoluto (vacío ideal)','#475569');tick(Patm,'P_atm local','#0f766e');tick(Pabs,'P_abs sistema','#dc2626');ctx.strokeStyle=Pman>=0?'#dc2626':'#7c3aed';ctx.fillStyle=ctx.strokeStyle;ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(x-34,y(Patm));ctx.lineTo(x-34,y(Pabs));ctx.stroke();ctx.font='bold 15px system-ui';ctx.textAlign='right';ctx.fillText(Pman>=0?'P_man positiva':'P_man negativa',x-42,(y(Patm)+y(Pabs))/2);ctx.fillStyle='rgba(96,165,250,.22)';ctx.strokeStyle='#1e3a8a';ctx.lineWidth=3;ctx.strokeRect(margin,top,w-2*margin,bottom-top);ctx.fillRect(margin,y(Pabs),w-2*margin,bottom-y(Pabs));const clase=Math.abs(Pman)<.5?'equilibrio con la atmósfera':(Pman>0?'sobrepresión manométrica':'vacío relativo / presión manométrica negativa');$('refOut').textContent=`P_atm = ${Patm.toFixed(1)} kPa\nP_abs = ${Pabs.toFixed(1)} kPa\nP_man = P_abs − P_atm = ${Pman.toFixed(1)} kPa\nEstado: ${clase}\n\nLectura clave: un manómetro común mide P_man, no P_abs. Una lectura manométrica negativa no implica presión absoluta negativa.`}
+
+function drawPascal(){if(!$('pA1')||!$('pA2')||!$('pF1')||!$('pCanvas')||!$('pOut'))return;const A1=+$('pA1').value,A2=+$('pA2').value,F1=+$('pF1').value,P=F1/(A1*1e-4),F2=P*A2*1e-4;val('pA1v',A1,' cm²');val('pA2v',A2,' cm²');val('pF1v',F1,' N');const {ctx,w,h}=fitCanvas($('pCanvas'));ctx.clearRect(0,0,w,h);const x0=28, y0=36, tankW=w-56, tankH=h-82;ctx.lineWidth=3;ctx.strokeStyle='#284b8d';ctx.fillStyle='rgba(96,165,250,.35)';ctx.fillRect(x0,y0+tankH*.40,tankW,tankH*.60);ctx.strokeRect(x0,y0+tankH*.40,tankW,tankH*.60);const leftW=Math.max(26, Math.min(62, 18+Math.sqrt(A1)*8));const rightW=Math.max(70, Math.min(168, 40+Math.sqrt(A2)*8));const leftX=x0+48,leftH=56,rightX=x0+tankW-rightW-48,rightH=84;ctx.strokeStyle='#284b8d';ctx.lineWidth=4;ctx.strokeRect(leftX,y0+6,leftW,leftH);ctx.strokeRect(rightX,y0-8,rightW,rightH);ctx.fillStyle='#aeb6c6';ctx.fillRect(leftX,y0+leftH,leftW,9);ctx.fillRect(rightX,y0+rightH,rightW,9);ctx.fillStyle='#18305d';ctx.font='italic 22px serif';ctx.fillText('A₁', leftX+6, y0+12);ctx.fillText('A₂', rightX+rightW-28, y0+4);arrow(ctx,leftX+leftW/2,y0-6,leftX+leftW/2,y0+leftH+1,'F₁');arrow(ctx,rightX+rightW/2,y0+rightH+1,rightX+rightW/2,y0-18,'F₂');ctx.fillStyle='#18305d';ctx.font='italic 28px serif';ctx.fillText('p', x0+tankW/2-6, y0+tankH*.74);$('pOut').textContent=`Presión transmitida: ${(P/1000).toFixed(1)} kPa
+Fuerza de salida F₂: ${F2.toFixed(1)} N
+Ventaja mecánica ideal A₂/A₁: ${(A2/A1).toFixed(1)}
+Relación: F₁/A₁ = F₂/A₂`}
 function drawArch(){const ro=+$('aRhoO').value,rf=+$('aRhoF').value,Vl=+$('aV').value,V=Vl/1000,W=ro*V*g;val('aRhoOv',ro,' kg/m³');val('aRhoFv',rf,' kg/m³');val('aVv',Vl,' L');let state,frac,E;if(ro<rf){state='Flota';frac=ro/rf;E=W}else if(ro===rf){state='Equilibrio neutro';frac=1;E=W}else{state='Se hunde';frac=1;E=rf*V*g}const {ctx,w,h}=fitCanvas($('aCanvas'));ctx.clearRect(0,0,w,h);const water=145;ctx.fillStyle='rgba(96,165,250,.3)';ctx.fillRect(30,water,w-60,h-water-30);const size=120,cx=w/2,top=state==='Flota'?water-(size-size*frac):water+35;ctx.fillStyle='#fbbf24';ctx.fillRect(cx-size/2,top,size,size);$('aOut').textContent=`Estado: ${state}\nPeso = ${W.toFixed(2)} N\nEmpuje = ${E.toFixed(2)} N\nFracción sumergida = ${(frac*100).toFixed(1)} %`}
 function areaD(mm){const d=mm/1000;return Math.PI*d*d/4}
 function drawCont(){const D1=+$('cD1').value,D2=+$('cD2').value,Ql=+$('cQ').value,Q=Ql/1000/60,A1=areaD(D1),A2=areaD(D2),v1=Q/A1,v2=Q/A2;val('cD1v',D1,' mm');val('cD2v',D2,' mm');val('cQv',Ql,' L/min');const {ctx,w,h}=fitCanvas($('cCanvas'));ctx.clearRect(0,0,w,h);const cy=h/2,s1=Math.max(35,D1*.65),s2=Math.max(25,D2*.65),x1=40,x2=w*.45,x3=w-40;ctx.fillStyle='rgba(96,165,250,.28)';ctx.strokeStyle='#1e3a8a';ctx.beginPath();ctx.moveTo(x1,cy-s1);ctx.lineTo(x2,cy-s1);ctx.lineTo(x2+70,cy-s2);ctx.lineTo(x3,cy-s2);ctx.lineTo(x3,cy+s2);ctx.lineTo(x2+70,cy+s2);ctx.lineTo(x2,cy+s1);ctx.lineTo(x1,cy+s1);ctx.closePath();ctx.fill();ctx.stroke();arrow(ctx,x1+35,cy,x1+95,cy,'v₁');arrow(ctx,x2+95,cy,x2+175,cy,'v₂');$('cOut').textContent=`v₁ = ${v1.toFixed(2)} m/s\nv₂ = ${v2.toFixed(2)} m/s\nA₁v₁ = A₂v₂ = Q`}
 function drawBern(){const D1=+$('bD1').value,D2=+$('bD2').value,Ql=+$('bQ').value,rho=+$('bRho').value,P1=+$('bP1').value*1000,dh=+$('bDh').value,Q=Ql/1000/60,A1=areaD(D1),A2=areaD(D2),v1=Q/A1,v2=Q/A2,P2=P1+.5*rho*(v1*v1-v2*v2)-rho*g*dh;val('bD1v',D1,' mm');val('bD2v',D2,' mm');val('bQv',Ql,' L/min');val('bRhov',rho,' kg/m³');val('bP1v',P1/1000,' kPa');val('bDhv',dh,' m');const {ctx,w,h}=fitCanvas($('bCanvas'));ctx.clearRect(0,0,w,h);const cy=h/2,s1=Math.max(32,D1*.48),s2=Math.max(22,D2*.48),x1=35,x2=w*.46,x3=w-35;ctx.fillStyle='rgba(96,165,250,.25)';ctx.strokeStyle='#1e3a8a';ctx.beginPath();ctx.moveTo(x1,cy-s1);ctx.lineTo(x2,cy-s1);ctx.lineTo(x2+65,cy-s2);ctx.lineTo(x3,cy-s2);ctx.lineTo(x3,cy+s2);ctx.lineTo(x2+65,cy+s2);ctx.lineTo(x2,cy+s1);ctx.lineTo(x1,cy+s1);ctx.closePath();ctx.fill();ctx.stroke();arrow(ctx,x1+30,cy,x1+80,cy,'v₁');arrow(ctx,x2+85,cy,x2+160,cy,'v₂');$('bOut').textContent=`v₁ = ${v1.toFixed(2)} m/s\nv₂ = ${v2.toFixed(2)} m/s\nP₁ = ${(P1/1000).toFixed(2)} kPa\nP₂ = ${(P2/1000).toFixed(2)} kPa\nΔh = ${dh.toFixed(2)} m`}
 function drawHopper(){const D=+$('tD').value,dp=+$('tdp').value,ang=+$('tAng').value,coh=+$('tCoh').value,fr=+$('tFric').value;val('tDv',D,' mm');val('tdpv',dp,' mm');val('tAngv',ang,'°');val('tCohv',coh,'');val('tFricv',fr,'');const ratio=D/dp;let mode,reason;if(ratio<8 || (coh>.72 && D<110)){mode='Puente / arco';reason='La salida es pequeña respecto de las partículas o la cohesión es alta.'}else if(coh>.58 && fr>.55){mode='Ratholing / chimenea';reason='Cohesión y fricción favorecen un canal central con zonas estancadas.'}else if(ang>=60 && fr<.55 && coh<.5){mode='Flujo másico';reason='Paredes inclinadas y baja fricción favorecen el movimiento global.'}else{mode='Flujo en embudo';reason='El flujo central domina y pueden quedar zonas laterales estancadas.'}const {ctx,w,h}=fitCanvas($('tCanvas'));ctx.clearRect(0,0,w,h);const topY=45,bottomY=h-55,cx=w/2,topW=Math.min(w-100,420),outW=Math.max(18,Math.min(100,D*.45)),xL=cx-topW/2,xR=cx+topW/2;ctx.strokeStyle='#475569';ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(xL,topY);ctx.lineTo(cx-outW/2,bottomY);ctx.lineTo(cx+outW/2,bottomY);ctx.lineTo(xR,topY);ctx.stroke();ctx.fillStyle='rgba(245,158,11,.35)';ctx.beginPath();ctx.moveTo(xL+8,topY+10);ctx.lineTo(cx-outW/2-4,bottomY-5);ctx.lineTo(cx+outW/2+4,bottomY-5);ctx.lineTo(xR-8,topY+10);ctx.closePath();ctx.fill();if(mode.includes('másico')){for(let x=cx-90;x<=cx+90;x+=45)arrow(ctx,x,110,cx+(x-cx)*.25,bottomY-20,'')}else if(mode.includes('embudo')){ctx.fillStyle='rgba(148,163,184,.55)';ctx.beginPath();ctx.moveTo(xL+8,topY+10);ctx.lineTo(cx-55,bottomY-60);ctx.lineTo(cx-95,130);ctx.closePath();ctx.fill();ctx.beginPath();ctx.moveTo(xR-8,topY+10);ctx.lineTo(cx+55,bottomY-60);ctx.lineTo(cx+95,130);ctx.closePath();ctx.fill();arrow(ctx,cx,105,cx,bottomY-18,'')}else if(mode.includes('Puente')){ctx.strokeStyle='#dc2626';ctx.lineWidth=8;ctx.beginPath();ctx.arc(cx,bottomY-28,55,Math.PI,0);ctx.stroke();arrow(ctx,cx,bottomY+25,cx,bottomY-5,'bloqueo')}else{ctx.fillStyle='rgba(148,163,184,.55)';ctx.fillRect(xL+25,topY+20,85,bottomY-topY-60);ctx.fillRect(xR-110,topY+20,85,bottomY-topY-60);arrow(ctx,cx,105,cx,bottomY-18,'canal')}$('tOut').textContent=`Régimen didáctico estimado: ${mode}\nD/dₚ = ${ratio.toFixed(1)}\n${reason}\n\nEste resultado es cualitativo y NO sustituye un diseño de tolva.`}
-bind(['dType','dF','dA','dY'],drawDeform);bind(['sfTau','sfG','sfMu'],drawSF);$('sfStart').onclick=()=>{if(!sfRunning){sfRunning=true;sfLast=0;requestAnimationFrame(sfFrame)}};$('sfPause').onclick=()=>{sfRunning=false;sfLast=0};$('sfReset').onclick=()=>{sfRunning=false;sfLast=0;sfT=0;drawSF()};bind(['vFluid','vU','vH'],drawVisc);bind(['hRho','hDepth','hP0'],drawHydro);bind(['pA1','pA2','pF1'],drawPascal);bind(['aRhoO','aRhoF','aV'],drawArch);bind(['cD1','cD2','cQ'],drawCont);bind(['bD1','bD2','bQ','bRho','bP1','bDh'],drawBern);bind(['tD','tdp','tAng','tCoh','tFric'],drawHopper);
-window.addEventListener('resize',()=>{drawDeform();drawSF();drawVisc();drawHydro();drawPascal();drawArch();drawCont();drawBern();drawHopper()});
+bind(['dType','dF','dA','dY'],drawDeform);bind(['sfTau','sfG','sfMu'],drawSF);$('sfStart').onclick=()=>{if(!sfRunning){sfRunning=true;sfLast=0;requestAnimationFrame(sfFrame)}};$('sfPause').onclick=()=>{sfRunning=false;sfLast=0};$('sfReset').onclick=()=>{sfRunning=false;sfLast=0;sfT=0;drawSF()};bind(['vFluid','vU','vH'],drawVisc);bind(['hRho','hDepth','hP0'],drawHydro);bind(['refPatm','refPabs'],drawPressureReference);bind(['pA1','pA2','pF1'],drawPascal);bind(['aRhoO','aRhoF','aV'],drawArch);bind(['cD1','cD2','cQ'],drawCont);bind(['bD1','bD2','bQ','bRho','bP1','bDh'],drawBern);bind(['tD','tdp','tAng','tCoh','tFric'],drawHopper);
+window.addEventListener('resize',()=>{drawDeform();drawSF();drawVisc();drawHydro();drawPressureReference();drawPascal();drawArch();drawCont();drawBern();drawHopper()});
 (function(){const modal=$('imgLightbox'),modalImg=$('imgLightboxImage'),modalCap=$('imgLightboxCaption'),closeBtn=$('imgLightboxClose');function openModal(img){modalImg.src=img.src;modalImg.alt=img.alt||'Infografía ampliada';const fig=img.closest('figure'),title=fig?.querySelector('h3')?.innerHTML||'',cap=fig?.querySelector('figcaption')?.innerHTML||'';modalCap.innerHTML=`<strong>${title}</strong><br>${cap}`;modal.classList.add('open');document.body.classList.add('modal-open')}function closeModal(){modal.classList.remove('open');document.body.classList.remove('modal-open');modalImg.src=''}document.querySelectorAll('img.zoomable-infografia').forEach(img=>{img.addEventListener('dblclick',()=>openModal(img));img.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openModal(img)}})});closeBtn.onclick=closeModal;modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()})})();
+
+(function(){
+  const wa=document.getElementById('stWaterA'), wb=document.getElementById('stWaterB'), wc=document.getElementById('stWaterC');
+  if(!wa||!wb||!wc) return;
+  const rho=1000, g=9.81, areaA=1.4, areaB=.6, areaC=1.8;
+  let hA=1.20,hB=1.20,hC=.35,ab=false,bc=false;
+  const e=id=>document.getElementById(id);
+  function p(h){return (rho*g*h/1000).toFixed(2)+' kPa'}
+  function pct(h){return Math.max(0,Math.min(100,h/1.35*100))}
+  function render(){
+    wa.style.height=pct(hA)+'%'; wb.style.height=pct(hB)+'%'; wc.style.height=pct(hC)+'%';
+    e('stHA').textContent='h='+hA.toFixed(2)+' m'; e('stHB').textContent='h='+hB.toFixed(2)+' m'; e('stHC').textContent='h='+hC.toFixed(2)+' m';
+    e('stPA').textContent=p(hA); e('stPB').textContent=p(hB); e('stPC').textContent=p(hC);
+    let msg='Estado inicial: válvulas cerradas.';
+    if(ab&&!bc) msg=Math.abs(hA-hB)<.006?'A–B abierta: hA ≈ hB, entonces ΔP ≈ 0 y no hay flujo neto.':'A–B abierta: existe diferencia de nivel y aparece flujo.';
+    if(bc&&!ab) msg='B–C abierta: el fluido se redistribuye por la diferencia de presión hidrostática.';
+    if(ab&&bc){const d=Math.max(Math.abs(hA-hB),Math.abs(hB-hC),Math.abs(hA-hC));msg=d<.01?'Equilibrio final: los tres recipientes alcanzaron prácticamente el mismo nivel.':'A–B y B–C abiertas: el sistema busca un nivel común.';}
+    e('stStatus').textContent=msg;
+  }
+  function tick(){
+    let VA=areaA*hA,VB=areaB*hB,VC=areaC*hC;const k=.62,dt=.045;
+    if(ab){const q=k*(hA-hB);VA-=q*dt;VB+=q*dt}
+    if(bc){const q=k*(hB-hC);VB-=q*dt;VC+=q*dt}
+    hA=Math.max(0,VA/areaA);hB=Math.max(0,VB/areaB);hC=Math.max(0,VC/areaC);render();requestAnimationFrame(tick)
+  }
+  e('stevinAB').addEventListener('click',()=>{ab=true;render()});
+  e('stevinBC').addEventListener('click',()=>{bc=true;render()});
+  e('stevinReset').addEventListener('click',()=>{hA=1.20;hB=1.20;hC=.35;ab=false;bc=false;render()});
+  render();tick();
+})();
 </script>
 </body></html>

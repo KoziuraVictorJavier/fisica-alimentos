@@ -21,9 +21,65 @@
 #s4 .traction-side .formula{font-size:clamp(20px,2.2vw,30px);margin:8px 0;padding:10px}
 #s4 .traction-side .key{font-size:15px;line-height:1.35;margin-top:10px}
 @media(max-width:1000px){#s4 .video-two{grid-template-columns:1fr}#s4 .traction-video-card video{max-height:none}}
+
+.single-column{display:grid;grid-template-columns:1fr;gap:14px}
+.local-video video{display:block;width:100%;height:auto;border-radius:16px;background:#000}
+.sim-card{background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);border:1px solid #d6e3f2;border-radius:18px;padding:14px;box-shadow:0 10px 24px rgba(13,35,77,.08)}
+.sim-controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.sim-controls .sim-btn{background:#eef6ff;border-color:#b9d3f5}
+.sim-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:16px;align-items:start}
+.sim-vessels{display:flex;justify-content:space-around;align-items:flex-end;height:330px;padding:18px 8px 48px;border:1px solid #d9e4f2;border-radius:16px;background:linear-gradient(180deg,#ffffff 0%,#f0f7ff 100%);position:relative}
+.sim-vessels::after{content:'';position:absolute;left:16px;right:16px;bottom:36px;height:4px;background:#4e6b8a;border-radius:3px}
+.vessel{position:relative;border:4px solid #294d7c;border-top:none;border-radius:0 0 14px 14px;background:rgba(255,255,255,.9);display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.vessel.wide{width:120px;height:250px}.vessel.narrow{width:72px;height:250px}.vessel.lowwide{width:150px;height:250px}
+.water{width:100%;height:0%;background:linear-gradient(180deg,#73c3ff 0%,#3d8de4 90%);transition:height .08s linear;position:absolute;bottom:0;left:0}
+.vessel-label{position:absolute;top:8px;left:50%;transform:translateX(-50%);z-index:2;background:#fff;padding:2px 8px;border-radius:999px;font-weight:800;color:#173a67;border:1px solid #b8d0ea}
+.level-tag{position:absolute;right:6px;bottom:8px;z-index:2;background:rgba(255,255,255,.9);padding:2px 6px;border-radius:8px;font-size:12px;font-weight:700;color:#173a67;border:1px solid #c9d7ea}
+.sim-side .card{margin-bottom:10px}
+.sim-metrics{border:1px solid #d6e3f2;border-radius:14px;background:#fff;padding:10px 12px;font-size:15px;line-height:1.6;color:#27405f}
+.sim-note{margin-top:10px;color:#55657d;font-size:14px;line-height:1.45}
+@media(max-width:980px){.sim-layout{grid-template-columns:1fr}.sim-vessels{height:290px}.vessel.wide{width:108px;height:220px}.vessel.narrow{width:64px;height:220px}.vessel.lowwide{width:136px;height:220px}}
+
+.connector{position:absolute;bottom:42px;height:26px;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:.35;transition:opacity .2s ease, transform .2s ease}
+.connector .pipe{position:absolute;left:0;right:0;top:11px;height:7px;border-radius:8px;background:#9db4ca;border:2px solid #476b8f;box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
+.connector .valve{position:absolute;top:-19px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:800;color:#20456e;background:#fff;border:1px solid #c2d4e8;border-radius:999px;padding:1px 8px;white-space:nowrap}
+.connector .flow{position:relative;z-index:2;font-size:20px;font-weight:900;color:#ffffff;background:#2f81d8;border:2px solid #1d62ab;border-radius:999px;padding:0 8px;line-height:1.1;box-shadow:0 4px 10px rgba(15,23,42,.14)}
+.connector.active{opacity:1;transform:translateY(-1px)}
+.connector.active .pipe{background:linear-gradient(90deg,#82cbff 0%,#4aa3f0 100%);border-color:#1f6fbe;box-shadow:0 0 0 3px rgba(58,141,225,.12), inset 0 1px 0 rgba(255,255,255,.55)}
+.connector.conn-ab{left:26%;width:24%}
+.connector.conn-bc{left:55%;width:24%}
+.connector.no-flow .flow{background:#8da8c4;border-color:#5c7590}
+@media(max-width:980px){.connector.conn-ab{left:22%;width:27%}.connector.conn-bc{left:54%;width:26%}.connector .valve{font-size:10px}}
+
+/* V24 · presión atmosférica: Torricelli y Magdeburgo */
+.pressure-video-slide{display:flex;flex-direction:column;gap:14px;align-items:stretch}
+.pressure-video-slide .local-video video{display:block;width:100%;height:auto;max-height:50vh;border-radius:14px;background:#000}
+.pressure-video-slide .concept-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.pressure-video-slide .concept-row .card h3{font-size:18px;margin-bottom:6px}
+.pressure-video-slide .concept-row .card p{font-size:14.5px;line-height:1.34;margin:0}
+.pressure-video-slide .formula{font-size:clamp(22px,2.3vw,34px)}
+@media(max-width:980px){.pressure-video-slide .concept-row{grid-template-columns:1fr}.pressure-video-slide .local-video video{max-height:none}}
+
+.img-card{background:#fff;border:1px solid #d9e4f2;border-radius:18px;padding:10px;box-shadow:0 8px 20px rgba(14,35,75,.06)}
+.img-card img{display:block;width:100%;height:auto;border-radius:12px}
+.img-card.small img{max-height:240px;object-fit:contain}
+.press-sim-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px;align-items:start}
+.press-controls{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.press-controls label{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 12px;font-size:15px;color:var(--navy);box-shadow:0 8px 20px rgba(14,35,75,.05)}
+.press-controls input{width:100%}.press-controls span{font-weight:700;color:#174f9c}
+.press-sim-panel{display:grid;grid-template-columns:1.1fr .9fr;gap:12px;align-items:stretch;margin-top:12px}
+#spCanvas{width:100%;height:auto;background:#fff;border:1px solid #d9e4f2;border-radius:16px;box-shadow:0 8px 20px rgba(14,35,75,.06)}
+.out-box{white-space:pre-line;background:#f8fbff;border:1px solid #d9e4f2;border-radius:16px;padding:14px 16px;font-size:17px;color:#173a67;line-height:1.55;box-shadow:0 8px 20px rgba(14,35,75,.05)}
+@media(max-width:980px){.press-sim-wrap{grid-template-columns:1fr}.press-controls{grid-template-columns:1fr}.press-sim-panel{grid-template-columns:1fr}}
+
+.hidden-legacy{display:none !important}
+.single-column{display:block}
+.single-column .img-card{max-width:980px;margin:0 auto 14px auto}
+.info-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:980px){.info-grid-2{grid-template-columns:1fr}}
 </style></head>
 <body>
-<div class="deck"><section class="slide" id="s1">
+<div class="deck"><section class="slide active" id="s1">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Unidad 5 · Fluidos</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
 <div class="hero">
@@ -34,7 +90,7 @@
 </div>
 <div class="title-card"><b>Tecnicatura en Alimentos</b><span>Física Aplicada a la Tecnología de Alimentos</span><span>Unidad 5</span></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>1/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>1/50</span></div>
 </section><section class="slide" id="s2">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Recorrido de la unidad</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
@@ -47,11 +103,11 @@
 <div><b>6</b><span>Fluidos reales y aplicaciones</span></div>
 </div>
 <div class="note"><b>Idea conductora:</b> usar modelos físicos simples para interpretar procesos reales en alimentos sin perder de vista sus límites.</div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>2/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>2/50</span></div>
 </section><section class="slide" id="s3">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Objetivos de aprendizaje</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body"><div class="cards grid3"><div class="card"><h3>Comprender</h3><p>Distinguir esfuerzo normal, esfuerzo cortante, deformación y viscosidad.</p></div><div class="card"><h3>Calcular</h3><p>Determinar densidad, presión, presión hidrostática, caudal y velocidad media.</p></div><div class="card"><h3>Interpretar</h3><p>Relacionar presión, velocidad y altura en sistemas de fluidos ideales.</p></div><div class="card"><h3>Aplicar</h3><p>Conectar los modelos con tanques, tuberías, bombas, llenado y limpieza CIP.</p></div><div class="card"><h3>Evaluar límites</h3><p>Reconocer cuándo importan viscosidad, pérdidas y comportamiento no newtoniano.</p></div><div class="card"><h3>Contextualizar</h3><p>Usar ejemplos propios de Tecnología de Alimentos.</p></div></div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>3/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>3/50</span></div>
 </section><section class="slide" id="s4">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Fuerzas, esfuerzo y deformación</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
@@ -75,11 +131,11 @@
 </div>
 </div>
 </div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>4/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>4/50</span></div>
 </section><section class="slide" id="s5">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Apoyo visual · Esfuerzo normal, cortante y deformación</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body"><figure class="image-card wide-img"><img alt="Esfuerzo normal, cortante y deformación" src="../assets/images/esfuerzo_normal_cortante_deformacion.png"/><figcaption>Relación entre fuerza distribuida sobre un área, esfuerzo normal, esfuerzo cortante y deformación por corte.</figcaption></figure></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>5/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>5/50</span></div>
 </section><section class="slide" id="s6">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Deformación en una, dos y tres dimensiones</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
@@ -89,7 +145,7 @@
 <div class="card"><h3>Volumen</h3><p>Un cuerpo puede modificar su volumen. En líquidos suele ser pequeño ante presiones moderadas.</p><div class="formula small">\[\varepsilon_V=\frac{\Delta V}{V_0}\]</div></div>
 </div>
 <div class="note"><b>Modelo útil:</b> muchos líquidos alimentarios pueden tratarse como aproximadamente incompresibles: \(\rho \approx constante\).</div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>6/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>6/50</span></div>
 </section><section class="slide" id="s7">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Deformación por corte</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
@@ -97,11 +153,11 @@
 <div><ul class="bullets"><li>El corte aparece cuando capas vecinas tienden a desplazarse paralelamente.</li><li>Un bloque rectangular se transforma aproximadamente en un paralelogramo.</li><li>El volumen puede cambiar poco, pero cambia la forma.</li><li>En un sólido elástico ideal, el corte produce una deformación finita.</li></ul></div>
 <div><div class="formula">\[\gamma=\frac{\Delta x}{h}\approx \theta\]</div><div class="formula small">\[G=\frac{\tau}{\gamma}\]</div><div class="si"><b>Lectura:</b> un valor elevado de \(G\) indica gran rigidez frente al cambio de forma.</div></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>7/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>7/50</span></div>
 </section><section class="slide" id="s8">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Sólido ideal vs. fluido</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body"><figure class="image-card wide-img"><img alt="Sólido ideal frente a fluido" src="../assets/images/solido_ideal_vs_fluido_esfuerzo_cortante.png"/><figcaption>Comparación entre la respuesta de un sólido ideal y de un fluido frente a un esfuerzo cortante sostenido.</figcaption></figure></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>8/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>8/50</span></div>
 </section><section class="slide" id="s9">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Definición mecánica de fluido</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
@@ -110,7 +166,7 @@
 <div class="card emphasis"><h3>Fluido</h3><p>No sostiene esfuerzo cortante estático. Sus capas continúan desplazándose.</p><div class="formula small">\[\dot\gamma=\tau/\mu\]</div></div>
 </div>
 <div class="key"><b>Consecuencia:</b> en un fluido en reposo las fuerzas sobre superficies son normales; esta idea prepara el concepto de presión.</div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>9/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>9/50</span></div>
 </section><section class="slide" id="s10">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Origen macroscópico de la viscosidad</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
@@ -118,7 +174,7 @@
 <div><ul class="bullets"><li>Capas contiguas de fluido pueden moverse con velocidades distintas.</li><li>La viscosidad aparece como resistencia interna al deslizamiento relativo.</li><li>El gradiente \(dv/dy\) mide cómo cambia la velocidad entre capas.</li><li>La rapidez de deformación por corte se vincula con \(\dot\gamma\).</li></ul><div class="formula small">\[\dot\gamma\approx\frac{dv}{dy}\]</div></div>
 <div><figure class="image-card"><img alt="Velocidad de deformación" src="../assets/images/crop_velocidad_deformacion.png"/><figcaption>Perfil de velocidades en flujo entre placas paralelas.</figcaption></figure></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>10/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>10/50</span></div>
 </section><section class="slide" id="s11">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Ley de Newton de la viscosidad</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
@@ -127,7 +183,7 @@
 <div><div class="cards onecol"><div class="card"><h3>\(\tau\)</h3><p>Esfuerzo cortante aplicado entre capas del fluido.</p></div><div class="card"><h3>\(\mu\)</h3><p>Viscosidad dinámica. Mide la resistencia interna al flujo.</p></div><div class="card"><h3>\(dv/dy\)</h3><p>Gradiente de velocidad o rapidez de deformación local.</p></div></div></div>
 </div>
 <div class="note"><b>Unidad:</b> \([\mu]=Pa\cdot s=N\cdot s/m^2\)</div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>11/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>11/50</span></div>
 </section><section class="slide" id="s12">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Temperatura y condiciones de proceso</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
@@ -135,7 +191,7 @@
 <div><ul class="bullets"><li>En muchos líquidos, al aumentar la temperatura disminuye la viscosidad.</li><li>La composición y los sólidos disueltos o suspendidos modifican la respuesta.</li><li>En alimentos no newtonianos, importa también la rapidez de deformación.</li><li>El valor de viscosidad debe ir acompañado de temperatura y condiciones de medición.</li></ul><div class="warn"><b>Error frecuente:</b> usar un dato de viscosidad sin temperatura de referencia.</div></div>
 <div><figure class="image-card"><img alt="Viscosidad en alimentos" src="../assets/images/crop_aplicacion_viscosidad.png"/><figcaption>Ejemplos de viscosidad en fluidos alimentarios.</figcaption></figure></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>12/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>12/50</span></div>
 </section><section class="slide" id="s13">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Fluidos newtonianos y no newtonianos</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
@@ -147,11 +203,11 @@
 <div class="card"><h3>Tixotrópico</h3><p>La respuesta depende del tiempo de solicitación. Importa en reposo, agitación y bombeo.</p></div>
 <div class="card"><h3>Lectura técnica</h3><p>La pregunta correcta no es sólo “cuál es la viscosidad”, sino bajo qué condición se midió.</p></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>13/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>13/50</span></div>
 </section><section class="slide" id="s14">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Síntesis visual · Newtonianos vs. no newtonianos</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body"><figure class="image-card wide-img"><img alt="Fluidos newtonianos y no newtonianos" src="../assets/images/fluidos_newtonianos_vs_no_newtonianos_cierre.png"/><figcaption>Comparación de curvas \(\tau\) versus \(\dot\gamma\) para distintos comportamientos reológicos.</figcaption></figure></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>14/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>14/50</span></div>
 </section><section class="slide" id="s15">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Ensayos aplicados sobre alimentos</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
@@ -166,7 +222,7 @@
 <div class="card"><h3>Adhesividad</h3><p>Pegajosidad y trabajo necesario para separar una sonda.</p></div>
 </div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>15/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>15/50</span></div>
 </section><section class="slide" id="s16">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Densidad</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
@@ -174,7 +230,7 @@
 <div><div class="formula">\[\rho=\frac{m}{V}\]</div><p class="big">La densidad expresa cuánta masa contiene una unidad de volumen.</p><div class="key"><b>Propiedad intensiva:</b> no depende de la cantidad total de muestra, pero sí puede depender de temperatura, presión y composición.</div></div>
 <div><ul class="bullets"><li>Permite relacionar volumen almacenado con masa.</li><li>Aparece en presión hidrostática: \(P=P_0+\rho gh\).</li><li>Permite convertir caudal volumétrico en caudal másico.</li><li>Es útil para concentración, separación y flotación.</li></ul></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>16/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>16/50</span></div>
 </section><section class="slide" id="s17">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Valores de referencia de densidad</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
@@ -190,7 +246,7 @@
 <tr><td>Sólido</td><td>Hierro/acero</td><td>≈ 7800 kg/m³</td><td>Densidad alta.</td></tr>
 </tbody></table></div>
 <div class="note">Los valores son referencias: en alimentos dependen de temperatura, composición, sólidos, aire incorporado y estructura.</div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>17/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>17/50</span></div>
 </section><section class="slide" id="s18">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Peso específico y densidad relativa</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
@@ -199,7 +255,7 @@
 <div><div class="formula small">\[d_r=\frac{\rho}{\rho_{agua}}\]</div><p>La densidad relativa compara una sustancia con una referencia, usualmente agua.</p></div>
 </div>
 <div class="warn"><b>Error frecuente:</b> densidad y peso específico no son la misma magnitud: \(kg/m^3\) frente a \(N/m^3\).</div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>18/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>18/50</span></div>
 </section><section class="slide" id="s19">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Definición de presión</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
@@ -207,11 +263,11 @@
 <div><div class="formula">\[P=\frac{F_\perp}{A}\]</div><p class="big">La presión mide una fuerza perpendicular distribuida sobre un área.</p><div class="key"><b>Unidad SI:</b> \(1\,Pa=1\,N/m^2\)</div></div>
 <div><ul class="bullets"><li>Mayor fuerza sobre la misma área produce mayor presión.</li><li>La misma fuerza sobre un área mayor produce menor presión.</li><li>En un fluido en reposo las fuerzas son normales a las superficies.</li><li>La presión es una magnitud escalar definida punto a punto.</li></ul></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>19/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>19/50</span></div>
 </section><section class="slide" id="s20">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Apoyo visual · Definición de presión</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body"><figure class="image-card wide-img"><img alt="Definición de presión" src="../assets/images/infografia_definicion_presion.png"/><figcaption>Definición de presión, efecto del área y unidades de presión de uso frecuente.</figcaption></figure></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>20/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>20/50</span></div>
 </section><section class="slide" id="s21">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Presión en un punto de un fluido</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
@@ -219,11 +275,11 @@
 <div><ul class="bullets"><li>La presión no tiene dirección propia: es escalar.</li><li>La fuerza sí tiene dirección, porque actúa sobre una superficie concreta.</li><li>En equilibrio no puede existir esfuerzo cortante sostenido.</li><li>La presión puede variar de un punto a otro del fluido.</li></ul></div>
 <div class="card emphasis"><h3>Idea central</h3><p>Si el fluido está en reposo, la presión en un punto actúa por igual en todas las direcciones. Por eso la fuerza que ejerce sobre una superficie es perpendicular a ella.</p></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>21/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>21/50</span></div>
 </section><section class="slide" id="s22">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Presión hidrostática: equilibrio de un elemento</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body"><figure class="image-card wide-img"><img alt="Equilibrio de presiones en un elemento de fluido" src="../assets/images/equilibrio_presiones_elemento_fluido_10_1.png"/><figcaption>Equilibrio vertical de un elemento de fluido entre las profundidades \(h_1\) y \(h_2\).</figcaption></figure></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>22/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>22/50</span></div>
 </section><section class="slide" id="s23">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Ecuación hidrostática</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
@@ -231,7 +287,7 @@
 <div><div class="formula">\[P_2-P_1=\rho g(h_2-h_1)\]</div><div class="formula">\[P=P_0+\rho gh\]</div></div>
 <div><ul class="bullets"><li>La presión aumenta con la profundidad.</li><li>A igual profundidad, la presión es la misma en un fluido conectado y en reposo.</li><li>La diferencia de presión depende de la diferencia vertical de altura.</li><li>No depende directamente de la forma del recipiente.</li></ul></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>23/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>23/50</span></div>
 </section><section class="slide" id="s24">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Variables de la presión hidrostática</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
@@ -241,32 +297,249 @@
 <div class="card"><h3>Aplicación</h3><p>En tanques, la presión sobre fondo y paredes depende del nivel de producto y de su densidad.</p></div>
 </div>
 <div class="warn"><b>Error frecuente:</b> pensar que un recipiente más ancho siempre tiene mayor presión en el fondo. La presión hidrostática depende de la altura de líquido.</div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>24/45</span></div>
-</section><section class="slide" id="s25">
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>24/50</span></div>
+</section><section class="slide">
+<div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Apoyo visual · Presión y densidad del agua de mar</h2></div><div class="unit-chip">Unidad 5</div></div>
+<div class="slide-body">
+<div class="single-column">
+<div class="img-card"><img alt="Infografía de presión hidrostática y densidad del agua de mar según la profundidad" src="../assets/images/presion_densidad_oceano.png"/></div>
+<div class="cards grid3 compact">
+<div class="card"><h3>Qué muestra</h3><p>La infografía relaciona la <strong>profundidad</strong> con la <strong>presión hidrostática</strong> y con la <strong>densidad del agua de mar</strong>, desde el nivel del mar hasta las grandes fosas oceánicas.</p></div>
+<div class="card"><h3>Lectura física</h3><p>La presión aumenta fuertemente con la profundidad porque la columna de agua sobre el punto considerado es cada vez mayor. En cambio, la densidad sólo cambia levemente porque el agua es <strong>mucho menos compresible</strong> que el aire.</p></div>
+<div class="card"><h3>Idea clave</h3><p>En primera aproximación puede modelarse con \(P = P_0 + ho g h\). Como \(ho\) cambia poco, la presión crece casi linealmente con \(h\), mientras que la densidad del agua sólo aumenta ligeramente.</p></div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span></span></div>
+</section>
+<section class="slide" id="s25">
+<div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Paradoja de Stevin</h2></div><div class="unit-chip">Unidad 5</div></div>
+<div class="slide-body">
+<div class="two">
+<div>
+<div class="card emphasis">
+<h3>Idea central</h3>
+<p>La presión hidrostática en un punto del fondo depende de la profundidad \(h\), de la densidad \(\rho\) y de la gravedad \(g\), pero <b>no depende directamente de la forma del recipiente</b>.</p>
+</div>
+<div class="formula">\[P = P_0 + \rho g h\]</div>
+<ul class="bullets">
+<li>Si tres recipientes contienen el mismo líquido y tienen el mismo nivel, la presión en el fondo a igual profundidad es la misma.</li>
+<li>Lo que sí cambia con la geometría es el <b>volumen total</b> almacenado y, por lo tanto, el peso total del líquido.</li>
+<li>Por eso hablamos de <b>paradoja</b>: recipientes con formas muy distintas pueden dar la misma presión en el fondo.</li>
+</ul>
+</div>
+<div class="cards compact">
+<div class="card"><h3>Qué compara</h3><p>Altura de líquido igual, mismo fluido y misma referencia de profundidad.</p></div>
+<div class="card"><h3>Qué no cambia</h3><p>La presión hidrostática a una misma profundidad en todos los recipientes comunicados o comparables.</p></div>
+<div class="card"><h3>Qué sí cambia</h3><p>La cantidad de líquido, el peso total y la fuerza resultante sobre paredes según la geometría.</p></div>
+<div class="warn"><b>Salvedad didáctica:</b> para demostrar la paradoja interesa comparar estados de equilibrio estático. Si se muestra una animación o un video, debe interpretarse como apoyo para visualizar la evolución hasta llegar al estado final.</div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>25/50</span></div>
+</section>
+<section class="slide" id="s26">
+<div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Simulación · Vasos comunicantes y mismo nivel</h2></div><div class="unit-chip">Unidad 5</div></div>
+<div class="slide-body">
+<div class="sim-card">
+<div class="sim-controls">
+<button class="ctl-btn sim-btn" id="openAB">Abrir válvula A–B</button>
+<button class="ctl-btn sim-btn" id="openBC">Abrir válvula B–C</button>
+<button class="ctl-btn sim-btn" id="resetStevin">Reiniciar</button>
+</div>
+<div class="sim-layout">
+<div class="sim-vessels">
+<div class="vessel wide" data-vessel="A"><div class="vessel-label">A</div><div class="water" id="waterA"></div><div class="level-tag" id="levelA"></div></div>
+<div class="vessel narrow" data-vessel="B"><div class="vessel-label">B</div><div class="water" id="waterB"></div><div class="level-tag" id="levelB"></div></div>
+<div class="vessel lowwide" data-vessel="C"><div class="vessel-label">C</div><div class="water" id="waterC"></div><div class="level-tag" id="levelC"></div></div>
+<div class="connector conn-ab" id="connAB"><span class="pipe"></span><span class="valve">Válvula A–B</span><span class="flow">↔</span></div>
+<div class="connector conn-bc" id="connBC"><span class="pipe"></span><span class="valve">Válvula B–C</span><span class="flow">→</span></div>
+</div>
+<div class="sim-side">
+<div class="card emphasis"><h3>Lectura de la simulación</h3><p>Inicialmente, A y B tienen el <b>mismo nivel</b>. Si se abre la válvula A–B, la diferencia de presión hidrostática entre ambos recipientes es prácticamente nula a la misma cota de conexión, por lo que no aparece flujo neto.</p></div>
+<div class="card"><h3>Cuando se abre B–C</h3><p>El recipiente C parte con menor altura de líquido. Entonces \(P_h = \rho g h\) es menor en C y el sistema comienza a redistribuir volumen hasta alcanzar un <b>nivel final común</b>.</p></div>
+<div class="sim-metrics">
+<div><b>Presión en A:</b> <span id="pA"></span></div>
+<div><b>Presión en B:</b> <span id="pB"></span></div>
+<div><b>Presión en C:</b> <span id="pC"></span></div>
+<div><b>Estado:</b> <span id="simStatus">Sistema inicial. Las válvulas están cerradas.</span></div>
+</div>
+</div>
+</div>
+<div class="sim-note">Nota: la animación es una simplificación visual. El concepto físico que se debe retener se analiza comparando principalmente el <b>estado inicial</b> y el <b>estado final estabilizado</b>.</div>
+</div>
+</div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>26/50</span></div>
+</section>
+<section class="slide" id="s27">
+<div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Video · Paradoja hidrostática y vasos comunicantes</h2></div><div class="unit-chip">Unidad 5</div></div>
+<div class="slide-body">
+<div class="video-slide single-column">
+<div class="video-box local-video">
+<video controls="" preload="metadata">
+<source src="../assets/videos/paradoja_hidrostatica_vasos_comunicantes.mp4" type="video/mp4"/>
+          Tu navegador no puede reproducir el video.
+        </video>
+</div>
+<div class="cards grid3 compact">
+<div class="card"><h3>Qué observar</h3><p>Cómo cambia el nivel en cada vaso cuando se conectan los recipientes y cómo el sistema tiende a un nivel final común.</p></div>
+<div class="card"><h3>Qué comparar</h3><p>El estado inicial, cuando existen diferencias de presión hidrostática, con el estado final, en el que desaparece la causa del flujo.</p></div>
+<div class="card"><h3>Vinculación conceptual</h3><p>La demostración conecta la ecuación \(P=P_0+
+ho gh\), la igualdad de presión a igual profundidad y la idea de vasos comunicantes.</p></div>
+</div>
+<div class="warn"><b>Referencia externa:</b> si se desea abrir el recurso directamente, el enlace original es https://www.youtube.com/watch?v=xa4VHOL37HY .</div>
+</div>
+</div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>27/50</span></div>
+</section>
+<section class="slide" id="s28">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Presión absoluta, atmosférica y manométrica</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
 <div class="two">
 <div><div class="formula">\[P_{abs}=P_{man}+P_{atm}\]</div><div class="note"><b>Manométrica:</b> se mide respecto de la presión atmosférica.</div></div>
 <div><div class="cards onecol"><div class="card"><h3>Presión absoluta</h3><p>Referencia: vacío.</p></div><div class="card"><h3>Presión atmosférica</h3><p>Presión ejercida por el aire.</p></div><div class="card"><h3>Presión manométrica</h3><p>Diferencia respecto de la atmósfera.</p></div></div></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>25/45</span></div>
-</section><section class="slide" id="s26">
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>28/50</span></div>
+</section><section class="slide">
+<div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Apoyo visual · Presión atmosférica y densidad del aire</h2></div><div class="unit-chip">Unidad 5</div></div>
+<div class="slide-body">
+<div class="single-column">
+<div class="img-card"><img alt="Infografía de presión atmosférica y densidad del aire según la altitud" src="../assets/images/presion_densidad_altitud.png"/></div>
+<div class="cards grid3 compact">
+<div class="card"><h3>Qué muestra</h3><p>La imagen compara cómo cambian la <strong>presión atmosférica</strong> y la <strong>densidad del aire</strong> cuando aumenta la altitud, desde el nivel del mar hasta las capas altas de la atmósfera.</p></div>
+<div class="card"><h3>Lectura física</h3><p>Al ascender, queda una <strong>columna de aire menor</strong> por encima del punto considerado. Por eso disminuye la presión atmosférica. Al mismo tiempo, el aire se encuentra menos comprimido y su densidad también decrece.</p></div>
+<div class="card"><h3>Idea clave</h3><p>En los <strong>primeros kilómetros</strong> el cambio es muy rápido; luego ambas magnitudes continúan disminuyendo hacia valores muy pequeños. Esto ayuda a interpretar por qué la presión atmosférica real no es siempre igual a \(1\,atm\).</p></div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span></span></div>
+</section>
+<section class="slide" id="s29">
+<div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Experimento de Torricelli: barómetro</h2></div><div class="unit-chip">Unidad 5</div></div>
+<div class="slide-body">
+<div class="pressure-video-slide">
+<div class="video-box local-video">
+<video controls="" preload="metadata">
+<source src="../assets/videos/barometro_torricelli_presion_atmosferica.mp4" type="video/mp4"/>
+          Tu navegador no puede reproducir este video.
+        </video>
+</div>
+<div class="two">
+<div>
+<div class="formula">\[P_{atm}=\rho_{Hg} g h\]</div>
+<ul class="bullets">
+<li>La atmósfera ejerce presión porque el aire tiene peso.</li>
+<li>La columna de mercurio queda sostenida por la presión atmosférica sobre la cubeta.</li>
+<li>En la parte superior del tubo queda un vacío casi perfecto: el vacío torricelliano.</li>
+</ul>
+</div>
+<div class="cards onecol compact">
+<div class="card"><h3>Procedimiento</h3><p>Se llena un tubo cerrado con mercurio, se invierte con el extremo abierto sumergido y se observa la altura estable de la columna.</p></div>
+<div class="card"><h3>Interpretación</h3><p>La presión atmosférica se equilibra con la presión hidrostática de la columna de mercurio.</p></div>
+<div class="card"><h3>Resultado clásico</h3><p>A nivel del mar, una columna cercana a 760 mm corresponde aproximadamente a una atmósfera.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>29/50</span></div>
+</section>
+<section class="slide" id="s30">
+<div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Hemisferios de Magdeburgo: vacío y presión atmosférica</h2></div><div class="unit-chip">Unidad 5</div></div>
+<div class="slide-body">
+<div class="pressure-video-slide">
+<div class="video-box local-video">
+<video controls="" preload="metadata">
+<source src="../assets/videos/hemisferios_magdeburgo_presion_atmosferica.mp4" type="video/mp4"/>
+          Tu navegador no puede reproducir este video.
+        </video>
+</div>
+<div class="two">
+<div>
+<div class="formula">\[F=\Delta P\,A=(P_{ext}-P_{int})A\]</div>
+<ul class="bullets">
+<li>Se unen dos hemisferios, se sellan y se extrae parte del aire interior.</li>
+<li>Al disminuir la presión interna, la presión atmosférica exterior comprime el sistema.</li>
+<li>No “succiona” el vacío: empuja la atmósfera desde afuera.</li>
+</ul>
+</div>
+<div class="cards onecol compact">
+<div class="card"><h3>Procedimiento</h3><p>Se ajustan los hemisferios, se extrae aire con una bomba y luego se intenta separarlos aplicando fuerzas opuestas.</p></div>
+<div class="card"><h3>Física del experimento</h3><p>La fuerza de cierre depende de la diferencia de presión y del área efectiva de los hemisferios.</p></div>
+<div class="card"><h3>Cierre conceptual</h3><p>Torricelli mide la presión atmosférica; Magdeburgo muestra que esa presión puede producir fuerzas macroscópicas muy grandes.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>30/50</span></div>
+</section>
+<section class="slide" id="s31">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Principio de Pascal</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
-<div class="two">
-<div><div class="formula">\[\frac{F_1}{A_1}=\frac{F_2}{A_2}\]</div><p class="big">Una variación de presión aplicada a un fluido confinado se transmite a todos los puntos del fluido.</p></div>
-<div><ul class="bullets"><li>Se transmite la presión, no una fuerza idéntica.</li><li>Un pistón de mayor área desarrolla mayor fuerza.</li><li>La ganancia de fuerza se compensa con menor desplazamiento.</li><li>No se multiplica la energía.</li></ul></div>
-</div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>26/45</span></div>
-</section><section class="slide" id="s27">
+<div class="two wide-left">
+<div>
+<div class="formula">\[rac{F_1}{A_1}=rac{F_2}{A_2}\]</div>
+<p class="big">Una variación de presión aplicada a un fluido confinado se transmite a todos los puntos del fluido.</p>
+<ul class="bullets">
+<li>Se transmite la <strong>presión</strong>, no una fuerza idéntica.</li>
+<li>Si el pistón de salida tiene mayor área, puede desarrollar una fuerza mayor.</li>
+<li>La ganancia de fuerza se compensa con un desplazamiento menor del pistón grande.</li>
+<li>En el modelo ideal no se crea energía: se transforma la relación entre fuerza y desplazamiento.</li>
+</ul>
+</div>
+<div>
+<div class="img-card"><img alt="Esquema de prensa hidráulica basado en el principio de Pascal" src="../assets/images/prensa_hidraulica_principio_pascal.png"/></div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>31/50</span></div>
+</section>
+<section class="slide">
+<div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Apoyo visual · Prensa hidráulica</h2></div><div class="unit-chip">Unidad 5</div></div><div class="slide-body">
+<div class="single-column">
+<div class="img-card"><img alt="Esquema de prensa hidráulica basado en el principio de Pascal" src="../assets/images/prensa_hidraulica_principio_pascal.png"/></div>
+<div class="cards grid3 compact">
+<div class="card"><h3>Principio físico</h3><p>La presión aplicada a un fluido confinado se transmite a todos sus puntos. En la prensa hidráulica esto se expresa como \(p=F_1/S_1=F_2/S_2\).</p></div>
+<div class="card"><h3>Consecuencia</h3><p>Si el área del pistón de salida es mayor que la del pistón de entrada, la fuerza de salida puede ser mayor: \(F_2 = F_1\,(S_2/S_1)\).</p></div>
+<div class="card"><h3>Interpretación</h3><p>La ventaja de fuerza no implica crear energía. La ganancia en fuerza se compensa con un desplazamiento menor del pistón grande. La prensa hidráulica es una aplicación directa del <strong>principio de Pascal</strong>.</p></div>
+</div>
+</div>
+<div class="hidden-legacy"><div class="slide-body">
+<div class="press-sim-wrap">
+<div class="press-left">
+<div class="card emphasis">
+<h3>Qué explora esta simulación</h3>
+<p>Permite modificar el área del pistón de entrada \(A_1\), el área del pistón de salida \(A_2\) y la fuerza aplicada \(F_1\), para observar cómo cambia la presión del fluido y la fuerza de salida \(F_2\).</p>
+</div>
+<div class="img-card small"><img alt="Apoyo visual de prensa hidráulica" src="../assets/images/prensa_hidraulica_principio_pascal.png"/></div>
+</div>
+<div class="press-right">
+<div class="press-controls">
+<label>Área \(A_1\) (cm²)<input id="spA1" max="30" min="1" step="1" type="range" value="5"/><span id="spA1v"></span></label>
+<label>Área \(A_2\) (cm²)<input id="spA2" max="200" min="10" step="5" type="range" value="80"/><span id="spA2v"></span></label>
+<label>Fuerza \(F_1\) (N)<input id="spF1" max="500" min="10" step="10" type="range" value="120"/><span id="spF1v"></span></label>
+</div>
+<div class="press-sim-panel">
+<canvas height="230" id="spCanvas" width="520"></canvas>
+<div class="out-box" id="spOut"></div>
+</div>
+<div class="cards compact onecol">
+<div class="card"><h3>Claves de interpretación</h3><p>Si \(A_2&gt;A_1\), la fuerza resultante puede ser mayor que la fuerza aplicada. Sin embargo, el pistón de salida recorrerá una distancia menor. Compare situaciones con la misma relación \(A_2/A_1\) y observe cómo cambia la ventaja mecánica.</p></div>
+</div>
+</div>
+</div>
+</div></div></div>
+
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span></span></div>
+</section>
+<section class="slide" id="s32">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Principio de Arquímedes</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
 <div class="two">
 <div><div class="formula">\[E=\rho_f g V_d\]</div><p class="big">El empuje es igual al peso del fluido desplazado.</p></div>
 <div><ul class="bullets"><li>El empuje surge de la diferencia de presión entre la parte inferior y superior del cuerpo.</li><li>Depende de la densidad del fluido y del volumen desplazado.</li><li>No depende directamente de la masa del objeto.</li><li>La flotación requiere equilibrio entre empuje y peso.</li></ul></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>27/45</span></div>
-</section><section class="slide" id="s28">
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>32/50</span></div>
+</section><section class="slide" id="s33">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Flotación</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
 <div class="cards grid3">
@@ -276,8 +549,8 @@
 </div>
 <div class="formula">\[\rho_f V_d=\rho_o V_o\]</div>
 <div class="note"><b>Aplicación:</b> separación, control de calidad, flotación de materias primas y medición por hidrómetros.</div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>28/45</span></div>
-</section><section class="slide" id="s29">
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>33/50</span></div>
+</section><section class="slide" id="s34">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>De la hidrostática a la hidrodinámica</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
 <div class="cards grid3">
@@ -288,48 +561,48 @@
 <div class="card"><h3>Flujo turbulento</h3><p>Movimiento con remolinos, fluctuaciones y mezcla intensa.</p></div>
 <div class="card"><h3>Fluido ideal</h3><p>Modelo inicial: incompresible, no viscoso y sin pérdidas.</p></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>29/45</span></div>
-</section><section class="slide" id="s30">
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>34/50</span></div>
+</section><section class="slide" id="s35">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Caudal volumétrico y caudal másico</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
 <div class="two wide-left">
 <div><div class="formula">\[Q=\frac{\Delta V}{\Delta t}=Av\]</div><div class="formula">\[\dot m=\rho Q=\rho Av\]</div><p>El caudal volumétrico mide volumen por tiempo; el caudal másico mide masa por tiempo.</p></div>
 <div><figure class="image-card"><img alt="Caudal" src="../assets/images/crop_caudal.png"/><figcaption>Caudal volumétrico y caudal másico en una tubería.</figcaption></figure></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>30/45</span></div>
-</section><section class="slide" id="s31">
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>35/50</span></div>
+</section><section class="slide" id="s36">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Continuidad: conservación de masa</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
 <div class="two">
 <div><div class="formula">\[\rho_1 A_1 v_1=\rho_2 A_2 v_2\]</div><div class="formula small">\[A_1v_1=A_2v_2\quad(\rho=cte)\]</div></div>
 <div><ul class="bullets"><li>La masa que entra por unidad de tiempo debe igualar a la que sale.</li><li>Si el fluido es incompresible, la densidad se cancela.</li><li>Si el área disminuye, la velocidad media aumenta.</li><li>Reducir el diámetro a la mitad reduce el área a la cuarta parte.</li></ul></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>31/45</span></div>
-</section><section class="slide" id="s32">
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>36/50</span></div>
+</section><section class="slide" id="s37">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Apoyo visual · Continuidad</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body"><figure class="image-card wide-img"><img alt="Ecuación de continuidad" src="../assets/images/crop_continuidad.png"/><figcaption>Relación entre área y velocidad en una tubería con estrechamiento.</figcaption></figure></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>32/45</span></div>
-</section><section class="slide" id="s33">
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>37/50</span></div>
+</section><section class="slide" id="s38">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Bernoulli como balance de energía</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
 <div class="two">
 <div><div class="formula">\[P+\frac12\rho v^2+\rho gh=\text{constante}\]</div><p>Los tres términos tienen unidades de presión o energía por unidad de volumen.</p></div>
 <div><div class="cards onecol"><div class="card"><h3>Presión</h3><p>Trabajo de las fuerzas de presión por unidad de volumen.</p></div><div class="card"><h3>Término cinético</h3><p>Energía cinética por unidad de volumen.</p></div><div class="card"><h3>Término gravitatorio</h3><p>Energía potencial por unidad de volumen.</p></div></div></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>33/45</span></div>
-</section><section class="slide" id="s34">
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>38/50</span></div>
+</section><section class="slide" id="s39">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Términos de Bernoulli</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body"><figure class="image-card wide-img"><img alt="Términos de Bernoulli" src="../assets/images/crop_bernoulli.png"/><figcaption>Lectura de los términos de Bernoulli como presión, energía cinética y energía potencial por unidad de volumen.</figcaption></figure></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>34/45</span></div>
-</section><section class="slide" id="s35">
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>39/50</span></div>
+</section><section class="slide" id="s40">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Venturi y Torricelli</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
 <div class="two wide-left">
 <div><div class="formula small">\[A_1v_1=A_2v_2\]</div><div class="formula small">\[v=\sqrt{2gh}\]</div><ul class="bullets"><li>En un Venturi, el área menor implica mayor velocidad.</li><li>En un conducto horizontal ideal, mayor velocidad puede asociarse a menor presión.</li><li>Torricelli estima la velocidad de salida desde un depósito abierto.</li></ul></div>
 <div><figure class="image-card"><img alt="Venturi y Torricelli" src="../assets/images/crop_venturi_torricelli.png"/><figcaption>Venturi y descarga de depósito como aplicaciones de continuidad y Bernoulli.</figcaption></figure></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>35/45</span></div>
-</section><section class="slide" id="s36">
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>40/50</span></div>
+</section><section class="slide" id="s41">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Fluidos reales: viscosidad y pérdidas</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
 <div class="cards grid3">
@@ -340,48 +613,48 @@
 <div class="card"><h3>Pérdidas localizadas</h3><p>Aparecen en válvulas, codos, entradas, salidas, filtros y accesorios.</p></div>
 <div class="card"><h3>Reynolds</h3><p>Permite comparar efectos inerciales y viscosos de manera cualitativa.</p></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>36/45</span></div>
-</section><section class="slide" id="s37">
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>41/50</span></div>
+</section><section class="slide" id="s42">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Ideal vs. real</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body"><figure class="image-card wide-img"><img alt="Fluido ideal versus fluido real" src="../assets/images/crop_ideal_real.png"/><figcaption>Diferencias entre fluido ideal y fluido real: viscosidad, paredes, accesorios y pérdidas.</figcaption></figure></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>37/45</span></div>
-</section><section class="slide" id="s38">
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>42/50</span></div>
+</section><section class="slide" id="s43">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Síntesis visual · Hidrodinámica</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body"><figure class="image-card wide-img"><img alt="Hidrodinámica" src="../assets/images/infografia_hidrodinamica.png"/><figcaption>Síntesis de caudal, continuidad, Bernoulli, Venturi, Torricelli y fluidos reales.</figcaption></figure></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>38/45</span></div>
-</section><section class="slide" id="s39">
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>43/50</span></div>
+</section><section class="slide" id="s44">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Sólidos granulares: polvos y tolvas</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
 <div class="two">
 <div><ul class="bullets"><li>Harina, azúcar, cacao, sal, almidón, leche en polvo y cereales se manejan como partículas sólidas.</li><li>Pueden presentar puentes, chimeneas, segregación y descarga irregular.</li><li>Se usan magnitudes como densidad aparente, porosidad y ángulo de reposo.</li><li>Las tolvas requieren geometría adecuada para favorecer el flujo.</li></ul></div>
 <div class="card emphasis"><h3>Idea clave</h3><p>Un polvo puede fluir como conjunto, pero no es un fluido en el sentido estricto de la mecánica de fluidos.</p><p>Su comportamiento depende de partículas, humedad, compactación, geometría y rozamiento interno.</p></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>39/45</span></div>
-</section><section class="slide" id="s40">
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>44/50</span></div>
+</section><section class="slide" id="s45">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Propiedades de polvos</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
 <div class="two wide-left">
 <div><div class="formula small">\[\rho_b=\frac{m}{V_{total}}\]</div><div class="formula small">\[\varepsilon=\frac{V_{huecos}}{V_{total}}\]</div><ul class="bullets"><li>Densidad aparente: masa por volumen ocupado por el lecho.</li><li>Porosidad: fracción de huecos entre partículas.</li><li>Ángulo de reposo: indicador práctico de fluidez.</li></ul></div>
 <div><figure class="image-card"><img alt="Propiedades de polvos" src="../assets/images/crop_propiedades_polvo.png"/><figcaption>Densidad aparente, porosidad y ángulo de reposo en sólidos granulares.</figcaption></figure></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>40/45</span></div>
-</section><section class="slide" id="s41">
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>45/50</span></div>
+</section><section class="slide" id="s46">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Flujo en tolvas</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
 <div class="two wide-left">
 <div><ul class="bullets"><li>Flujo másico: todo el material se mueve de forma más uniforme.</li><li>Flujo en embudo: se descarga primero la zona central.</li><li>Pueden aparecer puentes, chimeneas y zonas muertas.</li><li>El diseño depende de ángulo, salida, rugosidad y propiedades del polvo.</li></ul></div>
 <div><figure class="image-card"><img alt="Flujo en tolvas" src="../assets/images/crop_flujo_tolvas.png"/><figcaption>Comparación entre flujo másico y flujo en embudo.</figcaption></figure></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>41/45</span></div>
-</section><section class="slide" id="s42">
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>46/50</span></div>
+</section><section class="slide" id="s47">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Problemas frecuentes en tolvas</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
 <div class="two wide-left">
 <div><ul class="bullets"><li>Puente o arco: el material forma una estructura estable sobre la salida.</li><li>Ratholing o chimenea: fluye una columna central y queda material detenido en las paredes.</li><li>Segregación: partículas de distinto tamaño se separan durante descarga o vibración.</li><li>Compactación: aumenta la resistencia al flujo.</li></ul></div>
 <div><figure class="image-card"><img alt="Problemas en tolvas" src="../assets/images/crop_problemas_tolva.png"/><figcaption>Problemas típicos en la descarga de polvos y sólidos granulares.</figcaption></figure></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>42/45</span></div>
-</section><section class="slide" id="s43">
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>47/50</span></div>
+</section><section class="slide" id="s48">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Aplicaciones integradas en Tecnología de Alimentos</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
 <div class="cards grid3">
@@ -392,8 +665,8 @@
 <div class="card"><h3>Intercambiadores</h3><p>La velocidad modifica transferencia térmica y caída de presión.</p></div>
 <div class="card"><h3>CIP</h3><p>Requiere caudal, velocidad y régimen de flujo adecuados.</p></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>43/45</span></div>
-</section><section class="slide" id="s44">
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>48/50</span></div>
+</section><section class="slide" id="s49">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Errores frecuentes</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
 <div class="cards grid3">
@@ -404,8 +677,8 @@
 <div class="card warn"><h3>Polvo ≠ líquido</h3><p>Una harina que fluye sigue siendo un sólido granular.</p></div>
 <div class="card warn"><h3>Presión ≠ fuerza</h3><p>La presión es fuerza distribuida sobre área.</p></div>
 </div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>44/45</span></div>
-</section><section class="slide" id="s45">
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>49/50</span></div>
+</section><section class="slide" id="s50">
 <div class="slide-top"><div><div class="kicker">Física Aplicada · Unidad 5</div><h2>Resumen final</h2></div><div class="unit-chip">Unidad 5</div></div>
 <div class="slide-body">
 <div class="table-scroll"><table class="data-table">
@@ -421,7 +694,7 @@
 <tr><td>Polvos</td><td>\(\rho_b=m/V_{total}\)</td><td>Masa por volumen ocupado</td></tr>
 </tbody></table></div>
 <div class="key"><b>Idea final:</b> los modelos físicos son herramientas; su valor está en usarlos con hipótesis claras y con lectura tecnológica.</div></div>
-<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>45/45</span></div>
+<div class="slide-footer"><span>Presentación basada en Apunte Unidad 5 · Fluidos</span><span>50/50</span></div>
 </section></div>
 <div aria-label="Controles de presentación" class="controls" role="toolbar">
 <button class="ctl-btn nav-arrow" id="prevBtn">◀</button>
@@ -457,5 +730,80 @@ document.getElementById('readBtn').onclick=speakCurrent;
 document.getElementById('pauseBtn').onclick=()=>{ if(!speaking) return; if(!paused){ speechSynthesis.pause(); paused=true; } else { speechSynthesis.resume(); paused=false; } };
 document.getElementById('fsBtn').onclick=()=>{ if(!document.fullscreenElement) document.documentElement.requestFullscreen?.(); else document.exitFullscreen?.(); };
 show(0);
+
+// --- Simulación: vasos comunicantes y paradoja de Stevin ---
+(function(){
+  const Aarea=1.4, Barea=0.6, Carea=1.8; const rho=1000, g=9.81;
+  let hA=1.20, hB=1.20, hC=0.35; let openAB=false, openBC=false, animId=null;
+  const wA=document.getElementById('waterA'), wB=document.getElementById('waterB'), wC=document.getElementById('waterC');
+  const lA=document.getElementById('levelA'), lB=document.getElementById('levelB'), lC=document.getElementById('levelC');
+  const pA=document.getElementById('pA'), pB=document.getElementById('pB'), pC=document.getElementById('pC');
+  const status=document.getElementById('simStatus');
+  const connAB=document.getElementById('connAB'), connBC=document.getElementById('connBC');
+  if(!wA||!wB||!wC) return;
+  function gaugeP(h){ return (rho*g*h/1000).toFixed(2)+' kPa'; }
+  function pct(h){ return Math.max(0, Math.min(100, h/1.35*100)); }
+  function update(){
+    wA.style.height=pct(hA)+'%'; wB.style.height=pct(hB)+'%'; wC.style.height=pct(hC)+'%';
+    lA.textContent='h = '+hA.toFixed(2)+' m'; lB.textContent='h = '+hB.toFixed(2)+' m'; lC.textContent='h = '+hC.toFixed(2)+' m';
+    pA.textContent=gaugeP(hA); pB.textContent=gaugeP(hB); pC.textContent=gaugeP(hC);
+    if(connAB){ connAB.classList.toggle('active', openAB); connAB.classList.toggle('no-flow', openAB && Math.abs(hA-hB)<0.005); connAB.querySelector('.flow').textContent = (openAB && Math.abs(hA-hB)<0.005) ? '↔' : '→'; }
+    if(connBC){ connBC.classList.toggle('active', openBC); connBC.classList.remove('no-flow'); }
+    if(openAB && !openBC){
+      status.textContent=Math.abs(hA-hB)<0.005 ? 'Válvula A–B abierta. Como hA ≈ hB, ΔP ≈ 0 y no hay flujo neto.' : 'Válvula A–B abierta. Existe diferencia de presión y aparece flujo entre A y B.';
+    } else if(openAB && openBC){
+      const maxDiff=Math.max(Math.abs(hA-hB),Math.abs(hB-hC),Math.abs(hA-hC));
+      status.textContent=maxDiff<0.01 ? 'Sistema prácticamente estabilizado. Los tres recipientes alcanzan un mismo nivel.' : 'Válvulas A–B y B–C abiertas. El sistema redistribuye volumen hasta igualar niveles.';
+    } else if(openBC && !openAB){
+      status.textContent='Válvula B–C abierta. El flujo está gobernado por la diferencia de alturas entre B y C.';
+    } else {
+      status.textContent='Sistema inicial. Las válvulas están cerradas.';
+    }
+  }
+  function step(){
+    let VA=Aarea*hA, VB=Barea*hB, VC=Carea*hC; const k=0.65, dt=0.045;
+    if(openAB){ const qAB=k*(hA-hB); VA-=qAB*dt; VB+=qAB*dt; }
+    if(openBC){ const qBC=k*(hB-hC); VB-=qBC*dt; VC+=qBC*dt; }
+    hA=Math.max(0,VA/Aarea); hB=Math.max(0,VB/Barea); hC=Math.max(0,VC/Carea);
+    update(); animId=requestAnimationFrame(step);
+  }
+  function reset(){ hA=1.20; hB=1.20; hC=0.35; openAB=false; openBC=false; update(); }
+  document.getElementById('openAB').onclick=()=>{ openAB=true; update(); };
+  document.getElementById('openBC').onclick=()=>{ openBC=true; update(); };
+  document.getElementById('resetStevin').onclick=()=>reset();
+  update(); if(animId) cancelAnimationFrame(animId); step();
+})();
+
+(function(){
+  function g(id){return document.getElementById(id)}
+  function setv(id,val,suf){ const e=g(id); if(e) e.textContent = val + (suf||''); }
+  function arrow(ctx,x1,y1,x2,y2,label,color){ ctx.strokeStyle=color||'#dc2626'; ctx.fillStyle=color||'#dc2626'; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke(); const ang=Math.atan2(y2-y1,x2-x1), ah=10; ctx.beginPath(); ctx.moveTo(x2,y2); ctx.lineTo(x2-ah*Math.cos(ang-Math.PI/6),y2-ah*Math.sin(ang-Math.PI/6)); ctx.lineTo(x2-ah*Math.cos(ang+Math.PI/6),y2-ah*Math.sin(ang+Math.PI/6)); ctx.closePath(); ctx.fill(); if(label){ ctx.font='bold 18px system-ui'; ctx.fillStyle='#b91c1c'; ctx.fillText(label,(x1+x2)/2+8,(y1+y2)/2-6); } }
+  function drawPress(){
+    const A1=+(g('spA1')?.value||5), A2=+(g('spA2')?.value||80), F1=+(g('spF1')?.value||120);
+    const P=F1/(A1*1e-4), F2=P*A2*1e-4, vm=A2/A1;
+    setv('spA1v', A1, ' cm²'); setv('spA2v', A2, ' cm²'); setv('spF1v', F1, ' N');
+    const c=g('spCanvas'); if(!c) return; const ctx=c.getContext('2d'); const w=c.width, h=c.height;
+    ctx.clearRect(0,0,w,h);
+    ctx.fillStyle='rgba(96,165,250,.30)'; ctx.fillRect(40,110,w-80,80); ctx.strokeStyle='#1e3a8a'; ctx.lineWidth=3; ctx.strokeRect(40,110,w-80,80);
+    const leftW=Math.max(26, Math.min(60, 18+Math.sqrt(A1)*8));
+    const rightW=Math.max(70, Math.min(170, 40+Math.sqrt(A2)*8));
+    ctx.strokeStyle='#1e3a8a'; ctx.lineWidth=4;
+    ctx.strokeRect(85,55,leftW,55); ctx.strokeRect(w-120-rightW,30,rightW,80);
+    ctx.fillStyle='#9ca3af'; ctx.fillRect(85,100,leftW,10); ctx.fillRect(w-120-rightW,100,rightW,10);
+    ctx.fillStyle='#0f172a'; ctx.font='italic 20px serif'; ctx.fillText('A₁', 95, 48); ctx.fillText('A₂', w-110-rightW/2, 23);
+    arrow(ctx, 85+leftW/2, 18, 85+leftW/2, 98, 'F₁');
+    arrow(ctx, w-120-rightW/2, 98, w-120-rightW/2, 18, 'F₂');
+    ctx.fillStyle='#173a67'; ctx.font='italic 24px serif'; ctx.fillText('p', w/2-6, 155);
+    const out=g('spOut'); if(out) out.textContent='Presión transmitida: ' + (P/1000).toFixed(1) + ' kPa\nFuerza de salida F₂: ' + F2.toFixed(1) + ' N\nVentaja mecánica ideal A₂/A₁: ' + vm.toFixed(1) + '\nRelación: F₁/A₁ = F₂/A₂';
+  }
+  ['spA1','spA2','spF1'].forEach(id=>{ const e=g(id); if(e) e.addEventListener('input', drawPress); });
+  drawPress();
+})();
+
+// Actualizar numeración de pie de cada filmina
+(function(){
+  const allSlides=[...document.querySelectorAll('section.slide')];
+  allSlides.forEach((s,i)=>{ s.id='s'+(i+1); const spans=s.querySelectorAll('.slide-footer span'); if(spans[1]) spans[1].textContent=(i+1)+'/'+allSlides.length; });
+})();
 </script>
 </body></html>
