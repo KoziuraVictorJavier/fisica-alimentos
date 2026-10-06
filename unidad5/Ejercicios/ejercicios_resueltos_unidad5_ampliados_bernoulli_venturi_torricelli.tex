@@ -1,0 +1,1040 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{left=18mm,right=18mm,top=18mm,bottom=20mm}
+\usepackage{amsmath,amssymb}
+\usepackage{siunitx}
+\sisetup{output-decimal-marker={,},per-mode=symbol,detect-all}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,decorations.pathmorphing,positioning}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!60!black}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist[itemize]{leftmargin=6mm,itemsep=1pt,topsep=2pt}
+\definecolor{utnblue}{RGB}{15,49,98}
+\definecolor{lightblue}{RGB}{234,244,255}
+\definecolor{lightgreen}{RGB}{235,249,239}
+\definecolor{lightorange}{RGB}{255,246,231}
+\definecolor{lightred}{RGB}{255,239,239}
+\pagestyle{fancy}
+\setlength{\headheight}{14pt}
+\fancyhf{}
+\lhead{Física Aplicada a la Tecnología de Alimentos}
+\rhead{Ejercicios resueltos - Fluidos}
+\cfoot{\thepage\ de \pageref{LastPage}}
+\newtcolorbox{enunciado}{breakable,colback=lightblue,colframe=utnblue,title=Enunciado,fonttitle=\bfseries}
+\newtcolorbox{fundamento}{breakable,colback=lightorange,colframe=orange!70!black,title={Justificación física, leyes y supuestos},fonttitle=\bfseries}
+\newtcolorbox{desarrollo}{breakable,colback=white,colframe=black!45,title=Desarrollo,fonttitle=\bfseries}
+\newtcolorbox{resultado}{breakable,colback=lightgreen,colframe=green!50!black,title=Resultado e interpretación,fonttitle=\bfseries}
+\tikzset{
+ force/.style={-{Latex[length=3mm]},very thick,red!80!black},
+ dim/.style={<->,>=Latex,thin,black!70},
+ fluid/.style={fill=cyan!25,draw=blue!60!black,thick},
+ wall/.style={draw=utnblue,very thick},
+ obj/.style={fill=gray!25,draw=black!70,thick},
+ pressure/.style={-{Latex[length=2.5mm]},thick,blue!75!black},
+}
+
+% Figuras TikZ reutilizables
+\newcommand{\FigPresionPlano}[2]{%
+\begin{center}\begin{tikzpicture}[scale=.85]
+\draw[obj] (0,0) rectangle (5,.45);
+\draw[force] (2.5,2.4) -- (2.5,.55) node[midway,right]{#1};
+\draw[dim] (0,-.45) -- (5,-.45) node[midway,below]{#2};
+\node at (2.5,.2){superficie};
+\end{tikzpicture}\end{center}}
+
+\newcommand{\FigPistonCircular}[2]{%
+\begin{center}\begin{tikzpicture}[scale=.85]
+\fill[cyan!20] (.05,.05) rectangle (2.95,.70);
+\draw[wall] (0,0)--(0,2.4); \draw[wall] (3,0)--(3,2.4);
+\draw[obj,fill=gray!35] (.15,.70) rectangle (2.85,1.05);
+\draw[force] (1.5,2.5)--(1.5,1.12) node[midway,right]{#1};
+\draw[dim] (.15,-.35)--(2.85,-.35) node[midway,below]{#2};
+\node[blue!70!black] at (1.5,.34){fluido};
+\end{tikzpicture}\end{center}}
+
+\newcommand{\FigTanque}[2]{%
+\begin{center}\begin{tikzpicture}[scale=.8]
+\draw[wall] (0,4)--(0,0)--(4,0)--(4,4);
+\fill[cyan!25] (0.05,0.05) rectangle (3.95,3.6);
+\draw[blue!65!black,thick] (0.05,3.6)--(3.95,3.6);
+\draw[dim] (4.5,3.6)--(4.5,.25) node[midway,right]{$h=#2$};
+\fill[red!80!black] (2,.25) circle (2.5pt) node[right=3pt]{$P$};
+\node at (2,2.0){$\rho=#1$};
+\end{tikzpicture}\end{center}}
+
+\newcommand{\FigDosPuntos}[2]{%
+\begin{center}\begin{tikzpicture}[scale=.8]
+\draw[wall] (0,4)--(0,0)--(4,0)--(4,4);
+\fill[cyan!25] (.05,.05) rectangle (3.95,3.6);
+\draw[blue!65!black,thick] (.05,3.6)--(3.95,3.6);
+\fill[red] (1.2,2.8) circle (2.5pt) node[right]{$1$};
+\fill[red] (2.8,.8) circle (2.5pt) node[right]{$2$};
+\draw[dim] (4.5,3.6)--(4.5,2.8) node[midway,right]{#1};
+\draw[dim] (5.25,3.6)--(5.25,.8) node[midway,right]{#2};
+\end{tikzpicture}\end{center}}
+
+\newcommand{\FigStevin}{%
+\begin{center}\begin{tikzpicture}[scale=.75]
+\foreach \x/\w in {0/1.1,2.0/.55,3.8/1.45}{
+  \draw[wall] (\x,3.2)--(\x,0)--(\x+\w,0)--(\x+\w,3.2);
+  \fill[cyan!25] (\x+.04,.04) rectangle (\x+\w-.04,2.35);
+  \draw[blue!65!black,thick] (\x+.04,2.35)--(\x+\w-.04,2.35);
+}
+\draw[dashed] (-.25,2.35)--(5.55,2.35) node[right]{mismo nivel};
+\draw[pressure] (.55,.2)--(.55,-.65);\draw[pressure] (2.275,.2)--(2.275,-.65);\draw[pressure] (4.525,.2)--(4.525,-.65);
+\node at (.55,-.95){$P_1$};\node at (2.275,-.95){$P_2$};\node at (4.525,-.95){$P_3$};
+\end{tikzpicture}\end{center}}
+
+\newcommand{\FigCapas}{%
+\begin{center}\begin{tikzpicture}[scale=.8]
+\draw[wall] (0,4)--(0,0)--(4,0)--(4,4);
+\fill[yellow!35] (.05,2.3) rectangle (3.95,3.6);
+\fill[cyan!30] (.05,.05) rectangle (3.95,2.3);
+\draw[dim] (4.45,3.6)--(4.45,2.3) node[midway,right]{$h_1$};
+\draw[dim] (5.15,2.3)--(5.15,.05) node[midway,right]{$h_2$};
+\node at (2,2.95){$\rho_1$};\node at (2,1.15){$\rho_2$};
+\fill[red] (2,.15) circle (2.5pt) node[right]{$P$};
+\end{tikzpicture}\end{center}}
+
+\newcommand{\FigManometro}[2]{%
+\begin{center}\begin{tikzpicture}[scale=.75]
+\draw[wall] (0,4)--(0,1) arc (180:360:1.2) -- (2.4,4);
+\draw[wall] (.35,4)--(.35,1.15) arc (180:360:.85) -- (2.05,4);
+\fill[cyan!30] (.38,1.2) arc (180:360:.82) -- (2.02,3.1)--(1.67,3.1)--(1.67,1.35) arc (0:-180:.47) -- (.38,3.55)--cycle;
+\draw[dashed] (0.1,3.55)--(3.4,3.55);\draw[dashed] (1.9,3.1)--(3.4,3.1);
+\draw[dim] (3.05,3.55)--(3.05,3.1) node[midway,right]{#2};
+\node at (1.2,.45){$#1$};
+\node[left] at (0,4){sistema};\node[right] at (2.4,4){atm};
+\end{tikzpicture}\end{center}}
+
+\newcommand{\FigBarometro}[1]{%
+\begin{center}\begin{tikzpicture}[scale=.75]
+\draw[wall] (1.4,4.5)--(1.4,.8); \draw[wall] (2.2,4.5)--(2.2,.8);
+\fill[gray!40] (1.45,.85) rectangle (2.15,3.8);
+\draw[obj,fill=gray!40] (.2,.2) rectangle (3.4,.75);
+\draw[dim] (2.7,.75)--(2.7,3.8) node[midway,right]{$h=$ #1};
+\node at (1.8,4.15){vacío};\node at (.7,.48){Hg};
+\draw[pressure] (.6,1.2)--(.6,.78) node[midway,left]{$P_{atm}$};
+\end{tikzpicture}\end{center}}
+
+\newcommand{\FigMagdeburgo}{%
+\begin{center}\begin{tikzpicture}[scale=.8]
+\draw[very thick,utnblue] (0,0) arc (180:0:1.5 and 1.0);
+\draw[very thick,utnblue] (0,0) arc (180:360:1.5 and 1.0);
+\draw[force] (-2.2,0)--(-.15,0) node[midway,above]{$F_{atm}$};
+\draw[force] (5.2,0)--(3.15,0) node[midway,above]{$F_{atm}$};
+\node at (1.5,0){$P_{int}<P_{atm}$};
+\end{tikzpicture}\end{center}}
+
+\newcommand{\FigPrensa}[3]{%
+\begin{center}\begin{tikzpicture}[scale=.75]
+\draw[wall] (0,3.8)--(0,1)--(2.2,1)--(2.2,.7)--(5.8,.7)--(5.8,1)--(8,1)--(8,3.8);
+\fill[cyan!25] (.05,1.05) rectangle (2.15,2.6);\fill[cyan!25] (2.15,.75) rectangle (5.85,1.25);\fill[cyan!25] (5.85,1.05) rectangle (7.95,2.6);
+\draw[obj,fill=gray!35] (.25,2.55) rectangle (1.95,2.9);
+\draw[obj,fill=gray!35] (6.05,2.55) rectangle (7.75,2.9);
+\draw[force] (1.1,4.1)--(1.1,3.0) node[midway,right]{#3};
+\draw[force] (6.9,3.0)--(6.9,4.1) node[midway,right]{$F_2$};
+\node at (1.1,2.2){#1};\node at (6.9,2.2){#2};
+\node at (4,1.0){$p$};
+\end{tikzpicture}\end{center}}
+
+\newcommand{\FigFlotacion}[1]{%
+\begin{center}\begin{tikzpicture}[scale=.8]
+\draw[wall] (0,4)--(0,0)--(5,0)--(5,4);
+\fill[cyan!25] (.05,.05) rectangle (4.95,3.1);
+\draw[blue!65!black,thick] (.05,3.1)--(4.95,3.1);
+\draw[obj,fill=orange!35] (2,2.2) rectangle (3,3.5);
+\draw[force] (2.5,2.3)--(2.5,3.4) node[midway,right]{$E$};
+\draw[force] (2.5,3.45)--(2.5,2.35) node[midway,left]{$W$};
+\node at (2.5,1.0){#1};
+\end{tikzpicture}\end{center}}
+
+\newcommand{\FigSumergido}[1]{%
+\begin{center}\begin{tikzpicture}[scale=.8]
+\draw[wall] (0,4)--(0,0)--(5,0)--(5,4);
+\fill[cyan!25] (.05,.05) rectangle (4.95,3.6);
+\draw[obj,fill=orange!35] (2,1.5) rectangle (3,2.5);
+\draw[force] (2.5,1.55)--(2.5,3.0) node[midway,right]{$E$};
+\draw[force] (2.5,2.45)--(2.5,.9) node[midway,left]{$W$};
+\node at (2.5,.45){#1};
+\end{tikzpicture}\end{center}}
+
+
+% Figuras para hidrodinámica, Bernoulli, Venturi y Torricelli
+\newcommand{\FigBernoulli}[2]{%
+\begin{center}\begin{tikzpicture}[scale=.78]
+\draw[wall] (0,1.2) -- (2.2,1.2) -- (4.8,2.5) -- (7.2,2.5);
+\draw[wall] (0,3.2) -- (2.2,3.2) -- (4.8,3.5) -- (7.2,3.5);
+\fill[cyan!20] (0.05,1.25) -- (2.15,1.25) -- (4.8,2.55) -- (7.15,2.55) -- (7.15,3.45) -- (4.8,3.45) -- (2.15,3.15) -- (0.05,3.15) -- cycle;
+\draw[pressure] (.8,2.2)--(1.7,2.2) node[midway,above]{$v_1$};
+\draw[pressure] (5.4,3.0)--(6.4,3.0) node[midway,above]{$v_2$};
+\draw[dashed] (0,-.1)--(7.5,-.1);
+\draw[dim] (1.0,-.05)--(1.0,1.2) node[midway,left]{$z_1$};
+\draw[dim] (6.2,-.05)--(6.2,2.5) node[midway,right]{$z_2$};
+\node at (1.1,2.75){$P_1$}; \node at (6.1,3.3){$P_2$};
+\node[below] at (1.1,1.15){#1}; \node[below] at (6.1,2.45){#2};
+\end{tikzpicture}\end{center}}
+
+\newcommand{\FigVenturi}[2]{%
+\begin{center}\begin{tikzpicture}[scale=.78]
+\draw[wall] (0,1)--(2.0,1)--(3.4,1.6)--(4.8,1.6)--(6.2,1)--(8.2,1);
+\draw[wall] (0,3.4)--(2.0,3.4)--(3.4,2.8)--(4.8,2.8)--(6.2,3.4)--(8.2,3.4);
+\fill[cyan!20] (.05,1.05)--(2,1.05)--(3.4,1.65)--(4.8,1.65)--(6.2,1.05)--(8.15,1.05)--(8.15,3.35)--(6.2,3.35)--(4.8,2.75)--(3.4,2.75)--(2,3.35)--(.05,3.35)--cycle;
+\foreach \y in {1.5,2.0,2.5,3.0}{\draw[blue!55!black,thin,-{Latex[length=2mm]}] (.3,\y) .. controls (2.4,\y) and (2.7,2.2) .. (4.1,2.2);}
+\foreach \y in {1.85,2.15,2.45,2.65}{\draw[blue!55!black,thin,-{Latex[length=2mm]}] (4.2,\y) .. controls (5.4,2.2) and (6.2,\y) .. (7.8,\y);}
+\draw[wall] (1.2,3.4)--(1.2,5.0); \draw[wall] (1.65,3.4)--(1.65,5.0);
+\fill[cyan!35] (1.25,3.45) rectangle (1.60,4.55);
+\draw[wall] (4.0,2.8)--(4.0,5.0); \draw[wall] (4.45,2.8)--(4.45,5.0);
+\fill[cyan!35] (4.05,2.85) rectangle (4.40,3.95);
+\node at (1.42,5.25){$h_1$}; \node at (4.22,5.25){$h_2$};
+\node at (1.1,.58){$A_1,\;P_1,\;v_1$}; \node at (4.1,1.25){$A_2,\;P_2,\;v_2$};
+\node at (1.1,.10){\scriptsize #1}; \node at (4.1,.78){\scriptsize #2};
+\end{tikzpicture}\end{center}}
+
+\newcommand{\FigTorricelli}[2]{%
+\begin{center}\begin{tikzpicture}[scale=.78]
+\draw[wall] (0,4.5)--(0,0)--(5,0)--(5,4.5);
+\fill[cyan!25] (.05,.05) rectangle (4.95,3.7);
+\draw[blue!65!black,thick] (.05,3.7)--(4.95,3.7);
+\draw[pressure] (5.05,1.1)--(7.2,1.1) node[midway,above]{$v_2$};
+\draw[blue!70!black,very thick] (5,1.1) .. controls (6.0,1.05) and (6.5,.8) .. (7.4,.35);
+\draw[dim] (4.35,3.7)--(4.35,1.1) node[midway,left]{$h$};
+\node at (2.3,4.05){superficie libre};
+\node at (2.3,3.35){$A_1,\;v_1$};
+\node[right] at (5.05,1.45){$A_2$};
+\node[below] at (1.3,.05){#1};\node[below] at (4.2,.05){#2};
+\end{tikzpicture}\end{center}}
+
+\newcommand{\FigChorro}[2]{%
+\begin{center}\begin{tikzpicture}[scale=.75]
+\draw[wall] (0,5)--(0,0)--(4.2,0)--(4.2,5);
+\fill[cyan!25] (.05,.05) rectangle (4.15,4.15);
+\draw[blue!65!black,thick] (.05,4.15)--(4.15,4.15);
+\draw[blue!70!black,very thick,-{Latex[length=2mm]}] (4.2,2.0) .. controls (5.7,1.95) and (6.4,1.25) .. (7.3,.15);
+\draw[dim] (3.5,4.15)--(3.5,2.0) node[midway,left]{$h$};
+\draw[dim] (4.55,2.0)--(4.55,.05) node[midway,right]{$y$};
+\draw[dim] (4.2,-.45)--(7.3,-.45) node[midway,below]{$x$};
+\node at (2.1,.55){#1}; \node at (5.8,2.35){#2};
+\end{tikzpicture}\end{center}}
+
+\newcommand{\Ejercicio}[8]{%
+\subsection*{#1\quad #2}
+\begin{enunciado}#3\end{enunciado}
+#4
+\begin{fundamento}#5\end{fundamento}
+\begin{desarrollo}#6\end{desarrollo}
+\begin{resultado}#7\\[2pt]\textbf{Interpretación:} #8\end{resultado}
+}
+
+\begin{document}
+\begin{center}
+{\Large\bfseries Colección de ejercicios resueltos}\\[3pt]
+{\LARGE\bfseries Unidad 5 - Fluidos: ejercicios ampliados}\\[6pt]
+{\large Presión, hidrostática, Pascal, Arquímedes, Bernoulli, Venturi y Torricelli}\\[8pt]
+Física Aplicada a la Tecnología de Alimentos
+\end{center}
+\vspace{4mm}
+
+\begin{tcolorbox}[colback=white,colframe=utnblue,title=Criterio de resolución,fonttitle=\bfseries]
+Cada ejercicio se resuelve explicitando: \textbf{sistema en estudio}, \textbf{hipótesis o supuestos físicos}, \textbf{principio o ley aplicada}, \textbf{desarrollo matemático}, \textbf{resultado} e \textbf{interpretación}. Se adopta, salvo indicación en contrario, $g=\SI{9.81}{m/s^2}$. Los ejercicios son originales y fueron elaborados a partir de los contenidos de los puntos 9 a 13 y 17 a 18 del apunte y de la bibliografía de referencia. Se mantienen los mismos criterios de resolución: sistema, hipótesis, principio físico, desarrollo, resultado e interpretación.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=lightblue,colframe=blue!60!black,title=Base bibliográfica,fonttitle=\bfseries]
+\begin{itemize}
+\item P. E. Tippens, \emph{Física: conceptos y aplicaciones}, capítulo 15: presión, presión de fluidos, medición de presión, prensa hidráulica y principio de Arquímedes. También se utilizan los apartados de gasto, continuidad, efecto Venturi, ecuación de Bernoulli y teorema de Torricelli.
+\item R. A. Serway y J. W. Jewett, \emph{Física para ciencias e ingeniería}, vol. 1, capítulo de mecánica de fluidos: presión, variación con la profundidad, mediciones de presión y fuerza de flotación.
+\item H. D. Young y R. A. Freedman, \emph{Física universitaria}, vol. 1, capítulo de mecánica de fluidos: presión en un fluido, ley de Pascal y flotación.
+\item Apunte de la asignatura, Unidad 5, puntos 9 a 13 y 17 a 18: presión, hidrostática, Arquímedes, continuidad, Bernoulli, Venturi y Torricelli.
+\end{itemize}
+\end{tcolorbox}
+
+\tableofcontents
+\clearpage
+\section{Punto 9 - Presión}
+\textbf{Modelo central:} en un fluido o sobre una superficie sometida a una carga normal, la presión se define como
+\[
+P=\frac{F_\perp}{A}.
+\]
+Es una magnitud escalar y, en el SI, se expresa en pascales: $\SI{1}{Pa}=\SI{1}{N/m^2}$.
+\Ejercicio{9.1}{Fuerza distribuida sobre una placa}{Una prensa aplica una fuerza normal de $\SI{600}{N}$ sobre una placa de área $\SI{3.0e-3}{m^2}$. Calcular la presión media ejercida.}{\FigPresionPlano{$F=\SI{600}{N}$}{$A=\SI{3.0e-3}{m^2}$}}{\begin{itemize}\item Sistema: placa sometida a una fuerza normal distribuida.\item Se supone distribución uniforme de la fuerza sobre toda el área.\item Se aplica la definición de presión media $P=F_\perp/A$.\end{itemize}}{\[
+P=\frac{600}{3.0\times10^{-3}}=2.00\times10^5\ \text{Pa}=\SI{200}{kPa}.
+\]}{\[\boxed{P=\SI{200}{kPa}}\]}{El valor representa la fuerza normal distribuida por unidad de superficie; no depende de la forma de la placa si $F$ y $A$ permanecen iguales.}
+\Ejercicio{9.2}{Presión bajo un pistón circular}{Un pistón circular de diámetro $\SI{40}{mm}$ recibe una fuerza axial de $\SI{850}{N}$. Determinar la presión transmitida al fluido.}{\FigPistonCircular{$F=\SI{850}{N}$}{$d=\SI{40}{mm}$}}{\begin{itemize}\item La fuerza es perpendicular a la cara del pistón.\item Se desprecia la fricción del sello.\item El área circular es $A=\pi d^2/4$ y $P=F/A$.\end{itemize}}{Primero,
+\[
+A=\frac{\pi(0.040)^2}{4}=1.257\times10^{-3}\ \text{m}^2.
+\]
+Luego,
+\[
+P=\frac{850}{1.257\times10^{-3}}=6.76\times10^5\ \text{Pa}.
+\]}{\[\boxed{P\approx\SI{676}{kPa}}\]}{Al reducir el diámetro del pistón para una misma fuerza, disminuye el área y aumenta la presión.}
+\Ejercicio{9.3}{Área mínima para limitar la presión}{Una bandeja transmite una fuerza de $\SI{1800}{N}$ al piso. Se desea que la presión no supere $\SI{120}{kPa}$. ¿Qué área mínima de apoyo se necesita?}{\FigPresionPlano{$F=\SI{1800}{N}$}{$A=?$}}{\begin{itemize}\item La presión admisible se toma como límite de diseño.\item La carga se distribuye uniformemente.\item Se despeja el área de $P=F/A$.\end{itemize}}{\[
+A_{\min}=\frac{F}{P_{\max}}=\frac{1800}{120\times10^3}=1.50\times10^{-2}\ \text{m}^2.
+\]
+Como $\SI{1}{m^2}=10^4\ \text{cm}^2$,
+\[
+A_{\min}=\SI{150}{cm^2}.
+\]}{\[\boxed{A_{\min}=\SI{0.015}{m^2}=\SI{150}{cm^2}}\]}{El área debe ser al menos ese valor; un apoyo mayor reduciría la presión sobre el piso.}
+\Ejercicio{9.4}{Presión sobre el piso de un equipo}{Un equipo de proceso de masa $\SI{420}{kg}$ apoya sobre cuatro patas idénticas. Cada pata tiene un área de contacto de $\SI{25}{cm^2}$. Hallar la presión media sobre el piso.}{\begin{center}\begin{tikzpicture}[scale=.8]
+\draw[obj] (0,1.8) rectangle (5,3); \node at (2.5,2.4){$m=\SI{420}{kg}$};
+\foreach \x in {.6,1.8,3.2,4.4}{\draw[obj,fill=gray!40] (\x,1.8)--(\x,0)--(\x+.25,0)--(\x+.25,1.8);\draw[pressure] (\x+.125,.05)--(\x+.125,-.55);}
+\node at (2.5,-.9){$4\times\SI{25}{cm^2}$};
+\end{tikzpicture}\end{center}}{\begin{itemize}\item Sistema: equipo completo en equilibrio vertical.\item La fuerza total transmitida al piso es su peso $W=mg$.\item Se supone reparto uniforme entre las cuatro patas.\end{itemize}}{Área total:
+\[
+A_T=4(25\times10^{-4})=1.00\times10^{-2}\ \text{m}^2.
+\]
+Peso:
+\[
+W=420(9.81)=\SI{4120.2}{N}.
+\]
+Presión:
+\[
+P=\frac{W}{A_T}=4.12\times10^5\ \text{Pa}.
+\]}{\[\boxed{P\approx\SI{412}{kPa}}\]}{La presión sobre el piso depende del peso total y del área total efectiva de contacto.}
+\Ejercicio{9.5}{Fuerza sobre una tapa sometida a presión uniforme}{Una tapa rectangular de $\SI{0.30}{m}\times\SI{0.20}{m}$ está sometida a una presión uniforme de $\SI{45}{kPa}$. ¿Qué fuerza normal resultante actúa sobre ella?}{\FigPresionPlano{$F=?$}{$0.30\times0.20\ \mathrm{m^2}$}}{\begin{itemize}\item La presión se considera uniforme en toda la tapa.\item La fuerza resultante es normal a la superficie.\item Se usa $F=PA$.\end{itemize}}{\[
+A=(0.30)(0.20)=\SI{0.060}{m^2},
+\]
+\[
+F=PA=(45\times10^3)(0.060)=\SI{2700}{N}.
+\]}{\[\boxed{F=\SI{2.70}{kN}}\]}{Una presión aparentemente moderada puede producir una fuerza grande cuando actúa sobre un área considerable.}
+\Ejercicio{9.6}{Efecto del área de contacto}{Una fuerza de $\SI{700}{N}$ actúa primero sobre un área de $\SI{1}{cm^2}$ y luego sobre $\SI{20}{cm^2}$. Comparar las presiones.}{\begin{center}\begin{tikzpicture}[scale=.8]
+\draw[obj] (0,0) rectangle (1,.35);\draw[force] (.5,2)--(.5,.45) node[midway,right]{$700\,N$};\node at (.5,-.4){$1\,cm^2$};
+\draw[obj] (3,0) rectangle (7,.35);\draw[force] (5,2)--(5,.45) node[midway,right]{$700\,N$};\node at (5,-.4){$20\,cm^2$};
+\end{tikzpicture}\end{center}}{\begin{itemize}\item La fuerza es la misma en ambos casos.\item Sólo cambia el área de aplicación.\item Se aplica $P=F/A$.\end{itemize}}{Primer caso:
+\[
+P_1=\frac{700}{1\times10^{-4}}=\SI{7.0}{MPa}.
+\]
+Segundo caso:
+\[
+P_2=\frac{700}{20\times10^{-4}}=\SI{0.350}{MPa}.
+\]
+Por tanto,
+\[
+\frac{P_1}{P_2}=20.
+\]}{\[\boxed{P_1=\SI{7.0}{MPa},\quad P_2=\SI{0.350}{MPa}}\]}{Al multiplicar el área por 20, la presión disminuye por el mismo factor si la fuerza permanece constante.}
+\Ejercicio{9.7}{Presión de un perno sobre una superficie}{Un perno de extremo circular de diámetro $\SI{12}{mm}$ transmite una fuerza normal de $\SI{75}{N}$. Calcular la presión media de contacto.}{\FigPistonCircular{$F=\SI{75}{N}$}{$d=\SI{12}{mm}$}}{\begin{itemize}\item El contacto se idealiza como un círculo completo.\item La fuerza es axial y normal.\item Se desprecia la concentración local de tensiones.\end{itemize}}{\[
+A=\frac{\pi(0.012)^2}{4}=1.131\times10^{-4}\ \text{m}^2,
+\]
+\[
+P=\frac{75}{1.131\times10^{-4}}=6.63\times10^5\ \text{Pa}.
+\]}{\[\boxed{P\approx\SI{663}{kPa}}\]}{El cálculo es una presión media; en un contacto real pueden existir máximos locales mayores.}
+\Ejercicio{9.8}{Conversión de unidades de presión}{Un manómetro industrial indica $\SI{2.4}{bar}$. Expresar esa presión en pascales, kilopascales y atmósferas.}{\begin{center}\begin{tikzpicture}[scale=.85]
+\draw[thick] (0,0) rectangle (4,2);\node at (2,1.3){lectura};\node[font=\Large,blue!70!black] at (2,.7){$2.4\,bar$};
+\end{tikzpicture}\end{center}}{\begin{itemize}\item Se trata de la misma magnitud expresada en unidades distintas.\item Se usan $1\,bar=10^5\,Pa$ y $1\,atm\approx101.3\,kPa$.\end{itemize}}{\[
+2.4\,bar=2.4\times10^5\,Pa=\SI{240}{kPa}.
+\]
+Además,
+\[
+P=\frac{240}{101.3}\,atm\approx\SI{2.37}{atm}.
+\]}{\[\boxed{P=\SI{2.40e5}{Pa}=\SI{240}{kPa}\approx\SI{2.37}{atm}}\]}{Las unidades cambian, pero la presión física representada es la misma.}
+\Ejercicio{9.9}{Fuerza debida a una presión sobre un envase}{Una diferencia de presión uniforme de $\SI{18}{kPa}$ actúa sobre una superficie flexible de área $\SI{0.012}{m^2}$ de un envase. Determinar la fuerza neta asociada.}{\FigPresionPlano{$F=?$}{$A=\SI{0.012}{m^2}$}}{\begin{itemize}\item La diferencia de presión es uniforme.\item La fuerza neta se obtiene multiplicando $\Delta P$ por el área.\item Se ignoran rigidez y pretensión de la película.\end{itemize}}{\[
+F=\Delta P\,A=(18\times10^3)(0.012)=\SI{216}{N}.
+\]}{\[\boxed{F=\SI{216}{N}}\]}{La diferencia de presión, y no la presión absoluta por sí sola, es la que produce la fuerza neta sobre la película.}
+\Ejercicio{9.10}{Diámetro necesario de un pistón}{Se desea obtener una presión de $\SI{350}{kPa}$ aplicando una fuerza de $\SI{1100}{N}$ sobre un pistón circular. Hallar el diámetro requerido.}{\FigPistonCircular{$F=\SI{1100}{N}$}{$d=?$}}{\begin{itemize}\item Pistón circular ideal, fuerza axial y presión uniforme.\item Primero se despeja $A=F/P$.\item Luego se usa $A=\pi d^2/4$.\end{itemize}}{\[
+A=\frac{1100}{350\times10^3}=3.143\times10^{-3}\ \text{m}^2.
+\]
+Entonces,
+\[
+d=\sqrt{\frac{4A}{\pi}}=\SI{0.0633}{m}.
+\]}{\[\boxed{d\approx\SI{63.3}{mm}}\]}{El diámetro fija el área disponible para transformar una fuerza dada en la presión requerida.}
+\clearpage
+\section{Punto 10 - Presión hidrostática}
+\textbf{Modelo central:} para un líquido en reposo, de densidad aproximadamente constante y con $g$ uniforme,
+\[
+P_2-P_1=\rho g(h_2-h_1),\qquad P=P_0+\rho gh.
+\]
+A igual profundidad dentro de un mismo fluido conectado, la presión es la misma.
+\Ejercicio{10.1}{Presión a tres metros de profundidad}{Calcular la presión manométrica a $\SI{3.0}{m}$ de profundidad en agua, tomando $\rho=\SI{1000}{kg/m^3}$.}{\FigTanque{$\SI{1000}{kg/m^3}$}{$\SI{3.0}{m}$}}{\begin{itemize}\item Fluido en reposo, agua de densidad constante.\item Superficie abierta; se pide el incremento respecto de la atmósfera.\item Se usa $P_{man}=\rho gh$.\end{itemize}}{\[
+P_{man}=(1000)(9.81)(3.0)=2.943\times10^4\ \text{Pa}.
+\]}{\[\boxed{P_{man}=\SI{29.4}{kPa}}\]}{La presión hidrostática crece linealmente con la profundidad en el modelo de densidad constante.}
+\Ejercicio{10.2}{Presión en el fondo de un tanque con leche}{Un tanque abierto contiene leche de densidad $\rho=\SI{1030}{kg/m^3}$ hasta una altura de $\SI{2.4}{m}$. Hallar la presión manométrica y la absoluta en el fondo, tomando $P_{atm}=\SI{101.3}{kPa}$.}{\FigTanque{$\SI{1030}{kg/m^3}$}{$\SI{2.4}{m}$}}{\begin{itemize}\item Leche idealizada como líquido incomprensible de densidad uniforme.\item Tanque abierto: $P_0=P_{atm}$.\item $P_{man}=\rho gh$ y $P_{abs}=P_{atm}+P_{man}$.\end{itemize}}{\[
+P_{man}=(1030)(9.81)(2.4)=\SI{24.25}{kPa}.
+\]
+\[
+P_{abs}=101.3+24.25=\SI{125.55}{kPa}.
+\]}{\[\boxed{P_{man}\approx\SI{24.3}{kPa},\quad P_{abs}\approx\SI{125.6}{kPa}}\]}{La presión absoluta incluye el aporte atmosférico; la manométrica representa sólo el incremento debido a la columna de leche.}
+\Ejercicio{10.3}{Diferencia de presión entre dos puntos}{En un tanque de agua, el punto 1 está a $\SI{0.8}{m}$ de profundidad y el punto 2 a $\SI{3.2}{m}$. Determinar $P_2-P_1$.}{\FigDosPuntos{$0.8\,m$}{$3.2\,m$}}{\begin{itemize}\item Ambos puntos pertenecen al mismo líquido en reposo.\item La presión superficial se cancela al calcular la diferencia.\item Se usa $\Delta P=\rho g\Delta h$.\end{itemize}}{\[
+\Delta h=3.2-0.8=\SI{2.4}{m},
+\]
+\[
+P_2-P_1=(1000)(9.81)(2.4)=\SI{23.54}{kPa}.
+\]}{\[\boxed{P_2-P_1\approx\SI{23.5}{kPa}}\]}{La diferencia depende únicamente de la diferencia vertical de profundidad, no del recorrido horizontal entre los puntos.}
+\Ejercicio{10.4}{Paradoja hidrostática de Stevin}{Dos recipientes de formas diferentes contienen agua hasta la misma altura $h=\SI{1.5}{m}$. Sus áreas de base son $A_1=\SI{0.020}{m^2}$ y $A_2=\SI{0.150}{m^2}$. Hallar la presión manométrica en ambas bases y la fuerza sobre cada base.}{\FigStevin}{\begin{itemize}\item Mismo fluido, misma presión superficial y misma altura.\item La presión hidrostática no depende de la forma del recipiente.\item La fuerza sobre la base sí depende del área: $F=PA$.\end{itemize}}{Presión en ambas bases:
+\[
+P=\rho gh=(1000)(9.81)(1.5)=\SI{14.715}{kPa}.
+\]
+Fuerzas:
+\[
+F_1=PA_1=(14715)(0.020)=\SI{294.3}{N},
+\]
+\[
+F_2=PA_2=(14715)(0.150)=\SI{2207}{N}.
+\]}{\[\boxed{P_1=P_2=\SI{14.7}{kPa},\quad F_1\approx\SI{294}{N},\quad F_2\approx\SI{2.21}{kN}}\]}{La presión es igual a igual profundidad, pero la fuerza total cambia porque actúa sobre áreas diferentes.}
+\Ejercicio{10.5}{Tanque cerrado con presión sobre la superficie}{Un tanque cerrado contiene aceite de densidad $\SI{850}{kg/m^3}$. La presión absoluta sobre la superficie es $\SI{160}{kPa}$. ¿Cuál es la presión absoluta a $\SI{2.0}{m}$ de profundidad?}{\FigTanque{$\SI{850}{kg/m^3}$}{$\SI{2.0}{m}$}}{\begin{itemize}\item Aceite en reposo y densidad constante.\item La presión superficial no es atmosférica, sino $P_0=\SI{160}{kPa}$ absoluta.\item Se aplica $P=P_0+\rho gh$.\end{itemize}}{\[
+\rho gh=(850)(9.81)(2.0)=\SI{16.68}{kPa},
+\]
+\[
+P=160+16.68=\SI{176.68}{kPa}.
+\]}{\[\boxed{P\approx\SI{176.7}{kPa}\ \text{absoluta}}\]}{La presión a profundidad incluye tanto la presión aplicada sobre la superficie como el aporte hidrostático del aceite.}
+\Ejercicio{10.6}{Presión idealizada a 4 km de profundidad marina}{Estimar la presión absoluta a $\SI{4.0}{km}$ de profundidad en agua de mar, usando $\rho=\SI{1030}{kg/m^3}$ constante y $P_{atm}=\SI{101.3}{kPa}$.}{\begin{center}\begin{tikzpicture}[scale=.8]
+\draw[wall] (0,4.2)--(0,0)--(3.6,0)--(3.6,4.2);\fill[cyan!30] (.05,.05) rectangle (3.55,3.8);\draw[blue!60!black,thick] (.05,3.8)--(3.55,3.8);
+\draw[dim] (4.2,3.8)--(4.2,.2) node[midway,right]{$h=4\,km$};\node at (1.8,2.2){agua de mar};\fill[red] (1.8,.2) circle(2.5pt);
+\end{tikzpicture}\end{center}}{\begin{itemize}\item Modelo aproximado: $\rho$ se toma constante, aunque a gran profundidad aumenta levemente.\item $g$ se considera uniforme.\item Se aplica $P=P_{atm}+\rho gh$.\end{itemize}}{\[
+\rho gh=(1030)(9.81)(4000)=4.0417\times10^7\ \text{Pa}=\SI{40.42}{MPa}.
+\]
+\[
+P_{abs}=0.1013+40.42\approx\SI{40.52}{MPa}.
+\]}{\[\boxed{P_{abs}\approx\SI{40.5}{MPa}}\]}{El enorme aumento de presión contrasta con la variación relativamente pequeña de densidad del agua; por eso la aproximación de densidad constante es útil como primera estimación.}
+\Ejercicio{10.7}{Tanque con dos capas de líquidos}{Un recipiente abierto contiene $\SI{0.8}{m}$ de aceite de densidad $\SI{850}{kg/m^3}$ sobre $\SI{1.5}{m}$ de agua. Calcular la presión manométrica en el fondo.}{\FigCapas}{\begin{itemize}\item Los dos líquidos están en reposo y no se mezclan.\item Cada capa aporta $\rho_i g h_i$ a la presión.\item La presión es continua en la interfaz.\end{itemize}}{\[
+P_{man}=\rho_{aceite}gh_{aceite}+\rho_{agua}gh_{agua}.
+\]
+\[
+P_{man}=9.81\left[(850)(0.8)+(1000)(1.5)\right]=\SI{21.39}{kPa}.
+\]}{\[\boxed{P_{man}\approx\SI{21.4}{kPa}}\]}{En una columna estratificada, cada capa suma su propio aporte hidrostático según densidad y altura.}
+\Ejercicio{10.8}{Igual presión a igual profundidad}{Dos puntos de un tanque de agua están a la misma profundidad de $\SI{1.8}{m}$, pero uno se encuentra cerca de una pared vertical y otro bajo una zona ensanchada del recipiente. Comparar sus presiones manométricas.}{\FigStevin}{\begin{itemize}\item Mismo líquido conectado, reposo y misma presión superficial.\item Los puntos están a la misma cota vertical.\item Por la ecuación hidrostática, la presión no depende de la forma local del recipiente.\end{itemize}}{En ambos puntos,
+\[
+P_{man}=\rho gh=(1000)(9.81)(1.8)=\SI{17.66}{kPa}.
+\]
+Por lo tanto,
+\[
+P_A=P_B.
+\]}{\[\boxed{P_A=P_B\approx\SI{17.7}{kPa}}\]}{La geometría del recipiente puede cambiar la cantidad de líquido, pero no la presión a una misma profundidad en equilibrio.}
+\Ejercicio{10.9}{Fuerza sobre la base de un tanque de jugo}{Un tanque abierto contiene jugo de densidad $\SI{1050}{kg/m^3}$ hasta $\SI{1.2}{m}$. La base horizontal tiene área $\SI{0.25}{m^2}$. Hallar la fuerza hidrostática manométrica sobre la base.}{\FigTanque{$\SI{1050}{kg/m^3}$}{$\SI{1.2}{m}$}}{\begin{itemize}\item La presión en la base horizontal es uniforme porque toda la base está a igual profundidad.\item Se usa primero $P=\rho gh$ y luego $F=PA$.\end{itemize}}{\[
+P=(1050)(9.81)(1.2)=\SI{12.36}{kPa}.
+\]
+\[
+F=PA=(12360.6)(0.25)=\SI{3090}{N}.
+\]}{\[\boxed{F\approx\SI{3.09}{kN}}\]}{La fuerza total sobre el fondo depende de la presión a esa profundidad y del área del fondo.}
+\Ejercicio{10.10}{Profundidad necesaria para alcanzar una presión dada}{En un jarabe de densidad $\SI{1250}{kg/m^3}$, ¿a qué profundidad la presión manométrica alcanza $\SI{50}{kPa}$?}{\FigTanque{$\SI{1250}{kg/m^3}$}{$h=?$}}{\begin{itemize}\item Jarabe idealizado con densidad constante.\item Se busca una profundidad a partir de $P_{man}=\rho gh$.\end{itemize}}{\[
+h=\frac{P_{man}}{\rho g}=\frac{50\times10^3}{(1250)(9.81)}=\SI{4.08}{m}.
+\]}{\[\boxed{h\approx\SI{4.08}{m}}\]}{Para un fluido más denso se necesita menor profundidad para alcanzar la misma presión hidrostática.}
+\clearpage
+\section{Punto 11 - Presión absoluta, atmosférica y manométrica}
+\textbf{Relación fundamental:}
+\[
+P_{abs}=P_{atm}+P_{man}.
+\]
+Una lectura manométrica negativa no significa presión absoluta negativa; indica que $P_{abs}<P_{atm}$.
+\Ejercicio{11.1}{De presión manométrica a presión absoluta}{Un reactor indica $P_{man}=\SI{220}{kPa}$ y la presión atmosférica local es $\SI{98}{kPa}$. Hallar la presión absoluta.}{\begin{center}\begin{tikzpicture}[scale=.85]\draw[thick] (0,0) rectangle (4,2);\node at (2,1.35){manómetro};\node[font=\Large] at (2,.75){$220\,kPa$};\node at (2,.25){$P_{atm}=98\,kPa$};\end{tikzpicture}\end{center}}{\begin{itemize}\item El instrumento informa presión relativa a la atmósfera.\item Se aplica $P_{abs}=P_{atm}+P_{man}$.\end{itemize}}{\[
+P_{abs}=98+220=\SI{318}{kPa}.
+\]}{\[\boxed{P_{abs}=\SI{318}{kPa}}\]}{La presión absoluta usa como referencia el vacío; por eso incluye el aporte atmosférico.}
+\Ejercicio{11.2}{Vacío relativo}{Una cámara tiene presión absoluta $\SI{72}{kPa}$ mientras la presión atmosférica es $\SI{101.3}{kPa}$. Determinar la presión manométrica.}{\begin{center}\begin{tikzpicture}[scale=.8]\draw[thick] (0,0) rectangle (4,2.2);\node at (2,1.4){cámara};\node at (2,.8){$P_{abs}=72\,kPa$};\draw[pressure] (5,1.1)--(4.1,1.1) node[midway,above]{$P_{atm}$};\end{tikzpicture}\end{center}}{\begin{itemize}\item Se mantiene la convención $P_{man}=P_{abs}-P_{atm}$.\item Una presión manométrica negativa representa vacío relativo.\end{itemize}}{\[
+P_{man}=72-101.3=-\SI{29.3}{kPa}.
+\]}{\[\boxed{P_{man}=-\SI{29.3}{kPa}}\]}{La cámara no tiene presión absoluta negativa; simplemente está por debajo de la presión atmosférica local.}
+\Ejercicio{11.3}{Manómetro abierto con mercurio}{Un manómetro abierto de mercurio ($\rho=\SI{13600}{kg/m^3}$) muestra una diferencia de niveles de $\SI{0.18}{m}$, con la presión del sistema mayor que la atmosférica. Hallar $P_{man}$ y $P_{abs}$ para $P_{atm}=\SI{101.3}{kPa}$.}{\FigManometro{Hg}{$\Delta h=0.18\,m$}}{\begin{itemize}\item Mercurio en reposo y densidad constante.\item Una rama está abierta a la atmósfera.\item La diferencia de presión vale $\Delta P=\rho g\Delta h$.\end{itemize}}{\[
+P_{man}=(13600)(9.81)(0.18)=\SI{24.01}{kPa}.
+\]
+\[
+P_{abs}=101.3+24.01=\SI{125.31}{kPa}.
+\]}{\[\boxed{P_{man}\approx\SI{24.0}{kPa},\quad P_{abs}\approx\SI{125.3}{kPa}}\]}{La diferencia vertical de columnas traduce directamente una diferencia de presión.}
+\Ejercicio{11.4}{Manómetro de agua para baja presión}{Un conducto de aire se conecta a un manómetro en U con agua. Se observa $\Delta h=\SI{0.42}{m}$ y el lado del conducto tiene mayor presión. Calcular la presión manométrica y la absoluta si $P_{atm}=\SI{101.3}{kPa}$.}{\FigManometro{agua}{$\Delta h=0.42\,m$}}{\begin{itemize}\item La densidad del aire se desprecia frente a la del agua en las ramas.\item Se aplica $P_{man}=\rho g\Delta h$.\end{itemize}}{\[
+P_{man}=(1000)(9.81)(0.42)=\SI{4.12}{kPa}.
+\]
+\[
+P_{abs}=101.3+4.12=\SI{105.42}{kPa}.
+\]}{\[\boxed{P_{man}\approx\SI{4.12}{kPa},\quad P_{abs}\approx\SI{105.4}{kPa}}\]}{Un líquido de menor densidad produce una diferencia de altura mayor para una misma diferencia de presión, facilitando la lectura de presiones pequeñas.}
+\Ejercicio{11.5}{Barómetro de Torricelli}{Un barómetro de mercurio muestra una columna de $\SI{0.735}{m}$. Con $\rho_{Hg}=\SI{13600}{kg/m^3}$, determinar la presión atmosférica.}{\FigBarometro{$0.735\,m$}}{\begin{itemize}\item Se desprecia la presión de vapor del mercurio en el extremo superior.\item El sistema está en equilibrio hidrostático.\item $P_{atm}=\rho_{Hg}gh$.\end{itemize}}{\[
+P_{atm}=(13600)(9.81)(0.735)=9.806\times10^4\ \text{Pa}.
+\]}{\[\boxed{P_{atm}\approx\SI{98.1}{kPa}}\]}{Una columna menor que $760\,\mathrm{mmHg}$ corresponde a una presión atmosférica menor que la estándar al nivel del mar.}
+\Ejercicio{11.6}{Altura de una columna barométrica en una ciudad elevada}{En una localidad de gran altura se mide $P_{atm}=\SI{75}{kPa}$. ¿Qué altura tendría una columna de mercurio en un barómetro ideal?}{\FigBarometro{$h=?$}}{\begin{itemize}\item Barómetro ideal de mercurio.\item Se desprecia la presión de vapor en el extremo cerrado.\item Se despeja $h=P_{atm}/(\rho_{Hg}g)$.\end{itemize}}{\[
+h=\frac{75\times10^3}{(13600)(9.81)}=\SI{0.562}{m}.
+\]}{\[\boxed{h\approx562\,\mathrm{mmHg}}\]}{La menor presión atmosférica en altura sostiene una columna de mercurio más baja.}
+\Ejercicio{11.7}{Fuerza sobre hemisferios parcialmente evacuados}{Dos hemisferios forman una esfera sellada de radio $\SI{0.12}{m}$. En el interior hay $P_{int}=\SI{25}{kPa}$ y afuera $P_{atm}=\SI{101.3}{kPa}$. Estimar la fuerza que mantiene unidas las dos mitades.}{\FigMagdeburgo}{\begin{itemize}\item La fuerza neta de separación se evalúa sobre el área proyectada circular $A=\pi r^2$.\item Se supone presión uniforme dentro y fuera.\item La fuerza neta es $F=(P_{atm}-P_{int})A$.\end{itemize}}{\[
+\Delta P=101.3-25=\SI{76.3}{kPa},\qquad A=\pi(0.12)^2=\SI{0.04524}{m^2}.
+\]
+\[
+F=(76.3\times10^3)(0.04524)=\SI{3452}{N}.
+\]}{\[\boxed{F\approx\SI{3.45}{kN}}\]}{El experimento de los hemisferios de Magdeburgo evidencia que una diferencia moderada de presión sobre un área significativa genera una fuerza grande.}
+\Ejercicio{11.8}{Presión absoluta a partir de una lectura de vacío}{Una línea de vacío indica $P_{man}=-\SI{65}{kPa}$ y la presión atmosférica local es $\SI{99}{kPa}$. Calcular la presión absoluta.}{\begin{center}\begin{tikzpicture}[scale=.85]\draw[thick] (0,0) rectangle (4,2);\node at (2,1.35){vacuómetro};\node[font=\Large] at (2,.75){$-65\,kPa$};\end{tikzpicture}\end{center}}{\begin{itemize}\item El signo negativo se refiere a la escala manométrica.\item Se usa $P_{abs}=P_{atm}+P_{man}$.\end{itemize}}{\[
+P_{abs}=99+(-65)=\SI{34}{kPa}.
+\]}{\[\boxed{P_{abs}=\SI{34}{kPa}}\]}{El sistema está a baja presión absoluta, pero todavía muy por encima del vacío ideal.}
+\Ejercicio{11.9}{Corrección por presión atmosférica local}{Un sensor absoluto en una planta ubicada a gran altura mide $P_{abs}=\SI{180}{kPa}$. La presión atmosférica local es $\SI{80}{kPa}$. ¿Qué indicaría un manómetro relativo conectado al mismo punto?}{\begin{center}\begin{tikzpicture}[scale=.8]\draw[thick] (0,0) rectangle (5,2.2);\node at (2.5,1.5){proceso};\node at (2.5,.95){$P_{abs}=180\,kPa$};\node at (2.5,.4){$P_{atm}=80\,kPa$};\end{tikzpicture}\end{center}}{\begin{itemize}\item El sensor absoluto usa referencia al vacío.\item El manómetro relativo usa la atmósfera local.\item $P_{man}=P_{abs}-P_{atm}$.\end{itemize}}{\[
+P_{man}=180-80=\SI{100}{kPa}.
+\]}{\[\boxed{P_{man}=\SI{100}{kPa}}\]}{La misma presión absoluta produce distintas lecturas manométricas si cambia la presión atmosférica del lugar.}
+\Ejercicio{11.10}{Manómetro de mercurio indicando vacío relativo}{Una cámara está conectada a un manómetro de mercurio abierto. La rama atmosférica queda $\SI{0.25}{m}$ más baja que la rama conectada a la cámara, indicando que la cámara está por debajo de la atmósfera. Hallar $P_{man}$ y $P_{abs}$ si $P_{atm}=\SI{101.3}{kPa}$.}{\FigManometro{Hg}{$\Delta h=0.25\,m$}}{\begin{itemize}\item El sentido de la diferencia de niveles indica $P_{sist}<P_{atm}$.\item Por ello $P_{man}=-\rho g\Delta h$.\item Luego $P_{abs}=P_{atm}+P_{man}$.\end{itemize}}{\[
+P_{man}=-(13600)(9.81)(0.25)=-\SI{33.35}{kPa}.
+\]
+\[
+P_{abs}=101.3-33.35=\SI{67.95}{kPa}.
+\]}{\[\boxed{P_{man}\approx-\SI{33.4}{kPa},\quad P_{abs}\approx\SI{68.0}{kPa}}\]}{El signo de la lectura manométrica depende de qué lado tenga mayor presión; la presión absoluta sigue siendo positiva.}
+\clearpage
+\section{Punto 12 - Principio de Pascal}
+\textbf{Modelo central:} en un fluido confinado ideal, una variación de presión se transmite sin disminución. Para pistones a la misma altura,
+\[
+\frac{F_1}{A_1}=\frac{F_2}{A_2}.
+\]
+Si el fluido es incompresible, también se cumple $A_1\Delta x_1=A_2\Delta x_2$.
+\Ejercicio{12.1}{Multiplicación de fuerza en una prensa}{Una prensa hidráulica tiene $A_1=\SI{4}{cm^2}$ y $A_2=\SI{120}{cm^2}$. Si se aplica $F_1=\SI{150}{N}$, hallar $F_2$.}{\FigPrensa{$A_1=4\,cm^2$}{$A_2=120\,cm^2$}{$F_1=150\,N$}}{\begin{itemize}\item Pistones a la misma altura.\item Fluido confinado e ideal, sin pérdidas.\item Se aplica Pascal: $F_1/A_1=F_2/A_2$.\end{itemize}}{\[
+F_2=F_1\frac{A_2}{A_1}=150\frac{120}{4}=\SI{4500}{N}.
+\]}{\[\boxed{F_2=\SI{4.50}{kN}}\]}{La presión es la misma, pero la fuerza aumenta porque actúa sobre un área 30 veces mayor.}
+\Ejercicio{12.2}{Fuerza de entrada necesaria}{Una prensa debe ejercer $F_2=\SI{8000}{N}$. Sus áreas son $A_1=\SI{5}{cm^2}$ y $A_2=\SI{200}{cm^2}$. ¿Qué fuerza mínima ideal debe aplicarse en el pistón pequeño?}{\FigPrensa{$A_1=5\,cm^2$}{$A_2=200\,cm^2$}{$F_1=?$}}{\begin{itemize}\item Sistema hidráulico ideal.\item Pistones a igual cota.\item Se despeja $F_1=F_2A_1/A_2$.\end{itemize}}{\[
+F_1=8000\frac{5}{200}=\SI{200}{N}.
+\]}{\[\boxed{F_1=\SI{200}{N}}\]}{La ventaja mecánica ideal es $A_2/A_1=40$.}
+\Ejercicio{12.3}{Prensa definida por diámetros}{Los pistones de una prensa tienen diámetros $d_1=\SI{20}{mm}$ y $d_2=\SI{100}{mm}$. Si $F_1=\SI{80}{N}$, determinar $F_2$.}{\FigPrensa{$d_1=20\,mm$}{$d_2=100\,mm$}{$F_1=80\,N$}}{\begin{itemize}\item Áreas circulares: $A\propto d^2$.\item La razón de áreas es $(d_2/d_1)^2$.\item Se aplica Pascal.\end{itemize}}{\[
+\frac{A_2}{A_1}=\left(\frac{100}{20}\right)^2=25,
+\]
+\[
+F_2=80(25)=\SI{2000}{N}.
+\]}{\[\boxed{F_2=\SI{2.00}{kN}}\]}{Multiplicar el diámetro por 5 multiplica el área, y por tanto la fuerza ideal de salida, por 25.}
+\Ejercicio{12.4}{Desplazamiento de los pistones}{Una prensa tiene $A_1=\SI{6}{cm^2}$ y $A_2=\SI{90}{cm^2}$. Si el pistón pequeño desciende $\Delta x_1=\SI{0.30}{m}$, ¿cuánto asciende el grande?}{\FigPrensa{$A_1=6\,cm^2$}{$A_2=90\,cm^2$}{$F_1$}}{\begin{itemize}\item Fluido incompresible y sin fugas.\item Conservación de volumen: $A_1\Delta x_1=A_2\Delta x_2$.\end{itemize}}{\[
+\Delta x_2=\Delta x_1\frac{A_1}{A_2}=0.30\frac{6}{90}=\SI{0.020}{m}.
+\]}{\[\boxed{\Delta x_2=\SI{2.0}{cm}}\]}{La ganancia de fuerza se compensa con un desplazamiento menor del pistón de mayor área.}
+\Ejercicio{12.5}{Comprobación energética de una prensa ideal}{En una prensa ideal $A_1=\SI{4}{cm^2}$, $A_2=\SI{100}{cm^2}$, $F_1=\SI{120}{N}$ y el pistón pequeño recorre $\SI{0.25}{m}$. Hallar $F_2$, $\Delta x_2$ y comparar los trabajos.}{\FigPrensa{$A_1=4\,cm^2$}{$A_2=100\,cm^2$}{$F_1=120\,N$}}{\begin{itemize}\item Pascal para la relación de fuerzas.\item Incompresibilidad para la relación de desplazamientos.\item Máquina ideal: sin pérdidas, por lo que el trabajo de entrada iguala al de salida.\end{itemize}}{\[
+F_2=120\frac{100}{4}=\SI{3000}{N}.
+\]
+\[
+\Delta x_2=0.25\frac{4}{100}=\SI{0.010}{m}.
+\]
+\[
+W_1=F_1\Delta x_1=120(0.25)=\SI{30}{J},
+\]
+\[
+W_2=F_2\Delta x_2=3000(0.010)=\SI{30}{J}.
+\]}{\[\boxed{F_2=\SI{3.0}{kN},\quad \Delta x_2=\SI{1.0}{cm},\quad W_1=W_2=\SI{30}{J}}\]}{La prensa multiplica fuerza, pero no energía: la salida recorre una distancia menor en la proporción inversa.}
+\Ejercicio{12.6}{Prensa para un producto alimentario}{Una prensa requiere $F_2=\SI{15}{kN}$ sobre un pistón de diámetro $d_2=\SI{180}{mm}$. El pistón de accionamiento tiene $d_1=\SI{30}{mm}$. Determinar la fuerza ideal de entrada.}{\FigPrensa{$d_1=30\,mm$}{$d_2=180\,mm$}{$F_1=?$}}{\begin{itemize}\item Pistones circulares.\item La razón de áreas vale $(d_2/d_1)^2$.\item Se desprecia fricción y diferencia de altura.\end{itemize}}{\[
+F_1=F_2\left(\frac{d_1}{d_2}\right)^2
+=15000\left(\frac{30}{180}\right)^2
+=\SI{416.7}{N}.
+\]}{\[\boxed{F_1\approx\SI{417}{N}}\]}{El gran diámetro del pistón de salida permite obtener una fuerza de prensado alta con una fuerza de accionamiento mucho menor.}
+\Ejercicio{12.7}{Actuador hidráulico tipo freno}{Un pistón maestro de diámetro $\SI{18}{mm}$ recibe $\SI{220}{N}$. El pistón de salida tiene diámetro $\SI{42}{mm}$. Hallar la fuerza ideal de salida.}{\FigPrensa{$d_1=18\,mm$}{$d_2=42\,mm$}{$F_1=220\,N$}}{\begin{itemize}\item Fluido confinado e ideal.\item Presión transmitida sin disminución.\item $F_2=F_1(d_2/d_1)^2$.\end{itemize}}{\[
+F_2=220\left(\frac{42}{18}\right)^2=\SI{1198}{N}.
+\]}{\[\boxed{F_2\approx\SI{1.20}{kN}}\]}{La fuerza aumenta en la misma proporción que el área del pistón de salida respecto del maestro.}
+\Ejercicio{12.8}{Un pistón alimenta dos actuadores}{Un pistón de entrada de $A_1=\SI{3}{cm^2}$ recibe $F_1=\SI{90}{N}$. La misma línea hidráulica alimenta dos pistones de salida, cada uno de $A_2=\SI{25}{cm^2}$. Hallar la presión y la fuerza sobre cada pistón de salida.}{\begin{center}\begin{tikzpicture}[scale=.75]
+\draw[wall] (0,2.6)--(0,.7)--(2,.7)--(2,.4)--(6,.4);\draw[wall] (6,.4)--(6,1.1);\draw[wall] (4,.4)--(4,1.1);
+\fill[cyan!25] (.05,.75) rectangle (1.95,1.9);\fill[cyan!25] (1.95,.45) rectangle (5.95,.8);
+\draw[obj] (.25,1.85) rectangle (1.75,2.1);\draw[force] (1,3)--(1,2.15) node[midway,right]{$90N$};
+\draw[obj] (3.5,1.05) rectangle (4.5,1.3);\draw[obj] (5.5,1.05) rectangle (6.5,1.3);
+\draw[force] (4,1.35)--(4,2.1);\draw[force] (6,1.35)--(6,2.1);
+\end{tikzpicture}\end{center}}{\begin{itemize}\item La misma presión se transmite a ambos ramales.\item Se desprecia diferencia de altura y pérdidas.\item Primero $p=F_1/A_1$, luego $F=pA_2$.\end{itemize}}{\[
+p=\frac{90}{3\times10^{-4}}=\SI{300}{kPa}.
+\]
+Para cada actuador,
+\[
+F_2=pA_2=(300\times10^3)(25\times10^{-4})=\SI{750}{N}.
+\]}{\[\boxed{p=\SI{300}{kPa},\quad F_{2,\,cada}=\SI{750}{N}}\]}{Pascal transmite la presión común a los dos actuadores; cada uno convierte esa presión en fuerza según su área.}
+\Ejercicio{12.9}{Diámetro de salida requerido}{Con un pistón de entrada de diámetro $\SI{25}{mm}$ y una fuerza $F_1=\SI{250}{N}$ se desea obtener $F_2=\SI{8.0}{kN}$. Hallar el diámetro ideal del pistón de salida.}{\FigPrensa{$d_1=25\,mm$}{$d_2=?$}{$F_1=250\,N$}}{\begin{itemize}\item Para pistones circulares, $F_2/F_1=A_2/A_1=(d_2/d_1)^2$.\item Se despeja $d_2=d_1\sqrt{F_2/F_1}$.\end{itemize}}{\[
+d_2=25\sqrt{\frac{8000}{250}}\ \text{mm}=25\sqrt{32}\ \text{mm}=\SI{141.4}{mm}.
+\]}{\[\boxed{d_2\approx\SI{141}{mm}}\]}{El diámetro debe crecer con la raíz cuadrada de la relación de fuerzas, porque el área depende de $d^2$.}
+\Ejercicio{12.10}{Pascal con pistones a diferente altura}{Una prensa contiene aceite de densidad $\SI{900}{kg/m^3}$. El pistón de salida está $\SI{1.5}{m}$ por debajo del de entrada. Se aplican $F_1=\SI{100}{N}$ sobre $A_1=\SI{5}{cm^2}$ y el pistón de salida tiene $A_2=\SI{100}{cm^2}$. Hallar $F_2$, incluyendo la corrección hidrostática.}{\begin{center}\begin{tikzpicture}[scale=.75]\draw[wall] (0,4)--(0,2)--(2,2)--(2,.7)--(6,.7)--(6,1.2)--(8,1.2)--(8,3);\fill[cyan!25] (.05,2.05) rectangle (1.95,2.7);\fill[cyan!25] (2,.75) rectangle (5.95,1.2);\fill[cyan!25] (6.05,1.25) rectangle (7.95,2.0);\draw[obj] (.2,2.65) rectangle (1.8,2.9);\draw[obj] (6.2,1.95) rectangle (7.8,2.2);\draw[dim] (8.6,2.75)--(8.6,2.05) node[midway,right]{$1.5m$};\end{tikzpicture}\end{center}}{\begin{itemize}\item Pascal iguala la variación de presión, pero si los pistones están a distinta altura debe añadirse la variación hidrostática.\item $p_1=F_1/A_1$ y $p_2=p_1+\rho g\Delta h$.\end{itemize}}{\[
+p_1=\frac{100}{5\times10^{-4}}=\SI{200}{kPa}.
+\]
+\[
+\rho g\Delta h=(900)(9.81)(1.5)=\SI{13.24}{kPa}.
+\]
+\[
+p_2=213.24\,kPa,
+\qquad
+F_2=p_2A_2=(213.24\times10^3)(100\times10^{-4})=\SI{2132}{N}.
+\]}{\[\boxed{F_2\approx\SI{2.13}{kN}}\]}{El resultado es ligeramente mayor que el valor de misma altura ($2.00\,kN$) porque el pistón de salida está a una cota inferior y recibe un aporte hidrostático adicional.}
+\clearpage
+\section{Punto 13 - Principio de Arquímedes}
+\textbf{Modelo central:} un cuerpo total o parcialmente sumergido experimenta un empuje igual al peso del fluido desplazado,
+\[
+E=\rho_f gV_d.
+\]
+En flotación en equilibrio, $E=W$. Para un cuerpo homogéneo, $V_d/V=\rho_o/\rho_f$.
+\Ejercicio{13.1}{Empuje sobre un cuerpo totalmente sumergido}{Un bloque de volumen $\SI{2.0e-3}{m^3}$ está totalmente sumergido en agua. Hallar el empuje.}{\FigSumergido{agua}}{\begin{itemize}\item Cuerpo completamente sumergido: $V_d=V$.\item Agua de densidad $\SI{1000}{kg/m^3}$.\item Se aplica $E=\rho_f gV_d$.\end{itemize}}{\[
+E=(1000)(9.81)(2.0\times10^{-3})=\SI{19.62}{N}.
+\]}{\[\boxed{E=\SI{19.6}{N}}\]}{El empuje depende del volumen desplazado y de la densidad del fluido, no directamente de la masa del bloque.}
+\Ejercicio{13.2}{Fracción sumergida de un bloque de madera}{Un bloque homogéneo de densidad $\rho_o=\SI{700}{kg/m^3}$ y altura $\SI{0.20}{m}$ flota en agua. Determinar la fracción y la altura sumergidas.}{\FigFlotacion{madera en agua}}{\begin{itemize}\item El bloque flota en equilibrio: $E=W$.\item Para un cuerpo homogéneo, $V_d/V=\rho_o/\rho_f$.\item Se desprecia absorción de agua.\end{itemize}}{\[
+\frac{V_d}{V}=\frac{700}{1000}=0.70.
+\]
+La altura sumergida es
+\[
+h_s=0.70(0.20)=\SI{0.14}{m}.
+\]}{\[\boxed{V_d/V=0.70,\quad h_s=\SI{14}{cm}}\]}{El bloque necesita desplazar sólo el 70\% de su volumen para equilibrar su peso.}
+\Ejercicio{13.3}{Densidad de un objeto a partir de su flotación}{Un cuerpo homogéneo flota en una salmuera de densidad $\SI{1100}{kg/m^3}$ con el 80\% de su volumen sumergido. Hallar la densidad del cuerpo.}{\FigFlotacion{salmuera}}{\begin{itemize}\item Flotación estática: $E=W$.\item Se usa $V_d/V=\rho_o/\rho_f$.\end{itemize}}{\[
+\rho_o=\rho_f\frac{V_d}{V}=(1100)(0.80)=\SI{880}{kg/m^3}.
+\]}{\[\boxed{\rho_o=\SI{880}{kg/m^3}}\]}{El método permite estimar densidades a partir de la fracción sumergida, fundamento conceptual de muchos flotadores e hidrómetros.}
+\Ejercicio{13.4}{Peso aparente de un cuerpo sumergido}{Un objeto de masa $\SI{5.0}{kg}$ y volumen $\SI{3.0e-3}{m^3}$ se sumerge completamente en agua. Hallar su peso real, el empuje y el peso aparente.}{\FigSumergido{agua}}{\begin{itemize}\item Cuerpo totalmente sumergido y en equilibrio sostenido.\item El dinamómetro debe equilibrar $W-E$.\item Se aplica Arquímedes.\end{itemize}}{\[
+W=mg=5.0(9.81)=\SI{49.05}{N}.
+\]
+\[
+E=(1000)(9.81)(3.0\times10^{-3})=\SI{29.43}{N}.
+\]
+\[
+W_{ap}=W-E=\SI{19.62}{N}.
+\]}{\[\boxed{W=\SI{49.1}{N},\quad E=\SI{29.4}{N},\quad W_{ap}=\SI{19.6}{N}}\]}{La reducción del peso aparente es exactamente igual al peso del agua desplazada.}
+\Ejercicio{13.5}{Aceleración inicial de un cuerpo más denso que el agua}{Un cuerpo de densidad $\SI{1200}{kg/m^3}$ y volumen $\SI{1.5e-3}{m^3}$ se libera completamente sumergido en agua. Despreciando resistencia viscosa, hallar la aceleración inicial.}{\FigSumergido{$\rho_o>\rho_f$}}{\begin{itemize}\item Fuerzas: peso hacia abajo y empuje hacia arriba.\item Se desprecia arrastre porque se pide la aceleración inicial.\item Segunda ley de Newton: $ma=W-E$.\end{itemize}}{Masa:
+\[
+m=\rho_oV=(1200)(1.5\times10^{-3})=\SI{1.8}{kg}.
+\]
+Fuerza neta:
+\[
+F_{net}=(\rho_o-\rho_f)gV=(200)(9.81)(1.5\times10^{-3})=\SI{2.943}{N}.
+\]
+Entonces,
+\[
+a=\frac{F_{net}}{m}=\SI{1.64}{m/s^2}.
+\]}{\[\boxed{a\approx\SI{1.64}{m/s^2}\ \text{hacia abajo}}\]}{Como la densidad del cuerpo supera la del agua, su peso es mayor que el empuje y comienza a hundirse.}
+\Ejercicio{13.6}{Masa necesaria para flotación neutra}{Un flotador rígido de volumen externo $\SI{4.0e-3}{m^3}$ debe quedar totalmente sumergido y en equilibrio neutro en un líquido de densidad $\SI{1030}{kg/m^3}$. ¿Qué masa total debe tener?}{\FigSumergido{equilibrio neutro}}{\begin{itemize}\item Equilibrio neutro totalmente sumergido: $E=W$.\item $V_d=V$.\item Por tanto $m=\rho_fV$.\end{itemize}}{\[
+\rho_fgV=mg\quad\Rightarrow\quad m=\rho_fV.
+\]
+\[
+m=(1030)(4.0\times10^{-3})=\SI{4.12}{kg}.
+\]}{\[\boxed{m=\SI{4.12}{kg}}\]}{Para flotación neutra la densidad media del conjunto debe igualar la densidad del fluido.}
+\Ejercicio{13.7}{Hidrómetro cilíndrico simplificado}{Un hidrómetro de masa $\SI{0.050}{kg}$ tiene un tallo cilíndrico de sección transversal constante $A=\SI{4.0}{cm^2}$. Si flota en un líquido de densidad $\SI{1200}{kg/m^3}$ y se idealiza que el volumen desplazado es $A L$, hallar la longitud sumergida $L$.}{\begin{center}\begin{tikzpicture}[scale=.8]\draw[wall] (0,3.7)--(0,0)--(4,0)--(4,3.7);\fill[cyan!25] (.05,.05) rectangle (3.95,2.5);\draw[blue!60!black,thick] (.05,2.5)--(3.95,2.5);\draw[obj,fill=orange!30] (1.7,1.1) rectangle (2.3,3.4);\draw[dim] (2.8,2.5)--(2.8,1.1) node[midway,right]{$L$};\end{tikzpicture}\end{center}}{\begin{itemize}\item Flotación estática: $\rho_fgAL=mg$.\item Se desprecia el volumen de otras partes del instrumento para este modelo simplificado.\end{itemize}}{\[
+L=\frac{m}{\rho_f A}=\frac{0.050}{(1200)(4.0\times10^{-4})}=\SI{0.104}{m}.
+\]}{\[\boxed{L\approx\SI{10.4}{cm}}\]}{En un líquido más denso el hidrómetro necesita desplazar menos volumen y se hunde menos.}
+\Ejercicio{13.8}{Flotación de una fruta en agua y salmuera}{Una fruta se modela como cuerpo homogéneo de densidad $\SI{950}{kg/m^3}$. Calcular la fracción sumergida en agua ($\rho=\SI{1000}{kg/m^3}$) y en salmuera ($\rho=\SI{1100}{kg/m^3}$).}{\begin{center}\begin{tikzpicture}[scale=.68]
+\draw[wall] (0,3.8)--(0,0)--(4,0)--(4,3.8);\fill[cyan!25] (.05,.05) rectangle (3.95,3.0);\draw[obj,fill=orange!35] (1.5,2.0) rectangle (2.5,3.35);\node at (2,.55){agua};
+\draw[wall] (6,3.8)--(6,0)--(10,0)--(10,3.8);\fill[cyan!35] (6.05,.05) rectangle (9.95,3.0);\draw[obj,fill=orange!35] (7.5,2.2) rectangle (8.5,3.45);\node at (8,.55){salmuera};
+\end{tikzpicture}\end{center}}{\begin{itemize}\item En ambos casos hay flotación en equilibrio.\item $V_d/V=\rho_o/\rho_f$.\item No se consideran absorción ni cambios de volumen de la fruta.\end{itemize}}{En agua:
+\[
+\frac{V_d}{V}=\frac{950}{1000}=0.950.
+\]
+En salmuera:
+\[
+\frac{V_d}{V}=\frac{950}{1100}=0.864.
+\]}{\[\boxed{95.0\%\ \text{sumergido en agua};\quad 86.4\%\ \text{en salmuera}}\]}{El aumento de densidad del líquido incrementa el empuje para un mismo volumen desplazado, por lo que la fruta flota más alta en salmuera.}
+\Ejercicio{13.9}{Densidad de una muestra por pesada hidrostática}{Una muestra pesa $\SI{30}{N}$ en aire y $\SI{24}{N}$ cuando está totalmente sumergida en agua. Hallar su volumen y su densidad.}{\FigSumergido{pesada hidrostática}}{\begin{itemize}\item La diferencia entre peso real y aparente es el empuje.\item Se desprecia el empuje del aire.\item $E=\rho_{agua}gV$ y $m=W/g$.\end{itemize}}{\[
+E=30-24=\SI{6}{N}.
+\]
+\[
+V=\frac{E}{\rho g}=\frac{6}{(1000)(9.81)}=6.116\times10^{-4}\ \text{m}^3.
+\]
+\[
+m=\frac{30}{9.81}=\SI{3.058}{kg}.
+\]
+\[
+\rho_o=\frac{m}{V}=\SI{5000}{kg/m^3}.
+\]}{\[\boxed{V\approx\SI{6.12e-4}{m^3},\quad \rho_o\approx\SI{5000}{kg/m^3}}\]}{La pesada hidrostática permite determinar densidad midiendo cuánto disminuye el peso aparente al sumergir la muestra.}
+\Ejercicio{13.10}{Bloque de hielo flotando en agua de mar}{Un bloque de hielo de masa $\SI{2.0}{kg}$ y densidad $\SI{917}{kg/m^3}$ flota en agua de mar de densidad $\SI{1030}{kg/m^3}$. Hallar la fracción sumergida y el volumen que queda fuera del agua.}{\FigFlotacion{hielo en agua de mar}}{\begin{itemize}\item Flotación en equilibrio: $E=W$.\item El hielo se modela homogéneo y sin fusión.\item $V_d/V=\rho_{hielo}/\rho_{mar}$.\end{itemize}}{Volumen total:
+\[
+V=\frac{m}{\rho_{hielo}}=\frac{2.0}{917}=2.181\times10^{-3}\ \text{m}^3.
+\]
+Fracción sumergida:
+\[
+\frac{V_d}{V}=\frac{917}{1030}=0.890.
+\]
+Volumen emergido:
+\[
+V_{em}=V(1-0.890)=2.39\times10^{-4}\ \text{m}^3.
+\]}{\[\boxed{V_d/V\approx0.890,\quad V_{em}\approx\SI{2.39e-4}{m^3}}\]}{Aproximadamente el 11\% del volumen queda fuera del agua; la fracción depende de la relación de densidades.}
+
+\clearpage
+\section{Punto 17 - Ecuación de Bernoulli}
+\textbf{Modelo central:} para un fluido ideal, incompresible, en régimen estacionario y siguiendo una misma línea de corriente,
+\[
+P+\frac12\rho v^2+\rho gz=\text{constante}.
+\]
+Cada término tiene unidades de energía por unidad de volumen. Cuando cambia el área del conducto, Bernoulli suele utilizarse junto con continuidad, $A_1v_1=A_2v_2$.
+
+\Ejercicio{17.1}{Contracción horizontal de una tubería}{Agua circula por una tubería horizontal que se reduce de $D_1=\SI{80}{mm}$ a $D_2=\SI{40}{mm}$. En la sección 1, $v_1=\SI{1.5}{m/s}$ y $P_1=\SI{220}{kPa}$ manométricos. Hallar $v_2$ y $P_2$.}{\FigBernoulli{$D_1=80\,mm$}{$D_2=40\,mm$}}{\begin{itemize}\item Sistema: tramo de agua entre las secciones 1 y 2.\item Flujo estacionario e incompresible; se desprecia viscosidad y pérdida de energía.\item Conducto horizontal: $z_1=z_2$.\item Se aplican continuidad y Bernoulli.\end{itemize}}{Por continuidad,
+\[
+v_2=v_1\frac{A_1}{A_2}=v_1\left(\frac{D_1}{D_2}\right)^2=1.5\left(\frac{80}{40}\right)^2=\SI{6.0}{m/s}.
+\]
+Bernoulli, al ser horizontal:
+\[
+P_1+\frac12\rho v_1^2=P_2+\frac12\rho v_2^2.
+\]
+Entonces,
+\[
+P_2=P_1+\frac12\rho(v_1^2-v_2^2)
+=220000+500(2.25-36)=\SI{203125}{Pa}.
+\]}{\[\boxed{v_2=\SI{6.0}{m/s},\qquad P_2\approx\SI{203}{kPa}}\]}{La disminución de área obliga a aumentar la velocidad. En el modelo ideal horizontal, parte de la energía de presión se transforma en energía cinética.}
+
+\Ejercicio{17.2}{Ascenso en una tubería de diámetro constante}{Agua fluye por una tubería de diámetro constante. En el punto 1 la presión manométrica es $\SI{300}{kPa}$. El punto 2 está $\SI{12}{m}$ más alto. Despreciando pérdidas, calcular $P_2$.}{\FigBernoulli{misma sección}{$z_2-z_1=12\,m$}}{\begin{itemize}\item Mismo diámetro: por continuidad $v_1=v_2$.\item Agua incompresible, régimen estacionario y sin pérdidas.\item Se aplica Bernoulli entre los dos puntos.\end{itemize}}{Como los términos cinéticos se cancelan,
+\[
+P_1+\rho gz_1=P_2+\rho gz_2.
+\]
+Por tanto,
+\[
+P_2=P_1-\rho g(z_2-z_1)=300000-(1000)(9.81)(12).
+\]
+\[
+P_2=\SI{182280}{Pa}.
+\]}{\[\boxed{P_2\approx\SI{182}{kPa}}\]}{Al ascender el fluido aumenta su energía potencial gravitatoria; si la velocidad no cambia, esa energía proviene de una disminución de presión.}
+
+\Ejercicio{17.3}{Velocidad a partir de una caída de presión}{En una línea horizontal de agua, en el punto 1 se miden $P_1=\SI{180}{kPa}$ y $v_1=\SI{2.0}{m/s}$. Más adelante, la presión es $P_2=\SI{140}{kPa}$. Bajo el modelo ideal, determinar $v_2$.}{\FigBernoulli{$P_1=180\,kPa$}{$P_2=140\,kPa$}}{\begin{itemize}\item Flujo estacionario e ideal.\item Los puntos están a la misma altura.\item Se aplica Bernoulli; el cambio de sección está implícito en el cambio de velocidad.\end{itemize}}{Bernoulli horizontal:
+\[
+P_1+\frac12\rho v_1^2=P_2+\frac12\rho v_2^2.
+\]
+Despejando,
+\[
+v_2=\sqrt{v_1^2+\frac{2(P_1-P_2)}{\rho}}
+=\sqrt{(2.0)^2+\frac{2(40000)}{1000}}.
+\]
+\[
+v_2=\sqrt{84}=\SI{9.17}{m/s}.
+\]}{\[\boxed{v_2\approx\SI{9.17}{m/s}}\]}{En el modelo ideal, una disminución de presión puede transformarse en aumento de energía cinética.}
+
+\Ejercicio{17.4}{Salida desde un tanque con presión residual}{Un tanque abierto alimenta una tubería cuya salida está $\SI{5.0}{m}$ por debajo de la superficie libre. En la salida existe una presión manométrica de $\SI{20}{kPa}$. El tanque es grande, por lo que la velocidad de la superficie es despreciable. Hallar la velocidad de salida del agua.}{\FigTorricelli{tanque grande}{$P_2=20\,kPa$}}{\begin{itemize}\item Superficie libre a presión atmosférica: $P_1=0$ manométrico.\item $v_1\approx0$ porque el área del tanque es grande.\item Se desprecia pérdida de energía.\item Se aplica Bernoulli entre superficie y salida.\end{itemize}}{Tomando $z_1-z_2=h=\SI{5}{m}$,
+\[
+0+0+\rho gh=P_2+\frac12\rho v_2^2.
+\]
+Entonces,
+\[
+v_2=\sqrt{2\left(gh-\frac{P_2}{\rho}\right)}
+=\sqrt{2\left[(9.81)(5)-\frac{20000}{1000}\right]}.
+\]
+\[
+v_2=\SI{7.62}{m/s}.
+\]}{\[\boxed{v_2\approx\SI{7.62}{m/s}}\]}{Como la salida aún conserva presión positiva, no toda la energía potencial disponible se convierte en energía cinética.}
+
+\Ejercicio{17.5}{Leche en una reducción de diámetro}{Leche de densidad $\rho=\SI{1030}{kg/m^3}$ circula horizontalmente con caudal $Q=\SI{6.0e-3}{m^3/s}$. La tubería pasa de $D_1=\SI{60}{mm}$ a $D_2=\SI{30}{mm}$. Si $P_1=\SI{250}{kPa}$ manométricos, hallar $P_2$.}{\FigBernoulli{$D_1=60\,mm$}{$D_2=30\,mm$}}{\begin{itemize}\item La leche se aproxima como fluido incompresible de densidad constante.\item Flujo estacionario y pérdidas despreciables para este ejercicio de referencia.\item Se aplican $Q=Av$ y Bernoulli horizontal.\end{itemize}}{Áreas:
+\[
+A_1=\frac{\pi(0.060)^2}{4}=2.827\times10^{-3}\,m^2,
+\quad A_2=7.069\times10^{-4}\,m^2.
+\]
+Velocidades:
+\[
+v_1=\frac{Q}{A_1}=\SI{2.12}{m/s},\qquad v_2=\frac{Q}{A_2}=\SI{8.49}{m/s}.
+\]
+Bernoulli:
+\[
+P_2=P_1+\frac12\rho(v_1^2-v_2^2).
+\]
+\[
+P_2\approx250000+\frac12(1030)(2.12^2-8.49^2)=\SI{215200}{Pa}.
+\]}{\[\boxed{P_2\approx\SI{215}{kPa}}\]}{El estrechamiento acelera el flujo y reduce la presión estática. En una línea real habría que sumar pérdidas viscosas.}
+
+\Ejercicio{17.6}{Descenso en una tubería vertical}{Agua circula por una tubería de diámetro constante. El punto 2 se encuentra $\SI{8}{m}$ por debajo del punto 1. Si $P_1=\SI{120}{kPa}$ manométricos, calcular $P_2$ despreciando pérdidas.}{\FigBernoulli{misma sección}{$z_1-z_2=8\,m$}}{\begin{itemize}\item Diámetro constante: $v_1=v_2$.\item Fluido ideal e incompresible.\item Bernoulli se reduce a balance entre presión y altura.\end{itemize}}{Como la velocidad no cambia,
+\[
+P_2=P_1+\rho g(z_1-z_2).
+\]
+\[
+P_2=120000+(1000)(9.81)(8)=\SI{198480}{Pa}.
+\]}{\[\boxed{P_2\approx\SI{198}{kPa}}\]}{Al descender, disminuye energía potencial gravitatoria y aumenta la energía de presión.}
+
+\Ejercicio{17.7}{Diferencia de altura entre dos puntos}{En una corriente de agua se miden $P_1=\SI{240}{kPa}$, $v_1=\SI{2.0}{m/s}$, $P_2=\SI{180}{kPa}$ y $v_2=\SI{6.0}{m/s}$. Sin pérdidas, determinar $z_2-z_1$.}{\FigBernoulli{punto 1}{punto 2}}{\begin{itemize}\item Flujo ideal, estacionario e incompresible.\item Se aplica Bernoulli entre 1 y 2.\item Se busca la diferencia geométrica de alturas.\end{itemize}}{De Bernoulli,
+\[
+z_2-z_1=\frac{P_1-P_2}{\rho g}+\frac{v_1^2-v_2^2}{2g}.
+\]
+\[
+z_2-z_1=\frac{60000}{9810}+\frac{4-36}{19.62}=6.116-1.631.
+\]
+\[
+z_2-z_1=\SI{4.49}{m}.
+\]}{\[\boxed{z_2-z_1\approx\SI{4.49}{m}}\]}{Parte de la caída de presión se emplea en aumentar la velocidad y parte en elevar el fluido.}
+
+\Ejercicio{17.8}{Altura total de energía en glicerina}{Glicerina de densidad $\SI{1260}{kg/m^3}$ circula por un punto donde $P=\SI{180}{kPa}$ manométricos, $v=\SI{1.2}{m/s}$ y $z=\SI{4.5}{m}$. Calcular la altura total de energía $H=P/(\rho g)+v^2/(2g)+z$.}{\FigBernoulli{glicerina}{$z=4.5\,m$}}{\begin{itemize}\item Se utiliza la forma de Bernoulli expresada como energía por unidad de peso.\item La presión es manométrica; por lo tanto, la altura calculada es relativa a la atmósfera.\item No se comparan aún pérdidas.\end{itemize}}{Altura de presión:
+\[
+\frac{P}{\rho g}=\frac{180000}{(1260)(9.81)}=\SI{14.56}{m}.
+\]
+Altura de velocidad:
+\[
+\frac{v^2}{2g}=\frac{1.2^2}{19.62}=\SI{0.073}{m}.
+\]
+Entonces,
+\[
+H=14.56+0.073+4.5=\SI{19.13}{m}.
+\]}{\[\boxed{H\approx\SI{19.13}{m}}\]}{La mayor contribución en este punto corresponde a la energía de presión; el término cinético es pequeño.}
+
+\Ejercicio{17.9}{Descarga desde un tanque presurizado}{Un tanque grande contiene agua. Sobre la superficie libre existe una presión manométrica de $\SI{150}{kPa}$. La salida está $\SI{3.0}{m}$ por debajo y descarga a la atmósfera. Despreciando pérdidas, hallar la velocidad de salida.}{\FigTorricelli{tanque presurizado}{$h=3\,m$}}{\begin{itemize}\item $v_1\approx0$ por el gran área del tanque.\item En la salida $P_2=0$ manométrico.\item Se aplica Bernoulli; la presión sobre la superficie aporta energía adicional.\end{itemize}}{Bernoulli:
+\[
+\frac{P_1}{\rho}+gh=\frac12v_2^2.
+\]
+Por tanto,
+\[
+v_2=\sqrt{2\left(\frac{150000}{1000}+(9.81)(3)\right)}
+=\sqrt{358.86}.
+\]
+\[
+v_2=\SI{18.94}{m/s}.
+\]}{\[\boxed{v_2\approx\SI{18.9}{m/s}}\]}{La presurización del tanque incrementa significativamente la velocidad respecto de una descarga impulsada sólo por gravedad.}
+
+\Ejercicio{17.10}{Balance completo entre dos secciones}{Agua circula entre dos puntos. En 1: $P_1=\SI{250}{kPa}$, $v_1=\SI{2}{m/s}$ y $z_1=\SI{2}{m}$. En 2: $v_2=\SI{5}{m/s}$ y $z_2=\SI{6}{m}$. Hallar $P_2$ sin considerar pérdidas.}{\FigBernoulli{sección 1}{sección 2}}{\begin{itemize}\item Flujo ideal, incompresible y estacionario.\item Se consideran simultáneamente cambios de presión, velocidad y altura.\item Se aplica Bernoulli completo.\end{itemize}}{Despejando $P_2$,
+\[
+P_2=P_1+\frac12\rho(v_1^2-v_2^2)+\rho g(z_1-z_2).
+\]
+\[
+P_2=250000+500(4-25)+(1000)(9.81)(2-6).
+\]
+\[
+P_2=250000-10500-39240=\SI{200260}{Pa}.
+\]}{\[\boxed{P_2\approx\SI{200}{kPa}}\]}{La presión disminuye porque el fluido aumenta su velocidad y además asciende; ambos procesos consumen parte de la energía de presión.}
+
+\clearpage
+\section{Punto 18A - Tubo Venturi y medición de caudal}
+\textbf{Modelo central:} un Venturi ideal combina continuidad y Bernoulli. Para un conducto horizontal,
+\[
+A_1v_1=A_2v_2=Q,
+\qquad
+P_1+\frac12\rho v_1^2=P_2+\frac12\rho v_2^2.
+\]
+La diferencia de presión entre la sección ancha y la garganta permite inferir la velocidad y, por lo tanto, el caudal.
+
+\Ejercicio{18V.1}{Caudal en un Venturi ideal}{Un Venturi horizontal transporta agua. Los diámetros son $D_1=\SI{100}{mm}$ y $D_2=\SI{50}{mm}$. La diferencia de presión es $P_1-P_2=\SI{30}{kPa}$. Calcular el caudal ideal.}{\FigVenturi{$D_1=100\,mm$}{$D_2=50\,mm$}}{\begin{itemize}\item Agua incompresible, régimen estacionario y pérdidas despreciables.\item Conducto horizontal.\item Se combinan continuidad y Bernoulli.\end{itemize}}{La razón de áreas es
+\[
+\frac{A_2}{A_1}=\left(\frac{D_2}{D_1}\right)^2=0.25,
+\qquad v_1=0.25v_2.
+\]
+De Bernoulli,
+\[
+\Delta P=\frac12\rho(v_2^2-v_1^2)=\frac12\rho v_2^2(1-0.25^2).
+\]
+\[
+v_2=\sqrt{\frac{2(30000)}{1000(0.9375)}}=\SI{8.00}{m/s}.
+\]
+Con $A_2=\pi(0.05)^2/4=1.9635\times10^{-3}\,m^2$,
+\[
+Q=A_2v_2=1.571\times10^{-2}\,m^3/s.
+\]}{\[\boxed{Q\approx\SI{15.7}{L/s}}\]}{La medición de una diferencia de presión permite determinar el caudal sin medir directamente la velocidad.}
+
+\Ejercicio{18V.2}{Venturi con leche}{Leche de densidad $\SI{1030}{kg/m^3}$ circula por un Venturi horizontal de diámetros $D_1=\SI{80}{mm}$ y $D_2=\SI{40}{mm}$. Si $P_1-P_2=\SI{25}{kPa}$, hallar el caudal ideal.}{\FigVenturi{$D_1=80\,mm$}{$D_2=40\,mm$}}{\begin{itemize}\item Se aproxima la leche como incompresible y de densidad constante.\item Se desprecia viscosidad para obtener una referencia ideal.\item Se aplican continuidad y Bernoulli.\end{itemize}}{Como $A_2/A_1=0.25$,
+\[
+v_2=\sqrt{\frac{2\Delta P}{\rho(1-0.25^2)}}
+=\sqrt{\frac{50000}{(1030)(0.9375)}}=\SI{7.20}{m/s}.
+\]
+El área de la garganta es
+\[
+A_2=\frac{\pi(0.040)^2}{4}=1.257\times10^{-3}\,m^2.
+\]
+\[
+Q=A_2v_2\approx(1.257\times10^{-3})(7.20)=9.04\times10^{-3}\,m^3/s.
+\]}{\[\boxed{Q\approx\SI{9.04}{L/s}}\]}{El cálculo es ideal. En leche real, la viscosidad y accesorios pueden requerir una corrección experimental.}
+
+\Ejercicio{18V.3}{Venturi con manómetro diferencial de mercurio}{Un Venturi horizontal con agua tiene $D_1=\SI{80}{mm}$ y $D_2=\SI{40}{mm}$. Un manómetro diferencial de mercurio ($\rho_m=\SI{13600}{kg/m^3}$) conectado entre ambas secciones muestra $\Delta h=\SI{0.12}{m}$. Calcular el caudal ideal.}{\FigVenturi{agua}{$\Delta h=0.12\,m$}}{\begin{itemize}\item Las tomas están a la misma altura.\item Agua y mercurio están en equilibrio en el manómetro.\item La diferencia de presión es $\Delta P=(\rho_m-\rho)g\Delta h$.\item Luego se aplican continuidad y Bernoulli al Venturi.\end{itemize}}{Primero,
+\[
+\Delta P=(13600-1000)(9.81)(0.12)=\SI{148327}{Pa}.
+\]
+Con $A_2/A_1=0.25$,
+\[
+v_2=\sqrt{\frac{2\Delta P}{1000(1-0.25^2)}}=\SI{17.79}{m/s}.
+\]
+Como $A_2=1.257\times10^{-3}\,m^2$,
+\[
+Q=A_2v_2=2.235\times10^{-2}\,m^3/s.
+\]}{\[\boxed{Q\approx\SI{22.4}{L/s}}\]}{El manómetro transforma una diferencia de alturas en diferencia de presión; el Venturi transforma esa diferencia de presión en caudal.}
+
+\Ejercicio{18V.4}{Diámetro de garganta requerido}{Se desea medir un caudal de agua $Q=\SI{0.012}{m^3/s}$ con un Venturi horizontal. El diámetro de entrada es $D_1=\SI{100}{mm}$ y se quiere obtener una diferencia de presión de $\SI{20}{kPa}$. Hallar el diámetro ideal de la garganta.}{\FigVenturi{$D_1=100\,mm$}{$D_2=?$}}{\begin{itemize}\item Flujo ideal e incompresible.\item Se conocen $Q$, $A_1$ y $\Delta P$.\item Se usan $v=Q/A$ y Bernoulli.\end{itemize}}{Bernoulli:
+\[
+\Delta P=\frac12\rho Q^2\left(\frac{1}{A_2^2}-\frac{1}{A_1^2}\right).
+\]
+Por tanto,
+\[
+\frac{1}{A_2^2}=\frac{2\Delta P}{\rho Q^2}+\frac{1}{A_1^2}.
+\]
+Con $A_1=\pi(0.10)^2/4=7.854\times10^{-3}\,m^2$,
+\[
+A_2\approx1.844\times10^{-3}\,m^2.
+\]
+Entonces,
+\[
+D_2=\sqrt{\frac{4A_2}{\pi}}\approx\SI{0.0485}{m}.
+\]}{\[\boxed{D_2\approx\SI{48.5}{mm}}\]}{La geometría del Venturi determina cuánta diferencia de presión se genera para un caudal dado.}
+
+\Ejercicio{18V.5}{Diferencia de presión para un caudal conocido}{Agua circula con $Q=\SI{8.0e-3}{m^3/s}$ por un Venturi horizontal de $D_1=\SI{100}{mm}$ y $D_2=\SI{60}{mm}$. Hallar $P_1-P_2$ ideal.}{\FigVenturi{$D_1=100\,mm$}{$D_2=60\,mm$}}{\begin{itemize}\item Flujo ideal e incompresible.\item Se calculan las velocidades con $v=Q/A$.\item La diferencia de presión se obtiene con Bernoulli horizontal.\end{itemize}}{Áreas:
+\[
+A_1=7.854\times10^{-3}\,m^2,\qquad A_2=2.827\times10^{-3}\,m^2.
+\]
+Velocidades:
+\[
+v_1=\SI{1.02}{m/s},\qquad v_2=\SI{2.83}{m/s}.
+\]
+Entonces,
+\[
+P_1-P_2=\frac12\rho(v_2^2-v_1^2)
+\approx500(2.83^2-1.02^2)=\SI{3480}{Pa}.
+\]}{\[\boxed{P_1-P_2\approx\SI{3.48}{kPa}}\]}{A mayor caudal, aumenta la diferencia entre velocidades y, por lo tanto, la señal de presión del Venturi.}
+
+\Ejercicio{18V.6}{Lectura piezométrica y caudal}{Un Venturi horizontal con agua tiene $D_1=\SI{80}{mm}$ y $D_2=\SI{40}{mm}$. Dos tubos piezométricos abiertos indican una diferencia de niveles de agua $h_1-h_2=\SI{0.45}{m}$. Hallar el caudal ideal.}{\FigVenturi{piezómetro}{$\Delta h=0.45\,m$}}{\begin{itemize}\item Los tubos piezométricos contienen el mismo líquido y están abiertos a la atmósfera.\item Por ello, $P_1-P_2=\rho g\Delta h$.\item Se combinan continuidad y Bernoulli.\end{itemize}}{Diferencia de presión:
+\[
+\Delta P=(1000)(9.81)(0.45)=\SI{4414.5}{Pa}.
+\]
+Como $A_2/A_1=0.25$,
+\[
+v_2=\sqrt{\frac{2(4414.5)}{1000(0.9375)}}=\SI{3.07}{m/s}.
+\]
+\[
+Q=A_2v_2=(1.257\times10^{-3})(3.07)=3.86\times10^{-3}\,m^3/s.
+\]}{\[\boxed{Q\approx\SI{3.86}{L/s}}\]}{La diferencia de altura en los piezómetros constituye una lectura directa de la diferencia de presión estática.}
+
+\Ejercicio{18V.7}{Presión en la garganta de una línea de leche}{Leche de densidad $\SI{1030}{kg/m^3}$ circula por un Venturi horizontal con $D_1=\SI{60}{mm}$, $D_2=\SI{30}{mm}$ y $Q=\SI{4.0e-3}{m^3/s}$. Si $P_1=\SI{180}{kPa}$, determinar $P_2$.}{\FigVenturi{leche}{$Q=4\,L/s$}}{\begin{itemize}\item Leche aproximada como incompresible.\item Se desprecia disipación viscosa para la referencia ideal.\item Continuidad proporciona las velocidades y Bernoulli la presión.\end{itemize}}{Áreas:
+\[
+A_1=2.827\times10^{-3}\,m^2,\qquad A_2=7.069\times10^{-4}\,m^2.
+\]
+\[
+v_1=\SI{1.41}{m/s},\qquad v_2=\SI{5.66}{m/s}.
+\]
+Entonces,
+\[
+P_2=P_1+\frac12\rho(v_1^2-v_2^2)
+\approx180000+515(1.41^2-5.66^2).
+\]
+\[
+P_2\approx\SI{164500}{Pa}.
+\]}{\[\boxed{P_2\approx\SI{165}{kPa}}\]}{La garganta presenta menor presión. Esa diferencia es la base de la medición de caudal por Venturi.}
+
+\Ejercicio{18V.8}{Efecto del diámetro de garganta}{Un conducto de entrada de $D_1=\SI{100}{mm}$ opera con agua y una diferencia fija $P_1-P_2=\SI{10}{kPa}$. Comparar el caudal ideal si la garganta es (a) $D_2=\SI{60}{mm}$ y (b) $D_2=\SI{40}{mm}$.}{\FigVenturi{$D_2=60\,mm$}{$D_2=40\,mm$}}{\begin{itemize}\item Misma entrada y misma diferencia de presión.\item Flujo ideal e incompresible.\item Para cada garganta se aplica la relación combinada de continuidad y Bernoulli.\end{itemize}}{Para cada caso,
+\[
+Q=A_2\sqrt{\frac{2\Delta P}{\rho\left[1-(A_2/A_1)^2\right]}}.
+\]
+Para $D_2=\SI{60}{mm}$:
+\[
+Q_a\approx\SI{0.0136}{m^3/s}=\SI{13.6}{L/s}.
+\]
+Para $D_2=\SI{40}{mm}$:
+\[
+Q_b\approx\SI{0.00569}{m^3/s}=\SI{5.69}{L/s}.
+\]}{\[\boxed{Q_a\approx\SI{13.6}{L/s},\qquad Q_b\approx\SI{5.69}{L/s}}\]}{Para una misma diferencia de presión, una garganta más pequeña limita el caudal y produce velocidades locales mayores.}
+
+\Ejercicio{18V.9}{Corrección mediante coeficiente de descarga}{El cálculo ideal de un Venturi da $Q_{ideal}=\SI{12.0}{L/s}$. El instrumento tiene un coeficiente de descarga $C_d=0.97$. Estimar el caudal real.}{\FigVenturi{modelo ideal}{$C_d=0.97$}}{\begin{itemize}\item El coeficiente $C_d$ resume efectos reales no incluidos en Bernoulli ideal.\item Se adopta la relación de calibración $Q_{real}=C_dQ_{ideal}$.\item No se pretende deducir aquí $C_d$; se toma como dato experimental.\end{itemize}}{\[
+Q_{real}=0.97(12.0)=\SI{11.64}{L/s}.
+\]}{\[\boxed{Q_{real}=\SI{11.64}{L/s}}\]}{El valor real es ligeramente menor por pérdidas y desviaciones del comportamiento ideal.}
+
+\Ejercicio{18V.10}{Señal de presión para un caudal de jugo}{Un jugo de densidad $\SI{1060}{kg/m^3}$ circula por un Venturi horizontal de $D_1=\SI{80}{mm}$ y $D_2=\SI{40}{mm}$ con $Q=\SI{7.0e-3}{m^3/s}$. ¿Qué diferencia de presión ideal debe medir el instrumento?}{\FigVenturi{jugo}{$Q=7\,L/s$}}{\begin{itemize}\item Jugo aproximado como incompresible.\item Se desprecia la viscosidad para obtener la señal ideal de referencia.\item Se calculan velocidades por continuidad y luego $\Delta P$ por Bernoulli.\end{itemize}}{\[
+A_1=5.027\times10^{-3}\,m^2,\qquad A_2=1.257\times10^{-3}\,m^2.
+\]
+\[
+v_1=\frac{0.007}{A_1}=\SI{1.39}{m/s},\qquad
+v_2=\frac{0.007}{A_2}=\SI{5.57}{m/s}.
+\]
+\[
+\Delta P=\frac12(1060)(5.57^2-1.39^2)\approx\SI{15400}{Pa}.
+\]}{\[\boxed{P_1-P_2\approx\SI{15.4}{kPa}}\]}{El valor calculado sirve como referencia para seleccionar el rango de un transmisor diferencial de presión.}
+
+\clearpage
+\section{Punto 18B - Teorema de Torricelli}
+\textbf{Modelo central:} para un depósito abierto, grande respecto del orificio, con pérdidas despreciables,
+\[
+A_1\gg A_2\Rightarrow v_1\approx0,
+\qquad P_1=P_2=P_{atm},
+\qquad v_2=\sqrt{2gh}.
+\]
+Torricelli es un caso particular de Bernoulli: la energía potencial gravitatoria se transforma en energía cinética del chorro.
+
+\Ejercicio{18T.1}{Velocidad de salida por un orificio}{Un depósito abierto tiene un orificio ubicado $\SI{2.5}{m}$ por debajo de la superficie libre. Determinar la velocidad ideal de salida.}{\FigTorricelli{depósito abierto}{$h=2.5\,m$}}{\begin{itemize}\item $A_1\gg A_2$, por lo que $v_1\approx0$.\item Superficie y salida a presión atmosférica.\item Pérdidas despreciables.\item Se aplica Torricelli.\end{itemize}}{\[
+v_2=\sqrt{2gh}=\sqrt{2(9.81)(2.5)}=\sqrt{49.05}.
+\]
+\[
+v_2=\SI{7.00}{m/s}.
+\]}{\[\boxed{v_2\approx\SI{7.00}{m/s}}\]}{La velocidad coincide con la que adquiriría un cuerpo en caída libre al descender la misma altura $h$, dentro del modelo ideal.}
+
+\Ejercicio{18T.2}{Altura necesaria para una velocidad dada}{Se desea obtener una velocidad ideal de salida de $\SI{6.0}{m/s}$ desde un depósito abierto. ¿Qué altura de líquido debe existir sobre el orificio?}{\FigTorricelli{depósito abierto}{$h=?$}}{\begin{itemize}\item Se cumplen las hipótesis de Torricelli.\item Se despeja $h$ de $v=\sqrt{2gh}$.\end{itemize}}{\[
+h=\frac{v^2}{2g}=\frac{6.0^2}{2(9.81)}=\SI{1.835}{m}.
+\]}{\[\boxed{h\approx\SI{1.84}{m}}\]}{La velocidad depende de la raíz cuadrada de la altura; duplicar la altura no duplica la velocidad.}
+
+\Ejercicio{18T.3}{Caudal ideal por un orificio circular}{Un tanque abierto tiene un orificio circular de diámetro $d=\SI{20}{mm}$ a una profundidad $h=\SI{1.8}{m}$. Calcular el caudal ideal.}{\FigTorricelli{$d=20\,mm$}{$h=1.8\,m$}}{\begin{itemize}\item Depósito grande respecto del orificio.\item Se calcula primero la velocidad por Torricelli y luego $Q=Av$.\item Sin coeficiente de descarga: resultado ideal.\end{itemize}}{\[
+v=\sqrt{2(9.81)(1.8)}=\SI{5.94}{m/s}.
+\]
+\[
+A=\frac{\pi(0.020)^2}{4}=3.142\times10^{-4}\,m^2.
+\]
+\[
+Q=Av=(3.142\times10^{-4})(5.94)=1.87\times10^{-3}\,m^3/s.
+\]}{\[\boxed{Q\approx\SI{1.87}{L/s}}\]}{El caudal depende tanto de la altura disponible como del área del orificio.}
+
+\Ejercicio{18T.4}{Caudal real con coeficiente de descarga}{Un orificio de $d=\SI{15}{mm}$ descarga agua desde una altura $h=\SI{2.0}{m}$. Si el coeficiente de descarga es $C_d=0.62$, estimar el caudal real.}{\FigTorricelli{$d=15\,mm$}{$C_d=0.62$}}{\begin{itemize}\item Torricelli proporciona la velocidad ideal.\item El coeficiente de descarga corrige contracción y pérdidas del orificio real.\item $Q_{real}=C_dA\sqrt{2gh}$.\end{itemize}}{\[
+v_{ideal}=\sqrt{2(9.81)(2.0)}=\SI{6.26}{m/s}.
+\]
+\[
+A=\frac{\pi(0.015)^2}{4}=1.767\times10^{-4}\,m^2.
+\]
+\[
+Q_{ideal}=Av=1.107\times10^{-3}\,m^3/s.
+\]
+\[
+Q_{real}=0.62Q_{ideal}=6.86\times10^{-4}\,m^3/s.
+\]}{\[\boxed{Q_{real}\approx\SI{0.686}{L/s}}\]}{El coeficiente muestra que un orificio real descarga menos que el modelo ideal de Torricelli.}
+
+\Ejercicio{18T.5}{Alcance horizontal del chorro}{Un orificio está a $h=\SI{1.25}{m}$ por debajo de la superficie libre y a $y=\SI{0.80}{m}$ sobre el piso. El chorro sale horizontalmente. Hallar la distancia horizontal ideal hasta el impacto.}{\FigChorro{tanque}{$h=1.25\,m,\;y=0.80\,m$}}{\begin{itemize}\item Velocidad horizontal inicial obtenida con Torricelli.\item Luego el chorro se modela como proyectil sin resistencia del aire.\item La componente vertical inicial de velocidad es cero.\end{itemize}}{Velocidad de salida:
+\[
+v_x=\sqrt{2gh}=\sqrt{2(9.81)(1.25)}=\SI{4.95}{m/s}.
+\]
+Tiempo de caída:
+\[
+t=\sqrt{\frac{2y}{g}}=\sqrt{\frac{1.60}{9.81}}=\SI{0.404}{s}.
+\]
+Alcance:
+\[
+x=v_xt=(4.95)(0.404)\approx\SI{2.00}{m}.
+\]}{\[\boxed{x\approx\SI{2.00}{m}}\]}{Torricelli determina la rapidez inicial; la trayectoria posterior se estudia con cinemática de proyectiles.}
+
+\Ejercicio{18T.6}{Comparación entre dos orificios}{En un depósito abierto hay dos orificios: uno a $h_1=\SI{0.50}{m}$ y otro a $h_2=\SI{2.0}{m}$ bajo la superficie. Comparar sus velocidades ideales de salida.}{\FigTorricelli{dos profundidades}{$h_1,h_2$}}{\begin{itemize}\item Ambos orificios descargan a la atmósfera.\item Depósito grande y pérdidas despreciables.\item Se aplica Torricelli a cada altura.\end{itemize}}{\[
+v_1=\sqrt{2(9.81)(0.50)}=\SI{3.13}{m/s},
+\]
+\[
+v_2=\sqrt{2(9.81)(2.0)}=\SI{6.26}{m/s}.
+\]
+La razón es
+\[
+\frac{v_2}{v_1}=\sqrt{\frac{h_2}{h_1}}=\sqrt{4}=2.
+\]}{\[\boxed{v_1\approx\SI{3.13}{m/s},\qquad v_2\approx\SI{6.26}{m/s}}\]}{El orificio cuatro veces más profundo produce el doble de velocidad, no cuatro veces, porque $v\propto\sqrt{h}$.}
+
+\Ejercicio{18T.7}{Tiempo de vaciado entre dos niveles}{Un tanque cilíndrico de área transversal $A_T=\SI{0.40}{m^2}$ descarga idealmente por un orificio de área $A_o=\SI{4.0e-4}{m^2}$. Calcular el tiempo para que el nivel baje de $h_i=\SI{1.5}{m}$ a $h_f=\SI{0.50}{m}$.}{\FigTorricelli{$A_T=0.40\,m^2$}{$A_o=4\times10^{-4}\,m^2$}}{\begin{itemize}\item El tanque mantiene sección transversal constante.\item Se aplica Torricelli instantáneamente: $Q=A_o\sqrt{2gh}$.\item Balance de volumen: $-A_T\,dh/dt=Q$.\item Se integra porque la altura cambia con el tiempo.\end{itemize}}{\[
+-A_T\frac{dh}{dt}=A_o\sqrt{2gh}.
+\]
+Separando e integrando,
+\[
+t=\frac{2A_T}{A_o\sqrt{2g}}\left(\sqrt{h_i}-\sqrt{h_f}\right).
+\]
+\[
+t=\frac{2(0.40)}{(4.0\times10^{-4})\sqrt{19.62}}
+(\sqrt{1.5}-\sqrt{0.50}).
+\]
+\[
+t\approx\SI{234}{s}.
+\]}{\[\boxed{t\approx\SI{234}{s}\approx\SI{3.90}{min}}\]}{El nivel no desciende a velocidad constante: al disminuir $h$, también disminuyen la velocidad de salida y el caudal.}
+
+\Ejercicio{18T.8}{Depósito cuya superficie no es muy grande}{Un depósito abierto tiene un área de superficie $A_1$ sólo cuatro veces mayor que el área del orificio: $A_1=4A_2$. La diferencia de altura es $h=\SI{1.0}{m}$. Hallar la velocidad ideal de salida sin suponer $v_1=0$ y compararla con Torricelli.}{\FigTorricelli{$A_1=4A_2$}{$h=1\,m$}}{\begin{itemize}\item No puede suponerse directamente $v_1\approx0$.\item Continuidad: $A_1v_1=A_2v_2$, por lo que $v_1=v_2/4$.\item Bernoulli entre superficie y salida; ambas a presión atmosférica.\end{itemize}}{Bernoulli:
+\[
+gh+\frac12v_1^2=\frac12v_2^2.
+\]
+Como $v_1=v_2/4$,
+\[
+2gh=v_2^2\left(1-\frac{1}{16}\right).
+\]
+\[
+v_2=\sqrt{\frac{2gh}{15/16}}=\sqrt{\frac{19.62}{0.9375}}=\SI{4.57}{m/s}.
+\]
+Torricelli con $v_1\approx0$ daría
+\[
+\sqrt{2gh}=\SI{4.43}{m/s}.
+\]}{\[\boxed{v_2\approx\SI{4.57}{m/s};\quad v_T\approx\SI{4.43}{m/s}}\]}{Cuando el depósito no es mucho mayor que el orificio, la velocidad de la superficie deja de ser despreciable y Torricelli simple introduce error.}
+
+\Ejercicio{18T.9}{Descarga desde un tanque presurizado}{Un tanque grande de agua tiene una presión manométrica de $\SI{50}{kPa}$ sobre la superficie libre. El orificio descarga a la atmósfera y está $\SI{1.2}{m}$ por debajo. Hallar la velocidad ideal de salida.}{\FigTorricelli{presurizado}{$h=1.2\,m$}}{\begin{itemize}\item $v_1\approx0$.\item $P_1=\SI{50}{kPa}$ manométricos y $P_2=0$ manométrico.\item Se aplica Bernoulli; este caso generaliza Torricelli.\end{itemize}}{\[
+\frac{P_1}{\rho}+gh=\frac12v_2^2.
+\]
+\[
+v_2=\sqrt{2\left(\frac{50000}{1000}+(9.81)(1.2)\right)}.
+\]
+\[
+v_2=\sqrt{123.544}=\SI{11.11}{m/s}.
+\]}{\[\boxed{v_2\approx\SI{11.1}{m/s}}\]}{La presión adicional sobre la superficie aumenta la velocidad por encima del valor correspondiente sólo a la gravedad.}
+
+\Ejercicio{18T.10}{Diámetro de orificio para un caudal requerido}{Un depósito grande abierto debe entregar idealmente $Q=\SI{2.5e-3}{m^3/s}$ con una altura disponible $h=\SI{3.0}{m}$. ¿Qué diámetro de orificio se requiere?}{\FigTorricelli{$Q=2.5\,L/s$}{$h=3\,m$}}{\begin{itemize}\item Torricelli determina la velocidad ideal.\item Luego $A=Q/v$ y $d=\sqrt{4A/\pi}$.\item No se incluye coeficiente de descarga; el diámetro real sería mayor si $C_d<1$.\end{itemize}}{\[
+v=\sqrt{2(9.81)(3.0)}=\SI{7.67}{m/s}.
+\]
+\[
+A=\frac{Q}{v}=\frac{2.5\times10^{-3}}{7.67}=3.26\times10^{-4}\,m^2.
+\]
+\[
+d=\sqrt{\frac{4A}{\pi}}=\SI{0.0204}{m}.
+\]}{\[\boxed{d\approx\SI{20.4}{mm}}\]}{El valor es un diámetro ideal mínimo de referencia. Un diseño real debe considerar coeficiente de descarga y pérdidas.}
+
+\clearpage
+\section*{Síntesis de principios utilizados}
+\addcontentsline{toc}{section}{Síntesis de principios utilizados}
+\begin{tabular}{>{\bfseries}p{2cm}p{5cm}p{8cm}}
+\toprule
+Punto & Relación principal & Supuestos más frecuentes \\
+\midrule
+9 & $P=F_\perp/A$ & Fuerza normal y distribución uniforme o presión media.\\
+10 & $P=P_0+\rho gh$ & Fluido en reposo, $\rho$ y $g$ aproximadamente constantes.\\
+11 & $P_{abs}=P_{atm}+P_{man}$; $\Delta P=\rho g\Delta h$ & Instrumentos en equilibrio, densidad del líquido manométrico constante.\\
+12 & $F_1/A_1=F_2/A_2$ & Fluido confinado ideal; a igual altura se desprecia corrección hidrostática; sin pérdidas.\\
+13 & $E=\rho_f gV_d$ & Fluido en reposo; empuje igual al peso del fluido desplazado.\\
+17 & $P+\frac12\rho v^2+\rho gz=cte$ & Flujo ideal, incompresible y estacionario; a lo largo de una línea de corriente; pérdidas despreciables.\\
+18A & $A_1v_1=A_2v_2$ + Bernoulli & Venturi horizontal ideal; medición de $\Delta P$ para inferir velocidad y caudal.\\
+18B & $v=\sqrt{2gh}$ & Depósito abierto grande respecto del orificio; $v_1\approx0$, $P_1=P_2=P_{atm}$ y pérdidas despreciables.\\
+\bottomrule
+\end{tabular}
+
+\vspace{5mm}
+\textbf{Observación:} En aplicaciones reales pueden aparecer correcciones por viscosidad, pérdidas mecánicas, coeficientes de descarga, compresibilidad, temperatura, variación de densidad o geometrías no ideales. En estos ejercicios esas correcciones se omiten salvo cuando se indica explícitamente.
+
+\end{document}

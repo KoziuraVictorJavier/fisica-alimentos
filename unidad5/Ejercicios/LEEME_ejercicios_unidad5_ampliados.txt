@@ -1,0 +1,17 @@
+Colección ampliada de ejercicios resueltos - Unidad 5 Fluidos
+
+Contenido:
+- 50 ejercicios originales de los puntos 9 a 13: Presión, Presión hidrostática, Presión absoluta/manométrica, Pascal y Arquímedes.
+- 10 ejercicios nuevos de Bernoulli.
+- 10 ejercicios nuevos de Tubo Venturi y medición de caudal.
+- 10 ejercicios nuevos de Teorema de Torricelli.
+
+Total: 80 ejercicios resueltos.
+
+Cada resolución incluye: enunciado, gráfico TikZ, justificación física, leyes/principios y supuestos, desarrollo matemático, resultado e interpretación.
+
+Compilación LaTeX recomendada:
+pdflatex ejercicios_resueltos_unidad5_ampliados_bernoulli_venturi_torricelli.tex
+pdflatex ejercicios_resueltos_unidad5_ampliados_bernoulli_venturi_torricelli.tex
+
+Bibliografía base: Tippens, Serway/Jewett, Young/Freedman y el apunte de Unidad 5.
