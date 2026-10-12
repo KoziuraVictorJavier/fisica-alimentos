@@ -1,0 +1,254 @@
+{
+  "d001": {
+    "id": "d001",
+    "clase": 1,
+    "titulo": "Clase 1 · Fundamentos térmicos",
+    "guion": "Comienza la clase 1 de la Unidad 6. Temperatura, termometría, dilatación, calorimetría y cambios de fase. Se recuperan los conocimientos necesarios y se explica qué fenómenos se modelarán, cuáles son las hipótesis simplificativas y cómo se relacionan con equipos reales. El objetivo es conectar los fundamentos de termodinámica con situaciones concretas de tecnología de alimentos."
+  },
+  "d002": {
+    "id": "d002",
+    "clase": 1,
+    "titulo": "Resultados de aprendizaje",
+    "guion": "En esta diapositiva se estudia Resultados de aprendizaje. Distinguir temperatura, calor, energía interna y trabajo, identificando sus unidades. Aplicar escalas térmicas, dilatación, calorimetría y cambios de fase. Modelar conducción, convección y radiación e interpretar resistencias térmicas. Formular balances con la primera ley y reconocer el sentido de los procesos mediante la segunda ley. Analizar cuantitativamente calentamientos, pasteurización, refrigeración e intercambiadores de calor. Identificar hipótesis simplificativas, límites de los modelos y variables relevantes para un proceso real. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d003": {
+    "id": "d003",
+    "clase": 1,
+    "titulo": "2. Temperatura, equilibrio térmico y calor",
+    "guion": "El objetivo de este apartado es interpretar . Temperatura, equilibrio térmico y calor. Un termómetro señala una condición de equilibrio térmico y no mide directamente una cantidad de calor. Es indispensable distinguir temperatura de energía transferida. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d004": {
+    "id": "d004",
+    "clase": 1,
+    "titulo": "Infografía 1. Temperatura y escalas térmicas.",
+    "guion": "En esta diapositiva se estudia Infografía 1. Temperatura y escalas térmicas. La infografía resume la idea física de temperatura, distingue temperatura, calor y energía interna, compara las escalas Kelvin, Celsius y Fahrenheit, y presenta las ecuaciones de conversión más utilizadas. La temperatura mide el estado térmico de un sistema y permite predecir el sentido del flujo espontáneo de calor. Kelvin es una escala absoluta; Celsius y Kelvin tienen el mismo tamaño de intervalo pero distinto origen. La relación entre Celsius y Fahrenheit es lineal, por eso las conversiones se representan mediante una recta. En tecnología de alimentos, estas escalas aparecen en pasteurización, refrigeración e instrumentación. Un termómetro señala una condición de equilibrio térmico y no mide directamente una cantidad de calor. Es indispensable distinguir temperatura de energía transferida. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d005": {
+    "id": "d005",
+    "clase": 1,
+    "titulo": "2.1 Temperatura y descripción microscópica",
+    "guion": "El objetivo de este apartado es interpretar Temperatura y descripción microscópica. La temperatura es una propiedad de estado que caracteriza el equilibrio térmico de un sistema y determina la dirección espontánea del intercambio térmico cuando dos cuerpos se ponen en contacto. En un gas ideal, la energía cinética media de traslación de las moléculas se relaciona con la temperatura absoluta; sin embargo, en sólidos y líquidos existen otras contribuciones a la energía interna. La ley cero de la termodinámica establece que si A y B están por separado en equilibrio térmico con C, entonces A y B están en equilibrio térmico entre sí. Esta propiedad permite fundamentar el uso de termómetros. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Un termómetro señala una condición de equilibrio térmico y no mide directamente una cantidad de calor. Es indispensable distinguir temperatura de energía transferida. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d006": {
+    "id": "d006",
+    "clase": 1,
+    "titulo": "2.2 Escalas de temperatura",
+    "guion": "El objetivo de este apartado es interpretar Escalas de temperatura. Una escala termométrica asigna números a estados de equilibrio térmico mediante una propiedad que varía reproduciblemente con la temperatura: expansión de un líquido, resistencia eléctrica, tensión termoeléctrica o emisión infrarroja. La lectura requiere calibración y no debe confundirse con la temperatura intrínseca si existe retardo de respuesta. Celsius (°C): escala cuyo cero corresponde aproximadamente a la fusión del hielo a presión atmosférica normal y cuyo valor 100 corresponde aproximadamente a la ebullición del agua bajo esa presión. Hoy se define a partir de la temperatura termodinámica; sus puntos históricos son referencias didácticas, no una definición metrológica exacta. Fahrenheit (°F): escala histórica aún utilizada en algunos países; el agua congela aproximadamente a 32 °F y hierve a 212 °F. Kelvin (K): unidad básica del SI de temperatura termodinámica, con origen en el cero absoluto. La variación de un kelvin es igual a la de un grado Celsius. Una diferencia de 1 K es igual a una diferencia de 1 °C. En cambio, no debe confundirse una temperatura de 20 °C con 20 K: son estados térmicos muy diferentes. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Un termómetro señala una condición de equilibrio térmico y no mide directamente una cantidad de calor. Es indispensable distinguir temperatura de energía transferida. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d007": {
+    "id": "d007",
+    "clase": 1,
+    "titulo": "2.3 ¿Qué es el calor?",
+    "guion": "El objetivo de este apartado es interpretar ¿Qué es el calor?. El calor (\\(Q\\)) es energía transferida por una diferencia de temperatura entre el sistema y su entorno. No es una sustancia ni una propiedad almacenada. La energía interna (\\(U\\)) sí es una propiedad de estado y comprende contribuciones microscópicas de movimiento e interacción. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Un termómetro señala una condición de equilibrio térmico y no mide directamente una cantidad de calor. Es indispensable distinguir temperatura de energía transferida. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d008": {
+    "id": "d008",
+    "clase": 1,
+    "titulo": "2.4 ¿De dónde provienen las fórmulas de conversión?",
+    "guion": "El objetivo de este apartado es interpretar ¿De dónde provienen las fórmulas de conversión?. Las escalas Fahrenheit y Celsius son afines : una misma variación física se representa por intervalos distintos y por un origen numérico diferente. Si escribimos \\(F=aC+b\\) , los puntos de referencia del agua dan \\(32=a(0)+b\\) y \\(212=a(100)+b\\) . Por lo tanto, \\(b=32\\) y \\(a=(212-32)/100=1{,}8=9/5\\) . Para diferencias de temperatura desaparece el término constante: \\(\\Delta F=\\tfrac95\\Delta C\\) y \\(\\Delta K=\\Delta C\\) . Por ejemplo, un aumento de 10 °C equivale a un aumento de 18 °F, no a 50 °F. Comprobación: \\(20\\times 9/5+32=68\\) . El resultado es razonable para una temperatura ambiente templada. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Un termómetro señala una condición de equilibrio térmico y no mide directamente una cantidad de calor. Es indispensable distinguir temperatura de energía transferida. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d009": {
+    "id": "d009",
+    "clase": 1,
+    "titulo": "Ejemplo resuelto · Temperatura, equilibrio térmico y calor",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Temperatura de un control de proceso Sistema: Sonda de un tanque con lectura de 158 °F. Hipótesis y modelo: Se trata de una conversión de temperatura absoluta entre escalas convencionales; no de un incremento de temperatura. Interacciones y fundamento: La recta de conversión contiene una pendiente y una ordenada al origen. Es indispensable restar 32 antes de aplicar el factor 5/9. Desarrollo matemático: \\[t_{^\\circ C}=\\frac59(158-32)=70\\ ^\\circ\\mathrm C;\\qquad T=70+273{,}15=343{,}15\\ \\mathrm K\\] Resultado: 70 °C y 343,15 K. Interpretación y control: Es una temperatura posible de calentamiento de un alimento; no se puede usar la misma fórmula con una diferencia térmica. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Un termómetro señala una condición de equilibrio térmico y no mide directamente una cantidad de calor. Es indispensable distinguir temperatura de energía transferida. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d010": {
+    "id": "d010",
+    "clase": 1,
+    "titulo": "Simulación · Conversión entre escalas",
+    "guion": "Al desplazar el control se representa un mismo estado térmico expresado en tres escalas. Kelvin y Celsius poseen el mismo tamaño de intervalo; Fahrenheit utiliza un tamaño de grado diferente y un origen desplazado. Conviene comprobar los valores de congelación y ebullición del agua a presión atmosférica. La gráfica ilustra la proporcionalidad entre escalas, no una variación de energía del sistema."
+  },
+  "d011": {
+    "id": "d011",
+    "clase": 1,
+    "titulo": "3. Medición de temperatura en procesos alimentarios",
+    "guion": "El objetivo de este apartado es interpretar . Medición de temperatura en procesos alimentarios. Una medición útil exige distinguir la temperatura del producto, la pared del recipiente, el medio calefactor y el punto exacto donde se instala el sensor. Durante un proceso transitorio, esas temperaturas pueden ser diferentes. El retardo de un sensor simple puede aproximarse con un modelo de primer orden, si la temperatura del medio cambia bruscamente: La constante de tiempo \\(\\tau_s\\) depende de su masa, capacidad térmica, geometría y acoplamiento con el medio. Un sensor que se estabiliza lentamente puede subestimar picos térmicos o demorar una acción de control. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La sonda puede indicar un valor distinto del producto mientras no se alcance el equilibrio; el tiempo de respuesta y la ubicación de la medición son relevantes. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d012": {
+    "id": "d012",
+    "clase": 1,
+    "titulo": "3.1 ¿Qué mide realmente un termómetro?",
+    "guion": "El objetivo de este apartado es interpretar ¿Qué mide realmente un termómetro?. Todo instrumento establece una interacción térmica con el medio. Un termopar convierte una diferencia térmica en una señal eléctrica; una termorresistencia aprovecha la variación de la resistencia con la temperatura; un sensor infrarrojo estima una temperatura superficial a partir de radiación y necesita conocer la emisividad. La temperatura de proceso no se conoce instantáneamente: hay tiempos de respuesta, errores de instalación y diferencias entre temperatura del producto, pared y ambiente. Una lectura estable es condición útil, pero no prueba uniformidad térmica en todo el alimento. En tuberías y tanques, la ubicación de la sonda y la mezcla determinan qué región está siendo medida. La sonda puede indicar un valor distinto del producto mientras no se alcance el equilibrio; el tiempo de respuesta y la ubicación de la medición son relevantes. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d013": {
+    "id": "d013",
+    "clase": 1,
+    "titulo": "Ejemplo resuelto · Medición de temperatura en procesos alimentarios",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Respuesta de una sonda Sistema: Termómetro de primer orden que se introduce en agua a 75 °C desde 20 °C. Hipótesis y modelo: Constante de tiempo τ = 12 s; agua suficientemente grande para mantener 75 °C; sin retardo adicional. Interacciones y fundamento: La sonda no mide instantáneamente el medio: su lectura se aproxima exponencialmente a la temperatura final. Desarrollo matemático: \\[T_s(t)=T_\\infty+(T_0-T_\\infty)e^{-t/\\tau};\\quad T_s(24)=75-55e^{-2}\\approx67{,}6\\ ^\\circ\\mathrm C\\] Resultado: A los 24 s la sonda indicará aproximadamente 67,6 °C. Interpretación y control: Esperar solo 24 s deja un error cercano a 7,4 °C. La ubicación de la sonda y el tiempo de respuesta importan en control de calidad. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La sonda puede indicar un valor distinto del producto mientras no se alcance el equilibrio; el tiempo de respuesta y la ubicación de la medición son relevantes. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d014": {
+    "id": "d014",
+    "clase": 1,
+    "titulo": "4. Dilatación térmica",
+    "guion": "El objetivo de este apartado es interpretar . Dilatación térmica. En muchos materiales, las dimensiones aumentan al elevarse la temperatura. Para intervalos moderados y materiales aproximadamente homogéneos e isótropos, la dilatación puede describirse mediante coeficientes constantes. La magnitud de la expansión depende del tamaño original, del coeficiente del material y de la diferencia de temperatura. Las restricciones mecánicas generan esfuerzos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d015": {
+    "id": "d015",
+    "clase": 1,
+    "titulo": "Infografía 2. Dilatación térmica: tipos, medición y deformación de materiales.",
+    "guion": "En esta diapositiva se estudia Infografía 2. Dilatación térmica: tipos, medición y deformación de materiales. La infografía muestra que la dilatación es consecuencia del aumento de separación media entre partículas cuando se incrementa la temperatura. También compara la dilatación lineal, superficial y volumétrica, e indica cómo se miden experimentalmente. La dilatación lineal modifica una longitud, la superficial modifica un área y la volumétrica modifica un volumen. Las expresiones ΔL = αL₀ΔT, ΔA = βA₀ΔT y ΔV = γV₀ΔT son modelos aproximados válidos para intervalos moderados y materiales homogéneos. Si la expansión está restringida, aparecen tensiones térmicas y posibles deformaciones o roturas. En la industria alimentaria se manifiesta en tuberías, tanques, intercambiadores y sensores. La magnitud de la expansión depende del tamaño original, del coeficiente del material y de la diferencia de temperatura. Las restricciones mecánicas generan esfuerzos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d016": {
+    "id": "d016",
+    "clase": 1,
+    "titulo": "4.1 Dilatación lineal",
+    "guion": "El objetivo de este apartado es interpretar Dilatación lineal. \\(\\alpha\\) es el coeficiente de dilatación lineal, con unidades \\(\\mathrm K^{-1}\\). Para superficies y volúmenes de sólidos isótropos, como aproximación para cambios pequeños: Para líquidos se emplea el coeficiente de dilatación volumétrica \\(\\beta\\): En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La magnitud de la expansión depende del tamaño original, del coeficiente del material y de la diferencia de temperatura. Las restricciones mecánicas generan esfuerzos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d017": {
+    "id": "d017",
+    "clase": 1,
+    "titulo": "4.2 Ejemplo resuelto: tubería de acero",
+    "guion": "El objetivo de este apartado es interpretar Ejemplo resuelto: tubería de acero. Una tubería de acero inoxidable de 12 m pasa de 20 °C a 85 °C. Adoptar \\(\\alpha=17\\times10^{-6}\\,\\mathrm K^{-1}\\). ¿Cuánto se alarga si puede expandirse libremente? El crecimiento es apreciable para conexiones rígidas. Si la tubería está impedida de dilatarse, surgen tensiones térmicas, que requieren análisis mecánico adicional. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La magnitud de la expansión depende del tamaño original, del coeficiente del material y de la diferencia de temperatura. Las restricciones mecánicas generan esfuerzos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d018": {
+    "id": "d018",
+    "clase": 1,
+    "titulo": "Simulación 1 · Dilatación de una tubería",
+    "guion": "En esta diapositiva se estudia Simulación 1 · Dilatación de una tubería. Modelo lineal: no incluye restricciones mecánicas, variación del coeficiente ni gradientes de temperatura. La magnitud de la expansión depende del tamaño original, del coeficiente del material y de la diferencia de temperatura. Las restricciones mecánicas generan esfuerzos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d019": {
+    "id": "d019",
+    "clase": 1,
+    "titulo": "4.3 Fundamentación física y límites del modelo",
+    "guion": "El objetivo de este apartado es interpretar Fundamentación física y límites del modelo. En los sólidos las partículas oscilan alrededor de posiciones de equilibrio. Como la interacción interatómica no es perfectamente simétrica frente a compresiones y separaciones, un incremento de la energía térmica suele aumentar la separación media. Ese efecto colectivo se manifiesta como expansión macroscópica. No es correcto explicarlo simplemente como que «los átomos se agrandan». Una expansión impedida puede generar tensiones mecánicas: el cálculo de longitud libre no basta para verificar una instalación rígida con soportes, juntas y restricciones. En alimentos líquidos debe además considerarse que el coeficiente puede variar con temperatura y composición. La magnitud de la expansión depende del tamaño original, del coeficiente del material y de la diferencia de temperatura. Las restricciones mecánicas generan esfuerzos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d020": {
+    "id": "d020",
+    "clase": 1,
+    "titulo": "Ejemplo resuelto · Dilatación térmica",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Dilatación restringida de tubería Sistema: Tubería recta de acero de 8,0 m calentada 60 °C. Hipótesis y modelo: α = 16×10⁻⁶ K⁻¹, temperatura uniforme, dilatación libre para el primer cálculo. Interacciones y fundamento: El alargamiento resulta de la variación de longitud relativa; si se impide, aparecen tensiones que la fórmula geométrica no calcula. Desarrollo matemático: \\[\\Delta L=\\alpha L_0\\Delta T=16\\times10^{-6}(8)(60)=0{,}00768\\ \\mathrm m\\] Resultado: Alargamiento libre: 7,68 mm. Interpretación y control: En un montaje rígido hay que estudiar apoyos, juntas y esfuerzos térmicos; no corresponde suponer que se alargará libremente. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La magnitud de la expansión depende del tamaño original, del coeficiente del material y de la diferencia de temperatura. Las restricciones mecánicas generan esfuerzos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d021": {
+    "id": "d021",
+    "clase": 1,
+    "titulo": "5. Calor sensible, capacidad calorífica y calorimetría",
+    "guion": "El objetivo de este apartado es interpretar . Calor sensible, capacidad calorífica y calorimetría. Cuando un cuerpo cambia de temperatura sin transformar su fase, el intercambio energético se denomina habitualmente calor sensible . Para un material con calor específico aproximadamente constante: Donde \\(m\\) es la masa, \\(c\\) el calor específico [J/(kg·K)], y \\(C\\) la capacidad calorífica total [J/K]. Si \\(c\\) depende considerablemente de la temperatura debe integrarse: Los valores son orientativos para ejercicios. En un proyecto se requieren datos verificados del producto, su formulación, composición, fase y temperatura. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El sistema que se elige determina qué intercambios se consideran. La energía cedida y absorbida se relacionan mediante un balance con una convención de signos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d022": {
+    "id": "d022",
+    "clase": 1,
+    "titulo": "Infografía 3. Calor sensible, capacidad calorífica y calorimetría.",
+    "guion": "En esta diapositiva se estudia Infografía 3. Calor sensible, capacidad calorífica y calorimetría. La infografía integra la ecuación del calor sensible, la diferencia entre calor específico y capacidad calorífica, la estructura de un calorímetro simple y un ejemplo de balance térmico hasta alcanzar el equilibrio. El calor sensible cambia la temperatura sin provocar cambio de fase. El calor específico es una propiedad del material; la capacidad calorífica depende además de la masa total del cuerpo. La calorimetría se basa en balances de energía: el calor cedido por unos cuerpos es igual al calor absorbido por otros si el sistema está idealmente aislado. Estos conceptos se usan para estimar energía de calentamiento, enfriamiento y control de calidad térmica. El sistema que se elige determina qué intercambios se consideran. La energía cedida y absorbida se relacionan mediante un balance con una convención de signos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d023": {
+    "id": "d023",
+    "clase": 1,
+    "titulo": "5.1 Balance de mezcla en un sistema aislado",
+    "guion": "El objetivo de este apartado es interpretar Balance de mezcla en un sistema aislado. Si se mezclan dos porciones sin pérdidas y sin cambios de fase: La ecuación expresa que la suma algebraica de los intercambios de energía es cero para el sistema compuesto. Si también se calienta el recipiente, se incorpora \\(C_r(T_f-T_{r,0})\\). En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El sistema que se elige determina qué intercambios se consideran. La energía cedida y absorbida se relacionan mediante un balance con una convención de signos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d024": {
+    "id": "d024",
+    "clase": 1,
+    "titulo": "5.2 Ejemplo resuelto: calentamiento de producto",
+    "guion": "El objetivo de este apartado es interpretar Ejemplo resuelto: calentamiento de producto. Calcular la energía ideal necesaria para elevar 250 kg de leche desde 8 °C hasta 72 °C usando \\(c=3{,}9\\,\\mathrm{kJ/(kg\\,K)}\\). Este valor representa la energía absorbida por el producto, no necesariamente la energía que debe suministrar la instalación, que puede presentar pérdidas o recuperación de energía. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El sistema que se elige determina qué intercambios se consideran. La energía cedida y absorbida se relacionan mediante un balance con una convención de signos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d025": {
+    "id": "d025",
+    "clase": 1,
+    "titulo": "5.3 Interpretación microscópica de la capacidad calorífica",
+    "guion": "El objetivo de este apartado es interpretar Interpretación microscópica de la capacidad calorífica. Al recibir energía, un material puede aumentar los movimientos traslacionales, rotacionales y vibracionales de sus constituyentes, además de cambiar interacciones intermoleculares. Por ello, diferentes sustancias no requieren la misma energía para experimentar un incremento térmico idéntico. El calor específico expresa esa diferencia por unidad de masa ; la capacidad calorífica corresponde al cuerpo completo. La relación \\(Q=mc\\Delta T\\) supone \\(c\\) aproximadamente constante y un proceso sin cambio de fase. En termodinámica se distinguen, según el proceso, \\(c_p\\) y \\(c_v\\) ; en líquidos y sólidos las diferencias son a menudo menores que en gases, pero no siempre pueden ignorarse. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El sistema que se elige determina qué intercambios se consideran. La energía cedida y absorbida se relacionan mediante un balance con una convención de signos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d026": {
+    "id": "d026",
+    "clase": 1,
+    "titulo": "Ejemplo resuelto · Calor sensible, capacidad calorífica y calorimetría",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Mezcla calorimétrica Sistema: Se mezclan 0,60 kg de agua a 70 °C y 0,40 kg a 20 °C. Hipótesis y modelo: Recipiente idealmente aislado, sin evaporación; c igual y constante. Interacciones y fundamento: El cuerpo caliente cede energía y el frío la absorbe. Para el sistema de ambos, la suma de intercambios es cero. Desarrollo matemático: \\[0{,}60c(T_f-70)+0{,}40c(T_f-20)=0\\quad\\Rightarrow\\quad T_f=50\\ ^\\circ\\mathrm C\\] Resultado: Temperatura final de equilibrio: 50 °C. Interpretación y control: La temperatura está entre 20 y 70 °C y más cerca de la porción de mayor masa, lo cual constituye una comprobación física. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El sistema que se elige determina qué intercambios se consideran. La energía cedida y absorbida se relacionan mediante un balance con una convención de signos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d027": {
+    "id": "d027",
+    "clase": 1,
+    "titulo": "6. Cambios de fase y calor latente",
+    "guion": "El objetivo de este apartado es interpretar . Cambios de fase y calor latente. Durante la fusión, solidificación, vaporización o condensación, el sistema puede intercambiar energía sin variar apreciablemente su temperatura, siempre que la transformación ocurra a presión fija y en equilibrio. \\(L\\) representa el calor latente específico de la transición. Para el agua a presión atmosférica, como valores de referencia: \\(L_f\\approx334\\,\\mathrm{kJ/kg}\\) y \\(L_v\\approx2257\\,\\mathrm{kJ/kg}\\) cerca de 100 °C. Ambos dependen de condiciones de operación. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d028": {
+    "id": "d028",
+    "clase": 1,
+    "titulo": "Infografía 4. Cambios de fase: estados de la materia, calor latente y transformaciones físicas.",
+    "guion": "En esta diapositiva se estudia Infografía 4. Cambios de fase: estados de la materia, calor latente y transformaciones físicas. La infografía define qué es una fase, describe las características macroscópicas y microscópicas de los estados sólido, líquido y gaseoso, y resume los cambios de fase junto con la curva de calentamiento de una sustancia pura. En el sólido predominan las fuerzas de atracción; en el líquido existe un equilibrio entre cohesión y movilidad; en el gas predomina la agitación térmica. Fusión, vaporización y sublimación absorben calor; solidificación, condensación y deposición lo liberan. Durante una meseta de la curva de calentamiento la temperatura permanece aproximadamente constante mientras se intercambia calor latente. Los cambios de fase explican operaciones como congelación, ebullición, secado, evaporación y condensación en procesos alimentarios. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d029": {
+    "id": "d029",
+    "clase": 1,
+    "titulo": "6.1 ¿Qué son los estados de agregación y qué entendemos por fase?",
+    "guion": "El objetivo de este apartado es interpretar ¿Qué son los estados de agregación y qué entendemos por fase?. La materia está constituida por partículas —átomos, moléculas o iones— que poseen energía y ejercen interacciones entre sí. A escala macroscópica, esas interacciones originan distintos estados de agregación : sólido, líquido y gaseoso. Cada uno presenta una combinación característica de forma, volumen, movilidad y respuesta a la compresión. En termodinámica se utiliza también el concepto de fase : una región de un sistema que es físicamente homogénea y posee propiedades intensivas uniformes en equilibrio. Estado de agregación y fase no son estrictamente sinónimos : un sistema puede tener dos fases líquidas que no se mezclan, como aceite y agua; también puede presentar distintas fases sólidas. Para introducir el tema estudiaremos las fases sólida, líquida y gaseosa de una sustancia pura. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d030": {
+    "id": "d030",
+    "clase": 1,
+    "titulo": "6.2 Estado sólido: estructura, movilidad y comportamiento mecánico",
+    "guion": "El objetivo de este apartado es interpretar Estado sólido: estructura, movilidad y comportamiento mecánico. Un sólido conserva, en condiciones ordinarias y sin cargas capaces de deformarlo, una forma y un volumen definidos. Sus partículas ocupan posiciones medias relativamente estables; en los sólidos cristalinos existe un orden espacial de largo alcance, mientras que en los amorfos (por ejemplo, el vidrio) no existe ese orden cristalino. En ambos casos las partículas pueden vibrar y el material almacena energía interna. Fundamentación microscópica. Las interacciones entre partículas son suficientemente intensas para impedir que se desplacen libremente unas respecto de otras. La energía térmica excita sus vibraciones, pero en condiciones normales no elimina la estructura que caracteriza al sólido. Por eso puede resistir esfuerzos de corte, a diferencia de un fluido en reposo. Interpretación termodinámica. Para una sustancia pura, a temperatura y presión fijadas, el estado sólido estable es aquel que presenta el menor potencial de Gibbs específico frente a las otras fases disponibles. Al aumentar la temperatura, aumenta la contribución entrópica a la estabilidad, lo que puede favorecer la fusión. La presión también puede modificar la temperatura de equilibrio entre fases. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d031": {
+    "id": "d031",
+    "clase": 1,
+    "titulo": "6.3 Estado líquido: cohesión y capacidad de fluir",
+    "guion": "El objetivo de este apartado es interpretar Estado líquido: cohesión y capacidad de fluir. Un líquido posee un volumen aproximadamente definido, pero no una forma propia: se adapta al recipiente y presenta una superficie libre cuando está en contacto con un gas y sometido a la gravedad. Su densidad es relativamente elevada y su compresibilidad suele ser pequeña comparada con la de los gases. Fundamentación microscópica. Las moléculas permanecen próximas y siguen experimentando fuerzas atractivas y repulsivas, pero pueden cambiar de vecinos y desplazarse unas respecto de otras. Esto explica la fluidez y también que existan viscosidad, tensión superficial y difusión. Un líquido no es un conjunto de partículas aisladas como un gas ideal. Interpretación termodinámica. El líquido puede ser la fase estable en cierto intervalo de temperatura y presión. El pasaje a vapor requiere vencer parcialmente las interacciones entre moléculas y producir una gran variación de volumen. Cuando líquido y vapor coexisten en equilibrio, ambas fases tienen la misma temperatura y presión y el mismo potencial químico de la sustancia. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d032": {
+    "id": "d032",
+    "clase": 1,
+    "titulo": "6.4 Estado gaseoso: expansión, presión y compresibilidad",
+    "guion": "El objetivo de este apartado es interpretar Estado gaseoso: expansión, presión y compresibilidad. Un gas no conserva forma ni volumen propios: se expande hasta ocupar el volumen disponible en el recipiente. Es mucho más compresible que un líquido o sólido, y su densidad depende marcadamente de la presión y de la temperatura. Fundamentación microscópica. En un gas diluido, las partículas están separadas por distancias relativamente grandes y se desplazan continuamente. La presión sobre las paredes se origina en los intercambios de cantidad de movimiento durante sus choques con ellas. Para un gas ideal monoatómico , la energía cinética media de traslación depende de la temperatura absoluta: Esta expresión no describe por sí sola toda la energía interna de gases moleculares, líquidos o sólidos; en ellos pueden intervenir rotaciones, vibraciones e interacciones. Interpretación termodinámica. El modelo de gas ideal permite relacionar las variables de estado: En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d033": {
+    "id": "d033",
+    "clase": 1,
+    "titulo": "6.4 Estado gaseoso: expansión, presión y compresibilidad · ampliación",
+    "guion": "El objetivo de este apartado es interpretar Estado gaseoso: expansión, presión y compresibilidad ampliación. Interpretación termodinámica. El modelo de gas ideal permite relacionar las variables de estado: Donde \\(p\\) es presión absoluta, \\(V\\) volumen, \\(n\\) cantidad de sustancia, \\(R\\) constante universal de los gases y \\(T\\) temperatura en kelvin. La ecuación es una aproximación útil para gases suficientemente diluidos; el vapor próximo a condensar puede requerir modelos de gas real y datos de saturación. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d034": {
+    "id": "d034",
+    "clase": 1,
+    "titulo": "6.5 Comparación macroscópica y explicación física",
+    "guion": "El objetivo de este apartado es interpretar Comparación macroscópica y explicación física. Una precaución: decir que en el sólido «dominan las atracciones» y en el gas «domina la agitación» sirve como primera aproximación didáctica. La descripción rigurosa de qué fase es estable requiere considerar conjuntamente la energía, la entropía y las condiciones de presión y temperatura. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d035": {
+    "id": "d035",
+    "clase": 1,
+    "titulo": "6.6 ¿Por qué se producen los cambios de fase? Enfoque termodinámico",
+    "guion": "El objetivo de este apartado es interpretar ¿Por qué se producen los cambios de fase? Enfoque termodinámico. Al suministrar energía a una sustancia, esta puede aumentar su temperatura o cambiar de fase. En el calor sensible , predomina el cambio de temperatura dentro de una misma fase. Durante una transición de fase de una sustancia pura en equilibrio a presión constante, parte de la energía intercambiada modifica su organización e interacciones microscópicas y la proporción de cada fase, mientras la temperatura de transición permanece constante. Desde la termodinámica, para una sustancia pura en equilibrio a presión y temperatura impuestas, la fase estable es la de menor energía libre de Gibbs molar (equivalente al potencial químico). En la coexistencia de dos fases se cumple: La energía libre de Gibbs se expresa como \\(G=H-TS\\), donde \\(H\\) es la entalpía y \\(S\\) la entropía. El término \\(TS\\) explica por qué aumentar la temperatura puede favorecer fases con mayor libertad de movimiento molecular. El valor de la presión modifica también la estabilidad de las fases; por eso el agua no hierve siempre a 100 °C. Fusión: sólido → líquido, absorbe energía; solidificación: líquido → sólido, la libera. Vaporización: líquido → gas, absorbe energía. La evaporación sucede en la superficie y puede ocurrir sin ebullición; la ebullición ocurre cuando se forman burbujas de vapor estables dentro del líquido. Condensación: gas → líquido, libera energía. Sublimación: sólido → gas, absorbe energía; deposición: gas → sólido, libera energía. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d036": {
+    "id": "d036",
+    "clase": 1,
+    "titulo": "6.6 ¿Por qué se producen los cambios de fase? Enfoque termodinámico · ampliación",
+    "guion": "El objetivo de este apartado es interpretar ¿Por qué se producen los cambios de fase? Enfoque termodinámico ampliación. Fusión: sólido → líquido, absorbe energía; solidificación: líquido → sólido, la libera. Vaporización: líquido → gas, absorbe energía. La evaporación sucede en la superficie y puede ocurrir sin ebullición; la ebullición ocurre cuando se forman burbujas de vapor estables dentro del líquido. Condensación: gas → líquido, libera energía. Sublimación: sólido → gas, absorbe energía; deposición: gas → sólido, libera energía. Alimentos reales: los productos alimentarios son mezclas. La presencia de sales, azúcares, grasas, proteínas y agua ligada hace que congelación, fusión y ebullición no siempre ocurran a una sola temperatura; frecuentemente se distribuyen en intervalos y pueden coexistir varias fases. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d037": {
+    "id": "d037",
+    "clase": 1,
+    "titulo": "6.7 Calentamiento con distintas etapas",
+    "guion": "El objetivo de este apartado es interpretar Calentamiento con distintas etapas. Para hielo inicialmente bajo 0 °C que se convierte en agua líquida a temperatura positiva: La suma se construye etapa por etapa ; no es correcto usar una única diferencia térmica atravesando la transformación de fase. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d038": {
+    "id": "d038",
+    "clase": 1,
+    "titulo": "6.9 Cómo interpretar una curva de calentamiento",
+    "guion": "El objetivo de este apartado es interpretar Cómo interpretar una curva de calentamiento. La pendiente de cada tramo de una gráfica \\(T\\) en función de \\(Q\\) vale aproximadamente \\(dT/dQ=1/(mc)\\) . Una pendiente pequeña indica mayor capacidad térmica total. La longitud horizontal de una meseta representa calor latente; no significa ausencia de transferencia de energía . En mezclas alimentarias reales, como helados, salsas o productos con solutos, el cambio de fase puede ocurrir en un intervalo de temperaturas. La curva ideal de agua pura es una referencia para razonar, no una predicción completa de congelación de alimentos. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d039": {
+    "id": "d039",
+    "clase": 1,
+    "titulo": "Ejemplo resuelto · Cambios de fase y calor latente",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo 6-8 ampliado · Del hielo a −15 °C al vapor sobrecalentado a 120 °C Este recorrido enlaza las tres fases del agua y sus transiciones. Se parte de hielo a −15 °C y se llega a vapor sobrecalentado a 120 °C , a presión aproximadamente constante de 1 atm . Es una situación idealizada de calentamiento cuasiestático; a 1 atm el agua pura funde cerca de 0 °C y hierve cerca de 100 °C. Los valores térmicos utilizados son orientativos y no contemplan pérdidas ni energía del recipiente. Sistema: 1,00 kg de H₂O. Interacción: energía transferida desde una fuente térmica. Hipótesis: fases homogéneas en cada tramo, presión constante, capacidad calorífica media constante dentro de cada fase y transiciones completas en equilibrio. ¿Por qué no puede usarse una sola ecuación? El calor específico cambia entre hielo, agua líquida y vapor, y durante fusión y vaporización el intercambio energético se dedica principalmente a cambiar la fase. Por eso se descompone el recorrido en cinco etapas. A presión constante el calor latente se vincula con la variación de entalpía durante el cambio de fase. \\[c_h=2{,}10\\;\\frac{\\mathrm{kJ}}{\\mathrm{kg\\,K}},\\quad c_a=4{,}18\\;\\frac{\\mathrm{kJ}}{\\mathrm{kg\\,K}},\\quad c_v=2{,}00\\;\\frac{\\mathrm{kJ}}{\\mathrm{kg\\,K}}\\]\\[L_f=334\\;\\mathrm{kJ/kg},\\qquad L_v=2257\\;\\mathrm{kJ/kg}\\] Etapa Modelo físico Ecuación Q de la etapa (kJ) Q acumulado (kJ) 1. Hielo: −15 → 0 °C Calor sensible en sólido \\(Q_1=m c_h(0-(-15))\\) 31,5 31,5 2. Fusión a 0 °C Calor latente de fusión. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d040": {
+    "id": "d040",
+    "clase": 1,
+    "titulo": "Ejemplo integral · De hielo a vapor",
+    "guion": "Se parte de un kilogramo de hielo a menos quince grados Celsius y se supone presión aproximadamente atmosférica, propiedades constantes en cada tramo y pérdidas despreciables. Primero se calienta el hielo hasta cero grados. Luego se aporta calor latente de fusión y coexisten hielo y agua. La fase líquida aumenta hasta cien grados; sigue la vaporización a temperatura aproximadamente constante. Por último se sobrecalienta el vapor hasta ciento veinte grados. Se suman cinco aportes energéticos diferenciados. El calor de vaporización domina el consumo total. No corresponde usar una sola capacidad calorífica en todo el recorrido."
+  },
+  "d041": {
+    "id": "d041",
+    "clase": 1,
+    "titulo": "Evaluación formativa · ¿Qué significa suministrar calor?",
+    "guion": "Las preguntas se utilizan como instancia formativa y no solo para verificar fórmulas. Se pide justificar el sistema elegido, reconocer los supuestos, explicar la causa física del comportamiento y anticipar qué sucede cuando se altera una variable de operación. Es recomendable discutir las respuestas antes de mostrar cualquier cálculo."
+  },
+  "d042": {
+    "id": "d042",
+    "clase": 1,
+    "titulo": "Cierre de clase 1",
+    "guion": "Para cerrar la clase 1, se retoman las preguntas de consolidación y se explican las relaciones entre los mecanismos físicos. Se propone revisar los ejercicios del banco de la unidad correspondientes a los temas estudiados, identificar el modelo en cada enunciado y controlar la coherencia dimensional de los resultados."
+  }
+}

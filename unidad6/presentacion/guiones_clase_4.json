@@ -1,0 +1,164 @@
+{
+  "d095": {
+    "id": "d095",
+    "clase": 4,
+    "titulo": "Clase 4 · Procesos alimentarios",
+    "guion": "Comienza la clase 4 de la Unidad 6. Intercambiadores, pasteurización, enfriamiento y casos integradores. Se recuperan los conocimientos necesarios y se explica qué fenómenos se modelarán, cuáles son las hipótesis simplificativas y cómo se relacionan con equipos reales. El objetivo es conectar los fundamentos de termodinámica con situaciones concretas de tecnología de alimentos."
+  },
+  "d096": {
+    "id": "d096",
+    "clase": 4,
+    "titulo": "15. Intercambiadores de calor",
+    "guion": "El objetivo de este apartado es interpretar . Intercambiadores de calor. Un intercambiador permite transferir energía entre dos corrientes a temperaturas distintas, generalmente separadas por una pared. Son comunes los equipos de placas, doble tubo, carcasa y tubos, y superficies raspadas. El balance de cada corriente no equivale a la ley de transferencia. Ambas relaciones son necesarias para dimensionar el área. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d097": {
+    "id": "d097",
+    "clase": 4,
+    "titulo": "15.1 Balances por corriente",
+    "guion": "El objetivo de este apartado es interpretar Balances por corriente. Para fluidos monofásicos, flujos estacionarios y calor específico aproximadamente constante: Si no hay pérdidas al ambiente: \\(\\dot Q_h=\\dot Q_c=\\dot Q\\). Las letras \\(e\\) y \\(s\\) representan entrada y salida. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El balance de cada corriente no equivale a la ley de transferencia. Ambas relaciones son necesarias para dimensionar el área. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d098": {
+    "id": "d098",
+    "clase": 4,
+    "titulo": "15.3 Diferencia media logarítmica de temperatura (DMLT)",
+    "guion": "El objetivo de este apartado es interpretar Diferencia media logarítmica de temperatura (DMLT). Cuando la diferencia de temperaturas varía a lo largo del equipo, para condiciones apropiadas de flujo y propiedades constantes: En contracorriente , \\(\\Delta T_1=T_{h,e}-T_{c,s}\\) y \\(\\Delta T_2=T_{h,s}-T_{c,e}\\). En paralelo , \\(\\Delta T_1=T_{h,e}-T_{c,e}\\) y \\(\\Delta T_2=T_{h,s}-T_{c,s}\\). Las dos diferencias deben ser positivas para el modelo sin inversión térmica local. Si son iguales, la DMLT es ese mismo valor. En configuraciones multipaso se requiere un factor de corrección \\(F\\): \\(\\dot Q=UA F\\Delta T_{lm}\\). El método no sustituye el balance de energía de cada corriente. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El balance de cada corriente no equivale a la ley de transferencia. Ambas relaciones son necesarias para dimensionar el área. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d099": {
+    "id": "d099",
+    "clase": 4,
+    "titulo": "15.4 Ejemplo resuelto: área de intercambiador",
+    "guion": "El objetivo de este apartado es interpretar Ejemplo resuelto: área de intercambiador. En contracorriente, un fluido caliente entra a 90 °C y sale a 60 °C; el frío ingresa a 20 °C y sale a 50 °C. La potencia intercambiada es 50 kW y \\(U=1000\\,\\mathrm{W/(m^2\\,K)}\\). El área ideal calculada no contempla ensuciamiento progresivo ni márgenes de diseño. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El balance de cada corriente no equivale a la ley de transferencia. Ambas relaciones son necesarias para dimensionar el área. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d100": {
+    "id": "d100",
+    "clase": 4,
+    "titulo": "Simulación 4 · Balance de un intercambiador",
+    "guion": "En esta diapositiva se estudia Simulación 4 · Balance de un intercambiador. Se supone una corriente caliente de agua equivalente y una corriente fría con \\(c_p=3{,}9\\,\\mathrm{kJ/(kg\\,K)}\\). No se resuelve el perfil local ni se comprueba el área disponible: el cálculo muestra límites energéticos y diferencias terminales. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El balance de cada corriente no equivale a la ley de transferencia. Ambas relaciones son necesarias para dimensionar el área. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d101": {
+    "id": "d101",
+    "clase": 4,
+    "titulo": "15.5 Interpretar el gradiente térmico y el ensuciamiento",
+    "guion": "El objetivo de este apartado es interpretar Interpretar el gradiente térmico y el ensuciamiento. El intercambio ocurre porque las dos corrientes presentan una diferencia local de temperatura a lo largo del equipo. En contracorriente suele aprovecharse mejor ese potencial, aunque la selección depende de restricciones sanitarias, pérdida de carga, viscosidad y geometría. La DMLT es una media adecuada de ese salto cuando se cumplen las hipótesis del método. Los depósitos sobre la superficie forman resistencias térmicas adicionales y pueden reducir \\(U\\) . Por ello, una misma temperatura de entrada y un mismo caudal no garantizan idéntico desempeño después de un período de operación. El diseño sanitario, la limpieza CIP y los límites de pérdida de carga deben estudiarse junto con el balance térmico. El balance de cada corriente no equivale a la ley de transferencia. Ambas relaciones son necesarias para dimensionar el área. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d102": {
+    "id": "d102",
+    "clase": 4,
+    "titulo": "Ejemplo resuelto · Intercambiadores de calor",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Balance entre dos corrientes Sistema: Agua caliente 1 kg/s baja de 80 a 60 °C; agua fría 2 kg/s entra a 20 °C. Hipótesis y modelo: Mismo c=4,18 kJ/(kg·K); equipo adiabático al entorno, sin cambio de fase. Interacciones y fundamento: La energía cedida por el agua caliente debe ser absorbida por el agua fría. Desarrollo matemático: \\[\\dot Q=1(4{,}18)(80-60)=83{,}6\\ \\mathrm{kW};\\quad T_{f,s}=20+\\frac{83{,}6}{2(4{,}18)}=30\\ ^\\circ\\mathrm C\\] Resultado: Potencia intercambiada: 83,6 kW; salida fría: 30 °C. Interpretación y control: El resultado cumple el balance y no excede la temperatura caliente de entrada. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El balance de cada corriente no equivale a la ley de transferencia. Ambas relaciones son necesarias para dimensionar el área. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d103": {
+    "id": "d103",
+    "clase": 4,
+    "titulo": "16. Pasteurización: física del calentamiento",
+    "guion": "El objetivo de este apartado es interpretar . Pasteurización: física del calentamiento. La pasteurización es un tratamiento térmico diseñado para disminuir riesgos microbiológicos y/o la carga microbiana según el producto y sus condiciones. En términos físicos, involucra el calentamiento, la transferencia hacia el punto térmicamente más desfavorable y la permanencia en condiciones prescritas. Alcanzar una temperatura medida no demuestra, por sí solo, que se haya logrado la inocuidad. Una temperatura objetivo y un balance térmico no garantizan por sí solos la inocuidad: debe verificarse también el tiempo y el criterio microbiológico. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d104": {
+    "id": "d104",
+    "clase": 4,
+    "titulo": "16.1 Carga térmica sensible",
+    "guion": "El objetivo de este apartado es interpretar Carga térmica sensible. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Una temperatura objetivo y un balance térmico no garantizan por sí solos la inocuidad: debe verificarse también el tiempo y el criterio microbiológico. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d105": {
+    "id": "d105",
+    "clase": 4,
+    "titulo": "16.2 Tiempo de residencia en una sección de retención",
+    "guion": "El objetivo de este apartado es interpretar Tiempo de residencia en una sección de retención. En una primera aproximación de flujo ideal, usando el caudal volumétrico \\(\\dot V\\) y el volumen efectivo \\(V_r\\): En equipos reales, la distribución de tiempos de residencia, la velocidad máxima local, la geometría y el régimen del flujo deben considerarse de acuerdo con criterios técnicos y regulatorios aplicables. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Una temperatura objetivo y un balance térmico no garantizan por sí solos la inocuidad: debe verificarse también el tiempo y el criterio microbiológico. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d106": {
+    "id": "d106",
+    "clase": 4,
+    "titulo": "16.3 Recuperación de calor",
+    "guion": "El objetivo de este apartado es interpretar Recuperación de calor. Si una corriente fría recupera una fracción \\(r\\) del salto térmico ideal desde la corriente tratada, en un modelo didáctico simplificado: Esta definición de \\(r\\) es didáctica ; la efectividad rigurosa de un intercambiador se define mediante \\(\\dot Q/\\dot Q_{\\max}\\), considerando las capacidades caloríficas de ambas corrientes. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Una temperatura objetivo y un balance térmico no garantizan por sí solos la inocuidad: debe verificarse también el tiempo y el criterio microbiológico. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d107": {
+    "id": "d107",
+    "clase": 4,
+    "titulo": "Simulación 5 · Potencia, regeneración y retención",
+    "guion": "En esta diapositiva se estudia Simulación 5 · Potencia, regeneración y retención. Advertencia: el control simula energía y volumen nominal. No valida tratamiento microbiológico, normativa sanitaria ni distribución de tiempos de residencia. La temperatura objetivo y el tiempo son únicamente parámetros didácticos elegidos por el usuario. Una temperatura objetivo y un balance térmico no garantizan por sí solos la inocuidad: debe verificarse también el tiempo y el criterio microbiológico. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d108": {
+    "id": "d108",
+    "clase": 4,
+    "titulo": "16.4 Ejemplo integrador resuelto",
+    "guion": "El objetivo de este apartado es interpretar Ejemplo integrador resuelto. Una línea procesa 1800 kg/h con \\(c_p=3{,}9\\,\\mathrm{kJ/(kg\\,K)}\\). El producto entra a 10 °C, se desea elevarlo a 72 °C y se precalienta por recuperación hasta 53,4 °C. Punto 2 — Hipótesis: líquido monofásico, \\(c_p\\) constante, sin pérdidas, sin variaciones de energía cinética y potencial. Punto 3 — Interacciones: entrada y salida de masa; ingreso de potencia térmica desde el servicio caliente. La sección final demanda aproximadamente 36,3 kW frente a 120,9 kW sin precalentamiento, en el modelo ideal. Se ha desplazado parte de la carga hacia una transferencia interna regenerativa. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Una temperatura objetivo y un balance térmico no garantizan por sí solos la inocuidad: debe verificarse también el tiempo y el criterio microbiológico. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d109": {
+    "id": "d109",
+    "clase": 4,
+    "titulo": "16.4 Ejemplo integrador resuelto · ampliación",
+    "guion": "El objetivo de este apartado es interpretar Ejemplo integrador resuelto ampliación. La sección final demanda aproximadamente 36,3 kW frente a 120,9 kW sin precalentamiento, en el modelo ideal. Se ha desplazado parte de la carga hacia una transferencia interna regenerativa. Una temperatura objetivo y un balance térmico no garantizan por sí solos la inocuidad: debe verificarse también el tiempo y el criterio microbiológico. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d110": {
+    "id": "d110",
+    "clase": 4,
+    "titulo": "16.5 Diferenciar física térmica y letalidad microbiológica",
+    "guion": "El objetivo de este apartado es interpretar Diferenciar física térmica y letalidad microbiológica. El modelo \\(\\dot Q=\\dot m c_p\\Delta T\\) permite calcular la carga energética , pero por sí solo no certifica que un producto ha alcanzado una condición sanitaria suficiente. La pasteurización efectiva depende del binomio temperatura–tiempo, del microorganismo objetivo, de la composición del alimento, de la distribución térmica, de la residencia hidráulica y de la verificación y validación del equipo. La relación \\(V=\\dot V t\\) proporciona un volumen nominal ideal de retención. En flujo real, la velocidad local no siempre es uniforme: el tiempo mínimo de residencia puede ser distinto del tiempo obtenido a partir del caudal medio. Por ello, la cifra obtenida es una estimación física preliminar y no una validación sanitaria. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Una temperatura objetivo y un balance térmico no garantizan por sí solos la inocuidad: debe verificarse también el tiempo y el criterio microbiológico. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d111": {
+    "id": "d111",
+    "clase": 4,
+    "titulo": "Ejemplo resuelto · Pasteurización: física del calentamiento",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Carga térmica de pasteurización Sistema: Leche con flujo de 900 kg/h calentada desde 10 °C hasta 72 °C. Hipótesis y modelo: Calor específico c=3,9 kJ/(kg·K), sin regeneración ni pérdidas. Interacciones y fundamento: El balance de entalpía sensible expresa la energía requerida por el producto. Desarrollo matemático: \\[\\dot Q=\\frac{900}{3600}(3{,}9)(72-10)=60{,}45\\ \\mathrm{kW}\\] Resultado: Potencia ideal requerida: 60,45 kW. Interpretación y control: El valor calcula calentamiento, no valida por sí solo la letalidad microbiológica: faltan tiempo de retención, flujo y requisitos del proceso. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Una temperatura objetivo y un balance térmico no garantizan por sí solos la inocuidad: debe verificarse también el tiempo y el criterio microbiológico. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d112": {
+    "id": "d112",
+    "clase": 4,
+    "titulo": "17. Enfriamiento y cadena de frío",
+    "guion": "El objetivo de este apartado es interpretar . Enfriamiento y cadena de frío. En el enfriamiento de alimentos aparecen al menos tres contribuciones energéticas: la energía sensible que se extrae del producto, las entradas de calor por paredes e infiltración, y las cargas auxiliares (ventiladores, iluminación, apertura de puertas, etc.). Durante la congelación se agrega la energía asociada al cambio de fase. Si se retiran 300 kg de alimento con \\(c_p=3{,}6\\,\\mathrm{kJ/(kg\\,K)}\\) desde 25 °C hasta 4 °C: Si se debe realizar idealmente en 3 horas, la potencia térmica media mínima asociada al producto es: La potencia nominal del sistema frigorífico se define con un análisis de cargas más amplio, márgenes y condiciones operativas, no solo con este cociente. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La temperatura en la superficie y la temperatura en el centro del producto no coinciden necesariamente durante el enfriamiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d113": {
+    "id": "d113",
+    "clase": 4,
+    "titulo": "17.1 ¿Por qué el centro del alimento se enfría más lento?",
+    "guion": "El objetivo de este apartado es interpretar ¿Por qué el centro del alimento se enfría más lento?. En productos sólidos o empaquetados, la energía debe recorrer una distancia desde el centro hacia la superficie por conducción, antes de ser transferida al aire o al líquido de enfriamiento por convección. El tamaño, espesor y forma influyen fuertemente en el tiempo necesario. Esto explica por qué un cálculo de energía total no determina, por sí solo, el tiempo de proceso. La temperatura en la superficie y la temperatura en el centro del producto no coinciden necesariamente durante el enfriamiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d114": {
+    "id": "d114",
+    "clase": 4,
+    "titulo": "17.2 Balance transitorio frente a la temperatura del centro",
+    "guion": "El objetivo de este apartado es interpretar Balance transitorio frente a la temperatura del centro. En un alimento relativamente grueso, la temperatura superficial puede descender rápidamente mientras su centro conserva una temperatura mayor. El gradiente interno impulsa la conducción, y la convección exterior extrae la energía al medio refrigerante. En ese caso no alcanza con un único valor de temperatura para caracterizar todo el producto. La constante de tiempo de la aproximación concentrada aumenta con la masa y el calor específico y disminuye al aumentar \\(hA\\) ; esta interpretación es útil para objetos pequeños o muy conductores. Para piezas grandes o poco conductoras, el proceso depende de difusividad térmica \\(a=k/(\\rho c_p)\\) y tamaño característico, y requiere un modelo espacial. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La temperatura en la superficie y la temperatura en el centro del producto no coinciden necesariamente durante el enfriamiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d115": {
+    "id": "d115",
+    "clase": 4,
+    "titulo": "Ejemplo resuelto · Enfriamiento y cadena de frío",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Enfriamiento exponencial Sistema: Producto idealizado a 70 °C colocado en ambiente a 5 °C. Hipótesis y modelo: Modelo de capacidad concentrada, constante de tiempo τ=20 min y temperatura inicial uniforme. Interacciones y fundamento: El calor intercambiado por convección hace disminuir la diferencia de temperatura de forma exponencial. Desarrollo matemático: \\[T(t)=5+(70-5)e^{-t/20};\\quad T(40)=5+65e^{-2}\\approx13{,}8\\ ^\\circ\\mathrm C\\] Resultado: Después de 40 min: 13,8 °C. Interpretación y control: Para productos grandes el interior puede conservar mayor temperatura: verificar criterio de Biot antes de aplicar este modelo. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La temperatura en la superficie y la temperatura en el centro del producto no coinciden necesariamente durante el enfriamiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d116": {
+    "id": "d116",
+    "clase": 4,
+    "titulo": "18. Caso de estudio: tratamiento térmico con recuperación",
+    "guion": "El objetivo de este apartado es interpretar . Caso de estudio: tratamiento térmico con recuperación. Se analiza conceptualmente una línea de bebida líquida que ingresa fría, se precalienta en un regenerador, se calienta en una sección final, atraviesa un tramo de retención y se enfría antes del envasado. La descripción es didáctica; el proceso sanitario concreto depende de las características de la bebida. La instalación real combina balances, resistencias, recuperación de calor, caudales y restricciones de operación. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d117": {
+    "id": "d117",
+    "clase": 4,
+    "titulo": "Preguntas guía para el análisis técnico",
+    "guion": "En esta diapositiva se estudia Preguntas guía para el análisis técnico. ¿Cuál es la potencia térmica absorbida por el producto entre cada par de temperaturas? ¿Cómo se modifica la potencia externa si aumenta la recuperación de energía? ¿Qué diferencias hay entre volumen nominal de retención y tiempo mínimo garantizado? Identificar los puntos de medición de temperatura y analizar los efectos de los retardos de los sensores. ¿Cómo influye el ensuciamiento del intercambiador en su coeficiente global? ¿Qué carga se impone al sistema frigorífico si el producto llega más caliente de lo previsto? La instalación real combina balances, resistencias, recuperación de calor, caudales y restricciones de operación. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d118": {
+    "id": "d118",
+    "clase": 4,
+    "titulo": "Ejemplo resuelto · Caso de estudio: tratamiento térmico con recuperación",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Ahorro por regeneración Sistema: Leche con caudal de 1000 kg/h se precalienta de 8 a 52 °C recuperando energía del producto caliente. Hipótesis y modelo: c=3,9 kJ/(kg·K), sin pérdidas adicionales en la etapa de recuperación. Interacciones y fundamento: La energía recuperada disminuye la demanda de calentamiento externo. Desarrollo matemático: \\[\\dot Q_{rec}=\\frac{1000}{3600}(3{,}9)(52-8)\\approx47{,}7\\ \\mathrm{kW}\\] Resultado: Recuperación térmica aproximada: 47,7 kW. Interpretación y control: El ahorro energético depende de la temperatura disponible de la corriente caliente y de la efectividad real del intercambiador. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La instalación real combina balances, resistencias, recuperación de calor, caudales y restricciones de operación. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d119": {
+    "id": "d119",
+    "clase": 4,
+    "titulo": "21. Síntesis de relaciones fundamentales",
+    "guion": "El objetivo de este apartado es interpretar . Síntesis de relaciones fundamentales. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d120": {
+    "id": "d120",
+    "clase": 4,
+    "titulo": "Actividad integradora · Línea de pasteurización",
+    "guion": "Las preguntas se utilizan como instancia formativa y no solo para verificar fórmulas. Se pide justificar el sistema elegido, reconocer los supuestos, explicar la causa física del comportamiento y anticipar qué sucede cuando se altera una variable de operación. Es recomendable discutir las respuestas antes de mostrar cualquier cálculo."
+  },
+  "d121": {
+    "id": "d121",
+    "clase": 4,
+    "titulo": "Cierre de clase 4",
+    "guion": "Para cerrar la clase 4, se retoman las preguntas de consolidación y se explican las relaciones entre los mecanismos físicos. Se propone revisar los ejercicios del banco de la unidad correspondientes a los temas estudiados, identificar el modelo en cada enunciado y controlar la coherencia dimensional de los resultados."
+  }
+}

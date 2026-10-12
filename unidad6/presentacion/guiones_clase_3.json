@@ -1,0 +1,176 @@
+{
+  "d066": {
+    "id": "d066",
+    "clase": 3,
+    "titulo": "Clase 3 · Leyes y ciclos",
+    "guion": "Comienza la clase 3 de la Unidad 6. Primera ley, segunda ley, entropía, ciclos y refrigeración. Se recuperan los conocimientos necesarios y se explica qué fenómenos se modelarán, cuáles son las hipótesis simplificativas y cómo se relacionan con equipos reales. El objetivo es conectar los fundamentos de termodinámica con situaciones concretas de tecnología de alimentos."
+  },
+  "d067": {
+    "id": "d067",
+    "clase": 3,
+    "titulo": "12. Primera ley de la termodinámica",
+    "guion": "El objetivo de este apartado es interpretar . Primera ley de la termodinámica. La primera ley expresa la conservación de la energía. Para un sistema cerrado , con la convención de calor positivo cuando ingresa al sistema y trabajo positivo cuando el sistema lo realiza: Si los cambios de energía cinética y potencial macroscópica son despreciables: En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley expresa conservación de energía: las transferencias por calor, trabajo y masa se consideran según el sistema elegido. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d068": {
+    "id": "d068",
+    "clase": 3,
+    "titulo": "12.1 Trabajo de expansión",
+    "guion": "El objetivo de este apartado es interpretar Trabajo de expansión. Para un proceso cuasiestático con presión externa equilibrada con el sistema: Si la presión se mantiene constante, \\(W=p(V_f-V_i)\\). El área bajo la curva de un diagrama \\(p-V\\) representa el trabajo de expansión. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley expresa conservación de energía: las transferencias por calor, trabajo y masa se consideran según el sistema elegido. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d069": {
+    "id": "d069",
+    "clase": 3,
+    "titulo": "12.3 Sistemas abiertos: volúmenes de control",
+    "guion": "El objetivo de este apartado es interpretar Sistemas abiertos: volúmenes de control. En pasteurizadores y equipos continuos entra y sale materia. La ecuación general de energía para un volumen de control en régimen estacionario es: La letra \\(h\\) aquí representa entalpía específica [J/kg]; no debe confundirse con \\(h\\), coeficiente convectivo [W/(m²·K)], que aparece en otro contexto. Si el líquido es aproximadamente incompresible, se desprecian cambios cinéticos, potenciales y trabajo de eje, y el calor específico permanece aproximadamente constante: En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley expresa conservación de energía: las transferencias por calor, trabajo y masa se consideran según el sistema elegido. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d070": {
+    "id": "d070",
+    "clase": 3,
+    "titulo": "12.4 Ejemplo: potencia de calentamiento continuo",
+    "guion": "El objetivo de este apartado es interpretar Ejemplo: potencia de calentamiento continuo. Una línea procesa 1800 kg/h de un producto con \\(c_p=3{,}9\\,\\mathrm{kJ/(kg\\,K)}\\), desde 10 hasta 72 °C. En operación real debe agregarse el efecto del rendimiento global de los servicios térmicos y de cualquier recuperación de energía. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley expresa conservación de energía: las transferencias por calor, trabajo y masa se consideran según el sistema elegido. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d071": {
+    "id": "d071",
+    "clase": 3,
+    "titulo": "12.5 ¿Qué significa conservar la energía?",
+    "guion": "El objetivo de este apartado es interpretar ¿Qué significa conservar la energía?. La primera ley no asegura que el sistema permanezca a la misma temperatura: asegura que la variación de energía total sea igual a la energía neta transferida por calor, trabajo y transporte de materia. Es indispensable declarar un sistema y sus fronteras antes de asignar signos. No intercambia masa. Puede intercambiar calor y trabajo. La masa cruza las fronteras y transporta entalpía y energía mecánica. Modelo ideal sin intercambio de masa ni de energía con el entorno. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley expresa conservación de energía: las transferencias por calor, trabajo y masa se consideran según el sistema elegido. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d072": {
+    "id": "d072",
+    "clase": 3,
+    "titulo": "12.5 ¿Qué significa conservar la energía? · ampliación",
+    "guion": "El objetivo de este apartado es interpretar ¿Qué significa conservar la energía? ampliación. Modelo ideal sin intercambio de masa ni de energía con el entorno. Con la convención de trabajo positivo realizado por el sistema , \\(\\Delta U=Q-W\\) para un sistema cerrado sin otros cambios macroscópicos. Un calentador eléctrico dentro del sistema recibe energía como trabajo eléctrico; una resistencia atravesada por corriente no constituye automáticamente «calor de entrada» a través de la frontera. La primera ley expresa conservación de energía: las transferencias por calor, trabajo y masa se consideran según el sistema elegido. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d073": {
+    "id": "d073",
+    "clase": 3,
+    "titulo": "Ejemplo resuelto · Primera ley de la termodinámica",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Balance energético de un tanque Sistema: Tanque cerrado recibe 450 kJ de calor; un agitador realiza 80 kJ de trabajo sobre el producto. Hipótesis y modelo: Sin variaciones apreciables de energía cinética y potencial. Convención: trabajo realizado por el sistema positivo. Interacciones y fundamento: La primera ley establece que el cambio de energía interna depende del calor y el trabajo transferidos. Desarrollo matemático: \\[\\Delta U=Q-W_{\\mathrm{por\\ sistema}}=450-(-80)=530\\ \\mathrm{kJ}\\] Resultado: La energía interna aumenta 530 kJ. Interpretación y control: El trabajo del agitador entra al tanque: por eso se suma y no se resta. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley expresa conservación de energía: las transferencias por calor, trabajo y masa se consideran según el sistema elegido. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d074": {
+    "id": "d074",
+    "clase": 3,
+    "titulo": "13. Segunda ley de la termodinámica",
+    "guion": "El objetivo de este apartado es interpretar . Segunda ley de la termodinámica. La conservación de energía no basta para establecer si un proceso es espontáneo. El calor se transfiere espontáneamente de regiones calientes hacia regiones frías, pero el proceso inverso exige una intervención externa. El enunciado de Clausius establece que no es posible un proceso cuyo único efecto sea transferir calor de un cuerpo frío a uno caliente. El de Kelvin–Planck indica que ninguna máquina que opera en ciclo puede convertir íntegramente en trabajo el calor recibido de una sola fuente. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d075": {
+    "id": "d075",
+    "clase": 3,
+    "titulo": "Infografía 5. Resistencia térmica, primera ley, segunda ley y entropía.",
+    "guion": "En esta diapositiva se estudia Infografía 5. Resistencia térmica, primera ley, segunda ley y entropía. La infografía sintetiza tres niveles de análisis que en la unidad se complementan: la transferencia de calor mediante resistencias térmicas, la conservación de la energía expresada por la primera ley y la direccionalidad de los procesos establecida por la segunda ley y la entropía. La resistencia térmica permite modelar la dificultad que encuentra el calor para atravesar paredes y películas convectivas. La primera ley explica que el calor y el trabajo modifican la energía interna del sistema, sin crear ni destruir energía. La segunda ley determina el sentido espontáneo de los procesos y explica por qué toda máquina térmica tiene límites de eficiencia. La entropía cuantifica la irreversibilidad: en los procesos reales la entropía del universo aumenta. En tecnología de alimentos, estos conceptos aparecen en cámaras frigoríficas, intercambiadores, pasteurizadores y sistemas de refrigeración. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d076": {
+    "id": "d076",
+    "clase": 3,
+    "titulo": "13.1 Entropía y generación interna",
+    "guion": "El objetivo de este apartado es interpretar Entropía y generación interna. La entropía \\(S\\) es una propiedad de estado relacionada con la direccionalidad de los procesos. Para un proceso reversible: La desigualdad refleja que en procesos irreversibles se genera entropía. Entre sus causas se encuentran los intercambios con diferencias finitas de temperatura, fricción y mezcla espontánea. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d077": {
+    "id": "d077",
+    "clase": 3,
+    "titulo": "13.2 Rendimiento de una máquina térmica",
+    "guion": "El objetivo de este apartado es interpretar Rendimiento de una máquina térmica. El rendimiento de Carnot es el máximo teórico para una máquina reversible que trabaja entre dos focos a temperaturas absolutas \\(T_H\\) y \\(T_C\\). No es un rendimiento típico de plantas industriales. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d078": {
+    "id": "d078",
+    "clase": 3,
+    "titulo": "13.3 Sentido de los procesos y degradación de la energía",
+    "guion": "El objetivo de este apartado es interpretar Sentido de los procesos y degradación de la energía. La primera ley admite formalmente un proceso que transfiera energía de un cuerpo frío a uno caliente sin aporte externo, porque el balance energético podría cerrar. La segunda ley determina que ese proceso no ocurre espontáneamente . En los procesos reales existe irreversibilidad: transferencia de calor con diferencia finita de temperatura, fricción, estrangulamiento y mezclado aumentan la entropía total del universo. El signo igual corresponde a un proceso reversible ideal; el mayor que cero a uno irreversible. Un intercambiador puede conservar perfectamente la energía y, sin embargo, producir entropía por intercambio entre corrientes a temperaturas distintas. Minimizar pérdidas de calidad energética tiene relevancia para eficiencia en instalaciones térmicas. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d079": {
+    "id": "d079",
+    "clase": 3,
+    "titulo": "13.4 Transformaciones termodinámicas básicas y su representación en diagramas p–V",
+    "guion": "El objetivo de este apartado es interpretar Transformaciones termodinámicas básicas y su representación en diagramas p–V. Los ciclos térmicos combinan transformaciones elementales. En un diagrama presión–volumen (p–V), cada transformación aparece como una curva o una recta característica. El área encerrada por un ciclo representa el trabajo neto intercambiado por el sistema. En términos prácticos, si el volumen aumenta durante una expansión, el sistema puede entregar trabajo; si disminuye durante una compresión, se realiza trabajo sobre el sistema. En un gas ideal, \\(pV=\\text{cte}\\). Si hay expansión isotérmica, el sistema absorbe calor y puede realizar trabajo sin cambiar su temperatura. En equipos abiertos y en calentamientos con pistón móvil, una transformación puede aproximarse a presión constante. El trabajo vale \\(W=p\\,\\Delta V\\). En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d080": {
+    "id": "d080",
+    "clase": 3,
+    "titulo": "13.4 Transformaciones termodinámicas básicas y su representación en diagramas p–V · ampliación",
+    "guion": "El objetivo de este apartado es interpretar Transformaciones termodinámicas básicas y su representación en diagramas p–V ampliación. En un gas ideal, \\(pV=\\text{cte}\\). Si hay expansión isotérmica, el sistema absorbe calor y puede realizar trabajo sin cambiar su temperatura. En equipos abiertos y en calentamientos con pistón móvil, una transformación puede aproximarse a presión constante. El trabajo vale \\(W=p\\,\\Delta V\\). La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d081": {
+    "id": "d081",
+    "clase": 3,
+    "titulo": "13.5 Ciclos térmicos: funcionamiento y balances de energía",
+    "guion": "El objetivo de este apartado es interpretar Ciclos térmicos: funcionamiento y balances de energía. En una máquina térmica que opera en ciclo, el fluido de trabajo regresa a su estado inicial después de una secuencia de transformaciones. Como la variación total de energía interna es nula durante un ciclo completo, el trabajo neto es igual a la diferencia entre el calor recibido y el rechazado. La primera ley determina este balance, mientras que la segunda ley establece la dirección de los procesos y sus límites de rendimiento. En los motores térmicos el objetivo es convertir parte del calor absorbido en trabajo. En los refrigeradores y bombas de calor ocurre el proceso inverso: se aporta trabajo para extraer energía de una región fría y cederla a una más caliente. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d082": {
+    "id": "d082",
+    "clase": 3,
+    "titulo": "13.6 Motores térmicos clásicos: Carnot, Otto y Diesel",
+    "guion": "El objetivo de este apartado es interpretar Motores térmicos clásicos: Carnot, Otto y Diesel. Los ciclos de Carnot, Otto y Diesel son modelos termodinámicos idealizados. Cada uno combina transformaciones específicas y permite analizar cómo el calor recibido se transforma parcialmente en trabajo, con las limitaciones impuestas por la segunda ley. Es un ciclo ideal y reversible formado por dos transformaciones isotérmicas y dos adiabáticas. No describe un motor real concreto, pero establece el límite superior teórico de eficiencia entre dos focos a temperaturas \\(T_H\\) y \\(T_C\\). Muestra que la eficiencia mejora si aumenta \\(T_H\\) o disminuye \\(T_C\\). Ningún ciclo real puede superarlo entre los mismos focos. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d083": {
+    "id": "d083",
+    "clase": 3,
+    "titulo": "13.6 Motores térmicos clásicos: Carnot, Otto y Diesel · ampliación",
+    "guion": "El objetivo de este apartado es interpretar Motores térmicos clásicos: Carnot, Otto y Diesel ampliación. Muestra que la eficiencia mejora si aumenta \\(T_H\\) o disminuye \\(T_C\\). Ningún ciclo real puede superarlo entre los mismos focos. Al modificar los parámetros, se recalculan los estados y las curvas p–V del ciclo ideal. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d084": {
+    "id": "d084",
+    "clase": 3,
+    "titulo": "13.7 Ciclo de refrigeración: visión general",
+    "guion": "El objetivo de este apartado es interpretar Ciclo de refrigeración: visión general. Un sistema de refrigeración realiza el proceso opuesto al motor térmico: consume trabajo para extraer calor de un foco frío y cederlo a uno caliente. Esto no contradice la segunda ley porque el transporte de energía desde la región fría hacia la caliente ocurre gracias al trabajo suministrado al compresor. En el ciclo de compresión de vapor más usual intervienen cuatro elementos principales: Evaporador: el refrigerante se evapora absorbiendo calor del recinto o producto frío. Compresor: recibe trabajo y eleva presión y temperatura del refrigerante. Condensador: el refrigerante cede calor al ambiente y se condensa. Válvula de expansión: reduce la presión del fluido antes de volver al evaporador. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d085": {
+    "id": "d085",
+    "clase": 3,
+    "titulo": "Ejemplo resuelto · Segunda ley de la termodinámica",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Límite de Carnot Sistema: Máquina ideal entre 500 K y 300 K. Hipótesis y modelo: Ciclo reversible teórico; temperaturas expresadas en kelvin. En el cálculo se utiliza T_H = 500 K para el foco caliente y T_C = 300 K para el foco frío. Interacciones y fundamento: La segunda ley impide transformar todo el calor recibido en trabajo en un ciclo entre dos focos. Desarrollo matemático: \\[\\eta_{\\mathrm{Carnot}}=1-\\frac{T_C}{T_H}=1-\\frac{300}{500}=0{,}40\\] Resultado: Rendimiento máximo reversible: 40 %. Interpretación y control: La eficiencia de una máquina real debe ser menor; el cálculo es un límite, no una predicción de planta. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d086": {
+    "id": "d086",
+    "clase": 3,
+    "titulo": "Simulación · Rendimiento de Carnot",
+    "guion": "El ciclo de Carnot sirve como límite termodinámico y no como descripción de un motor concreto. Al variar la temperatura del foco caliente o del frío cambia la relación de temperaturas y, por lo tanto, el rendimiento reversible máximo. En el diagrama p–V se identifican dos isotermas y dos adiabáticas. Las curvas se calculan con las relaciones del gas ideal y se normalizan para una representación didáctica. Ninguna máquina real supera este rendimiento operando entre los mismos dos focos."
+  },
+  "d087": {
+    "id": "d087",
+    "clase": 3,
+    "titulo": "14. Refrigeración, bombas de calor y desempeño energético",
+    "guion": "El objetivo de este apartado es interpretar . Refrigeración, bombas de calor y desempeño energético. Un equipo frigorífico extrae energía del recinto o producto frío y la rechaza a un entorno más caliente. Para ello consume trabajo mecánico o eléctrico. El coeficiente de desempeño de refrigeración (COP) se define como: El COP puede ser mayor que 1 porque el trabajo no se transforma íntegramente en «frío»: su función es transportar calor. El valor real es menor que el máximo reversible. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El frigorífico necesita aporte de trabajo para transportar calor de un recinto frío a un ambiente más caliente. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d088": {
+    "id": "d088",
+    "clase": 3,
+    "titulo": "14.1 Componentes conceptuales de un circuito frigorífico",
+    "guion": "El objetivo de este apartado es interpretar Componentes conceptuales de un circuito frigorífico. En el evaporador el refrigerante absorbe energía a baja temperatura; el compresor eleva su presión y temperatura; el condensador entrega calor al medio caliente; y la válvula de expansión reduce la presión para reiniciar el ciclo. El frigorífico necesita aporte de trabajo para transportar calor de un recinto frío a un ambiente más caliente. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d089": {
+    "id": "d089",
+    "clase": 3,
+    "titulo": "14.2 Ejemplo resuelto",
+    "guion": "El objetivo de este apartado es interpretar Ejemplo resuelto. Un equipo retira 18 kW de una cámara y consume 6 kW en el compresor, en las condiciones consideradas. Este COP se refiere al equipo en el punto de operación; el consumo completo de una instalación puede incluir ventiladores, bombas, desescarches y auxiliares. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El frigorífico necesita aporte de trabajo para transportar calor de un recinto frío a un ambiente más caliente. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d090": {
+    "id": "d090",
+    "clase": 3,
+    "titulo": "Simulación 3 · Límite ideal de refrigeración",
+    "guion": "En esta diapositiva se estudia Simulación 3 · Límite ideal de refrigeración. El COP de Carnot es un límite termodinámico, no una predicción del equipo real. La diferencia de temperatura del ciclo real suele ser mayor que la diferencia entre recinto y ambiente. El frigorífico necesita aporte de trabajo para transportar calor de un recinto frío a un ambiente más caliente. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d091": {
+    "id": "d091",
+    "clase": 3,
+    "titulo": "14.3 Interpretación física del ciclo de compresión de vapor",
+    "guion": "El objetivo de este apartado es interpretar Interpretación física del ciclo de compresión de vapor. El evaporador absorbe energía térmica del espacio frío; el compresor consume trabajo y eleva presión y temperatura del refrigerante; el condensador rechaza calor al ambiente; y el dispositivo de expansión reduce la presión y produce una mezcla fría para reiniciar el ciclo. Estos procesos requieren propiedades y diagramas del refrigerante para su dimensionamiento real. El COP de Carnot establece un límite superior ideal entre dos temperaturas absolutas y no debe presentarse como valor de funcionamiento esperado de una planta real. El consumo de ventiladores, bombas, desescarches y pérdidas del sistema puede disminuir el desempeño global. El frigorífico necesita aporte de trabajo para transportar calor de un recinto frío a un ambiente más caliente. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d092": {
+    "id": "d092",
+    "clase": 3,
+    "titulo": "Ejemplo resuelto · Refrigeración, bombas de calor y desempeño energético",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Potencia de un equipo frigorífico Sistema: Una cámara requiere retirar 6 kW y su sistema opera con COP=3,0. Hipótesis y modelo: Régimen estacionario; COP se define como potencia frigorífica dividida por potencia eléctrica idealizada. Interacciones y fundamento: El refrigerador consume trabajo para transportar calor desde el foco frío al caliente. Desarrollo matemático: \\[COP=\\frac{\\dot Q_f}{\\dot W}\\Rightarrow\\dot W=\\frac{6}{3}=2\\ \\mathrm{kW};\\qquad \\dot Q_c=6+2=8\\ \\mathrm{kW}\\] Resultado: Consumo aproximado: 2 kW; calor rechazado: 8 kW. Interpretación y control: El condensador debe disipar tanto la carga frigorífica como la energía aportada por el compresor. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El frigorífico necesita aporte de trabajo para transportar calor de un recinto frío a un ambiente más caliente. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d093": {
+    "id": "d093",
+    "clase": 3,
+    "titulo": "Evaluación formativa · Motores y refrigeración",
+    "guion": "Las preguntas se utilizan como instancia formativa y no solo para verificar fórmulas. Se pide justificar el sistema elegido, reconocer los supuestos, explicar la causa física del comportamiento y anticipar qué sucede cuando se altera una variable de operación. Es recomendable discutir las respuestas antes de mostrar cualquier cálculo."
+  },
+  "d094": {
+    "id": "d094",
+    "clase": 3,
+    "titulo": "Cierre de clase 3",
+    "guion": "Para cerrar la clase 3, se retoman las preguntas de consolidación y se explican las relaciones entre los mecanismos físicos. Se propone revisar los ejercicios del banco de la unidad correspondientes a los temas estudiados, identificar el modelo en cada enunciado y controlar la coherencia dimensional de los resultados."
+  }
+}

@@ -1,0 +1,728 @@
+{
+  "d001": {
+    "id": "d001",
+    "clase": 1,
+    "titulo": "Clase 1 · Fundamentos térmicos",
+    "guion": "Comienza la clase 1 de la Unidad 6. Temperatura, termometría, dilatación, calorimetría y cambios de fase. Se recuperan los conocimientos necesarios y se explica qué fenómenos se modelarán, cuáles son las hipótesis simplificativas y cómo se relacionan con equipos reales. El objetivo es conectar los fundamentos de termodinámica con situaciones concretas de tecnología de alimentos."
+  },
+  "d002": {
+    "id": "d002",
+    "clase": 1,
+    "titulo": "Resultados de aprendizaje",
+    "guion": "En esta diapositiva se estudia Resultados de aprendizaje. Distinguir temperatura, calor, energía interna y trabajo, identificando sus unidades. Aplicar escalas térmicas, dilatación, calorimetría y cambios de fase. Modelar conducción, convección y radiación e interpretar resistencias térmicas. Formular balances con la primera ley y reconocer el sentido de los procesos mediante la segunda ley. Analizar cuantitativamente calentamientos, pasteurización, refrigeración e intercambiadores de calor. Identificar hipótesis simplificativas, límites de los modelos y variables relevantes para un proceso real. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d003": {
+    "id": "d003",
+    "clase": 1,
+    "titulo": "2. Temperatura, equilibrio térmico y calor",
+    "guion": "El objetivo de este apartado es interpretar . Temperatura, equilibrio térmico y calor. Un termómetro señala una condición de equilibrio térmico y no mide directamente una cantidad de calor. Es indispensable distinguir temperatura de energía transferida. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d004": {
+    "id": "d004",
+    "clase": 1,
+    "titulo": "Infografía 1. Temperatura y escalas térmicas.",
+    "guion": "En esta diapositiva se estudia Infografía 1. Temperatura y escalas térmicas. La infografía resume la idea física de temperatura, distingue temperatura, calor y energía interna, compara las escalas Kelvin, Celsius y Fahrenheit, y presenta las ecuaciones de conversión más utilizadas. La temperatura mide el estado térmico de un sistema y permite predecir el sentido del flujo espontáneo de calor. Kelvin es una escala absoluta; Celsius y Kelvin tienen el mismo tamaño de intervalo pero distinto origen. La relación entre Celsius y Fahrenheit es lineal, por eso las conversiones se representan mediante una recta. En tecnología de alimentos, estas escalas aparecen en pasteurización, refrigeración e instrumentación. Un termómetro señala una condición de equilibrio térmico y no mide directamente una cantidad de calor. Es indispensable distinguir temperatura de energía transferida. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d005": {
+    "id": "d005",
+    "clase": 1,
+    "titulo": "2.1 Temperatura y descripción microscópica",
+    "guion": "El objetivo de este apartado es interpretar Temperatura y descripción microscópica. La temperatura es una propiedad de estado que caracteriza el equilibrio térmico de un sistema y determina la dirección espontánea del intercambio térmico cuando dos cuerpos se ponen en contacto. En un gas ideal, la energía cinética media de traslación de las moléculas se relaciona con la temperatura absoluta; sin embargo, en sólidos y líquidos existen otras contribuciones a la energía interna. La ley cero de la termodinámica establece que si A y B están por separado en equilibrio térmico con C, entonces A y B están en equilibrio térmico entre sí. Esta propiedad permite fundamentar el uso de termómetros. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Un termómetro señala una condición de equilibrio térmico y no mide directamente una cantidad de calor. Es indispensable distinguir temperatura de energía transferida. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d006": {
+    "id": "d006",
+    "clase": 1,
+    "titulo": "2.2 Escalas de temperatura",
+    "guion": "El objetivo de este apartado es interpretar Escalas de temperatura. Una escala termométrica asigna números a estados de equilibrio térmico mediante una propiedad que varía reproduciblemente con la temperatura: expansión de un líquido, resistencia eléctrica, tensión termoeléctrica o emisión infrarroja. La lectura requiere calibración y no debe confundirse con la temperatura intrínseca si existe retardo de respuesta. Celsius (°C): escala cuyo cero corresponde aproximadamente a la fusión del hielo a presión atmosférica normal y cuyo valor 100 corresponde aproximadamente a la ebullición del agua bajo esa presión. Hoy se define a partir de la temperatura termodinámica; sus puntos históricos son referencias didácticas, no una definición metrológica exacta. Fahrenheit (°F): escala histórica aún utilizada en algunos países; el agua congela aproximadamente a 32 °F y hierve a 212 °F. Kelvin (K): unidad básica del SI de temperatura termodinámica, con origen en el cero absoluto. La variación de un kelvin es igual a la de un grado Celsius. Una diferencia de 1 K es igual a una diferencia de 1 °C. En cambio, no debe confundirse una temperatura de 20 °C con 20 K: son estados térmicos muy diferentes. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Un termómetro señala una condición de equilibrio térmico y no mide directamente una cantidad de calor. Es indispensable distinguir temperatura de energía transferida. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d007": {
+    "id": "d007",
+    "clase": 1,
+    "titulo": "2.3 ¿Qué es el calor?",
+    "guion": "El objetivo de este apartado es interpretar ¿Qué es el calor?. El calor (\\(Q\\)) es energía transferida por una diferencia de temperatura entre el sistema y su entorno. No es una sustancia ni una propiedad almacenada. La energía interna (\\(U\\)) sí es una propiedad de estado y comprende contribuciones microscópicas de movimiento e interacción. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Un termómetro señala una condición de equilibrio térmico y no mide directamente una cantidad de calor. Es indispensable distinguir temperatura de energía transferida. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d008": {
+    "id": "d008",
+    "clase": 1,
+    "titulo": "2.4 ¿De dónde provienen las fórmulas de conversión?",
+    "guion": "El objetivo de este apartado es interpretar ¿De dónde provienen las fórmulas de conversión?. Las escalas Fahrenheit y Celsius son afines : una misma variación física se representa por intervalos distintos y por un origen numérico diferente. Si escribimos \\(F=aC+b\\) , los puntos de referencia del agua dan \\(32=a(0)+b\\) y \\(212=a(100)+b\\) . Por lo tanto, \\(b=32\\) y \\(a=(212-32)/100=1{,}8=9/5\\) . Para diferencias de temperatura desaparece el término constante: \\(\\Delta F=\\tfrac95\\Delta C\\) y \\(\\Delta K=\\Delta C\\) . Por ejemplo, un aumento de 10 °C equivale a un aumento de 18 °F, no a 50 °F. Comprobación: \\(20\\times 9/5+32=68\\) . El resultado es razonable para una temperatura ambiente templada. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Un termómetro señala una condición de equilibrio térmico y no mide directamente una cantidad de calor. Es indispensable distinguir temperatura de energía transferida. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d009": {
+    "id": "d009",
+    "clase": 1,
+    "titulo": "Ejemplo resuelto · Temperatura, equilibrio térmico y calor",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Temperatura de un control de proceso Sistema: Sonda de un tanque con lectura de 158 °F. Hipótesis y modelo: Se trata de una conversión de temperatura absoluta entre escalas convencionales; no de un incremento de temperatura. Interacciones y fundamento: La recta de conversión contiene una pendiente y una ordenada al origen. Es indispensable restar 32 antes de aplicar el factor 5/9. Desarrollo matemático: \\[t_{^\\circ C}=\\frac59(158-32)=70\\ ^\\circ\\mathrm C;\\qquad T=70+273{,}15=343{,}15\\ \\mathrm K\\] Resultado: 70 °C y 343,15 K. Interpretación y control: Es una temperatura posible de calentamiento de un alimento; no se puede usar la misma fórmula con una diferencia térmica. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Un termómetro señala una condición de equilibrio térmico y no mide directamente una cantidad de calor. Es indispensable distinguir temperatura de energía transferida. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d010": {
+    "id": "d010",
+    "clase": 1,
+    "titulo": "Simulación · Conversión entre escalas",
+    "guion": "Al desplazar el control se representa un mismo estado térmico expresado en tres escalas. Kelvin y Celsius poseen el mismo tamaño de intervalo; Fahrenheit utiliza un tamaño de grado diferente y un origen desplazado. Conviene comprobar los valores de congelación y ebullición del agua a presión atmosférica. La gráfica ilustra la proporcionalidad entre escalas, no una variación de energía del sistema."
+  },
+  "d011": {
+    "id": "d011",
+    "clase": 1,
+    "titulo": "3. Medición de temperatura en procesos alimentarios",
+    "guion": "El objetivo de este apartado es interpretar . Medición de temperatura en procesos alimentarios. Una medición útil exige distinguir la temperatura del producto, la pared del recipiente, el medio calefactor y el punto exacto donde se instala el sensor. Durante un proceso transitorio, esas temperaturas pueden ser diferentes. El retardo de un sensor simple puede aproximarse con un modelo de primer orden, si la temperatura del medio cambia bruscamente: La constante de tiempo \\(\\tau_s\\) depende de su masa, capacidad térmica, geometría y acoplamiento con el medio. Un sensor que se estabiliza lentamente puede subestimar picos térmicos o demorar una acción de control. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La sonda puede indicar un valor distinto del producto mientras no se alcance el equilibrio; el tiempo de respuesta y la ubicación de la medición son relevantes. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d012": {
+    "id": "d012",
+    "clase": 1,
+    "titulo": "3.1 ¿Qué mide realmente un termómetro?",
+    "guion": "El objetivo de este apartado es interpretar ¿Qué mide realmente un termómetro?. Todo instrumento establece una interacción térmica con el medio. Un termopar convierte una diferencia térmica en una señal eléctrica; una termorresistencia aprovecha la variación de la resistencia con la temperatura; un sensor infrarrojo estima una temperatura superficial a partir de radiación y necesita conocer la emisividad. La temperatura de proceso no se conoce instantáneamente: hay tiempos de respuesta, errores de instalación y diferencias entre temperatura del producto, pared y ambiente. Una lectura estable es condición útil, pero no prueba uniformidad térmica en todo el alimento. En tuberías y tanques, la ubicación de la sonda y la mezcla determinan qué región está siendo medida. La sonda puede indicar un valor distinto del producto mientras no se alcance el equilibrio; el tiempo de respuesta y la ubicación de la medición son relevantes. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d013": {
+    "id": "d013",
+    "clase": 1,
+    "titulo": "Ejemplo resuelto · Medición de temperatura en procesos alimentarios",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Respuesta de una sonda Sistema: Termómetro de primer orden que se introduce en agua a 75 °C desde 20 °C. Hipótesis y modelo: Constante de tiempo τ = 12 s; agua suficientemente grande para mantener 75 °C; sin retardo adicional. Interacciones y fundamento: La sonda no mide instantáneamente el medio: su lectura se aproxima exponencialmente a la temperatura final. Desarrollo matemático: \\[T_s(t)=T_\\infty+(T_0-T_\\infty)e^{-t/\\tau};\\quad T_s(24)=75-55e^{-2}\\approx67{,}6\\ ^\\circ\\mathrm C\\] Resultado: A los 24 s la sonda indicará aproximadamente 67,6 °C. Interpretación y control: Esperar solo 24 s deja un error cercano a 7,4 °C. La ubicación de la sonda y el tiempo de respuesta importan en control de calidad. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La sonda puede indicar un valor distinto del producto mientras no se alcance el equilibrio; el tiempo de respuesta y la ubicación de la medición son relevantes. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d014": {
+    "id": "d014",
+    "clase": 1,
+    "titulo": "4. Dilatación térmica",
+    "guion": "El objetivo de este apartado es interpretar . Dilatación térmica. En muchos materiales, las dimensiones aumentan al elevarse la temperatura. Para intervalos moderados y materiales aproximadamente homogéneos e isótropos, la dilatación puede describirse mediante coeficientes constantes. La magnitud de la expansión depende del tamaño original, del coeficiente del material y de la diferencia de temperatura. Las restricciones mecánicas generan esfuerzos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d015": {
+    "id": "d015",
+    "clase": 1,
+    "titulo": "Infografía 2. Dilatación térmica: tipos, medición y deformación de materiales.",
+    "guion": "En esta diapositiva se estudia Infografía 2. Dilatación térmica: tipos, medición y deformación de materiales. La infografía muestra que la dilatación es consecuencia del aumento de separación media entre partículas cuando se incrementa la temperatura. También compara la dilatación lineal, superficial y volumétrica, e indica cómo se miden experimentalmente. La dilatación lineal modifica una longitud, la superficial modifica un área y la volumétrica modifica un volumen. Las expresiones ΔL = αL₀ΔT, ΔA = βA₀ΔT y ΔV = γV₀ΔT son modelos aproximados válidos para intervalos moderados y materiales homogéneos. Si la expansión está restringida, aparecen tensiones térmicas y posibles deformaciones o roturas. En la industria alimentaria se manifiesta en tuberías, tanques, intercambiadores y sensores. La magnitud de la expansión depende del tamaño original, del coeficiente del material y de la diferencia de temperatura. Las restricciones mecánicas generan esfuerzos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d016": {
+    "id": "d016",
+    "clase": 1,
+    "titulo": "4.1 Dilatación lineal",
+    "guion": "El objetivo de este apartado es interpretar Dilatación lineal. \\(\\alpha\\) es el coeficiente de dilatación lineal, con unidades \\(\\mathrm K^{-1}\\). Para superficies y volúmenes de sólidos isótropos, como aproximación para cambios pequeños: Para líquidos se emplea el coeficiente de dilatación volumétrica \\(\\beta\\): En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La magnitud de la expansión depende del tamaño original, del coeficiente del material y de la diferencia de temperatura. Las restricciones mecánicas generan esfuerzos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d017": {
+    "id": "d017",
+    "clase": 1,
+    "titulo": "4.2 Ejemplo resuelto: tubería de acero",
+    "guion": "El objetivo de este apartado es interpretar Ejemplo resuelto: tubería de acero. Una tubería de acero inoxidable de 12 m pasa de 20 °C a 85 °C. Adoptar \\(\\alpha=17\\times10^{-6}\\,\\mathrm K^{-1}\\). ¿Cuánto se alarga si puede expandirse libremente? El crecimiento es apreciable para conexiones rígidas. Si la tubería está impedida de dilatarse, surgen tensiones térmicas, que requieren análisis mecánico adicional. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La magnitud de la expansión depende del tamaño original, del coeficiente del material y de la diferencia de temperatura. Las restricciones mecánicas generan esfuerzos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d018": {
+    "id": "d018",
+    "clase": 1,
+    "titulo": "Simulación 1 · Dilatación de una tubería",
+    "guion": "En esta diapositiva se estudia Simulación 1 · Dilatación de una tubería. Modelo lineal: no incluye restricciones mecánicas, variación del coeficiente ni gradientes de temperatura. La magnitud de la expansión depende del tamaño original, del coeficiente del material y de la diferencia de temperatura. Las restricciones mecánicas generan esfuerzos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d019": {
+    "id": "d019",
+    "clase": 1,
+    "titulo": "4.3 Fundamentación física y límites del modelo",
+    "guion": "El objetivo de este apartado es interpretar Fundamentación física y límites del modelo. En los sólidos las partículas oscilan alrededor de posiciones de equilibrio. Como la interacción interatómica no es perfectamente simétrica frente a compresiones y separaciones, un incremento de la energía térmica suele aumentar la separación media. Ese efecto colectivo se manifiesta como expansión macroscópica. No es correcto explicarlo simplemente como que «los átomos se agrandan». Una expansión impedida puede generar tensiones mecánicas: el cálculo de longitud libre no basta para verificar una instalación rígida con soportes, juntas y restricciones. En alimentos líquidos debe además considerarse que el coeficiente puede variar con temperatura y composición. La magnitud de la expansión depende del tamaño original, del coeficiente del material y de la diferencia de temperatura. Las restricciones mecánicas generan esfuerzos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d020": {
+    "id": "d020",
+    "clase": 1,
+    "titulo": "Ejemplo resuelto · Dilatación térmica",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Dilatación restringida de tubería Sistema: Tubería recta de acero de 8,0 m calentada 60 °C. Hipótesis y modelo: α = 16×10⁻⁶ K⁻¹, temperatura uniforme, dilatación libre para el primer cálculo. Interacciones y fundamento: El alargamiento resulta de la variación de longitud relativa; si se impide, aparecen tensiones que la fórmula geométrica no calcula. Desarrollo matemático: \\[\\Delta L=\\alpha L_0\\Delta T=16\\times10^{-6}(8)(60)=0{,}00768\\ \\mathrm m\\] Resultado: Alargamiento libre: 7,68 mm. Interpretación y control: En un montaje rígido hay que estudiar apoyos, juntas y esfuerzos térmicos; no corresponde suponer que se alargará libremente. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La magnitud de la expansión depende del tamaño original, del coeficiente del material y de la diferencia de temperatura. Las restricciones mecánicas generan esfuerzos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d021": {
+    "id": "d021",
+    "clase": 1,
+    "titulo": "5. Calor sensible, capacidad calorífica y calorimetría",
+    "guion": "El objetivo de este apartado es interpretar . Calor sensible, capacidad calorífica y calorimetría. Cuando un cuerpo cambia de temperatura sin transformar su fase, el intercambio energético se denomina habitualmente calor sensible . Para un material con calor específico aproximadamente constante: Donde \\(m\\) es la masa, \\(c\\) el calor específico [J/(kg·K)], y \\(C\\) la capacidad calorífica total [J/K]. Si \\(c\\) depende considerablemente de la temperatura debe integrarse: Los valores son orientativos para ejercicios. En un proyecto se requieren datos verificados del producto, su formulación, composición, fase y temperatura. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El sistema que se elige determina qué intercambios se consideran. La energía cedida y absorbida se relacionan mediante un balance con una convención de signos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d022": {
+    "id": "d022",
+    "clase": 1,
+    "titulo": "Infografía 3. Calor sensible, capacidad calorífica y calorimetría.",
+    "guion": "En esta diapositiva se estudia Infografía 3. Calor sensible, capacidad calorífica y calorimetría. La infografía integra la ecuación del calor sensible, la diferencia entre calor específico y capacidad calorífica, la estructura de un calorímetro simple y un ejemplo de balance térmico hasta alcanzar el equilibrio. El calor sensible cambia la temperatura sin provocar cambio de fase. El calor específico es una propiedad del material; la capacidad calorífica depende además de la masa total del cuerpo. La calorimetría se basa en balances de energía: el calor cedido por unos cuerpos es igual al calor absorbido por otros si el sistema está idealmente aislado. Estos conceptos se usan para estimar energía de calentamiento, enfriamiento y control de calidad térmica. El sistema que se elige determina qué intercambios se consideran. La energía cedida y absorbida se relacionan mediante un balance con una convención de signos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d023": {
+    "id": "d023",
+    "clase": 1,
+    "titulo": "5.1 Balance de mezcla en un sistema aislado",
+    "guion": "El objetivo de este apartado es interpretar Balance de mezcla en un sistema aislado. Si se mezclan dos porciones sin pérdidas y sin cambios de fase: La ecuación expresa que la suma algebraica de los intercambios de energía es cero para el sistema compuesto. Si también se calienta el recipiente, se incorpora \\(C_r(T_f-T_{r,0})\\). En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El sistema que se elige determina qué intercambios se consideran. La energía cedida y absorbida se relacionan mediante un balance con una convención de signos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d024": {
+    "id": "d024",
+    "clase": 1,
+    "titulo": "5.2 Ejemplo resuelto: calentamiento de producto",
+    "guion": "El objetivo de este apartado es interpretar Ejemplo resuelto: calentamiento de producto. Calcular la energía ideal necesaria para elevar 250 kg de leche desde 8 °C hasta 72 °C usando \\(c=3{,}9\\,\\mathrm{kJ/(kg\\,K)}\\). Este valor representa la energía absorbida por el producto, no necesariamente la energía que debe suministrar la instalación, que puede presentar pérdidas o recuperación de energía. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El sistema que se elige determina qué intercambios se consideran. La energía cedida y absorbida se relacionan mediante un balance con una convención de signos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d025": {
+    "id": "d025",
+    "clase": 1,
+    "titulo": "5.3 Interpretación microscópica de la capacidad calorífica",
+    "guion": "El objetivo de este apartado es interpretar Interpretación microscópica de la capacidad calorífica. Al recibir energía, un material puede aumentar los movimientos traslacionales, rotacionales y vibracionales de sus constituyentes, además de cambiar interacciones intermoleculares. Por ello, diferentes sustancias no requieren la misma energía para experimentar un incremento térmico idéntico. El calor específico expresa esa diferencia por unidad de masa ; la capacidad calorífica corresponde al cuerpo completo. La relación \\(Q=mc\\Delta T\\) supone \\(c\\) aproximadamente constante y un proceso sin cambio de fase. En termodinámica se distinguen, según el proceso, \\(c_p\\) y \\(c_v\\) ; en líquidos y sólidos las diferencias son a menudo menores que en gases, pero no siempre pueden ignorarse. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El sistema que se elige determina qué intercambios se consideran. La energía cedida y absorbida se relacionan mediante un balance con una convención de signos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d026": {
+    "id": "d026",
+    "clase": 1,
+    "titulo": "Ejemplo resuelto · Calor sensible, capacidad calorífica y calorimetría",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Mezcla calorimétrica Sistema: Se mezclan 0,60 kg de agua a 70 °C y 0,40 kg a 20 °C. Hipótesis y modelo: Recipiente idealmente aislado, sin evaporación; c igual y constante. Interacciones y fundamento: El cuerpo caliente cede energía y el frío la absorbe. Para el sistema de ambos, la suma de intercambios es cero. Desarrollo matemático: \\[0{,}60c(T_f-70)+0{,}40c(T_f-20)=0\\quad\\Rightarrow\\quad T_f=50\\ ^\\circ\\mathrm C\\] Resultado: Temperatura final de equilibrio: 50 °C. Interpretación y control: La temperatura está entre 20 y 70 °C y más cerca de la porción de mayor masa, lo cual constituye una comprobación física. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El sistema que se elige determina qué intercambios se consideran. La energía cedida y absorbida se relacionan mediante un balance con una convención de signos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d027": {
+    "id": "d027",
+    "clase": 1,
+    "titulo": "6. Cambios de fase y calor latente",
+    "guion": "El objetivo de este apartado es interpretar . Cambios de fase y calor latente. Durante la fusión, solidificación, vaporización o condensación, el sistema puede intercambiar energía sin variar apreciablemente su temperatura, siempre que la transformación ocurra a presión fija y en equilibrio. \\(L\\) representa el calor latente específico de la transición. Para el agua a presión atmosférica, como valores de referencia: \\(L_f\\approx334\\,\\mathrm{kJ/kg}\\) y \\(L_v\\approx2257\\,\\mathrm{kJ/kg}\\) cerca de 100 °C. Ambos dependen de condiciones de operación. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d028": {
+    "id": "d028",
+    "clase": 1,
+    "titulo": "Infografía 4. Cambios de fase: estados de la materia, calor latente y transformaciones físicas.",
+    "guion": "En esta diapositiva se estudia Infografía 4. Cambios de fase: estados de la materia, calor latente y transformaciones físicas. La infografía define qué es una fase, describe las características macroscópicas y microscópicas de los estados sólido, líquido y gaseoso, y resume los cambios de fase junto con la curva de calentamiento de una sustancia pura. En el sólido predominan las fuerzas de atracción; en el líquido existe un equilibrio entre cohesión y movilidad; en el gas predomina la agitación térmica. Fusión, vaporización y sublimación absorben calor; solidificación, condensación y deposición lo liberan. Durante una meseta de la curva de calentamiento la temperatura permanece aproximadamente constante mientras se intercambia calor latente. Los cambios de fase explican operaciones como congelación, ebullición, secado, evaporación y condensación en procesos alimentarios. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d029": {
+    "id": "d029",
+    "clase": 1,
+    "titulo": "6.1 ¿Qué son los estados de agregación y qué entendemos por fase?",
+    "guion": "El objetivo de este apartado es interpretar ¿Qué son los estados de agregación y qué entendemos por fase?. La materia está constituida por partículas —átomos, moléculas o iones— que poseen energía y ejercen interacciones entre sí. A escala macroscópica, esas interacciones originan distintos estados de agregación : sólido, líquido y gaseoso. Cada uno presenta una combinación característica de forma, volumen, movilidad y respuesta a la compresión. En termodinámica se utiliza también el concepto de fase : una región de un sistema que es físicamente homogénea y posee propiedades intensivas uniformes en equilibrio. Estado de agregación y fase no son estrictamente sinónimos : un sistema puede tener dos fases líquidas que no se mezclan, como aceite y agua; también puede presentar distintas fases sólidas. Para introducir el tema estudiaremos las fases sólida, líquida y gaseosa de una sustancia pura. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d030": {
+    "id": "d030",
+    "clase": 1,
+    "titulo": "6.2 Estado sólido: estructura, movilidad y comportamiento mecánico",
+    "guion": "El objetivo de este apartado es interpretar Estado sólido: estructura, movilidad y comportamiento mecánico. Un sólido conserva, en condiciones ordinarias y sin cargas capaces de deformarlo, una forma y un volumen definidos. Sus partículas ocupan posiciones medias relativamente estables; en los sólidos cristalinos existe un orden espacial de largo alcance, mientras que en los amorfos (por ejemplo, el vidrio) no existe ese orden cristalino. En ambos casos las partículas pueden vibrar y el material almacena energía interna. Fundamentación microscópica. Las interacciones entre partículas son suficientemente intensas para impedir que se desplacen libremente unas respecto de otras. La energía térmica excita sus vibraciones, pero en condiciones normales no elimina la estructura que caracteriza al sólido. Por eso puede resistir esfuerzos de corte, a diferencia de un fluido en reposo. Interpretación termodinámica. Para una sustancia pura, a temperatura y presión fijadas, el estado sólido estable es aquel que presenta el menor potencial de Gibbs específico frente a las otras fases disponibles. Al aumentar la temperatura, aumenta la contribución entrópica a la estabilidad, lo que puede favorecer la fusión. La presión también puede modificar la temperatura de equilibrio entre fases. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d031": {
+    "id": "d031",
+    "clase": 1,
+    "titulo": "6.3 Estado líquido: cohesión y capacidad de fluir",
+    "guion": "El objetivo de este apartado es interpretar Estado líquido: cohesión y capacidad de fluir. Un líquido posee un volumen aproximadamente definido, pero no una forma propia: se adapta al recipiente y presenta una superficie libre cuando está en contacto con un gas y sometido a la gravedad. Su densidad es relativamente elevada y su compresibilidad suele ser pequeña comparada con la de los gases. Fundamentación microscópica. Las moléculas permanecen próximas y siguen experimentando fuerzas atractivas y repulsivas, pero pueden cambiar de vecinos y desplazarse unas respecto de otras. Esto explica la fluidez y también que existan viscosidad, tensión superficial y difusión. Un líquido no es un conjunto de partículas aisladas como un gas ideal. Interpretación termodinámica. El líquido puede ser la fase estable en cierto intervalo de temperatura y presión. El pasaje a vapor requiere vencer parcialmente las interacciones entre moléculas y producir una gran variación de volumen. Cuando líquido y vapor coexisten en equilibrio, ambas fases tienen la misma temperatura y presión y el mismo potencial químico de la sustancia. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d032": {
+    "id": "d032",
+    "clase": 1,
+    "titulo": "6.4 Estado gaseoso: expansión, presión y compresibilidad",
+    "guion": "El objetivo de este apartado es interpretar Estado gaseoso: expansión, presión y compresibilidad. Un gas no conserva forma ni volumen propios: se expande hasta ocupar el volumen disponible en el recipiente. Es mucho más compresible que un líquido o sólido, y su densidad depende marcadamente de la presión y de la temperatura. Fundamentación microscópica. En un gas diluido, las partículas están separadas por distancias relativamente grandes y se desplazan continuamente. La presión sobre las paredes se origina en los intercambios de cantidad de movimiento durante sus choques con ellas. Para un gas ideal monoatómico , la energía cinética media de traslación depende de la temperatura absoluta: Esta expresión no describe por sí sola toda la energía interna de gases moleculares, líquidos o sólidos; en ellos pueden intervenir rotaciones, vibraciones e interacciones. Interpretación termodinámica. El modelo de gas ideal permite relacionar las variables de estado: En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d033": {
+    "id": "d033",
+    "clase": 1,
+    "titulo": "6.4 Estado gaseoso: expansión, presión y compresibilidad · ampliación",
+    "guion": "El objetivo de este apartado es interpretar Estado gaseoso: expansión, presión y compresibilidad ampliación. Interpretación termodinámica. El modelo de gas ideal permite relacionar las variables de estado: Donde \\(p\\) es presión absoluta, \\(V\\) volumen, \\(n\\) cantidad de sustancia, \\(R\\) constante universal de los gases y \\(T\\) temperatura en kelvin. La ecuación es una aproximación útil para gases suficientemente diluidos; el vapor próximo a condensar puede requerir modelos de gas real y datos de saturación. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d034": {
+    "id": "d034",
+    "clase": 1,
+    "titulo": "6.5 Comparación macroscópica y explicación física",
+    "guion": "El objetivo de este apartado es interpretar Comparación macroscópica y explicación física. Una precaución: decir que en el sólido «dominan las atracciones» y en el gas «domina la agitación» sirve como primera aproximación didáctica. La descripción rigurosa de qué fase es estable requiere considerar conjuntamente la energía, la entropía y las condiciones de presión y temperatura. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d035": {
+    "id": "d035",
+    "clase": 1,
+    "titulo": "6.6 ¿Por qué se producen los cambios de fase? Enfoque termodinámico",
+    "guion": "El objetivo de este apartado es interpretar ¿Por qué se producen los cambios de fase? Enfoque termodinámico. Al suministrar energía a una sustancia, esta puede aumentar su temperatura o cambiar de fase. En el calor sensible , predomina el cambio de temperatura dentro de una misma fase. Durante una transición de fase de una sustancia pura en equilibrio a presión constante, parte de la energía intercambiada modifica su organización e interacciones microscópicas y la proporción de cada fase, mientras la temperatura de transición permanece constante. Desde la termodinámica, para una sustancia pura en equilibrio a presión y temperatura impuestas, la fase estable es la de menor energía libre de Gibbs molar (equivalente al potencial químico). En la coexistencia de dos fases se cumple: La energía libre de Gibbs se expresa como \\(G=H-TS\\), donde \\(H\\) es la entalpía y \\(S\\) la entropía. El término \\(TS\\) explica por qué aumentar la temperatura puede favorecer fases con mayor libertad de movimiento molecular. El valor de la presión modifica también la estabilidad de las fases; por eso el agua no hierve siempre a 100 °C. Fusión: sólido → líquido, absorbe energía; solidificación: líquido → sólido, la libera. Vaporización: líquido → gas, absorbe energía. La evaporación sucede en la superficie y puede ocurrir sin ebullición; la ebullición ocurre cuando se forman burbujas de vapor estables dentro del líquido. Condensación: gas → líquido, libera energía. Sublimación: sólido → gas, absorbe energía; deposición: gas → sólido, libera energía. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d036": {
+    "id": "d036",
+    "clase": 1,
+    "titulo": "6.6 ¿Por qué se producen los cambios de fase? Enfoque termodinámico · ampliación",
+    "guion": "El objetivo de este apartado es interpretar ¿Por qué se producen los cambios de fase? Enfoque termodinámico ampliación. Fusión: sólido → líquido, absorbe energía; solidificación: líquido → sólido, la libera. Vaporización: líquido → gas, absorbe energía. La evaporación sucede en la superficie y puede ocurrir sin ebullición; la ebullición ocurre cuando se forman burbujas de vapor estables dentro del líquido. Condensación: gas → líquido, libera energía. Sublimación: sólido → gas, absorbe energía; deposición: gas → sólido, libera energía. Alimentos reales: los productos alimentarios son mezclas. La presencia de sales, azúcares, grasas, proteínas y agua ligada hace que congelación, fusión y ebullición no siempre ocurran a una sola temperatura; frecuentemente se distribuyen en intervalos y pueden coexistir varias fases. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d037": {
+    "id": "d037",
+    "clase": 1,
+    "titulo": "6.7 Calentamiento con distintas etapas",
+    "guion": "El objetivo de este apartado es interpretar Calentamiento con distintas etapas. Para hielo inicialmente bajo 0 °C que se convierte en agua líquida a temperatura positiva: La suma se construye etapa por etapa ; no es correcto usar una única diferencia térmica atravesando la transformación de fase. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d038": {
+    "id": "d038",
+    "clase": 1,
+    "titulo": "6.9 Cómo interpretar una curva de calentamiento",
+    "guion": "El objetivo de este apartado es interpretar Cómo interpretar una curva de calentamiento. La pendiente de cada tramo de una gráfica \\(T\\) en función de \\(Q\\) vale aproximadamente \\(dT/dQ=1/(mc)\\) . Una pendiente pequeña indica mayor capacidad térmica total. La longitud horizontal de una meseta representa calor latente; no significa ausencia de transferencia de energía . En mezclas alimentarias reales, como helados, salsas o productos con solutos, el cambio de fase puede ocurrir en un intervalo de temperaturas. La curva ideal de agua pura es una referencia para razonar, no una predicción completa de congelación de alimentos. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d039": {
+    "id": "d039",
+    "clase": 1,
+    "titulo": "Ejemplo resuelto · Cambios de fase y calor latente",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo 6-8 ampliado · Del hielo a −15 °C al vapor sobrecalentado a 120 °C Este recorrido enlaza las tres fases del agua y sus transiciones. Se parte de hielo a −15 °C y se llega a vapor sobrecalentado a 120 °C , a presión aproximadamente constante de 1 atm . Es una situación idealizada de calentamiento cuasiestático; a 1 atm el agua pura funde cerca de 0 °C y hierve cerca de 100 °C. Los valores térmicos utilizados son orientativos y no contemplan pérdidas ni energía del recipiente. Sistema: 1,00 kg de H₂O. Interacción: energía transferida desde una fuente térmica. Hipótesis: fases homogéneas en cada tramo, presión constante, capacidad calorífica media constante dentro de cada fase y transiciones completas en equilibrio. ¿Por qué no puede usarse una sola ecuación? El calor específico cambia entre hielo, agua líquida y vapor, y durante fusión y vaporización el intercambio energético se dedica principalmente a cambiar la fase. Por eso se descompone el recorrido en cinco etapas. A presión constante el calor latente se vincula con la variación de entalpía durante el cambio de fase. \\[c_h=2{,}10\\;\\frac{\\mathrm{kJ}}{\\mathrm{kg\\,K}},\\quad c_a=4{,}18\\;\\frac{\\mathrm{kJ}}{\\mathrm{kg\\,K}},\\quad c_v=2{,}00\\;\\frac{\\mathrm{kJ}}{\\mathrm{kg\\,K}}\\]\\[L_f=334\\;\\mathrm{kJ/kg},\\qquad L_v=2257\\;\\mathrm{kJ/kg}\\] Etapa Modelo físico Ecuación Q de la etapa (kJ) Q acumulado (kJ) 1. Hielo: −15 → 0 °C Calor sensible en sólido \\(Q_1=m c_h(0-(-15))\\) 31,5 31,5 2. Fusión a 0 °C Calor latente de fusión. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El estado de agregación debe explicarse mediante interacciones moleculares, presión, temperatura y equilibrio de fases. El calor latente no implica necesariamente aumento de temperatura. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d040": {
+    "id": "d040",
+    "clase": 1,
+    "titulo": "Ejemplo integral · De hielo a vapor",
+    "guion": "Se parte de un kilogramo de hielo a menos quince grados Celsius y se supone presión aproximadamente atmosférica, propiedades constantes en cada tramo y pérdidas despreciables. Primero se calienta el hielo hasta cero grados. Luego se aporta calor latente de fusión y coexisten hielo y agua. La fase líquida aumenta hasta cien grados; sigue la vaporización a temperatura aproximadamente constante. Por último se sobrecalienta el vapor hasta ciento veinte grados. Se suman cinco aportes energéticos diferenciados. El calor de vaporización domina el consumo total. No corresponde usar una sola capacidad calorífica en todo el recorrido."
+  },
+  "d041": {
+    "id": "d041",
+    "clase": 1,
+    "titulo": "Evaluación formativa · ¿Qué significa suministrar calor?",
+    "guion": "Las preguntas se utilizan como instancia formativa y no solo para verificar fórmulas. Se pide justificar el sistema elegido, reconocer los supuestos, explicar la causa física del comportamiento y anticipar qué sucede cuando se altera una variable de operación. Es recomendable discutir las respuestas antes de mostrar cualquier cálculo."
+  },
+  "d042": {
+    "id": "d042",
+    "clase": 1,
+    "titulo": "Cierre de clase 1",
+    "guion": "Para cerrar la clase 1, se retoman las preguntas de consolidación y se explican las relaciones entre los mecanismos físicos. Se propone revisar los ejercicios del banco de la unidad correspondientes a los temas estudiados, identificar el modelo en cada enunciado y controlar la coherencia dimensional de los resultados."
+  },
+  "d043": {
+    "id": "d043",
+    "clase": 2,
+    "titulo": "Clase 2 · Transferencia de calor",
+    "guion": "Comienza la clase 2 de la Unidad 6. Conducción, convección, radiación y resistencias térmicas. Se recuperan los conocimientos necesarios y se explica qué fenómenos se modelarán, cuáles son las hipótesis simplificativas y cómo se relacionan con equipos reales. El objetivo es conectar los fundamentos de termodinámica con situaciones concretas de tecnología de alimentos."
+  },
+  "d044": {
+    "id": "d044",
+    "clase": 2,
+    "titulo": "7. Transferencia de calor: mecanismos fundamentales",
+    "guion": "El objetivo de este apartado es interpretar . Transferencia de calor: mecanismos fundamentales. La termodinámica determina el balance energético entre estados; la transferencia de calor estudia la rapidez del intercambio. Se define la potencia térmica como: En un horno, por ejemplo, el producto recibe energía por convección del aire, por radiación de paredes calientes y por conducción hacia su interior. Aislar conceptualmente cada mecanismo ayuda a entender qué resistencia controla el proceso. La energía puede circular por varios mecanismos simultáneamente. Por ejemplo, en la pared de una cámara fría hay convección en el aire exterior, conducción a través del aislante y convección en el aire interior; además puede existir intercambio radiante con otras superficies. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El mecanismo dominante depende de la geometría y de las condiciones del proceso. En instalaciones reales pueden actuar simultáneamente varios mecanismos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d045": {
+    "id": "d045",
+    "clase": 2,
+    "titulo": "Ejemplo resuelto · Transferencia de calor: mecanismos fundamentales",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Identificar mecanismos en una cámara fría Sistema: Panel entre aire exterior a 30 °C e interior a 2 °C. Hipótesis y modelo: Régimen estacionario cualitativo; se analizan aire, pared y superficies. Interacciones y fundamento: El aire exterior cede calor por convección al panel, el calor atraviesa el sólido por conducción y pasa por convección al aire interior; también puede haber radiación en superficies. Desarrollo matemático: \\[\\dot Q=\\frac{T_{\\infty,e}-T_{\\infty,i}}{\\frac{1}{h_eA}+\\frac{L}{kA}+\\frac{1}{h_iA}}\\] Resultado: El flujo va del ambiente caliente al frío; cada resistencia reduce la tasa transferida. Interpretación y control: La ecuación combina mecanismos en serie; si hay radiación importante, el modelo requiere añadirla. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El mecanismo dominante depende de la geometría y de las condiciones del proceso. En instalaciones reales pueden actuar simultáneamente varios mecanismos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d046": {
+    "id": "d046",
+    "clase": 2,
+    "titulo": "8. Conducción: ley de Fourier",
+    "guion": "El objetivo de este apartado es interpretar . Conducción: ley de Fourier. La conducción es el transporte de energía dentro de un material o entre regiones contiguas, sin transporte macroscópico necesario de materia. En dirección \\(x\\), para un material homogéneo: El signo negativo expresa que el calor fluye hacia temperaturas menores. Para una pared plana de espesor \\(L\\), área \\(A\\), propiedades constantes y régimen estacionario unidimensional : \\(k\\) es la conductividad térmica [W/(m·K)] y \\(R\\) la resistencia térmica [K/W]. Para varias capas planas en serie, con igual área y sin generación interna: En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La ley de Fourier vincula flujo de calor con el gradiente espacial de temperatura; el signo menos codifica la dirección del transporte. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d047": {
+    "id": "d047",
+    "clase": 2,
+    "titulo": "8.1 Ejemplo resuelto: aislación de una cámara",
+    "guion": "El objetivo de este apartado es interpretar Ejemplo resuelto: aislación de una cámara. Una pared aislante tiene \\(A=12\\,\\mathrm{m^2}\\), \\(L=0{,}08\\,\\mathrm m\\), \\(k=0{,}028\\,\\mathrm{W/(m\\,K)}\\), y una diferencia entre temperaturas superficiales de 25 K. Se desprecian los puentes térmicos. En 10 horas se transfieren \\(105\\times10\\times3600\\approx3{,}78\\,\\mathrm{MJ}\\), equivalentes a 1,05 kWh de energía térmica. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La ley de Fourier vincula flujo de calor con el gradiente espacial de temperatura; el signo menos codifica la dirección del transporte. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d048": {
+    "id": "d048",
+    "clase": 2,
+    "titulo": "8.2 Significado físico de la ley de Fourier",
+    "guion": "El objetivo de este apartado es interpretar Significado físico de la ley de Fourier. La forma local de la ley de Fourier es \\(q_x''=-k\\,dT/dx\\) , donde el flujo térmico superficial \\(q_x''\\) se mide en W/m². El signo negativo expresa que la transferencia espontánea tiene dirección opuesta al gradiente de temperatura. Con \\(k\\) constante, sección uniforme y estado estacionario, la integración permite obtener la conocida fórmula de pared plana. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La ley de Fourier vincula flujo de calor con el gradiente espacial de temperatura; el signo menos codifica la dirección del transporte. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d049": {
+    "id": "d049",
+    "clase": 2,
+    "titulo": "Ejemplo resuelto · Conducción: ley de Fourier",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Panel aislante Sistema: Pared de una cámara frigorífica con A=10 m², L=0,10 m y k=0,040 W/(m·K). Hipótesis y modelo: Pared plana, una dimensión, régimen estacionario y caras a 25 °C y 5 °C. Interacciones y fundamento: Fourier relaciona tasa de calor con gradiente de temperatura; mayor espesor significa mayor resistencia. Desarrollo matemático: \\[\\dot Q=\\frac{kA(T_1-T_2)}L=\\frac{0{,}040(10)(25-5)}{0{,}10}=80\\ \\mathrm W\\] Resultado: La transferencia de calor es 80 W hacia el interior. Interpretación y control: Durante 1 h serían 288 kJ; no confundir potencia térmica (W) con energía (J). En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La ley de Fourier vincula flujo de calor con el gradiente espacial de temperatura; el signo menos codifica la dirección del transporte. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d050": {
+    "id": "d050",
+    "clase": 2,
+    "titulo": "Simulación · Aislación de una pared",
+    "guion": "El modelo supone conducción unidimensional estacionaria con conductividad constante, área de un metro cuadrado y diferencia térmica de veinte kelvin. Si se aumenta el espesor, crece la resistencia y disminuye la potencia transferida. Si aumenta la conductividad ocurre lo contrario. Es importante remarcar que en paredes reales también intervienen resistencias convectivas y, en ocasiones, puentes térmicos."
+  },
+  "d051": {
+    "id": "d051",
+    "clase": 2,
+    "titulo": "9. Convección: intercambio con fluidos",
+    "guion": "El objetivo de este apartado es interpretar . Convección: intercambio con fluidos. La convección combina transferencia térmica en la zona próxima a una superficie y movimiento global del fluido. Se distingue convección natural (movimiento debido a diferencias de densidad) y forzada (movimiento impulsado por bombas, ventiladores o agitación). El coeficiente convectivo \\(h\\) [W/(m²·K)] depende de la geometría, velocidad, estado de flujo, propiedades del fluido y temperatura. No es una constante universal del material. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El coeficiente convectivo no es una propiedad exclusiva del material: depende del flujo, la geometría y del régimen. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d052": {
+    "id": "d052",
+    "clase": 2,
+    "titulo": "9.1 Ejemplo de enfriamiento de una superficie",
+    "guion": "El objetivo de este apartado es interpretar Ejemplo de enfriamiento de una superficie. Una superficie de 2 m² se encuentra a 65 °C en contacto con aire a 25 °C. Si \\(h=20\\,\\mathrm{W/(m^2\\,K)}\\), la potencia cedida es: Este resultado es instantáneo si las temperaturas evolucionan; si permanecen constantes, representa un régimen estacionario. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El coeficiente convectivo no es una propiedad exclusiva del material: depende del flujo, la geometría y del régimen. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d053": {
+    "id": "d053",
+    "clase": 2,
+    "titulo": "9.2 Modelo transitorio de capacidad concentrada",
+    "guion": "El objetivo de este apartado es interpretar Modelo transitorio de capacidad concentrada. Si la temperatura dentro del alimento puede considerarse uniforme y la capacidad térmica es constante, un cuerpo de masa \\(m\\) que intercambia calor con un fluido a temperatura fija cumple: Este modelo es adecuado cuando la resistencia térmica interna es pequeña respecto de la externa; de forma orientativa se verifica el número de Biot \\(Bi=hL_c/k\\), y usualmente se requiere \\(Bi\\lesssim0{,}1\\). Para alimentos gruesos y baja conductividad, esta hipótesis puede no cumplirse: la temperatura del centro será distinta de la superficie. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El coeficiente convectivo no es una propiedad exclusiva del material: depende del flujo, la geometría y del régimen. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d054": {
+    "id": "d054",
+    "clase": 2,
+    "titulo": "9.3 ¿De dónde surge el coeficiente de convección?",
+    "guion": "El objetivo de este apartado es interpretar ¿De dónde surge el coeficiente de convección?. El intercambio entre una superficie sólida y un fluido se produce por conducción en la delgada región contigua a la pared y por movimiento del fluido en el resto. El coeficiente \\(h\\) resume el efecto de geometría, velocidad, régimen de circulación y propiedades del fluido: no es una constante universal del material . En convección natural, el movimiento aparece por diferencias de densidad asociadas a la temperatura; en convección forzada, una bomba, agitador o ventilador lo impone. Agitar un producto puede aumentar la transferencia convectiva, aunque también intervienen su viscosidad, geometría y régimen de flujo. El coeficiente convectivo no es una propiedad exclusiva del material: depende del flujo, la geometría y del régimen. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d055": {
+    "id": "d055",
+    "clase": 2,
+    "titulo": "Ejemplo resuelto · Convección: intercambio con fluidos",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Enfriamiento superficial Sistema: Producto con superficie de 2 m² a 35 °C en aire a 5 °C. Hipótesis y modelo: Coeficiente convectivo h=18 W/(m²·K) y temperaturas instantáneas dadas. Interacciones y fundamento: La ley de enfriamiento de Newton representa el efecto conjunto de transferencia en la película fluida cercana a la superficie. Desarrollo matemático: \\[\\dot Q=hA(T_s-T_\\infty)=18(2)(35-5)=1080\\ \\mathrm W\\] Resultado: Se extraen aproximadamente 1,08 kW en ese instante. Interpretación y control: La potencia disminuirá cuando la superficie se enfríe; no puede asumirse constante durante todo el proceso. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El coeficiente convectivo no es una propiedad exclusiva del material: depende del flujo, la geometría y del régimen. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d056": {
+    "id": "d056",
+    "clase": 2,
+    "titulo": "10. Radiación térmica",
+    "guion": "El objetivo de este apartado es interpretar . Radiación térmica. Todo cuerpo con temperatura superior al cero absoluto emite radiación electromagnética. La transferencia radiante no necesita un medio material. Para una superficie gris pequeña que intercambia con un entorno grande a temperatura uniforme, se usa el modelo: Donde \\(\\varepsilon\\) es la emisividad (entre 0 y 1), \\(\\sigma=5{,}670374419\\times10^{-8}\\,\\mathrm{W/(m^2\\,K^4)}\\) y las temperaturas deben expresarse en kelvin . En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La radiación depende de la temperatura absoluta elevada a la cuarta potencia y de la emisividad superficial. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d057": {
+    "id": "d057",
+    "clase": 2,
+    "titulo": "10.1 Ejemplo: bandeja caliente",
+    "guion": "El objetivo de este apartado es interpretar Ejemplo: bandeja caliente. Una bandeja de área expuesta \\(A=0{,}8\\,\\mathrm{m^2}\\), emisividad 0,8 y temperatura superficial de 120 °C está frente a un entorno grande a 25 °C. La potencia neta radiante aproximada es: El modelo no incluye convección ni factores de visión complejos; en un horno real ambos mecanismos suelen actuar simultáneamente. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La radiación depende de la temperatura absoluta elevada a la cuarta potencia y de la emisividad superficial. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d058": {
+    "id": "d058",
+    "clase": 2,
+    "titulo": "10.2 Origen físico de la dependencia con la cuarta potencia",
+    "guion": "El objetivo de este apartado es interpretar Origen físico de la dependencia con la cuarta potencia. Todo cuerpo con temperatura superior a 0 K emite radiación electromagnética por la agitación térmica de sus cargas. Para un cuerpo negro ideal, la potencia emitida por unidad de área está descrita por la ley de Stefan–Boltzmann, \\(E_b=\\sigma T^4\\) . En una superficie real se incorpora la emisividad \\(\\varepsilon\\) , y el intercambio neto depende también de las superficies visibles y de la radiación que recibe. La expresión simplificada \\(\\varepsilon\\sigma A(T_s^4-T_{ent}^4)\\) es apropiada para una superficie pequeña frente a un recinto aproximadamente isotermo, con las idealizaciones correspondientes. Las temperaturas deben expresarse en kelvin : elevar °C a la cuarta potencia produce resultados físicamente incorrectos. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La radiación depende de la temperatura absoluta elevada a la cuarta potencia y de la emisividad superficial. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d059": {
+    "id": "d059",
+    "clase": 2,
+    "titulo": "Ejemplo resuelto · Radiación térmica",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Intercambio radiativo Sistema: Superficie de 1,5 m² a 60 °C frente a entorno grande a 20 °C. Hipótesis y modelo: Emisividad ε=0,8; entorno idealizado isotermo, factor de vista efectivo ≈1. Interacciones y fundamento: Stefan–Boltzmann depende de la cuarta potencia de la temperatura absoluta; primero convertir a kelvin. Desarrollo matemático: \\[\\dot Q=\\varepsilon\\sigma A(T_s^4-T_{amb}^4)\\approx0{,}8(5{,}67\\times10^{-8})(1{,}5)(333{,}15^4-293{,}15^4)\\approx335\\ \\mathrm W\\] Resultado: Intercambio neto radiativo aproximado: 335 W hacia el ambiente. Interpretación y control: Nunca elevar una temperatura expresada en °C a la cuarta potencia dentro de esta ley. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La radiación depende de la temperatura absoluta elevada a la cuarta potencia y de la emisividad superficial. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d060": {
+    "id": "d060",
+    "clase": 2,
+    "titulo": "11. Resistencias térmicas y coeficiente global",
+    "guion": "El objetivo de este apartado es interpretar . Resistencias térmicas y coeficiente global. En un equipo real, el calor puede atravesar sucesivamente el fluido caliente, la pared y el fluido frío. Para una pared plana con igual área de referencia: La relación \\(U=1/(AR_{\\mathrm{total}})\\) define el coeficiente global de transferencia de calor según el área de referencia elegida. En intercambiadores tubulares, las áreas internas y externas difieren y deben distinguirse. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Las resistencias térmicas pueden sumarse en serie en condiciones estacionarias unidimensionales y sin generación interna. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d061": {
+    "id": "d061",
+    "clase": 2,
+    "titulo": "11.1 Resistencias por ensuciamiento",
+    "guion": "El objetivo de este apartado es interpretar Resistencias por ensuciamiento. Los depósitos de proteínas, sales, grasas u otros compuestos sobre las superficies originan fouling (ensuciamiento), incorporando resistencia térmica adicional. Por ello, el rendimiento puede disminuir con las horas de operación, incluso si las temperaturas y los caudales de servicio permanecen sin cambios. Las resistencias térmicas pueden sumarse en serie en condiciones estacionarias unidimensionales y sin generación interna. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d062": {
+    "id": "d062",
+    "clase": 2,
+    "titulo": "11.2 Analogía eléctrica y distribución de temperaturas",
+    "guion": "El objetivo de este apartado es interpretar Analogía eléctrica y distribución de temperaturas. En una red térmica en serie, la diferencia total de temperatura juega el papel de una diferencia de potencial; la potencia térmica representa una corriente y cada resistencia indica la oposición a la transferencia. Para una pared compuesta de capas planas puede escribirse \\(R_{cond,i}=L_i/(k_i A)\\) , y para cada película convectiva, \\(R_{conv}=1/(hA)\\) . Una vez calculada la tasa, la caída térmica de cada resistencia es \\(\\Delta T_j=\\dot Q R_j\\) . Así se localiza dónde ocurre la mayor diferencia de temperatura y se identifica qué capa conviene modificar. Las resistencias en paralelo requieren sumar las potencias a través de trayectorias independientes, no sumar directamente sus resistencias. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Las resistencias térmicas pueden sumarse en serie en condiciones estacionarias unidimensionales y sin generación interna. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d063": {
+    "id": "d063",
+    "clase": 2,
+    "titulo": "Ejemplo resuelto · Resistencias térmicas y coeficiente global",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Pared más convección Sistema: Pared de 5 m², L=0,08 m, k=0,04 W/(m·K), h interior=10 y exterior=20 W/(m²·K). Hipótesis y modelo: Dos fluidos a 30 y 5 °C; resistencias térmicas en serie, sin puentes térmicos. Interacciones y fundamento: La misma potencia atraviesa todas las resistencias en régimen estacionario. Desarrollo matemático: \\[R_t=\\frac1{20(5)}+\\frac{0{,}08}{0{,}04(5)}+\\frac1{10(5)}=0{,}43\\ \\mathrm{K/W};\\quad\\dot Q=\\frac{25}{0{,}43}\\approx58{,}1\\ \\mathrm W\\] Resultado: Potencia transferida: 58,1 W. Interpretación y control: La conducción del aislante domina la resistencia (0,40 K/W frente a 0,03 K/W de películas). En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Las resistencias térmicas pueden sumarse en serie en condiciones estacionarias unidimensionales y sin generación interna. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d064": {
+    "id": "d064",
+    "clase": 2,
+    "titulo": "Evaluación formativa · Diseño de aislación",
+    "guion": "Las preguntas se utilizan como instancia formativa y no solo para verificar fórmulas. Se pide justificar el sistema elegido, reconocer los supuestos, explicar la causa física del comportamiento y anticipar qué sucede cuando se altera una variable de operación. Es recomendable discutir las respuestas antes de mostrar cualquier cálculo."
+  },
+  "d065": {
+    "id": "d065",
+    "clase": 2,
+    "titulo": "Cierre de clase 2",
+    "guion": "Para cerrar la clase 2, se retoman las preguntas de consolidación y se explican las relaciones entre los mecanismos físicos. Se propone revisar los ejercicios del banco de la unidad correspondientes a los temas estudiados, identificar el modelo en cada enunciado y controlar la coherencia dimensional de los resultados."
+  },
+  "d066": {
+    "id": "d066",
+    "clase": 3,
+    "titulo": "Clase 3 · Leyes y ciclos",
+    "guion": "Comienza la clase 3 de la Unidad 6. Primera ley, segunda ley, entropía, ciclos y refrigeración. Se recuperan los conocimientos necesarios y se explica qué fenómenos se modelarán, cuáles son las hipótesis simplificativas y cómo se relacionan con equipos reales. El objetivo es conectar los fundamentos de termodinámica con situaciones concretas de tecnología de alimentos."
+  },
+  "d067": {
+    "id": "d067",
+    "clase": 3,
+    "titulo": "12. Primera ley de la termodinámica",
+    "guion": "El objetivo de este apartado es interpretar . Primera ley de la termodinámica. La primera ley expresa la conservación de la energía. Para un sistema cerrado , con la convención de calor positivo cuando ingresa al sistema y trabajo positivo cuando el sistema lo realiza: Si los cambios de energía cinética y potencial macroscópica son despreciables: En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley expresa conservación de energía: las transferencias por calor, trabajo y masa se consideran según el sistema elegido. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d068": {
+    "id": "d068",
+    "clase": 3,
+    "titulo": "12.1 Trabajo de expansión",
+    "guion": "El objetivo de este apartado es interpretar Trabajo de expansión. Para un proceso cuasiestático con presión externa equilibrada con el sistema: Si la presión se mantiene constante, \\(W=p(V_f-V_i)\\). El área bajo la curva de un diagrama \\(p-V\\) representa el trabajo de expansión. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley expresa conservación de energía: las transferencias por calor, trabajo y masa se consideran según el sistema elegido. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d069": {
+    "id": "d069",
+    "clase": 3,
+    "titulo": "12.3 Sistemas abiertos: volúmenes de control",
+    "guion": "El objetivo de este apartado es interpretar Sistemas abiertos: volúmenes de control. En pasteurizadores y equipos continuos entra y sale materia. La ecuación general de energía para un volumen de control en régimen estacionario es: La letra \\(h\\) aquí representa entalpía específica [J/kg]; no debe confundirse con \\(h\\), coeficiente convectivo [W/(m²·K)], que aparece en otro contexto. Si el líquido es aproximadamente incompresible, se desprecian cambios cinéticos, potenciales y trabajo de eje, y el calor específico permanece aproximadamente constante: En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley expresa conservación de energía: las transferencias por calor, trabajo y masa se consideran según el sistema elegido. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d070": {
+    "id": "d070",
+    "clase": 3,
+    "titulo": "12.4 Ejemplo: potencia de calentamiento continuo",
+    "guion": "El objetivo de este apartado es interpretar Ejemplo: potencia de calentamiento continuo. Una línea procesa 1800 kg/h de un producto con \\(c_p=3{,}9\\,\\mathrm{kJ/(kg\\,K)}\\), desde 10 hasta 72 °C. En operación real debe agregarse el efecto del rendimiento global de los servicios térmicos y de cualquier recuperación de energía. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley expresa conservación de energía: las transferencias por calor, trabajo y masa se consideran según el sistema elegido. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d071": {
+    "id": "d071",
+    "clase": 3,
+    "titulo": "12.5 ¿Qué significa conservar la energía?",
+    "guion": "El objetivo de este apartado es interpretar ¿Qué significa conservar la energía?. La primera ley no asegura que el sistema permanezca a la misma temperatura: asegura que la variación de energía total sea igual a la energía neta transferida por calor, trabajo y transporte de materia. Es indispensable declarar un sistema y sus fronteras antes de asignar signos. No intercambia masa. Puede intercambiar calor y trabajo. La masa cruza las fronteras y transporta entalpía y energía mecánica. Modelo ideal sin intercambio de masa ni de energía con el entorno. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley expresa conservación de energía: las transferencias por calor, trabajo y masa se consideran según el sistema elegido. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d072": {
+    "id": "d072",
+    "clase": 3,
+    "titulo": "12.5 ¿Qué significa conservar la energía? · ampliación",
+    "guion": "El objetivo de este apartado es interpretar ¿Qué significa conservar la energía? ampliación. Modelo ideal sin intercambio de masa ni de energía con el entorno. Con la convención de trabajo positivo realizado por el sistema , \\(\\Delta U=Q-W\\) para un sistema cerrado sin otros cambios macroscópicos. Un calentador eléctrico dentro del sistema recibe energía como trabajo eléctrico; una resistencia atravesada por corriente no constituye automáticamente «calor de entrada» a través de la frontera. La primera ley expresa conservación de energía: las transferencias por calor, trabajo y masa se consideran según el sistema elegido. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d073": {
+    "id": "d073",
+    "clase": 3,
+    "titulo": "Ejemplo resuelto · Primera ley de la termodinámica",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Balance energético de un tanque Sistema: Tanque cerrado recibe 450 kJ de calor; un agitador realiza 80 kJ de trabajo sobre el producto. Hipótesis y modelo: Sin variaciones apreciables de energía cinética y potencial. Convención: trabajo realizado por el sistema positivo. Interacciones y fundamento: La primera ley establece que el cambio de energía interna depende del calor y el trabajo transferidos. Desarrollo matemático: \\[\\Delta U=Q-W_{\\mathrm{por\\ sistema}}=450-(-80)=530\\ \\mathrm{kJ}\\] Resultado: La energía interna aumenta 530 kJ. Interpretación y control: El trabajo del agitador entra al tanque: por eso se suma y no se resta. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley expresa conservación de energía: las transferencias por calor, trabajo y masa se consideran según el sistema elegido. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d074": {
+    "id": "d074",
+    "clase": 3,
+    "titulo": "13. Segunda ley de la termodinámica",
+    "guion": "El objetivo de este apartado es interpretar . Segunda ley de la termodinámica. La conservación de energía no basta para establecer si un proceso es espontáneo. El calor se transfiere espontáneamente de regiones calientes hacia regiones frías, pero el proceso inverso exige una intervención externa. El enunciado de Clausius establece que no es posible un proceso cuyo único efecto sea transferir calor de un cuerpo frío a uno caliente. El de Kelvin–Planck indica que ninguna máquina que opera en ciclo puede convertir íntegramente en trabajo el calor recibido de una sola fuente. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d075": {
+    "id": "d075",
+    "clase": 3,
+    "titulo": "Infografía 5. Resistencia térmica, primera ley, segunda ley y entropía.",
+    "guion": "En esta diapositiva se estudia Infografía 5. Resistencia térmica, primera ley, segunda ley y entropía. La infografía sintetiza tres niveles de análisis que en la unidad se complementan: la transferencia de calor mediante resistencias térmicas, la conservación de la energía expresada por la primera ley y la direccionalidad de los procesos establecida por la segunda ley y la entropía. La resistencia térmica permite modelar la dificultad que encuentra el calor para atravesar paredes y películas convectivas. La primera ley explica que el calor y el trabajo modifican la energía interna del sistema, sin crear ni destruir energía. La segunda ley determina el sentido espontáneo de los procesos y explica por qué toda máquina térmica tiene límites de eficiencia. La entropía cuantifica la irreversibilidad: en los procesos reales la entropía del universo aumenta. En tecnología de alimentos, estos conceptos aparecen en cámaras frigoríficas, intercambiadores, pasteurizadores y sistemas de refrigeración. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d076": {
+    "id": "d076",
+    "clase": 3,
+    "titulo": "13.1 Entropía y generación interna",
+    "guion": "El objetivo de este apartado es interpretar Entropía y generación interna. La entropía \\(S\\) es una propiedad de estado relacionada con la direccionalidad de los procesos. Para un proceso reversible: La desigualdad refleja que en procesos irreversibles se genera entropía. Entre sus causas se encuentran los intercambios con diferencias finitas de temperatura, fricción y mezcla espontánea. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d077": {
+    "id": "d077",
+    "clase": 3,
+    "titulo": "13.2 Rendimiento de una máquina térmica",
+    "guion": "El objetivo de este apartado es interpretar Rendimiento de una máquina térmica. El rendimiento de Carnot es el máximo teórico para una máquina reversible que trabaja entre dos focos a temperaturas absolutas \\(T_H\\) y \\(T_C\\). No es un rendimiento típico de plantas industriales. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d078": {
+    "id": "d078",
+    "clase": 3,
+    "titulo": "13.3 Sentido de los procesos y degradación de la energía",
+    "guion": "El objetivo de este apartado es interpretar Sentido de los procesos y degradación de la energía. La primera ley admite formalmente un proceso que transfiera energía de un cuerpo frío a uno caliente sin aporte externo, porque el balance energético podría cerrar. La segunda ley determina que ese proceso no ocurre espontáneamente . En los procesos reales existe irreversibilidad: transferencia de calor con diferencia finita de temperatura, fricción, estrangulamiento y mezclado aumentan la entropía total del universo. El signo igual corresponde a un proceso reversible ideal; el mayor que cero a uno irreversible. Un intercambiador puede conservar perfectamente la energía y, sin embargo, producir entropía por intercambio entre corrientes a temperaturas distintas. Minimizar pérdidas de calidad energética tiene relevancia para eficiencia en instalaciones térmicas. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d079": {
+    "id": "d079",
+    "clase": 3,
+    "titulo": "13.4 Transformaciones termodinámicas básicas y su representación en diagramas p–V",
+    "guion": "El objetivo de este apartado es interpretar Transformaciones termodinámicas básicas y su representación en diagramas p–V. Los ciclos térmicos combinan transformaciones elementales. En un diagrama presión–volumen (p–V), cada transformación aparece como una curva o una recta característica. El área encerrada por un ciclo representa el trabajo neto intercambiado por el sistema. En términos prácticos, si el volumen aumenta durante una expansión, el sistema puede entregar trabajo; si disminuye durante una compresión, se realiza trabajo sobre el sistema. En un gas ideal, \\(pV=\\text{cte}\\). Si hay expansión isotérmica, el sistema absorbe calor y puede realizar trabajo sin cambiar su temperatura. En equipos abiertos y en calentamientos con pistón móvil, una transformación puede aproximarse a presión constante. El trabajo vale \\(W=p\\,\\Delta V\\). En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d080": {
+    "id": "d080",
+    "clase": 3,
+    "titulo": "13.4 Transformaciones termodinámicas básicas y su representación en diagramas p–V · ampliación",
+    "guion": "El objetivo de este apartado es interpretar Transformaciones termodinámicas básicas y su representación en diagramas p–V ampliación. En un gas ideal, \\(pV=\\text{cte}\\). Si hay expansión isotérmica, el sistema absorbe calor y puede realizar trabajo sin cambiar su temperatura. En equipos abiertos y en calentamientos con pistón móvil, una transformación puede aproximarse a presión constante. El trabajo vale \\(W=p\\,\\Delta V\\). La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d081": {
+    "id": "d081",
+    "clase": 3,
+    "titulo": "13.5 Ciclos térmicos: funcionamiento y balances de energía",
+    "guion": "El objetivo de este apartado es interpretar Ciclos térmicos: funcionamiento y balances de energía. En una máquina térmica que opera en ciclo, el fluido de trabajo regresa a su estado inicial después de una secuencia de transformaciones. Como la variación total de energía interna es nula durante un ciclo completo, el trabajo neto es igual a la diferencia entre el calor recibido y el rechazado. La primera ley determina este balance, mientras que la segunda ley establece la dirección de los procesos y sus límites de rendimiento. En los motores térmicos el objetivo es convertir parte del calor absorbido en trabajo. En los refrigeradores y bombas de calor ocurre el proceso inverso: se aporta trabajo para extraer energía de una región fría y cederla a una más caliente. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d082": {
+    "id": "d082",
+    "clase": 3,
+    "titulo": "13.6 Motores térmicos clásicos: Carnot, Otto y Diesel",
+    "guion": "El objetivo de este apartado es interpretar Motores térmicos clásicos: Carnot, Otto y Diesel. Los ciclos de Carnot, Otto y Diesel son modelos termodinámicos idealizados. Cada uno combina transformaciones específicas y permite analizar cómo el calor recibido se transforma parcialmente en trabajo, con las limitaciones impuestas por la segunda ley. Es un ciclo ideal y reversible formado por dos transformaciones isotérmicas y dos adiabáticas. No describe un motor real concreto, pero establece el límite superior teórico de eficiencia entre dos focos a temperaturas \\(T_H\\) y \\(T_C\\). Muestra que la eficiencia mejora si aumenta \\(T_H\\) o disminuye \\(T_C\\). Ningún ciclo real puede superarlo entre los mismos focos. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d083": {
+    "id": "d083",
+    "clase": 3,
+    "titulo": "13.6 Motores térmicos clásicos: Carnot, Otto y Diesel · ampliación",
+    "guion": "El objetivo de este apartado es interpretar Motores térmicos clásicos: Carnot, Otto y Diesel ampliación. Muestra que la eficiencia mejora si aumenta \\(T_H\\) o disminuye \\(T_C\\). Ningún ciclo real puede superarlo entre los mismos focos. Al modificar los parámetros, se recalculan los estados y las curvas p–V del ciclo ideal. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d084": {
+    "id": "d084",
+    "clase": 3,
+    "titulo": "13.7 Ciclo de refrigeración: visión general",
+    "guion": "El objetivo de este apartado es interpretar Ciclo de refrigeración: visión general. Un sistema de refrigeración realiza el proceso opuesto al motor térmico: consume trabajo para extraer calor de un foco frío y cederlo a uno caliente. Esto no contradice la segunda ley porque el transporte de energía desde la región fría hacia la caliente ocurre gracias al trabajo suministrado al compresor. En el ciclo de compresión de vapor más usual intervienen cuatro elementos principales: Evaporador: el refrigerante se evapora absorbiendo calor del recinto o producto frío. Compresor: recibe trabajo y eleva presión y temperatura del refrigerante. Condensador: el refrigerante cede calor al ambiente y se condensa. Válvula de expansión: reduce la presión del fluido antes de volver al evaporador. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d085": {
+    "id": "d085",
+    "clase": 3,
+    "titulo": "Ejemplo resuelto · Segunda ley de la termodinámica",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Límite de Carnot Sistema: Máquina ideal entre 500 K y 300 K. Hipótesis y modelo: Ciclo reversible teórico; temperaturas expresadas en kelvin. En el cálculo se utiliza T_H = 500 K para el foco caliente y T_C = 300 K para el foco frío. Interacciones y fundamento: La segunda ley impide transformar todo el calor recibido en trabajo en un ciclo entre dos focos. Desarrollo matemático: \\[\\eta_{\\mathrm{Carnot}}=1-\\frac{T_C}{T_H}=1-\\frac{300}{500}=0{,}40\\] Resultado: Rendimiento máximo reversible: 40 %. Interpretación y control: La eficiencia de una máquina real debe ser menor; el cálculo es un límite, no una predicción de planta. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La primera ley indica cuánto se conserva, mientras la segunda determina qué procesos pueden ocurrir espontáneamente y fija límites de rendimiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d086": {
+    "id": "d086",
+    "clase": 3,
+    "titulo": "Simulación · Rendimiento de Carnot",
+    "guion": "El ciclo de Carnot sirve como límite termodinámico y no como descripción de un motor concreto. Al variar la temperatura del foco caliente o del frío cambia la relación de temperaturas y, por lo tanto, el rendimiento reversible máximo. En el diagrama p–V se identifican dos isotermas y dos adiabáticas. Las curvas se calculan con las relaciones del gas ideal y se normalizan para una representación didáctica. Ninguna máquina real supera este rendimiento operando entre los mismos dos focos."
+  },
+  "d087": {
+    "id": "d087",
+    "clase": 3,
+    "titulo": "14. Refrigeración, bombas de calor y desempeño energético",
+    "guion": "El objetivo de este apartado es interpretar . Refrigeración, bombas de calor y desempeño energético. Un equipo frigorífico extrae energía del recinto o producto frío y la rechaza a un entorno más caliente. Para ello consume trabajo mecánico o eléctrico. El coeficiente de desempeño de refrigeración (COP) se define como: El COP puede ser mayor que 1 porque el trabajo no se transforma íntegramente en «frío»: su función es transportar calor. El valor real es menor que el máximo reversible. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El frigorífico necesita aporte de trabajo para transportar calor de un recinto frío a un ambiente más caliente. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d088": {
+    "id": "d088",
+    "clase": 3,
+    "titulo": "14.1 Componentes conceptuales de un circuito frigorífico",
+    "guion": "El objetivo de este apartado es interpretar Componentes conceptuales de un circuito frigorífico. En el evaporador el refrigerante absorbe energía a baja temperatura; el compresor eleva su presión y temperatura; el condensador entrega calor al medio caliente; y la válvula de expansión reduce la presión para reiniciar el ciclo. El frigorífico necesita aporte de trabajo para transportar calor de un recinto frío a un ambiente más caliente. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d089": {
+    "id": "d089",
+    "clase": 3,
+    "titulo": "14.2 Ejemplo resuelto",
+    "guion": "El objetivo de este apartado es interpretar Ejemplo resuelto. Un equipo retira 18 kW de una cámara y consume 6 kW en el compresor, en las condiciones consideradas. Este COP se refiere al equipo en el punto de operación; el consumo completo de una instalación puede incluir ventiladores, bombas, desescarches y auxiliares. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El frigorífico necesita aporte de trabajo para transportar calor de un recinto frío a un ambiente más caliente. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d090": {
+    "id": "d090",
+    "clase": 3,
+    "titulo": "Simulación 3 · Límite ideal de refrigeración",
+    "guion": "En esta diapositiva se estudia Simulación 3 · Límite ideal de refrigeración. El COP de Carnot es un límite termodinámico, no una predicción del equipo real. La diferencia de temperatura del ciclo real suele ser mayor que la diferencia entre recinto y ambiente. El frigorífico necesita aporte de trabajo para transportar calor de un recinto frío a un ambiente más caliente. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d091": {
+    "id": "d091",
+    "clase": 3,
+    "titulo": "14.3 Interpretación física del ciclo de compresión de vapor",
+    "guion": "El objetivo de este apartado es interpretar Interpretación física del ciclo de compresión de vapor. El evaporador absorbe energía térmica del espacio frío; el compresor consume trabajo y eleva presión y temperatura del refrigerante; el condensador rechaza calor al ambiente; y el dispositivo de expansión reduce la presión y produce una mezcla fría para reiniciar el ciclo. Estos procesos requieren propiedades y diagramas del refrigerante para su dimensionamiento real. El COP de Carnot establece un límite superior ideal entre dos temperaturas absolutas y no debe presentarse como valor de funcionamiento esperado de una planta real. El consumo de ventiladores, bombas, desescarches y pérdidas del sistema puede disminuir el desempeño global. El frigorífico necesita aporte de trabajo para transportar calor de un recinto frío a un ambiente más caliente. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d092": {
+    "id": "d092",
+    "clase": 3,
+    "titulo": "Ejemplo resuelto · Refrigeración, bombas de calor y desempeño energético",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Potencia de un equipo frigorífico Sistema: Una cámara requiere retirar 6 kW y su sistema opera con COP=3,0. Hipótesis y modelo: Régimen estacionario; COP se define como potencia frigorífica dividida por potencia eléctrica idealizada. Interacciones y fundamento: El refrigerador consume trabajo para transportar calor desde el foco frío al caliente. Desarrollo matemático: \\[COP=\\frac{\\dot Q_f}{\\dot W}\\Rightarrow\\dot W=\\frac{6}{3}=2\\ \\mathrm{kW};\\qquad \\dot Q_c=6+2=8\\ \\mathrm{kW}\\] Resultado: Consumo aproximado: 2 kW; calor rechazado: 8 kW. Interpretación y control: El condensador debe disipar tanto la carga frigorífica como la energía aportada por el compresor. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El frigorífico necesita aporte de trabajo para transportar calor de un recinto frío a un ambiente más caliente. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d093": {
+    "id": "d093",
+    "clase": 3,
+    "titulo": "Evaluación formativa · Motores y refrigeración",
+    "guion": "Las preguntas se utilizan como instancia formativa y no solo para verificar fórmulas. Se pide justificar el sistema elegido, reconocer los supuestos, explicar la causa física del comportamiento y anticipar qué sucede cuando se altera una variable de operación. Es recomendable discutir las respuestas antes de mostrar cualquier cálculo."
+  },
+  "d094": {
+    "id": "d094",
+    "clase": 3,
+    "titulo": "Cierre de clase 3",
+    "guion": "Para cerrar la clase 3, se retoman las preguntas de consolidación y se explican las relaciones entre los mecanismos físicos. Se propone revisar los ejercicios del banco de la unidad correspondientes a los temas estudiados, identificar el modelo en cada enunciado y controlar la coherencia dimensional de los resultados."
+  },
+  "d095": {
+    "id": "d095",
+    "clase": 4,
+    "titulo": "Clase 4 · Procesos alimentarios",
+    "guion": "Comienza la clase 4 de la Unidad 6. Intercambiadores, pasteurización, enfriamiento y casos integradores. Se recuperan los conocimientos necesarios y se explica qué fenómenos se modelarán, cuáles son las hipótesis simplificativas y cómo se relacionan con equipos reales. El objetivo es conectar los fundamentos de termodinámica con situaciones concretas de tecnología de alimentos."
+  },
+  "d096": {
+    "id": "d096",
+    "clase": 4,
+    "titulo": "15. Intercambiadores de calor",
+    "guion": "El objetivo de este apartado es interpretar . Intercambiadores de calor. Un intercambiador permite transferir energía entre dos corrientes a temperaturas distintas, generalmente separadas por una pared. Son comunes los equipos de placas, doble tubo, carcasa y tubos, y superficies raspadas. El balance de cada corriente no equivale a la ley de transferencia. Ambas relaciones son necesarias para dimensionar el área. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d097": {
+    "id": "d097",
+    "clase": 4,
+    "titulo": "15.1 Balances por corriente",
+    "guion": "El objetivo de este apartado es interpretar Balances por corriente. Para fluidos monofásicos, flujos estacionarios y calor específico aproximadamente constante: Si no hay pérdidas al ambiente: \\(\\dot Q_h=\\dot Q_c=\\dot Q\\). Las letras \\(e\\) y \\(s\\) representan entrada y salida. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El balance de cada corriente no equivale a la ley de transferencia. Ambas relaciones son necesarias para dimensionar el área. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d098": {
+    "id": "d098",
+    "clase": 4,
+    "titulo": "15.3 Diferencia media logarítmica de temperatura (DMLT)",
+    "guion": "El objetivo de este apartado es interpretar Diferencia media logarítmica de temperatura (DMLT). Cuando la diferencia de temperaturas varía a lo largo del equipo, para condiciones apropiadas de flujo y propiedades constantes: En contracorriente , \\(\\Delta T_1=T_{h,e}-T_{c,s}\\) y \\(\\Delta T_2=T_{h,s}-T_{c,e}\\). En paralelo , \\(\\Delta T_1=T_{h,e}-T_{c,e}\\) y \\(\\Delta T_2=T_{h,s}-T_{c,s}\\). Las dos diferencias deben ser positivas para el modelo sin inversión térmica local. Si son iguales, la DMLT es ese mismo valor. En configuraciones multipaso se requiere un factor de corrección \\(F\\): \\(\\dot Q=UA F\\Delta T_{lm}\\). El método no sustituye el balance de energía de cada corriente. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El balance de cada corriente no equivale a la ley de transferencia. Ambas relaciones son necesarias para dimensionar el área. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d099": {
+    "id": "d099",
+    "clase": 4,
+    "titulo": "15.4 Ejemplo resuelto: área de intercambiador",
+    "guion": "El objetivo de este apartado es interpretar Ejemplo resuelto: área de intercambiador. En contracorriente, un fluido caliente entra a 90 °C y sale a 60 °C; el frío ingresa a 20 °C y sale a 50 °C. La potencia intercambiada es 50 kW y \\(U=1000\\,\\mathrm{W/(m^2\\,K)}\\). El área ideal calculada no contempla ensuciamiento progresivo ni márgenes de diseño. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El balance de cada corriente no equivale a la ley de transferencia. Ambas relaciones son necesarias para dimensionar el área. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d100": {
+    "id": "d100",
+    "clase": 4,
+    "titulo": "Simulación 4 · Balance de un intercambiador",
+    "guion": "En esta diapositiva se estudia Simulación 4 · Balance de un intercambiador. Se supone una corriente caliente de agua equivalente y una corriente fría con \\(c_p=3{,}9\\,\\mathrm{kJ/(kg\\,K)}\\). No se resuelve el perfil local ni se comprueba el área disponible: el cálculo muestra límites energéticos y diferencias terminales. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El balance de cada corriente no equivale a la ley de transferencia. Ambas relaciones son necesarias para dimensionar el área. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d101": {
+    "id": "d101",
+    "clase": 4,
+    "titulo": "15.5 Interpretar el gradiente térmico y el ensuciamiento",
+    "guion": "El objetivo de este apartado es interpretar Interpretar el gradiente térmico y el ensuciamiento. El intercambio ocurre porque las dos corrientes presentan una diferencia local de temperatura a lo largo del equipo. En contracorriente suele aprovecharse mejor ese potencial, aunque la selección depende de restricciones sanitarias, pérdida de carga, viscosidad y geometría. La DMLT es una media adecuada de ese salto cuando se cumplen las hipótesis del método. Los depósitos sobre la superficie forman resistencias térmicas adicionales y pueden reducir \\(U\\) . Por ello, una misma temperatura de entrada y un mismo caudal no garantizan idéntico desempeño después de un período de operación. El diseño sanitario, la limpieza CIP y los límites de pérdida de carga deben estudiarse junto con el balance térmico. El balance de cada corriente no equivale a la ley de transferencia. Ambas relaciones son necesarias para dimensionar el área. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d102": {
+    "id": "d102",
+    "clase": 4,
+    "titulo": "Ejemplo resuelto · Intercambiadores de calor",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Balance entre dos corrientes Sistema: Agua caliente 1 kg/s baja de 80 a 60 °C; agua fría 2 kg/s entra a 20 °C. Hipótesis y modelo: Mismo c=4,18 kJ/(kg·K); equipo adiabático al entorno, sin cambio de fase. Interacciones y fundamento: La energía cedida por el agua caliente debe ser absorbida por el agua fría. Desarrollo matemático: \\[\\dot Q=1(4{,}18)(80-60)=83{,}6\\ \\mathrm{kW};\\quad T_{f,s}=20+\\frac{83{,}6}{2(4{,}18)}=30\\ ^\\circ\\mathrm C\\] Resultado: Potencia intercambiada: 83,6 kW; salida fría: 30 °C. Interpretación y control: El resultado cumple el balance y no excede la temperatura caliente de entrada. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El balance de cada corriente no equivale a la ley de transferencia. Ambas relaciones son necesarias para dimensionar el área. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d103": {
+    "id": "d103",
+    "clase": 4,
+    "titulo": "16. Pasteurización: física del calentamiento",
+    "guion": "El objetivo de este apartado es interpretar . Pasteurización: física del calentamiento. La pasteurización es un tratamiento térmico diseñado para disminuir riesgos microbiológicos y/o la carga microbiana según el producto y sus condiciones. En términos físicos, involucra el calentamiento, la transferencia hacia el punto térmicamente más desfavorable y la permanencia en condiciones prescritas. Alcanzar una temperatura medida no demuestra, por sí solo, que se haya logrado la inocuidad. Una temperatura objetivo y un balance térmico no garantizan por sí solos la inocuidad: debe verificarse también el tiempo y el criterio microbiológico. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d104": {
+    "id": "d104",
+    "clase": 4,
+    "titulo": "16.1 Carga térmica sensible",
+    "guion": "El objetivo de este apartado es interpretar Carga térmica sensible. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Una temperatura objetivo y un balance térmico no garantizan por sí solos la inocuidad: debe verificarse también el tiempo y el criterio microbiológico. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d105": {
+    "id": "d105",
+    "clase": 4,
+    "titulo": "16.2 Tiempo de residencia en una sección de retención",
+    "guion": "El objetivo de este apartado es interpretar Tiempo de residencia en una sección de retención. En una primera aproximación de flujo ideal, usando el caudal volumétrico \\(\\dot V\\) y el volumen efectivo \\(V_r\\): En equipos reales, la distribución de tiempos de residencia, la velocidad máxima local, la geometría y el régimen del flujo deben considerarse de acuerdo con criterios técnicos y regulatorios aplicables. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Una temperatura objetivo y un balance térmico no garantizan por sí solos la inocuidad: debe verificarse también el tiempo y el criterio microbiológico. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d106": {
+    "id": "d106",
+    "clase": 4,
+    "titulo": "16.3 Recuperación de calor",
+    "guion": "El objetivo de este apartado es interpretar Recuperación de calor. Si una corriente fría recupera una fracción \\(r\\) del salto térmico ideal desde la corriente tratada, en un modelo didáctico simplificado: Esta definición de \\(r\\) es didáctica ; la efectividad rigurosa de un intercambiador se define mediante \\(\\dot Q/\\dot Q_{\\max}\\), considerando las capacidades caloríficas de ambas corrientes. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Una temperatura objetivo y un balance térmico no garantizan por sí solos la inocuidad: debe verificarse también el tiempo y el criterio microbiológico. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d107": {
+    "id": "d107",
+    "clase": 4,
+    "titulo": "Simulación 5 · Potencia, regeneración y retención",
+    "guion": "En esta diapositiva se estudia Simulación 5 · Potencia, regeneración y retención. Advertencia: el control simula energía y volumen nominal. No valida tratamiento microbiológico, normativa sanitaria ni distribución de tiempos de residencia. La temperatura objetivo y el tiempo son únicamente parámetros didácticos elegidos por el usuario. Una temperatura objetivo y un balance térmico no garantizan por sí solos la inocuidad: debe verificarse también el tiempo y el criterio microbiológico. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d108": {
+    "id": "d108",
+    "clase": 4,
+    "titulo": "16.4 Ejemplo integrador resuelto",
+    "guion": "El objetivo de este apartado es interpretar Ejemplo integrador resuelto. Una línea procesa 1800 kg/h con \\(c_p=3{,}9\\,\\mathrm{kJ/(kg\\,K)}\\). El producto entra a 10 °C, se desea elevarlo a 72 °C y se precalienta por recuperación hasta 53,4 °C. Punto 2 — Hipótesis: líquido monofásico, \\(c_p\\) constante, sin pérdidas, sin variaciones de energía cinética y potencial. Punto 3 — Interacciones: entrada y salida de masa; ingreso de potencia térmica desde el servicio caliente. La sección final demanda aproximadamente 36,3 kW frente a 120,9 kW sin precalentamiento, en el modelo ideal. Se ha desplazado parte de la carga hacia una transferencia interna regenerativa. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Una temperatura objetivo y un balance térmico no garantizan por sí solos la inocuidad: debe verificarse también el tiempo y el criterio microbiológico. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d109": {
+    "id": "d109",
+    "clase": 4,
+    "titulo": "16.4 Ejemplo integrador resuelto · ampliación",
+    "guion": "El objetivo de este apartado es interpretar Ejemplo integrador resuelto ampliación. La sección final demanda aproximadamente 36,3 kW frente a 120,9 kW sin precalentamiento, en el modelo ideal. Se ha desplazado parte de la carga hacia una transferencia interna regenerativa. Una temperatura objetivo y un balance térmico no garantizan por sí solos la inocuidad: debe verificarse también el tiempo y el criterio microbiológico. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d110": {
+    "id": "d110",
+    "clase": 4,
+    "titulo": "16.5 Diferenciar física térmica y letalidad microbiológica",
+    "guion": "El objetivo de este apartado es interpretar Diferenciar física térmica y letalidad microbiológica. El modelo \\(\\dot Q=\\dot m c_p\\Delta T\\) permite calcular la carga energética , pero por sí solo no certifica que un producto ha alcanzado una condición sanitaria suficiente. La pasteurización efectiva depende del binomio temperatura–tiempo, del microorganismo objetivo, de la composición del alimento, de la distribución térmica, de la residencia hidráulica y de la verificación y validación del equipo. La relación \\(V=\\dot V t\\) proporciona un volumen nominal ideal de retención. En flujo real, la velocidad local no siempre es uniforme: el tiempo mínimo de residencia puede ser distinto del tiempo obtenido a partir del caudal medio. Por ello, la cifra obtenida es una estimación física preliminar y no una validación sanitaria. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Una temperatura objetivo y un balance térmico no garantizan por sí solos la inocuidad: debe verificarse también el tiempo y el criterio microbiológico. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d111": {
+    "id": "d111",
+    "clase": 4,
+    "titulo": "Ejemplo resuelto · Pasteurización: física del calentamiento",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Carga térmica de pasteurización Sistema: Leche con flujo de 900 kg/h calentada desde 10 °C hasta 72 °C. Hipótesis y modelo: Calor específico c=3,9 kJ/(kg·K), sin regeneración ni pérdidas. Interacciones y fundamento: El balance de entalpía sensible expresa la energía requerida por el producto. Desarrollo matemático: \\[\\dot Q=\\frac{900}{3600}(3{,}9)(72-10)=60{,}45\\ \\mathrm{kW}\\] Resultado: Potencia ideal requerida: 60,45 kW. Interpretación y control: El valor calcula calentamiento, no valida por sí solo la letalidad microbiológica: faltan tiempo de retención, flujo y requisitos del proceso. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Una temperatura objetivo y un balance térmico no garantizan por sí solos la inocuidad: debe verificarse también el tiempo y el criterio microbiológico. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d112": {
+    "id": "d112",
+    "clase": 4,
+    "titulo": "17. Enfriamiento y cadena de frío",
+    "guion": "El objetivo de este apartado es interpretar . Enfriamiento y cadena de frío. En el enfriamiento de alimentos aparecen al menos tres contribuciones energéticas: la energía sensible que se extrae del producto, las entradas de calor por paredes e infiltración, y las cargas auxiliares (ventiladores, iluminación, apertura de puertas, etc.). Durante la congelación se agrega la energía asociada al cambio de fase. Si se retiran 300 kg de alimento con \\(c_p=3{,}6\\,\\mathrm{kJ/(kg\\,K)}\\) desde 25 °C hasta 4 °C: Si se debe realizar idealmente en 3 horas, la potencia térmica media mínima asociada al producto es: La potencia nominal del sistema frigorífico se define con un análisis de cargas más amplio, márgenes y condiciones operativas, no solo con este cociente. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La temperatura en la superficie y la temperatura en el centro del producto no coinciden necesariamente durante el enfriamiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d113": {
+    "id": "d113",
+    "clase": 4,
+    "titulo": "17.1 ¿Por qué el centro del alimento se enfría más lento?",
+    "guion": "El objetivo de este apartado es interpretar ¿Por qué el centro del alimento se enfría más lento?. En productos sólidos o empaquetados, la energía debe recorrer una distancia desde el centro hacia la superficie por conducción, antes de ser transferida al aire o al líquido de enfriamiento por convección. El tamaño, espesor y forma influyen fuertemente en el tiempo necesario. Esto explica por qué un cálculo de energía total no determina, por sí solo, el tiempo de proceso. La temperatura en la superficie y la temperatura en el centro del producto no coinciden necesariamente durante el enfriamiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d114": {
+    "id": "d114",
+    "clase": 4,
+    "titulo": "17.2 Balance transitorio frente a la temperatura del centro",
+    "guion": "El objetivo de este apartado es interpretar Balance transitorio frente a la temperatura del centro. En un alimento relativamente grueso, la temperatura superficial puede descender rápidamente mientras su centro conserva una temperatura mayor. El gradiente interno impulsa la conducción, y la convección exterior extrae la energía al medio refrigerante. En ese caso no alcanza con un único valor de temperatura para caracterizar todo el producto. La constante de tiempo de la aproximación concentrada aumenta con la masa y el calor específico y disminuye al aumentar \\(hA\\) ; esta interpretación es útil para objetos pequeños o muy conductores. Para piezas grandes o poco conductoras, el proceso depende de difusividad térmica \\(a=k/(\\rho c_p)\\) y tamaño característico, y requiere un modelo espacial. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La temperatura en la superficie y la temperatura en el centro del producto no coinciden necesariamente durante el enfriamiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d115": {
+    "id": "d115",
+    "clase": 4,
+    "titulo": "Ejemplo resuelto · Enfriamiento y cadena de frío",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Enfriamiento exponencial Sistema: Producto idealizado a 70 °C colocado en ambiente a 5 °C. Hipótesis y modelo: Modelo de capacidad concentrada, constante de tiempo τ=20 min y temperatura inicial uniforme. Interacciones y fundamento: El calor intercambiado por convección hace disminuir la diferencia de temperatura de forma exponencial. Desarrollo matemático: \\[T(t)=5+(70-5)e^{-t/20};\\quad T(40)=5+65e^{-2}\\approx13{,}8\\ ^\\circ\\mathrm C\\] Resultado: Después de 40 min: 13,8 °C. Interpretación y control: Para productos grandes el interior puede conservar mayor temperatura: verificar criterio de Biot antes de aplicar este modelo. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La temperatura en la superficie y la temperatura en el centro del producto no coinciden necesariamente durante el enfriamiento. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d116": {
+    "id": "d116",
+    "clase": 4,
+    "titulo": "18. Caso de estudio: tratamiento térmico con recuperación",
+    "guion": "El objetivo de este apartado es interpretar . Caso de estudio: tratamiento térmico con recuperación. Se analiza conceptualmente una línea de bebida líquida que ingresa fría, se precalienta en un regenerador, se calienta en una sección final, atraviesa un tramo de retención y se enfría antes del envasado. La descripción es didáctica; el proceso sanitario concreto depende de las características de la bebida. La instalación real combina balances, resistencias, recuperación de calor, caudales y restricciones de operación. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d117": {
+    "id": "d117",
+    "clase": 4,
+    "titulo": "Preguntas guía para el análisis técnico",
+    "guion": "En esta diapositiva se estudia Preguntas guía para el análisis técnico. ¿Cuál es la potencia térmica absorbida por el producto entre cada par de temperaturas? ¿Cómo se modifica la potencia externa si aumenta la recuperación de energía? ¿Qué diferencias hay entre volumen nominal de retención y tiempo mínimo garantizado? Identificar los puntos de medición de temperatura y analizar los efectos de los retardos de los sensores. ¿Cómo influye el ensuciamiento del intercambiador en su coeficiente global? ¿Qué carga se impone al sistema frigorífico si el producto llega más caliente de lo previsto? La instalación real combina balances, resistencias, recuperación de calor, caudales y restricciones de operación. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d118": {
+    "id": "d118",
+    "clase": 4,
+    "titulo": "Ejemplo resuelto · Caso de estudio: tratamiento térmico con recuperación",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Ahorro por regeneración Sistema: Leche con caudal de 1000 kg/h se precalienta de 8 a 52 °C recuperando energía del producto caliente. Hipótesis y modelo: c=3,9 kJ/(kg·K), sin pérdidas adicionales en la etapa de recuperación. Interacciones y fundamento: La energía recuperada disminuye la demanda de calentamiento externo. Desarrollo matemático: \\[\\dot Q_{rec}=\\frac{1000}{3600}(3{,}9)(52-8)\\approx47{,}7\\ \\mathrm{kW}\\] Resultado: Recuperación térmica aproximada: 47,7 kW. Interpretación y control: El ahorro energético depende de la temperatura disponible de la corriente caliente y de la efectividad real del intercambiador. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La instalación real combina balances, resistencias, recuperación de calor, caudales y restricciones de operación. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d119": {
+    "id": "d119",
+    "clase": 4,
+    "titulo": "21. Síntesis de relaciones fundamentales",
+    "guion": "El objetivo de este apartado es interpretar . Síntesis de relaciones fundamentales. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d120": {
+    "id": "d120",
+    "clase": 4,
+    "titulo": "Actividad integradora · Línea de pasteurización",
+    "guion": "Las preguntas se utilizan como instancia formativa y no solo para verificar fórmulas. Se pide justificar el sistema elegido, reconocer los supuestos, explicar la causa física del comportamiento y anticipar qué sucede cuando se altera una variable de operación. Es recomendable discutir las respuestas antes de mostrar cualquier cálculo."
+  },
+  "d121": {
+    "id": "d121",
+    "clase": 4,
+    "titulo": "Cierre de clase 4",
+    "guion": "Para cerrar la clase 4, se retoman las preguntas de consolidación y se explican las relaciones entre los mecanismos físicos. Se propone revisar los ejercicios del banco de la unidad correspondientes a los temas estudiados, identificar el modelo en cada enunciado y controlar la coherencia dimensional de los resultados."
+  }
+}

@@ -1,0 +1,1675 @@
+% !TeX program = xelatex
+% !TeX encoding = UTF-8
+\documentclass[11pt,a4paper]{article}
+\usepackage[spanish,es-nodecimaldot,es-noshorthands]{babel}
+\usepackage{fontspec}
+\setmainfont{lmroman10-regular.otf}[BoldFont=lmroman10-bold.otf,ItalicFont=lmroman10-italic.otf,BoldItalicFont=lmroman10-bolditalic.otf]
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{geometry,graphicx,enumitem,multicol}
+\usepackage{tikz,xcolor,tcolorbox,fancyhdr,hyperref,longtable}
+\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing}
+\geometry{margin=2.2cm,headheight=16pt}
+\definecolor{azulUT}{HTML}{0A5471}
+\definecolor{celeste}{HTML}{E9F5FA}
+\definecolor{gris}{HTML}{526674}
+\hypersetup{colorlinks=true,linkcolor=azulUT,urlcolor=azulUT}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Unidad 6 · Física aplicada a Tecnología de Alimentos}\fancyhead[R]{\small Solucionario y respuestas}\fancyfoot[C]{\thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}\emergencystretch=2em
+\newtcolorbox{consigna}{colback=celeste,colframe=azulUT,arc=2mm,boxrule=.65pt}
+\newtcolorbox{fuente}{colback=gray!5,colframe=gray!50,arc=1.5mm,boxrule=.4pt}
+\newcommand{\tituloej}[1]{\textbf{Ejercicio #1.}\quad}
+
+\begin{document}
+\begin{center}
+{\color{azulUT}\Huge\bfseries Unidad 6}\par\medskip
+{\LARGE Temperatura, calor y termodinámica}\par\medskip
+{\large Solucionario para estudio y autoevaluación}\par\medskip
+{\large 85 ejercicios impares resueltos y 85 pares con resultado}\par\vspace{4mm}
+Física Aplicada a la Tecnología de Alimentos · Tecnicatura Universitaria
+\end{center}
+\begin{consigna}
+\textbf{Modo de uso.} El banco conserva exactamente la numeración de los 17 temas del documento de enunciados. En cada subunidad, los \textbf{ejercicios impares (1, 3, 5, 7, 9)} incluyen el razonamiento físico, las hipótesis centrales, el desarrollo matemático y la interpretación del resultado. Los \textbf{pares (2, 4, 6, 8, 10)} contienen sólo resultados para autocorrección. Los enunciados se reproducen para que cada solución pueda consultarse por separado. 
+\end{consigna}
+\textbf{Criterios.} Se mantiene la convención del banco: calor positivo hacia el sistema y trabajo positivo si lo realiza el sistema. Las propiedades térmicas no especificadas expresamente en ciertos ejercicios se adoptan con los valores didácticos usuales del mismo apunte, por ejemplo $c_{agua}=4{,}18\,\mathrm{kJ/(kg\,K)}$, $c_{hielo}=2{,}10\,\mathrm{kJ/(kg\,K)}$, $L_f=334\,\mathrm{kJ/kg}$ y $L_v=2257\,\mathrm{kJ/kg}$. Los resultados pueden diferir ligeramente por redondeo. La resolución es idealizada y no constituye dimensionamiento ni validación de procesos sanitarios.
+\par
+\tableofcontents\newpage
+
+\section{Temperatura, equilibrio térmico y calor}
+
+\begin{center}\begin{tikzpicture}[>=stealth,scale=.85]\draw[->] (0,0)--(7.2,0) node[right]{Escala Celsius};\draw[->] (0,0)--(0,3.5) node[above]{Escala Fahrenheit};\draw[very thick,blue!65!black] (.8,.7)--(6.3,3.0);\node[below] at (.8,0){$0$};\node[below] at (6.3,0){$100$};\node[left] at (0,.7){$32$};\node[left] at (0,3.0){$212$};\draw[dashed] (.8,0)--(.8,.7)--(0,.7);\draw[dashed] (6.3,0)--(6.3,3)--(0,3);\end{tikzpicture}\end{center}
+
+\subsection*{Ejercicio 1 · Desarrollo completo}
+\textbf{Enunciado.} Un tanque de agua se encuentra a \(18\,^\circ\mathrm C\). Expresar esta temperatura en kelvin y grados Fahrenheit. Explicar por qué para Kelvin no se escribe el símbolo de grado.
+
+\textbf{Fundamento e hipótesis.} Temperatura absoluta y escala afín Celsius--Fahrenheit.
+
+\[
+\begin{gathered}
+T_K=18+273{,}15=291{,}15\\t_F=\frac95(18)+32=64{,}4
+\end{gathered}
+\]
+\textbf{Resultado.} 291,15 K; 64,4 °F.
+
+\textbf{Interpretación física.} Kelvin es una unidad del SI y no se escribe con símbolo de grado.
+
+
+\subsection*{Ejercicio 2 · Resultado para autocorrección}
+\textbf{Enunciado.} Una sonda registra \(149\,^\circ\mathrm F\) durante el calentamiento de una salsa. Convertir a Celsius y kelvin y determinar si supera un objetivo de \(60\,^\circ\mathrm C\).
+
+\textbf{Resultado.} 65 °C = 338,15 K; supera en 5 °C el objetivo de 60 °C.
+
+
+\subsection*{Ejercicio 3 · Desarrollo completo}
+\textbf{Enunciado.} Una cámara frigorífica opera a \(268{,}15\,\mathrm K\) y el ambiente a \(27\,^\circ\mathrm C\). Obtener las temperaturas en Celsius y la diferencia térmica en kelvin.
+
+\textbf{Fundamento e hipótesis.} Equilibrio térmico: se comparan temperaturas usando la misma escala.
+
+\[
+\begin{gathered}
+t_{cam}=268{,}15-273{,}15=-5\\\Delta T=27-(-5)=32
+\end{gathered}
+\]
+\textbf{Resultado.} Cámara: -5 °C; ambiente: 27 °C; diferencia: 32 K.
+
+\textbf{Interpretación física.} Una diferencia de 32 K equivale a 32 °C de intervalo.
+
+
+\subsection*{Ejercicio 4 · Resultado para autocorrección}
+\textbf{Enunciado.} En un proceso la temperatura aumenta de \(12\,^\circ\mathrm C\) a \(82\,^\circ\mathrm C\). Hallar el incremento expresado en \(^\circ\mathrm C\), kelvin y \(^\circ\mathrm F\); explicar por qué no corresponde sumar \(273{,}15\) al incremento.
+
+\textbf{Resultado.} \ensuremath{\Delta}T = 70 °C = 70 K = 126 °F de intervalo; no se suma 273,15 a una diferencia.
+
+
+\subsection*{Ejercicio 5 · Desarrollo completo}
+\textbf{Enunciado.} Un termómetro de escala lineal indica \(20\) unidades a \(0\,^\circ\mathrm C\) y \(170\) unidades a \(100\,^\circ\mathrm C\). ¿Qué indicación corresponde a \(65\,^\circ\mathrm C\)?
+
+\textbf{Fundamento e hipótesis.} La escala lineal se define por dos puntos de calibración.
+
+\[
+\begin{gathered}
+X(t)=20+\frac{170-20}{100}t=20+1{,}5t\\X(65)=117{,}5
+\end{gathered}
+\]
+\textbf{Resultado.} 117,5 unidades.
+
+
+\subsection*{Ejercicio 6 · Resultado para autocorrección}
+\textbf{Enunciado.} Dos cuerpos A y B están separados por una pared diatérmica: \(T_A=75\,^\circ\mathrm C\) y \(T_B=20\,^\circ\mathrm C\). Indicar el sentido inicial de transferencia térmica y justificarlo mediante la ley cero y el equilibrio térmico.
+
+\textbf{Resultado.} Flujo inicial desde A (75 °C) hacia B (20 °C), hasta el equilibrio térmico; ley cero identifica temperatura común al equilibrio.
+
+
+\subsection*{Ejercicio 7 · Desarrollo completo}
+\textbf{Enunciado.} En una escala hipotética \(X\), la congelación del agua marca \(10\,X\) y su ebullición a \(1\,\mathrm{atm}\) marca \(210\,X\). Obtener la expresión de conversión \(X(t)\) y hallar el equivalente de \(37\,^\circ\mathrm C\).
+
+\textbf{Fundamento e hipótesis.} Se plantea una función afín que pasa por los dos puntos termométricos.
+
+\[
+\begin{gathered}
+X(t)=10+\frac{210-10}{100}t=10+2t\\X(37)=84
+\end{gathered}
+\]
+\textbf{Resultado.} X(t)=10+2t; para 37 °C: 84 X.
+
+
+\subsection*{Ejercicio 8 · Resultado para autocorrección}
+\textbf{Enunciado.} Una operación debe mantenerse entre \(68\,^\circ\mathrm C\) y \(72\,^\circ\mathrm C\). Convertir el intervalo a Fahrenheit e identificar correctamente su ancho en ambas escalas.
+
+\textbf{Resultado.} 154,4–161,6 °F; ancho 4 °C = 7,2 °F.
+
+
+\subsection*{Ejercicio 9 · Desarrollo completo}
+\textbf{Enunciado.} Un sistema cerrado intercambia \(45\,\mathrm{kJ}\) de energía por diferencia térmica con un recipiente a temperatura inferior. Identificar si esa energía debe denominarse calor, energía interna o temperatura y justificar.
+
+\textbf{Fundamento e hipótesis.} El calor es energía transferida exclusivamente por diferencia de temperatura.
+
+\[
+|Q|=45\,\mathrm{kJ}
+\]
+\textbf{Resultado.} 45 kJ de calor transferido (no es temperatura ni energía interna).
+
+\textbf{Interpretación física.} Al pasar hacia el recipiente más frío, para el sistema caliente Q=-45 kJ.
+
+
+\subsection*{Ejercicio 10 · Resultado para autocorrección}
+\textbf{Enunciado.} Comparar dos recipientes, uno a \(300\,\mathrm K\) y otro a \(35\,^\circ\mathrm C\). Determinar cuál está más caliente y qué principio físico explica la dirección del intercambio si se conectan térmicamente.
+
+\textbf{Resultado.} 35 °C = 308,15 K > 300 K; el segundo recipiente está más caliente y transfiere calor hacia el primero.
+
+
+\clearpage
+
+\section{Termometría e instrumentación térmica}
+
+\begin{center}\begin{tikzpicture}[>=stealth]\draw[thick,rounded corners] (0,0) rectangle (6,2);\draw[fill=gray!20] (.3,.3) rectangle (1.9,1.7);\node at (1.1,1){Sonda};\draw[->,thick] (2.1,1)--(3.7,1);\node[draw,fill=blue!8,minimum width=1.8cm,minimum height=.9cm] at (4.7,1){$4$--$20\,\mathrm{mA}$};\node[below] at (3,0){Temperatura $\longrightarrow$ señal};\end{tikzpicture}\end{center}
+
+\subsection*{Ejercicio 1 · Desarrollo completo}
+\textbf{Enunciado.} Una sonda Pt100 presenta \(100\,\Omega\) a \(0\,^\circ\mathrm C\). Usando \(R=R_0(1+\alpha t)\), con \(\alpha=0{,}00385\,^\circ\mathrm C^{-1}\), calcular su resistencia a \(70\,^\circ\mathrm C\).
+
+\textbf{Fundamento e hipótesis.} Modelo lineal Pt100 válido como aproximación en el intervalo utilizado.
+
+\[
+R=100[1+0{,}00385(70)]=126{,}95
+\]
+\textbf{Resultado.} 126,95 \ensuremath{\Omega}.
+
+
+\subsection*{Ejercicio 2 · Resultado para autocorrección}
+\textbf{Enunciado.} En una calibración, un sensor entrega \(0{,}50\,\mathrm V\) a \(0\,^\circ\mathrm C\) y \(4{,}50\,\mathrm V\) a \(100\,^\circ\mathrm C\). Hallar la función lineal de calibración y la temperatura correspondiente a \(3{,}10\,\mathrm V\).
+
+\textbf{Resultado.} V(t)=0,50+0,040t (V con t en °C); para 3,10 V: 65 °C.
+
+
+\subsection*{Ejercicio 3 · Desarrollo completo}
+\textbf{Enunciado.} Un transmisor de temperatura tiene salida \(4\)--\(20\,\mathrm{mA}\) para el rango \(-10\) a \(110\,^\circ\mathrm C\). Hallar la corriente a \(65\,^\circ\mathrm C\).
+
+\textbf{Fundamento e hipótesis.} Instrumentación: señal 4–20 mA proporcional a la temperatura del rango.
+
+\[
+I=4+16\frac{65-(-10)}{110-(-10)}=14
+\]
+\textbf{Resultado.} 14,0 mA.
+
+
+\subsection*{Ejercicio 4 · Resultado para autocorrección}
+\textbf{Enunciado.} Una lectura de un termómetro indica \(74{,}6\,^\circ\mathrm C\) y un patrón indica \(73{,}9\,^\circ\mathrm C\). Calcular el error absoluto con signo, el porcentaje relativo al patrón y la corrección de calibración.
+
+\textbf{Resultado.} Error: +0,7 °C; error relativo: +0,947 \% del patrón; corrección: -0,7 °C.
+
+
+\subsection*{Ejercicio 5 · Desarrollo completo}
+\textbf{Enunciado.} Un sensor térmico sigue \(T_s(t)=T_f+(T_i-T_f)e^{-t/\tau}\). Si \(T_i=20\,^\circ\mathrm C\), \(T_f=80\,^\circ\mathrm C\) y \(\tau=12\,\mathrm s\), hallar su indicación a los \(18\,\mathrm s\).
+
+\textbf{Fundamento e hipótesis.} Respuesta de primer orden ante salto de temperatura.
+
+\[
+T_s(18)=80+(20-80)e^{-18/12}=66{,}61
+\]
+\textbf{Resultado.} 66,6 °C.
+
+\textbf{Interpretación física.} El sensor aún no alcanza la temperatura final debido a su inercia térmica.
+
+
+\subsection*{Ejercicio 6 · Resultado para autocorrección}
+\textbf{Enunciado.} Una termocupla calibrada produce \(41\,\mu\mathrm V/K\) de diferencia respecto de una unión de referencia a \(20\,^\circ\mathrm C\). Estimar la tensión cuando la unión de medida alcanza \(90\,^\circ\mathrm C\).
+
+\textbf{Resultado.} 2 870 \ensuremath{\mu}V = 2,87 mV.
+
+
+\subsection*{Ejercicio 7 · Desarrollo completo}
+\textbf{Enunciado.} Para verificar una sonda de una marmita se registran \(20{,}3\), \(20{,}1\), \(20{,}4\), \(20{,}2\) y \(20{,}0\,^\circ\mathrm C\). Hallar el promedio, el rango y discutir si dispersión equivale a exactitud.
+
+\textbf{Fundamento e hipótesis.} La dispersión de lecturas cuantifica repetibilidad, no exactitud contra un patrón.
+
+\[
+\begin{gathered}
+\overline T=\frac{20{,}3+20{,}1+20{,}4+20{,}2+20{,}0}{5}=20{,}2\\R=20{,}4-20{,}0=0{,}4
+\end{gathered}
+\]
+\textbf{Resultado.} Promedio 20,2 °C; rango 0,4 °C.
+
+\textbf{Interpretación física.} La exactitud requiere comparar contra una temperatura de referencia.
+
+
+\subsection*{Ejercicio 8 · Resultado para autocorrección}
+\textbf{Enunciado.} Un sensor situado en el centro de un envase indica \(63\,^\circ\mathrm C\) y otro en la superficie \(72\,^\circ\mathrm C\). Calcular la diferencia y explicar por qué importa la posición de medida al evaluar un tratamiento térmico.
+
+\textbf{Resultado.} Diferencia superficie–centro: 9 °C; la posición del sensor importa porque existen gradientes térmicos.
+
+
+\subsection*{Ejercicio 9 · Desarrollo completo}
+\textbf{Enunciado.} Un indicador digital resuelve \(0{,}1\,^\circ\mathrm C\) y presenta una incertidumbre de calibración de \(\pm0{,}5\,^\circ\mathrm C\). Explicar por qué resolución y exactitud no son sinónimos al verificar \(75\,^\circ\mathrm C\).
+
+\textbf{Fundamento e hipótesis.} Resolución es el menor incremento mostrado; incertidumbre de calibración es un límite de conocimiento de la lectura.
+
+\[
+\begin{gathered}
+\delta_{res}=0{,}1\,^{\circ}\mathrm C\\u_{cal}=\pm0{,}5\,^{\circ}\mathrm C
+\end{gathered}
+\]
+\textbf{Resultado.} Resolución 0,1 °C; incertidumbre indicada \ensuremath{\pm}0,5 °C.
+
+\textbf{Interpretación física.} Mostrar décimas no implica conocer la temperatura verdadera con décimas de grado.
+
+
+\subsection*{Ejercicio 10 · Resultado para autocorrección}
+\textbf{Enunciado.} Un registrador toma una muestra cada \(5\,\mathrm s\) durante \(15\,\mathrm{min}\). Determinar cuántos intervalos y cuántos registros se obtienen si se registra también el instante inicial.
+
+\textbf{Resultado.} 180 intervalos y 181 registros (incluye t=0 y t=900 s).
+
+
+\clearpage
+
+\section{Dilatación térmica}
+
+\begin{center}\begin{tikzpicture}[>=stealth]\draw[line width=4pt,gray!75] (.4,1.1)--(3.0,1.1);\draw[line width=4pt,red!65] (.4,.25)--(3.7,.25);\draw[<->] (.4,1.5)--(3,1.5) node[midway,above]{$L_0$};\draw[<->] (.4,-.15)--(3.7,-.15) node[midway,below]{$L_f$};\node[right] at (4,1.1){$T_0$};\node[right] at (4,.25){$T_f>T_0$};\end{tikzpicture}\end{center}
+
+\subsection*{Ejercicio 1 · Desarrollo completo}
+\textbf{Enunciado.} Una cañería de acero inoxidable de \(8{,}0\,\mathrm m\) pasa de \(18\) a \(92\,^\circ\mathrm C\). Usar \(\alpha=17\times10^{-6}\,\mathrm K^{-1}\) para calcular su alargamiento libre.
+
+\textbf{Fundamento e hipótesis.} Sólido libre, coeficiente constante y expansión lineal.
+
+\[
+\Delta L=\alpha L_0\Delta T=17\cdot10^{-6}(8)(74)=0{,}010064
+\]
+\textbf{Resultado.} 10,064 mm de alargamiento.
+
+
+\subsection*{Ejercicio 2 · Resultado para autocorrección}
+\textbf{Enunciado.} Una bandeja de aluminio de \(0{,}80\,\mathrm m\) por \(0{,}50\,\mathrm m\) se calienta \(65\,\mathrm K\). Adoptando \(\alpha=23\times10^{-6}\,\mathrm K^{-1}\), estimar la variación de área.
+
+\textbf{Resultado.} \ensuremath{\Delta}A \ensuremath{\approx} 2\ensuremath{\alpha}A\ensuremath{_0}\ensuremath{\Delta}T = 0,001196 m\ensuremath{^2} (\ensuremath{\approx} 11,96 cm\ensuremath{^2}).
+
+
+\subsection*{Ejercicio 3 · Desarrollo completo}
+\textbf{Enunciado.} Un recipiente metálico de \(120\,\mathrm L\) aumenta \(50\,\mathrm K\). Si \(\gamma=36\times10^{-6}\,\mathrm K^{-1}\), determinar cuánto aumenta su capacidad interna.
+
+\textbf{Fundamento e hipótesis.} Dilatación cúbica aproximada de un depósito homogéneo.
+
+\[
+\Delta V=\gamma V_0\Delta T=36\cdot10^{-6}(120)(50)=0{,}216
+\]
+\textbf{Resultado.} 0,216 L.
+
+
+\subsection*{Ejercicio 4 · Resultado para autocorrección}
+\textbf{Enunciado.} Una barra de cobre de \(1{,}50\,\mathrm m\) presenta un alargamiento de \(1{,}02\,\mathrm{mm}\) al calentarse \(40\,\mathrm K\). Calcular experimentalmente \(\alpha\).
+
+\textbf{Resultado.} \ensuremath{\alpha} = 1,70\ensuremath{\times}10-\ensuremath{^5} K-¹.
+
+
+\subsection*{Ejercicio 5 · Desarrollo completo}
+\textbf{Enunciado.} Un aro de acero tiene diámetro interior de \(100{,}0\,\mathrm{mm}\) a \(20\,^\circ\mathrm C\). ¿Cuál será el diámetro de su abertura a \(150\,^\circ\mathrm C\), con \(\alpha=12\times10^{-6}\,\mathrm K^{-1}\)?
+
+\textbf{Fundamento e hipótesis.} El orificio de un material homogéneo se dilata como si estuviera lleno del mismo material.
+
+\[
+D_f=D_0(1+\alpha\Delta T)=100[1+12\cdot10^{-6}(130)]
+\]
+\textbf{Resultado.} 100,156 mm.
+
+
+\subsection*{Ejercicio 6 · Resultado para autocorrección}
+\textbf{Enunciado.} Una tapa metálica y un frasco de vidrio tienen inicialmente \(75{,}0\,\mathrm{mm}\) de diámetro. Sus coeficientes lineales son \(22\times10^{-6}\) y \(9\times10^{-6}\,\mathrm K^{-1}\). Estimar la diferencia diametral después de elevar \(60\,\mathrm K\).
+
+\textbf{Resultado.} Diferencia final tapa–vidrio: 0,0585 mm (tapa más grande).
+
+
+\subsection*{Ejercicio 7 · Desarrollo completo}
+\textbf{Enunciado.} Una conducción de \(15\,\mathrm m\) se enfría de \(85\) a \(5\,^\circ\mathrm C\). Para \(\alpha=16\times10^{-6}\,\mathrm K^{-1}\), calcular la contracción e indicar cómo condiciona los soportes.
+
+\textbf{Fundamento e hipótesis.} Enfriamiento: \ensuremath{\Delta}T negativo produce contracción longitudinal.
+
+\[
+\Delta L=16\cdot10^{-6}(15)(5-85)=-0{,}0192
+\]
+\textbf{Resultado.} Contracción 19,2 mm.
+
+\textbf{Interpretación física.} Se requieren apoyos o compensadores que admitan movimiento.
+
+
+\subsection*{Ejercicio 8 · Resultado para autocorrección}
+\textbf{Enunciado.} Un tanque contiene \(250\,\mathrm L\) de aceite. Su coeficiente volumétrico es \(7{,}0\times10^{-4}\,\mathrm K^{-1}\). ¿Qué incremento ideal de volumen experimenta al calentarse \(30\,\mathrm K\)?
+
+\textbf{Resultado.} Aumento de volumen del aceite: 5,25 L; se ignora la expansión del recipiente.
+
+
+\subsection*{Ejercicio 9 · Desarrollo completo}
+\textbf{Enunciado.} Una tubería está restringida y no puede expandirse al aumentar \(80\,\mathrm K\). Estimar la tensión térmica ideal \(\sigma=E\alpha\Delta T\), con \(E=190\,\mathrm{GPa}\) y \(\alpha=16\times10^{-6}\,\mathrm K^{-1}\). Discutir hipótesis.
+
+\textbf{Fundamento e hipótesis.} Restricción total, material lineal elástico, temperatura uniforme y ausencia de pandeo.
+
+\[
+\sigma=E\alpha\Delta T=190\cdot10^9(16\cdot10^{-6})(80)=2{,}432\cdot10^8
+\]
+\textbf{Resultado.} 243 MPa en compresión ideal.
+
+\textbf{Interpretación física.} Puede superarse el rango elástico o producirse pandeo: el modelo no asegura comportamiento real.
+
+
+\subsection*{Ejercicio 10 · Resultado para autocorrección}
+\textbf{Enunciado.} Una placa cuadrada de acero de lado \(0{,}60\,\mathrm m\) se calienta \(100\,\mathrm K\). Hallar el área final mediante la dilatación de ambos lados y comparar con \(\Delta A\simeq 2\alpha A_0\Delta T\), tomando \(\alpha=12\times10^{-6}\,\mathrm K^{-1}\).
+
+\textbf{Resultado.} Área final exacta: 0,3608645 m\ensuremath{^2}; aproximación lineal: 0,3608640 m\ensuremath{^2}; diferencia \ensuremath{\approx} 5,18\ensuremath{\times}10-\ensuremath{^7} m\ensuremath{^2}.
+
+
+\clearpage
+
+\section{Calor sensible, capacidad calorífica y calorimetría}
+
+\begin{center}\begin{tikzpicture}[>=stealth]\draw[fill=red!15] (0,0) rectangle (1.5,1.8);\draw[fill=blue!15] (4,0) rectangle (5.5,1.8);\draw[->,ultra thick,red!70!black] (1.6,.9)--(3.9,.9) node[midway,above]{$Q$};\node at (.75,.9){$T_1$};\node at (4.75,.9){$T_2$};\end{tikzpicture}\end{center}
+
+\subsection*{Ejercicio 1 · Desarrollo completo}
+\textbf{Enunciado.} Calcular el calor ideal necesario para llevar \(18\,\mathrm{kg}\) de agua de \(15\) a \(75\,^\circ\mathrm C\), con \(c=4{,}18\,\mathrm{kJ/(kg\,K)}\).
+
+\textbf{Fundamento e hipótesis.} Sistema agua sin pérdidas ni cambio de fase; calor específico constante.
+
+\[
+Q=mc\Delta T=18(4{,}18)(75-15)=4514{,}4
+\]
+\textbf{Resultado.} 4 514,4 kJ = 4,5144 MJ.
+
+
+\subsection*{Ejercicio 2 · Resultado para autocorrección}
+\textbf{Enunciado.} Una masa de \(120\,\mathrm{kg}\) de leche se calienta de \(8\) a \(65\,^\circ\mathrm C\), con \(c=3{,}90\,\mathrm{kJ/(kg\,K)}\). Calcular la energía absorbida.
+
+\textbf{Resultado.} Q = 26 676 kJ = 26,676 MJ.
+
+
+\subsection*{Ejercicio 3 · Desarrollo completo}
+\textbf{Enunciado.} Una marmita de acero de \(25\,\mathrm{kg}\), con \(c=0{,}50\,\mathrm{kJ/(kg\,K)}\), pasa de \(20\) a \(80\,^\circ\mathrm C\). Hallar su capacidad calorífica y la energía recibida.
+
+\textbf{Fundamento e hipótesis.} Capacidad calorífica total C=mc y calor sensible Q=C\ensuremath{\Delta}T.
+
+\[
+\begin{gathered}
+C=25(0{,}50)=12{,}5\\Q=12{,}5(80-20)=750
+\end{gathered}
+\]
+\textbf{Resultado.} C = 12,5 kJ/K; Q = 750 kJ.
+
+
+\subsection*{Ejercicio 4 · Resultado para autocorrección}
+\textbf{Enunciado.} Mezclar \(2{,}0\,\mathrm{kg}\) de agua a \(85\,^\circ\mathrm C\) con \(3{,}0\,\mathrm{kg}\) a \(20\,^\circ\mathrm C\), sin pérdidas. Hallar \(T_f\).
+
+\textbf{Resultado.} Tf = 46 °C.
+
+
+\subsection*{Ejercicio 5 · Desarrollo completo}
+\textbf{Enunciado.} Se introducen \(0{,}40\,\mathrm{kg}\) de aluminio a \(180\,^\circ\mathrm C\) en \(1{,}2\,\mathrm{kg}\) de agua a \(22\,^\circ\mathrm C\). Usar \(c_{Al}=900\) y \(c_{agua}=4180\,\mathrm{J/(kg\,K)}\); obtener la temperatura final ideal.
+
+\textbf{Fundamento e hipótesis.} Mezcla adiabática ideal; calor cedido por aluminio igual al recibido por el agua.
+
+\[
+\begin{gathered}
+(0{,}40)(900)(180-T_f)=(1{,}2)(4180)(T_f-22)\\T_f=32{,}58
+\end{gathered}
+\]
+\textbf{Resultado.} 32,6 °C.
+
+\textbf{Interpretación física.} La temperatura final queda entre las iniciales y más cerca de la del agua por su capacidad calorífica mayor.
+
+
+\subsection*{Ejercicio 6 · Resultado para autocorrección}
+\textbf{Enunciado.} Un calorímetro de capacidad \(C_{cal}=350\,\mathrm{J/K}\) contiene \(0{,}50\,\mathrm{kg}\) de agua a \(20\,^\circ\mathrm C\). Se agrega \(0{,}20\,\mathrm{kg}\) de agua a \(85\,^\circ\mathrm C\). Hallar \(T_f\).
+
+\textbf{Resultado.} Tf = 36,6 °C aproximadamente.
+
+
+\subsection*{Ejercicio 7 · Desarrollo completo}
+\textbf{Enunciado.} Una resistencia entrega \(1{,}8\,\mathrm{kW}\) durante \(12\,\mathrm{min}\) a \(10\,\mathrm{kg}\) de agua inicialmente a \(18\,^\circ\mathrm C\). Sin pérdidas ni cambios de fase, hallar la temperatura final.
+
+\textbf{Fundamento e hipótesis.} La potencia eléctrica se convierte en calor sensible del agua sin pérdidas.
+
+\[
+\begin{gathered}
+Q=Pt=1{,}8(12\cdot60)=1296\,\mathrm{kJ}\\T_f=18+\frac{1296}{10(4{,}18)}
+\end{gathered}
+\]
+\textbf{Resultado.} 49,0 °C.
+
+
+\subsection*{Ejercicio 8 · Resultado para autocorrección}
+\textbf{Enunciado.} En un ensayo, \(0{,}60\,\mathrm{kg}\) de una sustancia absorben \(18\,\mathrm{kJ}\) y elevan su temperatura \(25\,\mathrm K\). Calcular su calor específico medio.
+
+\textbf{Resultado.} c = 1,20 kJ/(kg K).
+
+
+\subsection*{Ejercicio 9 · Desarrollo completo}
+\textbf{Enunciado.} Un depósito con \(50\,\mathrm{kg}\) de agua se enfría de \(75\) a \(30\,^\circ\mathrm C\). Hallar el calor cedido e interpretar el signo de \(Q\) para el sistema agua.
+
+\textbf{Fundamento e hipótesis.} El sistema agua pierde energía por diferencia térmica.
+
+\[
+Q=mc(T_f-T_i)=50(4{,}18)(30-75)=-9405
+\]
+\textbf{Resultado.} Q = -9 405 kJ; calor cedido = 9,405 MJ.
+
+\textbf{Interpretación física.} El signo negativo corresponde a salida de calor del sistema.
+
+
+\subsection*{Ejercicio 10 · Resultado para autocorrección}
+\textbf{Enunciado.} Un producto alimentario de \(40\,\mathrm{kg}\) tiene \(c(T)=(3{,}5+0{,}002T)\,\mathrm{kJ/(kg\,K)}\), con \(T\) numérica en \(^\circ\mathrm C\). Hallar \(Q=m\int_{10}^{70}c(T)\,dT\).
+
+\textbf{Resultado.} Q = 8 592 kJ, integrando el calor específico variable entre 10 y 70 °C.
+
+
+\clearpage
+
+\section{Cambios de fase y calor latente}
+
+\begin{center}\begin{tikzpicture}[>=stealth,x=1.2cm,y=.055cm]\draw[->] (0,-25)--(0,140) node[above]{$T$};\draw[->] (0,-25)--(6,-25) node[right]{$Q$};\draw[thick,blue] (.1,-15)--(1,0)--(2,0)--(3,100)--(4.6,100)--(5.4,120);\foreach \x/\lab in {1/Fusión,3/Agua,4.6/Vapor}{\node[above] at (\x,100){\scriptsize \lab};}\end{tikzpicture}\end{center}
+
+\subsection*{Ejercicio 1 · Desarrollo completo}
+\textbf{Enunciado.} Calcular el calor necesario para fundir \(5{,}0\,\mathrm{kg}\) de hielo a \(0\,^\circ\mathrm C\), usando \(L_f=334\,\mathrm{kJ/kg}\).
+
+\textbf{Fundamento e hipótesis.} Durante fusión a 0 °C se absorbe calor latente sin aumento de temperatura.
+
+\[
+Q=mL_f=5(334)=1670
+\]
+\textbf{Resultado.} 1 670 kJ = 1,67 MJ.
+
+
+\subsection*{Ejercicio 2 · Resultado para autocorrección}
+\textbf{Enunciado.} ¿Qué energía debe extraerse para solidificar \(12\,\mathrm{kg}\) de agua inicialmente a \(0\,^\circ\mathrm C\)? Despreciar pérdidas.
+
+\textbf{Resultado.} Extraer 4 008 kJ; para el agua Q = -4 008 kJ.
+
+
+\subsection*{Ejercicio 3 · Desarrollo completo}
+\textbf{Enunciado.} Calcular el calor para transformar \(2\,\mathrm{kg}\) de agua a \(100\,^\circ\mathrm C\) en vapor saturado a \(1\,\mathrm{atm}\), con \(L_v=2257\,\mathrm{kJ/kg}\).
+
+\textbf{Fundamento e hipótesis.} Vaporización saturada isobárica a 1 atm.
+
+\[
+Q=mL_v=2(2257)=4514
+\]
+\textbf{Resultado.} 4 514 kJ = 4,514 MJ.
+
+
+\subsection*{Ejercicio 4 · Resultado para autocorrección}
+\textbf{Enunciado.} Un bloque de hielo de \(3\,\mathrm{kg}\) a \(-12\,^\circ\mathrm C\) se funde por completo. Usar \(c_h=2{,}10\,\mathrm{kJ/(kg\,K)}\) y \(L_f=334\,\mathrm{kJ/kg}\); hallar la energía total.
+
+\textbf{Resultado.} Q = 1 077,6 kJ para calentar hielo a 0 °C y fundirlo.
+
+
+\subsection*{Ejercicio 5 · Desarrollo completo}
+\textbf{Enunciado.} Calcular la energía requerida para llevar \(1{,}5\,\mathrm{kg}\) de hielo desde \(-15\,^\circ\mathrm C\) hasta agua líquida a \(65\,^\circ\mathrm C\), por etapas.
+
+\textbf{Fundamento e hipótesis.} Tres etapas: calentar hielo, fundir, calentar agua líquida; usar c\_h=2,1 y c\_l=4,18 kJ/(kg K) como valores del apunte.
+
+\[
+\begin{gathered}
+Q_1=1{,}5(2{,}1)(15)=47{,}25\\Q_2=1{,}5(334)=501\\Q_3=1{,}5(4{,}18)(65)=407{,}55
+\end{gathered}
+\]
+\textbf{Resultado.} Q total = 955,8 kJ.
+
+\textbf{Interpretación física.} No se aplica una sola ecuación mc\ensuremath{\Delta}T a través de la fusión.
+
+
+\subsection*{Ejercicio 6 · Resultado para autocorrección}
+\textbf{Enunciado.} Se condensa \(0{,}75\,\mathrm{kg}\) de vapor de agua saturado a \(100\,^\circ\mathrm C\), y el condensado se enfría hasta \(35\,^\circ\mathrm C\). Hallar el calor cedido.
+
+\textbf{Resultado.} Calor cedido \ensuremath{\approx} 1 896,5 kJ (condensación y enfriamiento, con c\_agua = 4,18 kJ/(kg K)).
+
+
+\subsection*{Ejercicio 7 · Desarrollo completo}
+\textbf{Enunciado.} Un sistema entrega \(835\,\mathrm{kJ}\) a hielo a \(0\,^\circ\mathrm C\). Determinar la masa máxima que puede fundirse.
+
+\textbf{Fundamento e hipótesis.} La energía se invierte exclusivamente en cambio de fase si todo el hielo parte de 0 °C.
+
+\[
+m=\frac{Q}{L_f}=\frac{835}{334}=2{,}5
+\]
+\textbf{Resultado.} 2,50 kg de hielo fundidos.
+
+
+\subsection*{Ejercicio 8 · Resultado para autocorrección}
+\textbf{Enunciado.} Una cámara debe congelar \(20\,\mathrm{kg}\) de agua desde \(18\,^\circ\mathrm C\) hasta hielo a \(-10\,^\circ\mathrm C\). Calcular la energía ideal extraída en tres etapas.
+
+\textbf{Resultado.} Extraer 8 604,8 kJ \ensuremath{\approx} 8,60 MJ, con c\_agua=4,18 y c\_hielo=2,1 kJ/(kg K).
+
+
+\subsection*{Ejercicio 9 · Desarrollo completo}
+\textbf{Enunciado.} En una evaporación se suministran \(4{,}514\,\mathrm{MJ}\) a agua a \(100\,^\circ\mathrm C\). Hallar la masa evaporada suponiendo presión constante de \(1\,\mathrm{atm}\).
+
+\textbf{Fundamento e hipótesis.} Masa evaporada desde agua ya en ebullición, a presión constante.
+
+\[
+m=\frac{Q}{L_v}=\frac{4514}{2257}=2
+\]
+\textbf{Resultado.} 2,00 kg de vapor.
+
+
+\subsection*{Ejercicio 10 · Resultado para autocorrección}
+\textbf{Enunciado.} Construir la curva \(T(Q)\) para \(1\,\mathrm{kg}\) de hielo a \(-15\,^\circ\mathrm C\) hasta vapor sobrecalentado a \(120\,^\circ\mathrm C\). Obtener las energías acumuladas de cinco etapas, con \(c_h=2{,}1\), \(c_l=4{,}18\), \(c_v=2{,}0\,\mathrm{kJ/(kg\,K)}\), \(L_f=334\) y \(L_v=2257\,\mathrm{kJ/kg}\).
+
+\textbf{Resultado.} Acumulados: 31,5; 365,5; 783,5; 3 040,5; 3 080,5 kJ; total 3,0805 MJ.
+
+
+\clearpage
+
+\section{Mecanismos de transferencia de calor}
+
+\begin{center}\begin{tikzpicture}[>=stealth]\draw[fill=red!12] (0,0) rectangle (1.3,2);\draw[fill=gray!20] (1.3,0) rectangle (3.1,2);\draw[fill=blue!12] (3.1,0) rectangle (4.4,2);\draw[->,very thick,red] (.4,1)--(4,1) node[midway,above]{$\dot Q$};\node[below] at (2.2,0){Pared};\end{tikzpicture}\end{center}
+
+\subsection*{Ejercicio 1 · Desarrollo completo}
+\textbf{Enunciado.} Una pared transfiere \(240\,\mathrm W\) por conducción y la misma superficie intercambia \(90\,\mathrm W\) por radiación. Determinar la transferencia total bajo la convención de signos indicada.
+
+\textbf{Fundamento e hipótesis.} Contribuciones paralelas y mismo sentido de flujo se suman.
+
+\[
+\dot Q_{tot}=\dot Q_{cond}+\dot Q_{rad}=240+90=330
+\]
+\textbf{Resultado.} 330 W.
+
+
+\subsection*{Ejercicio 2 · Resultado para autocorrección}
+\textbf{Enunciado.} Un tubo caliente pierde \(1{,}2\,\mathrm{kW}\) por convección y \(0{,}25\,\mathrm{kW}\) por radiación. Expresar ambas contribuciones como porcentaje del total.
+
+\textbf{Resultado.} Convección 82,8 \%; radiación 17,2 \%; total 1,45 kW.
+
+
+\subsection*{Ejercicio 3 · Desarrollo completo}
+\textbf{Enunciado.} Una cámara de frío recibe \(1{,}8\,\mathrm{kW}\) a través de paredes, \(0{,}6\,\mathrm{kW}\) por infiltración de aire y \(0{,}4\,\mathrm{kW}\) por producto. Hallar la carga total.
+
+\textbf{Fundamento e hipótesis.} Carga frigorífica = suma de entradas térmicas a la cámara.
+
+\[
+\dot Q_{tot}=1{,}8+0{,}6+0{,}4=2{,}8
+\]
+\textbf{Resultado.} 2,80 kW.
+
+
+\subsection*{Ejercicio 4 · Resultado para autocorrección}
+\textbf{Enunciado.} Un recipiente de \(2\,\mathrm m^2\) pierde \(300\,\mathrm W\) hacia el ambiente. Hallar el flujo térmico superficial medio en \(\mathrm{W/m^2}\) e identificar una posible combinación de mecanismos.
+
+\textbf{Resultado.} Flujo superficial medio saliente = 150 W/m\ensuremath{^2}; podrían coexistir convección y radiación.
+
+
+\subsection*{Ejercicio 5 · Desarrollo completo}
+\textbf{Enunciado.} Un alimento recibe \(150\,\mathrm{kJ}\) en \(5\,\mathrm{min}\) por una superficie. Calcular la potencia térmica media y explicar la diferencia entre energía y tasa de transferencia.
+
+\textbf{Fundamento e hipótesis.} Potencia térmica es la tasa de transferencia de energía, no la energía total.
+
+\[
+\dot Q_{med}=\frac{Q}{\Delta t}=\frac{150\,\mathrm{kJ}}{300\,\mathrm s}=0{,}5\,\mathrm{kW}
+\]
+\textbf{Resultado.} 500 W.
+
+
+\subsection*{Ejercicio 6 · Resultado para autocorrección}
+\textbf{Enunciado.} Una pared en régimen permanente presenta temperaturas de cara interna y externa de \(45\) y \(30\,^\circ\mathrm C\). Indicar la dirección del flujo y qué información adicional se necesita para calcular su valor.
+
+\textbf{Resultado.} De la cara a 45 °C hacia la de 30 °C; se requiere conductividad, espesor, área y condiciones para establecer el modelo.
+
+
+\subsection*{Ejercicio 7 · Desarrollo completo}
+\textbf{Enunciado.} Un intercambiador transfiere \(18\,\mathrm{kW}\) y un segundo transfiere \(42\,\mathrm{kW}\). Comparar la energía intercambiada durante \(8\,\mathrm{min}\) en cada equipo.
+
+\textbf{Fundamento e hipótesis.} Para potencia constante, la energía es igual a la potencia multiplicada por el tiempo.
+
+\[
+\begin{gathered}
+Q_1=18(8\cdot60)=8640\\Q_2=42(8\cdot60)=20160
+\end{gathered}
+\]
+\textbf{Resultado.} 8,64 MJ y 20,16 MJ; el segundo entrega 2,33 veces más.
+
+
+\subsection*{Ejercicio 8 · Resultado para autocorrección}
+\textbf{Enunciado.} Una pared pierde \(35\,\mathrm{kWh}\) en un día. Calcular su potencia térmica promedio en watts y explicar cuándo puede utilizarse esta potencia constante.
+
+\textbf{Resultado.} Potencia promedio: 1 458 W \ensuremath{\approx} 1,46 kW; como equivalente constante del promedio diario.
+
+
+\subsection*{Ejercicio 9 · Desarrollo completo}
+\textbf{Enunciado.} Un tanque recibe \(12\,\mathrm{MJ}\) en \(30\,\mathrm{min}\) por vapor, pero pierde \(2\,\mathrm{MJ}\) al ambiente. Determinar el calor neto absorbido y la potencia neta media.
+
+\textbf{Fundamento e hipótesis.} Balance de calor neto para tanque, tomando salida al ambiente negativa.
+
+\[
+\begin{gathered}
+Q_{neto}=12-2=10\,\mathrm{MJ}\\\dot Q_{med}=\frac{10\cdot10^6}{30\cdot60}
+\end{gathered}
+\]
+\textbf{Resultado.} Q neto = 10 MJ; potencia media = 5,56 kW.
+
+
+\subsection*{Ejercicio 10 · Resultado para autocorrección}
+\textbf{Enunciado.} En un proceso, la transferencia térmica hacia un producto es \(\dot Q(t)=(1{,}0+0{,}2t)\,\mathrm{kW}\), con \(t\) en minutos. Calcular la energía de \(t=0\) a \(t=10\,\mathrm{min}\), considerando la conversión de unidades.
+
+\textbf{Resultado.} Energía transferida: 1 200 kJ = 1,20 MJ (integración con t en min y factor 60 s/min).
+
+
+\clearpage
+
+\section{Conducción: ley de Fourier}
+
+\begin{center}\begin{tikzpicture}[>=stealth]\draw[fill=gray!25] (2,0) rectangle (3,2.4);\draw[->,ultra thick,red!80] (.1,1.2)--(1.9,1.2);\draw[->,ultra thick,red!80] (3.1,1.2)--(4.9,1.2);\node[left] at (.1,1.2){$T_h$};\node[right] at (4.9,1.2){$T_c$};\draw[<->] (2,-.3)--(3,-.3) node[midway,below]{$L$};\end{tikzpicture}\end{center}
+
+\subsection*{Ejercicio 1 · Desarrollo completo}
+\textbf{Enunciado.} Una pared de cámara frigorífica de \(0{,}12\,\mathrm m\) de espesor y \(10\,\mathrm m^2\) tiene \(k=0{,}035\,\mathrm{W/(m\,K)}\). Para \(\Delta T=28\,\mathrm K\), calcular \(\dot Q\).
+
+\textbf{Fundamento e hipótesis.} Pared plana unidimensional, régimen estacionario, k constante.
+
+\[
+\dot Q=\frac{kA\Delta T}{L}=\frac{0{,}035(10)(28)}{0{,}12}=81{,}67
+\]
+\textbf{Resultado.} 81,7 W.
+
+
+\subsection*{Ejercicio 2 · Resultado para autocorrección}
+\textbf{Enunciado.} Una placa de acero inoxidable de \(5\,\mathrm{mm}\), \(A=0{,}8\,\mathrm m^2\) y \(k=16\,\mathrm{W/(m\,K)}\) presenta \(\Delta T=20\,\mathrm K\). Calcular la potencia conducida.
+
+\textbf{Resultado.} 51 200 W = 51,2 kW.
+
+
+\subsection*{Ejercicio 3 · Desarrollo completo}
+\textbf{Enunciado.} Un aislamiento debe limitar pérdidas a \(150\,\mathrm W\) en \(A=6\,\mathrm m^2\), con \(k=0{,}040\,\mathrm{W/(m\,K)}\) y \(\Delta T=35\,\mathrm K\). Obtener el espesor mínimo.
+
+\textbf{Fundamento e hipótesis.} Despejar espesor de la ley de Fourier para una pérdida máxima permitida.
+
+\[
+L_{min}=\frac{kA\Delta T}{\dot Q_{max}}=\frac{0{,}040(6)(35)}{150}
+\]
+\textbf{Resultado.} 0,056 m = 5,6 cm.
+
+
+\subsection*{Ejercicio 4 · Resultado para autocorrección}
+\textbf{Enunciado.} Una pared de ladrillo de \(0{,}20\,\mathrm m\) conduce \(700\,\mathrm W\) a través de \(12\,\mathrm m^2\) con \(\Delta T=25\,\mathrm K\). Hallar \(k\).
+
+\textbf{Resultado.} k \ensuremath{\approx} 0,467 W/(m K).
+
+
+\subsection*{Ejercicio 5 · Desarrollo completo}
+\textbf{Enunciado.} Dos placas del mismo material tienen áreas \(A\) y \(2A\), pero igual espesor y \(\Delta T\). Comparar matemáticamente sus potencias de conducción.
+
+\textbf{Fundamento e hipótesis.} A igual diferencia térmica y material, la conducción escala proporcionalmente al área.
+
+\[
+\begin{gathered}
+\dot Q_1=\frac{kA\Delta T}{L}\\\dot Q_2=\frac{k(2A)\Delta T}{L}=2\dot Q_1
+\end{gathered}
+\]
+\textbf{Resultado.} La placa doble área conduce el doble de potencia.
+
+
+\subsection*{Ejercicio 6 · Resultado para autocorrección}
+\textbf{Enunciado.} Una pared consta de \(0{,}10\,\mathrm m\) de aislante de \(k=0{,}04\) y \(0{,}02\,\mathrm m\) de madera de \(k=0{,}14\,\mathrm{W/(m\,K)}\); \(A=5\,\mathrm m^2\). Calcular \(R\) equivalente en serie y \(\dot Q\) con \(\Delta T=30\,\mathrm K\).
+
+\textbf{Resultado.} Rtotal = 0,52857 K/W; potencia = 56,76 W.
+
+
+\subsection*{Ejercicio 7 · Desarrollo completo}
+\textbf{Enunciado.} Para \(\dot Q=500\,\mathrm W\), \(k=0{,}8\,\mathrm{W/(m\,K)}\), \(A=2\,\mathrm m^2\) y \(L=0{,}08\,\mathrm m\), calcular \(|dT/dx|\) y \(\Delta T\).
+
+\textbf{Fundamento e hipótesis.} Ley local de Fourier para pared plana en régimen permanente.
+
+\[
+\begin{gathered}
+|dT/dx|=\frac{\dot Q}{kA}=\frac{500}{0{,}8(2)}=312{,}5\\\Delta T=312{,}5(0{,}08)
+\end{gathered}
+\]
+\textbf{Resultado.} Gradiente 312,5 K/m; diferencia 25 K.
+
+
+\subsection*{Ejercicio 8 · Resultado para autocorrección}
+\textbf{Enunciado.} Una placa metálica tiene \(T(0)=80\,^\circ\mathrm C\) y \(T(L)=30\,^\circ\mathrm C\), con \(L=0{,}10\,\mathrm m\). Graficar el perfil \(T(x)\) si \(k\) es constante y no hay generación de calor.
+
+\textbf{Resultado.} Perfil lineal T(x) = 80 - 500x [°C, x en m].
+
+
+\subsection*{Ejercicio 9 · Desarrollo completo}
+\textbf{Enunciado.} Comparar el flujo por conducción de dos aislantes \(k_1=0{,}03\) y \(k_2=0{,}06\,\mathrm{W/(m\,K)}\) con igual geometría y diferencia térmica. ¿Cuál reduce más las pérdidas?
+
+\textbf{Fundamento e hipótesis.} Para igual geometría, flujo proporcional a la conductividad térmica.
+
+\[
+\frac{\dot Q_1}{\dot Q_2}=\frac{k_1}{k_2}=\frac{0{,}03}{0{,}06}=0{,}50
+\]
+\textbf{Resultado.} El aislante k = 0,03 reduce la pérdida a la mitad.
+
+
+\subsection*{Ejercicio 10 · Resultado para autocorrección}
+\textbf{Enunciado.} Una pared de \(A=16\,\mathrm m^2\), \(L=0{,}08\,\mathrm m\) y \(k=0{,}045\,\mathrm{W/(m\,K)}\) funciona durante \(24\,\mathrm h\) con \(\Delta T=26\,\mathrm K\). Hallar la energía transferida en \(\mathrm{kWh}\).
+
+\textbf{Resultado.} Potencia = 234 W; energía diaria = 5,616 kWh.
+
+
+\clearpage
+
+\section{Convección: intercambio con fluidos}
+
+\begin{center}\begin{tikzpicture}[>=stealth]\draw[very thick] (2,0)--(2,2.5);\foreach \y in {.35,.95,1.55,2.15}{\draw[->,red!75,thick] (.2,\y)--(1.85,\y);}\node[above] at (1,2.5){$T_\infty$};\node[right] at (2,2){$T_s$};\node[below] at (1,0){$\dot Q=hA(T_\infty-T_s)$};\end{tikzpicture}\end{center}
+
+\subsection*{Ejercicio 1 · Desarrollo completo}
+\textbf{Enunciado.} Una marmita presenta \(A=2{,}5\,\mathrm m^2\), \(h=35\,\mathrm{W/(m^2\,K)}\), \(T_s=85\,^\circ\mathrm C\) y aire a \(25\,^\circ\mathrm C\). Hallar la pérdida convectiva.
+
+\textbf{Fundamento e hipótesis.} Ley de enfriamiento de Newton para convección con h medio.
+
+\[
+\dot Q=hA(T_s-T_\infty)=35(2{,}5)(85-25)=5250
+\]
+\textbf{Resultado.} Pérdida 5,25 kW.
+
+
+\subsection*{Ejercicio 2 · Resultado para autocorrección}
+\textbf{Enunciado.} Una placa fría está a \(5\,^\circ\mathrm C\) en aire a \(30\,^\circ\mathrm C\); \(h=12\,\mathrm{W/(m^2\,K)}\), \(A=4\,\mathrm m^2\). Calcular el calor ganado por convección.
+
+\textbf{Resultado.} Ganancia hacia la placa fría: 1 200 W.
+
+
+\subsection*{Ejercicio 3 · Desarrollo completo}
+\textbf{Enunciado.} Un intercambiador necesita transferir \(6\,\mathrm{kW}\) entre fluido y pared para \(\Delta T=18\,\mathrm K\) y \(h=500\,\mathrm{W/(m^2\,K)}\). Determinar el área necesaria.
+
+\textbf{Fundamento e hipótesis.} Despejar área del intercambio convectivo.
+
+\[
+A=\frac{\dot Q}{h\Delta T}=\frac{6000}{500(18)}
+\]
+\textbf{Resultado.} 0,667 m\ensuremath{^2}.
+
+
+\subsection*{Ejercicio 4 · Resultado para autocorrección}
+\textbf{Enunciado.} Una placa de \(1{,}2\,\mathrm m^2\) pierde \(900\,\mathrm W\) con \(T_s=90\) y \(T_\infty=30\,^\circ\mathrm C\). Determinar el coeficiente convectivo medio \(h\).
+
+\textbf{Resultado.} h = 12,5 W/(m\ensuremath{^2} K).
+
+
+\subsection*{Ejercicio 5 · Desarrollo completo}
+\textbf{Enunciado.} La corriente de aire de un secadero aumenta \(h\) de \(15\) a \(45\,\mathrm{W/(m^2\,K)}\). Estimar cuánto varía \(\dot Q\) para igual superficie y diferencia de temperatura.
+
+\textbf{Fundamento e hipótesis.} Para igual área y salto térmico, la tasa es proporcional a h.
+
+\[
+\frac{\dot Q_2}{\dot Q_1}=\frac{h_2}{h_1}=\frac{45}{15}=3
+\]
+\textbf{Resultado.} Se triplica la transferencia (aumenta 200 \%).
+
+
+\subsection*{Ejercicio 6 · Resultado para autocorrección}
+\textbf{Enunciado.} Una tubería de diámetro exterior \(0{,}08\,\mathrm m\) y longitud \(5\,\mathrm m\) tiene \(T_s=70\) y aire a \(20\,^\circ\mathrm C\). Con \(h=10\,\mathrm{W/(m^2\,K)}\), hallar las pérdidas laterales.
+
+\textbf{Resultado.} Pérdida lateral \ensuremath{\approx} 125,7 W (A = \ensuremath{\pi}DL).
+
+
+\subsection*{Ejercicio 7 · Desarrollo completo}
+\textbf{Enunciado.} Un producto pierde \(750\,\mathrm W\) por convección en una superficie de \(3{,}0\,\mathrm m^2\); el aire está a \(4\,^\circ\mathrm C\) y \(h=25\,\mathrm{W/(m^2\,K)}\). Hallar \(T_s\).
+
+\textbf{Fundamento e hipótesis.} La temperatura superficial se despeja de la ley convectiva.
+
+\[
+T_s=T_\infty+\frac{\dot Q}{hA}=4+\frac{750}{25(3)}
+\]
+\textbf{Resultado.} 14,0 °C.
+
+
+\subsection*{Ejercicio 8 · Resultado para autocorrección}
+\textbf{Enunciado.} Comparar convección natural y forzada de una pared de \(6\,\mathrm m^2\) con \(T_s-T_\infty=20\,\mathrm K\), usando \(h_n=7\) y \(h_f=28\,\mathrm{W/(m^2\,K)}\).
+
+\textbf{Resultado.} Natural: 840 W; forzada: 3 360 W; la forzada transfiere 4 veces más.
+
+
+\subsection*{Ejercicio 9 · Desarrollo completo}
+\textbf{Enunciado.} Un enfriador de aire dispone de \(A=12\,\mathrm m^2\), \(h=40\,\mathrm{W/(m^2\,K)}\) y \(\Delta T=9\,\mathrm K\). Calcular potencia y energía extraída durante \(20\,\mathrm{min}\).
+
+\textbf{Fundamento e hipótesis.} Convección permanente: potencia constante y energía acumulada.
+
+\[
+\begin{gathered}
+\dot Q=hA\Delta T=40(12)(9)=4320\\Q=4320(20\cdot60)
+\end{gathered}
+\]
+\textbf{Resultado.} 4,32 kW; 5,184 MJ.
+
+
+\subsection*{Ejercicio 10 · Resultado para autocorrección}
+\textbf{Enunciado.} Para \(\dot Q=1{,}5\,\mathrm{kW}\), \(A=5\,\mathrm m^2\) y \(T_s-T_\infty=25\,\mathrm K\), obtener \(R_{conv}\) en \(\mathrm{K/W}\) y \(h\).
+
+\textbf{Resultado.} Rconv = 0,0167 K/W; h = 12 W/(m\ensuremath{^2} K).
+
+
+\clearpage
+
+\section{Radiación térmica}
+
+\begin{center}\begin{tikzpicture}[>=stealth]\draw[fill=orange!30] (0,0) rectangle (1.2,1.8);\draw[fill=blue!12] (4,0) rectangle (5.2,1.8);\foreach \y in {.35,.9,1.45}{\draw[->,orange!80!black,thick] (1.4,\y)--(3.8,\y);}\node[above] at (.6,1.8){$T_s$};\node[above] at (4.6,1.8){$T_{amb}$};\end{tikzpicture}\end{center}
+
+\subsection*{Ejercicio 1 · Desarrollo completo}
+\textbf{Enunciado.} Calcular la potencia emitida por una superficie negra de \(0{,}50\,\mathrm m^2\) a \(400\,\mathrm K\), con \(\sigma=5{,}67\times10^{-8}\,\mathrm{W/(m^2\,K^4)}\).
+
+\textbf{Fundamento e hipótesis.} Ley de Stefan--Boltzmann para potencia emisiva absoluta de cuerpo negro.
+
+\[
+\dot Q=\sigma AT^4=5{,}67\cdot10^{-8}(0{,}5)(400)^4
+\]
+\textbf{Resultado.} 725,76 W emitidos.
+
+
+\subsection*{Ejercicio 2 · Resultado para autocorrección}
+\textbf{Enunciado.} Una superficie inoxidable con \(\varepsilon=0{,}30\), \(A=2\,\mathrm m^2\), \(T_s=360\,\mathrm K\) y entorno a \(295\,\mathrm K\) intercambia radiación neta. Calcular \(\dot Q\) con el modelo de entorno grande.
+
+\textbf{Resultado.} Pérdida neta \ensuremath{\approx} 313,8 W.
+
+
+\subsection*{Ejercicio 3 · Desarrollo completo}
+\textbf{Enunciado.} Comparar la potencia emitida por dos cuerpos negros de igual área a \(300\,\mathrm K\) y \(600\,\mathrm K\). Hallar el cociente.
+
+\textbf{Fundamento e hipótesis.} A igual área y emisividad, potencia absoluta proporcional a cuarta potencia de T absoluta.
+
+\[
+\dot Q_2/\dot Q_1=(600/300)^4=16
+\]
+\textbf{Resultado.} La superficie de 600 K emite 16 veces más.
+
+
+\subsection*{Ejercicio 4 · Resultado para autocorrección}
+\textbf{Enunciado.} Una placa de \(1\,\mathrm m^2\) a \(80\,^\circ\mathrm C\) está rodeada por superficies a \(20\,^\circ\mathrm C\); \(\varepsilon=0{,}85\). Calcular la pérdida radiativa neta.
+
+\textbf{Resultado.} Pérdida neta \ensuremath{\approx} 393,7 W.
+
+
+\subsection*{Ejercicio 5 · Desarrollo completo}
+\textbf{Enunciado.} Un recipiente tiene emisividad \(0{,}20\) sin recubrimiento y \(0{,}90\) recubierto. Con igual \(A\), \(T_s\) y \(T_{amb}\), determinar cómo cambia el intercambio radiante.
+
+\textbf{Fundamento e hipótesis.} Intercambio radiante neto a igual geometría es proporcional a emisividad.
+
+\[
+\dot Q_{rec}/\dot Q_{sin}=\frac{0{,}90}{0{,}20}=4{,}5
+\]
+\textbf{Resultado.} El recubrimiento multiplica por 4,5 el intercambio neto.
+
+
+\subsection*{Ejercicio 6 · Resultado para autocorrección}
+\textbf{Enunciado.} Una superficie de \(0{,}8\,\mathrm m^2\) radia netamente \(400\,\mathrm W\) con \(\varepsilon=0{,}75\) hacia un ambiente de \(293\,\mathrm K\). Hallar numéricamente su temperatura absoluta.
+
+\textbf{Resultado.} Ts \ensuremath{\approx} 371,9 K \ensuremath{\approx} 98,7 °C.
+
+
+\subsection*{Ejercicio 7 · Desarrollo completo}
+\textbf{Enunciado.} Un producto de horno a \(180\,^\circ\mathrm C\) observa paredes a \(210\,^\circ\mathrm C\). Para \(A=1{,}5\,\mathrm m^2\), \(\varepsilon=0{,}80\), estimar el calor radiante neto recibido.
+
+\textbf{Fundamento e hipótesis.} El entorno más caliente entrega energía por radiación al producto.
+
+\[
+\dot Q_{rec}=\varepsilon\sigma A(T_{pared}^4-T_{prod}^4)=0{,}8(5{,}67\cdot10^{-8})(1{,}5)[(483{,}15)^4-(453{,}15)^4]
+\]
+\textbf{Resultado.} Potencia radiante neta hacia el producto \ensuremath{\approx} 839 W.
+
+
+\subsection*{Ejercicio 8 · Resultado para autocorrección}
+\textbf{Enunciado.} Un tanque tiene \(A=4\,\mathrm m^2\), \(T_s=330\,\mathrm K\), \(T_{amb}=290\,\mathrm K\) y \(\varepsilon=0{,}60\). Calcular la energía perdida por radiación durante \(3\,\mathrm h\).
+
+\textbf{Resultado.} Energía radiada neta \ensuremath{\approx} 7,034 MJ en 3 h.
+
+
+\subsection*{Ejercicio 9 · Desarrollo completo}
+\textbf{Enunciado.} Explicar por qué en la ecuación de Stefan--Boltzmann las temperaturas deben expresarse en kelvin. Mostrar el efecto numérico de emplear incorrectamente valores en Celsius para \(T_s=100\,^\circ\mathrm C\).
+
+\textbf{Fundamento e hipótesis.} Stefan--Boltzmann deriva de energía térmica absoluta; no pueden emplearse valores Celsius en T\ensuremath{^4}.
+
+\[
+(373{,}15)^4/(100)^4\simeq193{,}8
+\]
+\textbf{Resultado.} Usar 100 en lugar de 373,15 subestima la emisión absoluta por factor \ensuremath{\approx} 194.
+
+\textbf{Interpretación física.} Para radiación neta el error también depende de la temperatura del entorno.
+
+
+\subsection*{Ejercicio 10 · Resultado para autocorrección}
+\textbf{Enunciado.} Una placa con \(A=1\,\mathrm m^2\) y \(\varepsilon=0{,}7\) intercambia radiación con el entorno a \(300\,\mathrm K\). Calcular el intercambio neto para \(T_s=350\), \(400\) y \(450\,\mathrm K\) y graficar \(\dot Q(T_s)\).
+
+\textbf{Resultado.} Para Ts=350, 400, 450 K: aproximadamente 274, 695 y 1 306 W, respectivamente.
+
+
+\clearpage
+
+\section{Resistencias térmicas y coeficiente global}
+
+\begin{center}\begin{tikzpicture}[>=stealth]\node at (0,1.1){$T_h$};\draw[thick] (.5,1.1)--(1.1,1.1);\foreach \x/\c in {1.1/red,2.4/black,3.7/blue}{\draw[thick,\c] (\x,1.1)--++(.2,.35)--++(.3,-.7)--++(.3,.7)--++(.2,-.35);}\draw[thick] (4.7,1.1)--(5.3,1.1);\node at (5.7,1.1){$T_c$};\node[below] at (1.6,.1){$R_{conv}$};\node[below] at (2.9,.1){$R_{cond}$};\node[below] at (4.2,.1){$R_{conv}$};\end{tikzpicture}\end{center}
+
+\subsection*{Ejercicio 1 · Desarrollo completo}
+\textbf{Enunciado.} Una pared de \(A=5\,\mathrm m^2\), \(L=0{,}10\,\mathrm m\), \(k=0{,}04\,\mathrm{W/(m\,K)}\) separa \(22\) y \(-5\,^\circ\mathrm C\). Hallar la resistencia conductiva y la potencia.
+
+\textbf{Fundamento e hipótesis.} Resistencia de conducción plana en serie térmica.
+
+\[
+\begin{gathered}
+R=\frac{L}{kA}=\frac{0{,}1}{0{,}04(5)}=0{,}5\\\dot Q=\frac{22-(-5)}{0{,}5}
+\end{gathered}
+\]
+\textbf{Resultado.} R = 0,50 K/W; potencia = 54 W.
+
+
+\subsection*{Ejercicio 2 · Resultado para autocorrección}
+\textbf{Enunciado.} Una pared de \(A=8\,\mathrm m^2\), \(L=0{,}08\,\mathrm m\) y \(k=0{,}036\) tiene convección interior \(h_i=10\) y exterior \(h_o=25\,\mathrm{W/(m^2\,K)}\). Calcular \(R_{total}\), \(U\) y \(\dot Q\) para \(\Delta T=30\,\mathrm K\).
+
+\textbf{Resultado.} Rtotal = 0,29528 K/W; U = 0,4234 W/(m\ensuremath{^2} K); Q̇ = 101,6 W.
+
+
+\subsection*{Ejercicio 3 · Desarrollo completo}
+\textbf{Enunciado.} Un panel combina dos aislantes de espesores \(0{,}05\) y \(0{,}07\,\mathrm m\), con \(k_1=0{,}04\), \(k_2=0{,}03\,\mathrm{W/(m\,K)}\), y \(A=10\,\mathrm m^2\). Obtener la resistencia equivalente.
+
+\textbf{Fundamento e hipótesis.} Para dos capas conductivas en serie se suman resistencias.
+
+\[
+R_{eq}=\frac{0{,}05}{0{,}04(10)}+\frac{0{,}07}{0{,}03(10)}=0{,}125+0{,}2333
+\]
+\textbf{Resultado.} 0,3583 K/W.
+
+
+\subsection*{Ejercicio 4 · Resultado para autocorrección}
+\textbf{Enunciado.} Una cámara pierde \(850\,\mathrm W\) con \(\Delta T=25\,\mathrm K\) y \(A=40\,\mathrm m^2\). Estimar el coeficiente global \(U\).
+
+\textbf{Resultado.} U = 0,850 W/(m\ensuremath{^2} K).
+
+
+\subsection*{Ejercicio 5 · Desarrollo completo}
+\textbf{Enunciado.} Un aislante se añade a una pared y eleva \(R_{total}\) de \(0{,}020\) a \(0{,}045\,\mathrm{K/W}\). Para \(\Delta T=24\,\mathrm K\), calcular las potencias antes y después y el ahorro porcentual.
+
+\textbf{Fundamento e hipótesis.} Flujos comparados para diferencia de temperatura fija.
+
+\[
+\begin{gathered}
+\dot Q_i=\frac{24}{0{,}020}=1200\\\dot Q_f=\frac{24}{0{,}045}=533{,}33
+\end{gathered}
+\]
+\textbf{Resultado.} Antes: 1 200 W; después: 533 W; reducción 55,6 \%.
+
+
+\subsection*{Ejercicio 6 · Resultado para autocorrección}
+\textbf{Enunciado.} Dos paneles paralelos de resistencias \(R_1=0{,}050\) y \(R_2=0{,}080\,\mathrm{K/W}\) tienen la misma \(\Delta T=20\,\mathrm K\). Calcular la resistencia equivalente y el flujo total.
+
+\textbf{Resultado.} Req \ensuremath{\approx} 0,03077 K/W; flujo total = 650 W.
+
+
+\subsection*{Ejercicio 7 · Desarrollo completo}
+\textbf{Enunciado.} Una pared transmite \(1{,}0\,\mathrm{kW}\), con ambiente interior a \(25\,^\circ\mathrm C\), exterior a \(5\,^\circ\mathrm C\), y \(R_{conv,i}=0{,}004\,\mathrm{K/W}\). Hallar la temperatura de la superficie interior.
+
+\textbf{Fundamento e hipótesis.} Caída térmica en convección de lado caliente T\_fluido-T\_superficie=Q̇ R.
+
+\[
+T_{s,i}=25-(1000)(0{,}004)=21
+\]
+\textbf{Resultado.} 21 °C.
+
+
+\subsection*{Ejercicio 8 · Resultado para autocorrección}
+\textbf{Enunciado.} En un intercambio térmico, \(U=450\,\mathrm{W/(m^2\,K)}\) y \(A=12\,\mathrm m^2\). Determinar la resistencia térmica global equivalente \(1/(UA)\).
+
+\textbf{Resultado.} Rglobal = 1,85185\ensuremath{\times}10-\ensuremath{^4} K/W.
+
+
+\subsection*{Ejercicio 9 · Desarrollo completo}
+\textbf{Enunciado.} En una tubería aislada \(L=3\,\mathrm m\), \(r_i=0{,}025\,\mathrm m\), \(r_o=0{,}055\,\mathrm m\), \(k=0{,}045\,\mathrm{W/(m\,K)}\). Usar \(R=\ln(r_o/r_i)/(2\pi kL)\) y hallar la resistencia radial.
+
+\textbf{Fundamento e hipótesis.} Pared cilíndrica: el área radial aumenta con el radio; emplear expresión logarítmica.
+
+\[
+R=\frac{\ln(0{,}055/0{,}025)}{2\pi(0{,}045)(3)}
+\]
+\textbf{Resultado.} R \ensuremath{\approx} 0,930 K/W.
+
+
+\subsection*{Ejercicio 10 · Resultado para autocorrección}
+\textbf{Enunciado.} Una pared con resistencias en serie \(R_1=0{,}008\), \(R_2=0{,}045\) y \(R_3=0{,}012\,\mathrm{K/W}\) recibe \(\Delta T=40\,\mathrm K\). Determinar la caída de temperatura en cada tramo.
+
+\textbf{Resultado.} Caídas \ensuremath{\Delta}T\ensuremath{_1}=4,923 K; \ensuremath{\Delta}T\ensuremath{_2}=27,692 K; \ensuremath{\Delta}T\ensuremath{_3}=7,385 K.
+
+
+\clearpage
+
+\section{Primera ley de la termodinámica}
+
+\begin{center}\begin{tikzpicture}[>=stealth]\draw[fill=blue!8,thick] (1,0) rectangle (4,2);\node at (2.5,1){Sistema};\draw[->,ultra thick,red] (0,1)--(.9,1) node[midway,above]{$Q$};\draw[->,ultra thick,orange] (4.1,1)--(5.2,1) node[midway,above]{$W$};\end{tikzpicture}\end{center}
+
+\subsection*{Ejercicio 1 · Desarrollo completo}
+\textbf{Enunciado.} Un sistema cerrado recibe \(65\,\mathrm{kJ}\) de calor y realiza \(20\,\mathrm{kJ}\) de trabajo. Hallar \(\Delta U\) con la convención \(\Delta U=Q-W\).
+
+\textbf{Fundamento e hipótesis.} Sistema cerrado, energía cinética y potencial despreciables; signo W>0 si el sistema trabaja.
+
+\[
+\Delta U=Q-W=65-20=45
+\]
+\textbf{Resultado.} \ensuremath{\Delta}U = +45 kJ.
+
+
+\subsection*{Ejercicio 2 · Resultado para autocorrección}
+\textbf{Enunciado.} Se comprime un gas realizando sobre él \(35\,\mathrm{kJ}\) de trabajo mientras cede \(10\,\mathrm{kJ}\) de calor. Calcular \(\Delta U\) con signos.
+
+\textbf{Resultado.} Q=-10 kJ, W=-35 kJ; \ensuremath{\Delta}U=+25 kJ.
+
+
+\subsection*{Ejercicio 3 · Desarrollo completo}
+\textbf{Enunciado.} Un pistón se expande a presión constante \(p=250\,\mathrm{kPa}\) desde \(0{,}010\) hasta \(0{,}026\,\mathrm{m^3}\). Hallar el trabajo de frontera.
+
+\textbf{Fundamento e hipótesis.} Expansión cuasiestática a presión constante; trabajo de frontera.
+
+\[
+W=p(V_f-V_i)=250(0{,}026-0{,}010)
+\]
+\textbf{Resultado.} W = +4,00 kJ.
+
+
+\subsection*{Ejercicio 4 · Resultado para autocorrección}
+\textbf{Enunciado.} Un recipiente rígido contiene gas y recibe \(28\,\mathrm{kJ}\) de calor. Si no existen otros trabajos, obtener \(\Delta U\) y justificar por qué \(W_b=0\).
+
+\textbf{Resultado.} Wb=0 en recipiente rígido; \ensuremath{\Delta}U=+28 kJ.
+
+
+\subsection*{Ejercicio 5 · Desarrollo completo}
+\textbf{Enunciado.} Un gas ideal de \(0{,}50\,\mathrm{mol}\) cambia su temperatura de \(300\) a \(450\,\mathrm K\). Usando \(C_{V,m}=20{,}8\,\mathrm{J/(mol\,K)}\), determinar \(\Delta U\).
+
+\textbf{Fundamento e hipótesis.} Para gas ideal con capacidad molar constante, \ensuremath{\Delta}U=n C\_V \ensuremath{\Delta}T.
+
+\[
+\Delta U=0{,}50(20{,}8)(450-300)=1560
+\]
+\textbf{Resultado.} 1 560 J = 1,56 kJ.
+
+
+\subsection*{Ejercicio 6 · Resultado para autocorrección}
+\textbf{Enunciado.} Una compresión adiabática de gas requiere \(18\,\mathrm{kJ}\) de trabajo sobre el sistema. Hallar \(Q\) y \(\Delta U\) en el modelo ideal.
+
+\textbf{Resultado.} Q=0; trabajo del sistema W=-18 kJ; \ensuremath{\Delta}U=+18 kJ.
+
+
+\subsection*{Ejercicio 7 · Desarrollo completo}
+\textbf{Enunciado.} Un tanque pierde \(400\,\mathrm{kJ}\) de calor mientras un agitador realiza \(650\,\mathrm{kJ}\) de trabajo sobre su contenido. Hallar la variación de energía interna.
+
+\textbf{Fundamento e hipótesis.} El agitador entrega trabajo al tanque, por lo tanto trabajo del sistema negativo.
+
+\[
+\begin{gathered}
+Q=-400\\W=-650\\\Delta U=Q-W=-400-(-650)
+\end{gathered}
+\]
+\textbf{Resultado.} \ensuremath{\Delta}U=+250 kJ.
+
+
+\subsection*{Ejercicio 8 · Resultado para autocorrección}
+\textbf{Enunciado.} Un sistema realiza un ciclo y recibe \(200\,\mathrm{kJ}\) de calor, rechazando \(140\,\mathrm{kJ}\). Hallar el trabajo neto y \(\Delta U\) al completar el ciclo.
+
+\textbf{Resultado.} Wneto=+60 kJ; \ensuremath{\Delta}U del ciclo=0.
+
+
+\subsection*{Ejercicio 9 · Desarrollo completo}
+\textbf{Enunciado.} En un intercambiador de flujo estacionario, una corriente de agua de \(\dot m=0{,}50\,\mathrm{kg/s}\) se calienta \(20\,\mathrm K\). Estimar \(\dot Q=\dot mc\Delta T\), con \(c=4{,}18\,\mathrm{kJ/(kg\,K)}\), despreciando trabajo y cambios cinéticos.
+
+\textbf{Fundamento e hipótesis.} Balance de energía en flujo estacionario sin trabajo de eje ni cambios cinéticos.
+
+\[
+\dot Q=\dot mc\Delta T=0{,}5(4{,}18)(20)
+\]
+\textbf{Resultado.} 41,8 kW.
+
+
+\subsection*{Ejercicio 10 · Resultado para autocorrección}
+\textbf{Enunciado.} Un gas realiza \(W=12\,\mathrm{kJ}\) y su energía interna disminuye \(5\,\mathrm{kJ}\). Determinar el calor transferido al sistema y discutir su signo.
+
+\textbf{Resultado.} Q = +7 kJ (el sistema recibe calor).
+
+
+\clearpage
+
+\section{Segunda ley, entropía y ciclos térmicos}
+
+\begin{center}\begin{tikzpicture}[>=stealth]\draw[fill=red!20] (0,0) rectangle (1.4,2);\draw[fill=blue!20] (4.5,0) rectangle (5.9,2);\draw[->,very thick,red] (1.5,1)--(4.4,1) node[midway,above]{$Q_H$};\node at (.7,1){$T_H$};\node at (5.2,1){$T_C$};\end{tikzpicture}\end{center}
+
+\subsection*{Ejercicio 1 · Desarrollo completo}
+\textbf{Enunciado.} Un motor ideal opera entre \(T_H=600\,\mathrm K\) y \(T_C=300\,\mathrm K\). Hallar su eficiencia máxima de Carnot.
+
+\textbf{Fundamento e hipótesis.} Segunda ley: rendimiento máximo entre focos es el de Carnot.
+
+\[
+\eta_{max}=1-\frac{T_C}{T_H}=1-\frac{300}{600}=0{,}5
+\]
+\textbf{Resultado.} 50,0 \%.
+
+
+\subsection*{Ejercicio 2 · Resultado para autocorrección}
+\textbf{Enunciado.} Una máquina térmica recibe \(1{,}2\,\mathrm{MJ}\) y entrega \(0{,}30\,\mathrm{MJ}\) de trabajo. Calcular su eficiencia y el calor rechazado.
+
+\textbf{Resultado.} Eficiencia 25 \%; calor rechazado 0,90 MJ.
+
+
+\subsection*{Ejercicio 3 · Desarrollo completo}
+\textbf{Enunciado.} Un foco a \(400\,\mathrm K\) entrega \(80\,\mathrm{kJ}\) reversiblemente. Hallar su cambio de entropía.
+
+\textbf{Fundamento e hipótesis.} El foco pierde energía reversiblemente a temperatura uniforme.
+
+\[
+\Delta S=\frac{Q_{foco}}{T}=\frac{-80\cdot10^3}{400}
+\]
+\textbf{Resultado.} -200 J/K.
+
+
+\subsection*{Ejercicio 4 · Resultado para autocorrección}
+\textbf{Enunciado.} Una masa de \(2\,\mathrm{kg}\) de agua se calienta reversiblemente de \(20\) a \(60\,^\circ\mathrm C\). Tomar \(c=4{,}18\,\mathrm{kJ/(kg\,K)}\) constante y estimar \(\Delta S=mc\ln(T_f/T_i)\).
+
+\textbf{Resultado.} \ensuremath{\Delta}S \ensuremath{\approx} +1,069 kJ/K.
+
+
+\subsection*{Ejercicio 5 · Desarrollo completo}
+\textbf{Enunciado.} Se transfieren \(50\,\mathrm{kJ}\) de un foco a \(500\,\mathrm K\) a otro a \(300\,\mathrm K\). Hallar \(\Delta S_{universo}\) para el proceso entre focos.
+
+\textbf{Fundamento e hipótesis.} Universo formado por dos focos: la pérdida de uno iguala la ganancia del otro.
+
+\[
+\Delta S_{univ}=\frac{-50}{500}+\frac{50}{300}=0{,}066667\,\mathrm{kJ/K}
+\]
+\textbf{Resultado.} +66,7 J/K.
+
+\textbf{Interpretación física.} Es positiva: la transferencia a \ensuremath{\Delta}T finita es irreversible.
+
+
+\subsection*{Ejercicio 6 · Resultado para autocorrección}
+\textbf{Enunciado.} Un motor de Carnot tiene rendimiento \(45\%\) y foco caliente a \(800\,\mathrm K\). Determinar la temperatura del foco frío.
+
+\textbf{Resultado.} Temperatura del foco frío: 440 K.
+
+
+\subsection*{Ejercicio 7 · Desarrollo completo}
+\textbf{Enunciado.} Un ciclo Otto ideal tiene \(\gamma=1{,}4\) y relación de compresión \(r=8\). Estimar \(\eta=1-r^{1-\gamma}\).
+
+\textbf{Fundamento e hipótesis.} Modelo aire estándar Otto ideal, \ensuremath{\gamma} constante.
+
+\[
+\eta=1-\frac1{r^{\gamma-1}}=1-8^{-0{,}4}
+\]
+\textbf{Resultado.} 56,5 \%.
+
+
+\subsection*{Ejercicio 8 · Resultado para autocorrección}
+\textbf{Enunciado.} Un ciclo Diesel ideal tiene \(\gamma=1{,}4\), relación de compresión \(r=16\) y relación de corte \(\rho=2\). Calcular \(\eta=1-r^{1-\gamma}(\rho^\gamma-1)/[\gamma(\rho-1)]\).
+
+\textbf{Resultado.} Rendimiento Diesel ideal \ensuremath{\approx} 61,38 \%.
+
+
+\subsection*{Ejercicio 9 · Desarrollo completo}
+\textbf{Enunciado.} En un diagrama p--V, un gas ideal se expande isotérmicamente de \(V_1=0{,}010\) a \(V_2=0{,}025\,\mathrm{m^3}\), con \(n=1\,\mathrm{mol}\) y \(T=450\,\mathrm K\). Calcular \(W=nRT\ln(V_2/V_1)\).
+
+\textbf{Fundamento e hipótesis.} Expansión isotérmica reversible de gas ideal; \ensuremath{\Delta}U=0.
+
+\[
+W=nRT\ln(V_2/V_1)=1(8{,}314)(450)\ln(2{,}5)
+\]
+\textbf{Resultado.} W = +3,43 kJ.
+
+
+\subsection*{Ejercicio 10 · Resultado para autocorrección}
+\textbf{Enunciado.} Comparar la eficiencia máxima de dos motores de Carnot entre \((T_H,T_C)=(700,300)\,\mathrm K\) y \((700,350)\,\mathrm K\). Justificar con la segunda ley cuál es superior.
+
+\textbf{Resultado.} Carnot: 57,14 \% entre 700/300 K; 50,0 \% entre 700/350 K; es mayor la del foco frío a 300 K.
+
+
+\clearpage
+
+\section{Refrigeración y bombas de calor}
+
+\begin{center}\begin{tikzpicture}[>=stealth]\draw[thick] (0,0) rectangle (2,1.3);\node at (1,.65){Evaporador};\draw[thick] (4,0) rectangle (6,1.3);\node at (5,.65){Condensador};\draw[->,blue,thick] (2,.65)--(4,.65) node[midway,above]{Compresor};\draw[->,orange,thick] (4,-.35)--(2,-.35) node[midway,below]{Expansión};\end{tikzpicture}\end{center}
+
+\subsection*{Ejercicio 1 · Desarrollo completo}
+\textbf{Enunciado.} Una cámara frigorífica extrae \(12\,\mathrm{kW}\) mientras su compresor consume \(4\,\mathrm{kW}\). Hallar el COP frigorífico.
+
+\textbf{Fundamento e hipótesis.} Coeficiente de desempeño frigorífico = calor extraído del foco frío / trabajo consumido.
+
+\[
+COP_R=\frac{\dot Q_L}{\dot W}=\frac{12}{4}=3
+\]
+\textbf{Resultado.} COP\_R=3,00.
+
+
+\subsection*{Ejercicio 2 · Resultado para autocorrección}
+\textbf{Enunciado.} Un refrigerador ideal opera entre \(T_L=270\,\mathrm K\) y \(T_H=305\,\mathrm K\). Calcular su COP de Carnot.
+
+\textbf{Resultado.} COP reversible = 270/(305-270) \ensuremath{\approx} 7,71.
+
+
+\subsection*{Ejercicio 3 · Desarrollo completo}
+\textbf{Enunciado.} Una bomba de calor aporta \(18\,\mathrm{kW}\) a un recinto con consumo de \(5\,\mathrm{kW}\). Hallar \(COP_{BC}\) y el calor extraído del exterior.
+
+\textbf{Fundamento e hipótesis.} Bomba de calor: COP de calentamiento y balance Q\_H=Q\_L+W.
+
+\[
+\begin{gathered}
+COP_{BC}=\frac{18}{5}=3{,}6\\\dot Q_L=18-5=13
+\end{gathered}
+\]
+\textbf{Resultado.} COP=3,60; calor extraído exterior=13 kW.
+
+
+\subsection*{Ejercicio 4 · Resultado para autocorrección}
+\textbf{Enunciado.} Un refrigerador con \(COP_R=3{,}2\) debe extraer \(64\,\mathrm{MJ}\). Calcular el trabajo eléctrico idealizado requerido.
+
+\textbf{Resultado.} Trabajo requerido: 20,0 MJ.
+
+
+\subsection*{Ejercicio 5 · Desarrollo completo}
+\textbf{Enunciado.} Una instalación extrae \(150\,\mathrm{kWh}\) por día con \(COP_R=2{,}5\). Determinar el consumo diario en \(\mathrm{kWh}\).
+
+\textbf{Fundamento e hipótesis.} Energía eléctrica = energía térmica extraída / COP efectivo.
+
+\[
+W=\frac{150}{2{,}5}=60
+\]
+\textbf{Resultado.} 60,0 kWh/día.
+
+
+\subsection*{Ejercicio 6 · Resultado para autocorrección}
+\textbf{Enunciado.} En un ciclo frigorífico, el evaporador absorbe \(8\,\mathrm{kW}\) y el compresor consume \(2{,}4\,\mathrm{kW}\). Hallar la potencia cedida en el condensador.
+
+\textbf{Resultado.} Condensador: 10,4 kW.
+
+
+\subsection*{Ejercicio 7 · Desarrollo completo}
+\textbf{Enunciado.} Un equipo comercial opera entre \(-10\) y \(35\,^\circ\mathrm C\) (temperaturas de focos). Calcular el límite reversible de \(COP_R\) y explicar por qué el real será menor.
+
+\textbf{Fundamento e hipótesis.} Refrigeración reversible entre focos; temperaturas convertidas a kelvin.
+
+\[
+\begin{gathered}
+T_L=263{,}15\\T_H=308{,}15\\COP_{Carnot}=\frac{263{,}15}{45}
+\end{gathered}
+\]
+\textbf{Resultado.} COP máximo \ensuremath{\approx} 5,85.
+
+\textbf{Interpretación física.} El COP real es menor por irreversibilidades y diferencias finitas de temperatura.
+
+
+\subsection*{Ejercicio 8 · Resultado para autocorrección}
+\textbf{Enunciado.} Una cámara recibe \(2{,}2\,\mathrm{kW}\) por sus paredes y \(1{,}8\,\mathrm{kW}\) por productos. Determinar la potencia eléctrica mínima idealizada para un equipo con COP real supuesto de \(2{,}0\).
+
+\textbf{Resultado.} Carga total 4,0 kW; potencia eléctrica idealizada bajo COP supuesto 2,0 kW.
+
+
+\subsection*{Ejercicio 9 · Desarrollo completo}
+\textbf{Enunciado.} Comparar equipos de \(COP_R=1{,}8\) y \(COP_R=3{,}0\) que extraen \(10\,\mathrm{kW}\). Hallar la potencia consumida por cada uno.
+
+\textbf{Fundamento e hipótesis.} Misma carga extraída, menor COP implica mayor potencia consumida.
+
+\[
+\begin{gathered}
+W_1=\frac{10}{1{,}8}=5{,}556\\W_2=\frac{10}{3}=3{,}333
+\end{gathered}
+\]
+\textbf{Resultado.} 5,56 kW y 3,33 kW; segundo ahorra 2,22 kW.
+
+
+\subsection*{Ejercicio 10 · Resultado para autocorrección}
+\textbf{Enunciado.} Una bomba de calor reversible funciona entre \(280\,\mathrm K\) y \(320\,\mathrm K\). Hallar \(COP_{BC,\mathrm{Carnot}}\) y comparar con el COP frigorífico reversible de las mismas temperaturas.
+
+\textbf{Resultado.} COP bomba de calor Carnot=8,00; COP frigorífico=7,00.
+
+
+\clearpage
+
+\section{Intercambiadores de calor}
+
+\begin{center}\begin{tikzpicture}[>=stealth]\draw[rounded corners,fill=gray!15] (1,0) rectangle (4,2.2);\foreach \x in {1.3,1.8,2.3,2.8,3.3,3.8}{\draw[gray,thick] (\x,.2)--(\x,2);}\draw[->,very thick,red] (-.2,1.7)--(1,1.7);\draw[->,very thick,blue] (5.2,.5)--(4,.5);\node[left] at (0,1.7){Caliente};\node[right] at (5.2,.5){Frío};\end{tikzpicture}\end{center}
+
+\subsection*{Ejercicio 1 · Desarrollo completo}
+\textbf{Enunciado.} Una corriente de agua de \(0{,}8\,\mathrm{kg/s}\) se calienta de \(20\) a \(55\,^\circ\mathrm C\). Calcular la potencia térmica usando \(c=4{,}18\,\mathrm{kJ/(kg\,K)}\).
+
+\textbf{Fundamento e hipótesis.} Flujo estacionario, calor específico constante y pérdidas despreciadas.
+
+\[
+\dot Q=\dot mc\Delta T=0{,}8(4{,}18)(55-20)
+\]
+\textbf{Resultado.} 117,0 kW.
+
+
+\subsection*{Ejercicio 2 · Resultado para autocorrección}
+\textbf{Enunciado.} Un intercambiador enfría \(1{,}2\,\mathrm{kg/s}\) de leche desde \(75\) hasta \(25\,^\circ\mathrm C\). Tomar \(c=3{,}9\,\mathrm{kJ/(kg\,K)}\) y obtener \(\dot Q\).
+
+\textbf{Resultado.} Leche cede 234 kW (Q̇ del producto = -234 kW).
+
+
+\subsection*{Ejercicio 3 · Desarrollo completo}
+\textbf{Enunciado.} Una corriente caliente cede \(90\,\mathrm{kW}\). El agua fría entra a \(15\,^\circ\mathrm C\) con \(\dot m=1{,}0\,\mathrm{kg/s}\). Hallar su salida sin pérdidas.
+
+\textbf{Fundamento e hipótesis.} Balance energético entre corrientes sin pérdidas.
+
+\[
+T_{out}=15+\frac{90}{1\cdot4{,}18}
+\]
+\textbf{Resultado.} 36,5 °C.
+
+
+\subsection*{Ejercicio 4 · Resultado para autocorrección}
+\textbf{Enunciado.} Un intercambiador tiene \(U=500\,\mathrm{W/(m^2\,K)}\), \(A=6\,\mathrm m^2\) y \(\Delta T_{ml}=20\,\mathrm K\). Estimar la potencia transferida.
+
+\textbf{Resultado.} Potencia térmica: 60,0 kW.
+
+
+\subsection*{Ejercicio 5 · Desarrollo completo}
+\textbf{Enunciado.} En un equipo de contracorriente, las diferencias terminales de temperatura son \(35\) y \(15\,\mathrm K\). Calcular \(\Delta T_{ml}=(\Delta T_1-\Delta T_2)/\ln(\Delta T_1/\Delta T_2)\).
+
+\textbf{Fundamento e hipótesis.} Diferencia media logarítmica en condiciones de contracorriente.
+
+\[
+\Delta T_{ml}=\frac{35-15}{\ln(35/15)}
+\]
+\textbf{Resultado.} 23,6 K.
+
+
+\subsection*{Ejercicio 6 · Resultado para autocorrección}
+\textbf{Enunciado.} Una línea necesita transferir \(120\,\mathrm{kW}\), con \(U=750\,\mathrm{W/(m^2\,K)}\) y \(\Delta T_{ml}=25\,\mathrm K\). Determinar el área requerida.
+
+\textbf{Resultado.} Área requerida A=6,40 m\ensuremath{^2}.
+
+
+\subsection*{Ejercicio 7 · Desarrollo completo}
+\textbf{Enunciado.} Una corriente caliente de \(2{,}0\,\mathrm{kg/s}\) y \(c=4{,}0\,\mathrm{kJ/(kg\,K)}\) se enfría \(18\,\mathrm K\). La corriente fría es agua de \(1{,}5\,\mathrm{kg/s}\) a \(20\,^\circ\mathrm C\). Obtener su temperatura de salida.
+
+\textbf{Fundamento e hipótesis.} El calor cedido por el fluido caliente es recibido por el frío (sin pérdidas).
+
+\[
+\begin{gathered}
+\dot Q_h=2(4)(18)=144\\T_{c,out}=20+\frac{144}{1{,}5(4{,}18)}
+\end{gathered}
+\]
+\textbf{Resultado.} Q̇=144 kW; T salida fría\ensuremath{\approx}43,0 °C.
+
+
+\subsection*{Ejercicio 8 · Resultado para autocorrección}
+\textbf{Enunciado.} Calcular la efectividad \(\varepsilon=\dot Q/\dot Q_{max}\) para \(\dot Q=65\,\mathrm{kW}\), \(C_{min}=2{,}0\,\mathrm{kW/K}\) y \(T_{h,in}-T_{c,in}=45\,\mathrm K\).
+
+\textbf{Resultado.} Efectividad \ensuremath{\varepsilon} = 65/(2\ensuremath{\times}45)=0,722=72,2 \%.
+
+
+\subsection*{Ejercicio 9 · Desarrollo completo}
+\textbf{Enunciado.} En un regenerador, un producto entra a \(10\,^\circ\mathrm C\) y alcanza \(58\,^\circ\mathrm C\) antes del calentamiento final a \(72\,^\circ\mathrm C\). Hallar el porcentaje de recuperación respecto del salto térmico total.
+
+\textbf{Fundamento e hipótesis.} Se compara elevación recuperada con elevación total requerida.
+
+\[
+\epsilon_{rec}=\frac{58-10}{72-10}=\frac{48}{62}
+\]
+\textbf{Resultado.} 77,4 \%.
+
+
+\subsection*{Ejercicio 10 · Resultado para autocorrección}
+\textbf{Enunciado.} Un intercambiador transfiere \(75\,\mathrm{kW}\) durante \(6\,\mathrm h\). Calcular la energía en \(\mathrm{MJ}\) y \(\mathrm{kWh}\); indicar hipótesis sobre funcionamiento estacionario.
+
+\textbf{Resultado.} Energía: 1 620 MJ = 450 kWh (potencia uniforme 6 h).
+
+
+\clearpage
+
+\section{Pasteurización y calentamiento de productos}
+
+\begin{center}\begin{tikzpicture}[>=stealth]\draw[fill=gray!18,thick] (1,0) rectangle (4,2.2);\draw[thick] (1.25,1.7)--(3.75,1.7);\draw[thick] (1.25,.65)--(3.75,.65);\draw[->,thick,red] (0,1.7)--(1,1.7);\draw[->,thick,blue] (4,.65)--(5,.65);\node[above] at (2.5,2.2){Proceso térmico};\end{tikzpicture}\end{center}
+
+\subsection*{Ejercicio 1 · Desarrollo completo}
+\textbf{Enunciado.} Una partida de \(300\,\mathrm{kg}\) de leche pasa de \(8\) a \(72\,^\circ\mathrm C\). Con \(c=3{,}9\,\mathrm{kJ/(kg\,K)}\), hallar la energía ideal de calentamiento.
+
+\textbf{Fundamento e hipótesis.} Lote cerrado, calentamiento sensible ideal, c constante.
+
+\[
+Q=mc\Delta T=300(3{,}9)(72-8)
+\]
+\textbf{Resultado.} 74 880 kJ = 74,88 MJ.
+
+
+\subsection*{Ejercicio 2 · Resultado para autocorrección}
+\textbf{Enunciado.} Una línea procesa \(2{,}0\,\mathrm{kg/s}\) de leche que se eleva de \(10\) a \(75\,^\circ\mathrm C\). Calcular la potencia térmica sin recuperación.
+
+\textbf{Resultado.} Potencia sin recuperación: 507 kW.
+
+
+\subsection*{Ejercicio 3 · Desarrollo completo}
+\textbf{Enunciado.} Un sistema recupera \(65\%\) de la demanda ideal del calentamiento del ejercicio anterior. Determinar la potencia térmica externa aproximada requerida.
+
+\textbf{Fundamento e hipótesis.} La recuperación reduce el requerimiento externo de la potencia base.
+
+\[
+\begin{gathered}
+\dot Q_{base}=2(3{,}9)(75-10)=507\\\dot Q_{ext}=507(1-0{,}65)
+\end{gathered}
+\]
+\textbf{Resultado.} 177,45 kW.
+
+
+\subsection*{Ejercicio 4 · Resultado para autocorrección}
+\textbf{Enunciado.} Para \(1200\,\mathrm{L/h}\) de producto de densidad \(1030\,\mathrm{kg/m^3}\), calcular el caudal másico en \(\mathrm{kg/s}\).
+
+\textbf{Resultado.} Caudal másico = 0,3433 kg/s.
+
+
+\subsection*{Ejercicio 5 · Desarrollo completo}
+\textbf{Enunciado.} Una sección de retención tiene volumen útil \(18\,\mathrm L\) y circulan \(900\,\mathrm{L/h}\). Estimar el tiempo medio ideal de permanencia y explicar por qué no garantiza el tiempo mínimo real.
+
+\textbf{Fundamento e hipótesis.} Tiempo medio ideal volumen/caudal; flujo uniforme y volumen útil efectivo.
+
+\[
+t=\frac{18\,\mathrm L}{900\,\mathrm{L/h}}=0{,}02\,\mathrm h=72\,\mathrm s
+\]
+\textbf{Resultado.} Tiempo nominal 72 s.
+
+\textbf{Interpretación física.} No garantiza el tiempo mínimo: existen distribuciones de velocidades y posibles cortocircuitos hidráulicos.
+
+
+\subsection*{Ejercicio 6 · Resultado para autocorrección}
+\textbf{Enunciado.} Un producto de \(500\,\mathrm{kg}\) se calienta de \(20\) a \(68\,^\circ\mathrm C\) con \(c=3{,}7\,\mathrm{kJ/(kg\,K)}\). Si el proceso dura \(25\,\mathrm{min}\), hallar potencia ideal media.
+
+\textbf{Resultado.} Potencia térmica ideal media = 59,2 kW.
+
+
+\subsection*{Ejercicio 7 · Desarrollo completo}
+\textbf{Enunciado.} Una instalación aporta \(100\,\mathrm{kW}\) con \(85\%\) de eficiencia térmica hacia el producto. Calcular la potencia útil y el tiempo ideal para suministrar \(60\,\mathrm{MJ}\).
+
+\textbf{Fundamento e hipótesis.} Potencia útil es fracción térmica de potencia suministrada.
+
+\[
+\begin{gathered}
+\dot Q_u=0{,}85(100)=85\\t=\frac{60\cdot10^3\,\mathrm{kJ}}{85\,\mathrm{kJ/s}}
+\end{gathered}
+\]
+\textbf{Resultado.} 85 kW útiles; 706 s \ensuremath{\approx} 11,76 min.
+
+
+\subsection*{Ejercicio 8 · Resultado para autocorrección}
+\textbf{Enunciado.} Una línea eleva la temperatura desde \(12\) a \(75\,^\circ\mathrm C\) y luego enfría hasta \(6\,^\circ\mathrm C\). Para \(\dot m=0{,}70\,\mathrm{kg/s}\) y \(c=3{,}9\,\mathrm{kJ/(kg\,K)}\), calcular ambos deberes térmicos.
+
+\textbf{Resultado.} Calentamiento: 172,0 kW; enfriamiento: 188,4 kW extraídos.
+
+
+\subsection*{Ejercicio 9 · Desarrollo completo}
+\textbf{Enunciado.} Una marmita con \(400\,\mathrm{kg}\) de mezcla a \(18\,^\circ\mathrm C\) recibe \(95\,\mathrm{MJ}\). Con \(c=3{,}8\,\mathrm{kJ/(kg\,K)}\) y sin pérdidas, hallar su temperatura final e indicar limitaciones del modelo.
+
+\textbf{Fundamento e hipótesis.} Balance calor sensible; asumir que no hay cambio de fase, variación de c ni pérdidas.
+
+\[
+T_f=18+\frac{95000}{400(3{,}8)}
+\]
+\textbf{Resultado.} 80,5 °C.
+
+\textbf{Interpretación física.} No predice tiempos ni gradientes térmicos y no sustituye validación sanitaria.
+
+
+\subsection*{Ejercicio 10 · Resultado para autocorrección}
+\textbf{Enunciado.} En un sistema de calentamiento de producto, las pérdidas son \(15\%\) de la potencia suministrada y el producto necesita \(80\,\mathrm{kW}\). Hallar la potencia de alimentación y las pérdidas.
+
+\textbf{Resultado.} Potencia de alimentación \ensuremath{\approx}94,12 kW; pérdidas \ensuremath{\approx}14,12 kW.
+
+
+\clearpage
+
+\section{Enfriamiento de alimentos y cadena de frío}
+
+\begin{center}\begin{tikzpicture}[>=stealth]\draw[fill=blue!8,thick] (1,0) rectangle (4,2.2);\draw[->,thick,blue!80] (0,1)--(.9,1);\draw[->,thick,blue!80] (4.1,1)--(5.1,1);\node at (2.5,1.1){Cámara fría};\node[below] at (2.5,0){$Q$ extraído};\end{tikzpicture}\end{center}
+
+\subsection*{Ejercicio 1 · Desarrollo completo}
+\textbf{Enunciado.} Un lote de \(250\,\mathrm{kg}\) de fruta con \(c=3{,}6\,\mathrm{kJ/(kg\,K)}\) debe enfriarse de \(28\) a \(4\,^\circ\mathrm C\). Calcular el calor sensible extraído.
+
+\textbf{Fundamento e hipótesis.} Calor sensible retirado del producto para descenso de temperatura, sin congelación.
+
+\[
+Q_{producto}=mc(T_f-T_i)=250(3{,}6)(4-28)
+\]
+\textbf{Resultado.} Qproducto = -21 600 kJ; extracción positiva 21,6 MJ.
+
+
+\subsection*{Ejercicio 2 · Resultado para autocorrección}
+\textbf{Enunciado.} Un tanque de \(100\,\mathrm{kg}\) de agua a \(65\,^\circ\mathrm C\) se enfría a \(15\,^\circ\mathrm C\). Determinar la demanda térmica ideal de refrigeración.
+
+\textbf{Resultado.} Extraer 20,9 MJ (cagua=4,18 kJ/(kg K)).
+
+
+\subsection*{Ejercicio 3 · Desarrollo completo}
+\textbf{Enunciado.} Un producto cumple \(T(t)=T_a+(T_0-T_a)e^{-t/\tau}\), con \(T_a=4\,^\circ\mathrm C\), \(T_0=35\,^\circ\mathrm C\) y \(\tau=40\,\mathrm{min}\). Hallar la temperatura a los \(60\,\mathrm{min}\).
+
+\textbf{Fundamento e hipótesis.} Enfriamiento de Newton concentrado y coeficiente de tiempo fijo.
+
+\[
+T(60)=4+(35-4)e^{-60/40}
+\]
+\textbf{Resultado.} 10,9 °C.
+
+
+\subsection*{Ejercicio 4 · Resultado para autocorrección}
+\textbf{Enunciado.} Usando el modelo del ejercicio anterior, determinar cuánto tiempo se necesita para llegar a \(10\,^\circ\mathrm C\).
+
+\textbf{Resultado.} Tiempo \ensuremath{\approx} 65,7 minutos.
+
+
+\subsection*{Ejercicio 5 · Desarrollo completo}
+\textbf{Enunciado.} Una cámara extrae \(12\,\mathrm{kW}\) durante \(5\,\mathrm h\). Calcular energía total y masa de producto de \(c=3{,}2\,\mathrm{kJ/(kg\,K)}\) que podría enfriarse idealmente \(20\,\mathrm K\).
+
+\textbf{Fundamento e hipótesis.} Balance entre energía total extraída por el equipo y calor sensible del producto.
+
+\[
+\begin{gathered}
+Q=12(5\cdot3600)=216000\,\mathrm{kJ}\\m=\frac{216000}{3{,}2(20)}
+\end{gathered}
+\]
+\textbf{Resultado.} 216 MJ; masa ideal 3 375 kg.
+
+
+\subsection*{Ejercicio 6 · Resultado para autocorrección}
+\textbf{Enunciado.} Un producto de \(60\,\mathrm{kg}\) se congela idealmente desde \(10\,^\circ\mathrm C\) hasta hielo a \(-8\,^\circ\mathrm C\). Aproximar el producto como agua y hallar la extracción térmica por etapas.
+
+\textbf{Resultado.} Extraer \ensuremath{\approx}23,56 MJ, adoptando cagua=4,18, Lf=334 y ch=2,1 en kJ/(kg K).
+
+
+\subsection*{Ejercicio 7 · Desarrollo completo}
+\textbf{Enunciado.} En una cámara, la infiltración aporta \(1{,}5\,\mathrm{kW}\) y los productos \(4{,}0\,\mathrm{kW}\). Si la transmisión por paredes es \(2{,}0\,\mathrm{kW}\), hallar la carga total con margen de diseño de \(15\%\).
+
+\textbf{Fundamento e hipótesis.} Se suman cargas frigoríficas y luego se aplica margen porcentual.
+
+\[
+\begin{gathered}
+\dot Q_{base}=1{,}5+4+2=7{,}5\\\dot Q=7{,}5(1{,}15)
+\end{gathered}
+\]
+\textbf{Resultado.} 8,625 kW con margen del 15 \%.
+
+
+\subsection*{Ejercicio 8 · Resultado para autocorrección}
+\textbf{Enunciado.} Un equipo de \(COP_R=2{,}4\) debe extraer \(90\,\mathrm{MJ}\) de un lote. Hallar el trabajo eléctrico idealizado necesario.
+
+\textbf{Resultado.} Trabajo eléctrico idealizado=37,5 MJ.
+
+
+\subsection*{Ejercicio 9 · Desarrollo completo}
+\textbf{Enunciado.} Un producto de \(10\,\mathrm{kg}\) pierde calor con constante efectiva \(hA=18\,\mathrm{W/K}\), \(c=3{,}5\,\mathrm{kJ/(kg\,K)}\). Estimar \(\tau=mc/(hA)\) y discutir las hipótesis del modelo concentrado.
+
+\textbf{Fundamento e hipótesis.} El modelo de capacidad térmica concentrada supone temperatura interna aproximadamente uniforme.
+
+\[
+\tau=\frac{mc}{hA}=\frac{10(3500)}{18}=1944\,\mathrm s
+\]
+\textbf{Resultado.} \ensuremath{\tau}=1 944 s = 32,4 min.
+
+\textbf{Interpretación física.} Su validez depende de Biot pequeño y de que h y c sean aproximadamente constantes.
+
+
+\subsection*{Ejercicio 10 · Resultado para autocorrección}
+\textbf{Enunciado.} Un depósito de \(350\,\mathrm{kg}\) de jugo a \(30\,^\circ\mathrm C\) debe llegar a \(5\,^\circ\mathrm C\) en \(1{,}5\,\mathrm h\). Con \(c=3{,}9\,\mathrm{kJ/(kg\,K)}\), calcular potencia media frigorífica ideal.
+
+\textbf{Resultado.} Potencia media ideal de refrigeración \ensuremath{\approx}6,32 kW.
+
+
+\clearpage
+
+\section{Caso integrador: recuperación térmica y dimensionamiento}
+
+\begin{center}\begin{tikzpicture}[>=stealth]\node[draw,rounded corners,fill=orange!12,minimum width=2.3cm,minimum height=1cm] (hot) at (0,0){Calentamiento};\node[draw,rounded corners,fill=green!12,minimum width=2.3cm,minimum height=1cm] (reg) at (3.3,0){Regeneración};\node[draw,rounded corners,fill=blue!12,minimum width=2.3cm,minimum height=1cm] (cold) at (6.6,0){Enfriamiento};\draw[->,thick] (hot)--(reg);\draw[->,thick] (reg)--(cold);\end{tikzpicture}\end{center}
+
+\subsection*{Ejercicio 1 · Desarrollo completo}
+\textbf{Enunciado.} Una planta procesa \(1{,}0\,\mathrm{kg/s}\) de leche desde \(8\) hasta \(72\,^\circ\mathrm C\), con \(c=3{,}9\,\mathrm{kJ/(kg\,K)}\). Calcular la potencia ideal de calentamiento sin regeneración.
+
+\textbf{Fundamento e hipótesis.} Línea estacionaria y calor específico constante para leche.
+
+\[
+\dot Q=\dot mc(72-8)=1(3{,}9)(64)
+\]
+\textbf{Resultado.} 249,6 kW.
+
+
+\subsection*{Ejercicio 2 · Resultado para autocorrección}
+\textbf{Enunciado.} En el proceso anterior, el regenerador eleva la leche de \(8\) a \(55\,^\circ\mathrm C\). Hallar la potencia recuperada y el aporte del calentador final.
+
+\textbf{Resultado.} Recuperado 183,3 kW; aporte final 66,3 kW.
+
+
+\subsection*{Ejercicio 3 · Desarrollo completo}
+\textbf{Enunciado.} Un proceso de \(0{,}75\,\mathrm{kg/s}\), \(c=3{,}8\,\mathrm{kJ/(kg\,K)}\), calienta de \(12\) a \(70\,^\circ\mathrm C\) y enfría de \(70\) a \(6\,^\circ\mathrm C\). Hallar por separado los deberes térmicos.
+
+\textbf{Fundamento e hipótesis.} Se calculan separadamente las potencias de calentamiento y enfriamiento.
+
+\[
+\begin{gathered}
+\dot Q_{cal}=0{,}75(3{,}8)(70-12)=165{,}3\\|\dot Q_{enf}|=0{,}75(3{,}8)(70-6)=182{,}4
+\end{gathered}
+\]
+\textbf{Resultado.} 165,3 kW de calentamiento; 182,4 kW a retirar.
+
+
+\subsection*{Ejercicio 4 · Resultado para autocorrección}
+\textbf{Enunciado.} Si un sistema de regeneración recupera \(150\,\mathrm{kW}\) durante \(8\,\mathrm h\), calcular la energía diaria ahorrada en \(\mathrm{GJ}\) y \(\mathrm{kWh}\).
+
+\textbf{Resultado.} Energía ahorrada = 4,32 GJ = 1 200 kWh.
+
+
+\subsection*{Ejercicio 5 · Desarrollo completo}
+\textbf{Enunciado.} Un intercambiador entrega \(110\,\mathrm{kW}\) con \(U=600\,\mathrm{W/(m^2\,K)}\) y \(\Delta T_{ml}=18\,\mathrm K\). Dimensionar su superficie ideal.
+
+\textbf{Fundamento e hipótesis.} Diseño ideal mediante coeficiente global y diferencia media logarítmica.
+
+\[
+A=\frac{\dot Q}{U\Delta T_{ml}}=\frac{110000}{600(18)}
+\]
+\textbf{Resultado.} 10,2 m\ensuremath{^2}.
+
+
+\subsection*{Ejercicio 6 · Resultado para autocorrección}
+\textbf{Enunciado.} Una línea de producto de \(1400\,\mathrm{L/h}\), \(\rho=1040\,\mathrm{kg/m^3}\), exige retener el producto durante \(18\,\mathrm s\). Calcular el volumen nominal ideal de retención.
+
+\textbf{Resultado.} Volumen nominal mínimo de retención = 7,0 L.
+
+
+\subsection*{Ejercicio 7 · Desarrollo completo}
+\textbf{Enunciado.} Una cámara de frío recibe \(3\,\mathrm{kW}\) por paredes, \(2\,\mathrm{kW}\) por infiltraciones y \(7\,\mathrm{kW}\) por productos. Con \(COP_R=2{,}8\), calcular la potencia eléctrica idealizada.
+
+\textbf{Fundamento e hipótesis.} Carga total al evaporador y potencia eléctrica según COP supuesto.
+
+\[
+\begin{gathered}
+\dot Q_L=3+2+7=12\\\dot W=\frac{12}{2{,}8}
+\end{gathered}
+\]
+\textbf{Resultado.} Carga 12 kW; consumo 4,29 kW.
+
+
+\subsection*{Ejercicio 8 · Resultado para autocorrección}
+\textbf{Enunciado.} Una planta dispone de un tanque de \(500\,\mathrm{kg}\) de producto que pasa de \(15\) a \(80\,^\circ\mathrm C\) y luego a \(5\,^\circ\mathrm C\). Usar \(c=3{,}8\,\mathrm{kJ/(kg\,K)}\) para calcular calor de calentamiento y enfriamiento.
+
+\textbf{Resultado.} Calentamiento = 123,5 MJ; enfriamiento = 142,5 MJ; sin recuperación.
+
+
+\subsection*{Ejercicio 9 · Desarrollo completo}
+\textbf{Enunciado.} Una pared de almacenamiento tiene \(A=25\,\mathrm m^2\), \(U=0{,}30\,\mathrm{W/(m^2\,K)}\) y diferencia térmica de \(32\,\mathrm K\). Calcular la energía que atraviesa la pared en \(24\,\mathrm h\).
+
+\textbf{Fundamento e hipótesis.} Carga de la pared a \ensuremath{\Delta}T constante, régimen estacionario.
+
+\[
+\begin{gathered}
+\dot Q=UA\Delta T=0{,}30(25)(32)=240\,\mathrm W\\E=0{,}240(24)
+\end{gathered}
+\]
+\textbf{Resultado.} E = 5,76 kWh = 20,736 MJ.
+
+
+\subsection*{Ejercicio 10 · Resultado para autocorrección}
+\textbf{Enunciado.} En un proceso integrado, la demanda de calentamiento sin recuperación es \(250\,\mathrm{kW}\), la recuperación es de \(170\,\mathrm{kW}\) y las pérdidas adicionales equivalen a \(12\,\mathrm{kW}\). Hallar el aporte externo total y el porcentaje de ahorro respecto de la demanda base.
+
+\textbf{Resultado.} Aporte externo total = 92 kW; ahorro neto frente a 250 kW = 158 kW = 63,2 \%.
+
+
+\clearpage
+\end{document}

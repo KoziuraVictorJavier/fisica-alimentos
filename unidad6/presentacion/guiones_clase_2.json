@@ -1,0 +1,140 @@
+{
+  "d043": {
+    "id": "d043",
+    "clase": 2,
+    "titulo": "Clase 2 · Transferencia de calor",
+    "guion": "Comienza la clase 2 de la Unidad 6. Conducción, convección, radiación y resistencias térmicas. Se recuperan los conocimientos necesarios y se explica qué fenómenos se modelarán, cuáles son las hipótesis simplificativas y cómo se relacionan con equipos reales. El objetivo es conectar los fundamentos de termodinámica con situaciones concretas de tecnología de alimentos."
+  },
+  "d044": {
+    "id": "d044",
+    "clase": 2,
+    "titulo": "7. Transferencia de calor: mecanismos fundamentales",
+    "guion": "El objetivo de este apartado es interpretar . Transferencia de calor: mecanismos fundamentales. La termodinámica determina el balance energético entre estados; la transferencia de calor estudia la rapidez del intercambio. Se define la potencia térmica como: En un horno, por ejemplo, el producto recibe energía por convección del aire, por radiación de paredes calientes y por conducción hacia su interior. Aislar conceptualmente cada mecanismo ayuda a entender qué resistencia controla el proceso. La energía puede circular por varios mecanismos simultáneamente. Por ejemplo, en la pared de una cámara fría hay convección en el aire exterior, conducción a través del aislante y convección en el aire interior; además puede existir intercambio radiante con otras superficies. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El mecanismo dominante depende de la geometría y de las condiciones del proceso. En instalaciones reales pueden actuar simultáneamente varios mecanismos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d045": {
+    "id": "d045",
+    "clase": 2,
+    "titulo": "Ejemplo resuelto · Transferencia de calor: mecanismos fundamentales",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Identificar mecanismos en una cámara fría Sistema: Panel entre aire exterior a 30 °C e interior a 2 °C. Hipótesis y modelo: Régimen estacionario cualitativo; se analizan aire, pared y superficies. Interacciones y fundamento: El aire exterior cede calor por convección al panel, el calor atraviesa el sólido por conducción y pasa por convección al aire interior; también puede haber radiación en superficies. Desarrollo matemático: \\[\\dot Q=\\frac{T_{\\infty,e}-T_{\\infty,i}}{\\frac{1}{h_eA}+\\frac{L}{kA}+\\frac{1}{h_iA}}\\] Resultado: El flujo va del ambiente caliente al frío; cada resistencia reduce la tasa transferida. Interpretación y control: La ecuación combina mecanismos en serie; si hay radiación importante, el modelo requiere añadirla. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El mecanismo dominante depende de la geometría y de las condiciones del proceso. En instalaciones reales pueden actuar simultáneamente varios mecanismos. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d046": {
+    "id": "d046",
+    "clase": 2,
+    "titulo": "8. Conducción: ley de Fourier",
+    "guion": "El objetivo de este apartado es interpretar . Conducción: ley de Fourier. La conducción es el transporte de energía dentro de un material o entre regiones contiguas, sin transporte macroscópico necesario de materia. En dirección \\(x\\), para un material homogéneo: El signo negativo expresa que el calor fluye hacia temperaturas menores. Para una pared plana de espesor \\(L\\), área \\(A\\), propiedades constantes y régimen estacionario unidimensional : \\(k\\) es la conductividad térmica [W/(m·K)] y \\(R\\) la resistencia térmica [K/W]. Para varias capas planas en serie, con igual área y sin generación interna: En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La ley de Fourier vincula flujo de calor con el gradiente espacial de temperatura; el signo menos codifica la dirección del transporte. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d047": {
+    "id": "d047",
+    "clase": 2,
+    "titulo": "8.1 Ejemplo resuelto: aislación de una cámara",
+    "guion": "El objetivo de este apartado es interpretar Ejemplo resuelto: aislación de una cámara. Una pared aislante tiene \\(A=12\\,\\mathrm{m^2}\\), \\(L=0{,}08\\,\\mathrm m\\), \\(k=0{,}028\\,\\mathrm{W/(m\\,K)}\\), y una diferencia entre temperaturas superficiales de 25 K. Se desprecian los puentes térmicos. En 10 horas se transfieren \\(105\\times10\\times3600\\approx3{,}78\\,\\mathrm{MJ}\\), equivalentes a 1,05 kWh de energía térmica. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La ley de Fourier vincula flujo de calor con el gradiente espacial de temperatura; el signo menos codifica la dirección del transporte. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d048": {
+    "id": "d048",
+    "clase": 2,
+    "titulo": "8.2 Significado físico de la ley de Fourier",
+    "guion": "El objetivo de este apartado es interpretar Significado físico de la ley de Fourier. La forma local de la ley de Fourier es \\(q_x''=-k\\,dT/dx\\) , donde el flujo térmico superficial \\(q_x''\\) se mide en W/m². El signo negativo expresa que la transferencia espontánea tiene dirección opuesta al gradiente de temperatura. Con \\(k\\) constante, sección uniforme y estado estacionario, la integración permite obtener la conocida fórmula de pared plana. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La ley de Fourier vincula flujo de calor con el gradiente espacial de temperatura; el signo menos codifica la dirección del transporte. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d049": {
+    "id": "d049",
+    "clase": 2,
+    "titulo": "Ejemplo resuelto · Conducción: ley de Fourier",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Panel aislante Sistema: Pared de una cámara frigorífica con A=10 m², L=0,10 m y k=0,040 W/(m·K). Hipótesis y modelo: Pared plana, una dimensión, régimen estacionario y caras a 25 °C y 5 °C. Interacciones y fundamento: Fourier relaciona tasa de calor con gradiente de temperatura; mayor espesor significa mayor resistencia. Desarrollo matemático: \\[\\dot Q=\\frac{kA(T_1-T_2)}L=\\frac{0{,}040(10)(25-5)}{0{,}10}=80\\ \\mathrm W\\] Resultado: La transferencia de calor es 80 W hacia el interior. Interpretación y control: Durante 1 h serían 288 kJ; no confundir potencia térmica (W) con energía (J). En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La ley de Fourier vincula flujo de calor con el gradiente espacial de temperatura; el signo menos codifica la dirección del transporte. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d050": {
+    "id": "d050",
+    "clase": 2,
+    "titulo": "Simulación · Aislación de una pared",
+    "guion": "El modelo supone conducción unidimensional estacionaria con conductividad constante, área de un metro cuadrado y diferencia térmica de veinte kelvin. Si se aumenta el espesor, crece la resistencia y disminuye la potencia transferida. Si aumenta la conductividad ocurre lo contrario. Es importante remarcar que en paredes reales también intervienen resistencias convectivas y, en ocasiones, puentes térmicos."
+  },
+  "d051": {
+    "id": "d051",
+    "clase": 2,
+    "titulo": "9. Convección: intercambio con fluidos",
+    "guion": "El objetivo de este apartado es interpretar . Convección: intercambio con fluidos. La convección combina transferencia térmica en la zona próxima a una superficie y movimiento global del fluido. Se distingue convección natural (movimiento debido a diferencias de densidad) y forzada (movimiento impulsado por bombas, ventiladores o agitación). El coeficiente convectivo \\(h\\) [W/(m²·K)] depende de la geometría, velocidad, estado de flujo, propiedades del fluido y temperatura. No es una constante universal del material. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El coeficiente convectivo no es una propiedad exclusiva del material: depende del flujo, la geometría y del régimen. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d052": {
+    "id": "d052",
+    "clase": 2,
+    "titulo": "9.1 Ejemplo de enfriamiento de una superficie",
+    "guion": "El objetivo de este apartado es interpretar Ejemplo de enfriamiento de una superficie. Una superficie de 2 m² se encuentra a 65 °C en contacto con aire a 25 °C. Si \\(h=20\\,\\mathrm{W/(m^2\\,K)}\\), la potencia cedida es: Este resultado es instantáneo si las temperaturas evolucionan; si permanecen constantes, representa un régimen estacionario. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El coeficiente convectivo no es una propiedad exclusiva del material: depende del flujo, la geometría y del régimen. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d053": {
+    "id": "d053",
+    "clase": 2,
+    "titulo": "9.2 Modelo transitorio de capacidad concentrada",
+    "guion": "El objetivo de este apartado es interpretar Modelo transitorio de capacidad concentrada. Si la temperatura dentro del alimento puede considerarse uniforme y la capacidad térmica es constante, un cuerpo de masa \\(m\\) que intercambia calor con un fluido a temperatura fija cumple: Este modelo es adecuado cuando la resistencia térmica interna es pequeña respecto de la externa; de forma orientativa se verifica el número de Biot \\(Bi=hL_c/k\\), y usualmente se requiere \\(Bi\\lesssim0{,}1\\). Para alimentos gruesos y baja conductividad, esta hipótesis puede no cumplirse: la temperatura del centro será distinta de la superficie. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El coeficiente convectivo no es una propiedad exclusiva del material: depende del flujo, la geometría y del régimen. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d054": {
+    "id": "d054",
+    "clase": 2,
+    "titulo": "9.3 ¿De dónde surge el coeficiente de convección?",
+    "guion": "El objetivo de este apartado es interpretar ¿De dónde surge el coeficiente de convección?. El intercambio entre una superficie sólida y un fluido se produce por conducción en la delgada región contigua a la pared y por movimiento del fluido en el resto. El coeficiente \\(h\\) resume el efecto de geometría, velocidad, régimen de circulación y propiedades del fluido: no es una constante universal del material . En convección natural, el movimiento aparece por diferencias de densidad asociadas a la temperatura; en convección forzada, una bomba, agitador o ventilador lo impone. Agitar un producto puede aumentar la transferencia convectiva, aunque también intervienen su viscosidad, geometría y régimen de flujo. El coeficiente convectivo no es una propiedad exclusiva del material: depende del flujo, la geometría y del régimen. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d055": {
+    "id": "d055",
+    "clase": 2,
+    "titulo": "Ejemplo resuelto · Convección: intercambio con fluidos",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Enfriamiento superficial Sistema: Producto con superficie de 2 m² a 35 °C en aire a 5 °C. Hipótesis y modelo: Coeficiente convectivo h=18 W/(m²·K) y temperaturas instantáneas dadas. Interacciones y fundamento: La ley de enfriamiento de Newton representa el efecto conjunto de transferencia en la película fluida cercana a la superficie. Desarrollo matemático: \\[\\dot Q=hA(T_s-T_\\infty)=18(2)(35-5)=1080\\ \\mathrm W\\] Resultado: Se extraen aproximadamente 1,08 kW en ese instante. Interpretación y control: La potencia disminuirá cuando la superficie se enfríe; no puede asumirse constante durante todo el proceso. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. El coeficiente convectivo no es una propiedad exclusiva del material: depende del flujo, la geometría y del régimen. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d056": {
+    "id": "d056",
+    "clase": 2,
+    "titulo": "10. Radiación térmica",
+    "guion": "El objetivo de este apartado es interpretar . Radiación térmica. Todo cuerpo con temperatura superior al cero absoluto emite radiación electromagnética. La transferencia radiante no necesita un medio material. Para una superficie gris pequeña que intercambia con un entorno grande a temperatura uniforme, se usa el modelo: Donde \\(\\varepsilon\\) es la emisividad (entre 0 y 1), \\(\\sigma=5{,}670374419\\times10^{-8}\\,\\mathrm{W/(m^2\\,K^4)}\\) y las temperaturas deben expresarse en kelvin . En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La radiación depende de la temperatura absoluta elevada a la cuarta potencia y de la emisividad superficial. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d057": {
+    "id": "d057",
+    "clase": 2,
+    "titulo": "10.1 Ejemplo: bandeja caliente",
+    "guion": "El objetivo de este apartado es interpretar Ejemplo: bandeja caliente. Una bandeja de área expuesta \\(A=0{,}8\\,\\mathrm{m^2}\\), emisividad 0,8 y temperatura superficial de 120 °C está frente a un entorno grande a 25 °C. La potencia neta radiante aproximada es: El modelo no incluye convección ni factores de visión complejos; en un horno real ambos mecanismos suelen actuar simultáneamente. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La radiación depende de la temperatura absoluta elevada a la cuarta potencia y de la emisividad superficial. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d058": {
+    "id": "d058",
+    "clase": 2,
+    "titulo": "10.2 Origen físico de la dependencia con la cuarta potencia",
+    "guion": "El objetivo de este apartado es interpretar Origen físico de la dependencia con la cuarta potencia. Todo cuerpo con temperatura superior a 0 K emite radiación electromagnética por la agitación térmica de sus cargas. Para un cuerpo negro ideal, la potencia emitida por unidad de área está descrita por la ley de Stefan–Boltzmann, \\(E_b=\\sigma T^4\\) . En una superficie real se incorpora la emisividad \\(\\varepsilon\\) , y el intercambio neto depende también de las superficies visibles y de la radiación que recibe. La expresión simplificada \\(\\varepsilon\\sigma A(T_s^4-T_{ent}^4)\\) es apropiada para una superficie pequeña frente a un recinto aproximadamente isotermo, con las idealizaciones correspondientes. Las temperaturas deben expresarse en kelvin : elevar °C a la cuarta potencia produce resultados físicamente incorrectos. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La radiación depende de la temperatura absoluta elevada a la cuarta potencia y de la emisividad superficial. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d059": {
+    "id": "d059",
+    "clase": 2,
+    "titulo": "Ejemplo resuelto · Radiación térmica",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Intercambio radiativo Sistema: Superficie de 1,5 m² a 60 °C frente a entorno grande a 20 °C. Hipótesis y modelo: Emisividad ε=0,8; entorno idealizado isotermo, factor de vista efectivo ≈1. Interacciones y fundamento: Stefan–Boltzmann depende de la cuarta potencia de la temperatura absoluta; primero convertir a kelvin. Desarrollo matemático: \\[\\dot Q=\\varepsilon\\sigma A(T_s^4-T_{amb}^4)\\approx0{,}8(5{,}67\\times10^{-8})(1{,}5)(333{,}15^4-293{,}15^4)\\approx335\\ \\mathrm W\\] Resultado: Intercambio neto radiativo aproximado: 335 W hacia el ambiente. Interpretación y control: Nunca elevar una temperatura expresada en °C a la cuarta potencia dentro de esta ley. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. La radiación depende de la temperatura absoluta elevada a la cuarta potencia y de la emisividad superficial. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d060": {
+    "id": "d060",
+    "clase": 2,
+    "titulo": "11. Resistencias térmicas y coeficiente global",
+    "guion": "El objetivo de este apartado es interpretar . Resistencias térmicas y coeficiente global. En un equipo real, el calor puede atravesar sucesivamente el fluido caliente, la pared y el fluido frío. Para una pared plana con igual área de referencia: La relación \\(U=1/(AR_{\\mathrm{total}})\\) define el coeficiente global de transferencia de calor según el área de referencia elegida. En intercambiadores tubulares, las áreas internas y externas difieren y deben distinguirse. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Las resistencias térmicas pueden sumarse en serie en condiciones estacionarias unidimensionales y sin generación interna. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d061": {
+    "id": "d061",
+    "clase": 2,
+    "titulo": "11.1 Resistencias por ensuciamiento",
+    "guion": "El objetivo de este apartado es interpretar Resistencias por ensuciamiento. Los depósitos de proteínas, sales, grasas u otros compuestos sobre las superficies originan fouling (ensuciamiento), incorporando resistencia térmica adicional. Por ello, el rendimiento puede disminuir con las horas de operación, incluso si las temperaturas y los caudales de servicio permanecen sin cambios. Las resistencias térmicas pueden sumarse en serie en condiciones estacionarias unidimensionales y sin generación interna. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d062": {
+    "id": "d062",
+    "clase": 2,
+    "titulo": "11.2 Analogía eléctrica y distribución de temperaturas",
+    "guion": "El objetivo de este apartado es interpretar Analogía eléctrica y distribución de temperaturas. En una red térmica en serie, la diferencia total de temperatura juega el papel de una diferencia de potencial; la potencia térmica representa una corriente y cada resistencia indica la oposición a la transferencia. Para una pared compuesta de capas planas puede escribirse \\(R_{cond,i}=L_i/(k_i A)\\) , y para cada película convectiva, \\(R_{conv}=1/(hA)\\) . Una vez calculada la tasa, la caída térmica de cada resistencia es \\(\\Delta T_j=\\dot Q R_j\\) . Así se localiza dónde ocurre la mayor diferencia de temperatura y se identifica qué capa conviene modificar. Las resistencias en paralelo requieren sumar las potencias a través de trayectorias independientes, no sumar directamente sus resistencias. En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Las resistencias térmicas pueden sumarse en serie en condiciones estacionarias unidimensionales y sin generación interna. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d063": {
+    "id": "d063",
+    "clase": 2,
+    "titulo": "Ejemplo resuelto · Resistencias térmicas y coeficiente global",
+    "guion": "En esta diapositiva se estudia Ejemplo resuelto. Ejemplo resuelto A · Pared más convección Sistema: Pared de 5 m², L=0,08 m, k=0,04 W/(m·K), h interior=10 y exterior=20 W/(m²·K). Hipótesis y modelo: Dos fluidos a 30 y 5 °C; resistencias térmicas en serie, sin puentes térmicos. Interacciones y fundamento: La misma potencia atraviesa todas las resistencias en régimen estacionario. Desarrollo matemático: \\[R_t=\\frac1{20(5)}+\\frac{0{,}08}{0{,}04(5)}+\\frac1{10(5)}=0{,}43\\ \\mathrm{K/W};\\quad\\dot Q=\\frac{25}{0{,}43}\\approx58{,}1\\ \\mathrm W\\] Resultado: Potencia transferida: 58,1 W. Interpretación y control: La conducción del aislante domina la resistencia (0,40 K/W frente a 0,03 K/W de películas). En el gráfico y las ecuaciones conviene identificar cada variable, sus unidades y las hipótesis bajo las que se aplica el modelo. Las resistencias térmicas pueden sumarse en serie en condiciones estacionarias unidimensionales y sin generación interna. Para comprobar la comprensión, se puede preguntar qué cambia si varía una condición de operación y qué efectos físicos se esperarían."
+  },
+  "d064": {
+    "id": "d064",
+    "clase": 2,
+    "titulo": "Evaluación formativa · Diseño de aislación",
+    "guion": "Las preguntas se utilizan como instancia formativa y no solo para verificar fórmulas. Se pide justificar el sistema elegido, reconocer los supuestos, explicar la causa física del comportamiento y anticipar qué sucede cuando se altera una variable de operación. Es recomendable discutir las respuestas antes de mostrar cualquier cálculo."
+  },
+  "d065": {
+    "id": "d065",
+    "clase": 2,
+    "titulo": "Cierre de clase 2",
+    "guion": "Para cerrar la clase 2, se retoman las preguntas de consolidación y se explican las relaciones entre los mecanismos físicos. Se propone revisar los ejercicios del banco de la unidad correspondientes a los temas estudiados, identificar el modelo en cada enunciado y controlar la coherencia dimensional de los resultados."
+  }
+}
