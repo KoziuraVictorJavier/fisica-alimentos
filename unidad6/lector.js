@@ -23,31 +23,112 @@ function populateVoices(){voices=speech.getVoices();const old=voiceSel.value||ch
 }
 populateVoices();speech.addEventListener?.('voiceschanged',populateVoices);
 voiceSel.onchange=()=>{chosenVoice=voiceSel.value};speed.oninput=()=>{$('reader-speed-label').textContent=Number(speed.value).toFixed(2).replace('.',',')+'×'};
-function balanced(s,pos){if(s[pos]!=='{') return ['',pos];let dep=1,i=pos+1;const start=i;while(i<s.length&&dep){if(s[i]==='{')dep++;else if(s[i]==='}')dep--;i++}return [s.slice(start,i-1),i]}
-function latexToSpeech(input){
- let s=String(input||'').replace(/\\\[|\\\]|\\\(|\\\)/g,'').replace(/\$/g,'').replace(/\\left|\\right/g,'');
- // Recursively turn mathematical fractions into descriptive Spanish.
- for(let rounds=0;rounds<14;rounds++){
-  const m=/\\(?:dfrac|tfrac|frac)\s*\{/.exec(s);if(!m)break;let start=m.index, a=balanced(s,start+m[0].length-1),p=a[1];while(s[p]===' ')p++;if(s[p]!=='{')break;const b=balanced(s,p);s=s.slice(0,start)+' fracción con numerador '+a[0]+' y denominador '+b[0]+' fin de fracción '+s.slice(b[1]);
+// Interpretación matemática estructurada: nunca verbaliza delimitadores o comandos TeX.
+// Mantiene el código matemático original que se capturó antes de MathJax.
+const GreekWords={alpha:'alfa',beta:'beta',gamma:'gamma',Gamma:'gamma',delta:'delta',Delta:'delta',epsilon:'épsilon',varepsilon:'épsilon',eta:'eta',theta:'teta',vartheta:'teta',lambda:'lambda',mu:'mu',nu:'nu',pi:'pi',rho:'ro',sigma:'sigma',Sigma:'sigma',tau:'tau',phi:'fi',varphi:'fi',omega:'omega',Omega:'omega',infty:'infinito'};
+const MathCommands={times:'por',cdot:'por',ast:'por',pm:'más o menos',mp:'menos o más',approx:'aproximadamente igual a',simeq:'aproximadamente igual a',sim:'aproximadamente',equiv:'equivalente a',ge:'mayor o igual que',geq:'mayor o igual que',le:'menor o igual que',leq:'menor o igual que',neq:'distinto de',ne:'distinto de',to:'tiende a',rightarrow:'tiende a',Rightarrow:'por lo tanto',Longrightarrow:'por lo tanto',leftrightarrow:'en ambos sentidos',partial:'derivada parcial',nabla:'gradiente',int:'integral de',sum:'sumatoria de',prod:'producto de',forall:'para todo',in:'pertenece a',propto:'proporcional a',circ:'grados',degree:'grados',prime:'prima',ldots:'y así sucesivamente',dots:'y así sucesivamente',quad:' ',qquad:' ',textdegree:'grados',mid:'tal que',vert:'valor absoluto de',langle:' ',rangle:' ',mathrm:'',text:'',operatorname:'',mathit:'',mathbf:'',mathsf:'',mathcal:'',displaystyle:'',textstyle:'',left:'',right:'',big:'',Big:'',bigl:'',bigr:'',biggl:'',biggr:'','!':' ', ',':' ',';':' ',':':' ', ' ':' '};
+function mathSpeak(source){
+ const input=String(source||'').replace(/\\\[|\\\]|\\\(|\\\)/g,'').replace(/\$\$/g,'')
+  .replace(/\bmc(?=\\|[A-Z({])/g,'m\\cdot c').replace(/\bkA(?=[(\\])/g,'k\\cdot A')
+  .replace(/(\d)\s*\(/g,'$1\\cdot(').replace(/\)\s*\(/g,')\\cdot(').trim();
+ let pos=0;
+ function spaces(){while(pos<input.length&&/\s/.test(input[pos]))pos++;}
+ function argument(){
+  spaces();
+  if(input[pos]==='{'){pos++;const content=read('}');if(input[pos]==='}')pos++;return content;}
+  if(input[pos]==='\\')return atom();
+  if(pos>=input.length)return '';
+  if(/[0-9]/.test(input[pos])){ // A bare TeX argument consumes a single character, not a whole number.
+    return input[pos++];
+  }
+  return atom();
  }
- s=s.replace(/\\sqrt\s*\{([^{}]+)\}/g,' raíz cuadrada de $1 fin de raíz ');
- const maps=[
- [/\\Delta\b/g,' delta '],[/\\delta\b/g,' delta '],[/\\alpha\b/g,' alfa '],[/\\beta\b/g,' beta '],[/\\gamma\b/g,' gamma '],[/\\eta\b/g,' eta '],[/\\rho\b/g,' ro '],[/\\sigma\b/g,' sigma '],[/\\tau\b/g,' tau '],[/\\varepsilon\b|\\epsilon\b/g,' épsilon '],[/\\mu\b/g,' mu '],[/\\pi\b/g,' pi '],[/\\omega\b/g,' omega '],[/\\theta\b/g,' teta '],[/\\lambda\b/g,' lambda '],[/\\infty\b/g,' infinito '],[/\\sum\b/g,' sumatoria '],[/\\int\b/g,' integral de '],[/\\dot\s*\{([^{}]+)\}/g,' $1 punto, tasa de $1 '],[/\\mathrm\s*\{([^{}]+)\}/g,' $1 '],[/\\text\s*\{([^{}]+)\}/g,' $1 '],[/\\underbrace\b/g,' '],[/\\overbrace\b/g,' '],[/\\approx\b|\\simeq\b/g,' aproximadamente igual a '],[/\\geq\b|\\ge\b/g,' mayor o igual que '],[/\\leq\b|\\le\b/g,' menor o igual que '],[/\\times\b|\\cdot\b/g,' por '],[/\\Rightarrow\b|\\rightarrow\b|\\to\b/g,' implica '],[/\\qquad|\\quad|\\,|\\;|\\!/g,' '],[/\\circ\b/g,' grados '],[/\\partial\b/g,' derivada parcial '],[/\\nabla\b/g,' gradiente ']
- ];for(const [re,rep] of maps)s=s.replace(re,rep);
- s=s.replace(/\bCOP_R\b/g,'coeficiente de desempeño frigorífico').replace(/\bCOP\b/g,'coeficiente de desempeño');
- s=s.replace(/\\(?:begin|end)\{[^}]+\}/g,' ').replace(/\\(?:displaystyle|mathit|mathbf|operatorname)\b/g,' ');
- s=s.replace(/\^\s*\{([^{}]+)\}/g,(_,x)=>' elevado a '+x+' ')
-   .replace(/\^\s*(-?\d+|[A-Za-z])/g,(_,x)=> x==='2'?' al cuadrado ':x==='3'?' al cubo ':' elevado a '+x+' ')
-   .replace(/_\s*\{([^{}]+)\}/g,(_,x)=>' subíndice '+x+' ').replace(/_([A-Za-z0-9]+)/g,' subíndice $1 ')
-   .replace(/\\/g,' ').replace(/[{}]/g,' ').replace(/&/g,' ')
-   .replace(/=/g,' igual a ').replace(/\+/g,' más ').replace(/−|-/g,' menos ').replace(/\*/g,' por ').replace(/\//g,' dividido por ')
-   .replace(/≥/g,' mayor o igual que ').replace(/≤/g,' menor o igual que ')
-   .replace(/\bkg\b/g,' kilogramos ').replace(/\bkW\b/g,' kilovatios ').replace(/\bkJ\b/g,' kilojulios ').replace(/\bMJ\b/g,' megajulios ').replace(/\bK\b/g,' kelvin ').replace(/\bW\b/g,' vatios ').replace(/\bJ\b/g,' julios ').replace(/\bm\b/g,' metros ');
- s=s.replace(/\s+/g,' ').trim();return s||'expresión matemática';
+ function group(){pos++;const content=read('}');if(input[pos]==='}')pos++;return content;}
+ function plainMathText(t){return String(t).replace(/\\(?:,|;|!|:|quad|qquad)/g,' ').replace(/[_{}]/g,' ').replace(/\s+/g,' ').trim();}
+ function command(){
+  pos++;
+  let name='';
+  while(pos<input.length&&/[A-Za-z]/.test(input[pos]))name+=input[pos++];
+  if(!name&&pos<input.length)name=input[pos++];
+  if(name==='frac'||name==='dfrac'||name==='tfrac'||name==='cfrac'){
+   const numerator=argument(),denominator=argument();
+   return ` ${numerator} dividido por ${denominator} `;
+  }
+  if(name==='sqrt'){
+   spaces();let index='';if(input[pos]==='['){pos++;let start=pos;while(pos<input.length&&input[pos]!==']')pos++;index=input.slice(start,pos);if(input[pos]===']')pos++;}
+   const body=argument();return index?` raíz de índice ${index} de ${body} `:` raíz cuadrada de ${body} `;
+  }
+  if(name==='dot'||name==='ddot'||name==='bar'||name==='overline'||name==='hat'||name==='vec'||name==='tilde'){
+   const body=argument();
+   if(name==='dot')return ` tasa de cambio de ${body} `;
+   if(name==='ddot')return ` segunda derivada temporal de ${body} `;
+   if(name==='vec')return ` vector ${body} `;
+   return ` ${body} `;
+  }
+  if(name==='begin'||name==='end'){argument();return ' ';}
+  if(['mathrm','text','operatorname','mathit','mathbf','mathsf','mathcal','textbf','textrm'].includes(name)){
+   spaces();
+   const inner=argument();return ` ${inner} `;
+  }
+  if(name==='left'||name==='right'){
+   if('()[]|.'.includes(input[pos]||''))pos++;
+   return ' ';
+  }
+  if(name==='underbrace'||name==='overbrace'){return argument();}
+  if(name==='overset'||name==='underset'){const annotation=argument(),body=argument();return body+' '+annotation;}
+  if(name==='color'){argument();return argument();}
+  if(name==='ce'){return argument();}
+  if(name==='log'||name==='ln'||name==='sin'||name==='cos'||name==='tan'||name==='exp'||name==='lim'||name==='max'||name==='min')return ' '+({ln:'logaritmo natural',sin:'seno',cos:'coseno',tan:'tangente',exp:'exponencial',lim:'límite',log:'logaritmo',max:'máximo',min:'mínimo'}[name])+' ';
+  return ' '+(GreekWords[name]||MathCommands[name]||(name.length===1?name:name.replace(/([a-z])([A-Z])/g,'$1 $2')))+' ';
+ }
+ function atom(){
+  if(pos>=input.length)return '';
+  const ch=input[pos];
+  if(ch==='{')return group();
+  if(ch==='\\')return command();
+  if(/[A-Za-z0-9]/.test(ch)){const start=pos;while(pos<input.length&&/[A-Za-z0-9]/.test(input[pos]))pos++;return input.slice(start,pos);}
+  pos++;
+  const characters={'=':'igual a','+':'más','-':'menos','−':'menos','*':'por','×':'por','·':'por','/':'dividido por','<':'menor que','>':'mayor que','≈':'aproximadamente igual a','≤':'menor o igual que','≥':'mayor o igual que','→':'tiende a','°':'grados','%':'por ciento','∞':'infinito','(':'',')':'', '[':'',']':'','&':'',',':',',';':'.',':':':','\n':' ','|':'', '!':''};
+  return Object.prototype.hasOwnProperty.call(characters,ch)?` ${characters[ch]} `:ch;
+ }
+ function read(stop){
+  const tokens=[];
+  while(pos<input.length && (!stop||input[pos]!==stop)){
+   spaces();if(pos>=input.length||(stop&&input[pos]===stop))break;
+   if(input[pos]==='^'||input[pos]==='_'){
+    const mark=input[pos++],val=argument();
+    if(mark==='^'){
+     const trimmed=val.trim();tokens.push(trimmed==='2'?' al cuadrado ':trimmed==='3'?' al cubo ':trimmed==='menos 1'?' a la menos uno ':` elevado a ${val} `);
+    } else {
+     const v=val.trim();
+     // Subíndices en magnitudes físicas se pronuncian como un modificador.
+     tokens.push(v==='0'?' inicial ':v==='f'?' final ':v==='i'?' inicial ':v==='s'?' de superficie ':v==='h'?' caliente ':v==='c'?' fría ':` subíndice ${val} `);
+    }
+    continue;
+   }
+   tokens.push(atom());
+  }
+  return tokens.join(' ');
+ }
+ let result=read('');
+ result=result.replace(/\\[A-Za-z]+/g,' ')
+  .replace(/\bkg\b/gi,' kilogramos ').replace(/\bmg\b/g,' miligramos ').replace(/\bkW\b/g,' kilovatios ')
+  .replace(/\bkJ\b/g,' kilojulios ').replace(/\bMJ\b/g,' megajulios ').replace(/\bK\b/g,' kelvin ')
+  .replace(/\bW\b/g,' vatios ').replace(/\bJ\b/g,' julios ').replace(/\bPa\b/g,' pascales ')
+  .replace(/\bHz\b/g,' hercios ').replace(/\bmm\b/g,' milímetros ').replace(/\bm\b(?=\s+(?:al cuadrado|al cubo)\b)/g,' metros ')
+  .replace(/\bmathrm\b/g,' ')
+  .replace(/(\d)\s*,\s*(\d)/g,'$1 coma $2').replace(/\s+([,.;:])/g,'$1').replace(/\s+/g,' ').trim();
+ return result;
 }
-function textWithMath(txt){
- let t=String(txt||'').replace(/\\\[([\s\S]*?)\\\]|\\\(([\s\S]*?)\\\)/g,(_,a,b)=>' Ecuación: '+latexToSpeech(a||b)+'. Fin de ecuación. ');
- return t.replace(/\s+/g,' ').trim();
+function textWithMath(raw){
+ const text=String(raw||'');
+ // Every inline/display TeX region becomes a spoken mathematical expression;
+ // no repetitive introductory or closing announcements.
+ const out=text.replace(/\\\[([\s\S]*?)\\\]|\\\(([\s\S]*?)\\\)/g,(_,display,inline)=>{
+   const spoken=mathSpeak(display===undefined?inline:display);
+   return ' '+spoken+'. ';
+ });
+ return out.replace(/\s+/g,' ').trim();
 }
 function collect(sec){const out=[];
  const nodes=sec.querySelectorAll('h2,h3,h4,p,li,.eq,figcaption,figure>svg,.sim>svg,.sim .result,.cycle-live-results,.phase-svg,details>summary,table tr');
@@ -70,7 +151,7 @@ function collect(sec){const out=[];
    if(row)out.push({el,text:'Fila de tabla. '+row});return;
   }
   let raw=el.getAttribute('data-reader-text')||el.textContent||'';
-  if(el.classList.contains('eq'))raw='Ecuación: '+latexToSpeech(raw)+'. Fin de ecuación.';
+  if(el.classList.contains('eq'))raw=textWithMath(raw);
   else raw=textWithMath(raw);
   if(raw)out.push({el,text:raw});
  });

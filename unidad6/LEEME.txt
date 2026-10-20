@@ -27,3 +27,5 @@ LIMITACIONES
  específicos; se conserva siempre la representación visual LaTeX original.
  LaTex utiliza MathJax desde CDN: necesita acceso a Internet para dibujar ecuaciones.
  La reproducción por voz debe iniciarse con un clic del usuario.
+
+ACTUALIZACIÓN V2: el lector pronuncia las fórmulas sin anunciar «ecuación» o «fin de ecuación». Se sustituyó la conversión por patrones por interpretación estructurada de LaTeX, incluidos fracciones y exponentes.
