@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Simulador 3D de una esfera maciza aislante con carga volumétrica uniforme: ley de Gauss, campo eléctrico y potencial." />
+  <title>Esfera uniformemente cargada — Gauss, campo y potencial</title>
+
+  <style>
+    :root{
+      --bg:#eef3f8;
+      --panel:#ffffff;
+      --ink:#172235;
+      --muted:#5d6b7d;
+      --line:#d8e1eb;
+      --primary:#185fa8;
+      --primary-dark:#0d477f;
+      --accent:#16856b;
+      --warning:#a86100;
+      --danger:#ad2e24;
+      --positive:#d94a38;
+      --negative:#2775d7;
+      --gauss:#16a37f;
+      --shadow:0 12px 32px rgba(31,50,73,.10);
+      --radius:16px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#f5f8fc 0,#eaf0f6 100%);
+      color:var(--ink);
+      font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;
+      line-height:1.5;
+    }
+
+    header{
+      color:#fff;
+      background:
+        radial-gradient(circle at 85% 15%,rgba(255,255,255,.17),transparent 30%),
+        linear-gradient(125deg,#123d68,#176ba5 55%,#16856b);
+      padding:28px clamp(18px,4vw,54px);
+      box-shadow:0 8px 24px rgba(15,51,83,.20);
+    }
+
+    .header-inner{max-width:1500px;margin:auto}
+    h1{font-size:clamp(1.65rem,3vw,2.65rem);margin:0 0 8px;line-height:1.12}
+    header p{margin:0;max-width:1000px;color:#e8f4ff;font-size:1.03rem}
+
+    main{max-width:1500px;margin:0 auto;padding:22px}
+    .notice{
+      margin-bottom:18px;
+      border-left:5px solid var(--warning);
+      background:#fff8e9;
+      color:#593b0a;
+      padding:12px 15px;
+      border-radius:10px;
+      box-shadow:0 4px 14px rgba(80,61,19,.06);
+    }
+
+    .sim-grid{
+      display:grid;
+      grid-template-columns:310px minmax(440px,1fr) 360px;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .panel{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .panel-title{
+      padding:13px 16px;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(180deg,#fff,#f6f9fc);
+      font-weight:750;
+      color:#173a5b;
+    }
+
+    .controls{padding:14px 16px}
+    .control{margin-bottom:18px}
+    .control label{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      font-weight:650;
+      font-size:.93rem;
+      margin-bottom:6px;
+    }
+    output{color:var(--primary-dark);font-variant-numeric:tabular-nums}
+    input[type="range"]{width:100%;accent-color:var(--primary)}
+    .range-row{display:flex;justify-content:space-between;color:var(--muted);font-size:.75rem}
+
+    .check{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      margin:10px 0;
+      font-size:.91rem;
+    }
+    .check input{width:17px;height:17px;accent-color:var(--primary)}
+
+    .button-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px;
+      margin-top:14px;
+    }
+    button{
+      border:1px solid #b7c7d7;
+      background:#f7fafc;
+      color:#153d61;
+      padding:9px 10px;
+      border-radius:9px;
+      font-weight:700;
+      cursor:pointer;
+      transition:.16s ease;
+    }
+    button:hover{background:#e9f3fb;border-color:#7ca9ce;transform:translateY(-1px)}
+    button.primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+    button.primary:hover{background:var(--primary-dark)}
+
+    .scene-panel{position:relative;min-height:650px}
+    #scene{
+      position:absolute;
+      inset:0;
+      min-height:650px;
+      background:
+        radial-gradient(circle at 50% 42%,#ffffff 0,#edf4f9 55%,#dfe9f1 100%);
+    }
+    #scene canvas{display:block;width:100%;height:100%}
+    .scene-overlay{
+      position:absolute;
+      left:14px;
+      top:14px;
+      z-index:3;
+      max-width:245px;
+      padding:9px 11px;
+      border-radius:10px;
+      background:rgba(255,255,255,.88);
+      backdrop-filter:blur(5px);
+      border:1px solid rgba(190,207,221,.9);
+      font-size:.82rem;
+      color:#33465a;
+      pointer-events:none;
+    }
+    .legend{
+      position:absolute;
+      right:14px;
+      bottom:14px;
+      z-index:3;
+      background:rgba(255,255,255,.90);
+      backdrop-filter:blur(5px);
+      border:1px solid rgba(190,207,221,.9);
+      border-radius:10px;
+      padding:9px 11px;
+      font-size:.8rem;
+      pointer-events:none;
+    }
+    .legend-row{display:flex;align-items:center;gap:7px;margin:4px 0}
+    .dot{width:11px;height:11px;border-radius:50%;display:inline-block}
+    .dot.charge{background:var(--positive)}
+    .dot.gauss{background:var(--gauss)}
+    .line-arrow{font-size:1rem;color:#bf6b00;font-weight:900}
+
+    .error-box{
+      display:none;
+      position:absolute;
+      inset:18px;
+      z-index:10;
+      padding:20px;
+      border:2px solid #d68d88;
+      border-radius:12px;
+      background:#fff4f3;
+      color:#6d1b15;
+    }
+
+    .metrics{padding:13px 15px}
+    .metric{
+      padding:9px 0;
+      border-bottom:1px dashed #d9e2ea;
+    }
+    .metric:last-child{border-bottom:0}
+    .metric-name{display:block;color:var(--muted);font-size:.78rem}
+    .metric-value{
+      display:block;
+      font-size:1.05rem;
+      font-weight:750;
+      color:#153d61;
+      font-variant-numeric:tabular-nums;
+      overflow-wrap:anywhere;
+    }
+    .region-badge{
+      display:inline-flex;
+      align-items:center;
+      padding:5px 9px;
+      border-radius:999px;
+      font-size:.78rem;
+      font-weight:800;
+      background:#eaf3fb;
+      color:#18598f;
+    }
+    .region-badge.inside{background:#fff1df;color:#8b4c00}
+    .region-badge.surface{background:#e7f7f2;color:#0f745c}
+
+    .gauss-check{
+      margin:12px 15px 15px;
+      padding:12px;
+      border-radius:11px;
+      background:#edf9f5;
+      border:1px solid #bfe5d9;
+      font-size:.86rem;
+    }
+    .gauss-check strong{color:#0b6c54}
+    .equation-line{
+      margin-top:7px;
+      padding:7px 8px;
+      border-radius:7px;
+      background:#fff;
+      font-family:Consolas,Monaco,monospace;
+      font-size:.77rem;
+      overflow-wrap:anywhere;
+    }
+
+    .section{
+      margin-top:22px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .section-content{padding:18px}
+    h2{margin:0;color:#173a5b;font-size:1.35rem}
+    h3{color:#1d4e78;margin:18px 0 8px}
+    .theory-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .formula-card{
+      border:1px solid #cddbe7;
+      border-radius:12px;
+      padding:14px;
+      background:#f9fbfd;
+    }
+    .formula-card h3{margin-top:0}
+    .math{
+      overflow-x:auto;
+      padding:7px 3px;
+    }
+
+    .charts{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+    .chart-card{
+      border:1px solid #d2dde7;
+      border-radius:12px;
+      padding:11px;
+      background:#fff;
+    }
+    .chart-card h3{margin:2px 4px 8px;font-size:1rem}
+    .chart-wrap{position:relative;height:310px}
+    .chart-wrap canvas{width:100%;height:100%;display:block}
+    .chart-caption{font-size:.78rem;color:var(--muted);padding:5px 4px 0}
+
+    .dimensionless{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:10px;
+      font-size:.9rem;
+    }
+    .dimensionless th,.dimensionless td{
+      border:1px solid #d7e0e9;
+      padding:9px;
+      text-align:center;
+    }
+    .dimensionless th{background:#edf4f9;color:#173f62}
+    .dimensionless tr:nth-child(even) td{background:#fafcfe}
+
+    .pedagogy-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+    .task{
+      border-left:4px solid var(--primary);
+      border-radius:9px;
+      background:#f5f9fc;
+      padding:12px;
+    }
+    .task strong{display:block;color:#164e7a;margin-bottom:5px}
+    .small{font-size:.83rem;color:var(--muted)}
+    footer{max-width:1500px;margin:0 auto;padding:18px 22px 30px;color:#536274;font-size:.82rem}
+
+    @media (max-width:1180px){
+      .sim-grid{grid-template-columns:290px 1fr}
+      .results-panel{grid-column:1/-1}
+      .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0 18px}
+      .gauss-check{margin-top:4px}
+    }
+    @media (max-width:820px){
+      main{padding:12px}
+      .sim-grid{grid-template-columns:1fr}
+      .scene-panel{min-height:520px}
+      #scene{min-height:520px}
+      .results-panel{grid-column:auto}
+      .metrics{grid-template-columns:1fr 1fr}
+      .theory-grid,.charts,.pedagogy-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:480px){
+      .metrics{grid-template-columns:1fr}
+      .button-grid{grid-template-columns:1fr}
+      .scene-overlay{max-width:195px;font-size:.73rem}
+      .legend{font-size:.72rem}
+    }
+
+    @media print{
+      header{background:#fff;color:#000;box-shadow:none;border-bottom:2px solid #555}
+      header p{color:#222}
+      .sim-grid{display:block}
+      .controls-panel{display:none}
+      .scene-panel{height:500px;margin-bottom:15px;box-shadow:none}
+      .panel,.section{box-shadow:none;break-inside:avoid}
+      .charts{grid-template-columns:1fr}
+    }
+  </style>
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']]
+      },
+      chtml: { scale: 0.96 }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.185.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.185.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+
+<body>
+<header>
+  <div class="header-inner">
+    <h1>Esfera maciza con carga volumétrica uniforme</h1>
+    <p>Modelo 3D interactivo para estudiar simetría esférica, ley de Gauss, campo eléctrico, potencial y continuidad en la frontera \(r=R\).</p>
+  </div>
+</header>
+
+<main>
+  <div class="notice">
+    <strong>Modelo físico:</strong> material aislante, carga distribuida uniformemente en todo el volumen y régimen electrostático.
+    No representa una esfera conductora en equilibrio electrostático.
+  </div>
+
+  <section class="sim-grid" aria-label="Simulador interactivo">
+    <aside class="panel controls-panel">
+      <div class="panel-title">Parámetros y visualización</div>
+      <div class="controls">
+        <div class="control">
+          <label for="charge">
+            <span>Carga total \(Q\)</span>
+            <output id="chargeOut">5,0 nC</output>
+          </label>
+          <input id="charge" type="range" min="-20" max="20" step="0.5" value="5" />
+          <div class="range-row"><span>−20 nC</span><span>+20 nC</span></div>
+        </div>
+
+        <div class="control">
+          <label for="radius">
+            <span>Radio físico \(R\)</span>
+            <output id="radiusOut">10,0 cm</output>
+          </label>
+          <input id="radius" type="range" min="5" max="30" step="0.5" value="10" />
+          <div class="range-row"><span>5 cm</span><span>30 cm</span></div>
+        </div>
+
+        <div class="control">
+          <label for="gaussRadius">
+            <span>Radio gaussiano \(r_g/R\)</span>
+            <output id="gaussRadiusOut">0,60</output>
+          </label>
+          <input id="gaussRadius" type="range" min="0.05" max="3" step="0.01" value="0.60" />
+          <div class="range-row"><span>Centro</span><span>3R</span></div>
+        </div>
+
+        <div class="control">
+          <label for="opacity">
+            <span>Opacidad de la esfera</span>
+            <output id="opacityOut">24 %</output>
+          </label>
+          <input id="opacity" type="range" min="8" max="60" step="1" value="24" />
+        </div>
+
+        <label class="check"><input id="showCharges" type="checkbox" checked /> Mostrar marcadores de carga</label>
+        <label class="check"><input id="showField" type="checkbox" checked /> Mostrar campo radial</label>
+        <label class="check"><input id="showGaussian" type="checkbox" checked /> Mostrar superficie gaussiana</label>
+        <label class="check"><input id="autoRotate" type="checkbox" /> Rotación automática</label>
+
+        <div class="button-grid">
+          <button id="insidePreset">Caso interior</button>
+          <button id="surfacePreset">En la superficie</button>
+          <button id="outsidePreset">Caso exterior</button>
+          <button id="resetView" class="primary">Reiniciar vista</button>
+        </div>
+
+        <p class="small">
+          Arrastre para rotar, use la rueda para acercar o alejar y el botón derecho para desplazar la cámara.
+          La geometría se representa en unidades normalizadas \(r/R\).
+        </p>
+      </div>
+    </aside>
+
+    <div class="panel scene-panel">
+      <div id="scene" role="img" aria-label="Representación tridimensional de una esfera cargada y una superficie gaussiana"></div>
+      <div class="scene-overlay">
+        <strong>Lectura 3D</strong><br>
+        La esfera translúcida representa el volumen cargado. La malla verde es la superficie gaussiana.
+        Las flechas son radiales y normales a esa superficie.
+      </div>
+      <div class="legend">
+        <div class="legend-row"><span class="dot charge" id="chargeLegendDot"></span><span id="chargeLegend">Carga positiva</span></div>
+        <div class="legend-row"><span class="dot gauss"></span><span>Superficie gaussiana</span></div>
+        <div class="legend-row"><span class="line-arrow">➜</span><span>Campo \(\vec E\)</span></div>
+      </div>
+      <div class="error-box" id="webglError">
+        <strong>No fue posible iniciar la escena 3D.</strong>
+        <p>Compruebe la conexión a Internet y que el navegador tenga WebGL habilitado. También puede abrir la carpeta con un servidor local.</p>
+      </div>
+    </div>
+
+    <aside class="panel results-panel">
+      <div class="panel-title">Resultados en \(r=r_g\)</div>
+      <div class="metrics">
+        <div class="metric">
+          <span class="metric-name">Región física</span>
+          <span class="metric-value"><span id="region" class="region-badge inside">Interior</span></span>
+        </div>
+        <div class="metric">
+          <span class="metric-name">Radio de evaluación \(r_g\)</span>
+          <span class="metric-value" id="rValue">0,0600 m</span>
+        </div>
+        <div class="metric">
+          <span class="metric-name">Densidad volumétrica \(\rho\)</span>
+          <span class="metric-value" id="rhoValue">—</span>
+        </div>
+        <div class="metric">
+          <span class="metric-name">Carga encerrada \(Q_{\mathrm{enc}}\)</span>
+          <span class="metric-value" id="qEncValue">—</span>
+        </div>
+        <div class="metric">
+          <span class="metric-name">Campo radial \(E_r(r_g)\)</span>
+          <span class="metric-value" id="eValue">—</span>
+        </div>
+        <div class="metric">
+          <span class="metric-name">Potencial \(V(r_g)\)</span>
+          <span class="metric-value" id="vValue">—</span>
+        </div>
+        <div class="metric">
+          <span class="metric-name">Flujo eléctrico \(\Phi_E\)</span>
+          <span class="metric-value" id="fluxValue">—</span>
+        </div>
+        <div class="metric">
+          <span class="metric-name">Área gaussiana \(4\pi r_g^2\)</span>
+          <span class="metric-value" id="areaValue">—</span>
+        </div>
+      </div>
+
+      <div class="gauss-check">
+        <strong>Verificación numérica de Gauss</strong>
+        <div class="equation-line" id="gaussLeft">E·4πr² = —</div>
+        <div class="equation-line" id="gaussRight">Qenc/ε₀ = —</div>
+        <div class="equation-line" id="gaussError">Diferencia relativa = —</div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="section">
+    <div class="panel-title"><h2>Gráficos radiales</h2></div>
+    <div class="section-content charts">
+      <article class="chart-card">
+        <h3>Campo eléctrico radial \(E_r(r)\)</h3>
+        <div class="chart-wrap"><canvas id="fieldChart"></canvas></div>
+        <div class="chart-caption">La línea verde marca \(r_g\); la línea gris discontinua marca la frontera \(R\).</div>
+      </article>
+      <article class="chart-card">
+        <h3>Potencial eléctrico \(V(r)\), con \(V(\infty)=0\)</h3>
+        <div class="chart-wrap"><canvas id="potentialChart"></canvas></div>
+        <div class="chart-caption">El potencial y el campo son continuos en \(r=R\), y se cumple \(E_r=-dV/dr\).</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="panel-title"><h2>Fundamento físico y desarrollo por regiones</h2></div>
+    <div class="section-content">
+      <p>
+        Por simetría esférica, el campo tiene dirección radial y su módulo es constante sobre cualquier
+        superficie gaussiana concéntrica. Por ello,
+      </p>
+      <div class="math">
+        \[
+          \oint_S \vec E\cdot d\vec A=E(r)\,4\pi r^2=\frac{Q_{\mathrm{enc}}(r)}{\varepsilon_0}.
+        \]
+      </div>
+
+      <div class="theory-grid">
+        <article class="formula-card">
+          <h3>Interior: \(0\le r\le R\)</h3>
+          <div class="math">
+            \[
+            \rho=\frac{Q}{\frac{4}{3}\pi R^3},\qquad
+            Q_{\mathrm{enc}}=Q\left(\frac{r}{R}\right)^3
+            \]
+            \[
+            E_r(r)=\frac{\rho r}{3\varepsilon_0}
+            =\frac{1}{4\pi\varepsilon_0}\frac{Qr}{R^3}
+            \]
+            \[
+            V(r)=\frac{1}{4\pi\varepsilon_0}\frac{Q}{2R}
+            \left(3-\frac{r^2}{R^2}\right).
+            \]
+          </div>
+          <p class="small">El campo nace en cero y crece linealmente; el potencial es finito y cuadrático.</p>
+        </article>
+
+        <article class="formula-card">
+          <h3>Exterior: \(r\ge R\)</h3>
+          <div class="math">
+            \[
+            Q_{\mathrm{enc}}=Q,
+            \qquad
+            E_r(r)=\frac{1}{4\pi\varepsilon_0}\frac{Q}{r^2}
+            \]
+            \[
+            V(r)=\frac{1}{4\pi\varepsilon_0}\frac{Q}{r}.
+            \]
+          </div>
+          <p class="small">Desde el exterior, la distribución se comporta como una carga puntual \(Q\) situada en el centro.</p>
+        </article>
+      </div>
+
+      <h3>Relaciones normalizadas útiles</h3>
+      <p>Con \(x=r/R\), \(E_R=kQ/R^2\) y \(V_R=kQ/R\):</p>
+      <table class="dimensionless">
+        <thead>
+          <tr>
+            <th>Región</th>
+            <th>\(Q_{\mathrm{enc}}/Q\)</th>
+            <th>\(E_r/E_R\)</th>
+            <th>\(V/V_R\)</th>
+            <th>\(\Phi_E/(Q/\varepsilon_0)\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>\(0\le x\le1\)</td>
+            <td>\(x^3\)</td>
+            <td>\(x\)</td>
+            <td>\((3-x^2)/2\)</td>
+            <td>\(x^3\)</td>
+          </tr>
+          <tr>
+            <td>\(x\ge1\)</td>
+            <td>\(1\)</td>
+            <td>\(1/x^2\)</td>
+            <td>\(1/x\)</td>
+            <td>\(1\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="panel-title"><h2>Propuesta de uso didáctico</h2></div>
+    <div class="section-content pedagogy-grid">
+      <div class="task">
+        <strong>1. Simetría y Gauss</strong>
+        Mueva \(r_g\) dentro y fuera de la esfera. Compruebe que \(\vec E\) es normal a la superficie y que
+        \(E\,4\pi r_g^2=Q_{\mathrm{enc}}/\varepsilon_0\).
+      </div>
+      <div class="task">
+        <strong>2. Frontera \(r=R\)</strong>
+        Compare valores inmediatamente antes y después de \(R\). Verifique la continuidad de \(E_r\) y \(V\),
+        aunque cambien sus expresiones analíticas.
+      </div>
+      <div class="task">
+        <strong>3. Campo y potencial</strong>
+        Observe que donde \(V(r)\) decrece más rápidamente, \(|E_r|\) es mayor. Relacione las gráficas mediante
+        \(E_r=-dV/dr\).
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Simulador educativo. Constantes utilizadas:
+  \(\varepsilon_0=8{,}854\,187\,8128\times10^{-12}\ \mathrm{F/m}\) y
+  \(k=(4\pi\varepsilon_0)^{-1}\).
+</footer>
+
+<script type="module">
+  import * as THREE from 'three';
+  import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+  const EPS0 = 8.8541878128e-12;
+  const K = 1 / (4 * Math.PI * EPS0);
+  const MAX_CHARGES = 720;
+
+  const state = {
+    qNanoC: 5,
+    Rcm: 10,
+    lambda: 0.60,
+    opacity: 0.24,
+    showCharges: true,
+    showField: true,
+    showGaussian: true,
+    autoRotate: false
+  };
+
+  const el = {
+    charge: document.getElementById('charge'),
+    radius: document.getElementById('radius'),
+    gaussRadius: document.getElementById('gaussRadius'),
+    opacity: document.getElementById('opacity'),
+    showCharges: document.getElementById('showCharges'),
+    showField: document.getElementById('showField'),
+    showGaussian: document.getElementById('showGaussian'),
+    autoRotate: document.getElementById('autoRotate'),
+    chargeOut: document.getElementById('chargeOut'),
+    radiusOut: document.getElementById('radiusOut'),
+    gaussRadiusOut: document.getElementById('gaussRadiusOut'),
+    opacityOut: document.getElementById('opacityOut'),
+    region: document.getElementById('region'),
+    rValue: document.getElementById('rValue'),
+    rhoValue: document.getElementById('rhoValue'),
+    qEncValue: document.getElementById('qEncValue'),
+    eValue: document.getElementById('eValue'),
+    vValue: document.getElementById('vValue'),
+    fluxValue: document.getElementById('fluxValue'),
+    areaValue: document.getElementById('areaValue'),
+    gaussLeft: document.getElementById('gaussLeft'),
+    gaussRight: document.getElementById('gaussRight'),
+    gaussError: document.getElementById('gaussError'),
+    chargeLegend: document.getElementById('chargeLegend'),
+    chargeLegendDot: document.getElementById('chargeLegendDot'),
+    fieldChart: document.getElementById('fieldChart'),
+    potentialChart: document.getElementById('potentialChart'),
+    scene: document.getElementById('scene'),
+    webglError: document.getElementById('webglError')
+  };
+
+  function physicalValues(x = state.lambda) {
+    const Q = state.qNanoC * 1e-9;
+    const R = state.Rcm / 100;
+    const r = x * R;
+    const rho = Q / ((4 / 3) * Math.PI * R ** 3);
+    const inside = x <= 1;
+    const qEnc = inside ? Q * x ** 3 : Q;
+    const E = inside ? K * Q * r / R ** 3 : K * Q / r ** 2;
+    const V = inside
+      ? K * Q / (2 * R) * (3 - x ** 2)
+      : K * Q / r;
+    const area = 4 * Math.PI * r ** 2;
+    const flux = qEnc / EPS0;
+    return { Q, R, r, rho, inside, qEnc, E, V, area, flux };
+  }
+
+  function decimal(value, digits = 2) {
+    return new Intl.NumberFormat('es-AR', {
+      minimumFractionDigits: digits,
+      maximumFractionDigits: digits
+    }).format(value);
+  }
+
+  function sci(value, digits = 3) {
+    if (!Number.isFinite(value)) return '—';
+    if (Math.abs(value) < 1e-30) return '0';
+    const sign = value < 0 ? '−' : '';
+    const abs = Math.abs(value);
+    const exp = Math.floor(Math.log10(abs));
+    const mantissa = abs / 10 ** exp;
+    if (exp >= -2 && exp <= 3) {
+      return sign + new Intl.NumberFormat('es-AR', {
+        maximumFractionDigits: digits,
+        minimumFractionDigits: 0
+      }).format(abs);
+    }
+    return `${sign}${decimal(mantissa, digits)} × 10^${exp}`;
+  }
+
+  function unit(value, symbol, digits = 3) {
+    return `${sci(value, digits)} ${symbol}`;
+  }
+
+  function updateReadouts() {
+    const p = physicalValues();
+
+    el.chargeOut.textContent = `${state.qNanoC > 0 ? '+' : ''}${decimal(state.qNanoC, 1)} nC`;
+    el.radiusOut.textContent = `${decimal(state.Rcm, 1)} cm`;
+    el.gaussRadiusOut.textContent = decimal(state.lambda, 2);
+    el.opacityOut.textContent = `${Math.round(state.opacity * 100)} %`;
+
+    const nearSurface = Math.abs(state.lambda - 1) < 0.005;
+    if (nearSurface) {
+      el.region.textContent = 'Superficie r = R';
+      el.region.className = 'region-badge surface';
+    } else if (p.inside) {
+      el.region.textContent = 'Interior r < R';
+      el.region.className = 'region-badge inside';
+    } else {
+      el.region.textContent = 'Exterior r > R';
+      el.region.className = 'region-badge';
+    }
+
+    el.rValue.textContent = `${decimal(p.r, 4)} m  (${decimal(state.lambda, 2)} R)`;
+    el.rhoValue.textContent = unit(p.rho, 'C/m³');
+    el.qEncValue.textContent = `${unit(p.qEnc, 'C')}  (${decimal(p.Q === 0 ? 0 : p.qEnc / p.Q * 100, 2)} % de Q)`;
+    el.eValue.textContent = unit(p.E, 'N/C');
+    el.vValue.textContent = unit(p.V, 'V');
+    el.fluxValue.textContent = unit(p.flux, 'N·m²/C');
+    el.areaValue.textContent = unit(p.area, 'm²');
+
+    const left = p.E * p.area;
+    const right = p.flux;
+    const denom = Math.max(Math.abs(left), Math.abs(right), 1e-30);
+    const error = Math.abs(left - right) / denom * 100;
+
+    el.gaussLeft.textContent = `E·4πr² = ${sci(left)} N·m²/C`;
+    el.gaussRight.textContent = `Qenc/ε₀ = ${sci(right)} N·m²/C`;
+    el.gaussError.textContent = `Diferencia relativa = ${sci(error)} %`;
+
+    if (state.qNanoC > 0) {
+      el.chargeLegend.textContent = 'Carga positiva';
+      el.chargeLegendDot.style.background = '#d94a38';
+    } else if (state.qNanoC < 0) {
+      el.chargeLegend.textContent = 'Carga negativa';
+      el.chargeLegendDot.style.background = '#2775d7';
+    } else {
+      el.chargeLegend.textContent = 'Carga nula';
+      el.chargeLegendDot.style.background = '#7b8794';
+    }
+  }
+
+  // ---------- Gráficos Canvas ----------
+  function setupCanvas(canvas) {
+    const rect = canvas.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const width = Math.max(320, Math.round(rect.width));
+    const height = Math.max(240, Math.round(rect.height));
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    const ctx = canvas.getContext('2d');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    return { ctx, width, height };
+  }
+
+  function niceTicks(min, max, count = 5) {
+    if (Math.abs(max - min) < 1e-30) return [min];
+    const raw = (max - min) / count;
+    const power = 10 ** Math.floor(Math.log10(Math.abs(raw)));
+    const fraction = raw / power;
+    let niceFraction;
+    if (fraction <= 1) niceFraction = 1;
+    else if (fraction <= 2) niceFraction = 2;
+    else if (fraction <= 5) niceFraction = 5;
+    else niceFraction = 10;
+    const step = niceFraction * power;
+    const start = Math.ceil(min / step) * step;
+    const ticks = [];
+    for (let v = start; v <= max + step * 0.2; v += step) ticks.push(v);
+    return ticks;
+  }
+
+  function shortAxis(value) {
+    if (Math.abs(value) < 1e-12) return '0';
+    const a = Math.abs(value);
+    if (a >= 1e4 || a < 1e-2) {
+      const e = Math.floor(Math.log10(a));
+      return `${(value / 10 ** e).toFixed(1)}e${e}`;
+    }
+    return new Intl.NumberFormat('es-AR', { maximumFractionDigits: 2 }).format(value);
+  }
+
+  function drawChart(canvas, kind) {
+    const { ctx, width, height } = setupCanvas(canvas);
+    ctx.clearRect(0, 0, width, height);
+
+    const margin = { l: 64, r: 18, t: 18, b: 45 };
+    const pw = width - margin.l - margin.r;
+    const ph = height - margin.t - margin.b;
+    const N = 360;
+    const values = [];
+
+    for (let i = 0; i <= N; i++) {
+      const x = 3 * i / N;
+      const safeX = Math.max(x, 1e-8);
+      const p = physicalValues(safeX);
+      values.push({ x, y: kind === 'E' ? p.E : p.V });
+    }
+
+    let yMin = Math.min(...values.map(d => d.y), 0);
+    let yMax = Math.max(...values.map(d => d.y), 0);
+    if (Math.abs(yMax - yMin) < 1e-20) {
+      yMin = -1;
+      yMax = 1;
+    } else {
+      const pad = (yMax - yMin) * 0.10;
+      yMin -= pad;
+      yMax += pad;
+    }
+
+    const X = x => margin.l + (x / 3) * pw;
+    const Y = y => margin.t + (yMax - y) / (yMax - yMin) * ph;
+
+    // Fondo
+    ctx.fillStyle = '#fbfdff';
+    ctx.fillRect(margin.l, margin.t, pw, ph);
+
+    // Cuadrícula y ticks Y
+    ctx.font = '11px Segoe UI, Arial';
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'middle';
+    const yTicks = niceTicks(yMin, yMax, 5);
+    for (const tick of yTicks) {
+      const yy = Y(tick);
+      ctx.strokeStyle = '#e1e8ef';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(margin.l, yy);
+      ctx.lineTo(width - margin.r, yy);
+      ctx.stroke();
+      ctx.fillStyle = '#617083';
+      ctx.fillText(shortAxis(tick), margin.l - 7, yy);
+    }
+
+    // Ticks X
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'top';
+    for (let x = 0; x <= 3.001; x += 0.5) {
+      const xx = X(x);
+      ctx.strokeStyle = '#edf1f5';
+      ctx.beginPath();
+      ctx.moveTo(xx, margin.t);
+      ctx.lineTo(xx, height - margin.b);
+      ctx.stroke();
+      ctx.fillStyle = '#617083';
+      ctx.fillText(decimal(x, 1), xx, height - margin.b + 8);
+    }
+
+    // Eje y=0
+    if (yMin <= 0 && yMax >= 0) {
+      ctx.strokeStyle = '#9aa9b7';
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.moveTo(margin.l, Y(0));
+      ctx.lineTo(width - margin.r, Y(0));
+      ctx.stroke();
+    }
+
+    // Frontera R
+    ctx.save();
+    ctx.setLineDash([6, 5]);
+    ctx.strokeStyle = '#7b8794';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(X(1), margin.t);
+    ctx.lineTo(X(1), height - margin.b);
+    ctx.stroke();
+    ctx.restore();
+    ctx.fillStyle = '#596777';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    ctx.fillText('R', X(1) + 4, margin.t + 4);
+
+    // Radio gaussiano
+    ctx.strokeStyle = '#16856b';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(X(state.lambda), margin.t);
+    ctx.lineTo(X(state.lambda), height - margin.b);
+    ctx.stroke();
+
+    // Curva
+    ctx.strokeStyle = kind === 'E' ? '#c56b08' : '#185fa8';
+    ctx.lineWidth = 3;
+    ctx.lineJoin = 'round';
+    ctx.beginPath();
+    values.forEach((d, i) => {
+      const xx = X(d.x), yy = Y(d.y);
+      if (i === 0) ctx.moveTo(xx, yy);
+      else ctx.lineTo(xx, yy);
+    });
+    ctx.stroke();
+
+    // Punto actual
+    const current = physicalValues();
+    const currentY = kind === 'E' ? current.E : current.V;
+    ctx.fillStyle = '#16856b';
+    ctx.beginPath();
+    ctx.arc(X(state.lambda), Y(currentY), 5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Marco
+    ctx.strokeStyle = '#aebdca';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(margin.l, margin.t, pw, ph);
+
+    // Etiquetas
+    ctx.fillStyle = '#33465a';
+    ctx.font = '12px Segoe UI, Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'bottom';
+    ctx.fillText('r / R', margin.l + pw / 2, height - 4);
+
+    ctx.save();
+    ctx.translate(15, margin.t + ph / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'top';
+    ctx.fillText(kind === 'E' ? 'Eᵣ (N/C)' : 'V (V)', 0, 0);
+    ctx.restore();
+  }
+
+  function drawCharts() {
+    drawChart(el.fieldChart, 'E');
+    drawChart(el.potentialChart, 'V');
+  }
+
+  // ---------- Escena Three.js ----------
+  let renderer, scene, camera, controls;
+  let sphereMesh, sphereWire, chargeMesh, gaussianMesh, gaussianShell;
+  let fieldGroup, gaussianFieldGroup;
+  let initialized = false;
+
+  function seededRandomFactory(seed = 1234567) {
+    let s = seed >>> 0;
+    return () => {
+      s = (1664525 * s + 1013904223) >>> 0;
+      return s / 4294967296;
+    };
+  }
+
+  function fibonacciDirections(n) {
+    const dirs = [];
+    const golden = Math.PI * (3 - Math.sqrt(5));
+    for (let i = 0; i < n; i++) {
+      const y = 1 - (i / Math.max(1, n - 1)) * 2;
+      const radius = Math.sqrt(Math.max(0, 1 - y * y));
+      const theta = golden * i;
+      dirs.push(new THREE.Vector3(Math.cos(theta) * radius, y, Math.sin(theta) * radius));
+    }
+    return dirs;
+  }
+
+  function initScene() {
+    try {
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      renderer.setClearColor(0x000000, 0);
+      el.scene.appendChild(renderer.domElement);
+
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(42, 1, 0.05, 100);
+      camera.position.set(4.4, 3.1, 5.2);
+
+      controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.07;
+      controls.minDistance = 2.2;
+      controls.maxDistance = 12;
+      controls.target.set(0, 0, 0);
+
+      scene.add(new THREE.HemisphereLight(0xffffff, 0x56708a, 2.2));
+      const key = new THREE.DirectionalLight(0xffffff, 2.7);
+      key.position.set(4, 5, 4);
+      scene.add(key);
+      const fill = new THREE.DirectionalLight(0x8fc8ff, 1.2);
+      fill.position.set(-4, 1, -3);
+      scene.add(fill);
+
+      const grid = new THREE.GridHelper(7, 14, 0x9fb1c1, 0xcad6e0);
+      grid.position.y = -1.15;
+      grid.material.transparent = true;
+      grid.material.opacity = 0.42;
+      scene.add(grid);
+
+      const axes = new THREE.AxesHelper(3.4);
+      axes.material.transparent = true;
+      axes.material.opacity = 0.55;
+      scene.add(axes);
+
+      const sphereGeometry = new THREE.SphereGeometry(1, 72, 42);
+      sphereMesh = new THREE.Mesh(
+        sphereGeometry,
+        new THREE.MeshPhysicalMaterial({
+          color: 0xd94a38,
+          transparent: true,
+          opacity: state.opacity,
+          roughness: 0.28,
+          metalness: 0,
+          transmission: 0.05,
+          depthWrite: false,
+          side: THREE.DoubleSide
+        })
+      );
+      sphereMesh.renderOrder = 1;
+      scene.add(sphereMesh);
+
+      sphereWire = new THREE.Mesh(
+        sphereGeometry,
+        new THREE.MeshBasicMaterial({
+          color: 0x8a2b20,
+          wireframe: true,
+          transparent: true,
+          opacity: 0.12,
+          depthWrite: false
+        })
+      );
+      sphereWire.renderOrder = 2;
+      scene.add(sphereWire);
+
+      // Marcadores uniformes en volumen
+      const markerGeometry = new THREE.SphereGeometry(0.025, 8, 6);
+      const markerMaterial = new THREE.MeshBasicMaterial({ color: 0xff5b48 });
+      chargeMesh = new THREE.InstancedMesh(markerGeometry, markerMaterial, MAX_CHARGES);
+      chargeMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+      chargeMesh.renderOrder = 3;
+
+      const rng = seededRandomFactory(82173);
+      const matrix = new THREE.Matrix4();
+      for (let i = 0; i < MAX_CHARGES; i++) {
+        const u = rng();
+        const v = rng();
+        const w = rng();
+        const rad = Math.cbrt(u) * 0.96;
+        const cosTheta = 2 * v - 1;
+        const sinTheta = Math.sqrt(1 - cosTheta * cosTheta);
+        const phi = 2 * Math.PI * w;
+        const pos = new THREE.Vector3(
+          rad * sinTheta * Math.cos(phi),
+          rad * cosTheta,
+          rad * sinTheta * Math.sin(phi)
+        );
+        matrix.makeTranslation(pos.x, pos.y, pos.z);
+        chargeMesh.setMatrixAt(i, matrix);
+      }
+      chargeMesh.count = 250;
+      scene.add(chargeMesh);
+
+      // Superficie gaussiana
+      gaussianShell = new THREE.Mesh(
+        new THREE.SphereGeometry(1, 48, 28),
+        new THREE.MeshBasicMaterial({
+          color: 0x16a37f,
+          transparent: true,
+          opacity: 0.055,
+          side: THREE.DoubleSide,
+          depthWrite: false
+        })
+      );
+      gaussianShell.renderOrder = 4;
+      scene.add(gaussianShell);
+
+      gaussianMesh = new THREE.Mesh(
+        new THREE.SphereGeometry(1, 36, 22),
+        new THREE.MeshBasicMaterial({
+          color: 0x16856b,
+          transparent: true,
+          opacity: 0.62,
+          wireframe: true,
+          depthWrite: false
+        })
+      );
+      gaussianMesh.renderOrder = 5;
+      scene.add(gaussianMesh);
+
+      fieldGroup = new THREE.Group();
+      scene.add(fieldGroup);
+      const shellRadii = [0.30, 0.62, 1.0, 1.45, 2.15];
+      const dirs = fibonacciDirections(18);
+      for (const rr of shellRadii) {
+        for (const dir of dirs) {
+          const origin = dir.clone().multiplyScalar(rr);
+          const arrow = new THREE.ArrowHelper(dir.clone(), origin, 0.22, 0xc56b08, 0.08, 0.045);
+          arrow.userData = { rr, radial: dir.clone() };
+          fieldGroup.add(arrow);
+        }
+      }
+
+      gaussianFieldGroup = new THREE.Group();
+      scene.add(gaussianFieldGroup);
+      for (const dir of fibonacciDirections(28)) {
+        const arrow = new THREE.ArrowHelper(dir.clone(), dir.clone(), 0.3, 0x0d7c63, 0.10, 0.055);
+        arrow.userData = { radial: dir.clone() };
+        gaussianFieldGroup.add(arrow);
+      }
+
+      const resizeObserver = new ResizeObserver(resizeScene);
+      resizeObserver.observe(el.scene);
+      window.addEventListener('resize', () => {
+        resizeScene();
+        drawCharts();
+      });
+
+      renderer.setAnimationLoop(animate);
+      initialized = true;
+      updateScene();
+      resizeScene();
+    } catch (error) {
+      console.error(error);
+      el.webglError.style.display = 'block';
+    }
+  }
+
+  function setArrowLength(arrow, length, headLength, headWidth) {
+    arrow.setLength(Math.max(length, 0.015), headLength, headWidth);
+  }
+
+  function updateScene() {
+    if (!initialized) return;
+
+    const positive = state.qNanoC > 0;
+    const zero = Math.abs(state.qNanoC) < 1e-12;
+    const chargeColor = positive ? 0xd94a38 : (zero ? 0x7b8794 : 0x2775d7);
+    const darkColor = positive ? 0x8a2b20 : (zero ? 0x56616d : 0x174c94);
+    const markerColor = positive ? 0xff604d : (zero ? 0x9aa5af : 0x3d91ff);
+    const fieldColor = positive ? 0xc56b08 : (zero ? 0x7b8794 : 0x6933b7);
+
+    sphereMesh.material.color.setHex(chargeColor);
+    sphereMesh.material.opacity = state.opacity;
+    sphereWire.material.color.setHex(darkColor);
+    sphereWire.material.opacity = Math.min(0.22, state.opacity * 0.55);
+    chargeMesh.material.color.setHex(markerColor);
+
+    const visibleCount = zero ? 0 : Math.round(90 + (Math.abs(state.qNanoC) / 20) * (MAX_CHARGES - 90));
+    chargeMesh.count = Math.min(MAX_CHARGES, visibleCount);
+    chargeMesh.visible = state.showCharges && !zero;
+
+    gaussianMesh.scale.setScalar(state.lambda);
+    gaussianShell.scale.setScalar(state.lambda);
+    gaussianMesh.visible = state.showGaussian;
+    gaussianShell.visible = state.showGaussian;
+
+    const sign = positive ? 1 : -1;
+    const relativeQ = Math.max(0.18, Math.abs(state.qNanoC) / 20);
+
+    fieldGroup.visible = state.showField && !zero;
+    fieldGroup.children.forEach(arrow => {
+      const rr = arrow.userData.rr;
+      const radial = arrow.userData.radial;
+      const eRel = rr <= 1 ? rr : 1 / (rr * rr);
+      const direction = radial.clone().multiplyScalar(sign);
+      const origin = radial.clone().multiplyScalar(rr);
+      arrow.position.copy(origin);
+      arrow.setDirection(direction);
+      arrow.setColor(new THREE.Color(fieldColor));
+      const len = 0.10 + 0.42 * Math.sqrt(eRel) * (0.55 + 0.45 * relativeQ);
+      setArrowLength(arrow, len, Math.min(0.12, len * 0.38), Math.min(0.07, len * 0.22));
+    });
+
+    gaussianFieldGroup.visible = state.showField && state.showGaussian && !zero;
+    gaussianFieldGroup.children.forEach(arrow => {
+      const radial = arrow.userData.radial;
+      const eRel = state.lambda <= 1 ? state.lambda : 1 / (state.lambda ** 2);
+      const origin = radial.clone().multiplyScalar(state.lambda);
+      const direction = radial.clone().multiplyScalar(sign);
+      arrow.position.copy(origin);
+      arrow.setDirection(direction);
+      arrow.setColor(new THREE.Color(0x0b7a60));
+      const len = 0.10 + 0.50 * Math.sqrt(Math.max(eRel, 0.005));
+      setArrowLength(arrow, len, Math.min(0.13, len * 0.38), Math.min(0.075, len * 0.23));
+    });
+
+    controls.autoRotate = state.autoRotate;
+    controls.autoRotateSpeed = 0.9;
+  }
+
+  function resizeScene() {
+    if (!renderer || !camera) return;
+    const rect = el.scene.getBoundingClientRect();
+    const width = Math.max(1, rect.width);
+    const height = Math.max(1, rect.height);
+    renderer.setSize(width, height, false);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+  }
+
+  function animate() {
+    if (!renderer || !scene || !camera) return;
+    controls.update();
+    renderer.render(scene, camera);
+  }
+
+  function updateAll() {
+    updateReadouts();
+    updateScene();
+    drawCharts();
+  }
+
+  function readControls() {
+    state.qNanoC = Number(el.charge.value);
+    state.Rcm = Number(el.radius.value);
+    state.lambda = Number(el.gaussRadius.value);
+    state.opacity = Number(el.opacity.value) / 100;
+    state.showCharges = el.showCharges.checked;
+    state.showField = el.showField.checked;
+    state.showGaussian = el.showGaussian.checked;
+    state.autoRotate = el.autoRotate.checked;
+    updateAll();
+  }
+
+  [el.charge, el.radius, el.gaussRadius, el.opacity].forEach(input => {
+    input.addEventListener('input', readControls);
+  });
+  [el.showCharges, el.showField, el.showGaussian, el.autoRotate].forEach(input => {
+    input.addEventListener('change', readControls);
+  });
+
+  document.getElementById('insidePreset').addEventListener('click', () => {
+    el.gaussRadius.value = '0.60';
+    readControls();
+  });
+  document.getElementById('surfacePreset').addEventListener('click', () => {
+    el.gaussRadius.value = '1.00';
+    readControls();
+  });
+  document.getElementById('outsidePreset').addEventListener('click', () => {
+    el.gaussRadius.value = '1.65';
+    readControls();
+  });
+  document.getElementById('resetView').addEventListener('click', () => {
+    if (!camera || !controls) return;
+    camera.position.set(4.4, 3.1, 5.2);
+    controls.target.set(0, 0, 0);
+    controls.update();
+  });
+
+  updateReadouts();
+  drawCharts();
+  initScene();
+</script>
+</body>
+</html>
