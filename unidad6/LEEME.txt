@@ -1,0 +1,29 @@
+UNIDAD 6 — APUNTE CON LECTOR DE VOZ
+
+CONTENIDO
+ index.html: apunte completo original con lector incorporado
+ lector.js: controles de voz y verbalización de ecuaciones
+ lector.css: estilos del panel de lectura
+ assets/: cinco infografías del apunte
+
+INSTALACIÓN / PUBLICACIÓN
+ Copiar el contenido de esta carpeta en la carpeta de Unidad 6 del repositorio.
+ Mantener index.html, lector.js, lector.css y assets/ en esas ubicaciones relativas.
+ Para ensayar: abrir index.html desde Chrome, Edge o Firefox.
+
+USO
+ "Leer apartado": lee el apartado seleccionado y se detiene.
+ "Lectura continua": lee el apartado y luego continúa automáticamente por los siguientes.
+ "Pausar / Reanudar", "Detener": controlan el sintetizador de voz.
+ "Apartado anterior / siguiente": navegan entre los apartados.
+ "Voz" y "Velocidad": permiten personalizar la narración.
+ Se resaltan y desplazan los fragmentos activos.
+ Las fórmulas LaTeX se anuncian y se intentan verbalizar con palabras en español.
+ Los gráficos se anuncian y se leen sus epígrafes cuando están disponibles.
+
+LIMITACIONES
+ La calidad de la voz depende de las voces disponibles en el navegador/sistema operativo.
+ La verbalización de notación matemática especialmente compleja puede necesitar ajustes
+ específicos; se conserva siempre la representación visual LaTeX original.
+ LaTex utiliza MathJax desde CDN: necesita acceso a Internet para dibujar ecuaciones.
+ La reproducción por voz debe iniciarse con un clic del usuario.
