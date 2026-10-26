@@ -1,0 +1,182 @@
+[
+  {
+    "filmina": 1,
+    "titulo": "Electricidad aplicada",
+    "guion": "Presentamos la unidad siete, Electricidad aplicada. Partiremos de la electrización y la noción de campo. Luego relacionaremos fuerza, campo y potencial, estudiaremos materiales y circuitos, y terminaremos con electromagnetismo e instrumentación. Cada simulación permite modificar parámetros y observar las consecuencias físicas."
+  },
+  {
+    "filmina": 2,
+    "titulo": "Objetivos y recorrido",
+    "guion": "Esta presentación sigue la misma secuencia conceptual del apunte de la unidad. El objetivo no es memorizar fórmulas aisladas: buscamos reconocer el sistema físico, las hipótesis del modelo y la relación entre las magnitudes que intervienen."
+  },
+  {
+    "filmina": 3,
+    "titulo": "Historia de la electricidad y el magnetismo",
+    "guion": "Esta infografía explica cómo el conocimiento eléctrico y magnético pasó de observaciones cotidianas a una teoría física capaz de predecir fenómenos. No se trató de un descubrimiento aislado, sino de una construcción colectiva apoyada en instrumentos, experimentos y leyes matemáticas.\nComenzamos en la Antigüedad. El ámbar frotado podía atraer pequeños objetos y la magnetita atraía hierro. Son dos fenómenos distintos: uno está relacionado con la electrización y el otro con las propiedades magnéticas de ciertos materiales. En ese momento todavía no existía una teoría que los relacionara.\nEn 1600, William Gilbert publicó De Magnete. Realizó un estudio sistemático de los imanes y describió la Tierra como un gran imán. La importancia de su trabajo fue reemplazar parte de las explicaciones especulativas por observaciones y ensayos reproducibles.\nEn 1785, Charles-Augustin de Coulomb cuantificó la interacción entre cargas utilizando una balanza de torsión. Encontró que, en el modelo de cargas puntuales, la magnitud de la fuerza disminuye con el cuadrado de la distancia. Esta ley permitió calcular fuerzas en lugar de limitarse a describir atracciones o repulsiones.\nEn 1800, Alessandro Volta desarrolló la pila voltaica. Hasta entonces, buena parte de los experimentos trabajaba con descargas breves de electricidad estática. La pila hizo posible sostener corrientes durante un tiempo suficiente para estudiar los circuitos.\nEn 1820, Hans Christian Ørsted observó que una corriente eléctrica desvía la aguja de una brújula. Esto reveló una relación directa entre electricidad y magnetismo. André-Marie Ampère investigó luego las fuerzas entre corrientes y contribuyó a formular cuantitativamente esa relación.\nEn 1827, Georg Ohm publicó la relación entre tensión, corriente y resistencia para ciertos conductores bajo condiciones definidas. Aunque en el póster su figura aparezca después de Faraday, cronológicamente el trabajo de Ohm es anterior al descubrimiento de la inducción de 1831.\nEn 1831, Michael Faraday mostró que un flujo magnético variable puede originar una fuerza electromotriz inducida. La pregunta clave pasó a ser no solo qué campo existe, sino cómo cambia y qué efectos produce su variación. Allí se encuentra el fundamento de los generadores y transformadores.\nEn 1845, Gustav Kirchhoff formuló las leyes que hoy utilizamos para estudiar la conservación de carga y los balances de tensión en circuitos concentrados. Entre 1861 y 1865, James Clerk Maxwell reunió los resultados experimentales y teóricos en una descripción unificada del campo electromagnético. Su teoría predijo la existencia de ondas electromagnéticas que se propagan por el espacio.\nEn 1887 y 1888, Heinrich Hertz generó y detectó esas ondas experimentalmente, aportando una comprobación decisiva de las predicciones de Maxwell.\nComo conclusión, observamos una secuencia científica: primero se identifica un fenómeno, luego se mide, se formula una ley y finalmente se integra en una teoría más general. En esta unidad seguiremos ese recorrido, desde la carga y el campo hasta la corriente, los circuitos, el magnetismo y la inducción."
+  },
+  {
+    "filmina": 4,
+    "titulo": "Un concepto que reúne muchos fenómenos: campo",
+    "guion": "Un campo físico describe cómo varía una magnitud de un punto a otro. Un campo escalar asigna un número, como la temperatura. Un campo vectorial asigna un vector, como el campo gravitatorio o eléctrico. Es importante diferenciar la región donde existe el campo del objeto que experimenta una fuerza."
+  },
+  {
+    "filmina": 5,
+    "titulo": "Infografía: campo escalar y vectorial",
+    "guion": "Esta infografía introduce uno de los conceptos más importantes de toda la unidad: el campo físico. Un campo permite asignar una magnitud a cada punto de una región del espacio, aunque en ese lugar no coloquemos un instrumento o un objeto de prueba. También puede variar con el tiempo.\nPrimero observamos el campo escalar. Una magnitud escalar queda determinada por un valor y una unidad, sin dirección espacial asociada. La temperatura en una cámara frigorífica es un ejemplo cercano a la tecnología de alimentos. No necesariamente toda la cámara tiene la misma temperatura: una puerta, una pared caliente o la circulación deficiente del aire pueden crear regiones más cálidas o más frías. El mapa de colores representa justamente esa distribución. Otros campos escalares son la presión de un fluido y la concentración de una sustancia.\nEn segundo lugar aparece el campo vectorial. En cada punto se asigna un vector con módulo, dirección y sentido. El campo gravitatorio indica la fuerza por unidad de masa que experimentaría una pequeña masa de prueba. El campo eléctrico indica la fuerza por unidad de carga positiva de prueba. También el campo de velocidades de un fluido es vectorial, porque el aire puede desplazarse con rapidez y orientación diferentes en cada punto.\n¿Cómo se representa un campo? Una posibilidad es dibujar flechas en puntos de una cuadrícula. Su orientación indica el sentido y su longitud, cuando así se acuerda, puede representar la magnitud. Otra posibilidad son las líneas de campo. La tangente a cada línea indica la dirección local del vector. Por convenio, el espaciamiento de las líneas puede ayudar a representar la intensidad. Son herramientas geométricas, no objetos materiales ni trayectorias obligatorias.\nLa infografía también muestra superficies equipotenciales. En electrostática, sobre cada una de ellas el potencial eléctrico tiene el mismo valor. Las superficies equipotenciales son perpendiculares a las líneas de campo donde el campo no es nulo; esta relación se profundizará cuando estudiemos potencial.\nEl siguiente concepto es la superposición. Si varias fuentes generan un campo eléctrico, el campo resultante en un punto es la suma vectorial de los campos individuales. Esto obliga a considerar dirección y sentido; no basta sumar las intensidades como números positivos. Dos contribuciones pueden reforzarse o cancelarse en ciertos puntos.\nFinalmente comparamos gravedad y electricidad. La relación fuerza gravitatoria igual a masa por campo gravitatorio permite recuperar algo ya estudiado en mecánica. De manera análoga, fuerza eléctrica igual a carga por campo eléctrico relaciona la respuesta de una carga con el campo creado por otras. La semejanza es conceptual, pero hay una diferencia importante: la masa gravitatoria es positiva en estos modelos, mientras que la carga eléctrica puede ser positiva o negativa. Por eso una carga negativa experimenta una fuerza opuesta al campo eléctrico.\nLa idea que debemos conservar es que el campo caracteriza la influencia de las fuentes en el espacio y la fuerza describe lo que experimenta el cuerpo de prueba cuando lo colocamos allí. Esta distinción evita confundir causa, representación y respuesta física."
+  },
+  {
+    "filmina": 6,
+    "titulo": "Campo gravitatorio como referencia",
+    "guion": "Retomamos un ejemplo conocido. La Tierra produce un campo gravitatorio. Una masa colocada en él experimenta una fuerza igual a la masa por el campo. Cerca de la superficie terrestre, en una región pequeña, el campo puede considerarse aproximadamente uniforme. Su valor es menos nueve coma ochenta y uno en la dirección vertical, tomando positivo hacia arriba."
+  },
+  {
+    "filmina": 7,
+    "titulo": "Carga eléctrica: qué es y cómo se conserva",
+    "guion": "La carga eléctrica es una propiedad de la materia responsable de las interacciones electromagnéticas. Los protones tienen carga positiva y los electrones, negativa. La carga total de un sistema aislado se conserva. En la electrización habitual de cuerpos sólidos se transfieren electrones: el cuerpo que los pierde queda con carga neta positiva."
+  },
+  {
+    "filmina": 8,
+    "titulo": "Formas de electrización",
+    "guion": "En esta infografía comenzamos definiendo la carga eléctrica, una propiedad física de la materia que permite explicar atracciones y repulsiones eléctricas. Existen dos signos, positivo y negativo. Dos cargas del mismo signo se repelen; cargas de signos contrarios se atraen. En un cuerpo neutro, las contribuciones positivas y negativas se compensan.\nLa carga eléctrica está cuantizada. La expresión q igual a n multiplicado por e indica que la carga neta de un cuerpo ordinario corresponde a un múltiplo entero, con signo, del módulo de la carga elemental. Ese módulo vale aproximadamente uno coma seiscientos dos por diez elevado a menos diecinueve coulomb. El electrón tiene carga negativa, de signo menos; el protón tiene carga positiva. La fórmula utiliza e como módulo positivo.\nEl segundo punto es la conservación de la carga. En un sistema aislado, la suma algebraica total de cargas permanece constante. Por eso electrizar dos objetos no significa crear carga: usualmente significa transferir electrones o redistribuir los que ya existen. Si un cuerpo pierde electrones, queda con carga neta positiva; si gana electrones, queda con carga neta negativa.\nLa primera forma de electrización es por frotamiento. Al entrar en contacto y separarse dos materiales diferentes, puede producirse transferencia de electrones. El frotamiento aumenta las oportunidades de contacto, pero no es una fábrica de electrones. La cantidad y el signo de la carga dependen de los materiales y de sus superficies.\nLa segunda forma es por contacto. Un cuerpo cargado toca otro y se habilita el intercambio de carga. En el caso sencillo de dos conductores inicialmente aislados, uno cargado y otro neutro, las cargas se redistribuyen hasta alcanzar un equilibrio. No debemos suponer que siempre quedan con exactamente la misma carga: el resultado depende de su geometría y capacidad eléctrica.\nLa tercera forma es por inducción. Un cuerpo cargado cercano produce una redistribución de cargas en un conductor sin tocarlo. Esto se llama separación o polarización de cargas. Por sí sola, esa redistribución no implica que el conductor adquiera carga neta. Para obtener una carga neta permanente, puede conectarse a tierra mientras el inductor permanece cerca, retirar la conexión a tierra y finalmente alejar el inductor. El orden de las acciones importa.\nLa siguiente sección presenta la fuerza eléctrica. Coulomb determinó que el módulo de la fuerza entre dos cargas puntuales estacionarias en el vacío es igual a k por el valor absoluto del producto de las cargas dividido por la distancia al cuadrado. El valor absoluto se utiliza cuando hablamos del módulo; los signos determinan si la interacción es atractiva o repulsiva. Al duplicar la distancia, la fuerza pasa a ser una cuarta parte.\nTambién debemos comprender la polarización. Un cuerpo inicialmente neutro puede reorganizar levemente sus cargas ante un campo exterior. Esa distribución inducida puede producir una atracción neta, aunque la carga total del cuerpo siga siendo cero.\nTerminamos con una aplicación industrial: en el transporte de polvos, granos o materiales de envase puede acumularse electricidad estática por contacto y separación de superficies. Esa acumulación puede atraer partículas, interferir con operaciones o generar descargas. En zonas con atmósferas potencialmente explosivas se requieren evaluaciones de riesgo y medidas de prevención adecuadas. La conexión a tierra de partes conductoras es importante, pero no elimina por sí sola todos los riesgos de carga en materiales aislantes.\nLa conclusión es que la electrización se interpreta mejor observando qué cargas se transfieren, qué cargas solo se redistribuyen y qué condiciones permiten que el cuerpo mantenga su estado eléctrico."
+  },
+  {
+    "filmina": 9,
+    "titulo": "Material conductor y material aislante",
+    "guion": "Un material conductor contiene portadores de carga que se desplazan relativamente fácilmente. En cambio, en un aislante la movilidad de esos portadores es muy reducida. Esto no significa que un aislante sea indiferente al campo eléctrico: también puede polarizarse. La diferencia será fundamental para estudiar dónde queda localizada la carga."
+  },
+  {
+    "filmina": 10,
+    "titulo": "Comparación de materiales y cargas",
+    "guion": "Esta infografía compara conductores, aislantes, polarización y electroscopio. El punto de partida es distinguir el material de la geometría, porque ambos influyen en la distribución de cargas.\nUn conductor posee portadores de carga que pueden desplazarse relativamente fácilmente. En un metal, los portadores móviles son principalmente electrones. Por eso una perturbación eléctrica provoca una redistribución de carga hasta alcanzar, si el sistema queda en reposo electrostático, una configuración de equilibrio. El cobre es un ejemplo habitual. También existen conductores cuya conducción depende de iones, como muchas soluciones acuosas con sales.\nUn aislante o no conductor presenta gran dificultad para el desplazamiento macroscópico de cargas. Vidrio seco y ciertos plásticos son ejemplos, aunque ningún aislante real tiene resistencia infinita. La humedad, la temperatura y la contaminación superficial pueden modificar mucho su comportamiento. Si se deposita carga sobre un aislante, puede permanecer localizada, en lugar de repartirse rápidamente por todo el cuerpo.\nEl tercer concepto es la polarización. Cuando acercamos una varilla cargada a un cuerpo aislante neutro, sus cargas ligadas pueden desplazarse ligeramente en sentidos opuestos, o sus dipolos orientarse. Se genera así una distribución microscópica de dipolos sin que necesariamente cambie la carga neta total. La polarización explica por qué un objeto neutro puede experimentar atracción hacia otro cargado.\nA continuación observamos el electroscopio de hojas. Está formado por un terminal metálico superior, una varilla conductora, dos hojas metálicas delgadas y una envolvente aislante que las protege. Si el sistema recibe una carga neta, esta se redistribuye por sus partes conductoras y las hojas pueden quedar con carga del mismo signo. Entonces se repelen y se separan.\nLa apertura angular surge de un equilibrio entre repulsión eléctrica y las fuerzas mecánicas asociadas al peso y la geometría de las hojas. En general una mayor carga produce una mayor apertura, pero no existe una ley universal sencilla que relacione directamente ángulo y cantidad de carga para cualquier aparato. Por eso el electroscopio tradicional es principalmente un detector cualitativo, no un medidor de alta precisión.\nVeamos los tres pasos representados. Primero, cargar: al tocar el terminal con un objeto cargado puede transferirse carga. Segundo, acercar: un objeto cargado próximo, aunque no toque el terminal, puede redistribuir las cargas y modificar la separación de las hojas. Si el electroscopio ya estaba cargado, esa separación puede aumentar o disminuir según el signo y la distribución inicial. Tercero, descargar o conectar a tierra: se permite el intercambio de carga con el entorno, y al restablecerse el estado neutro, en condiciones ideales, las hojas vuelven a quedar juntas.\nEn el simulador que acompaña a la presentación podemos modificar la carga y observar la variación del ángulo. El modelo debe interpretarse como una aproximación didáctica de equilibrio mecánico-electrostático, no como una calibración de un instrumento real.\nLa idea esencial de esta lámina es que la movilidad de cargas explica los fenómenos macroscópicos. La redistribución rápida en conductores, la polarización de aislantes y la apertura de hojas del electroscopio son distintas manifestaciones de interacciones eléctricas."
+  },
+  {
+    "filmina": 11,
+    "titulo": "Distribución de cargas en esferas",
+    "guion": "En esta infografía comparamos cuatro modelos de esferas. Debemos prestar atención a dos preguntas diferentes: de qué material está construido el cuerpo y dónde se supone ubicada su carga. Las conclusiones corresponden a distribuciones con simetría esférica y, para conductores, a equilibrio electrostático.\nPrimer caso: esfera maciza conductora, aislada y cargada. Los portadores libres se redistribuyen hasta que el campo eléctrico dentro del metal es nulo. En una esfera sin cargas en cavidades, la carga neta excedente queda sobre la superficie exterior. Si la esfera es aislada y posee simetría esférica, la densidad superficial resulta uniforme. Afuera, el campo es igual al de una carga puntual total situada en el centro; adentro el campo es cero. El potencial permanece constante en el interior y comienza a disminuir al alejarnos de la superficie para una carga positiva.\nSegundo caso: esfera hueca conductora, es decir, una cáscara conductora con una cavidad. Si no hay cargas dentro de la cavidad y el sistema está en equilibrio electrostático, la carga neta excedente se sitúa en la superficie exterior. El campo es cero en el material conductor y también en la cavidad vacía, en ausencia de influencias que rompan las hipótesis del modelo. Todo el interior queda al mismo potencial. Si colocamos una carga dentro de la cavidad, la distribución cambia y debemos analizar las cargas inducidas en la superficie interna; por lo tanto, esa situación no está representada en el caso básico de la infografía.\nTercer caso: esfera maciza no conductora o aislante. Aquí no podemos afirmar que toda esfera aislante presenta carga uniforme. Debemos establecer esa hipótesis. Si la carga total está distribuida uniformemente en todo su volumen, el radio de una superficie gaussiana determina qué fracción de carga queda encerrada. Como la carga encerrada aumenta con el cubo del radio y el área con el cuadrado, el campo interior aumenta linealmente con la distancia al centro. En el centro vale cero por simetría. Fuera de la esfera vuelve a seguir la ley inversa del cuadrado de la distancia.\n¿Qué ocurre con el potencial de esa esfera maciza aislante, suponiendo carga positiva y potencial nulo en el infinito? El potencial es mayor en el centro, disminuye de manera cuadrática en el interior y se conecta continuamente con la expresión exterior. Esta comparación permite entender que campo y potencial no son la misma magnitud: el campo indica fuerza por unidad de carga y el potencial, energía por unidad de carga.\nCuarto caso: esfera hueca no conductora, modelada como una cáscara esférica delgada con carga superficial uniforme. Por simetría, el campo eléctrico dentro de esa cáscara es cero, aunque el potencial interior no sea cero. El potencial es constante e igual al valor de la superficie. Afuera, el campo y el potencial vuelven a ser los de una carga puntual. La uniformidad superficial es una condición del modelo, no una consecuencia general de que el material sea aislante.\nLa tabla inferior resume qué ocurre en cada caso. Dos sistemas distintos pueden tener campo nulo y potencial constante en el interior, pero por causas físicas diferentes. En un conductor se debe a la redistribución de portadores móviles en equilibrio. En una cáscara aislante con carga uniforme, el resultado se debe a la simetría de la distribución impuesta.\nFinalmente examinamos el efecto de punta. En un conductor con geometría no esférica y cargado en equilibrio, la densidad superficial de carga y la intensidad del campo cercano pueden ser mucho mayores en zonas de pequeño radio de curvatura. Allí es más probable que el aire alcance condiciones de ionización o descarga. Esto explica parte del funcionamiento de puntas de descarga y obliga a considerar la geometría de electrodos y conexiones.\nLa conclusión es que no basta decir que un objeto es macizo o hueco. Siempre debemos indicar material, distribución de carga, geometría y condiciones de equilibrio. Solo entonces podemos aplicar correctamente la ley de Gauss e interpretar los gráficos de campo y potencial."
+  },
+  {
+    "filmina": 12,
+    "titulo": "Fuerza eléctrica: ley de Coulomb",
+    "guion": "La ley de Coulomb determina el módulo de la fuerza eléctrica entre dos cargas puntuales. La fuerza crece con los módulos de las cargas y disminuye con el cuadrado de la separación. La dirección coincide con la recta que une las cargas; el sentido depende de sus signos."
+  },
+  {
+    "filmina": 13,
+    "titulo": "Laboratorio: ley de Coulomb",
+    "guion": "Utilicen el laboratorio para cambiar las cargas y la distancia. Observen cómo cambia la fuerza. Comparen qué sucede al duplicar la distancia, invertir el signo de una carga y modificar uno de sus módulos. El propósito es comprobar tendencias de la ley de Coulomb."
+  },
+  {
+    "filmina": 14,
+    "titulo": "Electroscopio de hojas",
+    "guion": "Un electroscopio de hojas posee un terminal metálico unido a una varilla y dos hojas delgadas. Cuando ambas hojas adquieren cargas del mismo signo, se repelen y se separan. El ángulo de equilibrio resulta de la interacción entre fuerzas electrostáticas y mecánicas. No representa una medida universal de carga: depende de la geometría y las propiedades del instrumento."
+  },
+  {
+    "filmina": 15,
+    "titulo": "Laboratorio: cargar y descargar un electroscopio",
+    "guion": "Carguen el electroscopio y observen la apertura. Cambien el signo y comparen. Luego acerquen un cuerpo cargado, sin tocar, y observen los efectos de inducción. Finalmente descarguen el instrumento. La gráfica utiliza un modelo didáctico, no una calibración experimental exacta."
+  },
+  {
+    "filmina": 16,
+    "titulo": "Campo eléctrico y líneas de campo",
+    "guion": "El campo eléctrico describe la fuerza por unidad de carga de prueba positiva. Sus líneas son curvas tangentes al vector campo. Salen de cargas positivas y entran en negativas. No se cruzan y su concentración representa cualitativamente la intensidad. No son necesariamente las trayectorias de partículas cargadas."
+  },
+  {
+    "filmina": 17,
+    "titulo": "Superposición de campos",
+    "guion": "Cuando hay varias cargas, cada una genera un campo eléctrico. El campo total es la suma vectorial de todos esos aportes. En algunos puntos, campos individuales no nulos pueden cancelarse. Para resolverlo necesitamos analizar direcciones y sentidos, no simplemente sumar intensidades."
+  },
+  {
+    "filmina": 18,
+    "titulo": "Ley de Gauss: idea física",
+    "guion": "La ley de Gauss relaciona el flujo del campo eléctrico a través de una superficie cerrada con la carga neta encerrada. La utilidad para calcular el campo depende de la simetría. En la esfera uniformemente cargada podemos elegir superficies esféricas concéntricas donde el campo radial tiene igual módulo."
+  },
+  {
+    "filmina": 19,
+    "titulo": "Laboratorio 3D: esfera uniformemente cargada",
+    "guion": "Roten la esfera y observen cómo cambia la superficie gaussiana al modificar su radio. Comparen los casos interior, frontera y exterior. La distribución uniforme de carga en el volumen es la hipótesis del modelo: no describe una esfera conductora en equilibrio."
+  },
+  {
+    "filmina": 20,
+    "titulo": "Campo y potencial en distribuciones esféricas",
+    "guion": "En una esfera maciza aislante uniformemente cargada, la carga encerrada aumenta con el volumen y el campo crece linealmente hasta la superficie. Para una cáscara esférica ideal de carga uniforme, el campo interior es nulo. Una esfera conductora en equilibrio tampoco presenta campo en su material interior. El potencial puede ser constante sin necesariamente valer cero."
+  },
+  {
+    "filmina": 21,
+    "titulo": "Potencial eléctrico y diferencia de potencial",
+    "guion": "El potencial eléctrico expresa la energía potencial por unidad de carga. A diferencia del campo eléctrico, es escalar. Una diferencia de potencial permite transformar energía eléctrica en trabajo o calor, según el sistema. Su unidad es el voltio, equivalente a joule por coulomb."
+  },
+  {
+    "filmina": 22,
+    "titulo": "Conductores en equilibrio y efecto de punta",
+    "guion": "En un conductor en equilibrio, los portadores libres se redistribuyen hasta anular el campo dentro del metal. La superficie conductora queda al mismo potencial. En zonas de curvatura pronunciada puede aumentar la densidad superficial de carga y el campo eléctrico exterior. Este fenómeno es relevante para descargas, efecto corona y blindaje electrostático."
+  },
+  {
+    "filmina": 23,
+    "titulo": "Corriente, resistencia y ley de Ohm",
+    "guion": "La corriente eléctrica cuantifica la carga que cruza una sección por unidad de tiempo. En conductores metálicos los electrones se desplazan en sentido opuesto al convencional. La resistencia caracteriza la oposición al paso de corriente. Para un resistor óhmico y condiciones constantes, tensión, corriente y resistencia cumplen la ley de Ohm."
+  },
+  {
+    "filmina": 24,
+    "titulo": "Laboratorio: ley de Ohm",
+    "guion": "Variemos tensión y resistencia para interpretar los resultados. Comprueben cómo aumenta la corriente con la tensión para una resistencia constante y qué sucede al cambiar la resistencia."
+  },
+  {
+    "filmina": 25,
+    "titulo": "Potencia y energía eléctrica",
+    "guion": "La potencia indica la rapidez con que se transfiere energía eléctrica. En una resistencia calefactora esa energía puede convertirse en calor. La energía acumulada depende de la potencia y del tiempo de operación. Estas relaciones resultan fundamentales para estimar consumos y cargas térmicas en equipos de alimentos."
+  },
+  {
+    "filmina": 26,
+    "titulo": "Laboratorio: potencia y energía",
+    "guion": "Modifiquen la tensión, la resistencia y el tiempo. Comparen la potencia con la energía acumulada. Analicen cómo se relaciona el comportamiento del circuito con el calentamiento resistivo de un equipo."
+  },
+  {
+    "filmina": 27,
+    "titulo": "Circuitos: serie, paralelo y mixtos",
+    "guion": "En un circuito serie no hay ramificaciones entre los elementos, por lo que circula la misma corriente. En paralelo, los elementos comparten los mismos nodos extremos y la misma diferencia de potencial. Los circuitos mixtos combinan estas configuraciones y requieren identificar equivalencias correctamente."
+  },
+  {
+    "filmina": 28,
+    "titulo": "Laboratorio: circuitos resistivos",
+    "guion": "Comparen la resistencia equivalente y las corrientes para distintas configuraciones. Antes de calcular, identifiquen cuáles elementos realmente comparten corriente y cuáles comparten tensión."
+  },
+  {
+    "filmina": 29,
+    "titulo": "Leyes de Kirchhoff",
+    "guion": "Las leyes de Kirchhoff formalizan dos principios de conservación. En un nodo, la suma algebraica de corrientes es cero. En una malla cerrada, el balance algebraico de las diferencias de potencial es cero. Elegir sentidos de referencia permite resolver circuitos más complejos de forma sistemática."
+  },
+  {
+    "filmina": 30,
+    "titulo": "Laboratorio: Kirchhoff",
+    "guion": "Modifiquen fuentes y resistencias en el circuito de dos mallas. Verifiquen las ecuaciones de cada malla y el balance de corriente de la rama compartida. Los signos de las corrientes son parte de la solución física."
+  },
+  {
+    "filmina": 31,
+    "titulo": "Magnetismo y fuerzas magnéticas",
+    "guion": "El magnetismo puede manifestarse por imanes o por cargas en movimiento. Una carga móvil en un campo magnético experimenta una fuerza perpendicular a su velocidad y al campo. En conductores con corriente, estas fuerzas explican parte del funcionamiento de actuadores y motores."
+  },
+  {
+    "filmina": 32,
+    "titulo": "Inducción electromagnética",
+    "guion": "La inducción electromagnética aparece cuando cambia el flujo magnético enlazado con un circuito. Faraday relacionó la fuerza electromotriz con la rapidez de cambio de ese flujo. El signo negativo expresa la ley de Lenz: la corriente inducida se orienta de modo que su acción magnética se opone al cambio que la produce."
+  },
+  {
+    "filmina": 33,
+    "titulo": "Laboratorio: inducción",
+    "guion": "Observen cómo cambia la fuerza electromotriz inducida cuando varía el flujo magnético. Comparen amplitud, frecuencia y número de espiras. Relacionen el resultado con la ley de Faraday."
+  },
+  {
+    "filmina": 34,
+    "titulo": "Instrumentación y sensores",
+    "guion": "En los procesos alimentarios necesitamos medir temperatura, presión, nivel y otras variables. Un sensor responde a la magnitud; un acondicionador o transmisor adapta la señal; el controlador interpreta la medición. Una Pt100 varía su resistencia con la temperatura, mientras que una termocupla genera una diferencia de potencial termoeléctrica."
+  },
+  {
+    "filmina": 35,
+    "titulo": "Caso integrador: tanque con calentamiento",
+    "guion": "Analicen la cadena de medición y calentamiento. Cambien las condiciones del sensor y la resistencia calefactora. Relacionen la señal de medición, la ley de Ohm, la potencia eléctrica y la energía acumulada."
+  },
+  {
+    "filmina": 36,
+    "titulo": "Síntesis y preguntas para el cierre",
+    "guion": "Para cerrar, recuperamos las conexiones entre los conceptos. La carga es la fuente de interacción; el campo describe su acción espacial; el potencial permite una interpretación energética. Las mismas magnitudes hacen posible explicar circuitos, fenómenos magnéticos e instrumentación en la industria alimentaria."
+  }
+]

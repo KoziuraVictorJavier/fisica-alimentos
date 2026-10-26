@@ -1,0 +1,9 @@
+UNIDAD 7 - Presentación HTML interactiva
+
+Abrir index.html con Firefox o Chrome. Las simulaciones se cargan desde assets/apunte_simulaciones.html en cuadros integrados. La esfera 3D de Gauss requiere conexión a Internet porque su simulador original usa Three.js y MathJax vía CDN.
+
+Las filminas con infografías contienen espacios expresamente reservados para ilustraciones definitivas.
+
+Los guiones se editan con el botón Editar guion y pueden importarse/exportarse como JSON.
+
+Atajos: flecha derecha/izquierda para cambiar de filmina.
