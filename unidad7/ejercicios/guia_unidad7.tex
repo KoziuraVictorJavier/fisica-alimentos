@@ -1,0 +1,307 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{lmodern,microtype}
+\usepackage[a4paper,margin=19mm,headheight=15pt,footskip=12mm]{geometry}
+\usepackage{amsmath,amssymb,mathtools,siunitx}
+\sisetup{output-decimal-marker={,},per-mode=symbol}
+\usepackage{tikz,pgfplots}
+\usetikzlibrary{arrows.meta,calc,positioning,decorations.markings,patterns,angles,quotes,shapes.geometric,babel}
+\pgfplotsset{compat=1.18}
+\usepackage{xcolor,hyperref,fancyhdr,enumitem,multicol,booktabs,array,tcolorbox}
+\tcbuselibrary{breakable,skins}
+\definecolor{azul}{HTML}{164B72}\definecolor{azulf}{HTML}{0C355A}\definecolor{cielo}{HTML}{EDF6FB}\definecolor{verde}{HTML}{136F67}\definecolor{oro}{HTML}{B47F28}\definecolor{rojo}{HTML}{BF4D4A}\definecolor{gris}{HTML}{526677}
+\hypersetup{colorlinks=true,linkcolor=azul,urlcolor=azul,pdftitle={Guía de ejercicios resueltos - Unidad 7},pdfauthor={Material didáctico de Física - Tecnicatura en Alimentos}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small\textcolor{azul}{Física aplicada a la tecnología de alimentos}}\fancyhead[R]{\small\textcolor{gris}{Unidad 7}}\fancyfoot[C]{\small\thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt,topsep=3pt}
+\newtcolorbox{objetivo}{enhanced,breakable,colback=cielo,colframe=azul,boxrule=.6pt,arc=2mm,title=\bfseries Objetivo físico}
+\newtcolorbox{metodo}{enhanced,breakable,colback=white,colframe=azul!55,boxrule=.5pt,arc=2mm,title=\bfseries Procedimiento y fundamentos}
+\newtcolorbox{resultado}{enhanced,breakable,colback=verde!5,colframe=verde,boxrule=.7pt,arc=2mm,title=\bfseries Resultado e interpretación}
+\newtcolorbox{alerta}{enhanced,breakable,colback=oro!6,colframe=oro,boxrule=.6pt,arc=2mm,title=\bfseries Para pensar / error frecuente}
+\newcommand{\ej}[2]{\clearpage\section{#2}}
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+\tikzset{v/.style={-{Stealth[length=3mm]},very thick,azul},vred/.style={-{Stealth[length=3mm]},very thick,rojo},vgreen/.style={-{Stealth[length=3mm]},very thick,verde},wire/.style={line width=1.2pt,azulf},res/.style={draw=azulf,fill=cielo,minimum width=12mm,minimum height=5mm},node/.style={circle,fill=azulf,inner sep=2pt}}
+\begin{document}
+\begin{titlepage}
+\vspace*{20mm}
+{\color{azulf}\rule{\linewidth}{2pt}}\\[11mm]
+{\Huge\bfseries Guía de ejercicios resueltos\\[4mm] Unidad 7}\\[7mm]
+{\Large Electricidad y electromagnetismo}\\[15mm]
+{\Large Física aplicada a la tecnología de alimentos}\\[4mm]
+{\large Tecnicatura en Alimentos}\\[20mm]
+\begin{tcolorbox}[colback=cielo,colframe=azul,arc=3mm,boxrule=.7pt]
+\large\textbf{Resolver significa modelar.}\\[2mm]
+En cada ejemplo: definir el sistema, explicitar hipótesis, dibujar magnitudes y sus sentidos, plantear leyes físicas, resolver con unidades y comprobar la interpretación.
+\end{tcolorbox}
+\vfill
+\textbf{Edición didáctica inicial} · Noviembre de 2026\\
+Diagramas vectoriales, circuitos y gráficas trazados en \LaTeX{} con TikZ/PGFPlots.\\
+\textcolor{gris}{Material complementario a los apartados 3--14 del apunte de la Unidad 7.}
+\end{titlepage}
+\tableofcontents\clearpage
+\section*{Cómo utilizar esta guía}\addcontentsline{toc}{section}{Cómo utilizar esta guía}
+La guía toma como marco la secuencia conceptual del apunte de la Unidad 7: carga y fuerza eléctrica, campo y líneas, ley de Gauss, potencial, corriente, circuitos, Kirchhoff y electromagnetismo. Las situaciones y los datos numéricos se han construido específicamente para practicar; no son transcripciones de ejercicios de los textos de referencia.
+\begin{metodo}
+\textbf{Protocolo de resolución}\quad 1. Sistema y datos.\quad 2. Hipótesis.\quad 3. Interacciones y representación.\quad 4. Modelo y ejes.\quad 5. Ecuaciones físicas.\quad 6. Cálculo.\quad 7. Interpretación y verificación.
+\end{metodo}
+\textbf{Convenciones:} en electrostática $\vect E$ es el campo de la fuente y $\vect F=q\vect E$ la fuerza sobre la carga de prueba. Las líneas de campo se orientan como la fuerza sobre una carga \emph{positiva}. En circuitos se usa la convención pasiva en resistencias. Las flechas de corriente indican sentidos elegidos, no necesariamente sentidos reales hasta resolver.
+\begin{alerta}
+Se emplean aproximaciones explícitas: cargas puntuales, distribuciones simétricas, conductores ideales, fuentes y resistencias ideales, y régimen estacionario cuando corresponde. Una misma fórmula no debe trasladarse a una geometría distinta sin revisar sus hipótesis.
+\end{alerta}
+
+\ej{1}{Ley de Coulomb: fuerza y componentes vectoriales}
+\begin{objetivo}Aprender a pasar de una interacción entre cargas a un vector de fuerza expresado en ejes cartesianos.\end{objetivo}
+\textbf{Sistema.} Dos cargas puntuales fijas en aire, $q_1=+\SI{3}{\micro\coulomb}$ en $(0,0)$ y $q_2=-\SI{2}{\micro\coulomb}$ en $(\SI{0.30}{\metre},\SI{0.40}{\metre})$. Hallar la fuerza sobre $q_2$.
+\textbf{Hipótesis.} Cargas puntuales, medio aproximado por vacío, sin otras fuerzas eléctricas. $k=\SI{8.99e9}{\newton\metre\squared\per\coulomb\squared}$.
+\begin{center}\begin{tikzpicture}[scale=1.05]
+\draw[->,gray] (-.5,0)--(6,0) node[right]{$x$}; \draw[->,gray] (0,-.4)--(0,4.9)node[above]{$y$};
+\coordinate (A) at (0,0);\coordinate (B) at (3,4);
+\draw[dashed,gray] (B)--(3,0) node[below]{$0{,}30$ m};\draw[dashed,gray] (B)--(0,4) node[left]{$0{,}40$ m};
+\draw[blue!50,dashed,thick] (A)--(B) node[pos=.6,above left]{$r=0{,}50$ m};
+\fill[rojo] (A) circle(4pt)node[below left,black]{$q_1>0$};\fill[azul] (B)circle(4pt) node[above right,black]{$q_2<0$};
+\draw[vred] (B)--(1.65,2.2) node[left]{$\vect F_{1\to 2}$};
+\draw[v,opacity=.65] (B)--(1.65,4) node[midway,above]{$F_x$};\draw[vgreen,opacity=.65] (1.65,4)--(1.65,2.2) node[midway,left]{$F_y$};
+\draw (0.8,0) arc(0:53.13:.8);\node at (1.15,.45){$\theta$};
+\end{tikzpicture}\end{center}
+\begin{metodo}
+El vector desde $q_1$ a $q_2$ vale $\vect r=(0{,}30\,\hat\imath+0{,}40\,\hat\jmath)\,\si{\metre}$; su módulo es $r=\SI{0.50}{\metre}$. El módulo de la fuerza es
+\[F=k\frac{|q_1q_2|}{r^2}=8{,}99\times10^9\frac{(3\times10^{-6})(2\times10^{-6})}{0{,}50^2}=\SI{0.21576}{\newton}.\]
+Por ser cargas de signo opuesto, $\vect F_{1\to2}$ apunta de $q_2$ hacia $q_1$. El versor en esa dirección es $(-0{,}6\hat\imath-0{,}8\hat\jmath)$. Por lo tanto:
+\[\boxed{\vect F_{1\to2}=(-0{,}1295\hat\imath-0{,}1726\hat\jmath)\ \si{\newton}}.\]
+\end{metodo}
+\begin{resultado}Los dos componentes son negativos: la fuerza va hacia la izquierda y hacia abajo. La norma $\sqrt{F_x^2+F_y^2}$ recupera $\SI{0.2158}{\newton}$. No se deben sumar los módulos de los componentes.\end{resultado}
+
+\ej{2}{Superposición: campo de dos cargas puntuales}
+\begin{objetivo}Distinguir el campo de cada fuente, sumar vectores y decidir el sentido de la fuerza sobre una carga de prueba.\end{objetivo}
+\textbf{Sistema.} Dos cargas fuente idénticas $q_A=q_B=+\SI{2}{\micro\coulomb}$ en $(-\SI{0.15}{\metre},0)$ y $(+\SI{0.15}{\metre},0)$. Evaluar el campo en $P=(0,\SI{0.20}{\metre})$.
+\begin{center}\begin{tikzpicture}[scale=1.15]
+\draw[->,gray] (-3.4,0)--(3.4,0)node[right]{$x$};\draw[->,gray] (0,-.3)--(0,4.2)node[above]{$y$};
+\coordinate(A)at(-2,0);\coordinate(B)at(2,0);\coordinate(P)at(0,3);
+\fill[rojo](A)circle(4pt)node[below]{$+q_A$};\fill[rojo](B)circle(4pt)node[below]{$+q_B$};\fill[azul](P)circle(3pt)node[above]{$P$};
+\draw[dashed,gray](A)--(P)--(B);\draw[v] (P)--(1.2,4.0)node[right]{$\vect E_A$};\draw[v] (P)--(-1.2,4.0)node[left]{$\vect E_B$};\draw[vgreen,line width=2pt](P)--(0,4.0)node[right]{$\vect E_R$};
+\node at (0,-.5){Simetría: $E_{Ax}=-E_{Bx}$};
+\end{tikzpicture}\end{center}
+\begin{metodo}
+La distancia desde cualquiera de las fuentes al punto es $r=\sqrt{0{,}15^2+0{,}20^2}=\SI{0.25}{\metre}$. Cada aporte tiene módulo
+\[E_A=E_B=k\frac{q}{r^2}=\frac{8{,}99\times10^9(2\times10^{-6})}{0{,}25^2}=\SI{287680}{\newton\per\coulomb}.\]
+Los versores de las direcciones de aporte son $(+0{,}6,+0{,}8)$ y $(-0{,}6,+0{,}8)$. Luego
+\[E_x=E_A(0{,}6)+E_B(-0{,}6)=0,\qquad E_y=(E_A+E_B)0{,}8=\SI{460288}{\newton\per\coulomb}.\]
+\end{metodo}
+\begin{resultado}$\boxed{\vect E(P)=4{,}60\times10^5\,\hat\jmath\ \si{\newton\per\coulomb}}$. El campo es vertical, aunque ninguna fuente esté directamente debajo de $P$. Una carga de prueba negativa sentiría una fuerza \emph{opuesta} al campo.\end{resultado}
+\begin{alerta}El campo se suma vectorialmente. Si las cargas fueran ambas negativas, la dirección resultante se invertiría. Si una cambiara de signo, la simetría vertical dejaría de producir el mismo resultado.\end{alerta}
+
+\ej{3}{Potencial de cargas puntuales: energía y equipotenciales}
+\begin{objetivo}Contrastar campo eléctrico (vector) con potencial eléctrico (escalar) y asociar diferencia de potencial con trabajo.\end{objetivo}
+\textbf{Sistema.} Una carga puntual $Q=+\SI{4}{\nano\coulomb}$ en el origen. Se consideran los puntos $A$ a $\SI{0.20}{\metre}$ y $B$ a $\SI{0.50}{\metre}$ de la fuente, con $V(\infty)=0$.
+\begin{center}\begin{tikzpicture}[scale=.95]
+\fill[rojo] (0,0)circle(5pt)node[below left,black]{$+Q$};
+\foreach \r in {1.2,2.3,3.5}{\draw[azul!65,dashed,thick](0,0)circle(\r);}
+\foreach \a in {0,45,...,315}{\draw[v,rojo!75] ({.5*cos(\a)},{.5*sin(\a)})--({2.95*cos(\a)},{2.95*sin(\a)});}
+\fill[azulf] (1.2,0)circle(2.5pt)node[below]{$A$};\fill[azulf] (3.5,0)circle(2.5pt)node[below]{$B$};
+\node[fill=white,inner sep=2pt,azul] at (-2.2,2.7){Equipotenciales: círculos};
+\node[fill=white,inner sep=2pt,rojo] at (-2.45,-2.65){Campo: radial saliente};
+\end{tikzpicture}\end{center}
+\begin{metodo}
+\[V(r)=k\frac{Q}{r},\qquad V_A=\SI{179.8}{\volt},\qquad V_B=\SI{71.92}{\volt}.\]
+Para una carga de prueba $q=+\SI{1}{\nano\coulomb}$ que pasa de $A$ a $B$, el trabajo del campo es
+\[W_{A\to B}=q(V_A-V_B)=10^{-9}(179{,}8-71{,}92)=\SI{1.0788e-7}{\joule}.\]
+\end{metodo}
+\begin{resultado}$V$ es un \emph{escalar}; las circunferencias discontinuas representan secciones de superficies equipotenciales esféricas. El campo apunta perpendicularmente a las equipotenciales, hacia potencial decreciente. El trabajo es positivo para esta carga positiva al alejarse de $Q$.\end{resultado}
+
+\ej{4}{Ley de Gauss: esfera aislante maciza y esfera conductora}
+\begin{objetivo}Determinar cómo la carga \emph{encerrada} modifica $E(r)$ y por qué el interior de un conductor es distinto al de un aislante uniformemente cargado.\end{objetivo}
+\textbf{Sistema.} Dos esferas independientes, ambas de radio $R=\SI{0.10}{\metre}$ y carga neta $Q=+\SI{1}{\nano\coulomb}$: (a) maciza aislante, carga volumétrica uniforme; (b) maciza conductora en equilibrio electrostático. Medio exterior vacío.
+\begin{center}\begin{tikzpicture}[scale=.95]
+\begin{scope}[shift={(-3.0,0)}]\fill[azul!7](0,0)circle(1.55);\draw[azul,thick](0,0)circle(1.55);\draw[verde,dashed,thick](0,0)circle(1.05);\foreach \a in {0,45,...,315}{\foreach \r in {.5,1.1}{\fill[rojo] ({\r*cos(\a)},{\r*sin(\a)})circle(1.7pt);}}\node at (0,-2){(a) Aislante uniforme};\node[verde] at (0,2.0){Superficie gaussiana};\end{scope}
+\begin{scope}[shift={(3.0,0)}]\fill[azul!6](0,0)circle(1.55);\draw[azul,thick](0,0)circle(1.55);\draw[verde,dashed,thick](0,0)circle(1.05);\foreach \a in {0,30,...,330}{\fill[rojo] ({1.55*cos(\a)},{1.55*sin(\a)})circle(2pt);}\node at (0,-2){(b) Conductora};\node at (0,2.0){Carga en la superficie};\end{scope}
+\end{tikzpicture}\end{center}
+\begin{metodo}
+Por simetría esférica, $\oint_S\vect E\cdot d\vect A=E(r)4\pi r^2=Q_{\mathrm{enc}}/\varepsilon_0$. En (a), para $r<R$ la carga encerrada vale $Q_{\mathrm{enc}}=Q(r^3/R^3)$; entonces
+\[\boxed{E_{\mathrm{ais}}(r)=\begin{cases}\displaystyle k\frac{Qr}{R^3},&0\le r<R,\\[2mm]\displaystyle k\frac Q{r^2},&r\ge R.\end{cases}}\]
+En (b), los portadores libres se redistribuyen en equilibrio, de modo que
+\[\boxed{E_{\mathrm{cond}}(r)=\begin{cases}0,&0\le r<R,\\[1mm]\displaystyle k\frac Q{r^2},&r>R.\end{cases}}\]
+En la superficie conductora ideal existe un salto en el componente normal del campo; los valores escritos son límites interior y exterior.
+\end{metodo}
+\begin{center}\begin{tikzpicture}
+\begin{axis}[width=.91\linewidth,height=6.2cm,xmin=0,xmax=3.1,ymin=0,ymax=1.35,axis lines=left,xlabel={$r/R$},ylabel={$E/E(R^+)$},legend style={font=\small,at={(.97,.97)},anchor=north east},grid=major,grid style={gray!18},samples=120,domain=0:3]
+\addplot[very thick,azul,domain=0:1]{x};\addplot[very thick,azul,domain=1:3]{1/x^2};\addlegendentry{Esfera aislante uniforme}
+\addplot[very thick,rojo,domain=0:0.995]{0};\addplot[very thick,rojo,domain=1:3]{1/x^2};\addlegendentry{Esfera conductora}
+\addplot[densely dashed,black] coordinates {(1,0)(1,1.26)};\node at (axis cs:1.12,1.21) {$r=R$};
+\end{axis}\end{tikzpicture}\end{center}
+\begin{resultado}En el centro del aislante uniforme $E=0$, pero dentro crece \emph{linealmente}; en el conductor el campo es cero en todo el material. Fuera de ambas esferas, la simetría permite tratarlas como una carga puntual situada en el centro.\end{resultado}
+
+\ej{5}{Potencial $V(r)$: ¿por qué puede ser constante y no nulo?}
+\begin{objetivo}Relacionar una gráfica de potencial con su campo mediante $E_r=-dV/dr$ e interpretar un tramo horizontal.\end{objetivo}
+\textbf{Sistema.} Se retoman las dos esferas del ejercicio 4, con $V(\infty)=0$.
+\begin{metodo}
+Para la aislante uniforme, la integración radial desde el exterior y la continuidad del potencial en $r=R$ permiten obtener
+\[\boxed{V_{\mathrm{ais}}(r)=\begin{cases}\displaystyle\frac{kQ}{2R}\left(3-\frac{r^2}{R^2}\right),&r<R,\\[2mm]\displaystyle\frac{kQ}{r},&r\ge R.\end{cases}}\]
+Para la conductora en equilibrio:
+\[\boxed{V_{\mathrm{cond}}(r)=\begin{cases}kQ/R,&r\le R,\\ kQ/r,&r\ge R.\end{cases}}\]
+\end{metodo}
+\begin{center}\begin{tikzpicture}
+\begin{axis}[width=.91\linewidth,height=7cm,xmin=0,xmax=3,ymin=0,ymax=1.65,axis lines=left,xlabel={$r/R$},ylabel={$V/(kQ/R)$},legend style={font=\small,at={(.98,.97)},anchor=north east},grid=major,grid style={gray!18},samples=150]
+\addplot[very thick,azul,domain=0:1]{(3-x^2)/2};\addplot[very thick,azul,domain=1:3]{1/x};\addlegendentry{Aislante uniforme}
+\addplot[very thick,rojo,domain=0:1]{1};\addplot[very thick,rojo,domain=1:3]{1/x};\addlegendentry{Conductor}
+\addplot[densely dashed,black]coordinates{(1,0)(1,1.58)};\node at(axis cs:1.15,1.53){$r=R$};
+\end{axis}\end{tikzpicture}\end{center}
+\begin{resultado}Ambos potenciales son continuos. En el conductor el potencial interior es constante, $V=kQ/R\ne0$, aunque el campo interior sea cero. Una línea horizontal en $V(r)$ significa pendiente nula y, por tanto, campo radial nulo. En el aislante, la pendiente no es nula salvo en el centro.\end{resultado}
+\begin{alerta}No confundir el origen de coordenadas ($r=0$) con la referencia del potencial ($V=0$ en el infinito). Tampoco confundir \emph{potencial constante} con \emph{potencial igual a cero}.\end{alerta}
+
+\ej{6}{Condensador de placas: campo casi uniforme y energía}
+\begin{objetivo}Vincular las superficies equipotenciales con $\Delta V$, módulo de $E$ y trabajo de una carga de prueba.\end{objetivo}
+\textbf{Sistema.} Dos placas paralelas separadas $d=\SI{0.006}{\metre}$. La placa izquierda está a $+\SI{12}{\volt}$ respecto de la derecha, a $\SI{0}{\volt}$. Se desprecia el efecto de borde.
+\begin{center}\begin{tikzpicture}[scale=1]
+\fill[rojo!70] (0,0)rectangle(.35,3.3);\fill[azul!65](8.2,0)rectangle(8.55,3.3);
+\foreach \y in {.5,1.2,1.9,2.6}{\draw[v,azul](.5,\y)--(8.0,\y);}
+\foreach \x/\lab in {2/9,3.9/6,5.8/3}{\draw[dashed,verde,thick](\x,.15)--(\x,3.15)node[above]{$\lab$ V};}
+\node at(.17,3.65){$12$ V};\node at(8.4,3.65){$0$ V};\node[azul] at(4.25,-.4){Líneas de campo: horizontales};\node[verde] at(4.3,3.9){Equipotenciales: verticales};
+\end{tikzpicture}\end{center}
+\begin{metodo}
+En el modelo uniforme, $E=|\Delta V|/d=12/0{,}006=\SI{2000}{\volt\per\metre}$. La fuerza sobre $q=+\SI{3}{\nano\coulomb}$ es $F=qE=\SI{6e-6}{\newton}$, hacia la placa de menor potencial. El trabajo del campo al cruzar de $12$ V a $0$ V resulta
+\[W=q(V_A-V_B)=3\times10^{-9}(12)=\SI{3.6e-8}{\joule}.\]
+\end{metodo}
+\begin{resultado}La fuerza es perpendicular a las equipotenciales y el trabajo del campo entre dos equipotenciales depende de su diferencia de potencial. Desplazarse \emph{sobre} una equipotencial implica trabajo electrostático nulo.\end{resultado}
+
+\ej{7}{Ley de Ohm: lectura gráfica de una resistencia}
+\begin{objetivo}Interpretar la pendiente de $V(I)$, no solo aplicar $V=RI$.\end{objetivo}
+\textbf{Sistema.} Un resistor aproximadamente óhmico y a temperatura constante presenta los pares experimentales $(I,V)$: $(0,0)$, $(0{,}5,3)$, $(1,6)$, $(1{,}5,9)$ y $(2,12)$ (unidades SI).
+\begin{center}\begin{tikzpicture}
+\begin{axis}[width=.85\linewidth,height=6.8cm,axis lines=left,xlabel={$I$ (A)},ylabel={$V$ (V)},xmin=0,xmax=2.35,ymin=0,ymax=14.5,grid=both,minor tick num=1,grid style={gray!18},xtick={0,.5,1,1.5,2},ytick={0,3,6,9,12},clip=false]
+\addplot[very thick,azul,domain=0:2.2]{6*x};\addplot[only marks,mark=*,rojo]coordinates{(0,0)(.5,3)(1,6)(1.5,9)(2,12)};
+\draw[dashed,rojo,thick] (axis cs:1,6)--(axis cs:2,6)--(axis cs:2,12);\node[fill=white,anchor=west]at(axis cs:1.25,8.7){$\Delta V/\Delta I$};
+\end{axis}\end{tikzpicture}\end{center}
+\begin{metodo}
+La pendiente de la gráfica con $V$ en el eje vertical e $I$ en el horizontal tiene unidades de $\si{\volt\per\ampere}=\si{\ohm}$.
+\[R=\frac{\Delta V}{\Delta I}=\frac{12-6}{2-1}=\boxed{\SI{6}{\ohm}}.\]
+Una fuente ideal de $\SI{9}{\volt}$ aplicada a este resistor produciría $I=V/R=\SI{1.5}{\ampere}$. Para un conductor uniforme, $R=\rho\ell/A$; \emph{resistividad}, longitud, sección y temperatura determinan el valor real de $R$.
+\end{metodo}
+\begin{alerta}Si se intercambian los ejes y se grafica $I(V)$, la pendiente será $1/R$, no $R$. Una lámpara o un diodo pueden dar curvas no lineales: no se debe suponer resistencia constante sin justificarlo.\end{alerta}
+
+\ej{8}{Kirchhoff I: circuito de una sola malla}
+\begin{objetivo}Dibujar las polaridades de cada resistencia y establecer los signos de la ley de tensiones con un sentido de recorrido explícito.\end{objetivo}
+\textbf{Sistema.} Fuente ideal de $\SI{12}{\volt}$ y resistores $R_1=\SI{4}{\ohm}$, $R_2=\SI{2}{\ohm}$, $R_3=\SI{6}{\ohm}$ conectados en serie.
+\begin{center}\begin{tikzpicture}[scale=1]
+\draw[wire] (0,0)--(0,1.1) (0,2.0)--(0,3.3)--(2,3.3) (3.6,3.3)--(6.2,3.3)--(6.2,2.25) (6.2,1.5)--(6.2,0)--(3.8,0) (2.2,0)--(0,0);
+\draw[wire] (-.45,1.2)--(.45,1.2) (-.3,1.75)--(.3,1.75);\draw[wire] (0,1.1)--(0,1.2) (0,1.75)--(0,2.0);
+\draw[wire] (2,3.3) rectangle(3.6,3.3);\draw[fill=cielo,azulf,thick](2,3.03)rectangle(3.6,3.57);\draw[fill=cielo,azulf,thick](5.93,1.5)rectangle(6.47,2.25);\draw[fill=cielo,azulf,thick](2.2,-.27)rectangle(3.8,.27);
+\node[above]at(2.8,4.25){$R_1=4\,\Omega$};\node[right]at(6.5,1.9){$R_2=2\,\Omega$};\node[below]at(3,-.82){$R_3=6\,\Omega$};
+\node[left,rojo]at(-.45,1.75){$+$};\node[left,azul]at(-.45,1.2){$-$};\node[left]at(-.4,.65){$\mathcal E=12$ V};
+\node[rojo]at(2.0,3.85){$+$};\node[azul]at(3.6,3.85){$-$};\node[rojo]at(6.75,2.3){$+$};\node[azul]at(6.75,1.45){$-$};\node[rojo]at(3.85,-.55){$+$};\node[azul]at(2.15,-.55){$-$};
+\draw[vred] (1.25,3.3)--(1.9,3.3) node[above]{$I$};\draw[vred] (6.2,.95)--(6.2,.25);
+\node[azul]at(3,1.6){Recorrido horario};\draw[vred] (3.3,1.2) arc (0:-70:.55);
+\end{tikzpicture}\end{center}
+\begin{metodo}
+La misma corriente recorre las tres resistencias. Al atravesar la fuente de $-$ a $+$ hay una subida $+\mathcal E$. Al recorrer cada resistor \emph{en el sentido de la corriente}, se registra una caída $-IR$.
+\[+12-4I-2I-6I=0\quad\Longrightarrow\quad I=\frac{12}{4+2+6}=\SI{1}{\ampere}.\]
+Caídas: $V_1=\SI{4}{\volt}$, $V_2=\SI{2}{\volt}$, $V_3=\SI{6}{\volt}$.
+\end{metodo}
+\begin{resultado}Comprobación de malla: $12-4-2-6=0$. Las polaridades indicadas responden a la convención pasiva: el terminal por donde \emph{entra la corriente convencional} se marca $+$.\end{resultado}
+
+\ej{9}{Kirchhoff II: dos mallas y una resistencia compartida}
+\begin{objetivo}Construir un sistema de ecuaciones coherente con las polaridades de las fuentes y el sentido de cada corriente de malla.\end{objetivo}
+\textbf{Sistema.} Dos mallas con $R_1=\SI{4}{\ohm}$, $R_2=\SI{6}{\ohm}$, $R_3=\SI{2}{\ohm}$, $\mathcal E_1=\SI{12}{\volt}$ y $\mathcal E_2=\SI{6}{\volt}$. Se eligen $I_1$ e $I_2$ horarias. \textbf{Atención: la segunda fuente tiene el terminal positivo abajo}, para hacer coherente la polaridad con el sistema escrito.
+\begin{center}\begin{tikzpicture}[scale=.96]
+\draw[wire] (0,0)--(0,1.05) (0,1.95)--(0,3.8)--(1.5,3.8) (3.1,3.8)--(4.1,3.8) (5.7,3.8)--(7.2,3.8)--(8.25,3.8)--(8.25,2.0) (8.25,1.1)--(8.25,0)--(0,0);
+\draw[wire] (4.1,3.8)--(4.1,2.4) (4.1,1.4)--(4.1,0);
+\draw[fill=cielo,azulf,thick] (1.5,3.52)rectangle(3.1,4.08);\draw[fill=cielo,azulf,thick] (5.7,3.52)rectangle(7.2,4.08);\draw[fill=cielo,azulf,thick] (3.82,1.4)rectangle(4.38,2.4);
+\draw[wire](-.45,1.8)--(.45,1.8) (-.30,1.2)--(.30,1.2);\draw[wire](0,1.05)--(0,1.2) (0,1.8)--(0,1.95);
+\draw[wire](7.95,1.75)--(8.55,1.75) (7.8,1.25)--(8.7,1.25);\draw[wire](8.25,1.1)--(8.25,1.25) (8.25,1.75)--(8.25,2.0);
+\node[above]at(2.3,4.55){$R_1=4\,\Omega$};\node[above]at(6.45,4.55){$R_2=6\,\Omega$};\node[right]at(4.5,2.40){$R_3=2\,\Omega$};
+\node[left]at(-.48,1.8){$+$};\node[left]at(-.48,1.2){$-$};\node[right]at(8.74,1.75){$-$};\node[right]at(8.74,1.25){$+$};\node[left]at(-.45,.55){$\mathcal E_1=12$ V};\node[right]at(8.6,.5){$\mathcal E_2=6$ V};
+\node[rojo]at(1.52,4.34){$+$};\node[azul]at(3.08,4.34){$-$};\node[rojo]at(5.72,4.34){$+$};\node[azul]at(7.18,4.34){$-$};\node[rojo]at(3.51,2.37){$+$};\node[azul]at(3.51,1.39){$-$};
+\draw[vred] (1.25,3.8)--(1.48,3.8);\draw[vred](5.18,3.8)--(5.62,3.8);\draw[vgreen](4.1,1.3)--(4.1,.6)node[left]{$I_3=I_1-I_2$};
+\draw[vred,rounded corners] (1.5,2.7)--(2.8,2.7)--(2.8,1.6);\node[azulf]at(2.1,2.1){$I_1$};\draw[vred,rounded corners] (5.65,2.7)--(6.85,2.7)--(6.85,1.6);\node[azulf]at(6.2,2.1){$I_2$};
+\fill[azulf](4.1,3.8)circle(2.6pt)node[above left]{$A$};\fill[azulf](4.1,0)circle(2.6pt)node[below]{$B$};
+\end{tikzpicture}\end{center}
+\begin{metodo}
+Malla izquierda (horaria): subimos por la fuente 1 ($+12$ V), atravesamos $R_1$ y bajamos por $R_3$ ($I_3=I_1-I_2$):
+\[12-4I_1-2(I_1-I_2)=0\quad\Rightarrow\quad 6I_1-2I_2=12.\]
+Malla derecha (horaria): atravesamos $R_2$, bajamos por la fuente 2 \emph{del terminal negativo al positivo} ($+6$ V) y subimos por la rama central, donde la corriente efectiva es opuesta a la de recorrido:
+\[6-6I_2-2(I_2-I_1)=0\quad\Rightarrow\quad -2I_1+8I_2=6.\]
+Resolviendo:
+\[I_1=\frac{27}{11}=\SI{2.4545}{\ampere},\qquad I_2=\frac{15}{11}=\SI{1.3636}{\ampere},\qquad I_3=\frac{12}{11}=\SI{1.0909}{\ampere}.\]
+\end{metodo}
+\begin{resultado}Ley de nodos en $A$: $I_1=I_2+I_3$. Verificación KVL: izquierda $12-4(27/11)-2(12/11)=0$; derecha $6-6(15/11)+2(12/11)=0$. La corriente descendente en $R_3$ justifica su polaridad superior $+$ e inferior $-$.\end{resultado}
+\begin{alerta}La polaridad de $\mathcal E_2$ \emph{no es intercambiable} sin cambiar la ecuación: si el borne positivo estuviera arriba, atravesarlo hacia abajo sería una \emph{caída} $-6$ V. Es necesario que la figura y el planteo matemático se correspondan.\end{alerta}
+
+\ej{10}{Campo magnético de un conductor largo y de un solenoide}
+\begin{objetivo}Representar la dirección del campo con la regla de la mano derecha y comparar dos geometrías productoras de campo magnético.\end{objetivo}
+\textbf{Sistema.} (a) Conductor muy largo de corriente $I=\SI{8}{\ampere}$, campo a $r=\SI{0.04}{\metre}$. (b) Solenoide de aire de $N=500$ espiras, longitud $\ell=\SI{0.25}{\metre}$ e $I=\SI{1.5}{\ampere}$.
+\begin{center}\begin{tikzpicture}[scale=1]
+\begin{scope}[shift={(-3,0)}]\fill[rojo](0,0)circle(5pt);\node[white]at(0,0){$\cdot$};\foreach \r in {.6,1.15,1.7}{\draw[azul,thick,postaction={decorate},decoration={markings,mark=at position .25 with {\arrow{Stealth}}}](0,0)circle(\r);}\node at(0,-2.25){Vista frontal: corriente saliente $\odot$};\end{scope}
+\begin{scope}[shift={(2.4,0)}]\foreach \x in {0,.3,...,3}{\draw[azul,thick](\x,-1.0)arc(-90:90:.38 and 1.0);}\draw[azulf,thick](0,-1.0)--(3,-1.0) (0,1)--(3,1);\foreach \y in {-.6,0,.6}{\draw[vred](.5,\y)--(2.7,\y);}\node at(1.5,-2.25){Solenoide: campo axial interior};\end{scope}
+\end{tikzpicture}\end{center}
+\begin{metodo}
+Para un hilo recto infinito en vacío, fuera del conductor:
+\[B=\frac{\mu_0 I}{2\pi r}=\frac{4\pi\times10^{-7}\cdot8}{2\pi\cdot0{,}04}=\boxed{\SI{4e-5}{\tesla}}.\]
+En un solenoide ideal largo de aire, lejos de los extremos, $n=N/\ell=\SI{2000}{\per\metre}$:
+\[B\simeq\mu_0 nI=(4\pi\times10^{-7})(2000)(1{,}5)=\boxed{\SI{3.77e-3}{\tesla}}.\]
+\end{metodo}
+\begin{resultado}En el hilo, el campo rodea al conductor con circunferencias concéntricas. En el solenoide, las contribuciones de las espiras se suman y producen campo aproximadamente uniforme en el interior. El dibujo expresa la geometría, no una misma escala de magnitudes.\end{resultado}
+
+\ej{11}{Faraday, Lenz y autoinducción}
+\begin{objetivo}Reconocer qué cambio de flujo induce FEM y distinguir inducción externa de autoinducción.\end{objetivo}
+\textbf{Sistema.} Bobina fija de $N=100$ espiras de área $A=\SI{0.010}{\metre\squared}$. Un campo normal pasa uniformemente de $\SI{0.10}{\tesla}$ a $\SI{0.30}{\tesla}$ en $\SI{0.20}{\second}$.
+\begin{center}\begin{tikzpicture}
+\foreach \x in {0,.32,...,2.56}{\draw[azul,thick](\x,0)ellipse(.32 and .85);}
+\draw[vred](-2.2,0)--(-.5,0)node[above]{$\vect B(t)$};\draw[vred](3.1,0)--(4.7,0)node[above]{$\Phi_B$ variable};
+\node at(1.2,-1.5){Bobina fija: área y orientación constantes};
+\end{tikzpicture}\end{center}
+\begin{metodo}
+El flujo por espira es $\Phi_B=BA$ para $\vect B$ normal a la superficie. La variación es $\Delta\Phi_B=A\Delta B=\SI{0.002}{\weber}$. Según Faraday:
+\[|\overline{\mathcal E}|=N\frac{|\Delta\Phi_B|}{\Delta t}=100\frac{0{,}002}{0{,}20}=\boxed{\SI{1}{\volt}}.\]
+La ley de Lenz determina la polaridad: si el flujo externo hacia la derecha aumenta, la corriente inducida (si el circuito está cerrado) crea un campo contrario, hacia la izquierda.
+\end{metodo}
+\textbf{Autoinducción.} Para un inductor ideal de $L=\SI{0.20}{\henry}$ cuya corriente cambia de $\SI{0.5}{\ampere}$ a $\SI{2}{\ampere}$ en $\SI{0.10}{\second}$:
+\[\mathcal E_{\mathrm{auto}}=-L\frac{\Delta I}{\Delta t}=-0{,}20\frac{2-0{,}5}{0{,}10}=\boxed{-\SI{3}{\volt}},\]
+según la referencia de orientación elegida. Su energía final almacenada es $U_B=\frac12 LI^2=\SI{0.40}{\joule}$.
+\begin{resultado}Una FEM inducida no implica necesariamente corriente: se requiere un camino cerrado. La autoinducción es la respuesta de una bobina a la variación de \emph{su propia} corriente. No es correcto decir que una FEM por sí sola genera campo magnético: la corriente que puede establecerse es la que lo origina.\end{resultado}
+
+\ej{12}{Transformador, motor y potencia trifásica}
+\begin{objetivo}Integrar inducción, conversión de potencia y lectura crítica de unidades sin confundir la potencia eléctrica de entrada con la potencia mecánica entregada.\end{objetivo}
+\textbf{Parte A. Transformador ideal.} Primario de $N_1=800$ espiras, secundario de $N_2=200$ espiras, $V_1=\SI{230}{\volt}$ eficaces de CA. Potencia secundaria $P_2=\SI{115}{\watt}$, carga resistiva ideal.
+\begin{center}\begin{tikzpicture}[scale=.95]
+\draw[fill=gray!15,thick,azulf] (0,0)rectangle(4.2,2.8);\draw[fill=white,thick,azulf](1,0.65)rectangle(3.2,2.15);
+\foreach \y in {.5,.85,...,2.3}{\draw[rojo,thick](-.25,\y)arc(180:0:.4 and .17);\draw[azul,thick](3.65,\y)arc(180:0:.4 and .17);}
+\node[left]at(-.5,1.4){$V_1,N_1$};\node[right]at(4.7,1.4){$V_2,N_2$};\node at(2.1,1.4){$\Phi_B(t)$};
+\end{tikzpicture}\end{center}
+\begin{metodo}
+\[\frac{V_2}{V_1}=\frac{N_2}{N_1}\quad\Rightarrow\quad V_2=230\cdot\frac{200}{800}=\boxed{\SI{57.5}{\volt}}.\]
+Como la carga es resistiva, $I_2=P_2/V_2=\SI{2}{\ampere}$. Conservación ideal de potencia: $P_1=P_2$ y $I_1=P_1/V_1=\SI{0.5}{\ampere}$. En un transformador real, la potencia de entrada es mayor por las pérdidas.
+\end{metodo}
+\textbf{Parte B. Motor eléctrico.} Motor con potencia mecánica nominal de $\SI{1.5}{\kilo\watt}$, rendimiento en esa condición $\eta=0{,}85$ y velocidad de $\SI{1450}{rpm}$.
+\begin{metodo}
+\[P_{\mathrm{entrada}}=\frac{P_{\mathrm{eje}}}{\eta}=\frac{1500}{0{,}85}=\boxed{\SI{1764.7}{\watt}}.\]
+La potencia en el eje es $P_{\mathrm{eje}}=\tau\omega$; con $\omega=2\pi(1450/60)=\SI{151.84}{\radian\per\second}$:
+\[\tau=\frac{1500}{151{,}84}=\boxed{\SI{9.88}{\newton\metre}}.\]
+Conversiones: $1\,\mathrm{HP}\approx\SI{745.7}{\watt}$, $1\,\mathrm{CV}\approx\SI{735.5}{\watt}$; así, $\SI{1.5}{\kilo\watt}\approx2{,}01\,\mathrm{HP}\approx2{,}04\,\mathrm{CV}$.
+\end{metodo}
+\textbf{Parte C. Trifásico equilibrado.} Motor alimentado a $V_L=\SI{400}{\volt}$, corriente de línea $I_L=\SI{3.5}{\ampere}$ y factor de potencia $\cos\varphi=0{,}82$.
+\begin{center}\begin{tikzpicture}
+\begin{axis}[width=.86\linewidth,height=5.5cm,axis lines=middle,xlabel={$\omega t$ (rad)},ylabel={$v/V_m$},xmin=0,xmax=6.283,ymin=-1.25,ymax=1.25,xtick={0,2.094,4.189,6.283},xticklabels={$0$,$2\pi/3$,$4\pi/3$,$2\pi$},grid=major,grid style={gray!18},legend columns=3,legend style={at={(.5,-.22)},anchor=north,font=\small},samples=160]
+\addplot[very thick,azul,domain=0:6.283]{sin(deg(x))};\addlegendentry{$v_a$}
+\addplot[very thick,rojo,domain=0:6.283]{sin(deg(x-2*pi/3))};\addlegendentry{$v_b$}
+\addplot[very thick,verde,domain=0:6.283]{sin(deg(x+2*pi/3))};\addlegendentry{$v_c$}
+\end{axis}\end{tikzpicture}\end{center}
+\[P_{3\phi}=\sqrt3 V_LI_L\cos\varphi=\sqrt3(400)(3{,}5)(0{,}82)=\boxed{\SI{1988}{\watt}\;\text{(aprox.)}}.\]
+\begin{resultado}El trifásico se representa mediante tres tensiones desfasadas \ang{120} eléctricos. La expresión anterior calcula \emph{potencia activa eléctrica de entrada} para una carga equilibrada, no potencia mecánica del eje. Para esta última se requiere el rendimiento del motor en el punto de operación.\end{resultado}
+\begin{alerta}$P=VI$ corresponde a potencia activa en CC o en CA con factor de potencia unitario; en una fase sinusoidal $P=VI\cos\varphi$ (valores eficaces). En trifásica equilibrada, $P=\sqrt3 V_LI_L\cos\varphi$.\end{alerta}
+
+\clearpage
+\section*{Lista de comprobación para resolver nuevos problemas}\addcontentsline{toc}{section}{Lista de comprobación}
+\begin{enumerate}[label=\arabic*.]
+\item ¿Identifiqué el sistema, sus interacciones y las hipótesis del modelo?
+\item ¿Elegí ejes, sentidos de los vectores y polaridades antes de escribir ecuaciones?
+\item ¿El gráfico corresponde al signo de la carga, la dirección de la fuerza o la referencia de potencial elegida?
+\item ¿Conservé unidades SI durante todo el cálculo?
+\item ¿Distinguí magnitudes vectoriales (campo, fuerza) de escalares (potencial, energía)?
+\item ¿Comprobé nodos y mallas, y expliqué qué significaría un resultado negativo?
+\item ¿Diferencié FEM inducida de corriente efectiva y potencia eléctrica de potencia mecánica?
+\item ¿El resultado es compatible con los límites físicos (simetría, distancia, continuidad, conservación)?
+\end{enumerate}
+\section*{Bibliografía de referencia}\addcontentsline{toc}{section}{Bibliografía}
+Los conceptos se articulan con el apunte de la Unidad 7 y con la bibliografía de Física provista para la asignatura: Tippens, \emph{Física: conceptos y aplicaciones}; Giancoli, \emph{Física}; Serway, \emph{Física para ciencias e ingeniería}; Young y Freedman, \emph{Física universitaria}; Tipler y Mosca, \emph{Física para la ciencia y la tecnología}. Los problemas, figuras, valores y desarrollos de esta guía son originales para esta propuesta didáctica.
+\end{document}
